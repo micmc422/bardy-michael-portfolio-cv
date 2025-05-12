@@ -1,4 +1,4 @@
-import React from "react";
+"use server"
 
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
@@ -18,7 +18,7 @@ export async function generateMetadata() {
   });
 }
 
-export default function Home() {
+export default async function Home() {
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
       <Schema
