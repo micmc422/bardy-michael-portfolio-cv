@@ -56,13 +56,11 @@ const home = {
   description: `Site portfolio présentant mon travail en tant que \${person.role}
   et mes projets personnels.`,
   headline: <>Création de site internet & webmaster</>,
-  /*
   featured: {
     display: false,
     title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
     href: "/work/building-once-ui-a-customizable-design-system",
   },
-  */
   subline: (
     <>
       Depuis 2015, je réalise des sites internet et des applications web pour le compte d'agences et de porteur de projet. Je crée des site internet uniques & performant.
