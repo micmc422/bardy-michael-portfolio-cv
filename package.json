@@ -12,7 +12,6 @@
     "@mdx-js/loader": "^3.1.0",
     "@next/mdx": "^15.3.2",
     "classnames": "^2.5.1",
-    "cookie": "^1.0.2",
     "gray-matter": "^4.0.3",
     "next": "^15.3.2",
     "next-mdx-remote": "^5.0.0",
@@ -30,7 +29,6 @@
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
-    "@types/cookie": "^1.0.0",
     "@types/node": "^22.15.17",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
