@@ -1,4 +1,3 @@
-import { Logo } from "@/once-ui/components";
 
 const person = {
   firstName: "Michaël",
@@ -15,7 +14,7 @@ const person = {
 
 const newsletter = {
   display: false,
-  title: <>S'abonner à {person.firstName}'s Newsletter</>,
+  title: <>S&apos;abonner à {person.firstName}&apos;s Newsletter</>,
   description: (
     <>
       Je publie occasionnellement des articles sur le design, la technologie, et je partage des réflexions à l’intersection de la créativité et de l’ingénierie.
@@ -63,7 +62,7 @@ const home = {
   },
   subline: (
     <>
-      Depuis 2015, je réalise des sites internet et des applications web pour le compte d'agences et de porteur de projet. Je crée des site internet uniques & performant.
+      Depuis 2015, je réalise des sites internet et des applications web pour le compte d&apos;agences et de porteur de projet. Je crée des site internet uniques & performant.
     </>
   ),
 };
@@ -89,7 +88,7 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Développeur Fullstack passionné par le design et la technologie, je crée des sites internet et des applications web sur mesure. J'ai une solide expérience dans le développement d'applications web modernes, en utilisant des technologies telles que React, Next.js et Node.js. Je suis également formateur à l'Université Champollion, où j'enseigne les fondamentaux du développement web.
+        Développeur Fullstack passionné par le design et la technologie, je crée des sites internet et des applications web sur mesure. J&apos;ai une solide expérience dans le développement d&apos;applications web modernes, en utilisant des technologies telles que React, Next.js et Node.js. Je suis également formateur à l&apos;Université Champollion, où j&apos;enseigne les fondamentaux du développement web.
       </>
     ),
   },
@@ -108,7 +107,7 @@ const about = {
           </>,
           <>
             Optimisé les performances des applications existantes, réduisant le temps de chargement
-            de 40% et améliorant l'expérience utilisateur.
+            de 40% et améliorant l&apos;expérience utilisateur.
           </>,
         ],
         images: [
@@ -185,10 +184,10 @@ const about = {
         description: "Le site e-commerce a d’abord été développé avec WordPress, avant de migrer progressivement vers une architecture headless basée sur Next.js.",
         achievements: [
           <>
-            Conception et développement d'une plateforme e-commerce sur mesure, intégrant des fonctionnalités de newsletter, de gestion de produits et de paiement en ligne.
+            Conception et développement d&apos;une plateforme e-commerce sur mesure, intégrant des fonctionnalités de newsletter, de gestion de produits et de paiement en ligne.
           </>,
           <>
-            Mise en place d'un système de gestion de contenu (CMS) personnalisé pour permettre aux utilisateurs de gérer facilement leurs produits et leurs commandes.
+            Mise en place d&apos;un système de gestion de contenu (CMS) personnalisé pour permettre aux utilisateurs de gérer facilement leurs produits et leurs commandes.
           </>,
           <>Intégration du paiement en ligne via Stripe</>
         ],
@@ -201,7 +200,7 @@ const about = {
         description: "J'ai formé des étudiants à la création de sites internet avec WordPress, en mettant l'accent sur la personnalisation et l'optimisation des performances.",
         achievements: [
           <>
-            Formation de plus de 100 étudiants à la création de sites internet avec WordPress, en mettant l'accent sur la personnalisation et l'optimisation des performances.
+            Formation de plus de 100 étudiants à la création de sites internet avec WordPress, en mettant l&apos;accent sur la personnalisation et l&apos;optimisation des performances.
           </>,
           <>
             Développement de modules de formation interactifs et pratiques pour aider les étudiants à acquérir des compétences concrètes en développement web.
@@ -216,10 +215,10 @@ const about = {
         description: "J'ai commencé ma carrière professionnelle en tant que manager dans la restauration rapide, où j'ai acquis des compétences en gestion d'équipe et en service client.",
         achievements: [
           <>
-            Gestion d'une équipe de 10 à 40 personnes, en assurant la formation, la motivation et la performance de l'équipe.
+            Gestion d&apos;une équipe de 10 à 40 personnes, en assurant la formation, la motivation et la performance de l&apos;équipe.
           </>,
           <>
-            Mise en place de procédures opérationnelles pour améliorer l'efficacité du service et réduire les temps d'attente des clients.
+            Mise en place de procédures opérationnelles pour améliorer l&apos;efficacité du service et réduire les temps d&apos;attente des clients.
           </>,
           <>Mise en place de procédures environnementales éco-progress</>,
           <>Certification TBM1 & TBM2 (techniques de base de management)</>
@@ -238,11 +237,11 @@ const about = {
       },
       {
         name: "Technique de base de managenement 2",
-        description: <>En travaillant de la grande distribution j'ai étudié les fondamentaux du management.</>
+        description: <>En travaillant de la grande distribution j&apos;ai étudié les fondamentaux du management.</>
       },
       {
         name: "Baccalauréat technoligique en communication commerciale ICECLA albi",
-        description: <>J'ai obtenu un Baccalauréat technologique en communication commerciale, où j'ai étudié le marketing en ligne et le personal branding.</>,
+        description: <>J&apos;ai obtenu un Baccalauréat technologique en communication commerciale, où j&apos;ai étudié le marketing en ligne et le personal branding.</>,
       },
     ],
   },
@@ -252,7 +251,7 @@ const about = {
     skills: [
       {
         title: "Figma",
-        description: <>Création de systéme d'interface et de design WEB.</>,
+        description: <>Création de systéme d&apos;interface et de design WEB.</>,
         images: [
           {
             src: "/images/projects/project-01/cover-02.jpg",
