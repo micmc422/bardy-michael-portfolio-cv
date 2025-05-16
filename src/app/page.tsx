@@ -1,6 +1,6 @@
 "use server"
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row } from "@/once-ui/components";
+import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, IconButton, Icon } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
 
 import { baseURL, routes } from "@/app/resources";
@@ -8,6 +8,7 @@ import { home, about, person, newsletter } from "@/app/resources/content";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
+import styles from "@/components/about/about.module.scss";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -36,13 +37,38 @@ export default async function Home() {
       />
       <Column fillWidth paddingY="24" gap="m">
         <Column maxWidth="s">
-          {home.featured.display && (
           <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
+            <Flex
+              fitWidth
+              border="brand-alpha-medium"
+              className={styles.blockAlign}
+              style={{
+                backdropFilter: "blur(var(--static-space-1))",
+              }}
+              background="brand-alpha-weak"
+              radius="full"
+              padding="4"
+              gap="8"
+              marginBottom="m"
+              vertical="center"
+            >
+              <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
+              <Flex paddingX="8">Planifier un RDV</Flex>
+              <IconButton
+                href={about.calendar.link}
+                data-border="rounded"
+                variant="secondary"
+                icon="chevronRight"
+              />
+            </Flex>
           </RevealFx>
+          {home.featured.display && (
+            <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
+              <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
+                href={home.featured.href}>
+                <Row paddingY="2">{home.featured.title}</Row>
+              </Badge>
+            </RevealFx>
           )}
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
@@ -84,7 +110,7 @@ export default async function Home() {
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l" paddingTop="24">
             <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
+              Dernières actualités
             </Heading>
           </Flex>
           <Flex flex={3} paddingX="20">

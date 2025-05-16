@@ -129,7 +129,7 @@ export default function About() {
                 vertical="center"
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Schedule a call</Flex>
+                <Flex paddingX="8">Planifier un RDV</Flex>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
@@ -153,25 +153,25 @@ export default function About() {
                 {social.map(
                   (item) =>
                     item.link && (
-                        <React.Fragment key={item.name}>
-                            <Button
-                                className="s-flex-hide"
-                                key={item.name}
-                                href={item.link}
-                                prefixIcon={item.icon}
-                                label={item.name}
-                                size="s"
-                                variant="secondary"
-                            />
-                            <IconButton
-                                className="s-flex-show"
-                                size="l"
-                                key={`${item.name}-icon`}
-                                href={item.link}
-                                icon={item.icon}
-                                variant="secondary"
-                            />
-                        </React.Fragment>
+                      <React.Fragment key={item.name}>
+                        <Button
+                          className="s-flex-hide"
+                          key={item.name}
+                          href={item.link}
+                          prefixIcon={item.icon}
+                          label={item.name}
+                          size="s"
+                          variant="secondary"
+                        />
+                        <IconButton
+                          className="s-flex-show"
+                          size="l"
+                          key={`${item.name}-icon`}
+                          href={item.link}
+                          icon={item.icon}
+                          variant="secondary"
+                        />
+                      </React.Fragment>
                     ),
                 )}
               </Flex>
@@ -200,10 +200,16 @@ export default function About() {
                         {experience.timeframe}
                       </Text>
                     </Flex>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="4">
                       {experience.role}
                     </Text>
-                    <Column as="ul" gap="16">
+                    {experience?.description && <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="16">
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                        {experience.description}
+                      </Text>
+                    </Flex>}
+
+                    <Column as="ul" gap="4">
                       {experience.achievements.map((achievement: JSX.Element, index: number) => (
                         <Text
                           as="li"

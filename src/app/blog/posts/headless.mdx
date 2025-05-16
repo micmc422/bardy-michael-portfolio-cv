@@ -1,0 +1,102 @@
+---
+title: "Créer un site Headless avec WordPress et Next.js"
+summary: "Pourquoi et comment utiliser WordPress comme CMS headless avec Next.js pour un site rapide, sécurisé et moderne."
+image: "/images/blog/headless.jpg"
+publishedAt: "2025-05-13"
+tag: "Wordpress Next.js Headless"
+---
+
+## 🎯 Pourquoi choisir un WordPress «headless» avec Next.js ?
+
+1. **⚡ Performance et SEO**
+   Next.js pré-génère vos pages en HTML statique ou via ISR, ce qui réduit drastiquement les temps de chargement et améliore le référencement naturel.
+
+2. **🔒 Sécurité renforcée**
+   Votre interface d’administration WordPress (wp-admin) n’est plus exposée au public, réduisant ainsi la surface d’attaque.
+
+3. **🎨 Flexibilité de design**
+   Vous n’êtes plus limité par les thèmes ou le PHP : React et Next.js vous permettent de créer des interfaces sur mesure, responsive et interactives.
+
+4. **📈 Scalabilité**
+   Front-end et back-end peuvent être hébergés séparément (Vercel, Netlify pour Next.js ; un hébergeur WordPress pour le CMS), facilitant la montée en charge.
+
+---
+
+## 🏗️ Architecture simplifiée
+
+```plaintext
+[ Vous (rédacteur) ]
+         ↓
+[ WordPress CMS (back-office) ]
+         ↓ via REST API ou GraphQL
+[ Front-end Next.js (votre vitrine moderne) ]
+         ↓
+[ Visiteur (desktop ou mobile) ]
+```
+
+---
+
+## 🔗 Connexion Next.js ← WordPress
+
+### 1. 🌀 REST API native
+
+* Point d’accès : `https://votre-site.com/wp-json/wp/v2/posts`
+* Aucun plugin supplémentaire requis, idéal pour démarrer rapidement.
+
+### 2. 🌐 WPGraphQL (optionnel)
+
+* Plus de flexibilité sur les données retournées.
+* Installez [WPGraphQL](https://www.wpgraphql.com/) pour exposer une API GraphQL sans configuration compliquée.
+
+---
+
+## 🧩 Extrait de mise en œuvre basique
+
+```js
+// pages/index.js
+export async function getStaticProps() {
+  const res = await fetch('https://votre-site.com/wp-json/wp/v2/posts');
+  const posts = await res.json();
+  return {
+    props: { posts },
+    revalidate: 120, // ISR : régénération toutes les 2 minutes
+  };
+}
+
+export default function Home({ posts }) {
+  return (
+    <main>
+      {posts.map(post => (
+        <article key={post.id}>
+          <h2>{post.title.rendered}</h2>
+          <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+        </article>
+      ))}
+    </main>
+  );
+}
+```
+
+Cette approche met en place un rendu statique rapide et une mise à jour périodique des contenus.
+
+---
+
+## ✨ Avantages concrets pour un propriétaire de site
+
+* **👨‍💻 Expérience utilisateur** : transitions fluides, absence de «flash» de rechargement, navigation plus agréable.
+* **🔄 Déploiement autonome** : votre front-end peut évoluer indépendamment du CMS, sans interruption de service.
+* **📱 Compatibilité mobile** : React et Next.js garantissent un design responsive et performant, quel que soit l’appareil.
+
+---
+
+## 🧰 Plugins et outils recommandés
+
+* **🕸️ WPGraphQL** : pour des requêtes GraphQL flexibles.
+* **🔐 JWT Auth** ou **Application Passwords** : sécurisation des appels API.
+* **🛠️ ACF + ACF to REST API** : exposer facilement vos champs personnalisés.
+
+---
+
+## 🏁 Conclusion
+
+En optant pour une architecture headless WordPress + Next.js, vous combinez la fiabilité et la richesse fonctionnelle de WordPress à la modernité et à la performance de Next.js. Cette combinaison est particulièrement adaptée pour des sites éditoriaux, vitrines d’entreprise ou e-commerce souhaitant allier rapidité, sécurité et design sur mesure.

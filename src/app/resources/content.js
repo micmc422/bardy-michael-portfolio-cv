@@ -14,8 +14,8 @@ const person = {
 };
 
 const newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  display: false,
+  title: <>S'abonner à {person.firstName}'s Newsletter</>,
   description: (
     <>
       Je publie occasionnellement des articles sur le design, la technologie, et je partage des réflexions à l’intersection de la créativité et de l’ingénierie.
@@ -55,7 +55,7 @@ const home = {
   title: `Portfolio de ${person.name}`,
   description: `Site portfolio présentant mon travail en tant que \${person.role}
   et mes projets personnels.`,
-  headline: <>Création de site internet & webmaster</>,
+  headline: <>Développeur Full-Stack</>,
   featured: {
     display: false,
     title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
@@ -70,7 +70,7 @@ const home = {
 
 const about = {
   path: "/about",
-  label: "About",
+  label: "Qui suis-je ?",
   title: `${person.name}`,
   description: `Meet ${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
@@ -82,35 +82,33 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/occitaweb",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Développeur Fullstack passionné par le design et la technologie, je crée des sites internet et des applications web sur mesure. J'ai une solide expérience dans le développement d'applications web modernes, en utilisant des technologies telles que React, Next.js et Node.js. Je suis également formateur à l'Université Champollion, où j'enseigne les fondamentaux du développement web.
       </>
     ),
   },
   work: {
     display: true, // set to false to hide this section
-    title: "Work Experience",
+    title: "Expérience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Occitaweb",
+        timeframe: "2012 - Actuellement",
+        role: "Développeur Fullstack",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Conçu et développé des applications web sur mesure pour des clients variés, en
+            utilisant des technologies modernes telles que React, Next.js et Node.js.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Optimisé les performances des applications existantes, réduisant le temps de chargement
+            de 40% et améliorant l'expérience utilisateur.
           </>,
         ],
         images: [
@@ -124,45 +122,137 @@ const about = {
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Université Champollion Albi",
+        timeframe: "2023 - Actuellement",
+        role: "Intervenant professionnel",
+        description: "Je dispense à l’Université Champollion des cours à la fois théoriques et pratiques couvrant l’ensemble des technologies web essentielles, depuis la conteneurisation jusqu’au design d’interface utilisateur",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Docker : conteneurisation (création d’images, gestion de conteneurs), réseaux et stockage,
+            pour déployer des applications de façon isolée et reproductible.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Node.js : installation, création de serveurs, gestion asynchrone, Express et gestion de fichiers
+            pour construire des back-ends JavaScript performants.
+          </>,
+          <>
+            GIT : installation, bases (gestion locale, branches), collaboration (GitHub/GitLab) et workflows
+            avancés pour le versioning et le travail en équipe.
+          </>,
+          <>
+            NPM : gestionnaire de paquets, package.json, commandes essentielles et résolution des dépendances
+            au sein d’un projet Node.js.
+          </>,
+          <>
+            MongoDB : introduction au NoSQL, CRUD, modélisation, indexation, administration et sécurité
+            pour stocker efficacement des données.
+          </>,
+          <>
+            GraphQL : principes de base, fonctionnement, avantages/défis et cas pratiques pour requêter
+            vos API de manière flexible.
+          </>,
+          <>
+            Authentification : concepts, protocoles, sessions, jetons et bonnes pratiques de sécurisation
+            pour protéger vos applications.
+          </>,
+          <>
+            Tooling : Prettier, ESLint, snippets, bundling, performance et outils Node.js pour automatiser
+            et fiabiliser votre workflow de développement.
+          </>,
+          <>
+            React : composants fonctionnels, hooks, routage, formulaires et déploiement pour construire
+            des interfaces web réactives.
+          </>,
+          <>
+            Next.js : App Router, Server Components, SEO, optimisation des images et actions serveurs
+            pour des sites full-stack modernes.
+          </>,
+          <>
+            JavaScript : fondamentaux du langage (fonctions async, modules ES), pour maîtriser la base
+            de tout développement web.
+          </>,
+          <>
+            UX/UI Design : principes fondamentaux, processus de conception, règles CRAP et exercices pratiques
+            pour créer des interfaces centrées utilisateur.
+          </>
+        ],
+        images: [],
+      },
+      {
+        company: "Paris est une photo",
+        timeframe: "2018 - 2023",
+        role: "Développeur web",
+        description: "Le site e-commerce a d’abord été développé avec WordPress, avant de migrer progressivement vers une architecture headless basée sur Next.js.",
+        achievements: [
+          <>
+            Conception et développement d'une plateforme e-commerce sur mesure, intégrant des fonctionnalités de newsletter, de gestion de produits et de paiement en ligne.
+          </>,
+          <>
+            Mise en place d'un système de gestion de contenu (CMS) personnalisé pour permettre aux utilisateurs de gérer facilement leurs produits et leurs commandes.
+          </>,
+          <>Intégration du paiement en ligne via Stripe</>
+        ],
+        images: [],
+      },
+      {
+        company: "Cyrus formation",
+        timeframe: "2015 - 2020",
+        role: "Formateur wordpress",
+        description: "J'ai formé des étudiants à la création de sites internet avec WordPress, en mettant l'accent sur la personnalisation et l'optimisation des performances.",
+        achievements: [
+          <>
+            Formation de plus de 100 étudiants à la création de sites internet avec WordPress, en mettant l'accent sur la personnalisation et l'optimisation des performances.
+          </>,
+          <>
+            Développement de modules de formation interactifs et pratiques pour aider les étudiants à acquérir des compétences concrètes en développement web.
           </>,
         ],
         images: [],
       },
+      {
+        company: "Mcdo",
+        timeframe: "2002 - 2012",
+        role: "Manager",
+        description: "J'ai commencé ma carrière professionnelle en tant que manager dans la restauration rapide, où j'ai acquis des compétences en gestion d'équipe et en service client.",
+        achievements: [
+          <>
+            Gestion d'une équipe de 10 à 40 personnes, en assurant la formation, la motivation et la performance de l'équipe.
+          </>,
+          <>
+            Mise en place de procédures opérationnelles pour améliorer l'efficacité du service et réduire les temps d'attente des clients.
+          </>,
+          <>Mise en place de procédures environnementales éco-progress</>,
+          <>Certification TBM1 & TBM2 (techniques de base de management)</>
+        ],
+        images: [],
+      }
     ],
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Etudes",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Webmaster/developpeur web",
+        description: <>J’ai commencé par apprendre HTML/CSS et PHP via des ressources en ligne et des stages, puis découvert WordPress. Ces dernières années, je me suis tourné vers JavaScript, Node.js, React, et enfin Next.js.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Technique de base de managenement 2",
+        description: <>En travaillant de la grande distribution j'ai étudié les fondamentaux du management.</>
+      },
+      {
+        name: "Baccalauréat technoligique en communication commerciale ICECLA albi",
+        description: <>J'ai obtenu un Baccalauréat technologique en communication commerciale, où j'ai étudié le marketing en ligne et le personal branding.</>,
       },
     ],
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Compétences techniques",
     skills: [
       {
         title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
+        description: <>Création de systéme d'interface et de design WEB.</>,
         images: [
           {
             src: "/images/projects/project-01/cover-02.jpg",
@@ -179,8 +269,20 @@ const about = {
         ],
       },
       {
+        title: "node.js",
+        description: <>Création d’API et d’applications serveur avec Node.js : gestion asynchrone, Express, accès aux fichiers et intégration de bases de données.</>,
+      },
+      {
+        title: "Typescript",
+        description: <>Développement d’applications robustes avec TypeScript : typage statique, détection d’erreurs à la compilation et amélioration de la maintenabilité du code.</>
+      },
+      {
+        title: "Prisma",
+        description: <>Gestion de base de données avec Prisma : modélisation du schéma, requêtes type-safe, migrations et intégration fluide avec Node.js et TypeScript.</>
+      },
+      {
         title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        description: <>Conception de sites web complets : vitrine, e-commerce, front-end et back-end sur mesure.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
@@ -198,7 +300,7 @@ const about = {
 const blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
+  title: `Blog – ${person.name}`,
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
@@ -206,8 +308,8 @@ const blog = {
 
 const work = {
   path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
+  label: "Portfolio",
+  title: `Projets – ${person.name}`,
   description: `Design and dev projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
