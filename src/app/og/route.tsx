@@ -58,6 +58,8 @@ export async function GET(request: Request) {
               height: "12rem",
               objectFit: "cover",
               borderRadius: "100%",
+              opacity: "0.8",
+              boxShadow: "0 0 0 4px rgba(255, 255, 255, 0.2), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 0 12px rgba(255, 255, 255, 0.05)",
             }}
           />
           <div
