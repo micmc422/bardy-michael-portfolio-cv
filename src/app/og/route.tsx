@@ -16,6 +16,7 @@ export async function GET(request: Request) {
         height: "100%",
         padding: "8rem",
         background: "#151515",
+        backgroundImage: "linear-gradient(to right top, #3f0727, #340e2c, #29132e, #1e162d, #161729, #101828, #0c1925, #0a1922, #051a22, #011b20, #001c1e, #001d1b)"
       }}
     >
       <div
@@ -31,11 +32,13 @@ export async function GET(request: Request) {
       >
         <span
           style={{
-            fontSize: "8rem",
-            lineHeight: "8rem",
+            display: "block",
+            fontSize: "5rem",
+            lineHeight: "5rem",
             letterSpacing: "-0.05em",
             whiteSpace: "pre-wrap",
             textWrap: "balance",
+            lineClamp:2,
           }}
         >
           {title}

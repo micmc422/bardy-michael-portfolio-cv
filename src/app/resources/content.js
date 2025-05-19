@@ -52,8 +52,7 @@ const home = {
   image: "/images/og/home.jpg",
   label: "Accueil",
   title: `Portfolio de ${person.name}`,
-  description: `Site portfolio présentant mon travail en tant que \${person.role}
-  et mes projets personnels.`,
+  description: `Site portfolio présentant mon travail en tant que ${person.role} et mes projets personnels.`,
   headline: <>Développeur Full-Stack</>,
   featured: {
     display: false,
@@ -71,7 +70,7 @@ const about = {
   path: "/about",
   label: "Qui suis-je ?",
   title: `${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Découvrez ${person.name}, ${person.role} basé en ${person.location}`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -298,7 +297,7 @@ const blog = {
   path: "/blog",
   label: "Blog",
   title: `Blog – ${person.name}`,
-  description: `Read what ${person.name} has been up to recently`,
+  description: `Derniéres publications de ${person.name}.`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
@@ -307,7 +306,7 @@ const work = {
   path: "/work",
   label: "Portfolio",
   title: `Projets – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  description: `Projets et réalisations de ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
@@ -315,7 +314,7 @@ const work = {
 const gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
+  title: `Gallerie – ${person.name}`,
   description: `A photo collection by ${person.name}`,
   // Images by https://lorant.one
   // These are placeholder images, replace with your own
