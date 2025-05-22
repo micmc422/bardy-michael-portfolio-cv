@@ -4,7 +4,7 @@ import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Icon
 import { Projects } from "@/components/work/Projects";
 
 import { baseURL, routes } from "@/app/resources";
-import { home, about, person, newsletter } from "@/app/resources/content";
+import { home, about, person, newsletter, rendezVous } from "@/app/resources/content";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
@@ -20,6 +20,7 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
+
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
       <Schema

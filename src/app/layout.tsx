@@ -3,7 +3,7 @@ import "@/once-ui/tokens/index.scss";
 
 import classNames from "classnames";
 
-import { Footer, Header } from "@/components";
+import { Footer, Header, RDV } from "@/components";
 import { baseURL, effects, style, font, home } from "@/app/resources";
 
 import { Background, Column, Flex, ThemeProvider, ToastProvider } from "@/once-ui/components";
@@ -11,6 +11,7 @@ import { opacity, SpacingToken } from "@/once-ui/types";
 import { Meta } from "@/once-ui/modules";
 
 import { Analytics } from "@vercel/analytics/next"
+import { rendezVous } from "./resources/content";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -127,6 +128,16 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               <Flex horizontal="center" fillWidth minHeight="0">
                 <>{children}</>
               </Flex>
+            </Flex>
+            <Flex
+              zIndex={0}
+              paddingY="l"
+              paddingX="l"
+              horizontal="center"
+              flex={1}
+            >
+
+                <RDV content={rendezVous} />
             </Flex>
             <Footer />
           </Column>

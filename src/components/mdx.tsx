@@ -2,7 +2,7 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { ReactNode } from "react";
 import dynamic from "next/dynamic";
 
-import { 
+import {
   Heading,
   HeadingLink,
   SmartImage,
@@ -13,6 +13,7 @@ import {
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
+import { RDV } from "./Rdv";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -66,17 +67,29 @@ function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) 
 }
 
 function slugify(str: string): string {
-  return str
-    .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+  try {
+    return str
+      .toLowerCase()
+      .replace(/\s+/g, "-") // Replace spaces with -
+      .replace(/&/g, "-and-") // Replace & with 'and'
+      .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
+      .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+  }
+  catch (error) {
+    return str; // Fallback to original string if an error occurs
+  }
 }
 
 function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
   const CustomHeading = ({ children, ...props }: TextProps<typeof as>) => {
-    const slug = slugify(children as string);
+    const slug =
+      children &&
+        typeof children === "object" &&
+        "props" in children &&
+        children.props &&
+        typeof (children as { props?: any }).props.children === "string"
+        ? slugify((children as { props: { children: string } }).props.children)
+        : slugify(typeof children === "string" ? children : "");
     return (
       <HeadingLink
         style={{ marginTop: "var(--static-space-24)", marginBottom: "var(--static-space-12)" }}
@@ -116,11 +129,11 @@ function createCodeBlock(props: any) {
   // For pre tags that contain code blocks
   if (props.children && props.children.props && props.children.props.className) {
     const { className, children } = props.children.props;
-    
+
     // Extract language from className (format: language-xxx)
     const language = className.replace('language-', '');
     const label = language.charAt(0).toUpperCase() + language.slice(1);
-    
+
     return (
       <CodeBlock
         marginTop="8"
@@ -136,7 +149,7 @@ function createCodeBlock(props: any) {
       />
     );
   }
-  
+
   // Fallback for other pre tags or empty code blocks
   return <pre {...props} />;
 }
@@ -170,7 +183,7 @@ const components = {
   SmartImage: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartImage)),
   SmartLink: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartLink)),
   OgCard: dynamic(() => import("@/once-ui/components").then(mod => mod.OgCard)),
-};
+  RDV: dynamic(() => import("@/components").then(mod => mod.RDV)),};
 
 type CustomMDXProps = MDXRemoteProps & {
   components?: typeof components;

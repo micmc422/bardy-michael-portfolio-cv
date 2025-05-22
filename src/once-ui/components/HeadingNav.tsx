@@ -38,10 +38,11 @@ const HeadingNav = forwardRef<HTMLDivElement, props>(({ className, style, ...res
   useEffect(() => {
     if (headings.length === 0) return;
 
-    setActiveHeadingId(headings[0]?.id || null);
+    setActiveHeadingId(typeof headings[0]?.id === "string" ? headings[0]?.id : null);
 
     const headingElements = headings
-      .map((heading) => document.getElementById(heading.id))
+      .filter((heading) => typeof heading.id === "string")
+      .map((heading) => document.getElementById(heading.id as string))
       .filter(Boolean) as HTMLElement[];
 
     const headingPositions = new Map<string, number>();
@@ -99,7 +100,7 @@ const HeadingNav = forwardRef<HTMLDivElement, props>(({ className, style, ...res
         }
       });
 
-      if (activeId) {
+      if (typeof activeId === "string") {
         debouncedUpdateActiveHeading(activeId);
       }
     };
@@ -196,24 +197,26 @@ const HeadingNav = forwardRef<HTMLDivElement, props>(({ className, style, ...res
         {headings.map((heading, index) => {
           const indent = heading.level - 2;
           const isActive = heading.id === activeHeadingId;
-
+          const headingKey = typeof heading.id === "string" || typeof heading.id === "number" ? heading.id : String(index);
           return (
-            <Flex key={heading.id} fillWidth height="32" paddingX="4">
+            <Flex key={headingKey} fillWidth height="32" paddingX="4">
               <SmartLink
                 fillWidth
                 href={"#" + heading.id}
                 onClick={(e) => {
                   e.preventDefault();
-                  const target = document.getElementById(heading.id);
-                  if (target) {
-                    const targetPosition =
-                      target.getBoundingClientRect().top + window.scrollY - 150;
-                    window.scrollTo({
-                      top: targetPosition,
-                      behavior: "smooth",
-                    });
+                  if (typeof heading.id === "string") {
+                    const target = document.getElementById(heading.id);
+                    if (target) {
+                      const targetPosition =
+                        target.getBoundingClientRect().top + window.scrollY - 150;
+                      window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth",
+                      });
 
-                    handleHeadingClick(heading.id, index);
+                      handleHeadingClick(heading.id, index);
+                    }
                   }
                 }}
                 style={{

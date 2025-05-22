@@ -22,6 +22,17 @@ const newsletter = {
   ),
 };
 
+const rendezVous = {
+  display: true,
+  title: <>Prendre rendez-vous</>,
+  description: (
+    <>
+      Je suis disponible pour des consultations, des collaborations ou simplement pour discuter de vos projets. N&apos;hésitez pas à me contacter !
+    </>
+  ),
+  href: "https://cal.com/occitaweb",
+};
+
 const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
@@ -185,7 +196,7 @@ const about = {
             width: 16,
             height: 9,
           }
-      ],
+        ],
       },
       {
         company: "Paris est une photo",
@@ -362,4 +373,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, rendezVous, home, about, blog, work, gallery };

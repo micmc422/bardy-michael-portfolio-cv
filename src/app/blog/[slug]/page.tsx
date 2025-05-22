@@ -56,7 +56,7 @@ export default async function Blog({
 
   return (
     <Row fillWidth>
-      <Row maxWidth={12} hide="m"/>
+      <Row maxWidth={12} hide="m" />
       <Row fillWidth horizontal="center">
         <Column as="section" maxWidth="xs" gap="l">
           <Schema
@@ -75,7 +75,7 @@ export default async function Blog({
             }}
           />
           <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
-            Posts
+            Publications
           </Button>
           <Heading variant="display-strong-s">{post.metadata.title}</Heading>
           <Row gap="12" vertical="center">
@@ -89,20 +89,20 @@ export default async function Blog({
           </Column>
           <ScrollToHash />
         </Column>
-    </Row>
-    <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
-      <Row
-        gap="12"
-        paddingLeft="2"
-        vertical="center"
-        onBackground="neutral-medium"
-        textVariant="label-default-s"
-      >
-        <Icon name="document" size="xs" />
-        On this page
       </Row>
-      <HeadingNav fitHeight/>
-    </Column>
+      <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
+        <Row
+          gap="12"
+          paddingLeft="2"
+          vertical="center"
+          onBackground="neutral-medium"
+          textVariant="label-default-s"
+        >
+          <Icon name="chevronDown" size="xs" />
+          Navigation
+        </Row>
+        <HeadingNav fitHeight />
+      </Column>
     </Row>
   );
 }

@@ -79,15 +79,15 @@ const Option = forwardRef<HTMLDivElement, OptionProps>(
             style={{
               whiteSpace: "nowrap",
             }}
-            fillWidth
+            maxWidth={20}
             direction="column"
           >
             <Text onBackground="neutral-strong" variant="label-default-s">
               {label}
             </Text>
             {description && (
-              <Text variant="body-default-xs" onBackground="neutral-weak">
-                {description}
+              <Text variant="body-default-xs" align="left" onBackground="neutral-weak" wrap="balance">
+                {typeof description === "string" ? description.replaceAll("****", "") : description}
               </Text>
             )}
           </Flex>

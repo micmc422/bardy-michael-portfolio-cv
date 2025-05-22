@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
+export const revalidate = 360000;
 function decodeHTMLEntities(text: string): string {
     return text.replace(/&(#?[a-zA-Z0-9]+);/g, (match, entity) => {
         const entities: { [key: string]: string } = {

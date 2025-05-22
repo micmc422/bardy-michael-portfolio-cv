@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 export const useHeadingLinks = () => {
-  const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
+  const [headings, setHeadings] = useState<{ id: string | ReactNode; text: string; level: number }[]>([]);
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll("h2, h3, h4, h5, h6"))

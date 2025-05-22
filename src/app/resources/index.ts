@@ -6,6 +6,7 @@ export {
   style,
   display,
   mailchimp,
+  rdv,
   baseURL,
   font,
 } from "@/app/resources/config";
