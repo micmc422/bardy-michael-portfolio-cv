@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
-import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
+import { AvatarGroup, Button, Column, Flex, Heading, OgCard, SmartImage, Text } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
@@ -43,7 +43,6 @@ export default async function Project({
 }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-
   let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
 
   if (!post) {
@@ -95,6 +94,9 @@ export default async function Project({
           </Text>
         </Flex>
         <CustomMDX source={post.content} />
+        <OgCard
+          url={post.metadata.projectURL}
+        />
       </Column>
       <ScrollToHash />
     </Column>

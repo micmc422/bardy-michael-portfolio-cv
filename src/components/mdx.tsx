@@ -13,6 +13,7 @@ import {
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
+import { OgCard } from "@/components/OgCard";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -169,6 +170,7 @@ const components = {
   Icon: dynamic(() => import("@/once-ui/components").then(mod => mod.Icon)),
   SmartImage: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartImage)),
   SmartLink: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartLink)),
+  OgCard: dynamic(() => import("@/once-ui/components").then(mod => mod.OgCard)),
 };
 
 type CustomMDXProps = MDXRemoteProps & {
