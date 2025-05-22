@@ -53,7 +53,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
   return (
     <Column
       overflow="hidden"
-      width={"m"}
+      width={"s"}
       padding="xl"
       radius="l"
       marginBottom="m"
