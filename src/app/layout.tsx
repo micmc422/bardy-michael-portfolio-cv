@@ -131,13 +131,15 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             </Flex>
             <Flex
               zIndex={0}
+              fillWidth
               paddingY="l"
               paddingX="l"
               horizontal="center"
               flex={1}
             >
-
+              <Flex horizontal="center" fillWidth minHeight="0">
                 <RDV content={rendezVous} />
+              </Flex>
             </Flex>
             <Footer />
           </Column>
