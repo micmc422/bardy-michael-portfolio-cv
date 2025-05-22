@@ -86,12 +86,14 @@ export const Header = () => {
                     prefixIcon="person"
                     href="/about"
                     label={about.label}
+                    aria-label={about.label}
                     selected={pathname === "/about"}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="person"
                     href="/about"
+                    aria-label={about.label}
                     selected={pathname === "/about"}
                   />
                 </>
@@ -103,12 +105,14 @@ export const Header = () => {
                     prefixIcon="grid"
                     href="/work"
                     label={work.label}
+                    aria-label={about.label}
                     selected={pathname.startsWith("/work")}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="grid"
                     href="/work"
+                    aria-label={about.label}
                     selected={pathname.startsWith("/work")}
                   />
                 </>
@@ -120,12 +124,14 @@ export const Header = () => {
                     prefixIcon="book"
                     href="/blog"
                     label={blog.label}
+                    aria-label={about.label}
                     selected={pathname.startsWith("/blog")}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="book"
                     href="/blog"
+                    aria-label={about.label}
                     selected={pathname.startsWith("/blog")}
                   />
                 </>
