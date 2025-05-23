@@ -86,8 +86,8 @@ const Option = forwardRef<HTMLDivElement, OptionProps>(
               {label}
             </Text>
             {description && (
-              <Text variant="body-default-xs" align="left" onBackground="neutral-weak" wrap="balance">
-                {typeof description === "string" ? description.replaceAll("****", "") : description}
+              <Text variant="body-default-xs" align="left" onBackground="neutral-weak" wrap="balance" >
+              {description}
               </Text>
             )}
           </Flex>

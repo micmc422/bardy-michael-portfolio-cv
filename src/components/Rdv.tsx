@@ -23,7 +23,7 @@ async function getRDVContent(): Promise<RDVContentType[]> {
       'Content-Type': 'application/json',
     },
     next: {
-      revalidate: 360000,
+      revalidate: 3600,
     },
   });
 

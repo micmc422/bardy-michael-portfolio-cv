@@ -3,6 +3,7 @@
 import { RDVContentType } from "@/app/api/cal/types/route";
 import { Button, Column, DropdownWrapper, Option, RevealFx } from "@/once-ui/components";
 import { use, useState } from "react";
+import styles from "./RdvDropDown.module.scss";
 
 export const RDVDropDown = ({ eventTypesPromise }: { eventTypesPromise: Promise<RDVContentType[]> }) => {
     const eventTypes = use(eventTypesPromise);
@@ -16,7 +17,7 @@ export const RDVDropDown = ({ eventTypesPromise }: { eventTypesPromise: Promise<
         <DropdownWrapper
             isOpen={isOpen}
             onOpenChange={setIsOpen}
-            maxWidth={30}
+            maxWidth={40}
             floatingPlacement="bottom"
             trigger={
                 <Button
@@ -34,7 +35,7 @@ export const RDVDropDown = ({ eventTypesPromise }: { eventTypesPromise: Promise<
                             key={option.id}
                             label={option.title}
                             value={option.slug}
-                            // description={option.description}
+                            description={<span className={styles.lineClamp}>{typeof option.description === "string" ? option.description.replaceAll("****", "") : option.description}</span>}
                             selected={option.id === selected}
                             onClick={handleSelect}
                         />
