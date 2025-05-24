@@ -1,3 +1,5 @@
+"use server"
+
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/serverActions";
