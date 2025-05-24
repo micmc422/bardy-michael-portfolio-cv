@@ -8,11 +8,8 @@ const withMDX = mdx({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+  trailingSlash: true,
   transpilePackages: ["next-mdx-remote"],
-  // output: "export",
-  experimental: {
-    useCache: true,
-  },
   sassOptions: {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
