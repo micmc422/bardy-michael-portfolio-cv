@@ -10,7 +10,7 @@ export async function generateMetadata() {
   return Meta.generate({
     title: blog.title,
     description: blog.description,
-    baseURL: baseURL,
+    baseURL: "https://" + baseURL,
     image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
     path: blog.path,
   });
