@@ -1,4 +1,3 @@
-import React from "react"; 
 
 import { Column, Heading } from "@/once-ui/components";
 import { Mailchimp } from "@/components";
@@ -17,7 +16,7 @@ export async function generateMetadata() {
   });
 }
 
-export default async function Blog() {
+export default function Blog() {
   return (
     <Column maxWidth="s">
       <Schema

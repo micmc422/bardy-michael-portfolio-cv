@@ -1,4 +1,3 @@
-import React from "react"; 
 import { Column } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
@@ -14,13 +13,8 @@ export async function generateMetadata() {
     path: work.path,
   });
 }
-const demanderUnDevis = {
-  display: true,
-  title: "Demandez un devis",
-  description: "Je vous propose un rapide échange pour discuter de votre projet. Cela me permettra de mieux comprendre vos attentes et de vous envoyer un devis sur-mesure.",
-  href: `${about.calendar.link}/discutons-d-un-devis`
-}
-export default async function Work() {
+
+export default function Work() {
   return (
     <Column maxWidth="m">
       <Schema
