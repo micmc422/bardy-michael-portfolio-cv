@@ -7,6 +7,7 @@ import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
+import { Suspense } from "react";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -103,7 +104,9 @@ export default async function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <Suspense>
+          <Projects range={[1, 1]} />
+        </Suspense>
       </RevealFx>
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
@@ -113,11 +116,11 @@ export default async function Home() {
             </Heading>
           </Flex>
           <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
+            <Suspense><Posts range={[1, 2]} columns="2" /></Suspense>
           </Flex>
         </Flex>
       )}
-      <Projects range={[2]} />
+      <Suspense><Projects range={[2]} /></Suspense>
     </Column>
   );
 }
