@@ -14,6 +14,16 @@ export async function getPosts(customPath = ["", "", "", ""]) {
         return [];
     }
 }
+export async function getProjects() {
+    try {
+        const postsDir = path.join(process.cwd(), "src", "app", "work", "projects");
+        return getMDXData(postsDir);
+
+    } catch (error) {
+        console.error("Error fetching posts:", error);
+        return [];
+    }
+}
 
 export async function getPostBySlug(slug: string, customPath = ["", "", "", ""]) {
     try {
@@ -27,7 +37,7 @@ export async function getPostBySlug(slug: string, customPath = ["", "", "", ""])
 }
 
 export async function getPost(slug: string) {
-    const postsDir = path.join(process.cwd(), ...["src", "app", "blog", "posts"]);
+    const postsDir = path.join(process.cwd(), "src", "app", "blog", "posts");
     const { metadata, content } = readMDXFile(path.join(postsDir, slug + ".mdx"));
 
     return {
@@ -35,6 +45,16 @@ export async function getPost(slug: string) {
         slug,
         content,
     };
+}
 
+export async function getProject(slug: string) {
+    const postsDir = path.join(process.cwd(), "src", "app", "work", "projects");
+    const { metadata, content } = readMDXFile(path.join(postsDir, slug + ".mdx"));
+
+    return {
+        metadata,
+        slug,
+        content,
+    };
 }
 

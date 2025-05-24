@@ -8,37 +8,7 @@ import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
-import { Metadata } from "next";
-import { Meta, Schema } from "@/once-ui/modules";
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = await getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string | string[] }>;
-}): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-
-  const posts = await getPosts(["src", "app", "work", "projects"])
-  let post = posts.find((post) => post.slug === slugPath);
-
-  if (!post) return {};
-
-  return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image ? `${baseURL}${post.metadata.image}` : `${baseURL}/og?title=${post.metadata.title}`,
-    path: `${work.path}/${post.slug}`,
-  });
-}
+import { Schema } from "@/once-ui/modules";
 
 export default async function Project({
   params
