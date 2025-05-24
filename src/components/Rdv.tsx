@@ -117,10 +117,13 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
       >
         {content.description}
       </Text>
-      <Suspense>
+      <Suspense fallback={
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          Chargement des disponibilités...
+        </Text>}>
         <RDVDropDown eventTypesPromise={getRDVContent()} />
       </Suspense>
-    </Column>
+    </Column >
   );
 };
 
