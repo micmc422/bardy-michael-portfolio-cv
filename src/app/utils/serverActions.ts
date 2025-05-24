@@ -1,7 +1,7 @@
 "use server"
 
 import path from "path";
-import { getMDXData } from "./utils";
+import { getMDXData, readMDXFile } from "./utils";
 
 
 export async function getPosts(customPath = ["", "", "", ""]) {
@@ -27,6 +27,14 @@ export async function getPostBySlug(slug: string, customPath = ["", "", "", ""])
 }
 
 export async function getPost(slug: string) {
-    console.log("Fetching post with slug:", slug);
-    return await getPostBySlug(slug, ["src", "app", "blog", "posts"]);
+    const postsDir = path.join(process.cwd(), ...["src", "app", "blog", "posts"]);
+    const { metadata, content } = readMDXFile(path.join(postsDir, slug + ".mdx"));
+
+    return {
+        metadata,
+        slug,
+        content,
+    };
+
 }
+
