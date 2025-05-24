@@ -20,7 +20,7 @@ export async function generateMetadata({
 
     const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-    const posts = getPosts(["src", "app", "blog", "posts"])
+    const posts = await getPosts(["src", "app", "blog", "posts"])
     let post = posts.find((post) => post.slug === slugPath);
 
     if (!post) return {};
