@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Meta } from "@/once-ui/modules";
 import { PostPage } from "./postPage";
 import { notFound } from "next/navigation";
-
+/*
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getPosts(["src", "app", "blog", "posts"])
 
@@ -35,7 +35,7 @@ export async function generateMetadata({
     path: `${blog.path}/${post.slug}`,
   });
 }
-
+*/
 
 export default async function Blog({
   params
