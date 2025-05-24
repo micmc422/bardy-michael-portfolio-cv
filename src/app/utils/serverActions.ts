@@ -15,3 +15,13 @@ export async function getPosts(customPath = ["", "", "", ""]) {
     }
 }
 
+export async function getPostBySlug(slug: string, customPath = ["", "", "", ""]) {
+    try {
+        const postsDir = path.join(process.cwd(), ...customPath);
+        const posts = await getMDXData(postsDir);
+        return posts.find((post) => post.slug === slug);
+    } catch (error) {
+        console.error("Error fetching post by slug:", error);
+        return null;
+    }
+}

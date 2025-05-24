@@ -2,7 +2,7 @@
 
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
-import { getPosts } from "@/app/utils/serverActions";
+import { getPostBySlug, getPosts } from "@/app/utils/serverActions";
 import { AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text } from "@/once-ui/components";
 import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
@@ -13,6 +13,8 @@ import { Meta, Schema } from "@/once-ui/modules";
 const posts = await getPosts(["src", "app", "blog", "posts"])
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  const posts = await getPosts(["src", "app", "blog", "posts"])
+
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -26,7 +28,7 @@ export async function generateMetadata({
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  let post = posts.find((post) => post.slug === slugPath);
+  let post = await getPostBySlug(slugPath, ["src", "app", "blog", "posts"]);
 
   if (!post) return {};
 
@@ -45,7 +47,7 @@ export default async function Blog({
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  let post = posts.find((post) => post.slug === slugPath);
+  let post = await getPostBySlug(slugPath, ["src", "app", "blog", "posts"]);
 
   if (!post) {
     notFound();
