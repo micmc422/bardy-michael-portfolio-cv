@@ -15,7 +15,8 @@ export default async function Blog({
   const routeParams = await params;
 
 
-  return <>test</>
+  return <>test</>;
+  /*
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
   let post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slugPath);
@@ -80,4 +81,5 @@ export default async function Blog({
       </Column>
     </Row>
   );
+  */
 }
