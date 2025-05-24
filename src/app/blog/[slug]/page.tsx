@@ -37,7 +37,7 @@ export async function generateMetadata({
 }
 
 
-export default function Blog({
+export default async function Blog({
   params
 }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = use(params);
