@@ -3,16 +3,15 @@ import { baseURL, display } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import { Projects } from "@/components/work/Projects";
+import { Metadata } from "next";
 
-export async function generateMetadata() {
-  return {
-    title: work.title,
-    description: work.description,
-    baseURL: baseURL,
-    image: `${baseURL}/og?title=${encodeURIComponent(work.title)}`,
-    path: work.path,
-  };
-}
+export const metadata: Metadata = {
+  title: work.title,
+  description: work.description,
+  alternates: {
+    canonical: `${baseURL}${work.path}`,
+  },
+};
 const demanderUnDevis = {
   display: true,
   title: "Demandez un devis",

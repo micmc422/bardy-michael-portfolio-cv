@@ -9,15 +9,15 @@ import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
+import { Metadata } from "next";
 
-export async function generateMetadata() {
-  return {
+export const metadata: Metadata = {
     title: home.title,
     description: home.description,
-    baseURL: baseURL,
-    path: home.path,
+    alternates: {
+      canonical: `${baseURL}${home.path}`,
+    },
   };
-}
 
 export default async function Home() {
   return (

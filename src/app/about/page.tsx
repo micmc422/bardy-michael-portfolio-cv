@@ -16,16 +16,15 @@ import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React, { JSX } from "react";
 import { Meta, Schema } from "@/once-ui/modules";
+import { Metadata } from "next";
 
-export async function generateMetadata() {
-  return {
-    title: about.title,
-    description: about.description,
-    baseURL: baseURL,
-    image: `${baseURL}/og?title=${encodeURIComponent(about.title)}`,
-    path: about.path,
-  };
-}
+export const metadata: Metadata = {
+  title: about.title,
+  description: about.description,
+  alternates: {
+    canonical: `${baseURL}${about.path}`,
+  },
+};
 
 export default async function About() {
   const structure = [
