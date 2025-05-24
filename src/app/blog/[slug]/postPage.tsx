@@ -9,8 +9,7 @@ import { Row, Column, Button, Heading, AvatarGroup, Icon, HeadingNav, Text } fro
 import { Schema } from "@/once-ui/modules";
 import { use } from "react";
 
-export function PostPage({ postPromise }: { postPromise: Promise<PostType> }) {
-    const post = use(postPromise);
+export function PostPage({ post }: { post: PostType }) {
     const avatars =
         post.metadata.team?.map((person) => ({
             src: person.avatar,

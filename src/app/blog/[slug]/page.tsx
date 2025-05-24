@@ -1,9 +1,8 @@
 "use server"
-import { getPost, getPostBySlug, getPosts } from "@/app/utils/serverActions";
+import { getPost, getPosts } from "@/app/utils/serverActions";
 import { blog, baseURL } from "@/app/resources";
 import { Metadata } from 'next';
 import { Meta } from "@/once-ui/modules";
-import { use } from "react";
 import { PostPage } from "./postPage";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -43,7 +42,7 @@ export default async function Blog({
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  const post = getPost(slugPath);
+  const post = await getPost(slugPath);
 
-  return (<PostPage postPromise={post} />);
+  return (<PostPage post={post} />);
 }
