@@ -1,4 +1,3 @@
-"use client";
 
 import { baseURL, blog, person, about } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
@@ -7,9 +6,9 @@ import { CustomMDX } from "@/components/mdx";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Row, Column, Button, Heading, AvatarGroup, Icon, HeadingNav, Text } from "@/once-ui/components";
 import { Schema } from "@/once-ui/modules";
-import { use } from "react";
 
-export function PostPage({ post }: { post: PostType }) {
+export async function PostPage({ postPromise }: { postPromise: Promise<PostType> }) {
+    const post = await postPromise;
     const avatars =
         post.metadata.team?.map((person) => ({
             src: person.avatar,
@@ -30,6 +29,7 @@ export function PostPage({ post }: { post: PostType }) {
                             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
                         </Text>
                     </Row>
+                    <ScrollToHash />
                 </Column>
             </Row>
             <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
