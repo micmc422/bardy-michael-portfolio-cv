@@ -28,7 +28,7 @@ export async function generateMetadata({
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  let post = await getPostBySlug(slugPath, ["src", "app", "blog", "posts"]);
+  const post = await getPostBySlug(slugPath, ["src", "app", "blog", "posts"]);
 
   if (!post) return {};
 
@@ -47,7 +47,7 @@ export default async function Blog({
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  let post = await getPostBySlug(slugPath, ["src", "app", "blog", "posts"]);
+  const post = await getPostBySlug(slugPath, ["src", "app", "blog", "posts"]);
 
   if (!post) {
     notFound();
