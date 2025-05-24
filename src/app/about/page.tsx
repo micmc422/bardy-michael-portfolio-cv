@@ -79,35 +79,33 @@ export default async function About() {
         </Column>
       )}
       <Flex fillWidth mobileDirection="column" horizontal="center">
-        <RevealFx translateY="16" delay={0.6}>
-          {about.avatar.display && (
-            <Column
-              className={styles.avatar}
-              position="sticky"
-              minWidth="160"
-              paddingX="l"
-              paddingBottom="xl"
-              gap="m"
-              flex={3}
-              horizontal="center"
-            >
-              <Avatar src={person.avatar} size="xl" />
-              <Flex gap="8" vertical="center">
-                <Icon onBackground="accent-weak" name="globe" />
-                {person.location}
+        {about.avatar.display && (
+          <Column
+            className={styles.avatar}
+            position="sticky"
+            minWidth="160"
+            paddingX="l"
+            paddingBottom="xl"
+            gap="m"
+            flex={3}
+            horizontal="center"
+          >
+            <Avatar src={person.avatar} size="xl" />
+            <Flex gap="8" vertical="center">
+              <Icon onBackground="accent-weak" name="globe" />
+              {person.location}
+            </Flex>
+            {person.languages.length > 0 && (
+              <Flex wrap gap="8">
+                {person.languages.map((language, index) => (
+                  <Tag key={language} size="l">
+                    {language}
+                  </Tag>
+                ))}
               </Flex>
-              {person.languages.length > 0 && (
-                <Flex wrap gap="8">
-                  {person.languages.map((language, index) => (
-                    <Tag key={language} size="l">
-                      {language}
-                    </Tag>
-                  ))}
-                </Flex>
-              )}
-            </Column>
-          )}
-        </RevealFx>
+            )}
+          </Column>
+        )}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
