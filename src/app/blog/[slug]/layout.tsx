@@ -1,17 +1,21 @@
-"use server"
-
 import { baseURL, blog } from "@/app/resources";
 import { getPost } from "@/app/utils/serverActions";
 import { getPosts } from "@/app/utils/utils";
 import { Meta } from "@/once-ui/modules";
 import { Metadata } from "next";
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-    "use server"
+async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
     const posts = await getPosts(["src", "app", "blog", "posts"]);
-    return posts.map((post) => ({
-        slug: post.slug,
-    }));
+    return posts.map(({ slug }) => ({ slug }));
+}
+
+async function getPostData(slug: string) {
+    return await getPost(slug);
+}
+
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+    return await getAllPostsSlugs();
 }
 
 export async function generateMetadata({
@@ -19,14 +23,10 @@ export async function generateMetadata({
 }: {
     params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-    const {slug} = await params;
-    console.log("Blog params:", slug);
-
-
-    const post = await getPost(slug)
+    const { slug } = await params;
+    const post = await getPostData(slug)
 
     if (!post) return {};
-    console.log("post", post);
 
     return Meta.generate({
         title: post.metadata.title,
@@ -42,7 +42,7 @@ export default async function BlogLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return <div style={{border: "1px solid red", padding: "20px"}}>
+    return <>
         {children}
-    </div>
+    </>
 }

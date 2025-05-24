@@ -1,24 +1,22 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
-import { getPosts } from "@/app/utils/utils";
 import { AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text } from "@/once-ui/components";
 import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
-import { Metadata } from 'next';
-import { Meta, Schema } from "@/once-ui/modules";
+import { Schema } from "@/once-ui/modules";
 import { getPost } from "@/app/utils/serverActions";
 
+
+async function getPostData(slug: string) {
+  return await getPost(slug);
+}
 
 export default async function Blog({
   params
 }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  console.log("Blog params:", slug);
-
-
-  const post = await getPost(slug)
-  console.log("post", post);
+  const post = await getPostData(slug)
 
   if (!post) {
     notFound();
