@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 
-export const runtime = 'edge';
 
 export const revalidate = 360000;
 function decodeHTMLEntities(text: string): string {
