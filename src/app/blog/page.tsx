@@ -1,4 +1,4 @@
-
+"use server"
 import { Column, Heading } from "@/once-ui/components";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
@@ -16,7 +16,7 @@ export async function generateMetadata() {
   });
 }
 
-export default function Blog() {
+export default async function Blog() {
   return (
     <Column maxWidth="s">
       <Schema

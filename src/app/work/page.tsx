@@ -1,3 +1,5 @@
+"use server"
+
 import { Column } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
@@ -14,7 +16,7 @@ export async function generateMetadata() {
   });
 }
 
-export default function Work() {
+export default async function Work() {
   return (
     <Column maxWidth="m">
       <Schema
