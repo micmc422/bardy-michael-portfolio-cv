@@ -20,13 +20,6 @@ export default async function Blog({
   const post = await getPost(slug)
   console.log("post", post);
 
-
-  return <>test</>;
-  /*
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-
-  let post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slugPath);
-
   if (!post) {
     notFound();
   }
@@ -87,5 +80,4 @@ export default async function Blog({
       </Column>
     </Row>
   );
-  */
 }
