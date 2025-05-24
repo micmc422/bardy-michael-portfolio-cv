@@ -4,12 +4,42 @@ import { AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text } fro
 import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
-import { Schema } from "@/once-ui/modules";
-import { getPost } from "@/app/utils/serverActions";
+import { Meta, Schema } from "@/once-ui/modules";
+import { getPost, getPosts } from "@/app/utils/serverActions";
+import { Metadata } from "next";
 
+
+async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
+  const projects = await getPosts();
+  return projects.map(({ slug }) => ({ slug }));
+}
 
 async function getPostData(slug: string) {
   return await getPost(slug);
+}
+
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  return await getAllPostsSlugs();
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getPostData(slug)
+
+  if (!project) return {};
+
+  return Meta.generate({
+    title: project.metadata.title,
+    description: project.metadata.summary,
+    baseURL: baseURL,
+    image: project.metadata.image ? `${baseURL}${project.metadata.image}` : `${baseURL}/og?title=${project.metadata.title}`,
+    path: `${blog.path}/${project.slug}`,
+  });
 }
 
 export default async function Blog({

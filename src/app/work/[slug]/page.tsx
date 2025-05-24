@@ -2,13 +2,47 @@
 
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
-import { getPosts } from "@/app/utils/serverActions";
+import { getPost, getPosts, getProject, getProjects } from "@/app/utils/serverActions";
 import { AvatarGroup, Button, Column, Flex, Heading, OgCard, SmartImage, Text } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
-import { Schema } from "@/once-ui/modules";
+import { Meta, Schema } from "@/once-ui/modules";
+import { Metadata } from "next";
+
+async function getAllprojectsSlugs(): Promise<{ slug: string }[]> {
+  const projects = await getProjects();
+  return projects.map(({ slug }) => ({ slug }));
+}
+
+async function getprojectData(slug: string) {
+  return await getProject(slug);
+}
+
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  return await getAllprojectsSlugs();
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getprojectData(slug)
+
+  if (!project) return {};
+
+  return Meta.generate({
+    title: project.metadata.title,
+    description: project.metadata.summary,
+    baseURL: baseURL,
+    image: project.metadata.image ? `${baseURL}${project.metadata.image}` : `${baseURL}/og?title=${project.metadata.title}`,
+    path: `${work.path}/${project.slug}`,
+  });
+}
 
 export default async function Project({
   params
