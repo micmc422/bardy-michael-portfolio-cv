@@ -68,3 +68,7 @@ export function getMDXData(dir: string) {
   });
 }
 
+export function getPosts(customPath = ["", "", "", ""]) {
+  const postsDir = path.join(process.cwd(), ...customPath);
+  return getMDXData(postsDir);
+}
