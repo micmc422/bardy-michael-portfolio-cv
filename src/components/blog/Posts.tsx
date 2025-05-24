@@ -1,9 +1,7 @@
-"use server"
-
 import { getPosts } from '@/app/utils/serverActions';
 import { Grid } from '@/once-ui/components';
 import Post from './Post';
-import { Suspense } from 'react';
+import { Suspense, use } from 'react';
 
 
 interface PostsProps {
@@ -13,13 +11,13 @@ interface PostsProps {
     direction?: 'row' | 'column';
 }
 
-export async function Posts({
+export function Posts({
     range,
     columns = '1',
     thumbnail = false,
     direction
 }: PostsProps) {
-    let allBlogs = await getPosts(['src', 'app', 'blog', 'posts']);
+    let allBlogs = use(getPosts(['src', 'app', 'blog', 'posts']));
 
     const sortedBlogs = allBlogs.sort((a, b) => {
         return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();

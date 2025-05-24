@@ -122,9 +122,7 @@ export default async function Home() {
           </Flex>
         </Flex>
       )}
-      <Suspense>
-        <Projects range={[2]} />
-      </Suspense>
+      <Projects range={[2]} />
     </Column>
   );
 }

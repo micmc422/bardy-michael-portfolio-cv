@@ -1,15 +1,14 @@
-"use server"
-
-import { getPosts } from "@/app/utils/serverActions";
 import { Column } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
+import { getPosts } from "@/app/utils/serverActions";
+import { use } from "react";
 
 interface ProjectsProps {
   range?: [number, number?];
 }
 
-export async function Projects({ range }: ProjectsProps) {
-  let allProjects = await getPosts(["src", "app", "work", "projects"]);
+export function Projects({ range }: ProjectsProps) {
+  let allProjects = use(getPosts(["src", "app", "work", "projects"]));
 
   const sortedProjects = allProjects.sort((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
