@@ -1,7 +1,7 @@
 "use client";
 
 import { Grid } from '@/once-ui/components';
-import { SkeletonPost } from './Post';
+import Post, { SkeletonPost } from './Post';
 import useSWR from "swr";
 import { PostType } from '@/app/utils/types';
 
