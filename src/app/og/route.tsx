@@ -51,7 +51,7 @@ export async function GET(request: Request) {
           }}
         >
           <img
-            src={"https://" + baseURL + person.avatar}
+            src={baseURL + person.avatar}
             alt={person.name + " avatar"}
             style={{
               width: "12rem",

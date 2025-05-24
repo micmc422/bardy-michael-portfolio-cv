@@ -10,8 +10,8 @@ export async function generateMetadata() {
   return Meta.generate({
     title: blog.title,
     description: blog.description,
-    baseURL: "https://" + baseURL,
-    image: `https://${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
+    baseURL: baseURL,
+    image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
     path: blog.path,
   });
 }
@@ -21,15 +21,15 @@ export default function Blog() {
     <Column maxWidth="s">
       <Schema
         as="blog"
-        baseURL={"https://"+baseURL}
+        baseURL={baseURL}
         title={blog.title}
         description={blog.description}
         path={blog.path}
-        image={`https://${baseURL}/og?title=${encodeURIComponent(blog.title)}`}
+        image={`${baseURL}/og?title=${encodeURIComponent(blog.title)}`}
         author={{
           name: person.name,
-          url: `https://${baseURL}/blog`,
-          image: `https://${baseURL}${person.avatar}`,
+          url: `${baseURL}/blog`,
+          image: `${baseURL}${person.avatar}`,
         }}
       />
       <Heading marginBottom="l" variant="display-strong-s">

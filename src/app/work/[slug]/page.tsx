@@ -32,9 +32,9 @@ export async function generateMetadata({
   return Meta.generate({
     title: post.metadata.title,
     description: post.metadata.summary,
-    baseURL: "https://" + baseURL,
-    image: post.metadata.image ? `https://${baseURL}${post.metadata.image}` : `https://${baseURL}/og?title=${post.metadata.title}`,
-    path: `https://${work.path}/${post.slug}`,
+    baseURL: baseURL,
+    image: post.metadata.image ? `${baseURL}${post.metadata.image}` : `${baseURL}/og?title=${post.metadata.title}`,
+    path: `${work.path}/${post.slug}`,
   });
 }
 
@@ -58,17 +58,17 @@ export default async function Project({
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
       <Schema
         as="blogPosting"
-        baseURL={"https://"+baseURL}
-        path={`https://${work.path}/${post.slug}`}
+        baseURL={baseURL}
+        path={`${work.path}/${post.slug}`}
         title={post.metadata.title}
         description={post.metadata.summary}
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.publishedAt}
-        image={`https://${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
+        image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
         author={{
           name: person.name,
-          url: `https://${baseURL}${about.path}`,
-          image: `https://${baseURL}${person.avatar}`,
+          url: `${baseURL}${about.path}`,
+          image: `${baseURL}${person.avatar}`,
         }}
       />
       <Column maxWidth="xs" gap="16">

@@ -8,8 +8,8 @@ export async function generateMetadata() {
   return Meta.generate({
     title: work.title,
     description: work.description,
-    baseURL: "https://" + baseURL,
-    image: `https://${baseURL}/og?title=${encodeURIComponent(work.title)}`,
+    baseURL: baseURL,
+    image: `${baseURL}/og?title=${encodeURIComponent(work.title)}`,
     path: work.path,
   });
 }
@@ -19,15 +19,15 @@ export default function Work() {
     <Column maxWidth="m">
       <Schema
         as="webPage"
-        baseURL={"https://"+baseURL}
+        baseURL={baseURL}
         path={work.path}
         title={work.title}
         description={work.description}
-        image={`https://${baseURL}/og?title=${encodeURIComponent(work.title)}`}
+        image={`${baseURL}/og?title=${encodeURIComponent(work.title)}`}
         author={{
           name: person.name,
-          url: `https://${baseURL}${about.path}`,
-          image: `https://${baseURL}${person.avatar}`,
+          url: `${baseURL}${about.path}`,
+          image: `${baseURL}${person.avatar}`,
         }}
       />
       <Projects />

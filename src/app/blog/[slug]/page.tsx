@@ -31,7 +31,7 @@ export async function generateMetadata({
   return Meta.generate({
     title: post.metadata.title,
     description: post.metadata.summary,
-    baseURL: "https://" + baseURL,
+    baseURL: baseURL,
     image: post.metadata.image ? `${baseURL}${post.metadata.image}` : `${baseURL}/og?title=${post.metadata.title}`,
     path: `${blog.path}/${post.slug}`,
   });
@@ -61,17 +61,17 @@ export default async function Blog({
         <Column as="section" maxWidth="xs" gap="l">
           <Schema
             as="blogPosting"
-            baseURL={"https://"+baseURL}
+            baseURL={baseURL}
             path={`${blog.path}/${post.slug}`}
             title={post.metadata.title}
             description={post.metadata.summary}
             datePublished={post.metadata.publishedAt}
             dateModified={post.metadata.publishedAt}
-            image={`https://${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
+            image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
             author={{
               name: person.name,
-              url: `https://${baseURL}${about.path}`,
-              image: `https://${baseURL}${person.avatar}`,
+              url: `${baseURL}${about.path}`,
+              image: `${baseURL}${person.avatar}`,
             }}
           />
           <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
