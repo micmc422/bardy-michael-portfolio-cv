@@ -43,6 +43,6 @@ export default async function Blog({
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
   const post = await getPost(slugPath);
-
+  return <>test</>
   return (<PostPage post={post} />);
 }

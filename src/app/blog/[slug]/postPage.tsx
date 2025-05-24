@@ -30,7 +30,6 @@ export function PostPage({ post }: { post: PostType }) {
                             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
                         </Text>
                     </Row>
-                    <ScrollToHash />
                 </Column>
             </Row>
             <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
