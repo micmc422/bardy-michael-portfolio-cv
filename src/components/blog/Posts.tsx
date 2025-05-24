@@ -1,10 +1,9 @@
 "use client";
 
 import { Grid } from '@/once-ui/components';
-import Post, { SkeletonPost } from './Post';
-import { Suspense, use } from 'react';
+import { SkeletonPost } from './Post';
 import useSWR from "swr";
-import { Metadata } from 'next';
+import { PostType } from '@/app/utils/types';
 
 export const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -15,20 +14,6 @@ interface PostsProps {
     direction?: 'row' | 'column';
 }
 
-interface Posts {
-    metadata: Metadata & {
-        projectURL?: string;
-        publishedAt: string;
-        summary: string;
-        images: string[];
-        team: {
-            avatar: string;
-        }[],
-        link?: string;
-    };
-    slug: string;
-    content: string;
-}[]
 
 export function Posts({
     range,
@@ -36,7 +21,7 @@ export function Posts({
     thumbnail = false,
     direction
 }: PostsProps) {
-    const { data, error, isLoading } = useSWR<Posts[]>('/api/posts', fetcher)
+    const { data, error, isLoading } = useSWR<PostType[]>('/api/posts', fetcher)
     if (!data || isLoading) {
         const loadingColumnsLength = columns === '1' ? 1 : columns === '2' ? 2 : 3;
         const loadingArray = new Array(loadingColumnsLength).fill(null);
