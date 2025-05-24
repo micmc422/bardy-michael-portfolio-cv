@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
-import { getPostBySlug, getPosts } from "@/app/utils/serverActions";
+"use server"
+import { getPost, getPostBySlug, getPosts } from "@/app/utils/serverActions";
 import { blog, baseURL } from "@/app/resources";
 import { Metadata } from 'next';
 import { Meta } from "@/once-ui/modules";
@@ -14,16 +14,6 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   }));
 }
 
-async function getPost(slug: string) {
-  "use server";
-  const post = await getPostBySlug(slug, ["src", "app", "blog", "posts"]);
-
-  if (!post) {
-    notFound();
-  }
-
-  return post;
-}
 
 export async function generateMetadata({
   params,
@@ -55,6 +45,5 @@ export default function Blog({
 
   const post = getPost(slugPath);
 
-  return (<PostPage postPromise={post} />
-  );
+  return (<>test</>);
 }

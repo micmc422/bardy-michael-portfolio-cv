@@ -2,6 +2,7 @@
 
 import path from "path";
 import { getMDXData } from "./utils";
+import { notFound } from "next/navigation";
 
 
 export async function getPosts(customPath = ["", "", "", ""]) {
@@ -24,4 +25,14 @@ export async function getPostBySlug(slug: string, customPath = ["", "", "", ""])
         console.error("Error fetching post by slug:", error);
         return null;
     }
+}
+
+export async function getPost(slug: string) {
+    const post = await getPostBySlug(slug, ["src", "app", "blog", "posts"]);
+
+    if (!post) {
+        notFound();
+    }
+
+    return post;
 }
