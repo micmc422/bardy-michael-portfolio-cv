@@ -6,21 +6,19 @@ import { Metadata } from 'next';
 import { Meta } from "@/once-ui/modules";
 import { PostPage } from "./postPage";
 
-/*
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
+export async function generateStaticParams() {
   const posts = await getPosts(["src", "app", "blog", "posts"])
 
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
-  */
 
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: { slug: string | string[] };
 }): Promise<Metadata> {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
@@ -41,7 +39,7 @@ export async function generateMetadata({
 
 export default async function Blog({
   params
-}: { params: Promise<{ slug: string | string[] }> }) {
+}: { params: { slug: string | string[] } }) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
