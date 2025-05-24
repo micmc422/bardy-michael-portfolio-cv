@@ -4,7 +4,7 @@ import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Icon
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
 import { Projects } from "@/components/work/Projects";
-// import { Posts } from "@/components/blog/Posts";
+import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
 import { Suspense } from "react";
@@ -116,6 +116,9 @@ export default async function Home() {
             </Heading>
           </Flex>
           <Flex flex={3} paddingX="20">
+            <Suspense>
+              <Posts range={[1, 2]} columns="2" />
+            </Suspense>
           </Flex>
         </Flex>
       )}

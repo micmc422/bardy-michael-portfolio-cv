@@ -1,3 +1,4 @@
+
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -31,14 +32,14 @@ function getMDXFiles(dir: string) {
 }
 
 function readMDXFile(filePath: string) {
-    if (!fs.existsSync(filePath)) {
-        notFound();
-    }
+  if (!fs.existsSync(filePath)) {
+    notFound();
+  }
 
   const rawContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(rawContent);
 
-  const metadata: Metadata & { projectURL?: string} = {
+  const metadata: Metadata & { projectURL?: string } = {
     title: data.title || "",
     publishedAt: data.publishedAt,
     summary: data.summary || "",
@@ -67,7 +68,8 @@ function getMDXData(dir: string) {
   });
 }
 
-export function getPosts(customPath = ["", "", "", ""]) {
+export async function getPosts(customPath = ["", "", "", ""]) {
+  "use server"
   const postsDir = path.join(process.cwd(), ...customPath);
   return getMDXData(postsDir);
 }
