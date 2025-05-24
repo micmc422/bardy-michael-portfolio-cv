@@ -15,7 +15,7 @@ export async function generateMetadata() {
   };
 }
 
-export default function Blog() {
+export default async function Blog() {
   return (
     <Column maxWidth="s">
       <Schema

@@ -19,7 +19,7 @@ export async function generateMetadata() {
   };
 }
 
-export default function Home() {
+export default async function Home() {
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
       <Schema

@@ -19,7 +19,7 @@ const demanderUnDevis = {
   description: "Je vous propose un rapide échange pour discuter de votre projet. Cela me permettra de mieux comprendre vos attentes et de vous envoyer un devis sur-mesure.",
   href: `${about.calendar.link}/discutons-d-un-devis`
 }
-export default function Work() {
+export default async function Work() {
   return (
     <Column maxWidth="m">
       <Schema
