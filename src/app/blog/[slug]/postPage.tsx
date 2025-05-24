@@ -48,7 +48,7 @@ export async function PostPage({ post }: { post: PostType }) {
                         </Text>
                     </Row>
                     <Column as="article" fillWidth>
-                        <CustomMDX source={post.content} />
+                        {/*<CustomMDX source={post.content} />*/}
                     </Column>
                     <ScrollToHash />
                 </Column>
