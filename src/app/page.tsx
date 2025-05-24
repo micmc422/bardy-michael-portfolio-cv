@@ -111,9 +111,6 @@ export default async function Home() {
             </Heading>
           </Flex>
           <Flex flex={3} paddingX="20">
-            <Suspense>
-              <Posts range={[1, 2]} columns="2" />
-            </Suspense>
           </Flex>
         </Flex>
       )}

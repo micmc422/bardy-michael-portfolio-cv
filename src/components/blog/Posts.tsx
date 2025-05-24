@@ -3,6 +3,7 @@
 import { getPosts } from '@/app/utils/serverActions';
 import { Grid } from '@/once-ui/components';
 import Post from './Post';
+import { Suspense } from 'react';
 
 
 interface PostsProps {
@@ -32,7 +33,7 @@ export async function Posts({
         : sortedBlogs;
 
     return (
-        <>
+        <Suspense fallback={null}>
             {displayedBlogs.length > 0 && (
                 <Grid
                     columns={columns} mobileColumns="1"
@@ -47,6 +48,6 @@ export async function Posts({
                     ))}
                 </Grid>
             )}
-        </>
+        </Suspense>
     );
 }
