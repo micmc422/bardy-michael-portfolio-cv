@@ -1,9 +1,12 @@
+"use server"
+
 import { baseURL, blog } from "@/app/resources";
 import { getPosts } from "@/app/utils/utils";
 import { Meta } from "@/once-ui/modules";
 import { Metadata } from "next";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
+    "use server"
     const posts = await getPosts(["src", "app", "blog", "posts"]);
     return posts.map((post) => ({
         slug: post.slug,
