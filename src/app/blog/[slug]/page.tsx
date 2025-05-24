@@ -10,8 +10,6 @@ import ScrollToHash from "@/components/ScrollToHash";
 import { Metadata } from 'next';
 import { Meta, Schema } from "@/once-ui/modules";
 
-const posts = await getPosts(["src", "app", "blog", "posts"])
-
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getPosts(["src", "app", "blog", "posts"])
 
@@ -19,7 +17,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
     slug: post.slug,
   }));
 }
-
+/*
 export async function generateMetadata({
   params,
 }: {
@@ -40,7 +38,7 @@ export async function generateMetadata({
     path: `${blog.path}/${post.slug}`,
   });
 }
-
+*/
 export default async function Blog({
   params
 }: { params: Promise<{ slug: string | string[] }> }) {
