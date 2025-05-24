@@ -6,6 +6,8 @@ import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
 
+export const dynamic = "force-dynamic"; // Force revalidation on every request
+
 export async function generateMetadata() {
   return Meta.generate({
     title: home.title,
