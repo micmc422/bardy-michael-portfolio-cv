@@ -29,5 +29,5 @@ export async function getPostBySlug(slug: string, customPath = ["", "", "", ""])
 
 export async function getPost(slug: string) {
     console.log("Fetching post with slug:", slug);
-    return getPostBySlug(slug, ["src", "app", "blog", "posts"]);
+    return await getPostBySlug(slug, ["src", "app", "blog", "posts"]);
 }

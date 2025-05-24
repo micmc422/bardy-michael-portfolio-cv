@@ -1,6 +1,7 @@
 "use server"
 
 import { baseURL, blog } from "@/app/resources";
+import { getPost } from "@/app/utils/serverActions";
 import { getPosts } from "@/app/utils/utils";
 import { Meta } from "@/once-ui/modules";
 import { Metadata } from "next";
@@ -16,15 +17,13 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
     params,
 }: {
-    params: Promise<{ slug: string | string[] }>;
+    params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-    const routeParams = await params;
-    console.log("Blog params:", routeParams);
+    const {slug} = await params;
+    console.log("Blog params:", slug);
 
-    const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-    const posts = await getPosts(["src", "app", "blog", "posts"])
-    let post = posts.find((post) => post.slug === slugPath);
+    const post = await getPost(slug)
 
     if (!post) return {};
     console.log("post", post);
@@ -43,7 +42,7 @@ export default async function BlogLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return <>
+    return <div style={{border: "1px solid red", padding: "20px"}}>
         {children}
-    </>
+    </div>
 }
