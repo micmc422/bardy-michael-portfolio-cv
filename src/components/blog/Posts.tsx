@@ -1,3 +1,5 @@
+"use server"
+
 import { getPosts } from '@/app/utils/utils';
 import { Grid } from '@/once-ui/components';
 import Post from './Post';
@@ -9,7 +11,7 @@ interface PostsProps {
     direction?: 'row' | 'column';
 }
 
-export function Posts({
+export async function Posts({
     range,
     columns = '1',
     thumbnail = false,
