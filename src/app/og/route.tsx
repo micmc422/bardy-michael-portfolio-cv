@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 
-// export const runtime = "edge";
+export const runtime = "edge";
 
 export async function GET(request: Request) {
   let url = new URL(request.url);
@@ -51,7 +51,7 @@ export async function GET(request: Request) {
           }}
         >
           <img
-            src={baseURL + person.avatar}
+            src={"https://" + baseURL + person.avatar}
             alt={person.name + " avatar"}
             style={{
               width: "12rem",
