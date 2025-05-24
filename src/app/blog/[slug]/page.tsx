@@ -45,5 +45,5 @@ export default async function Blog({
 
   const post = getPost(slugPath);
 
-  return (<>test</>);
+  return (<PostPage postPromise={post} />);
 }
