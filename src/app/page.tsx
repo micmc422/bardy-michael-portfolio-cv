@@ -12,13 +12,15 @@ import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+export async function generateMetadata() {
+  return Meta.generate({
     title: home.title,
     description: home.description,
-    alternates: {
-      canonical: `${baseURL}${home.path}`,
-    },
-  };
+    baseURL: baseURL,
+    image: `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
+    path: home.path,
+  });
+}
 
 export default async function Home() {
   return (
