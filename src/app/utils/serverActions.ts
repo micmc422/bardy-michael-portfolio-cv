@@ -2,7 +2,6 @@
 
 import path from "path";
 import { getMDXData } from "./utils";
-import { notFound } from "next/navigation";
 
 
 export async function getPosts(customPath = ["", "", "", ""]) {

@@ -7,12 +7,18 @@ import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Metadata } from 'next';
 import { Meta, Schema } from "@/once-ui/modules";
+import { getPost } from "@/app/utils/serverActions";
 
 
 export default async function Blog({
   params
-}: { params: Promise<{ slug: string | string[] }> }) {
-  const routeParams = await params;
+}: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  console.log("Blog params:", slug);
+
+
+  const post = await getPost(slug)
+  console.log("post", post);
 
 
   return <>test</>;
