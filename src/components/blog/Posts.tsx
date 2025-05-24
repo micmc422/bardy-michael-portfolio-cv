@@ -1,5 +1,5 @@
 
-import { getPosts } from '@/app/utils/utils';
+import { getPosts } from '@/app/utils/serverActions';
 import { Grid } from '@/once-ui/components';
 import Post from './Post';
 

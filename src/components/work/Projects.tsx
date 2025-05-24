@@ -1,6 +1,6 @@
 "use server"
 
-import { getPosts } from "@/app/utils/utils";
+import { getPosts } from "@/app/utils/serverActions";
 import { Column } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
 
