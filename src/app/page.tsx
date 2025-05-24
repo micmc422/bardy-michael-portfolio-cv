@@ -9,7 +9,7 @@ import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
 
-export const dynamic = 'force-dynamic'; // ou 'force-static' selon besoin
+export const dynamic = 'force-static'; // ou 'force-static' selon besoin
 
 export async function generateMetadata() {
   return Meta.generate({
