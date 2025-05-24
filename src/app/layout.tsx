@@ -1,4 +1,5 @@
 "use server"
+
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
@@ -13,7 +14,7 @@ import { Meta } from "@/once-ui/modules";
 
 import { Analytics } from "@vercel/analytics/next"
 import { rendezVous } from "./resources/content";
-
+/*
 export async function generateMetadata() {
   return Meta.generate({
     title: home.title,
@@ -23,7 +24,7 @@ export async function generateMetadata() {
     image: home.image,
   });
 }
-
+*/
 interface RootLayoutProps {
   children: React.ReactNode;
 }
