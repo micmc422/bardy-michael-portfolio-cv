@@ -6,7 +6,7 @@ import { home, about, person, newsletter } from "@/app/resources/content";
 import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
-
+/*
 export async function generateMetadata() {
   return Meta.generate({
     title: home.title,
@@ -16,23 +16,11 @@ export async function generateMetadata() {
     path: home.path,
   });
 }
+  */
 
 export default function Home() {
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
-      <Schema
-        as="webPage"
-        baseURL={"https://"+ baseURL}
-        path={home.path}
-        title={home.title}
-        description={home.description}
-        image={`https://${baseURL}/og?title=${encodeURIComponent(home.title)}`}
-        author={{
-          name: person.name,
-          url: `https://${baseURL}${about.path}`,
-          image: `https://${baseURL}${person.avatar}`,
-        }}
-      />
       <Column fillWidth paddingY="24" gap="m">
         <Column maxWidth="s">
           <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
