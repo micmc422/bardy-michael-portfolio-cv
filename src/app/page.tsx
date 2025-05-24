@@ -1,16 +1,15 @@
-"use server"
-
 import React from "react";
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, IconButton, Icon } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
 
 import { baseURL, routes } from "@/app/resources";
-import { home, about, person, newsletter, rendezVous } from "@/app/resources/content";
+import { home, about, person, newsletter } from "@/app/resources/content";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
-import { Metadata } from "next";
+
+export const dynamic = 'force-dynamic'; // ou 'force-static' selon besoin
 
 export async function generateMetadata() {
   return Meta.generate({

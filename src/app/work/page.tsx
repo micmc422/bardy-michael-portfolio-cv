@@ -1,6 +1,6 @@
 import React from "react"; 
 import { Column } from "@/once-ui/components";
-import { baseURL, display } from "@/app/resources";
+import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import { Projects } from "@/components/work/Projects";
