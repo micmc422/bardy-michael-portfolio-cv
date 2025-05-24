@@ -40,7 +40,7 @@ export async function generateMetadata({
 export default async function Blog({
   params
 }: { params: Promise<{ slug: string | string[] }> }) {
-  const routeParams = use(params);
+  const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
   const post = getPost(slugPath);
