@@ -1,5 +1,3 @@
-"use server"
-
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, IconButton, Icon } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
 
@@ -19,8 +17,7 @@ export async function generateMetadata() {
   });
 }
 
-export default async function Home() {
-
+export default function Home() {
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
       <Schema
