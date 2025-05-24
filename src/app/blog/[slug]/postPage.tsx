@@ -21,21 +21,6 @@ export function PostPage({ postPromise }: { postPromise: Promise<PostType> }) {
             <Row maxWidth={12} hide="m" />
             <Row fillWidth horizontal="center">
                 <Column as="section" maxWidth="xs" gap="l">
-                    <Schema
-                        as="blogPosting"
-                        baseURL={baseURL}
-                        path={`${blog.path}/${post.slug}`}
-                        title={post.metadata.title as string}
-                        description={post.metadata.summary}
-                        datePublished={post.metadata.publishedAt}
-                        dateModified={post.metadata.publishedAt}
-                        image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title as string)}`}
-                        author={{
-                            name: person.name,
-                            url: `${baseURL}${about.path}`,
-                            image: `${baseURL}${person.avatar}`,
-                        }}
-                    />
                     <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
                         Publications
                     </Button>
