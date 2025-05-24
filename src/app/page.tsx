@@ -18,6 +18,7 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
+  return <>test</>
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
       <Schema
