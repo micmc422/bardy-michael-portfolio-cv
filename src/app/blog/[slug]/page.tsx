@@ -1,5 +1,3 @@
-"use server"
-
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPostBySlug, getPosts } from "@/app/utils/serverActions";
@@ -17,7 +15,18 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
     slug: post.slug,
   }));
 }
-/*
+
+async function getPost(slug: string) {
+  "use server";
+  const post = await getPostBySlug(slug, ["src", "app", "blog", "posts"]);
+
+  if (!post) {
+    notFound();
+  }
+
+  return post;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -26,7 +35,7 @@ export async function generateMetadata({
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  const post = await getPostBySlug(slugPath, ["src", "app", "blog", "posts"]);
+  const post = await getPost(slugPath);
 
   if (!post) return {};
 
@@ -38,18 +47,16 @@ export async function generateMetadata({
     path: `${blog.path}/${post.slug}`,
   });
 }
-*/
+
+
 export default async function Blog({
   params
 }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  const post = await getPostBySlug(slugPath, ["src", "app", "blog", "posts"]);
+  const post = await getPost(slugPath);
 
-  if (!post) {
-    notFound();
-  }
 
   const avatars =
     post.metadata.team?.map((person) => ({
