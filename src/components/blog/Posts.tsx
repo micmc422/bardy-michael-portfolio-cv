@@ -1,7 +1,7 @@
 "use client";
 
 import { Grid } from '@/once-ui/components';
-import Post from './Post';
+import Post, { SkeletonPost } from './Post';
 import { Suspense, use } from 'react';
 import useSWR from "swr";
 import { Metadata } from 'next';
@@ -29,7 +29,7 @@ interface Posts {
     slug: string;
     content: string;
 }[]
-  
+
 export function Posts({
     range,
     columns = '1',
@@ -37,12 +37,21 @@ export function Posts({
     direction
 }: PostsProps) {
     const { data, error, isLoading } = useSWR<Posts[]>('/api/posts', fetcher)
-    console.log(data);
     if (!data || isLoading) {
-        return <>loading</>
+        const loadingColumnsLength = columns === '1' ? 1 : columns === '2' ? 2 : 3;
+        const loadingArray = new Array(loadingColumnsLength).fill(null);
+        return <>
+            <Grid
+                columns={columns} mobileColumns="1"
+                fillWidth marginBottom="40" gap="12">
+                {loadingArray.map((post, i) => (
+                    <SkeletonPost key={i} />
+                ))}
+            </Grid>
+        </>
     }
 
-    const sortedBlogs = data.sort((a:any, b:any) => {
+    const sortedBlogs = data.sort((a: any, b: any) => {
         return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
     });
 
@@ -54,7 +63,7 @@ export function Posts({
         : sortedBlogs;
 
     return (
-        <Suspense fallback={null}>
+        <>
             {displayedBlogs.length > 0 && (
                 <Grid
                     columns={columns} mobileColumns="1"
@@ -69,6 +78,6 @@ export function Posts({
                     ))}
                 </Grid>
             )}
-        </Suspense>
+        </>
     );
 }

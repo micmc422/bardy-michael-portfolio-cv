@@ -1,6 +1,6 @@
 "use client";
 
-import { Column } from "@/once-ui/components";
+import { Column, Flex, Media, SmartLink } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
 import useSWR from "swr";
 import { Metadata } from "next";
@@ -28,9 +28,8 @@ export const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function Projects({ range }: ProjectsProps) {
   const { data, error, isLoading } = useSWR<Projects[]>('/api/projects', fetcher)
-  console.log(data);
   if (!data || isLoading) {
-    return <>loading</>
+    return <SkeletonProject />
   }
   const sortedProjects = data.sort((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
@@ -56,5 +55,31 @@ export function Projects({ range }: ProjectsProps) {
         />
       ))}
     </Column>
+  );
+}
+
+export function SkeletonProject({ direction = "column" }: { direction?: "row" | "column" }) {
+  return (
+    <SmartLink
+      fillWidth
+      unstyled
+      style={{ borderRadius: 'var(--radius-l)' }}
+    >
+      <Flex
+        position="relative"
+        transition="micro-medium"
+        direction={direction}
+        radius="l"
+        mobileDirection="column"
+        fillWidth>
+        <Media
+          border="neutral-alpha-weak"
+          radius="l"
+          loading
+          src='/images/eaa.jpg'
+          aspectRatio="16 / 9"
+        />
+      </Flex>
+    </SmartLink>
   );
 }

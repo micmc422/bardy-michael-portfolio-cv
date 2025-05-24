@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, Flex, Heading, SmartImage, SmartLink, Tag, Text } from '@/once-ui/components';
+import { Column, Flex, Heading, Media, Skeleton, SmartImage, SmartLink, Tag, Text } from '@/once-ui/components';
 import styles from './Posts.module.scss';
 import { formatDate } from '@/app/utils/formatDate';
 
@@ -58,13 +58,40 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
                     </Text>
                     <Flex gap='8' paddingTop='12' wrap>{post.metadata.tag && tags.map((tag: string, index: number) => (
                         <Tag
-                        paddingTop='4'
+                            paddingTop='4'
                             key={index}
                             label={tag}
                             variant="info" />
                     ))}
                     </Flex>
                 </Column>
+            </Flex>
+        </SmartLink>
+    );
+}
+
+export function SkeletonPost({ direction = "column" }: { direction?: "row" | "column" }) {
+    return (
+        <SmartLink
+            fillWidth
+            unstyled
+            style={{ borderRadius: 'var(--radius-l)' }}
+        >
+            <Flex
+                position="relative"
+                transition="micro-medium"
+                direction={direction}
+                radius="l"
+                className={styles.hover}
+                mobileDirection="column"
+                fillWidth>
+                <Media
+                    border="neutral-alpha-weak"
+                    radius="l"
+                    loading
+                    src='/images/eaa.jpg'
+                    aspectRatio="16 / 9"
+                />
             </Flex>
         </SmartLink>
     );
