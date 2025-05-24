@@ -20,10 +20,9 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+  const { slug } = await params;
 
-  const post = await getPost(slugPath);
+  const post = await getPost(slug);
 
   if (!post) return {};
 
@@ -39,11 +38,10 @@ export async function generateMetadata({
 
 export default async function Blog({
   params
-}: { params: { slug: string } }) {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+}: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
 
-  const post = await getPost(slugPath);
+  const post = await getPost(slug);
   return <>test</>
   return (<PostPage post={post} />);
 }
