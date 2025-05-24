@@ -7,6 +7,7 @@ import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Metadata } from 'next';
 import { Meta, Schema } from "@/once-ui/modules";
+import { use } from "react";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getPosts(["src", "app", "blog", "posts"])
@@ -49,13 +50,13 @@ export async function generateMetadata({
 }
 
 
-export default async function Blog({
+export default function Blog({
   params
 }: { params: Promise<{ slug: string | string[] }> }) {
-  const routeParams = await params;
+  const routeParams = use(params);
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  const post = await getPost(slugPath);
+  const post = use(getPost(slugPath));
 
 
   const avatars =
