@@ -1,10 +1,12 @@
 "use server"
+
 import { getPost, getPosts } from "@/app/utils/serverActions";
 import { blog, baseURL } from "@/app/resources";
 import { Metadata } from 'next';
 import { Meta } from "@/once-ui/modules";
 import { PostPage } from "./postPage";
 
+/*
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getPosts(["src", "app", "blog", "posts"])
 
@@ -12,6 +14,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
     slug: post.slug,
   }));
 }
+  */
 
 
 export async function generateMetadata({
