@@ -5,6 +5,7 @@ import { blog, baseURL } from "@/app/resources";
 import { Metadata } from 'next';
 import { Meta } from "@/once-ui/modules";
 import { PostPage } from "./postPage";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getPosts(["src", "app", "blog", "posts"])
@@ -20,7 +21,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const {slug} = await params;
+  const { slug } = await params;
 
   const post = await getPost(slug);
 
@@ -39,7 +40,10 @@ export async function generateMetadata({
 export default async function Blog({
   params
 }: { params: Promise<{ slug: string }> }) {
-  const {slug} = await params;
-
-  return (<PostPage postPromise={getPost(slug)} />);
+  const { slug } = await params;
+  const post = await getPost(slug);
+  if (!post) {
+    return notFound();
+  }
+  return (<PostPage post={post} />);
 }

@@ -8,8 +8,7 @@ import { Row, Column, Button, Heading, AvatarGroup, Icon, HeadingNav, Text } fro
 import { Schema } from "@/once-ui/modules";
 import { notFound } from "next/navigation";
 
-export async function PostPage({ postPromise }: { postPromise: Promise<PostType> | null | undefined }) {
-    const post = await postPromise;
+export async function PostPage({ post }: { post: PostType }) {
     if (!post) {
         notFound();
     }
@@ -18,38 +17,6 @@ export async function PostPage({ postPromise }: { postPromise: Promise<PostType>
             src: person.avatar,
         })) || [];
 
-    return (
-        <Row fillWidth>
-            <Row maxWidth={12} hide="m" />
-            <Row fillWidth horizontal="center">
-                <Column as="section" maxWidth="xs" gap="l">
-                    <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
-                        Publications
-                    </Button>
-                    <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
-                    <Row gap="12" vertical="center">
-                        {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
-                        <Text variant="body-default-s" onBackground="neutral-weak">
-                            {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-                        </Text>
-                    </Row>
-                    <ScrollToHash />
-                </Column>
-            </Row>
-            <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
-                <Row
-                    gap="12"
-                    paddingLeft="2"
-                    vertical="center"
-                    onBackground="neutral-medium"
-                    textVariant="label-default-s"
-                >
-                    <Icon name="chevronDown" size="xs" />
-                    Navigation
-                </Row>
-            </Column>
-        </Row>
-    );
     return (
         <Row fillWidth>
             <Row maxWidth={12} hide="m" />
