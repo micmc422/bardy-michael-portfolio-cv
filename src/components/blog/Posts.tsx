@@ -1,4 +1,3 @@
-"use server"
 
 import { getPosts } from '@/app/utils/utils';
 import { Grid } from '@/once-ui/components';
