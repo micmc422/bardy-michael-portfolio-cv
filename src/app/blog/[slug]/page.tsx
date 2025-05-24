@@ -8,39 +8,14 @@ import ScrollToHash from "@/components/ScrollToHash";
 import { Metadata } from 'next';
 import { Meta, Schema } from "@/once-ui/modules";
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string | string[] }>;
-}): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-
-  const posts = getPosts(["src", "app", "blog", "posts"])
-  let post = posts.find((post) => post.slug === slugPath);
-
-  if (!post) return {};
-
-  return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image ? `${baseURL}${post.metadata.image}` : `${baseURL}/og?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
-  });
-}
 
 export default async function Blog({
   params
 }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
+
+
+  return <>test</>
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
   let post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slugPath);
