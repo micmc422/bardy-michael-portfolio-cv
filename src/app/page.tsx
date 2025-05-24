@@ -34,7 +34,32 @@ export default async function Home() {
       />
       <Column fillWidth paddingY="24" gap="m">
         <Column maxWidth="s">
-          {false && home.featured.display && (
+          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
+            <Flex
+              fitWidth
+              border="brand-alpha-medium"
+              className={styles.blockAlign}
+              style={{
+                backdropFilter: "blur(var(--static-space-1))",
+              }}
+              background="brand-alpha-weak"
+              radius="full"
+              padding="4"
+              gap="8"
+              marginBottom="m"
+              vertical="center"
+            >
+              <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
+              <Flex paddingX="8">Planifier un RDV</Flex>
+              <IconButton
+                href={about.calendar.link}
+                data-border="rounded"
+                variant="secondary"
+                icon="chevronRight"
+              />
+            </Flex>
+          </RevealFx>
+          {home.featured.display && (
             <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
               <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
                 href={home.featured.href}>
@@ -42,9 +67,40 @@ export default async function Home() {
               </Badge>
             </RevealFx>
           )}
+          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
+            <Heading wrap="balance" variant="display-strong-l">
+              {home.headline}
+            </Heading>
+          </RevealFx>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
+            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+              {home.subline}
+            </Text>
+          </RevealFx>
+          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
+            <Button
+              id="about"
+              data-border="rounded"
+              href={about.path}
+              variant="secondary"
+              size="m"
+              arrowIcon
+            >
+              <Flex gap="8" vertical="center">
+                {about.avatar.display && (
+                  <Avatar
+                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                    src={person.avatar}
+                    size="m"
+                  />
+                )}
+                {about.title}
+              </Flex>
+            </Button>
+          </RevealFx>
         </Column>
       </Column>
-      {false && routes["/blog"] && (
+      {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l" paddingTop="24">
             <Heading as="h2" variant="display-strong-xs" wrap="balance">
