@@ -33,8 +33,8 @@ export async function generateMetadata({
     title: post.metadata.title,
     description: post.metadata.summary,
     baseURL: "https://" + baseURL,
-    image: post.metadata.image ? `${baseURL}${post.metadata.image}` : `${baseURL}/og?title=${post.metadata.title}`,
-    path: `${work.path}/${post.slug}`,
+    image: post.metadata.image ? `https://${baseURL}${post.metadata.image}` : `https://${baseURL}/og?title=${post.metadata.title}`,
+    path: `https://${work.path}/${post.slug}`,
   });
 }
 
@@ -58,17 +58,17 @@ export default async function Project({
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
       <Schema
         as="blogPosting"
-        baseURL={baseURL}
-        path={`${work.path}/${post.slug}`}
+        baseURL={"https://"+baseURL}
+        path={`https://${work.path}/${post.slug}`}
         title={post.metadata.title}
         description={post.metadata.summary}
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.publishedAt}
-        image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
+        image={`https://${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
         author={{
           name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
+          url: `https://${baseURL}${about.path}`,
+          image: `https://${baseURL}${person.avatar}`,
         }}
       />
       <Column maxWidth="xs" gap="16">

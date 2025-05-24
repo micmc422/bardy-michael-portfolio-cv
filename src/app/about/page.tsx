@@ -22,7 +22,7 @@ export async function generateMetadata() {
     title: about.title,
     description: about.description,
     baseURL: "https://" + baseURL,
-    image: `${baseURL}/og?title=${encodeURIComponent(about.title)}`,
+    image: `https://${baseURL}/og?title=${encodeURIComponent(about.title)}`,
     path: about.path,
   });
 }
@@ -54,15 +54,15 @@ export default async function About() {
     <Column maxWidth="m">
       <Schema
         as="webPage"
-        baseURL={baseURL}
+        baseURL={"https://"+baseURL}
         title={about.title}
         description={about.description}
         path={about.path}
-        image={`${baseURL}/og?title=${encodeURIComponent(about.title)}`}
+        image={`https://${baseURL}/og?title=${encodeURIComponent(about.title)}`}
         author={{
           name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
+          url: `https://${baseURL}${about.path}`,
+          image: `https://${baseURL}${person.avatar}`,
         }}
       />
       {about.tableOfContent.display && (

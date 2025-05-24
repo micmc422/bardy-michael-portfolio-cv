@@ -11,7 +11,7 @@ export async function generateMetadata() {
     title: blog.title,
     description: blog.description,
     baseURL: "https://" + baseURL,
-    image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
+    image: `https://${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
     path: blog.path,
   });
 }
@@ -21,15 +21,15 @@ export default function Blog() {
     <Column maxWidth="s">
       <Schema
         as="blog"
-        baseURL={baseURL}
+        baseURL={"https://"+baseURL}
         title={blog.title}
         description={blog.description}
         path={blog.path}
-        image={`${baseURL}/og?title=${encodeURIComponent(blog.title)}`}
+        image={`https://${baseURL}/og?title=${encodeURIComponent(blog.title)}`}
         author={{
           name: person.name,
-          url: `${baseURL}/blog`,
-          image: `${baseURL}${person.avatar}`,
+          url: `https://${baseURL}/blog`,
+          image: `https://${baseURL}${person.avatar}`,
         }}
       />
       <Heading marginBottom="l" variant="display-strong-s">

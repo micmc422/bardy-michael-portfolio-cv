@@ -61,17 +61,17 @@ export default async function Blog({
         <Column as="section" maxWidth="xs" gap="l">
           <Schema
             as="blogPosting"
-            baseURL={baseURL}
+            baseURL={"https://"+baseURL}
             path={`${blog.path}/${post.slug}`}
             title={post.metadata.title}
             description={post.metadata.summary}
             datePublished={post.metadata.publishedAt}
             dateModified={post.metadata.publishedAt}
-            image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
+            image={`https://${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
             author={{
               name: person.name,
-              url: `${baseURL}${about.path}`,
-              image: `${baseURL}${person.avatar}`,
+              url: `https://${baseURL}${about.path}`,
+              image: `https://${baseURL}${person.avatar}`,
             }}
           />
           <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
