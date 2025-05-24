@@ -3,7 +3,7 @@
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, IconButton, Icon } from "@/once-ui/components";
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
-// import { Projects } from "@/components/work/Projects";
+import { Projects } from "@/components/work/Projects";
 // import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
@@ -103,6 +103,11 @@ export default async function Home() {
           </RevealFx>
         </Column>
       </Column>
+      <RevealFx translateY="16" delay={0.6}>
+        <Suspense>
+          <Projects range={[1, 1]} />
+        </Suspense>
+      </RevealFx>
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l" paddingTop="24">
@@ -114,6 +119,9 @@ export default async function Home() {
           </Flex>
         </Flex>
       )}
+      <Suspense>
+        <Projects range={[2]} />
+      </Suspense>
     </Column>
   );
 }
