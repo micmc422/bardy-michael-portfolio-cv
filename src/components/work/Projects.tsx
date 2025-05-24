@@ -1,16 +1,38 @@
+"use client";
+
 import { Column } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
-import { getPosts } from "@/app/utils/serverActions";
-import { use } from "react";
+import useSWR from "swr";
+import { Metadata } from "next";
 
 interface ProjectsProps {
   range?: [number, number?];
 }
+interface Projects {
+  metadata: Metadata & {
+    projectURL?: string;
+    publishedAt: string;
+    summary: string;
+    images: string[];
+    team: {
+      avatar: string;
+    }[],
+    link?: string;
+  };
+  slug: string;
+  content: string;
+}[]
+
+export const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 
 export function Projects({ range }: ProjectsProps) {
-  let allProjects = use(getPosts(["src", "app", "work", "projects"]));
-
-  const sortedProjects = allProjects.sort((a, b) => {
+  const { data, error, isLoading } = useSWR<Projects[]>('/api/projects', fetcher)
+  console.log(data);
+  if (!data || isLoading) {
+    return <>loading</>
+  }
+  const sortedProjects = data.sort((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
   });
 
@@ -26,7 +48,7 @@ export function Projects({ range }: ProjectsProps) {
           key={post.slug}
           href={`work/${post.slug}`}
           images={post.metadata.images}
-          title={post.metadata.title}
+          title={post.metadata.title as string}
           description={post.metadata.summary}
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}

@@ -1,8 +1,12 @@
-import { getPosts } from '@/app/utils/serverActions';
+"use client";
+
 import { Grid } from '@/once-ui/components';
 import Post from './Post';
 import { Suspense, use } from 'react';
+import useSWR from "swr";
+import { Metadata } from 'next';
 
+export const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 interface PostsProps {
     range?: [number] | [number, number];
@@ -11,15 +15,34 @@ interface PostsProps {
     direction?: 'row' | 'column';
 }
 
+interface Posts {
+    metadata: Metadata & {
+        projectURL?: string;
+        publishedAt: string;
+        summary: string;
+        images: string[];
+        team: {
+            avatar: string;
+        }[],
+        link?: string;
+    };
+    slug: string;
+    content: string;
+}[]
+  
 export function Posts({
     range,
     columns = '1',
     thumbnail = false,
     direction
 }: PostsProps) {
-    let allBlogs = use(getPosts(['src', 'app', 'blog', 'posts']));
+    const { data, error, isLoading } = useSWR<Posts[]>('/api/posts', fetcher)
+    console.log(data);
+    if (!data || isLoading) {
+        return <>loading</>
+    }
 
-    const sortedBlogs = allBlogs.sort((a, b) => {
+    const sortedBlogs = data.sort((a:any, b:any) => {
         return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
     });
 

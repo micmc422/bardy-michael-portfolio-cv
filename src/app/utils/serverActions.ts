@@ -3,6 +3,7 @@
 import path from "path";
 import { getMDXData } from "./utils";
 
+
 export async function getPosts(customPath = ["", "", "", ""]) {
     try {
         const postsDir = path.join(process.cwd(), ...customPath);
