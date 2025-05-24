@@ -1,3 +1,5 @@
+"use server"
+
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/serverActions";
@@ -8,8 +10,9 @@ import ScrollToHash from "@/components/ScrollToHash";
 import { Metadata } from 'next';
 import { Meta, Schema } from "@/once-ui/modules";
 
+const posts = await getPosts(["src", "app", "blog", "posts"])
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = await getPosts(["src", "app", "blog", "posts"]);
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -23,7 +26,6 @@ export async function generateMetadata({
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  const posts = await getPosts(["src", "app", "blog", "posts"])
   let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
@@ -43,7 +45,7 @@ export default async function Blog({
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
 
-  let post = (await getPosts(["src", "app", "blog", "posts"])).find((post) => post.slug === slugPath);
+  let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) {
     notFound();
