@@ -6,9 +6,13 @@ import { CustomMDX } from "@/components/mdx";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Row, Column, Button, Heading, AvatarGroup, Icon, HeadingNav, Text } from "@/once-ui/components";
 import { Schema } from "@/once-ui/modules";
+import { notFound } from "next/navigation";
 
-export async function PostPage({ postPromise }: { postPromise: Promise<PostType> }) {
+export async function PostPage({ postPromise }: { postPromise: Promise<PostType> | null | undefined }) {
     const post = await postPromise;
+    if (!post) {
+        notFound();
+    }
     const avatars =
         post.metadata.team?.map((person) => ({
             src: person.avatar,
