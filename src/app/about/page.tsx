@@ -6,7 +6,6 @@ import {
   Heading,
   Icon,
   IconButton,
-  RevealFx,
   SmartImage,
   Tag,
   Text,

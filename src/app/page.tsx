@@ -59,7 +59,7 @@ export default async function Home() {
               />
             </Flex>
           </RevealFx>
-          {home.featured.display && (
+          {false && home.featured.display && (
             <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
               <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
                 href={home.featured.href}>
@@ -87,7 +87,7 @@ export default async function Home() {
               arrowIcon
             >
               <Flex gap="8" vertical="center">
-                {about.avatar.display && (
+                {false && about.avatar.display && (
                   <Avatar
                     style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
                     src={person.avatar}
@@ -103,7 +103,7 @@ export default async function Home() {
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
       </RevealFx>
-      {routes["/blog"] && (
+      {false && routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l" paddingTop="24">
             <Heading as="h2" variant="display-strong-xs" wrap="balance">
