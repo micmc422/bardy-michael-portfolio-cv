@@ -5,13 +5,13 @@ import { Meta, Schema } from "@/once-ui/modules";
 import { Projects } from "@/components/work/Projects";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return {
     title: work.title,
     description: work.description,
     baseURL: baseURL,
     image: `${baseURL}/og?title=${encodeURIComponent(work.title)}`,
     path: work.path,
-  });
+  };
 }
 const demanderUnDevis = {
   display: true,

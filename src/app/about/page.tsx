@@ -18,13 +18,13 @@ import React, { JSX } from "react";
 import { Meta, Schema } from "@/once-ui/modules";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return {
     title: about.title,
     description: about.description,
     baseURL: baseURL,
     image: `${baseURL}/og?title=${encodeURIComponent(about.title)}`,
     path: about.path,
-  });
+  };
 }
 
 export default function About() {

@@ -1,3 +1,5 @@
+"use server"
+
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, IconButton, Icon } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
 
@@ -9,12 +11,12 @@ import { Meta, Schema } from "@/once-ui/modules";
 import styles from "@/components/about/about.module.scss";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return {
     title: home.title,
     description: home.description,
     baseURL: baseURL,
     path: home.path,
-  });
+  };
 }
 
 export default function Home() {

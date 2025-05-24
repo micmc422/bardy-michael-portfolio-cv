@@ -6,13 +6,13 @@ import { blog, person, newsletter } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return {
     title: blog.title,
     description: blog.description,
     baseURL: baseURL,
     image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
     path: blog.path,
-  });
+  };
 }
 
 export default function Blog() {
