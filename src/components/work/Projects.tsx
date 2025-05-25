@@ -1,9 +1,9 @@
-"use client";
 
 import { Column, Flex, Media, SmartLink } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
-import useSWR from "swr";
 import { Metadata } from "next";
+import { getProjects } from "@/app/utils/serverActions";
+import { use } from "react";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -23,15 +23,14 @@ interface Projects {
   content: string;
 }[]
 
-export const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
+async function getWorks() {
+  const data = await getProjects();
+  return data;
+}
 
 export function Projects({ range }: ProjectsProps) {
-  const { data, error, isLoading } = useSWR<Projects[]>('/api/projects', fetcher)
-  if (!data || isLoading) {
-    return <SkeletonProject />
-  }
-  const sortedProjects = data.sort((a, b) => {
+  const projects = use(getWorks());
+  const sortedProjects = projects.sort((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
   });
 
