@@ -1,11 +1,7 @@
-"use client";
-
 import { Grid } from '@/once-ui/components';
-import Post, { SkeletonPost } from './Post';
-import useSWR from "swr";
-import { PostType } from '@/app/utils/types';
-
-export const fetcher = (url: string) => fetch(url).then((res) => res.json());
+import Post from './Post';
+import { getPosts } from '@/app/utils/serverActions';
+import { use } from 'react';
 
 interface PostsProps {
     range?: [number] | [number, number];
@@ -14,6 +10,13 @@ interface PostsProps {
     direction?: 'row' | 'column';
 }
 
+async function fetchPosts() {
+    const data = await getPosts(['src', 'app', 'blog', 'posts']);
+    const sortedBlogs = data.sort((a: any, b: any) => {
+        return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+    });
+    return sortedBlogs;
+}
 
 export function Posts({
     range,
@@ -21,24 +24,7 @@ export function Posts({
     thumbnail = false,
     direction
 }: PostsProps) {
-    const { data, error, isLoading } = useSWR<PostType[]>('/api/posts', fetcher)
-    if (!data || isLoading) {
-        const loadingColumnsLength = columns === '1' ? 1 : columns === '2' ? 2 : 3;
-        const loadingArray = new Array(loadingColumnsLength).fill(null);
-        return <>
-            <Grid
-                columns={columns} mobileColumns="1"
-                fillWidth marginBottom="40" gap="12">
-                {loadingArray.map((post, i) => (
-                    <SkeletonPost key={i} />
-                ))}
-            </Grid>
-        </>
-    }
-
-    const sortedBlogs = data.sort((a: any, b: any) => {
-        return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
-    });
+    const sortedBlogs = use(fetchPosts())
 
     const displayedBlogs = range
         ? sortedBlogs.slice(
