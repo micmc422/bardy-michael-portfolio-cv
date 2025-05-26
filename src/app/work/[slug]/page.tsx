@@ -34,12 +34,12 @@ export async function generateMetadata({
   const project = await getprojectData(slug)
 
   if (!project) return {};
-
+  console.log(project)
   return Meta.generate({
     title: project.metadata.title,
     description: project.metadata.summary,
     baseURL: baseURL,
-    image: project.metadata.image ? `${baseURL}${project.metadata.image}` : `${baseURL}/og?title=${project.metadata.title}`,
+    image: project.metadata.image ? `${baseURL}/og?title=${project.metadata.title}&image=${project.metadata.image}` : `${baseURL}/og?title=${project.metadata.title}`,
     path: `${work.path}/${project.slug}`,
   });
 }
