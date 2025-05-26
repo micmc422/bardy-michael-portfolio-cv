@@ -10,13 +10,14 @@ export async function GET(request: Request) {
   const url = new URL(request.url);
   const title = url.searchParams.get("title") || "Portfolio";
   const date = searchParams.get("date") || new Date().toLocaleDateString()
-  const category = searchParams.get("category") || "Article"
+  const image = searchParams.get("image")
   const readTime = searchParams.get("readTime") || "5 min read"
 
   // Font loading, process.cwd() is Next.js project directory
   const JosefinSansBold = await fetch(baseURL + '/fonts/JosefinSans-Bold.ttf')
   const JosefinSans = await fetch(baseURL + '/fonts/JosefinSans-Medium.ttf')
   // background-image: radial-gradient( circle 404px at 20.3% 15.9%,  rgba(0,79,255,1) 0%, rgba(0,240,255,1) 90% );
+  console.log(`${baseURL}${image}`)
   return new ImageResponse(
     <div
       style={{
@@ -46,18 +47,6 @@ export async function GET(request: Request) {
       />
       <div
         style={{
-          opacity: 0.9,
-          position: "absolute",
-          top: "-200px",
-          right: "-200px",
-          width: "600px",
-          height: "600px",
-          borderRadius: "100%",
-          background: "linear-gradient(-135deg, #FA541C 0%,rgba(214, 40, 40, 1) 100%)",
-        }}
-      />
-      <div
-        style={{
 
           position: "absolute",
           bottom: "-400px",
@@ -68,6 +57,31 @@ export async function GET(request: Request) {
           background: "linear-gradient(90deg, #FA541C 0%, #D62828 100%)",
         }}
       />
+      {image ? <img
+        src={`${baseURL}${image}`}
+        alt={title + " image"}
+        style={{
+          position: "absolute",
+          top: "-200px",
+          right: "-200px",
+          width: "600px",
+          height: "600px",
+          borderRadius: "100%",
+          objectFit: "cover"
+        }}
+      />
+        : <div
+          style={{
+            position: "absolute",
+            top: "-200px",
+            right: "-200px",
+            width: "600px",
+            height: "600px",
+            borderRadius: "100%",
+            background: "linear-gradient(-135deg, #FA541C 0%,rgba(214, 40, 40, 1) 100%)",
+          }}
+        />
+      }
 
       {/* Header */}
       <div
