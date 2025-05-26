@@ -3,7 +3,6 @@ import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 
 export const runtime = "edge";
-export const alt = 'Opngraph image pour le portfolio d\'Occitaweb';
 export const size = {
   width: 1200,
   height: 630,
