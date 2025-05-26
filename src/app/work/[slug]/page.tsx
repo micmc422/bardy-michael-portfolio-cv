@@ -34,7 +34,7 @@ export async function generateMetadata({
   const project = await getprojectData(slug)
 
   if (!project) return {};
-  console.log(project)
+
   return Meta.generate({
     title: project.metadata.title,
     description: project.metadata.summary,
