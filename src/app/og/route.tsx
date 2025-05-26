@@ -14,8 +14,8 @@ export async function GET(request: Request) {
   const readTime = searchParams.get("readTime") || "5 min read"
 
   // Font loading, process.cwd() is Next.js project directory
-  const JosefinSansBold = await fetch('http://localhost:3000/fonts/JosefinSans-Bold.ttf')
-  const JosefinSans = await fetch('http://localhost:3000/fonts/JosefinSans-Medium.ttf')
+  const JosefinSansBold = await fetch(baseURL + '/fonts/JosefinSans-Bold.ttf')
+  const JosefinSans = await fetch(baseURL + '/fonts/JosefinSans-Medium.ttf')
   // background-image: radial-gradient( circle 404px at 20.3% 15.9%,  rgba(0,79,255,1) 0%, rgba(0,240,255,1) 90% );
   return new ImageResponse(
     <div
@@ -46,7 +46,7 @@ export async function GET(request: Request) {
       />
       <div
         style={{
-          opacity:0.9,
+          opacity: 0.9,
           position: "absolute",
           top: "-200px",
           right: "-200px",
