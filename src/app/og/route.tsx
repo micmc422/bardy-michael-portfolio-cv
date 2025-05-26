@@ -3,11 +3,6 @@ import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 
 export const runtime = "edge";
-export const size = {
-  width: 1200,
-  height: 630,
-}
-export const contentType = 'image/png'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
