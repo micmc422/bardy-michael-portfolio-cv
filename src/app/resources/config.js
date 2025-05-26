@@ -14,13 +14,14 @@ const protectedRoutes = {
   "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
 };
 
-import { Geist } from "next/font/google";
+import { Josefin_Sans } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
-const primaryFont = Geist({
+const primaryFont = Josefin_Sans({
   variable: "--font-primary",
   subsets: ["latin"],
   display: "swap",
+  weight:["400"]
 });
 
 const monoFont = Geist_Mono({

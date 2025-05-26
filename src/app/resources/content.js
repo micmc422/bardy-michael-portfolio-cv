@@ -9,6 +9,7 @@ const person = {
   avatar: "/images/avatar.jpg",
   email: "michael.bardy@occitaweb.fr",
   location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  place: "Albi, France",
   languages: ["Français"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -81,7 +82,7 @@ const about = {
   path: "/about",
   label: "Qui suis-je ?",
   title: `${person.name}`,
-  description: `Découvrez ${person.name}, ${person.role} basé en ${person.location}`,
+  description: `Découvrez ${person.name}, ${person.role} basé à ${person.place}`,
   tableOfContent: {
     display: true,
     subItems: false,

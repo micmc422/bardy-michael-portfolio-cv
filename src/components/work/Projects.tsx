@@ -1,4 +1,3 @@
-
 import { Column, Flex, Media, SmartLink } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
 import { Metadata } from "next";
