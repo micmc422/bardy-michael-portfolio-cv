@@ -9,7 +9,6 @@ import { formatDate } from "@/app/utils/formatDate";
 
 
 interface CommentSectionProps extends React.ComponentProps<typeof Column> {
-    children: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
     slug: string,
@@ -17,7 +16,7 @@ interface CommentSectionProps extends React.ComponentProps<typeof Column> {
 }
 
 
-const CommentSection = forwardRef<HTMLDivElement, CommentSectionProps & { slug: string, comments: Comment[] }>(({ children, className, style, slug, comments, ...rest }, ref) => {
+const CommentSection = forwardRef<HTMLDivElement, CommentSectionProps & { slug: string, comments: Comment[] }>(({ className, style, slug, comments, ...rest }, ref) => {
     const rootComments = comments.filter(({ parent }) => !parent)
     return (<Column paddingTop="l" gap="m" fillWidth ref={ref}>
         <Text variant="heading-strong-l">Commentaires</Text>
@@ -188,3 +187,7 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, clas
     </Column>
 
 });
+
+AddComment.displayName = "AddComment"
+
+export { AddComment }

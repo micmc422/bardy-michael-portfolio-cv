@@ -96,7 +96,7 @@ export default async function Blog({
             {post.metadata.sources && post.metadata.sources.length > 0 && (
               <SourcesComponent sources={post.metadata.sources} />
             )}
-            <CommentSection slug={post.slug} comments={comments} children={undefined} />
+            <CommentSection slug={post.slug} comments={comments} />
           </Column>
           <ScrollToHash />
         </Column>
