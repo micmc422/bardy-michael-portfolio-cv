@@ -118,6 +118,7 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, clas
             isOpen={isOpen}
             onClose={() => setIsOpen(false)}
             title="Ajouter un commentaire"
+            aria-label="Ajouter un commentaire"
             footer={<Feedback
                 variant="success"
                 title="Information"
@@ -131,6 +132,7 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, clas
                             id="author"
                             name="author"
                             label="Nom"
+                            aria-label="Nom"
                             hasPrefix={
                                 <Icon marginLeft="4" onBackground="neutral-weak" name="person" size="xs" />
                             }
@@ -139,6 +141,7 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, clas
                             id="email"
                             name="email"
                             label="Courriel"
+                            aria-label="Courriel"
                             hasPrefix={
                                 <Icon marginLeft="4" onBackground="neutral-weak" name="email" size="xs" />
                             }
@@ -151,6 +154,7 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, clas
                         id="content"
                         name="content"
                         label="Message"
+                        aria-label="Message"
                     />
                     <Row vertical="start" gap="16" mobileDirection="column">
                         <Input id="url"
@@ -173,10 +177,12 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, clas
                     <input type="hidden" name="allowEmailUsage" value={isChecked ? "true" : "false"} />
                     {commentId && <input type="hidden" name="parentId" value={commentId} />}
                     <Row fillWidth gap="16">
-                        <SubmitButton variant="primary" size="m">
+                        <SubmitButton variant="primary" size="m" aria-label="Envoyer le commentaire"
+                        >
                             Commenter
                         </SubmitButton>
-                        <Button variant="tertiary" onClick={() => setIsOpen(false)}>
+                        <Button variant="tertiary" onClick={() => setIsOpen(false)} aria-label="Annuler et fermer la fenêtre"
+                        >
                             Annuler
                         </Button>
                     </Row>

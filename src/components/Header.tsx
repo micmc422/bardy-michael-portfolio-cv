@@ -105,14 +105,14 @@ export const Header = () => {
                     prefixIcon="grid"
                     href="/work"
                     label={work.label}
-                    aria-label={about.label}
+                    aria-label={work.label}
                     selected={pathname.startsWith("/work")}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="grid"
                     href="/work"
-                    aria-label={about.label}
+                    aria-label={work.label}
                     selected={pathname.startsWith("/work")}
                   />
                 </>
@@ -124,14 +124,14 @@ export const Header = () => {
                     prefixIcon="book"
                     href="/blog"
                     label={blog.label}
-                    aria-label={about.label}
+                    aria-label={blog.label}
                     selected={pathname.startsWith("/blog")}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="book"
                     href="/blog"
-                    aria-label={about.label}
+                    aria-label={blog.label}
                     selected={pathname.startsWith("/blog")}
                   />
                 </>

@@ -42,12 +42,12 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
     const sizeInRem = typeof size === "number" ? `${size}rem` : undefined;
     const sizeStyle = sizeInRem
       ? {
-          width: sizeInRem,
-          height: sizeInRem,
-          minWidth: sizeInRem,
-          minHeight: sizeInRem,
-          ...style,
-        }
+        width: sizeInRem,
+        height: sizeInRem,
+        minWidth: sizeInRem,
+        minHeight: sizeInRem,
+        ...style,
+      }
       : style;
     const isEmpty = empty || (!src && !value);
 
@@ -104,7 +104,7 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
             onBackground="neutral-weak"
             variant={`body-default-${typeof size === "string" ? size : "m"}`}
             className={styles.value}
-            aria-label={`Avatar with initials ${value}`}
+            aria-label={`Avatar avec initiales ${value}`}
           >
             {value}
           </Text>

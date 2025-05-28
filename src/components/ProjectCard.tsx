@@ -34,9 +34,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Column fillWidth gap="m">
       <Carousel
         sizes="(max-width: 960px) 100vw, 960px"
-        images={images.map((image) => ({
+        images={images.map((image, i) => ({
           src: image,
-          alt: title,
+          alt: `Aperçu n° ${i +1} de : ` + title,
         }))}
       />
       <Flex
