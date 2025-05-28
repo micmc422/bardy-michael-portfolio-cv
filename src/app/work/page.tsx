@@ -6,7 +6,6 @@ import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import { Projects } from "@/components/work/Projects";
 
-export const revalidate = 3600;
 
 export async function generateMetadata() {
   return Meta.generate({

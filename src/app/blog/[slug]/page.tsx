@@ -9,7 +9,6 @@ import { getComments, getPostBySlug, getPosts } from "@/app/utils/serverActions"
 import { Metadata } from "next";
 import CommentSection from "@/components/CommentSection";
 
-export const revalidate = 3600;
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
   const projects = await getPosts({});
@@ -97,7 +96,7 @@ export default async function Blog({
             {post.metadata.sources && post.metadata.sources.length > 0 && (
               <SourcesComponent sources={post.metadata.sources} />
             )}
-            <CommentSection slug={post.slug} comments={comments} />
+            <CommentSection slug={post.slug} comments={comments} children={undefined} />
           </Column>
           <ScrollToHash />
         </Column>

@@ -26,6 +26,8 @@ import {
   HiMoon,
   HiSun,
   HiOutlineDocument,
+  HiArrowDownRight,
+  HiOutlinePencilSquare,
 } from "react-icons/hi2";
 
 import {
@@ -39,6 +41,7 @@ import {
 import { FaDiscord, FaGithub, FaLinkedin, FaX } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
+  repondre: HiOutlinePencilSquare,
   chevronUp: HiChevronUp,
   chevronDown: HiChevronDown,
   chevronRight: HiChevronRight,
