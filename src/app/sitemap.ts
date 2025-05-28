@@ -1,6 +1,8 @@
 import { getPosts, getProjects } from "@/app/utils/serverActions";
 import { baseURL, routes as routesConfig } from "@/app/resources";
 
+export const revalidate = 3600;
+
 export default async function sitemap() {
   const blogs = (await getPosts({ limit: "all" })).map((post) => ({
     url: `${baseURL}/blog/${post.slug}`,

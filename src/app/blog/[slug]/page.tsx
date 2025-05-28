@@ -5,9 +5,11 @@ import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Meta, Schema } from "@/once-ui/modules";
-import { getPostBySlug, getPosts } from "@/app/utils/serverActions";
+import { getComments, getPostBySlug, getPosts } from "@/app/utils/serverActions";
 import { Metadata } from "next";
+import CommentSection from "@/components/CommentSection";
 
+export const revalidate = 3600;
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
   const projects = await getPosts({});
@@ -16,6 +18,10 @@ async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
 
 async function getPostData(slug: string) {
   return await getPostBySlug(slug);
+}
+async function fetchComments(slug: string) {
+    const { comments } = await getComments({ slug });
+    return comments;
 }
 
 
@@ -47,7 +53,7 @@ export default async function Blog({
 }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getPostData(slug)
-
+  const comments = await fetchComments(slug)
   if (!post) {
     notFound();
   }
@@ -91,6 +97,7 @@ export default async function Blog({
             {post.metadata.sources && post.metadata.sources.length > 0 && (
               <SourcesComponent sources={post.metadata.sources} />
             )}
+            <CommentSection slug={post.slug} comments={comments} />
           </Column>
           <ScrollToHash />
         </Column>

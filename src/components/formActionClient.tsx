@@ -1,0 +1,60 @@
+"use client"
+
+import { Button, ButtonProps, useToast } from "@/once-ui/components";
+import { redirect, useRouter } from "next/navigation";
+import { FormHTMLAttributes, ReactNode, TransitionStartFunction, useActionState, useContext, useRef } from "react"
+import { createContext } from 'react'
+
+interface FormContextType {
+    isSubmitting: boolean;
+    startTransition?: TransitionStartFunction
+};
+
+export interface ActionToastResponse {
+    variant: 'success' | 'danger';
+    message: string;
+    action?: ReactNode;
+}
+
+const FormContext = createContext<FormContextType>({
+    isSubmitting: false,
+})
+
+interface CustomFormProps {
+    action: (data: FormData | void | null) => Promise<ActionToastResponse | null | void>;
+    children: React.ReactNode;
+}
+export const useFormContext = () => useContext(FormContext);
+
+export default function FormComponent({ action, ...props }: CustomFormProps
+) {
+    const { addToast } = useToast();
+    const formRef = useRef<HTMLFormElement>(null);
+    const route = useRouter()
+    const [state, formAction, isSubmitting] = useActionState(handleSubmit, null);
+
+    async function handleSubmit(prev: any, formData: FormData) {
+        if (!formData) throw new Error('Aucune donnée de formulaire !');
+        try {
+            const result = await action(formData);
+        } catch (e) {
+            console.log(e);
+        } finally {
+            route.refresh()
+        }
+    }
+    return (<FormContext.Provider value={{ isSubmitting }}>
+        <form ref={formRef} {...props} action={formAction} />
+    </FormContext.Provider>
+    )
+}
+
+export function SubmitButton({ children, ...props }: ButtonProps) {
+    const { isSubmitting } = useFormContext?.();
+    if (!useFormContext) return <Button type="submit" {...props}>
+        {children}
+    </Button>;
+    return <Button type="submit" disabled={isSubmitting} loading={isSubmitting} {...props}>
+        {children}
+    </Button>
+}

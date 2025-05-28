@@ -11,6 +11,8 @@ import ScrollToHash from "@/components/ScrollToHash";
 import { Meta, Schema } from "@/once-ui/modules";
 import { Metadata } from "next";
 
+export const revalidate = 3600;
+
 async function getAllprojectsSlugs(): Promise<{ slug: string }[]> {
   const projects = await getProjects({});
   return projects.map(({ slug }) => ({ slug }));

@@ -1,11 +1,13 @@
 "use server"
 
 import { wisp } from "./wispClient";
-import { Content } from "@wisp-cms/client";
+import { Content, CreateCommentInput } from "@wisp-cms/client";
 import { PostType, WispPost } from "./types";
 import { person } from "../resources";
 // const TurndownService = require('turndown');
 import TurndownService from 'turndown';
+import { ActionToastResponse } from "@/components/formActionClient";
+import { revalidatePath } from "next/cache";
 const baseTeam = [{
     avatar: person.avatar,
     name: person.name,
@@ -136,6 +138,52 @@ function formatPostData(post: WispPost): PostType {
     return data
 }
 
-/*
-https://shorturl.at/DuiPd,https://shorturl.at/vQKnZ,https://shorturl.at/88anA,https://t.ly/IMwMw,https://t.ly/a-QwT,https://t.ly/utXJD,https://t.ly/0-YBQ
-*/
+export async function getComments({ slug, page = 1, limit = 20 }: { slug: string, page?: number, limit?: number | "all" }) {
+    const { comments, config } = await wisp.getComments({ slug, page, limit });
+    return {
+        comments,
+        config,
+    };
+}
+
+export async function createComment(formData: FormData | void | null): Promise<ActionToastResponse> {
+    const slug = formData?.get("slug") as string;
+    if (!slug) {
+        return { variant: "danger", message: "Slug est requis pour créer un commentaire." }
+    }
+    const author = formData?.get("author") as string;
+    if (!author) {
+        return { variant: "danger", message: "Author est requis pour créer un commentaire." }
+    }
+    const email = formData?.get("email") as string;
+    if (!email) {
+        return { variant: "danger", message: "Email est requis pour créer un commentaire." }
+    }
+    const content = formData?.get("content") as string;
+    if (!content) {
+        return { variant: "danger", message: "Content est requis pour créer un commentaire." }
+    }
+    const allowEmailUsage = !formData?.get("allowEmailUsage");
+    const createCommentParams: CreateCommentInput = {
+        slug,
+        author,
+        email,
+        content,
+        allowEmailUsage,
+    }
+    const url = formData?.get("url") as string;
+    if (url) createCommentParams.url = url
+    const parentId = formData?.get("parentId") as string;
+    if (parentId) createCommentParams.parentId = parentId
+    console.log("Creating comment with formData:", createCommentParams);
+
+    const res = await wisp.createComment(createCommentParams);
+    console.log("Comment created:", res);
+    if (res.success) {
+        revalidatePath("/blog/" + slug)
+        return { variant: "success", message: "Commentaire créé avec succès. Pour qu’il soit visible, veuillez valider l’e-mail qui vous a été envoyé.", action: null };
+    }
+    const { error } = res as unknown as { error: { message: string, code: string } };
+    const erreur = error?.message
+    return { variant: "danger", message: "Oups une erreur c'est produite : " + erreur, action: null };
+}
