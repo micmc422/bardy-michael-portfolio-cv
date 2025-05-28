@@ -12,6 +12,7 @@
     "@mdx-js/loader": "^3.1.0",
     "@next/mdx": "^15.1.8",
     "@vercel/analytics": "^1.5.0",
+    "@wisp-cms/client": "^0.0.23",
     "classnames": "^2.5.1",
     "gray-matter": "^4.0.3",
     "next": "^15.1.8",
@@ -27,13 +28,15 @@
     "remark-html": "^16.0.1",
     "sass": "^1.89.0",
     "sharp": "^0.34.2",
-    "swr": "^2.3.3"
+    "swr": "^2.3.3",
+    "turndown": "^7.2.0"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
     "@types/node": "^22.15.21",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
+    "@types/turndown": "^5.0.5",
     "eslint": "^9.27.0",
     "eslint-config-next": "^15.1.8",
     "postcss-custom-media": "^11.0.5",

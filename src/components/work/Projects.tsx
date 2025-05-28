@@ -23,14 +23,14 @@ interface Projects {
 }[]
 
 async function getWorks() {
-  const data = await getProjects();
+  const data = await getProjects({});
   return data;
 }
 
 export function Projects({ range }: ProjectsProps) {
   const projects = use(getWorks());
   const sortedProjects = projects.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+    return new Date(b.metadata.publishedAt as string).getTime() - new Date(a.metadata.publishedAt as string).getTime();
   });
 
   const displayedProjects = range
@@ -44,10 +44,10 @@ export function Projects({ range }: ProjectsProps) {
           priority={index < 2}
           key={post.slug}
           href={`work/${post.slug}`}
-          images={post.metadata.images}
+          images={post.metadata.images || []}
           title={post.metadata.title as string}
           description={post.metadata.summary}
-          content={post.content}
+          content={post.content || ""}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
           link={post.metadata.link || ""}
         />

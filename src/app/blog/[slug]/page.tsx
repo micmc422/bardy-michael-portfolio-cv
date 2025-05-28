@@ -1,21 +1,21 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
-import { AvatarGroup, Button, Column, Heading, HeadingNav, Icon, Row, Text } from "@/once-ui/components";
+import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, Text } from "@/once-ui/components";
 import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Meta, Schema } from "@/once-ui/modules";
-import { getPost, getPosts } from "@/app/utils/serverActions";
+import { getPostBySlug, getPosts } from "@/app/utils/serverActions";
 import { Metadata } from "next";
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
-  const projects = await getPosts();
+  const projects = await getPosts({});
   return projects.map(({ slug }) => ({ slug }));
 }
 
 async function getPostData(slug: string) {
-  return await getPost(slug);
+  return await getPostBySlug(slug);
 }
 
 
@@ -34,7 +34,7 @@ export async function generateMetadata({
   if (!project) return {};
 
   return Meta.generate({
-    title: project.metadata.title,
+    title: project.metadata.title as string,
     description: project.metadata.summary,
     baseURL: baseURL,
     image: project.metadata.image ? `${baseURL}/og?title=${project.metadata.title}&image=${project.metadata.image}` : `${baseURL}/og?title=${project.metadata.title}`,
@@ -56,7 +56,6 @@ export default async function Blog({
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
-
   return (
     <Row fillWidth>
       <Row maxWidth={12} hide="m" />
@@ -66,11 +65,11 @@ export default async function Blog({
             as="blogPosting"
             baseURL={baseURL}
             path={`${blog.path}/${post.slug}`}
-            title={post.metadata.title}
+            title={post.metadata.title as string}
             description={post.metadata.summary}
-            datePublished={post.metadata.publishedAt}
-            dateModified={post.metadata.publishedAt}
-            image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
+            datePublished={post.metadata.publishedAt as string}
+            dateModified={post.metadata.publishedAt as string}
+            image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title as string)}`}
             author={{
               name: person.name,
               url: `${baseURL}${about.path}`,
@@ -80,7 +79,7 @@ export default async function Blog({
           <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
             Publications
           </Button>
-          <Heading variant="display-strong-s">{post.metadata.title}</Heading>
+          <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
           <Row gap="12" vertical="center">
             {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
             <Text variant="body-default-s" onBackground="neutral-weak">
@@ -88,7 +87,10 @@ export default async function Blog({
             </Text>
           </Row>
           <Column as="article" fillWidth>
-            <CustomMDX source={post.content} />
+            <CustomMDX source={post.content || ""} />
+            {post.metadata.sources && post.metadata.sources.length > 0 && (
+              <SourcesComponent sources={post.metadata.sources} />
+            )}
           </Column>
           <ScrollToHash />
         </Column>
@@ -108,4 +110,11 @@ export default async function Blog({
       </Column>
     </Row>
   );
+}
+
+function SourcesComponent({ sources }: { sources: string[] }) {
+  return (
+    <Grid fillWidth columns="2" gap="16" className="mt-8">
+      <>{sources.map((source, index) => <OgCard key={index} url={source} />)}</>
+    </Grid>)
 }

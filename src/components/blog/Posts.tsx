@@ -11,7 +11,7 @@ interface PostsProps {
 }
 
 async function fetchPosts() {
-    const data = await getPosts(['src', 'app', 'blog', 'posts']);
+    const data = await getPosts({});
     const sortedBlogs = data.sort((a: any, b: any) => {
         return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
     });

@@ -12,6 +12,14 @@ const nextConfig = {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "imagedelivery.net",
+      }
+    ],
+  },
 };
-
+// imagedelivery.net
 export default withMDX(nextConfig);

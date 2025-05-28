@@ -13,7 +13,6 @@ import {
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
-import { RDV } from "./Rdv";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -32,6 +31,13 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
   if (href.startsWith("#")) {
     return (
       <a href={href} {...props}>
+        {children}
+      </a>
+    );
+  }
+  if (props.style) {
+    return (
+      <a href={href}>
         {children}
       </a>
     );

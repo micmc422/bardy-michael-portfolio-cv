@@ -10,6 +10,7 @@ export interface OgData {
     faviconUrl: string;
     image: string;
     url: string;
+    canonical: string;
 }
 
 interface OgCardProps extends React.ComponentProps<typeof Card> {
@@ -67,13 +68,12 @@ const getFaviconUrl = (url: string | undefined): string => {
 const OgCard = ({ url, ogData: providedOgData, direction = "column", ...card }: OgCardProps) => {
     const { ogData: fetchedOgData, loading } = useOgData(url || null);
     const data = providedOgData || fetchedOgData;
-
     const proxiedImageUrl = useMemo(() => {
         return getProxiedImageUrl(data?.image);
     }, [data?.image]);
 
     const faviconUrl = useMemo(() => {
-        return data?.faviconUrl || getFaviconUrl(data?.url);
+        return data?.faviconUrl || getFaviconUrl(data?.canonical || data?.url);
     }, [data?.faviconUrl, data?.url]);
 
     if (!data || (!data.image && !data.title)) {
@@ -108,7 +108,7 @@ const OgCard = ({ url, ogData: providedOgData, direction = "column", ...card }: 
                             unoptimized={true}
                         />
                     )}
-                    {data.url && <Text variant="label-default-s" onBackground="neutral-weak">{formatDisplayUrl(data.url)}</Text>}
+                    {data.url && <Text variant="label-default-s" onBackground="neutral-weak">{formatDisplayUrl(data.canonical || data.url)}</Text>}
                 </Row>
                 <Column fillWidth gap="2" paddingX="4">
                     {data.title && <Text variant="label-strong-m">{data.title}</Text>}

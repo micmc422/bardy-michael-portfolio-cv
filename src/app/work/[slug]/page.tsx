@@ -2,7 +2,7 @@
 
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
-import { getPost, getPosts, getProject, getProjects } from "@/app/utils/serverActions";
+import { getProject, getProjects } from "@/app/utils/serverActions";
 import { AvatarGroup, Button, Column, Flex, Heading, OgCard, SmartImage, Text } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
@@ -12,12 +12,23 @@ import { Meta, Schema } from "@/once-ui/modules";
 import { Metadata } from "next";
 
 async function getAllprojectsSlugs(): Promise<{ slug: string }[]> {
-  const projects = await getProjects();
+  const projects = await getProjects({});
   return projects.map(({ slug }) => ({ slug }));
 }
 
 async function getprojectData(slug: string) {
-  return await getProject(slug);
+  try {
+    const localProject = await getProject(slug);
+    if (localProject) {
+      return localProject;
+    }
+
+    return await getProject(slug);
+  }
+  catch (error) {
+    console.error("Error fetching project data:", error);
+    return null;
+  }
 }
 
 
@@ -31,16 +42,16 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = await getprojectData(slug)
+  const post = await getprojectData(slug)
 
-  if (!project) return {};
+  if (!post) notFound();
 
   return Meta.generate({
-    title: project.metadata.title,
-    description: project.metadata.summary,
+    title: post.metadata.title as string,
+    description: post.metadata.summary,
     baseURL: baseURL,
-    image: project.metadata.image ? `${baseURL}/og?title=${project.metadata.title}&image=${project.metadata.image}` : `${baseURL}/og?title=${project.metadata.title}`,
-    path: `${work.path}/${project.slug}`,
+    image: post.metadata.image ? `${baseURL}/og?title=${post.metadata.title}&image=${post.metadata.image}` : `${baseURL}/og?title=${post.metadata.title}`,
+    path: `${work.path}/${post.slug}`,
   });
 }
 
@@ -49,28 +60,26 @@ export default async function Project({
 }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-  let post = (await getPosts(["src", "app", "work", "projects"])).find((post) => post.slug === slugPath);
-
-  if (!post) {
-    notFound();
-  }
+  let post = await getprojectData(slugPath);
+  if (!post) notFound();
 
   const avatars =
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
-
+  const publishedAt = post.metadata.publishedAt ? new Date(post.metadata.publishedAt) : new Date();
+  const ModifiedAt = post.metadata.updatedAt ? new Date(post.metadata.updatedAt) : new Date();
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
       <Schema
         as="blogPosting"
         baseURL={baseURL}
         path={`${work.path}/${post.slug}`}
-        title={post.metadata.title}
+        title={post.metadata.title as string}
         description={post.metadata.summary}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.publishedAt}
-        image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
+        datePublished={`${publishedAt.getFullYear()}-${publishedAt.getMonth() + 1}-${publishedAt.getDate()}`}
+        dateModified={`${ModifiedAt.getFullYear()}-${ModifiedAt.getMonth() + 1}-${ModifiedAt.getDate()}`}
+        image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title as string)}`}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -81,15 +90,15 @@ export default async function Project({
         <Button data-border="rounded" href="/work" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
           Projets
         </Button>
-        <Heading variant="display-strong-s">{post.metadata.title}</Heading>
+        <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
       </Column>
-      {post.metadata.images.length > 0 && (
+      {post.metadata.image && (
         <SmartImage
           priority
           aspectRatio="16 / 9"
           radius="m"
           alt="image"
-          src={post.metadata.images[0]}
+          src={post?.metadata?.image}
         />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
@@ -99,7 +108,7 @@ export default async function Project({
             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
           </Text>
         </Flex>
-        <CustomMDX source={post.content} />
+        <CustomMDX source={post.content || ""} />
         <OgCard
           url={post.metadata.projectURL}
         />

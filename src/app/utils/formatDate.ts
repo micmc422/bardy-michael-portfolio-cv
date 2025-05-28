@@ -1,6 +1,5 @@
 export function formatDate(date: string, includeRelative = false) {
   const currentDate = new Date();
-
   if (!date.includes("T")) {
     date = `${date}T00:00:00`;
   }
@@ -13,11 +12,11 @@ export function formatDate(date: string, includeRelative = false) {
   let formattedDate = "";
 
   if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
+    formattedDate = `il y a ${yearsAgo} an`;
   } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
+    formattedDate = `Il y a ${monthsAgo} mois`;
   } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
+    formattedDate = `Il y a ${daysAgo} jours`;
   } else {
     formattedDate = "Today";
   }

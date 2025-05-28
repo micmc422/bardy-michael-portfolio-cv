@@ -47,6 +47,14 @@ async function fetchWithTimeout(url: string, timeout = 5000) {
     }
 }
 
+function extractTagContent(html: string, regexes: RegExp[]): string {
+    for (const regex of regexes) {
+        const match = html.match(regex);
+        if (match?.[1]) return match[1].trim();
+    }
+    return '';
+}
+
 async function extractMetadata(html: string) {
     const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
     const descMatch = html.match(/<meta[^>]*name="description"[^>]*content="([^"]+)"[^>]*>/i)
@@ -54,6 +62,9 @@ async function extractMetadata(html: string) {
         || html.match(/<meta[^>]*property="og:description"[^>]*content="([^"]+)"[^>]*>/i);
     const imageMatch = html.match(/<meta[^>]*property="og:image"[^>]*content="([^"]+)"[^>]*>/i)
         || html.match(/<meta[^>]*content="([^"]+)"[^>]*property="og:image"[^>]*>/i);
+    const canonical = extractTagContent(html, [
+        /<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/i,
+    ]);
 
     const title = titleMatch?.[1]?.trim() || '';
     const description = descMatch?.[1]?.trim() || '';
@@ -63,6 +74,7 @@ async function extractMetadata(html: string) {
         title: decodeHTMLEntities(title),
         description: decodeHTMLEntities(description),
         image: image,
+        canonical: canonical || '',
     };
 }
 
@@ -83,7 +95,6 @@ export async function GET(request: Request) {
 
         const html = await response.text();
         const metadata = await extractMetadata(html);
-
         return NextResponse.json({
             ...metadata,
             url,
