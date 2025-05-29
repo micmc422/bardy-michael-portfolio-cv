@@ -1,17 +1,34 @@
 import { ImageResponse } from "next/og";
 import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
+import { getPostDataBySlug, getProjectData } from "../utils/serverActions";
 
 export const runtime = "edge";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-
-  const url = new URL(request.url);
-  const title = url.searchParams.get("title") || "Portfolio";
-  const date = searchParams.get("date") || new Date().toLocaleDateString()
-  const image = searchParams.get("image")
-  const readTime = searchParams.get("readTime") || "5 min read"
+  let now = new Date();
+  let date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+  const slug = searchParams.get("slug");
+  const type = searchParams.get("type")
+  let image = undefined;
+  let title = "Portfolio Michaël Bardy"
+  if (type === "post" && slug) {
+    const post = await getPostDataBySlug(slug);
+    const postDate = new Date(post.publishedAt);
+    date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
+    title = post.title;
+    image = post.image;
+  }
+  if (type === "project" && slug) {
+    const project = await getProjectData(slug);
+    if (project) {
+      const postDate = new Date(project.createdAt);
+      date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
+      title = project.content.title;
+      image = project.content.image;
+    }
+  }
 
   // Font loading, process.cwd() is Next.js project directory
   const JosefinSansBold = await fetch(baseURL + '/fonts/JosefinSans-Bold.ttf')
@@ -43,29 +60,18 @@ export async function GET(request: Request) {
             "radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%)",
         }}
       />
-      <div
-        style={{
-
-          position: "absolute",
-          bottom: "-400px",
-          left: "-200px",
-          width: "1000px",
-          height: "1000px",
-          borderRadius: "100%",
-          background: "linear-gradient(90deg, #FA541C 0%, #D62828 100%)",
-        }}
-      />
       {image ? <img
-        src={`${baseURL}${image}`}
+        src={`${image}`}
         alt={title + " image"}
         style={{
           position: "absolute",
-          top: "-200px",
+          top: "-100px",
           right: "-200px",
-          width: "600px",
-          height: "600px",
+          width: "800px",
+          height: "800px",
           borderRadius: "100%",
-          objectFit: "cover"
+          objectFit: "cover",
+          zIndex: "-1"
         }}
       />
         : <div
@@ -80,6 +86,18 @@ export async function GET(request: Request) {
           }}
         />
       }
+      <div
+        style={{
+
+          position: "absolute",
+          bottom: "-400px",
+          left: "-200px",
+          width: "1000px",
+          height: "1000px",
+          borderRadius: "100%",
+          background: "linear-gradient(90deg, #FA541C 0%, #D62828 100%)",
+        }}
+      />
 
       {/* Header */}
       <div

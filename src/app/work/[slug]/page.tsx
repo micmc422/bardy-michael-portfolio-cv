@@ -51,7 +51,7 @@ export async function generateMetadata({
     title: post.metadata.title as string,
     description: post.metadata.summary,
     baseURL: baseURL,
-    image: post.metadata.image ? `${baseURL}/og?title=${post.metadata.title}&image=${post.metadata.image}` : `${baseURL}/og?title=${post.metadata.title}`,
+    image: `${baseURL}/og?slug=${post.slug}&type=project`,
     path: `${work.path}/${post.slug}`,
   });
 }

@@ -19,8 +19,8 @@ async function getPostData(slug: string) {
   return await getPostBySlug(slug);
 }
 async function fetchComments(slug: string) {
-    const { comments } = await getComments({ slug });
-    return comments;
+  const { comments } = await getComments({ slug });
+  return comments;
 }
 
 
@@ -34,16 +34,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = await getPostData(slug)
-
-  if (!project) return {};
+  const post = await getPostData(slug)
+  if (!post) return {};
 
   return Meta.generate({
-    title: project.metadata.title as string,
-    description: project.metadata.summary,
+    title: post.metadata.title as string,
+    description: post.metadata.summary,
     baseURL: baseURL,
-    image: project.metadata.image ? `${baseURL}/og?title=${project.metadata.title}&image=${project.metadata.image}` : `${baseURL}/og?title=${project.metadata.title}`,
-    path: `${blog.path}/${project.slug}`,
+    image: `${baseURL}/og?slug=${post.slug}&type=post`,
+    path: `${blog.path}/${post.slug}`,
   });
 }
 

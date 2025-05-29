@@ -88,14 +88,12 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, clas
     const { addToast } = useToast();
 
     async function handleSubmit(formData: FormData | void | null): Promise<ActionToastResponse | null | void> {
-        console.log("Form submitted");
         if (!formData) {
             console.error("No form data provided");
             return null;
         }
         const res: ActionToastResponse = await createComment(formData)
         addToast(res);
-        console.log(res)
         if (res.variant === "success") setIsOpen(false)
         return null
     }

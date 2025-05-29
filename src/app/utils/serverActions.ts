@@ -36,13 +36,20 @@ export async function getProjects({ limit = 10 }: { limit?: number | "all" }) {
     });
 }
 
-export async function getPostBySlug(slug: string, customPath = ["", "", "", ""]): Promise<PostType | null> {
+export async function getPostBySlug(slug: string): Promise<PostType | null> {
     const { post } = await wisp.getPost(slug);
     if (!post) {
         return null;
     }
 
     return formatPostData(post as unknown as WispPost);
+}
+export async function getPostDataBySlug(slug: string): Promise<any> {
+    const { post } = await wisp.getPost(slug);
+    if (!post) {
+        return null;
+    }
+    return post;
 }
 
 
@@ -52,6 +59,13 @@ export async function getProject(slug: string): Promise<PostType | null> {
         contentSlug: slug,
     });
     return formatProjectData(wipContent);
+}
+export async function getProjectData(slug: string): Promise<any> {
+    const { content: wipContent } = await wisp.getContent({
+        contentTypeSlug: "projects",
+        contentSlug: slug,
+    });
+    return wipContent;
 }
 
 function htmlDecode(encoded: string) {
@@ -175,10 +189,7 @@ export async function createComment(formData: FormData | void | null): Promise<A
     if (url) createCommentParams.url = url
     const parentId = formData?.get("parentId") as string;
     if (parentId) createCommentParams.parentId = parentId
-    console.log("Creating comment with formData:", createCommentParams);
-
     const res = await wisp.createComment(createCommentParams);
-    console.log("Comment created:", res);
     if (res.success) {
         revalidatePath("/blog/" + slug)
         return { variant: "success", message: "Commentaire créé avec succès. Pour qu’il soit visible, veuillez valider l’e-mail qui vous a été envoyé.", action: null };
