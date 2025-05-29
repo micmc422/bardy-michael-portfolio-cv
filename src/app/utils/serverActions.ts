@@ -109,6 +109,8 @@ function formatProjectData(content: Content<Record<string, any>>) {
 
 
 function formatPostData(post: WispPost): PostType {
+    console.log(post)
+
     const data: PostType = {
         metadata: {
             title: post.title,
@@ -117,7 +119,8 @@ function formatPostData(post: WispPost): PostType {
             publishedAt: post.publishedAt,
             updatedAt: post.publishedAt,
             summary: post.description || "", // Provide a default or map accordingly
-            team: baseTeam
+            team: baseTeam,
+            tags: post.tags
         },
         slug: post.slug,
     }

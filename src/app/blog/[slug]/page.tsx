@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
-import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, Text } from "@/once-ui/components";
+import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, SmartLink, Tag, Text } from "@/once-ui/components";
 import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
@@ -89,6 +89,7 @@ export default async function Blog({
             <Text variant="body-default-s" onBackground="neutral-weak">
               {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
             </Text>
+            {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="accent"><SmartLink style={{ marginBottom: "-3px", display: "flex" }} href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
           </Row>
           <Column as="article" fillWidth>
             <CustomMDX source={post.content || ""} />

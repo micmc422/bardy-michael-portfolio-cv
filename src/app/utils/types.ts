@@ -17,6 +17,7 @@ export interface PostType {
         }[],
         sources?: string[];
         link?: string;
+        tags?: { id: string, name: string }[];
     };
     slug: string;
     content?: string;
