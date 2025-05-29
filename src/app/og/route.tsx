@@ -21,7 +21,6 @@ export async function GET(request: Request) {
     title = post.title;
     image = post.image;
     tags = post.tags
-    console.log(post.tags)
   }
   if (type === "project" && slug) {
     const project = await getProjectData(slug);

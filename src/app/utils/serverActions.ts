@@ -1,7 +1,7 @@
 "use server"
 
 import { wisp } from "./wispClient";
-import { Content, CreateCommentInput } from "@wisp-cms/client";
+import { Content, CreateCommentInput, TagInPost } from "@wisp-cms/client";
 import { PostType, WispPost } from "./types";
 import { person } from "../resources";
 // const TurndownService = require('turndown');
@@ -25,6 +25,20 @@ export async function getPosts({ limit = 10, page, tags }: { limit?: number | "a
         return formatPostData(content as unknown as WispPost);
     });
 }
+
+export async function getRelatedPost({slug} : {slug: string}) {
+    const {posts} = await wisp.getRelatedPosts({ slug, limit: 4 })
+    return posts.map(post => formatPostData(post as unknown as WispPost))
+}
+
+export async function getTags({ limit = 10, page }: { limit?: number | "all", page?: number }): Promise<TagInPost[]> {
+    const { tags } = await wisp.getTags(
+        page,
+        limit
+    );
+    return tags;
+}
+
 export async function getProjects({ limit = 10 }: { limit?: number | "all" }) {
     const { contents } = await wisp.getContents({
         contentTypeSlug: "projects",
@@ -44,6 +58,7 @@ export async function getPostBySlug(slug: string): Promise<PostType | null> {
 
     return formatPostData(post as unknown as WispPost);
 }
+
 export async function getPostDataBySlug(slug: string): Promise<any> {
     const { post } = await wisp.getPost(slug);
     if (!post) {
@@ -60,6 +75,7 @@ export async function getProject(slug: string): Promise<PostType | null> {
     });
     return formatProjectData(wipContent);
 }
+
 export async function getProjectData(slug: string): Promise<any> {
     const { content: wipContent } = await wisp.getContent({
         contentTypeSlug: "projects",
@@ -109,8 +125,6 @@ function formatProjectData(content: Content<Record<string, any>>) {
 
 
 function formatPostData(post: WispPost): PostType {
-    console.log(post)
-
     const data: PostType = {
         metadata: {
             title: post.title,

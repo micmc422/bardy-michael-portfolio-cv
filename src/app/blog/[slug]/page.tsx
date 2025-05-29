@@ -5,9 +5,10 @@ import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Meta, Schema } from "@/once-ui/modules";
-import { getComments, getPostBySlug, getPosts } from "@/app/utils/serverActions";
+import { getComments, getPostBySlug, getPosts, getRelatedPost } from "@/app/utils/serverActions";
 import { Metadata } from "next";
 import CommentSection from "@/components/CommentSection";
+import Post from "@/components/blog/Post";
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
@@ -23,6 +24,10 @@ async function fetchComments(slug: string) {
   return comments;
 }
 
+async function relatedPost(slug: string) {
+  const posts = await getRelatedPost({ slug });
+  return posts
+}
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return await getAllPostsSlugs();
@@ -36,7 +41,6 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await getPostData(slug)
   if (!post) return {};
-
   return Meta.generate({
     title: post.metadata.title as string,
     description: post.metadata.summary,
@@ -52,6 +56,8 @@ export default async function Blog({
   const { slug } = await params;
   const post = await getPostData(slug)
   const comments = await fetchComments(slug)
+  const related = await relatedPost(slug)
+  console.log(related)
   if (!post) {
     notFound();
   }
@@ -97,6 +103,14 @@ export default async function Blog({
               <SourcesComponent sources={post.metadata.sources} />
             )}
             <CommentSection slug={post.slug} comments={comments} />
+            <Grid gap="4" columns={"2"} paddingTop="16">
+              {related?.map((post: any) => <Post
+                key={post.slug}
+                post={post}
+                thumbnail={true}
+                direction={"column"}
+              />)}
+            </Grid>
           </Column>
           <ScrollToHash />
         </Column>
