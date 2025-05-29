@@ -10,9 +10,9 @@ export async function GET(request: Request) {
   let now = new Date();
   let date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
   const slug = searchParams.get("slug");
-  const type = searchParams.get("type")
+  const type = searchParams.get("type");
+  let title = searchParams.get("title") || "Portfolio Michaël Bardy"
   let image = undefined;
-  let title = "Portfolio Michaël Bardy"
   if (type === "post" && slug) {
     const post = await getPostDataBySlug(slug);
     const postDate = new Date(post.publishedAt);
