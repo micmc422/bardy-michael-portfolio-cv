@@ -13,12 +13,15 @@ export async function GET(request: Request) {
   const type = searchParams.get("type");
   let title = searchParams.get("title") || "Portfolio Michaël Bardy"
   let image = undefined;
+  let tags: { name: string }[] = [];
   if (type === "post" && slug) {
     const post = await getPostDataBySlug(slug);
     const postDate = new Date(post.publishedAt);
     date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
     title = post.title;
     image = post.image;
+    tags = post.tags
+    console.log(post.tags)
   }
   if (type === "project" && slug) {
     const project = await getProjectData(slug);
@@ -42,7 +45,7 @@ export async function GET(request: Request) {
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "space-between",
-        background: "linear-gradient(135deg,rgb(153, 0, 255) 0%,rgb(253, 122, 0) 100%)",
+        background: "linear-gradient(135deg,#9900ff 0%,#fd7a00 100%)",
         padding: "60px",
         fontFamily: "Josefin Sans",
         position: "relative",
@@ -190,6 +193,23 @@ export async function GET(request: Request) {
         >
           {title}
         </h1>
+        {tags?.length > 0 && <div style={{
+          display: "flex",
+          gap: "8px"
+        }}
+        >
+          {tags?.map(({ name }) => <span key={name} style={{
+            backgroundColor: "#9900ff",
+            padding: "4px",
+            borderRadius: "3px",
+            fontSize: "14px",
+            color: "white",
+            lineHeight: "1",
+            margin: 0,
+            textShadow: "0 4px 8px rgba(0,0,0,0.3)",
+            fontFamily: "Josefin Bold",
+          }}>{name}</span>)}
+        </div>}
       </div>
 
       {/* Footer */}
