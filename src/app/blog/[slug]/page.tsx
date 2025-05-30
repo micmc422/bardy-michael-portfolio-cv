@@ -9,6 +9,7 @@ import { getComments, getPostBySlug, getPosts, getRelatedPost } from "@/app/util
 import { Metadata } from "next";
 import CommentSection from "@/components/CommentSection";
 import Post from "@/components/blog/Post";
+import { SocialShareBar } from "@/components/SocialShare";
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
@@ -90,20 +91,23 @@ export default async function Blog({
             Publications
           </Button>
           <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
-          <Row gap="12" vertical="center">
-            {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
-            <Text variant="body-default-s" onBackground="neutral-weak">
-              {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-            </Text>
-            {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="accent"><SmartLink style={{ marginBottom: "-3px", display: "flex" }} href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
-          </Row>
+          <Column gap="xs">
+            <Row gap="12" vertical="center">
+              {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+              </Text>
+              {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="accent"><SmartLink style={{ marginBottom: "-3px", display: "flex" }} href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
+            </Row>
+            <SocialShareBar />
+          </Column>
           <Column as="article" fillWidth>
             <CustomMDX source={post.content || ""} />
             {post.metadata.sources && post.metadata.sources.length > 0 && (
               <SourcesComponent sources={post.metadata.sources} />
             )}
             <CommentSection slug={post.slug} comments={comments} />
-            <Grid gap="4" columns={"2"} paddingTop="16">
+            <Grid gap="8" columns={"2"} paddingTop="16" mobileColumns={"1"} align="start">
               {related?.map((post: any) => <Post
                 key={post.slug}
                 post={post}

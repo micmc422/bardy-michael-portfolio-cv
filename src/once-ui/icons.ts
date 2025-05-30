@@ -26,8 +26,8 @@ import {
   HiMoon,
   HiSun,
   HiOutlineDocument,
-  HiArrowDownRight,
   HiOutlinePencilSquare,
+
 } from "react-icons/hi2";
 
 import {
@@ -39,8 +39,12 @@ import {
 } from "react-icons/pi";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX } from "react-icons/fa6";
+import { FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 export const iconLibrary: Record<string, IconType> = {
+  facebook: FiFacebook,
+  twitter: FiTwitter,
+  linkedin: FiLinkedin,
   repondre: HiOutlinePencilSquare,
   chevronUp: HiChevronUp,
   chevronDown: HiChevronDown,
@@ -69,7 +73,6 @@ export const iconLibrary: Record<string, IconType> = {
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,
   github: FaGithub,
-  linkedin: FaLinkedin,
   x: FaX,
   clipboard: HiClipboard,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
