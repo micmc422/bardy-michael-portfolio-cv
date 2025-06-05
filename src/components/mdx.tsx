@@ -20,6 +20,15 @@ type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 function CustomLink({ href, children, ...props }: CustomLinkProps) {
+  console.log(href)
+  if (href.startsWith("https://www.wisp.blog")) {
+    return <>
+      <br />
+      <a href={href} {...props} style={{ marginTop: "2rem", display: "block", textAlign: "center" }} rel="nofollow" target="_blank">
+        {children}
+      </a>
+    </>
+  }
   if (href.startsWith("/")) {
     return (
       <SmartLink href={href} {...props}>

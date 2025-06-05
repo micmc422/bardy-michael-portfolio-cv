@@ -58,7 +58,6 @@ export default async function Blog({
   const post = await getPostData(slug)
   const comments = await fetchComments(slug)
   const related = await relatedPost(slug)
-  console.log(related)
   if (!post) {
     notFound();
   }
