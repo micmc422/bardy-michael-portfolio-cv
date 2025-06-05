@@ -1,5 +1,5 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import React, { ReactNode } from "react";
+import React, { IframeHTMLAttributes, ReactNode } from "react";
 import dynamic from "next/dynamic";
 
 import {
@@ -26,6 +26,17 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
         {children}
       </SmartLink>
     );
+  }
+  if (href.startsWith("https://codepen.io")) {
+    //https://codepen.io/michael-Bardy/embed/KwpmWxO?default-tab=html%2Cresult
+    const codepenUrl = href.split("?")[0]
+    return (<>
+      <br />
+      <iframe height="300" style={{ width: "100%" }} scrolling="no" title="CSS clamp()" src={href} frameBorder="no" loading="lazy" allowTransparency={true} allowFullScreen={true}>
+        See the Pen <a href={codepenUrl}>
+          {children}</a>
+      </iframe>      <br />
+    </>);
   }
 
   if (href.startsWith("#")) {
@@ -130,6 +141,9 @@ function createParagraph({ children }: TextProps) {
 function createInlineCode({ children }: { children: ReactNode }) {
   return <InlineCode>{children}</InlineCode>;
 }
+function createIframe(props: IframeHTMLAttributes<HTMLIFrameElement>) {
+  return <iframe {...props} loading="lazy" allowTransparency={true} allowFullScreen={true}></iframe>;
+}
 
 function createCodeBlock(props: any) {
   // For pre tags that contain code blocks
@@ -161,6 +175,7 @@ function createCodeBlock(props: any) {
 }
 
 const components = {
+  iframe: createIframe as any,
   p: createParagraph as any,
   h1: createHeading("h1") as any,
   h2: createHeading("h2") as any,
@@ -189,7 +204,8 @@ const components = {
   SmartImage: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartImage)),
   SmartLink: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartLink)),
   OgCard: dynamic(() => import("@/once-ui/components").then(mod => mod.OgCard)),
-  RDV: dynamic(() => import("@/components").then(mod => mod.RDV)),};
+  RDV: dynamic(() => import("@/components").then(mod => mod.RDV)),
+};
 
 type CustomMDXProps = MDXRemoteProps & {
   components?: typeof components;
