@@ -13,6 +13,7 @@ import {
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
+import { RawGithubFile } from "./RawGithubFile";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -20,7 +21,6 @@ type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 function CustomLink({ href, children, ...props }: CustomLinkProps) {
-  console.log(href)
   if (href.startsWith("https://www.wisp.blog")) {
     return <>
       <br />
@@ -28,6 +28,9 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
         {children}
       </a>
     </>
+  }
+  if (href.startsWith("https://raw.githubusercontent.com")) {
+    return <RawGithubFile rawCodeUrl={href} label={children}/>
   }
   if (href.startsWith("/")) {
     return (
@@ -37,7 +40,6 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
     );
   }
   if (href.startsWith("https://codepen.io")) {
-    //https://codepen.io/michael-Bardy/embed/KwpmWxO?default-tab=html%2Cresult
     const codepenUrl = href.split("?")[0]
     return (<>
       <br />
@@ -156,9 +158,10 @@ function createIframe(props: IframeHTMLAttributes<HTMLIFrameElement>) {
 
 function createCodeBlock(props: any) {
   // For pre tags that contain code blocks
+  console.log(props)
+
   if (props.children && props.children.props && props.children.props.className) {
     const { className, children } = props.children.props;
-
     // Extract language from className (format: language-xxx)
     const language = className.replace('language-', '');
     const label = language.charAt(0).toUpperCase() + language.slice(1);

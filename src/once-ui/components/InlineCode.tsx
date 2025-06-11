@@ -11,7 +11,7 @@ interface InlineCodeProps extends React.ComponentProps<typeof Flex> {
 const InlineCode = forwardRef<HTMLDivElement, InlineCodeProps>(({ children, ...rest }, ref) => {
   return (
     <Flex
-      as="span"
+      as="code"
       inline
       fit
       ref={ref}
