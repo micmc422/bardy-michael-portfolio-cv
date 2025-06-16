@@ -15,7 +15,6 @@ export async function GET(req: Request) {
     for (const article of articles) {
         if (article.metadata.publishedAt && isLessThan24HoursOld(article.metadata.publishedAt)) {
             await Promise.all([
-                //   postToLinkedIn({ title: article.metadata.title, url: `${baseURL}/${article.slug}` }),
                 postToFacebook({
                     title: article.metadata.title as string,
                     description: article.metadata.description as string,
@@ -81,9 +80,9 @@ async function postToLinkedIn(article: any) {
 
 async function postToFacebook(article: any) {
     const accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN!;
+    const pageId = process.env.FACEBOOK_PAGE_ID!;
 
-    // const url = `https://graph.facebook.com/${pageId}/feed`;
-    const url = `https://graph.facebook.com/occitaweb/feed`;
+    const url = `https://graph.facebook.com/${pageId}/feed`;
 
     const params = new URLSearchParams({
         message:

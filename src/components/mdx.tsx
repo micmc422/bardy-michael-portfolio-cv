@@ -161,9 +161,12 @@ function createCodeBlock(props: any) {
   if (props.children && props.children.props && props.children.props.className) {
     const { className, children } = props.children.props;
     // Extract language from className (format: language-xxx)
-    const language = className.replace('language-', '');
-    const label = language.charAt(0).toUpperCase() + language.slice(1);
+    const [language, labelBase] = className.replace('language-', '').split(':');
+    console.log(labelBase, className);
+    const fileName = labelBase ? labelBase.replace(/-/g, ' ') : '';
 
+    const label = language.charAt(0).toUpperCase() + language.slice(1) + (fileName ? ` | ${fileName}` : "");
+console.log("CodeBlock detected with language:", language, "and label:", label);
     return (
       <CodeBlock
         marginTop="8"
