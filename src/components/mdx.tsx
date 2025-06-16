@@ -158,8 +158,6 @@ function createIframe(props: IframeHTMLAttributes<HTMLIFrameElement>) {
 
 function createCodeBlock(props: any) {
   // For pre tags that contain code blocks
-  console.log(props)
-
   if (props.children && props.children.props && props.children.props.className) {
     const { className, children } = props.children.props;
     // Extract language from className (format: language-xxx)
