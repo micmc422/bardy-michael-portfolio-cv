@@ -22,7 +22,7 @@ export default function RdvPage() {
     }, []);
     return (
         <>
-            <Script strategy="lazyOnload"  async src="https://www.googletagmanager.com/gtag/js?id=G-0FWXELBBJL">
+            <Script strategy="lazyOnload" id="gTag"  async src="https://www.googletagmanager.com/gtag/js?id=G-0FWXELBBJL">
             </Script>
         </>
     )
