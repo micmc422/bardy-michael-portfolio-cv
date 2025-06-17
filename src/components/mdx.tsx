@@ -30,7 +30,7 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
     </>
   }
   if (href.startsWith("https://raw.githubusercontent.com")) {
-    return <RawGithubFile rawCodeUrl={href} label={children}/>
+    return <RawGithubFile rawCodeUrl={href} label={children} />
   }
   if (href.startsWith("/")) {
     return (
@@ -162,11 +162,8 @@ function createCodeBlock(props: any) {
     const { className, children } = props.children.props;
     // Extract language from className (format: language-xxx)
     const [language, labelBase] = className.replace('language-', '').split(':');
-    console.log(labelBase, className);
     const fileName = labelBase ? labelBase.replace(/-/g, ' ') : '';
-
     const label = language.charAt(0).toUpperCase() + language.slice(1) + (fileName ? ` | ${fileName}` : "");
-console.log("CodeBlock detected with language:", language, "and label:", label);
     return (
       <CodeBlock
         marginTop="8"
