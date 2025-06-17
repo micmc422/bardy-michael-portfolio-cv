@@ -1,11 +1,13 @@
-// /app/api/social-share/route.ts (ou /pages/api/social-share.ts si tu es en pages router)
-
 import { baseURL } from '@/app/resources';
 import { getPosts } from '@/app/utils/serverActions';
 import { NextResponse } from 'next/server';
+import { get } from '@vercel/edge-config';
+import ogs from 'open-graph-scraper';
+
+const env = process.env.NODE_ENV
 
 export async function GET(req: Request) {
-    if (req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
+    if (!(env === 'development') && req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
         return NextResponse.json({ status: 'Unauthorized', code: 401 });
     }
     // 1. Récupère les articles publiés dans les dernières 24h
@@ -14,12 +16,14 @@ export async function GET(req: Request) {
     // 2. Pour chaque article, publier sur les médias sociaux
     for (const article of articles) {
         if (article.metadata.publishedAt && isLessThan24HoursOld(article.metadata.publishedAt)) {
+            const postData = {
+                title: article.metadata.title as string,
+                description: article.metadata.description as string,
+                url: `${baseURL}/blog/${article.slug}`
+            };
             await Promise.all([
-                postToFacebook({
-                    title: article.metadata.title as string,
-                    description: article.metadata.description as string,
-                    url: `${baseURL}/blog/${article.slug}`
-                })
+                // postToLinkedIn(postData),
+                postToFacebook(postData)
             ]);
             return NextResponse.json({ status: 'done', count: articles.length });
         } else {
@@ -39,22 +43,52 @@ function isLessThan24HoursOld(dateString: string): boolean {
 }
 
 
-//TODO: LinkedIn API requires a valid access token and author URN
-// to post. Ensure you have these set in your environment variables.
-// If you don't have access to LinkedIn API, you can comment out the LinkedIn post function.
-async function postToLinkedIn(article: any) {
-    const accessToken = process.env.LINKEDIN_ACCESS_TOKEN!;
-    const authorUrn = process.env.LINKEDIN_AUTHOR_URN!; // ex: urn:li:person:abc123
-    // return null
+
+export async function postToLinkedIn(article: any) {
+    const accessToken = (await get('linkedin_token')) as string;
+    const personURN = process.env.LINKEDIN_AUTHOR_URN!; // ex: urn:li:person:abc123
+
+    // 1️⃣ Récupérer les données OpenGraph
+    const ogResult = await ogs({ url: article.url });
+    const ogData = ogResult.result;
+
+    // console.log('OpenGraph Data:', ogData);
+
+    // fallback en cas de champs manquants
+    const ogTitle = ogData.ogTitle || article.title;
+    const ogDescription = ogData.ogDescription || article.description;
+    let ogImage: string | undefined;
+    if (ogData.ogImage && Array.isArray(ogData.ogImage) && typeof ogData.ogImage[0] === 'object' && ogData.ogImage[0] !== null && 'url' in ogData.ogImage[0]) {
+        ogImage = ogData.ogImage[0].url;
+    }
+
+    // 2️⃣ Construire le post UGC avec OG
     const postBody = {
-        author: authorUrn,
-        lifecycleState: 'PUBLISHED',
+        author: personURN,
+        lifecycleState: 'DRAFT',
         specificContent: {
             'com.linkedin.ugc.ShareContent': {
                 shareCommentary: {
-                    text: `${article.title} — ${article.url}`
+                    text: ogTitle
                 },
-                shareMediaCategory: 'NONE'
+                shareMediaCategory: 'ARTICLE',
+                media: [
+                    {
+                        status: 'READY',
+                        description: {
+                            text: ogDescription
+                        },
+                        originalUrl: article.url,
+                        title: {
+                            text: ogTitle
+                        },
+                        ...(ogImage && {
+                            thumbnails: [
+                                { resolvedUrl: ogImage }
+                            ]
+                        })
+                    }
+                ]
             }
         },
         visibility: {
@@ -62,7 +96,8 @@ async function postToLinkedIn(article: any) {
         }
     };
 
-    const res = await fetch('https://api.linkedin.com/v2/posts', {
+    // 3️⃣ Envoi vers LinkedIn
+    const res = await fetch('https://api.linkedin.com/v2/ugcPosts', {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -75,11 +110,14 @@ async function postToLinkedIn(article: any) {
     if (!res.ok) {
         const error = await res.text();
         console.error(`LinkedIn post failed: ${res.status}`, error);
+        throw new Error(`LinkedIn post failed: ${res.status} - ${error}`);
     }
+
+    console.log('LinkedIn post succeeded!');
 }
 
 async function postToFacebook(article: any) {
-    const accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN!;
+    const accessToken = await get('facebook_token') as string;
     const pageId = process.env.FACEBOOK_PAGE_ID!;
 
     const url = `https://graph.facebook.com/${pageId}/feed`;
@@ -99,5 +137,6 @@ ${article.description}`,
     if (!res.ok) {
         const error = await res.text();
         console.error(`Facebook post failed: ${res.status}`, error);
+        throw new Error(`Facebook post failed: ${res.status} - ${error}`);
     }
 }
