@@ -44,7 +44,7 @@ function isLessThan24HoursOld(dateString: string): boolean {
 
 
 
-export async function postToLinkedIn(article: any) {
+async function postToLinkedIn(article: any) {
     const accessToken = (await get('linkedin_token')) as string;
     const personURN = process.env.LINKEDIN_AUTHOR_URN!; // ex: urn:li:person:abc123
 
