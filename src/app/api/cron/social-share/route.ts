@@ -1,8 +1,8 @@
 import { baseURL } from '@/app/resources';
 import { getPosts } from '@/app/utils/serverActions';
 import { NextResponse } from 'next/server';
-import { get } from '@vercel/edge-config';
-import ogs from 'open-graph-scraper';
+import { postToFacebook } from './postToFacebook';
+import { postToLinkedIn } from './postToLinkedIn';
 
 const env = process.env.NODE_ENV
 
@@ -22,7 +22,7 @@ export async function GET(req: Request) {
                 url: `${baseURL}/blog/${article.slug}`
             };
             await Promise.all([
-                // postToLinkedIn(postData),
+                postToLinkedIn(postData),
                 postToFacebook(postData)
             ]);
             return NextResponse.json({ status: 'done', count: articles.length });
@@ -44,99 +44,3 @@ function isLessThan24HoursOld(dateString: string): boolean {
 
 
 
-async function postToLinkedIn(article: any) {
-    const accessToken = (await get('linkedin_token')) as string;
-    const personURN = process.env.LINKEDIN_AUTHOR_URN!; // ex: urn:li:person:abc123
-
-    // 1️⃣ Récupérer les données OpenGraph
-    const ogResult = await ogs({ url: article.url });
-    const ogData = ogResult.result;
-
-    // console.log('OpenGraph Data:', ogData);
-
-    // fallback en cas de champs manquants
-    const ogTitle = ogData.ogTitle || article.title;
-    const ogDescription = ogData.ogDescription || article.description;
-    let ogImage: string | undefined;
-    if (ogData.ogImage && Array.isArray(ogData.ogImage) && typeof ogData.ogImage[0] === 'object' && ogData.ogImage[0] !== null && 'url' in ogData.ogImage[0]) {
-        ogImage = ogData.ogImage[0].url;
-    }
-
-    // 2️⃣ Construire le post UGC avec OG
-    const postBody = {
-        author: personURN,
-        lifecycleState: 'DRAFT',
-        specificContent: {
-            'com.linkedin.ugc.ShareContent': {
-                shareCommentary: {
-                    text: ogTitle
-                },
-                shareMediaCategory: 'ARTICLE',
-                media: [
-                    {
-                        status: 'READY',
-                        description: {
-                            text: ogDescription
-                        },
-                        originalUrl: article.url,
-                        title: {
-                            text: ogTitle
-                        },
-                        ...(ogImage && {
-                            thumbnails: [
-                                { resolvedUrl: ogImage }
-                            ]
-                        })
-                    }
-                ]
-            }
-        },
-        visibility: {
-            'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
-        }
-    };
-
-    // 3️⃣ Envoi vers LinkedIn
-    const res = await fetch('https://api.linkedin.com/v2/ugcPosts', {
-        method: 'POST',
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-            'X-Restli-Protocol-Version': '2.0.0',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postBody)
-    });
-
-    if (!res.ok) {
-        const error = await res.text();
-        console.error(`LinkedIn post failed: ${res.status}`, error);
-        throw new Error(`LinkedIn post failed: ${res.status} - ${error}`);
-    }
-
-    console.log('LinkedIn post succeeded!');
-}
-
-async function postToFacebook(article: any) {
-    const accessToken = await get('facebook_token') as string;
-    const pageId = process.env.FACEBOOK_PAGE_ID!;
-
-    const url = `https://graph.facebook.com/${pageId}/feed`;
-
-    const params = new URLSearchParams({
-        message:
-            `${article.title}
-
-${article.description}`,
-        link: article.url,
-        access_token: accessToken
-    });
-    const res = await fetch(`${url}?${params.toString()}`, {
-        method: 'POST'
-    });
-
-    if (!res.ok) {
-        const error = await res.text();
-        console.error(`Facebook post failed: ${res.status}`, error);
-        throw new Error(`Facebook post failed: ${res.status} - ${error}`);
-    }
-}
