@@ -8,9 +8,10 @@ interface PostProps {
     post: any;
     thumbnail: boolean;
     direction?: "row" | "column";
+    excludeNav?: boolean;
 }
 
-export default function Post({ post, thumbnail, direction }: PostProps) {
+export default function Post({ post, thumbnail, direction, excludeNav }: PostProps) {
     const tags = post.metadata.tag?.split(',').map((tag: string) => tag.trim());
     return (
         <SmartLink
@@ -48,7 +49,8 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
                     <Heading
                         as="h2"
                         variant="heading-strong-l"
-                        wrap="balance">
+                        wrap="balance"
+                        data-exclude-nav={excludeNav ? 'true' : 'false'}>
                         {post.metadata.title}
                     </Heading>
                     <Text

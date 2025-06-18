@@ -112,6 +112,7 @@ export default async function Blog({
                 post={post}
                 thumbnail={true}
                 direction={"column"}
+                excludeNav
               />)}
             </Grid>
           </Column>
