@@ -17,7 +17,7 @@ export default function Post({ post, thumbnail, direction, excludeNav }: PostPro
         <SmartLink
             fillWidth
             unstyled
-            style={{ borderRadius: 'var(--radius-l)' }}
+            style={{ borderRadius: 'var(--radius-l)', alignItems:"start" }}
             key={post.slug}
             href={`/blog/${post.slug}`}>
             <Flex

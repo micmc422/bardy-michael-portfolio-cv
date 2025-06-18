@@ -106,7 +106,7 @@ export default async function Blog({
               <SourcesComponent sources={post.metadata.sources} />
             )}
             <CommentSection slug={post.slug} comments={comments} />
-            <Grid gap="8" columns={"2"} paddingTop="16" mobileColumns={"1"} align="start">
+            <Grid gap="8" columns={"2"} paddingTop="16" mobileColumns={"1"}>
               {related?.map((post: any) => <Post
                 key={post.slug}
                 post={post}
