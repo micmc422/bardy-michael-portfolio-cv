@@ -19,6 +19,8 @@ const RawGithubFile = forwardRef<HTMLDivElement, ComponentProps>(
     async ({ rawCodeUrl, ...rest }, ref) => {
         const code = await getCode(rawCodeUrl)
         const language = await detectLanguageFromURL(rawCodeUrl)
+        const path = rawCodeUrl.split("/main").slice(-1)[0];
+        console.log("path", rawCodeUrl.split("/main").slice(-1)[0]);
         return (
             <CodeBlock
                 ref={ref}
@@ -27,7 +29,7 @@ const RawGithubFile = forwardRef<HTMLDivElement, ComponentProps>(
                     {
                         code,
                         language,
-                        label: ""
+                        label: `${language} ${path ? path.replace(/-/g, ' ') : ''}`
                     }
                 ]}
                 {...rest}
