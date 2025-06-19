@@ -14,6 +14,7 @@ import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
 import { RawGithubFile } from "./RawGithubFile";
+import GitHubRepoSummary from "./gitHubResume";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -21,6 +22,16 @@ type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 function CustomLink({ href, children, ...props }: CustomLinkProps) {
+  if (href.endsWith(".git")) {
+    const path = href.replace("https://github.com/", "").replace(".git", "")
+    const [ownerProvided, repoProvided] = path.split("/")
+    console.log("GitHub repository link detected:", href);
+
+    return <>
+      <br />
+      <GitHubRepoSummary ownerProvided={ownerProvided} repoProvided={repoProvided} />
+    </>
+  }
   if (href.startsWith("https://www.wisp.blog")) {
     return <>
       <br />

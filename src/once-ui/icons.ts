@@ -27,8 +27,15 @@ import {
   HiSun,
   HiOutlineDocument,
   HiOutlinePencilSquare,
-
+  HiOutlineExclamationTriangle,
+  HiOutlineArrowTopRightOnSquare,
+  HiUsers,
+  HiCodeBracket,
+  HiOutlineStar
 } from "react-icons/hi2";
+
+import { GoRepoForked } from "react-icons/go";
+
 
 import {
   PiHouseDuotone,
@@ -79,6 +86,12 @@ export const iconLibrary: Record<string, IconType> = {
   moon: HiMoon,
   sun: HiSun,
   document: HiOutlineDocument,
+  danger: HiOutlineExclamationTriangle,
+  linkblank: HiOutlineArrowTopRightOnSquare,
+  users: HiUsers,
+  star: HiOutlineStar,
+  gitfork: GoRepoForked,
+  code: HiCodeBracket
 };
 
 export type IconLibrary = typeof iconLibrary;

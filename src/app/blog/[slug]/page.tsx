@@ -10,6 +10,7 @@ import { Metadata } from "next";
 import CommentSection from "@/components/CommentSection";
 import Post from "@/components/blog/Post";
 import { SocialShareBar } from "@/components/SocialShare";
+import GitHubRepoSummary from "@/components/gitHubResume";
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
@@ -66,6 +67,7 @@ export default async function Blog({
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
+
   return (
     <Row fillWidth>
       <Row maxWidth={12} hide="m" />
