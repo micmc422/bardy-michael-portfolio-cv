@@ -57,6 +57,7 @@ export default async function Blog({
 }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getPostData(slug)
+  console.log("post", post);
   const comments = await fetchComments(slug)
   const related = await relatedPost(slug)
   if (!post) {
@@ -67,7 +68,6 @@ export default async function Blog({
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
-
   return (
     <Row fillWidth>
       <Row maxWidth={12} hide="m" />

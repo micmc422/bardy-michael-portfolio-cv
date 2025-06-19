@@ -43,6 +43,7 @@ li {
 
 blockquote {
     display: flex;
+    flex-direction: column;
     margin: var(--static-space-16) 0;
     border-radius: var(--radius-m);
     background: var(--brand-alpha-weak);

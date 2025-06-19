@@ -15,6 +15,7 @@ import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
 import { RawGithubFile } from "./RawGithubFile";
 import GitHubRepoSummary from "./gitHubResume";
+import { Faq } from "./Faq";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -208,6 +209,7 @@ const components = {
   a: CustomLink as any,
   code: createInlineCode as any,
   pre: createCodeBlock as any,
+  Faq: Faq as any,
   Heading,
   Text,
   CodeBlock,

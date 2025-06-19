@@ -26,8 +26,8 @@ export async function getPosts({ limit = 10, page, tags }: { limit?: number | "a
     });
 }
 
-export async function getRelatedPost({slug} : {slug: string}) {
-    const {posts} = await wisp.getRelatedPosts({ slug, limit: 4 })
+export async function getRelatedPost({ slug }: { slug: string }) {
+    const { posts } = await wisp.getRelatedPosts({ slug, limit: 4 })
     return posts.map(post => formatPostData(post as unknown as WispPost))
 }
 
@@ -55,7 +55,6 @@ export async function getPostBySlug(slug: string): Promise<PostType | null> {
     if (!post) {
         return null;
     }
-
     return formatPostData(post as unknown as WispPost);
 }
 
@@ -93,6 +92,7 @@ function htmlDecode(encoded: string) {
 }
 
 function formatProjectData(content: Content<Record<string, any>>) {
+
     const data: PostType = {
         metadata: {
             title: content.content.title,
@@ -139,7 +139,27 @@ function formatPostData(post: WispPost): PostType {
         slug: post.slug,
     }
     if (post?.content) {
+
         let content = htmlDecode(post.content)
+        console.log("content", content);
+        content = content.replace(
+            /<div\s+([^>]*?)data-wisp-react-component=["']true["']([^>]*?)>(.*?)<\/div>/gi,
+            (match, before, after, innerHTML) => {
+                const fullAttrs = (before + after).trim();
+
+                // Cherche data-name
+                const nameMatch = fullAttrs.match(/data-name=["']([^"']+)["']/);
+                const name = nameMatch ? nameMatch[1] : 'WispComponent';
+
+                // Nettoie les attributs (on enlève data-name et data-wisp-react-component)
+                const cleanedAttrs = fullAttrs
+                    .trim();
+
+                // Re-construit les attributs sous forme propre
+                const attrString = cleanedAttrs.length > 0 ? ' ' + cleanedAttrs : '';
+                return `<div data-wisp-react-component="true" ${attrString}>${name}</div>`;
+            }
+        );
 
         const turndownService = new TurndownService({
             headingStyle: 'atx',
@@ -147,18 +167,38 @@ function formatPostData(post: WispPost): PostType {
             codeBlockStyle: 'fenced',
             br: '\n',
         });
-
-
-        turndownService.escape = (string) => string;
-
-
         turndownService.addRule('simpleParagraph', {
             filter: 'p',
             replacement: function (contentData) {
+
                 return contentData + '\n';
             }
         });
+
+        turndownService.keep(['div']);
+        // turndownService.escape = (string) => string;
+
         data.content = turndownService.turndown(content || "");
+
+        data.content = data.content.replace(
+            /<div\s+([^>]*?)data-wisp-react-component=["']true["']([^>]*?)>(.*?)<\/div>/gi,
+            (match, before, after, innerHTML) => {
+                const fullAttrs = (before + after).trim();
+
+                // Cherche data-name
+                const nameMatch = fullAttrs.match(/data-name=["']([^"']+)["']/);
+                const name = nameMatch ? nameMatch[1] : 'WispComponent';
+
+                // Nettoie les attributs (on enlève data-name et data-wisp-react-component)
+                const cleanedAttrs = fullAttrs
+                    .trim();
+
+                // Re-construit les attributs sous forme propre
+                const attrString = cleanedAttrs.length > 0 ? ' ' + cleanedAttrs : '';
+
+                return `<${name} ${attrString} />`;
+            }
+        );
     }
     if (post?.metadata?.team) {
         data.metadata.team = post?.metadata?.team;
