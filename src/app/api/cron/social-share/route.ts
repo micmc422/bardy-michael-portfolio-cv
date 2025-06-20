@@ -29,7 +29,7 @@ export async function GET(req: Request) {
             return NextResponse.json({ status: 'done', count: articles.length });
         } else {
             console.log(`L'article ${article.slug} a plus de 24 heures il ne sera pas diffusé !.`);
-            return NextResponse.json({ status: 'skipped', message: articles.length + ' article(s) ils on t plus de 24h et ont déjà était diffusés.' });
+            return NextResponse.json({ status: 'skipped', message: articles.length + ' article(s) ils ont plus de 24h et ont déjà était diffusés.' });
         }
     }
 
