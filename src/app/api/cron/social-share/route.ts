@@ -25,10 +25,11 @@ export async function GET(req: Request) {
                 postToLinkedIn(postData),
                 postToFacebook(postData)
             ]);
+            console.log(`Partage de l'article ${article.slug} sur les média sociaux.`);
             return NextResponse.json({ status: 'done', count: articles.length });
         } else {
-            console.log(`Article ${article.slug} is older than 24 hours, skipping social share.`);
-            return NextResponse.json({ status: 'skipped', mrssage: articles.length + ' articles found, but none were less than 24 hours old.' });
+            console.log(`L'article ${article.slug} a plus de 24 heures il ne sera pas diffusé !.`);
+            return NextResponse.json({ status: 'skipped', message: articles.length + ' article(s) ils on t plus de 24h et ont déjà était diffusés.' });
         }
     }
 
