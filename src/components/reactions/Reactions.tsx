@@ -103,4 +103,7 @@ const ReactionsBtn = forwardRef<HTMLLIElement, ReactionsBtnProps>(
       </form>
     </li>
   })
+
+ReactionsBtn.displayName = "ReactionsBtn";
+
 export { Reactions };
