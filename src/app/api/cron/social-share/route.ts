@@ -22,8 +22,8 @@ export async function GET(req: Request) {
                 url: `${baseURL}/blog/${article.slug}`
             };
             await Promise.all([
-                postToLinkedIn(postData),
-                // postToFacebook(postData)
+                // postToLinkedIn(postData),
+                postToFacebook(postData)
             ]);
             console.log(`Partage de l'article ${article.slug} sur les média sociaux.`);
             return NextResponse.json({ status: 'done', count: articles.length });
