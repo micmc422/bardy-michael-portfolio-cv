@@ -1,7 +1,12 @@
 import mdx from "@next/mdx";
+import remarkGfm from 'remark-gfm'
 
 const withMDX = mdx({
   extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [],
+  },
 });
 
 /** @type {import('next').NextConfig} */
@@ -11,6 +16,9 @@ const nextConfig = {
   sassOptions: {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
+  },
+  experimental: {
+    mdxRs: true,
   },
   images: {
     remotePatterns: [

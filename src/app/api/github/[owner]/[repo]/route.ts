@@ -26,7 +26,6 @@ export async function GET(
         }
 
         const data = await response.json();
-        console.log('GitHub API response:', data);
         if (!data || !data.full_name) {
             return new Response(
                 JSON.stringify({ error: 'Repository not found or invalid response' }),

@@ -23,7 +23,7 @@ export async function GET(req: Request) {
             };
             await Promise.all([
                 postToLinkedIn(postData),
-                postToFacebook(postData)
+                // postToFacebook(postData)
             ]);
             console.log(`Partage de l'article ${article.slug} sur les média sociaux.`);
             return NextResponse.json({ status: 'done', count: articles.length });

@@ -139,11 +139,14 @@ function formatPostData(post: WispPost): PostType {
         slug: post.slug,
     }
     if (post?.content) {
-
+        const { gfm } = require('@joplin/turndown-plugin-gfm')
         let content = htmlDecode(post.content)
-        console.log("content", content);
+        content = content.replace(/<colgroup[^>]*>[\s\S]*?<\/colgroup>/gi, '')
+        content = content.replace(/colspan/gi, "colSpan")
+        content = content.replace(/\s(colspan|rowspan)="1"/gi, '')
+        content = content.replace(/\sstyle="[^"]*"/gi, '')
         content = content.replace(
-            /<div\s+([^>]*?)data-wisp-react-component=["']true["']([^>]*?)>(.*?)<\/div>/gi,
+            /<div\s+([^>]*?)data-wisp-react-component=["']true["']([^>]*?)><\/div>/gi,
             (match, before, after, innerHTML) => {
                 const fullAttrs = (before + after).trim();
 
@@ -161,12 +164,20 @@ function formatPostData(post: WispPost): PostType {
             }
         );
 
+
         const turndownService = new TurndownService({
             headingStyle: 'atx',
-            bulletListMarker: '-',
             codeBlockStyle: 'fenced',
-            br: '\n',
-        });
+            bulletListMarker: '-',
+            emDelimiter: '*',
+            strongDelimiter: '**',
+            hr: '---'
+        })
+
+        // Charger le plugin GFM (pour tout sauf table)
+        turndownService.use(gfm)
+
+        // Garder intactes ces balises HTML
         turndownService.addRule('simpleParagraph', {
             filter: 'p',
             replacement: function (contentData) {

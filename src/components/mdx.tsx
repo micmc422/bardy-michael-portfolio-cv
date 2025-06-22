@@ -1,7 +1,7 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { IframeHTMLAttributes, ReactNode } from "react";
 import dynamic from "next/dynamic";
-
+import remarkGfm from 'remark-gfm'
 import {
   Heading,
   HeadingLink,
@@ -26,7 +26,6 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
   if (href.endsWith(".git")) {
     const path = href.replace("https://github.com/", "").replace(".git", "")
     const [ownerProvided, repoProvided] = path.split("/")
-    console.log("GitHub repository link detected:", href);
 
     return <>
       <br />
@@ -205,6 +204,7 @@ const components = {
   h4: createHeading("h4") as any,
   h5: createHeading("h5") as any,
   h6: createHeading("h6") as any,
+  table: dynamic(() => import("@/components").then(mod => mod.ReactNodeTableToOnceUI)),
   img: createImage as any,
   a: CustomLink as any,
   code: createInlineCode as any,
@@ -233,9 +233,18 @@ const components = {
 type CustomMDXProps = MDXRemoteProps & {
   components?: typeof components;
 };
+const options = {
+  mdxOptions: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [],
+  },
+};
 
 export function CustomMDX(props: CustomMDXProps) {
   return (
-    <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+      options={options} />
   );
 }

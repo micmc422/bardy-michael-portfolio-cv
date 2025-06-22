@@ -31,7 +31,8 @@ import {
   HiOutlineArrowTopRightOnSquare,
   HiUsers,
   HiCodeBracket,
-  HiOutlineStar
+  HiOutlineStar,
+  HiOutlineFaceSmile
 } from "react-icons/hi2";
 
 import { GoRepoForked } from "react-icons/go";
@@ -91,7 +92,8 @@ export const iconLibrary: Record<string, IconType> = {
   users: HiUsers,
   star: HiOutlineStar,
   gitfork: GoRepoForked,
-  code: HiCodeBracket
+  code: HiCodeBracket,
+  smile: HiOutlineFaceSmile
 };
 
 export type IconLibrary = typeof iconLibrary;

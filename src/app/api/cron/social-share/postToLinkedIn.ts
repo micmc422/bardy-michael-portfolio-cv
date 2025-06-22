@@ -22,7 +22,7 @@ export async function postToLinkedIn(article: any) {
     // 2️⃣ Construire le post UGC avec OG
     const postBody = {
         author: personURN,
-        lifecycleState: 'PUBLISHED',
+        lifecycleState: 'DRAFT',
         specificContent: {
             'com.linkedin.ugc.ShareContent': {
                 shareCommentary: {
