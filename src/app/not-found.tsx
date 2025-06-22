@@ -24,7 +24,7 @@ export default function NotFound() {
         vertical="center"
       >
         <Icon paddingLeft="12" name="home" onBackground="brand-weak" />
-        <Flex paddingX="8">Retourner à l'accueil</Flex>
+        <Flex paddingX="8">Retourner à l&apos;accueil</Flex>
         <IconButton
           href={"/"}
           data-border="rounded"
