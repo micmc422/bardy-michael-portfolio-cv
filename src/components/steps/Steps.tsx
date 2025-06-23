@@ -27,7 +27,6 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
         const jsonLDList = steps.map(({ title, content }, i) => ({
             "@type": "ListItem",
             "position": i + 1,
-            "name": title,
             "acceptedAnswer": content
         }))
 
