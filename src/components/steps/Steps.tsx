@@ -25,7 +25,6 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
         const jsonStr = decodeURIComponent(rest["data-props"] || "[]");
         const { steps, title } = JSON.parse(jsonStr) as StepsType;
 
-        console.log(title)
         return (
             <Column
                 ref={ref}

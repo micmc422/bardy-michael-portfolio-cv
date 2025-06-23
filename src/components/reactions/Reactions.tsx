@@ -74,7 +74,6 @@ const ReactionsBtn = forwardRef<HTMLLIElement, ReactionsBtnProps>(
         const result = await incrementReaction(formData);
 
         if (result.success && result.count !== undefined) {
-          console.log('Reaction incremented successfully:', result);
           setCurrentCount(result.count);
         } else {
           console.error(result.message);
