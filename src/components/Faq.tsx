@@ -57,7 +57,6 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 "@type": "ListItem",
                 "position": i + 1,
                 "name": title,
-                "acceptedAnswer": content
             }))
 
             return (<Column ref={ref} gap="l" paddingBottom="xl">
@@ -67,7 +66,6 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "ItemList",
-                        "name": ${title},
                         "itemListOrder": "http://schema.org/ItemListOrderAscending",
                         "numberOfItems": ${list.length},
                         "itemListElement": ${JSON.stringify(jsonLDList)}
