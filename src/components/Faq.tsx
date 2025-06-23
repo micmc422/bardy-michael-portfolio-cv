@@ -36,7 +36,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 "acceptedAnswer": content
             }))
             return (<>
-                <Heading as="h2">{title || "FAQ"}</Heading>
+                <Heading paddingBottom="l" as="h2">{title || "FAQ"}</Heading>
                 <AccordionGroup ref={ref} items={faq} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: {
@@ -57,7 +57,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             }))
 
             return (<>
-                {title && <Heading as="h2">{title}</Heading>}
+                {title && <Heading paddingBottom="l" as="h2">{title}</Heading>}
                 <AccordionGroup ref={ref} items={list} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: {
