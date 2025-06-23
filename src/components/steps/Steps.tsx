@@ -31,9 +31,10 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
                 ref={ref}
                 style={style}
                 className={classNames(className)}
+                paddingBottom="xl"
                 {...rest}
             >
-                {title && <Heading as="h2" paddingBottom="l" id={slugify(title)}>{title}</Heading>}
+                {title && <Heading as="h2" id={slugify(title)}>{title}</Heading>}
                 {steps?.map((step, i) => <StepComponent key={i} step={i} {...step} />)}
             </Column>
         );
@@ -58,6 +59,7 @@ const StepComponent = forwardRef<HTMLDivElement, StepComponentProps>(
                 ref={ref}
                 style={style}
                 className={classNames(className)}
+
                 {...rest}
             >
                 <Row gap="s">
@@ -65,7 +67,7 @@ const StepComponent = forwardRef<HTMLDivElement, StepComponentProps>(
                         <div className={classNames(styles.stepCount)}>{step + 1}</div>
                         <div className={classNames(styles.stepLine)} />
                     </Column>
-                    <Column gap="s" paddingBottom="m" paddingTop="4">
+                    <Column gap="s" paddingBottom="l" paddingTop="4">
                         <Text variant="body-strong-xl">{title}</Text>
                         <Text variant="body-default-m" onBackground="neutral-weak">{content}</Text>
                     </Column>

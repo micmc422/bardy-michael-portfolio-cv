@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
-import { AccordionGroup, Heading } from "@/once-ui/components";
+import { AccordionGroup, Column, Heading } from "@/once-ui/components";
 import { slugify } from "@/utils/utils";
 
 
-interface FaqProps extends React.ComponentProps<typeof Heading> {
+interface FaqProps extends React.ComponentProps<typeof Column> {
     className?: string;
     style?: React.CSSProperties;
     "data-props"?: string;
@@ -36,8 +36,8 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 "name": title,
                 "acceptedAnswer": content
             }))
-            return (<>
-                {title && <Heading paddingBottom="l" as="h2" id={slugify(title)}>{title || "FAQ"}</Heading>}
+            return (<Column ref={ref} gap="l">
+                {title && <Heading as="h2" id={slugify(title)}>{title || "FAQ"}</Heading>}
                 <AccordionGroup items={faq} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: {
@@ -46,7 +46,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                         "mainEntity": jsonLDFaq
                     }
                 }} />
-            </>
+            </Column>
             );
         }
         if (list) {
@@ -57,8 +57,8 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 "acceptedAnswer": content
             }))
 
-            return (<>
-                {title && <Heading paddingBottom="l" as="h2" id={slugify(title)}>{title}</Heading>}
+            return (<Column ref={ref} gap="l" paddingBottom="xl">
+                {title && <Heading as="h2" id={slugify(title)}>{title}</Heading>}
                 <AccordionGroup items={list} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: {
@@ -70,7 +70,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                         "itemListElement": jsonLDFaq
                     }
                 }} />
-            </>
+            </Column>
             );
         }
 
