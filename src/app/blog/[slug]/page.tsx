@@ -10,10 +10,8 @@ import { Metadata } from "next";
 import CommentSection from "@/components/CommentSection";
 import Post from "@/components/blog/Post";
 import { SocialShareBar } from "@/components/SocialShare";
-import GitHubRepoSummary from "@/components/gitHubResume";
-import { Reactions } from "@/components/reactions/Reactions";
-import { getReactions } from "@/components/reactions/serverActions";
-import { StepsComponent } from "@/components/steps/Steps";
+// import { Reactions } from "@/components/reactions/Reactions";
+// import { getReactions } from "@/components/reactions/serverActions";
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
@@ -62,7 +60,7 @@ export default async function Blog({
   const post = await getPostData(slug)
   const comments = await fetchComments(slug)
   const related = await relatedPost(slug)
-  const reactionsCount = await getReactions(slug);
+  // const reactionsCount = await getReactions(slug);
   if (!post) {
     notFound();
   }
