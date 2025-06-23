@@ -40,17 +40,17 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 {title && <Heading as="h2" id={slugify(title)}>{title || "FAQ"}</Heading>}
                 <AccordionGroup items={faq} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{
-                    __html: {
+                    __html: `{
                         "@context": "https://schema.org",
                         "@type": "FAQPage",
-                        "mainEntity": jsonLDFaq
-                    }
+                        "mainEntity": JSON.stringify(jsonLDFaq)
+                    }`
                 }} />
             </Column>
             );
         }
         if (list) {
-            const jsonLDFaq = list.map(({ title, content }, i) => ({
+            const jsonLDList = list.map(({ title, content }, i) => ({
                 "@type": "ListItem",
                 "position": i + 1,
                 "name": title,
@@ -61,14 +61,14 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 {title && <Heading as="h2" id={slugify(title)}>{title}</Heading>}
                 <AccordionGroup items={list} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{
-                    __html: {
+                    __html: `{
                         "@context": "https://schema.org",
                         "@type": "ItemList",
                         "name": title,
                         "itemListOrder": "http://schema.org/ItemListOrderAscending",
                         "numberOfItems": list.length,
-                        "itemListElement": jsonLDFaq
-                    }
+                        "itemListElement": JSON.stringify(jsonLDList)
+                    }`
                 }} />
             </Column>
             );

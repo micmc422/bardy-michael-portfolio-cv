@@ -24,6 +24,12 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
     ({ className, style, ...rest }, ref) => {
         const jsonStr = decodeURIComponent(rest["data-props"] || "[]");
         const { steps, title } = JSON.parse(jsonStr) as StepsType;
+        const jsonLDList = steps.map(({ title, content }, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": title,
+            "acceptedAnswer": content
+        }))
 
         return (
             <Column
@@ -35,6 +41,17 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
             >
                 {title && <Heading as="h2" id={slugify(title)} paddingBottom="l">{title}</Heading>}
                 {steps?.map((step, i) => <StepComponent key={i} step={i} {...step} />)}
+                <script type="application/ld+json" dangerouslySetInnerHTML={{
+                    __html: `{
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        "name": title,
+                        "itemListOrder": "http://schema.org/ItemListOrderAscending",
+                        "numberOfItems": steps.length,
+                        "itemListElement": JSON.stringify(jsonLDList)
+                    }`
+                }} />
+
             </Column>
         );
     }
