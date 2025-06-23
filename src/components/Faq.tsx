@@ -1,8 +1,9 @@
 import React, { forwardRef } from "react";
-import { AccordionGroup, Flex, Heading } from "@/once-ui/components";
-import { FaG } from "react-icons/fa6";
+import { AccordionGroup, Heading } from "@/once-ui/components";
+import { slugify } from "@/utils/utils";
 
-interface FaqProps extends React.ComponentProps<typeof Flex> {
+
+interface FaqProps extends React.ComponentProps<typeof Heading> {
     className?: string;
     style?: React.CSSProperties;
     "data-props"?: string;
@@ -36,8 +37,8 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 "acceptedAnswer": content
             }))
             return (<>
-                <Heading paddingBottom="l" as="h2">{title || "FAQ"}</Heading>
-                <AccordionGroup ref={ref} items={faq} />
+                {title && <Heading paddingBottom="l" as="h2" id={slugify(title)}>{title || "FAQ"}</Heading>}
+                <AccordionGroup items={faq} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: {
                         "@context": "https://schema.org",
@@ -57,8 +58,8 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             }))
 
             return (<>
-                {title && <Heading paddingBottom="l" as="h2">{title}</Heading>}
-                <AccordionGroup ref={ref} items={list} />
+                {title && <Heading paddingBottom="l" as="h2" id={slugify(title)}>{title}</Heading>}
+                <AccordionGroup items={list} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: {
                         "@context": "https://schema.org",

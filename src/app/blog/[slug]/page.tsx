@@ -13,6 +13,7 @@ import { SocialShareBar } from "@/components/SocialShare";
 import GitHubRepoSummary from "@/components/gitHubResume";
 import { Reactions } from "@/components/reactions/Reactions";
 import { getReactions } from "@/components/reactions/serverActions";
+import { StepsComponent } from "@/components/steps/Steps";
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {

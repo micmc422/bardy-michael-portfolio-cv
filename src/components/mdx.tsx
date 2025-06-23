@@ -16,6 +16,8 @@ import { SmartImageProps } from "@/once-ui/components/SmartImage";
 import { RawGithubFile } from "./RawGithubFile";
 import GitHubRepoSummary from "./gitHubResume";
 import { Faq } from "./Faq";
+import { StepsComponent } from "./steps/Steps";
+import { slugify } from "@/utils/utils";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -105,19 +107,6 @@ function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) 
   );
 }
 
-function slugify(str: string): string {
-  try {
-    return str
-      .toLowerCase()
-      .replace(/\s+/g, "-") // Replace spaces with -
-      .replace(/&/g, "-and-") // Replace & with 'and'
-      .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-      .replace(/\-\-+/g, "-"); // Replace multiple - with single -
-  }
-  catch (error) {
-    return str; // Fallback to original string if an error occurs
-  }
-}
 
 function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
   const CustomHeading = ({ children, ...props }: TextProps<typeof as>) => {
@@ -151,7 +140,7 @@ function createParagraph({ children }: TextProps) {
     <Text
       style={{ lineHeight: "175%" }}
       variant="body-default-m"
-      onBackground="neutral-medium"
+      onBackground="neutral-weak"
       marginTop="8"
       marginBottom="12"
     >
@@ -210,6 +199,7 @@ const components = {
   code: createInlineCode as any,
   pre: createCodeBlock as any,
   Faq: Faq as any,
+  Steps: StepsComponent as any,
   Heading,
   Text,
   CodeBlock,

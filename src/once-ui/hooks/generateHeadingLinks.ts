@@ -13,6 +13,6 @@ export const useHeadingLinks = () => {
       }));
     setHeadings(elements);
   }, []);
-
+console.log(headings)
   return headings;
 };
