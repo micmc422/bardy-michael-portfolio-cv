@@ -45,10 +45,10 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "ItemList",
-                        "name": title,
+                        "name": ${title},
                         "itemListOrder": "http://schema.org/ItemListOrderAscending",
-                        "numberOfItems": steps.length,
-                        "itemListElement": JSON.stringify(jsonLDList)
+                        "numberOfItems": ${steps.length},
+                        "itemListElement": ${JSON.stringify(jsonLDList)}
                     }`
                 }} />
 

@@ -43,7 +43,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "FAQPage",
-                        "mainEntity": JSON.stringify(jsonLDFaq)
+                        "mainEntity": ${JSON.stringify(jsonLDFaq)}
                     }`
                 }} />
             </Column>
@@ -64,10 +64,10 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "ItemList",
-                        "name": title,
+                        "name": ${title},
                         "itemListOrder": "http://schema.org/ItemListOrderAscending",
-                        "numberOfItems": list.length,
-                        "itemListElement": JSON.stringify(jsonLDList)
+                        "numberOfItems": ${list.length},
+                        "itemListElement": ${JSON.stringify(jsonLDList)}
                     }`
                 }} />
             </Column>
