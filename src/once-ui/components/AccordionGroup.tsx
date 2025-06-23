@@ -1,5 +1,5 @@
 import React from "react";
-import { Column, Accordion, Line, Flex } from "@/once-ui/components";
+import { Column, Accordion, Line, Flex, Text } from "@/once-ui/components";
 
 export type AccordionItem = {
   title: React.ReactNode;
@@ -21,7 +21,7 @@ const AccordionGroup: React.FC<AccordionGroupProps> = ({ items, size = "m", ...r
       {items.map((item, index) => (
         <React.Fragment key={index}>
           <Accordion title={item.title} size={size}>
-            {item.content}
+            <Text onBackground="neutral-weak">{item.content}</Text>
           </Accordion>
           {index < items.length - 1 && <Line background="neutral-alpha-medium" />}
         </React.Fragment>

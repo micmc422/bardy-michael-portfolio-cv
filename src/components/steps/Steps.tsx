@@ -34,7 +34,7 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
                 paddingBottom="xl"
                 {...rest}
             >
-                {title && <Heading as="h2" id={slugify(title)}>{title}</Heading>}
+                {title && <Heading as="h2" id={slugify(title)} paddingBottom="l">{title}</Heading>}
                 {steps?.map((step, i) => <StepComponent key={i} step={i} {...step} />)}
             </Column>
         );
