@@ -6,34 +6,26 @@ import styles from "./steps.module.scss"
 import { slugify } from "@/utils/utils";
 
 interface StepsComponentProps extends React.ComponentProps<typeof Column> {
-    title?: string;
-    steps: { icon?: string, title?: string, content?: string }[];
     className?: string;
     style?: React.CSSProperties;
+    "data-props"?: string;
+
 }
 
-const defaulSteps = [
-    {
-        "title": "⚡ Performance SEO (Search Console, Analytics)",
-        "content": "Suivre régulièrement les indicateurs SEO via Google Search Console et Google Analytics permet d’évaluer la visibilité du site, le comportement des utilisateurs et l’efficacité des optimisations en place. Une analyse approfondie des données aide à identifier les pages performantes, à repérer les axes d’amélioration et à ajuster la stratégie pour un meilleur positionnement."
-    },
-    {
-        "title": "🥇 Positions zéro et extraits enrichis",
-        "content": "Atteindre la position zéro ou obtenir des extraits enrichis (featured snippets) permet de capter une part importante du trafic organique. En optimisant le contenu pour répondre clairement aux requêtes des utilisateurs, on augmente les chances d’apparaître en tête des résultats, améliorant ainsi la visibilité et la notoriété de la marque."
-    },
-    {
-        "title": "🤖 Sources IA identifiées",
-        "content": "S’assurer que les contenus du site sont correctement identifiés et attribués par les IA est essentiel pour renforcer l’autorité et la crédibilité en ligne. Un contenu bien structuré, signé par des auteurs identifiables et issu de sources fiables favorise sa réutilisation par les IA génératives, tout en garantissant une attribution claire."
-    },
-    {
-        "title": "📈 Conversion et engagement",
-        "content": "Mesurer le taux de conversion et l’engagement des visiteurs permet de transformer le trafic en résultats concrets. En analysant les parcours utilisateurs, les taux de clics, les temps de lecture et les actions réalisées, on peut optimiser le contenu et les appels à l’action pour augmenter la fidélisation et la rentabilité."
-    }
-]
+interface StepsType {
+    title: string,
+    steps: {
+        title: string,
+        content: string
+    }[]
+}
 
 const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
-    ({ title, steps = defaulSteps, className, style, ...rest }, ref) => {
+    ({ className, style, ...rest }, ref) => {
+        const jsonStr = decodeURIComponent(rest["data-props"] || "[]");
+        const { steps, title } = JSON.parse(jsonStr) as StepsType;
 
+        console.log(title)
         return (
             <Column
                 ref={ref}
