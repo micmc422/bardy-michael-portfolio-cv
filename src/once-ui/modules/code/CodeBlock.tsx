@@ -14,7 +14,7 @@ import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-css";
 import "prismjs/components/prism-typescript";
-import "prismjs/components/prism-tsx";
+import "prismjs/components/prism-json";
 import classNames from "classnames";
 import { SpacingToken } from "../../types";
 
