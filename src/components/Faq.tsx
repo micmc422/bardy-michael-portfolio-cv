@@ -56,6 +56,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             const jsonLDList = list.map(({ title, content }, i) => ({
                 "@type": "ListItem",
                 "position": i + 1,
+                "item": { "name": title },
             }))
 
             return (<Column ref={ref} gap="l" paddingBottom="xl">
