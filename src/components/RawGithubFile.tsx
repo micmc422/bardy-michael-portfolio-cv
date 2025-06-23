@@ -19,8 +19,11 @@ const RawGithubFile = forwardRef<HTMLDivElement, ComponentProps>(
     async ({ rawCodeUrl, ...rest }, ref) => {
         const code = await getCode(rawCodeUrl)
         const language = await detectLanguageFromURL(rawCodeUrl)
-        const path = rawCodeUrl.split("/main").slice(-1)[0];
+        let path = rawCodeUrl.split("/main").slice(-1)[0];
         console.log("path", rawCodeUrl.split("/main").slice(-1)[0]);
+        if(rawCodeUrl?.includes("micmc422/blogfiles")) {
+            path = ""
+        }
         return (
             <CodeBlock
                 ref={ref}
