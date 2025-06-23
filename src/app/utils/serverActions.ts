@@ -178,13 +178,6 @@ function formatPostData(post: WispPost): PostType {
         turndownService.use(gfm)
 
         // Garder intactes ces balises HTML
-        turndownService.addRule('simpleParagraph', {
-            filter: 'p',
-            replacement: function (contentData) {
-
-                return contentData + '\n';
-            }
-        });
 
         turndownService.keep(['div']);
         // turndownService.escape = (string) => string;
