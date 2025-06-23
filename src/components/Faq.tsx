@@ -34,7 +34,10 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             const jsonLDFaq = faq.map(({ title, content }) => ({
                 "@type": "Question",
                 "name": title,
-                "acceptedAnswer": content
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": content
+                }
             }))
             return (<Column ref={ref} gap="l">
                 {title && <Heading as="h2" id={slugify(title)}>{title || "FAQ"}</Heading>}
