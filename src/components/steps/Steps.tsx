@@ -27,7 +27,6 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
         const jsonLDList = steps.map(({ title, content }, i) => ({
             "@type": "ListItem",
             "position": i + 1,
-            "acceptedAnswer": content
         }))
 
         return (
@@ -44,7 +43,6 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "ItemList",
-                        "name": ${title},
                         "itemListOrder": "http://schema.org/ItemListOrderAscending",
                         "numberOfItems": ${steps.length},
                         "itemListElement": ${JSON.stringify(jsonLDList)}
