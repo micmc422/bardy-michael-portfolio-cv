@@ -73,7 +73,7 @@ const home = {
   },
   subline: (
     <>
-      Depuis 2015, je réalise des sites internet et des applications web pour le compte d&apos;agences et de porteur de projet. Je crée des site internet uniques & performant.
+      Depuis 2015, je réalise des sites internet et des applications web pour le compte d&apos;agences et de porteur de projet. Je crée des sites internet uniques & performant.
     </>
   ),
 };
