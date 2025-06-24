@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, forwardRef, useTransition } from "react";
+import React, { useState, forwardRef, startTransition, useOptimistic } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
-import { Button, Flex, Icon, Spinner, Text } from "@/once-ui/components";
+import { Badge, Button, Flex, Icon, Spinner, Text, useToast } from "@/once-ui/components";
 import { incrementReaction } from "./serverActions";
+import { AnimatedNumber } from "../animateNumber";
 
 interface ReactionsProps extends React.ComponentPropsWithoutRef<"div"> {
   className?: string;
@@ -41,8 +42,13 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
         className={classNames(styles.container, className)}
         {...rest}
       >
-        <button className={styles.button}><Icon name="smile" onClick={() => toggleList()} /></button>
-        <ul
+        {isOpen && <Flex
+          background="surface"
+          border="neutral-alpha-medium"
+          shadow="l"
+          paddingX="m"
+          horizontal="center"
+          zIndex={1}
           className={classNames(styles.list, isOpen && styles.open)}
         >
           {reactions.map((reaction) => (
@@ -53,7 +59,19 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
               {...reaction}
             />
           ))}
-        </ul>
+        </Flex>}
+
+        <Flex
+          background="surface"
+          border="neutral-alpha-medium"
+          radius="m-4"
+          shadow="l"
+          padding="xs"
+          horizontal="center"
+          zIndex={1}
+          onClick={toggleList} >
+          <Icon name="smile" />
+        </Flex>
       </div>
     );
   }
@@ -63,41 +81,48 @@ Reactions.displayName = "Reactions";
 
 const ReactionsBtn = forwardRef<HTMLLIElement, ReactionsBtnProps>(
   ({ name, label, icon, postSlug, count }, ref) => {
-    const [loading, setLoading] = useTransition();
     const [currentCount, setCurrentCount] = useState(count || 0);
+    const [optimisticCount, addOptimisticCount] = useOptimistic(currentCount, (state, amount: number) => state + amount);
+    const { addToast } = useToast();
     const handleReaction = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
       const formData = new FormData(event.currentTarget);
 
-      setLoading(async () => {
-        const result = await incrementReaction(formData);
+      // Optimiste : on incrémente tout de suite
+      startTransition(() => addOptimisticCount(1));
 
-        if (result.success && result.count !== undefined) {
-          setCurrentCount(result.count);
-        } else {
-          console.error(result.message);
-        }
-      });
+      const result = await incrementReaction(formData);
+
+      if (result.success && result.count !== undefined) {
+        // On synchronise le vrai compteur avec la valeur retournée
+        setCurrentCount(result.count);
+        addToast({
+          variant: "success",
+          message: "Réaction " + icon + " " + "ajouter ! Merci",
+        });
+      } else {
+        console.error(result.message);
+        // Ici, si tu veux, tu peux annuler l’optimisme en remettant setCurrentCount à sa valeur initiale
+        // setCurrentCount(currentCount); // ou autre logique
+      }
     };
     return <li ref={ref}>
       <form onSubmit={handleReaction} className={classNames(styles.reactionForm)}>
         <input type="hidden" name="postSlug" value={postSlug} />
         <input type="hidden" name="reactionName" value={name} />
-        <Flex gap="0" center>
+        <Flex gap="0" padding="0" center>
           <Button
             type="submit"
             variant="tertiary"
-            disabled={loading}
-            className={classNames(styles.reactionButton, loading && styles.loading)}
+            className={classNames(styles.reactionButton)}
             aria-label={label}
           >
             <span className={"emoji"}>
               {icon}
             </span>
-            {loading && <Spinner className={classNames(loading && styles.spinner)} />}
+            {optimisticCount > 0 && <AnimatedNumber className={styles.count} >{(optimisticCount)}</AnimatedNumber>}
           </Button>
-          {currentCount > 0 && <Text variant="body-strong-l" onBackground="neutral-weak" marginLeft="4">{(currentCount)}</Text>}
         </Flex>
       </form>
     </li>
