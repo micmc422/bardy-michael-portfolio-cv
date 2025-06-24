@@ -2,7 +2,7 @@
 
 Ce dépôt contient le code source du site portfolio de **Michael Bardy**, développeur web freelance.
 
-👉 **Site en ligne** : [https://bardy.michael.occitaweb.fr](https://bardy.michael.occitaweb.fr)
+👉 **Site en ligne** : [https://occitaweb.fr](https://occitaweb.fr)
 
 ---
 
