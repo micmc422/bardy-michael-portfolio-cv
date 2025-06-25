@@ -3,11 +3,12 @@
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, IconButton, Icon } from "@/once-ui/components";
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
-import { Projects } from "@/components/work/Projects";
+import { Projects } from "@/components/realisations/Projects";
 import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
-import styles from "@/components/about/about.module.scss";
+import styles from "@/components/a-propos/a-propos.module.scss";
 import { Suspense } from "react";
+import { Tarifs } from "@/components/tarif/Tarifs";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -37,39 +38,25 @@ export default async function Home() {
       />
       <Column fillWidth paddingY="24" gap="m">
         <Column maxWidth="s">
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Flex
-              fitWidth
-              border="brand-alpha-medium"
-              className={styles.blockAlign}
-              style={{
-                backdropFilter: "blur(var(--static-space-1))",
-              }}
-              background="brand-alpha-weak"
-              radius="full"
-              padding="4"
-              gap="8"
-              marginBottom="m"
-              vertical="center"
+          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
+            <Badge
+              background="brand-alpha-weak" paddingX="8" paddingY="4" onBackground="brand-strong"
+              arrow={false}
+              href={about.calendar.link}
+              center
+              gap="s"
+              id="RDVBtn"
+              aria-label="Lien vers la prise de rendez-vous"
             >
-              <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-              <Flex paddingX="8">Planifier un RDV</Flex>
+              <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
+              <Text paddingTop="4">Planifier un RDV</Text>
               <IconButton
-                href={about.calendar.link}
                 data-border="rounded"
-                variant="secondary"
+                variant="ghost"
                 icon="chevronRight"
               />
-            </Flex>
+            </Badge>
           </RevealFx>
-          {home.featured.display && (
-            <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-              <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-                href={home.featured.href}>
-                <Row paddingY="2">{home.featured.title}</Row>
-              </Badge>
-            </RevealFx>
-          )}
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
@@ -80,27 +67,28 @@ export default async function Home() {
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              arrowIcon
+          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="8">
+            <Badge background="brand-weak" onBackground="neutral-weak" border="accent-alpha-weak" gap="8" vertical="center" paddingY="4" marginBottom="m" href={about.path} effect={false} id="auteur" aria-label="liens vers la page à propos de l'auteur" arrow={false}
             >
-              <Flex gap="8" vertical="center">
-                {about.avatar.display && (
-                  <Avatar
-                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Flex>
-            </Button>
+              {about.avatar.display && (
+                <Avatar
+                  style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                  src={person.avatar}
+                  size="m"
+                />
+              )}
+              {about.title}
+            </Badge>
           </RevealFx>
+          {home.featured.display && (
+            <RevealFx fillWidth horizontal="start" paddingLeft="8">
+              <Badge background="brand-alpha-weak" paddingX="4" paddingBottom="2" paddingTop="4" onBackground="neutral-strong" textVariant="body-default-s"
+                href={home.featured.href} marginBottom="m" aria-label={`lire : ${home.featured.title}`} arrow={false}>
+                <Text paddingY="2">{home.featured.title}</Text>
+              </Badge>
+            </RevealFx>
+          )}
+
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
@@ -123,6 +111,7 @@ export default async function Home() {
         </Flex>
       )}
       <Projects range={[2]} />
+      <Tarifs />
     </Column>
   );
 }

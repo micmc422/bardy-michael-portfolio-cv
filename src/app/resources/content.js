@@ -67,9 +67,9 @@ const home = {
   description: `Site portfolio présentant mon travail en tant que ${person.role} et mes projets personnels.`,
   headline: <>Développeur Full-Stack</>,
   featured: {
-    display: false,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    display: true,
+    title: <><strong className="ml-4">SEO & IA Générative 🤖</strong></>,
+    href: "/blog/introduction-pourquoi-lia-bouleverse-le-seo",
   },
   subline: (
     <>
@@ -79,7 +79,7 @@ const home = {
 };
 
 const about = {
-  path: "/about",
+  path: "/a-propos",
   label: "Qui suis-je ?",
   title: `${person.name}`,
   description: `Découvrez ${person.name}, ${person.role} basé à ${person.place}`,
@@ -315,12 +315,12 @@ const blog = {
 };
 
 const work = {
-  path: "/work",
+  path: "/realisations",
   label: "Portfolio",
   title: `Projets – ${person.name}`,
   description: `Projets et réalisations de ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  // All projects will be listed on the /home and /realisationsisations routes
 };
 
 const gallery = {

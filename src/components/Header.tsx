@@ -79,41 +79,41 @@ export const Header = () => {
                 <ToggleButton aria-label={`accueil du porfolio de ${person.name}`} prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes["/about"] && (
+              {routes["/a-propos"] && (
                 <>
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="person"
-                    href="/about"
+                    href="/a-propos"
                     label={about.label}
                     aria-label={about.label}
-                    selected={pathname === "/about"}
+                    selected={pathname === "/a-propos"}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="person"
-                    href="/about"
+                    href="/a-propos"
                     aria-label={about.label}
-                    selected={pathname === "/about"}
+                    selected={pathname === "/a-propos"}
                   />
                 </>
               )}
-              {routes["/work"] && (
+              {routes["/realisations"] && (
                 <>
                   <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="grid"
-                    href="/work"
+                    href="/realisations"
                     label={work.label}
                     aria-label={work.label}
-                    selected={pathname.startsWith("/work")}
+                    selected={pathname.startsWith("/realisations")}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="grid"
-                    href="/work"
+                    href="/realisations"
                     aria-label={work.label}
-                    selected={pathname.startsWith("/work")}
+                    selected={pathname.startsWith("/realisations")}
                   />
                 </>
               )}

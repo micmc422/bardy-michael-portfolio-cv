@@ -13,8 +13,8 @@ import {
   Text,
 } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
-import TableOfContents from "@/components/about/TableOfContents";
-import styles from "@/components/about/about.module.scss";
+import TableOfContents from "@/components/a-propos/TableOfContents";
+import styles from "@/components/a-propos/a-propos.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React, { JSX } from "react";
 import { Meta, Schema } from "@/once-ui/modules";

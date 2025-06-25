@@ -63,6 +63,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
       border="neutral-alpha-weak"
     >
       <Background
+        fill
         position="absolute"
         mask={{
           x: rdv.effects.mask.x,

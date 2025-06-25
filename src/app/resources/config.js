@@ -3,15 +3,15 @@ const baseURL = "https://occitaweb.fr";
 
 const routes = {
   "/": true,
-  "/about": true,
-  "/work": true,
+  "/a-propos": true, // /about
+  "/realisations": true, // /work
   "/blog": true,
 };
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
 const protectedRoutes = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
+  "/realisations/automate-design-handovers-with-a-figma-to-code-pipeline": true,
 };
 
 import { Josefin_Sans } from "next/font/google";
@@ -52,39 +52,39 @@ const style = {
 
 const effects = {
   mask: {
-    cursor: false,
+    cursor: true,
     x: 50,
-    y: 0,
+    y: 50,
     radius: 100,
   },
   gradient: {
-    display: false,
+    display: true,
     opacity: 100,
     x: 50,
     y: 60,
     width: 100,
     height: 50,
-    tilt: 0,
-    colorStart: "accent-background-strong",
+    tilt: 25,
+    colorStart: "brand-background-strong",
     colorEnd: "page-background",
   },
   dots: {
     display: true,
     opacity: 40,
-    size: "2",
+    size: "4",
     color: "brand-background-strong",
   },
   grid: {
-    display: false,
+    display: true,
     opacity: 100,
-    color: "neutral-alpha-medium",
+    color: "accent-alpha-medium",
     width: "0.25rem",
     height: "0.25rem",
   },
   lines: {
     display: false,
     opacity: 100,
-    color: "neutral-alpha-weak",
+    color: "neutral-alpha-strong",
     size: "16",
     thickness: 1,
     angle: 45,
@@ -148,29 +148,29 @@ const rdv = {
       cursor: true,
       x: 50,
       y: 0,
-      radius: 100,
+      radius: 25,
     },
     gradient: {
       display: true,
-      opacity: 90,
+      opacity: 100,
       x: 50,
       y: 0,
       width: 50,
       height: 50,
-      tilt: 0,
-      colorStart: "accent-background-strong",
-      colorEnd: "static-transparent",
+      tilt: 20,
+      colorStart: "brand-background-strong",
+      colorEnd: "neutral-transparent",
     },
     dots: {
-      display: true,
-      opacity: 20,
-      size: "2",
-      color: "brand-on-background-weak",
-    },
-    grid: {
       display: false,
       opacity: 100,
-      color: "neutral-alpha-medium",
+      size: "1",
+      color: "neutral-on-background-weak",
+    },
+    grid: {
+      display: true,
+      opacity: 25,
+      color: "brand-alpha-weak",
       width: "0.25rem",
       height: "0.25rem",
     },
