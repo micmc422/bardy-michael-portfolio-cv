@@ -91,8 +91,8 @@ const defaultTarifs: PricingItem[] = [
         )
     },
     {
-        "title": "Maintenance & accompagnement",
-        "price": "90 € HT / mois",
+        "title": "Maintenance & gestion",
+        "price": "50 € HT / mois",
         "features": [
             "Mises à jour régulières (CMS, plugins, sécurité)",
             "Sauvegardes automatisées",
@@ -143,8 +143,37 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                 className={classNames(styles.component, className)}
                 center
                 gap="l"
+                overflow="hidden"
+                background="page"
+                radius="l-8"
+                padding="xl"
                 {...rest}
             >
+                <Background
+                    fill
+                    position="absolute"
+                    mask={{
+                        cursor: true,
+                        x: 50,
+                        y: 0,
+                        radius: 40
+                    }}
+                    dots={{
+                        display: true,
+                        opacity: 0.6 as opacity,
+                        size: "8",
+                        color: "neutral-background-medium"
+                    }}
+                    gradient={{
+                        display: true,
+                        opacity: 1 as opacity,
+                        x: 50,
+                        y: 0,
+                        colorStart: "neutral-background-strong",
+                        colorEnd: "static-transparent"
+                    }}
+                />
+
                 <Column maxWidth={"xs"} center>
                     <Heading as="h2" variant="display-strong-m">Tarifs 💰</Heading>
                     <Text variant="body-default-l" align="center" onBackground="neutral-weak">Des offres simples et adaptées à vos besoins : que vous lanciez un projet, optimisiez un site existant ou souhaitiez un accompagnement régulier.</Text>
@@ -168,16 +197,15 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
     ({ volet, className, style, ...rest }, ref) => {
         const { title, price, features, notes, jsonLD } = volet;
         return (
-            <Column radius="s-4"
+            <Column radius="l-4"
                 ref={ref}
-                style={style}
                 className={classNames(styles.component, className)}
                 direction="column"
                 fillWidth
+                overflow="hidden"
                 paddingY="m"
                 gap="m"
-                background="overlay"
-                border="brand-alpha-strong"
+                background="page"
                 {...rest}
             >
                 <Background
@@ -209,7 +237,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     }}
                 />
 
-                <Heading as="h3" variant="body-strong-xl" paddingX="m" className={styles.titre}>{title}</Heading>
+                <Heading as="h3" variant="display-strong-xs" paddingX="m" className={styles.titre}>{title}</Heading>
                 <Row fillWidth paddingX="m">
                     <ul className={styles.list}>
                         {features.map(feature => <li key={feature}>

@@ -14,14 +14,19 @@ const protectedRoutes = {
   "/realisations/automate-design-handovers-with-a-figma-to-code-pipeline": true,
 };
 
-import { Josefin_Sans } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+import { Josefin_Sans, Geist_Mono, Geist } from "next/font/google";
 
 const primaryFont = Josefin_Sans({
   variable: "--font-primary",
   subsets: ["latin"],
   display: "swap",
-  weight:["400"]
+  weight: ["400"]
+});
+const secondaryFont = Geist({
+  variable: "--font-primary",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300"]
 });
 
 const monoFont = Geist_Mono({
@@ -32,7 +37,7 @@ const monoFont = Geist_Mono({
 
 const font = {
   primary: primaryFont,
-  secondary: primaryFont,
+  secondary: secondaryFont,
   tertiary: primaryFont,
   code: monoFont,
 };
