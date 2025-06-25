@@ -28,6 +28,7 @@ const defaultTarifs: PricingItem[] = [
         jsonLD: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
+            "image": "/images/blog/cv-cover.png",
             "name": "Création de site web",
             "description": "Création de sites vitrines sur mesure avec WordPress ou Next.js, responsive et optimisés pour le SEO.",
             "brand": {
@@ -64,6 +65,7 @@ const defaultTarifs: PricingItem[] = [
         jsonLD: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
+            "image": "/images/blog/pagespeed-h2team.png",
             "name": "Refonte & Optimisation",
             "description": "Audit et amélioration de sites existants : UX, SEO, performances, migration vers des technologies modernes.",
             "brand": {
@@ -100,6 +102,7 @@ const defaultTarifs: PricingItem[] = [
         jsonLD: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
+            "image": "/images/blog/headless.png",
             "name": "Maintenance & accompagnement",
             "description": "Mises à jour, sauvegardes, assistance et évolutions régulières pour assurer la stabilité de votre site.",
             "brand": {
