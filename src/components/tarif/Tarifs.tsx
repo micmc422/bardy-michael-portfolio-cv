@@ -219,7 +219,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     <Text variant="display-strong-xs" onBackground="info-medium">{price}</Text>
                     <Text onBackground="neutral-weak">{notes}</Text>
                 </Column>
-                <script dangerouslySetInnerHTML={{ __html: jsonLD }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
             </Column>
         );
     }
