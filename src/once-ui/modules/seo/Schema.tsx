@@ -55,13 +55,14 @@ export function Schema({
     "@type": schemaType,
     url,
   };
-  
-  schema.sameAs = Object.values(social).filter(Boolean).map(({link})=> link).filter(el => el !== "")
+
+  schema.sameAs = Object.values(social).filter(Boolean).map(({ link }) => link).filter(el => el !== "")
 
   if (as === "website") {
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
+    schema.sameAs = schema.sameAs
   } else if (as === "organization") {
     schema.name = title;
     schema.description = description;
@@ -70,7 +71,6 @@ export function Schema({
     schema.headline = title;
     schema.description = description;
     schema.image = imageUrl;
-
     if (datePublished) {
       schema.datePublished = datePublished;
       schema.dateModified = dateModified || datePublished;
@@ -91,6 +91,10 @@ export function Schema({
       sameAs: schema.sameAs
     };
   }
+  if (as === 'blogPosting') {
+    delete schema.sameAs;
+  }
+
   return (
     <Script
       id={`schema-${as}-${path}`}
