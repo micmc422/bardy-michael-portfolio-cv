@@ -48,6 +48,7 @@ import {
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX } from "react-icons/fa6";
 import { FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { RxCookie } from "react-icons/rx";
 
 export const iconLibrary: Record<string, IconType> = {
   facebook: FiFacebook,
@@ -81,6 +82,7 @@ export const iconLibrary: Record<string, IconType> = {
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,
   github: FaGithub,
+  linkedin:FaLinkedin,
   x: FaX,
   clipboard: HiClipboard,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
@@ -93,7 +95,8 @@ export const iconLibrary: Record<string, IconType> = {
   star: HiOutlineStar,
   gitfork: GoRepoForked,
   code: HiCodeBracket,
-  smile: HiOutlineFaceSmile
+  smile: HiOutlineFaceSmile,
+  cookie: RxCookie
 };
 
 export type IconLibrary = typeof iconLibrary;

@@ -5,7 +5,7 @@ import { IconButton, Button, Icon, Flex, Text } from ".";
 
 interface FeedbackProps extends Omit<React.ComponentProps<typeof Flex>, "title"> {
   variant?: "info" | "danger" | "warning" | "success";
-  icon?: boolean;
+  icon?: boolean | string;
   title?: string;
   description?: string;
   showCloseButton?: boolean;
@@ -15,12 +15,13 @@ interface FeedbackProps extends Omit<React.ComponentProps<typeof Flex>, "title">
 }
 
 const variantIconMap: {
-  [key in "info" | "danger" | "warning" | "success"]: string;
+  [key in "info" | "danger" | "warning" | "success" | "cookie"]: string;
 } = {
   info: "infoCircle",
   danger: "errorCircle",
   warning: "warningTriangle",
   success: "checkCircle",
+  cookie: "cookie",
 };
 
 const Feedback = forwardRef<HTMLDivElement, FeedbackProps>(
@@ -38,6 +39,7 @@ const Feedback = forwardRef<HTMLDivElement, FeedbackProps>(
     },
     ref,
   ) => {
+    const customIcon = icon === "cookie" ? icon : variant
     return (
       <Flex
         fillWidth
@@ -57,7 +59,7 @@ const Feedback = forwardRef<HTMLDivElement, FeedbackProps>(
               radius="m"
               border={`${variant}-medium`}
               onBackground={`${variant}-medium`}
-              name={variantIconMap[variant]}
+              name={variantIconMap[customIcon]}
               aria-hidden="true"
             />
           </Flex>

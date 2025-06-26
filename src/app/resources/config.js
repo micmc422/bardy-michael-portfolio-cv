@@ -32,7 +32,7 @@ const tertiaryFont = Open_Sans({
   variable: "--font-tertiary",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300"]
+  weight: ["500"]
 });
 
 const monoFont = Geist_Mono({
@@ -87,8 +87,8 @@ const effects = {
   },
   grid: {
     display: true,
-    opacity: 100,
-    color: "accent-alpha-medium",
+    opacity: 50,
+    color: "neutral-alpha-strong",
     width: "0.25rem",
     height: "0.25rem",
   },

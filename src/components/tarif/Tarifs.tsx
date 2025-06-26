@@ -154,16 +154,16 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                     fill
                     position="absolute"
                     mask={{
-                        //cursor: true,
+                        cursor: true,
                         x: 50,
                         y: 25,
-                        radius: 40
+                        radius: 70
                     }}
                     dots={{
                         display: true,
                         opacity: 0.6 as opacity,
                         size: "8",
-                        color: "neutral-background-medium"
+                        color: "accent-background-medium"
                     }}
                     gradient={{
                         display: true,
@@ -171,7 +171,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                         x: 50,
                         y: 0,
                         colorStart: "accent-alpha-strong",
-                        colorEnd: "static-transparent"
+                        colorEnd: "accent-alpha-weak"
                     }}
                 />
 
@@ -204,8 +204,6 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                 direction="column"
                 fillWidth
                 overflow="hidden"
-                paddingY="m"
-                gap="m"
                 background="accent-alpha-medium"
 
                 {...rest}
@@ -240,9 +238,9 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     }}
                 />
 
-                <Heading as="h3" variant="display-strong-xs" paddingX="m" className={styles.titre} onBackground="accent-weak">{title}</Heading>
+                <Heading as="h3" variant="display-strong-xs" padding="m" className={styles.titre} onBackground="accent-weak">{title}</Heading>
                 <Line background="page" />
-                <Row fillWidth paddingX="m">
+                <Row fillWidth padding="m">
                     <ul className={styles.list}>
                         {features.map(feature => <li key={feature}>
                             <Text variant="body-default-s" onBackground="info-medium" padding="0">{feature}</Text>
@@ -250,9 +248,9 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     </ul>
                 </Row>
                 <Line background="page" />
-                <Column paddingX="m" fillWidth gap="0" horizontal="end">
+                <Column padding="m" fillWidth gap="0" horizontal="end" background="overlay">
                     <Text onBackground="accent-weak">À partir de :</Text>
-                    <Text variant="display-strong-xs" onBackground="accent-weak">{price}</Text>
+                    <Text variant="display-strong-xs" onBackground="success-strong">{price}</Text>
                     <Text variant="body-default-xs" onBackground="neutral-strong" align="center">{notes}</Text>
                 </Column>
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />

@@ -55,7 +55,7 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(
         })}
       >
         <Flex fillWidth vertical="center" gap="8">
-          {icon && (
+          {icon && !keepVisible && (
             <Icon
               size="s"
               onBackground={`${variant}-medium`}
@@ -66,7 +66,7 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(
             {children}
           </Text>
           {action && <div>{action}</div>}
-          {onClose && (
+          {onClose && !keepVisible && (
             <IconButton
               variant="ghost"
               icon="close"
