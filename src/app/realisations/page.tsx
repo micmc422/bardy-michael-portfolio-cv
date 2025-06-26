@@ -5,6 +5,7 @@ import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import { Projects } from "@/components/realisations/Projects";
+import { Tarifs } from "@/components/tarif/Tarifs";
 
 
 export async function generateMetadata() {
@@ -34,6 +35,7 @@ export default async function Work() {
         }}
       />
       <Projects />
+      <Tarifs />
     </Column>
   );
 }

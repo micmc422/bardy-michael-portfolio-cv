@@ -56,7 +56,7 @@ export function Schema({
     url,
   };
   
-  schema.sameAs = Object.values(social).filter(Boolean)
+  schema.sameAs = Object.values(social).filter(Boolean).map(({link})=> link).filter(el => el !== "")
 
   if (as === "website") {
     schema.name = title;
@@ -90,7 +90,7 @@ export function Schema({
       }),
     };
   }
-
+  console.log(schema.sameAs)
   return (
     <Script
       id={`schema-${as}-${path}`}

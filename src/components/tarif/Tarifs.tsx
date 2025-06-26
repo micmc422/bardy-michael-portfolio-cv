@@ -132,10 +132,11 @@ const defaultTarifs: PricingItem[] = [
 interface TarifsProps extends React.ComponentProps<typeof Column> {
     className?: string;
     style?: React.CSSProperties;
+    tarifs?: PricingItem[]
 }
 
 const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
-    ({ className, style, ...rest }, ref) => {
+    ({ tarifs = defaultTarifs,className, style, ...rest }, ref) => {
         return (
             <Column
                 ref={ref}
@@ -179,7 +180,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                     <Text variant="body-default-l" align="center" onBackground="neutral-weak">Des offres simples et adaptées à vos besoins : que vous lanciez un projet, optimisiez un site existant ou souhaitiez un accompagnement régulier.</Text>
                 </Column>
                 <Row center gap="s" mobileDirection="column">
-                    {defaultTarifs.map((tarif, i) => <Volet key={i} volet={tarif} />)}
+                    {tarifs.map((tarif, i) => <Volet key={i} volet={tarif} />)}
                 </Row>
             </Column>
         );
