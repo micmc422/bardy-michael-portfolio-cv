@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Flex, Toast } from ".";
 import styles from "./Toaster.module.scss";
@@ -9,8 +9,9 @@ interface ToasterProps {
   toasts: {
     id: string;
     variant: "success" | "danger";
-    message: string;
+    message: ReactNode;
     action?: React.ReactNode;
+    keepVisible?: boolean
   }[];
   removeToast: (id: string) => void;
 }
@@ -52,6 +53,7 @@ const Toaster: React.FC<ToasterProps> = ({ toasts, removeToast }) => {
             variant={toast.variant}
             onClose={() => removeToast(toast.id)}
             action={toast.action}
+            keepVisible={toast.keepVisible}
           >
             {toast.message}
           </Toast>

@@ -14,6 +14,7 @@ import { Meta } from "@/once-ui/modules";
 
 import { Analytics } from "@vercel/analytics/next"
 import { rendezVous } from "./resources/content";
+import CookieConsent from "@/components/cookiesConsent";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -162,6 +163,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             </Flex>
             <Footer />
           </Column>
+          <CookieConsent />
         </ToastProvider>
       </ThemeProvider>
       <Analytics />

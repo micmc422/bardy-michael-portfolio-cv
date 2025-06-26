@@ -6,13 +6,14 @@ import { Toaster } from "./Toaster";
 interface Toast {
   id: string;
   variant: "success" | "danger";
-  message: string;
+  message: ReactNode;
   action?: ReactNode;
+  keepVisible?: boolean
 }
 
 interface ToastContextProps {
   toasts: Toast[];
-  addToast: (toast: Omit<Toast, "id">) => void;
+  addToast: (toast: Omit<Toast, "id"> & Partial<Pick<Toast, "id">>) => void;
   removeToast: (id: string) => void;
 }
 

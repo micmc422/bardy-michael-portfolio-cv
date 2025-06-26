@@ -13,6 +13,7 @@ interface ToastProps {
   onClose?: () => void;
   action?: React.ReactNode;
   children: React.ReactNode;
+  keepVisible?: boolean
 }
 
 const iconMap: { [key in ToastProps["variant"]]: IconName } = {
@@ -21,12 +22,14 @@ const iconMap: { [key in ToastProps["variant"]]: IconName } = {
 };
 
 const Toast = forwardRef<HTMLDivElement, ToastProps>(
-  ({ variant, className, icon = true, onClose, action, children }, ref) => {
+  ({ variant, className, icon = true, onClose, action, children, keepVisible }, ref) => {
     const [visible, setVisible] = useState(true);
 
     useEffect(() => {
-      const timer = setTimeout(() => setVisible(false), 6000);
-      return () => clearTimeout(timer);
+      if (!keepVisible) {
+        const timer = setTimeout(() => setVisible(false), 6000);
+        return () => clearTimeout(timer);
+      }
     }, []);
 
     useEffect(() => {
