@@ -23,13 +23,13 @@ const CookieMessage = () => {
             </Text>
             <>
                 <Text onBackground="neutral-weak">Les pages consultées</Text>
-                <Text onBackground="neutral-weak">l'origine de votre visite</Text>
+                <Text onBackground="neutral-weak">l&apos;origine de votre visite</Text>
                 <Text onBackground="neutral-weak">votre navigateur</Text>
                 <Text onBackground="neutral-weak">votre système d’exploitation</Text>
                 <Text onBackground="neutral-weak">Le pays associé à votre adresse IP</Text>
             </>
             <Text onBackground="success-medium" variant='body-strong-m'>
-                Aucunes de ces informations n'est partagées avec des tiers.
+                Aucunes de ces informations n&apos;est partagées avec des tiers.
             </Text>
         </Accordion>
     </Column>
