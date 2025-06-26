@@ -88,9 +88,9 @@ export function Schema({
           url: author.image,
         },
       }),
+      sameAs: schema.sameAs
     };
   }
-  console.log(schema.sameAs)
   return (
     <Script
       id={`schema-${as}-${path}`}

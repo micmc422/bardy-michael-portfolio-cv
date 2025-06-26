@@ -48,9 +48,9 @@ const social = [
     link: "https://www.linkedin.com/in/micha%C3%ABl-bardy-62249168/",
   },
   {
-    name: "X",
-    icon: "x",
-    link: "",
+    name: "Facebook",
+    icon: "facebook",
+    link: "https://www.facebook.com/occitaweb/",
   },
   {
     name: "Email",
