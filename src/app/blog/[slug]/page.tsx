@@ -99,7 +99,7 @@ export default async function Blog({
               <Text variant="body-default-s" onBackground="neutral-weak">
                 {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
               </Text>
-              {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="accent"><SmartLink style={{ marginBottom: "-3px", display: "flex" }} href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
+              {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="accent"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
             </Row>
             <SocialShareBar />
           </Column>
