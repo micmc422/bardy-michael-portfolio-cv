@@ -17,7 +17,9 @@
         }
     }
 }
-
+.volet {
+    isolation: isolate;
+}
 .titre {
     max-width: var(--responsive-height-xl);
     line-height: .9 !important;

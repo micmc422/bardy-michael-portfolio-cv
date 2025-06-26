@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
 import styles from "./Tarifs.module.scss";
-import { Row, Column, Heading, Text, Card, Background } from "@/once-ui/components";
+import { Row, Column, Heading, Text, Card, Background, Line } from "@/once-ui/components";
 import { rdv } from "@/app/resources/config";
 import { opacity, SpacingToken } from "@/once-ui/types";
 
@@ -153,9 +153,9 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                     fill
                     position="absolute"
                     mask={{
-                        cursor: true,
+                        //cursor: true,
                         x: 50,
-                        y: 0,
+                        y: 25,
                         radius: 40
                     }}
                     dots={{
@@ -169,7 +169,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                         opacity: 1 as opacity,
                         x: 50,
                         y: 0,
-                        colorStart: "neutral-background-strong",
+                        colorStart: "accent-alpha-strong",
                         colorEnd: "static-transparent"
                     }}
                 />
@@ -199,18 +199,20 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
         return (
             <Column radius="l-4"
                 ref={ref}
-                className={classNames(styles.component, className)}
+                className={classNames(styles.volet, className)}
                 direction="column"
                 fillWidth
                 overflow="hidden"
                 paddingY="m"
                 gap="m"
-                background="page"
+                background="accent-alpha-medium"
+
                 {...rest}
             >
                 <Background
                     fill
                     position="absolute"
+                    zIndex={-1}
                     mask={{
                         x: rdv.effects.mask.x,
                         y: rdv.effects.mask.y,
@@ -231,13 +233,14 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     grid={{
                         display: rdv.effects.grid.display,
                         opacity: rdv.effects.grid.opacity as opacity,
-                        color: rdv.effects.grid.color,
+                        color: "neutral-alpha-medium",
                         width: rdv.effects.grid.width,
                         height: rdv.effects.grid.height,
                     }}
                 />
 
-                <Heading as="h3" variant="display-strong-xs" paddingX="m" className={styles.titre}>{title}</Heading>
+                <Heading as="h3" variant="display-strong-xs" paddingX="m" className={styles.titre} onBackground="accent-weak">{title}</Heading>
+                <Line background="page" />
                 <Row fillWidth paddingX="m">
                     <ul className={styles.list}>
                         {features.map(feature => <li key={feature}>
@@ -245,10 +248,11 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                         </li>)}
                     </ul>
                 </Row>
-                <Column paddingX="m" fillWidth gap="2" horizontal="end">
-                    <Text onBackground="brand-weak">À partir de :</Text>
-                    <Text variant="display-strong-xs" onBackground="info-medium">{price}</Text>
-                    <Text onBackground="neutral-weak">{notes}</Text>
+                <Line background="page" />
+                <Column paddingX="m" fillWidth gap="0" horizontal="end">
+                    <Text onBackground="accent-weak">À partir de :</Text>
+                    <Text variant="display-strong-xs" onBackground="accent-weak">{price}</Text>
+                    <Text variant="body-default-xs" onBackground="neutral-strong" align="center">{notes}</Text>
                 </Column>
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
             </Column>
