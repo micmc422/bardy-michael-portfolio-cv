@@ -32,6 +32,20 @@ const nextConfig = {
       }
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/about/:path*",
+        destination: "/a-propos/:path*",
+        permanent: true
+      },
+      {
+        source: "/work/:path*",
+        destination: "/realisations/:path*",
+        permanent: true
+      }
+    ]
+  }
 };
 // imagedelivery.net
 export default withMDX(nextConfig);
