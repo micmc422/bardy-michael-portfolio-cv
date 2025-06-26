@@ -61,6 +61,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
       align="center"
       background="surface"
       border="neutral-alpha-weak"
+      id="RDV"
     >
       <Background
         fill
