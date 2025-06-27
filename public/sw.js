@@ -1,10 +1,10 @@
-self.addEventListener('push', function (event) {
+self?.addEventListener('push', function (event) {
     if (event.data) {
         const data = event.data.json()
         const options = {
             body: data.body,
-            icon: data.icon || '/icon.png',
-            badge: '/badge.png',
+            icon: data.icon || '/images/apple-icon-180x180.png',
+            badge: '/images/apple-icon-180x180.png',
             vibrate: [100, 50, 100],
             data: {
                 dateOfArrival: Date.now(),
@@ -15,8 +15,8 @@ self.addEventListener('push', function (event) {
     }
 })
 
-self.addEventListener('notificationclick', function (event) {
+self?.addEventListener('notificationclick', function (event) {
     console.log('Notification click received.')
     event.notification.close()
-    event.waitUntil(clients.openWindow('<https://your-website.com>'))
+    event.waitUntil(clients.openWindow('<https://occitaweb-git-pwa-occitaweb.vercel.app>'))
   })
