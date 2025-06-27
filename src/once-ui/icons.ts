@@ -49,8 +49,12 @@ import {
 import { FaDiscord, FaGithub, FaX } from "react-icons/fa6";
 import { FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
 import { RxCookie } from "react-icons/rx";
+import { MdNotificationsNone, MdOutlineNotificationsOff, MdOutlineNotificationsActive } from "react-icons/md";
 
 export const iconLibrary: Record<string, IconType> = {
+  notifNone: MdNotificationsNone,
+  notifOff: MdOutlineNotificationsOff,
+  notifOn: MdOutlineNotificationsActive,
   facebook: FiFacebook,
   twitter: FiTwitter,
   linkedin: FiLinkedin,

@@ -6,6 +6,7 @@ export * from "./AvatarGroup";
 export * from "./Badge";
 export * from "./Background";
 export * from "./Button";
+export * from "./Banner";
 export * from "./Carousel";
 export * from "./Card";
 export * from "./Column";

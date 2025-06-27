@@ -1,9 +1,10 @@
 'use client'
 
 import { baseURL } from '@/app/resources'
-import { Text, Flex, SmartLink } from '@/once-ui/components'
+import { Text, Flex, SmartLink, Icon } from '@/once-ui/components'
 import { IconName } from '@/once-ui/icons'
 import { usePathname } from 'next/navigation'
+import { PushNotificationManager } from './PWA'
 
 
 export function SocialShareBar() {
@@ -36,10 +37,10 @@ export function SocialShareBar() {
     }]
     return (<Flex gap='xs'>
         <Text>Partager : </Text>
-            {shareLinks.map(({ label, link, description, iconName }) => <SmartLink key={label} href={link} target="_blank" rel="noopener noreferrer" title={description} prefixIcon={iconName}>
-                {""}
-            </SmartLink>)}
-
-        </Flex>
+        {shareLinks.map(({ label, link, description, iconName }) => <SmartLink key={label} href={link} target="_blank" rel="noopener noreferrer" title={description} prefixIcon={iconName}>
+            {""}
+        </SmartLink>)}
+        <PushNotificationManager />
+    </Flex>
     )
 }

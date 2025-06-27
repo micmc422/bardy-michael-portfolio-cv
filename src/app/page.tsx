@@ -6,7 +6,6 @@ import { home, about, person } from "@/app/resources/content";
 import { Projects } from "@/components/realisations/Projects";
 import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
-import styles from "@/components/a-propos/a-propos.module.scss";
 import { Suspense } from "react";
 import { Tarifs } from "@/components/tarif/Tarifs";
 
@@ -112,6 +111,7 @@ export default async function Home() {
       )}
       <Projects range={[2]} />
       <Tarifs />
+
     </Column>
   );
 }
