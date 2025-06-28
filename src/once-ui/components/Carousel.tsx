@@ -14,6 +14,7 @@ interface CarouselProps extends React.ComponentProps<typeof Flex> {
   aspectRatio?: string;
   sizes?: string;
   revealedByDefault?: boolean;
+  priority?: boolean;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -22,6 +23,7 @@ const Carousel: React.FC<CarouselProps> = ({
   aspectRatio = "16 / 9",
   sizes,
   revealedByDefault = false,
+  priority,
   ...rest
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -91,7 +93,7 @@ const Carousel: React.FC<CarouselProps> = ({
       >
         <SmartImage
           sizes={sizes}
-          priority
+          priority={priority}
           radius="l"
           border="neutral-alpha-weak"
           alt={images[activeIndex]?.alt}
@@ -143,6 +145,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 >
                   <SmartImage
                     alt={image.alt}
+                    priority={priority}
                     aspectRatio="1 / 1"
                     sizes="120px"
                     src={image.src}
