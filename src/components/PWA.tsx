@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useTransition } from 'react'
 import { subscribeUser, unsubscribeUser, sendNotification } from '@/app/pwaActions'
-import { Button, Column, Dialog, Icon, Row, Switch, Text, Banner, useToast } from '@/once-ui/components'
+import { Button, Column, Dialog, Icon, Row, Switch, Text, Banner, useToast, Flex } from '@/once-ui/components'
 
 function urlBase64ToUint8Array(base64String: string) {
     const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -75,7 +75,6 @@ export function PushNotificationManager() {
         addToast({
             variant: "success", message: "Vous ne recevrez plus les notifications."
         });
-
     }
 
     async function sendTestNotification() {
@@ -87,18 +86,12 @@ export function PushNotificationManager() {
     if (!isSupported) {
         return <></>
     }
-    return <Row padding='xs' background='page' radius='m' maxWidth={24}>
-        <Switch
-            label={<Row gap='4'>
-                <Icon name={subscription ? 'notifOn' : 'notifOff'} size='s' onBackground={subscription ? 'success-weak' : 'danger-weak'} />
-                {`Notifications ${subscription ? "activées" : "désactivées"}`}
-            </Row>}
-            description="Recevoir des notifications lors de la publications de nouveaux articles."
-            isChecked={!!subscription}
-            onToggle={() => !!subscription ? handleUnSubscribe() : handleSubscribe()}
-            loading={loading}
-        />
-    </Row>
+    return <Button variant='tertiary' onClick={() => !!subscription ? handleUnSubscribe() : handleSubscribe()} loading={loading} size='s'>
+        <Row gap='4'>
+            <Icon name={subscription ? 'notifOn' : 'notifOff'} size='s' onBackground={subscription ? 'success-weak' : 'danger-weak'} />
+            {`Notifications ${subscription ? "activées" : "désactivées"}`}
+        </Row>
+    </Button>
 }
 
 export function InstallPrompt() {

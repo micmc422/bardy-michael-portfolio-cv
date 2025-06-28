@@ -35,11 +35,12 @@ export function SocialShareBar() {
         link: `mailto:?subject=Je voulais partager ça avec toi&body=Voici le lien: ${encodeURIComponent(url)}`,
         iconName: "email"
     }]
-    return (<Flex gap='xs'>
+    return (<Flex gap='xs' wrap>
         <Text>Partager : </Text>
         {shareLinks.map(({ label, link, description, iconName }) => <SmartLink key={label} href={link} target="_blank" rel="noopener noreferrer" title={description} prefixIcon={iconName}>
             {""}
         </SmartLink>)}
+        <PushNotificationManager />
     </Flex>
     )
 }

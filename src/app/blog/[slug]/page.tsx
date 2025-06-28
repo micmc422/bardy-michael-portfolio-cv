@@ -109,7 +109,6 @@ export default async function Blog({
             {post.metadata.sources && post.metadata.sources.length > 0 && (
               <SourcesComponent sources={post.metadata.sources} />
             )}
-            <PushNotificationManager />
             <Reactions postSlug={post.slug} reactionsCount={reactionsCount} />
             <CommentSection slug={post.slug} comments={comments} />
             <Grid gap="8" columns={"2"} paddingTop="16" mobileColumns={"1"}>
