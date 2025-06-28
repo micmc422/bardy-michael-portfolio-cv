@@ -28,7 +28,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
   src,
   unoptimized = false,
   priority,
-  sizes = "100vw",
+  sizes = "(max-width: 1024px) 100vw, 1024px",
   ...rest
 }) => {
   const [isEnlarged, setIsEnlarged] = useState(false);
@@ -111,7 +111,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
 
   const isVideo = src?.endsWith(".mp4");
   const isYouTube = isYouTubeVideo(src);
-
+  console.log(priority, src)
   return (
     <>
       <Flex
@@ -164,7 +164,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
           <Image
             src={src}
             alt={alt}
-            priority={priority}
+            priority={!!priority}
             sizes={sizes}
             unoptimized={unoptimized}
             fill

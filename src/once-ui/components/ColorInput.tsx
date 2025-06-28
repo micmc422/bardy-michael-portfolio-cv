@@ -9,7 +9,7 @@ interface ColorInputProps extends Omit<InputProps, "onChange" | "value"> {
 }
 
 const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
-  ({ label, id, value, onChange, ...props }) => {
+  ({ label, id, value, onChange, ...props }, _ref) => {
     const colorInputRef = useRef<HTMLInputElement>(null);
 
     const handleHexClick = () => {
@@ -28,7 +28,15 @@ const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(
       <Input
         style={{ cursor: "pointer" }}
         id={id}
-        ref={colorInputRef}
+        ref={node => {
+          // Assign to both forwarded ref and local ref
+          if (typeof _ref === "function") {
+            _ref(node);
+          } else if (_ref) {
+            (_ref as React.RefObject<HTMLInputElement | null>).current = node;
+          }
+          colorInputRef.current = node;
+        }}
         label={label}
         type="color"
         value={value}

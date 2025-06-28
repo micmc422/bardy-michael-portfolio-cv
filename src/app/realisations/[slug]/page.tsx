@@ -98,7 +98,7 @@ export default async function Project({
           priority
           aspectRatio="16 / 9"
           radius="m"
-          alt="image"
+          alt={`Aperçu du projet : ${post.metadata.title}`}
           src={post?.metadata?.image}
         />
       )}
