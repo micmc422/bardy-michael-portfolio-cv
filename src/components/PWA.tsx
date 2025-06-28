@@ -83,12 +83,15 @@ export function PushNotificationManager() {
         return <></>
     }
     return <Row>
-        <Text>Notifications : </Text>
-        {subscription ?
-            <Icon name='notifOn' size='s' onBackground='success-weak' onClick={() => unsubscribeFromPush()} />
-            :
-            <Icon name='notifOff' size='s' onBackground='danger-weak' onClick={() => subscribeToPush()} />
-        }
+        <Switch
+            label={<Row>
+                <Icon name={subscription ? 'notifOn' : 'notifOff'} size='s' onBackground={subscription ? 'success-weak' : 'danger-weak'} />
+                {`Notifications ${subscription ? "activées" : "désactivées"}`}
+            </Row>}
+            description="Recevoir des notifications lors de la publications de nouveaux articles."
+            isChecked={!!subscription}
+            onToggle={() => !!subscription ? unsubscribeFromPush() : subscribeToPush()}
+        />
     </Row>
 }
 

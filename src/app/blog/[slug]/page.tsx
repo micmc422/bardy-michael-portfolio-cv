@@ -12,6 +12,7 @@ import Post from "@/components/blog/Post";
 import { SocialShareBar } from "@/components/SocialShare";
 import { Reactions } from "@/components/reactions/Reactions";
 import { getReactions } from "@/components/reactions/serverActions";
+import { PushNotificationManager } from "@/components/PWA";
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {
@@ -93,6 +94,7 @@ export default async function Blog({
             Publications
           </Button>
           <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
+          <PushNotificationManager />
           <Column gap="xs">
             <Row gap="xs" vertical="center" wrap>
               {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
