@@ -6,6 +6,7 @@ import { home, about, person } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import { SkeletonProject } from "@/components/realisations/Projects";
 
 // Importation dynamique pour Tarifs
 const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
@@ -40,11 +41,7 @@ const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Po
 
 // Importation dynamique pour Projects
 const Projects = dynamic(() => import('@/components/realisations/Projects').then(mod => mod.Projects), {
-  loading: () => <Column>
-    <Skeleton shape="block" width="l" minHeight={"40"} />
-    <Skeleton shape="line" height="xl" width="l" />
-    <Skeleton shape="line" height="m" width="m" />
-  </Column>
+  loading: () => <SkeletonProject />
   ,
 });
 
@@ -131,7 +128,7 @@ export default async function Home() {
       </Column>
       <RevealFx translateY="16" delay={0.6}>
         <Suspense>
-          <Projects range={[1, 1]} />
+          <Projects priority range={[1, 1]} />
         </Suspense>
       </RevealFx>
       {routes["/blog"] && (

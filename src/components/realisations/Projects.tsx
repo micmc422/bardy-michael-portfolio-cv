@@ -6,6 +6,7 @@ import { use } from "react";
 
 interface ProjectsProps {
   range?: [number, number?];
+  priority?: boolean
 }
 /*
 interface Projects {
@@ -28,7 +29,7 @@ async function getWorks() {
   return data;
 }
 
-export function Projects({ range }: ProjectsProps) {
+export function Projects({ range, priority }: ProjectsProps) {
   const projects = use(getWorks());
   const sortedProjects = projects.sort((a, b) => {
     return new Date(b.metadata.publishedAt as string).getTime() - new Date(a.metadata.publishedAt as string).getTime();
@@ -42,7 +43,7 @@ export function Projects({ range }: ProjectsProps) {
     <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
       {displayedProjects.map((post, index) => (
         <ProjectCard
-          priority={index < 2}
+          priority={priority || index < 1}
           key={post.slug}
           href={`work/${post.slug}`}
           images={post.metadata.images || []}
@@ -60,12 +61,12 @@ export function Projects({ range }: ProjectsProps) {
 export function SkeletonProjects() {
   return (
     <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
-      {[0,1,2].map(el => <SkeletonProject key={el} />)}
+      {[0, 1, 2].map(el => <SkeletonProject key={el} />)}
     </Column>
   );
 }
 
-function SkeletonProject() {
+export function SkeletonProject() {
   return <Column fillWidth gap="m">
     <Skeleton shape="block" fillWidth minHeight={"xl"} style={{ borderRadius: "16px" }} />
     <Flex
@@ -78,7 +79,7 @@ function SkeletonProject() {
     >
       <Column gap="xs" flex={5} >
         <Skeleton shape="line" height="xl" fillWidth />
-        <Skeleton shape="line" height="xl" width="m"/>
+        <Skeleton shape="line" height="xl" width="m" />
       </Column>
       <Column flex={7} gap="16">
         <Skeleton shape="circle" width="m" />
