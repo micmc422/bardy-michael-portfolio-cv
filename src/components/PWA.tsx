@@ -87,9 +87,9 @@ export function PushNotificationManager() {
     if (!isSupported) {
         return <></>
     }
-    return <Row>
+    return <Row padding='xs' background='page' radius='m' maxWidth={24}>
         <Switch
-            label={<Row>
+            label={<Row gap='4'>
                 <Icon name={subscription ? 'notifOn' : 'notifOff'} size='s' onBackground={subscription ? 'success-weak' : 'danger-weak'} />
                 {`Notifications ${subscription ? "activées" : "désactivées"}`}
             </Row>}

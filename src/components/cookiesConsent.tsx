@@ -76,7 +76,6 @@ const CookieConsent: React.FC = () => {
     useEffect(() => {
         if (typeof document === "undefined") return;
         const cookies = getCookies();
-        console.log("CookieConsent", cookies)
         // Vérifie si l'utilisateur a déjà accepté les cookies
         if ((cookies?.acceptedCookies === undefined) && !!addToast && !trigger) {
             // Affiche le toast d'avertissement
