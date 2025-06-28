@@ -94,7 +94,6 @@ export default async function Blog({
             Publications
           </Button>
           <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
-          <PushNotificationManager />
           <Column gap="xs">
             <Row gap="xs" vertical="center" wrap>
               {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
@@ -110,6 +109,7 @@ export default async function Blog({
             {post.metadata.sources && post.metadata.sources.length > 0 && (
               <SourcesComponent sources={post.metadata.sources} />
             )}
+            <PushNotificationManager />
             <Reactions postSlug={post.slug} reactionsCount={reactionsCount} />
             <CommentSection slug={post.slug} comments={comments} />
             <Grid gap="8" columns={"2"} paddingTop="16" mobileColumns={"1"}>
