@@ -94,12 +94,12 @@ export default async function Blog({
           </Button>
           <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
           <Column gap="xs">
-            <Row gap="12" vertical="center">
+            <Row gap="xs" vertical="center" wrap>
               {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
               <Text variant="body-default-s" onBackground="neutral-weak">
                 {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
               </Text>
-              {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="accent"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
+              {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
             </Row>
             <SocialShareBar />
           </Column>

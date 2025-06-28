@@ -14,6 +14,7 @@ let subscription: WebPushSubscription | null = null
 
 export async function subscribeUser(sub: WebPushSubscription) {
     subscription = sub
+    console.log("sub", sub)
     // In a production environment, you would want to store the subscription in a database
     // For example: await db.subscriptions.create({ data: sub })
     return { success: true }
@@ -37,7 +38,7 @@ export async function sendNotification(message: string) {
             JSON.stringify({
                 title: 'Test Notification',
                 body: message,
-                icon: '/icon.png',
+                icon: '/images/android-icon-192x192.png',
             })
         )
         return { success: true }
