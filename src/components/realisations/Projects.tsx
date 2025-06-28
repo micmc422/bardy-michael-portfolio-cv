@@ -6,7 +6,6 @@ import { use } from "react";
 
 interface ProjectsProps {
   range?: [number, number?];
-  priority?: boolean
 }
 /*
 interface Projects {
@@ -29,7 +28,7 @@ async function getWorks() {
   return data;
 }
 
-export function Projects({ range, priority }: ProjectsProps) {
+export function Projects({ range }: ProjectsProps) {
   const projects = use(getWorks());
   const sortedProjects = projects.sort((a, b) => {
     return new Date(b.metadata.publishedAt as string).getTime() - new Date(a.metadata.publishedAt as string).getTime();
@@ -43,7 +42,7 @@ export function Projects({ range, priority }: ProjectsProps) {
     <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
       {displayedProjects.map((post, index) => (
         <ProjectCard
-          priority={priority || index < 1}
+          priority={index < 1}
           key={post.slug}
           href={`work/${post.slug}`}
           images={post.metadata.images || []}

@@ -127,9 +127,7 @@ export default async function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Suspense>
-          <Projects priority range={[1, 1]} />
-        </Suspense>
+        <Projects range={[1, 1]} />
       </RevealFx>
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
