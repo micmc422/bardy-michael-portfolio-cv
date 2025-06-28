@@ -57,7 +57,7 @@ export function PushNotificationManager() {
             await subscribeUser(serializedSub)
 
         } catch (e) {
-            console.log({e})
+            console.log({ e })
         }
     }
 
@@ -73,69 +73,17 @@ export function PushNotificationManager() {
             setMessage('')
         }
     }
-    async function handleToggleNotif() {
-        startTransition(() => {
-            if (!subscription) {
-                subscribeToPush()
-            } else {
-                unsubscribeFromPush()
-            }
-        })
-    }
     if (!isSupported) {
         return <></>
     }
     return <Row>
         <Text>Notifications : </Text>
         {subscription ?
-            <Icon name='notifOn' size='s' onBackground='success-weak' onClick={() => setIsOpen(true)} />
+            <Icon name='notifOn' size='s' onBackground='success-weak' onClick={() => unsubscribeFromPush()} />
             :
-            <Icon name='notifOff' size='s' onBackground='danger-weak' onClick={() => setIsOpen(true)} />
+            <Icon name='notifOff' size='s' onBackground='danger-weak' onClick={() => subscribeToPush()} />
         }
-        <Dialog
-            maxWidth={32}
-            isOpen={isOpen}
-            onClose={() => setIsOpen(false)}
-            title="Notifications"
-        >
-            <Column gap='s'>
-                <Switch
-                    label={!!subscription ? "Notifications Activées" : "Notifications Désactivées"}
-                    description="En acceptant les notifications vous recevrez un message directement sur votre appareil lors de la publications de nouvelles publications."
-                    isChecked={!!subscription}
-                    onToggle={() => handleToggleNotif()}
-                    loading={loading}
-                />
-                <Banner solid="warning-medium" onSolid="warning-strong" center radius='s'>
-                    <Icon name="warningTriangle" size="s" />
-                    Fonctionnalité en développement
-                </Banner>
-            </Column>
-        </Dialog>
     </Row>
-    return (
-        <Column>
-            <h3>Push Notifications</h3>
-            {subscription ? (
-                <>
-                    <p>You are subscribed to push notifications.</p>
-                    <button onClick={unsubscribeFromPush}>Unsubscribe</button>
-                    <input
-                        type="text"
-                        placeholder="Enter notification message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                    />
-                    <button onClick={sendTestNotification}>Send Test</button>
-                </>
-            ) : (
-                <>
-                    <p>You are not subscribed to push notifications.</p>
-                    <button onClick={subscribeToPush}>Subscribe</button>
-                </>
-            )}
-        </Column>
-    )
 }
 
 export function InstallPrompt() {
