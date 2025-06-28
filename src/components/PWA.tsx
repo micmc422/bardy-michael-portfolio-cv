@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useTransition } from 'react'
 import { subscribeUser, unsubscribeUser, sendNotification } from '@/app/pwaActions'
-import { Button, Column, Dialog, Icon, Row, Switch, Text, Banner } from '@/once-ui/components'
+import { Button, Column, Dialog, Icon, Row, Switch, Text, Banner, useToast } from '@/once-ui/components'
 
 function urlBase64ToUint8Array(base64String: string) {
     const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -18,13 +18,13 @@ function urlBase64ToUint8Array(base64String: string) {
 }
 
 export function PushNotificationManager() {
-    const [loading, startTransition] = useTransition()
+    const { addToast } = useToast();
+
     const [isSupported, setIsSupported] = useState(false)
     const [subscription, setSubscription] = useState<PushSubscription | null>(
         null
     )
     const [message, setMessage] = useState('')
-    const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         if ('serviceWorker' in navigator && 'PushManager' in window) {
             setIsSupported(true)
@@ -55,7 +55,9 @@ export function PushNotificationManager() {
 
             const serializedSub = JSON.parse(JSON.stringify(sub))
             await subscribeUser(serializedSub)
-
+            addToast({
+                variant: "success", message: "Vous recevrez maintenant des notifications lors de la publication de nouveaux articles."
+            });
         } catch (e) {
             console.log({ e })
         }
@@ -65,6 +67,10 @@ export function PushNotificationManager() {
         await subscription?.unsubscribe()
         setSubscription(null)
         await unsubscribeUser()
+        addToast({
+            variant: "success", message: "Vous ne recevrez plus les notifications."
+        });
+
     }
 
     async function sendTestNotification() {
