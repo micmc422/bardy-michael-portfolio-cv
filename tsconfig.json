@@ -47,7 +47,7 @@
         "./src/*"
       ]
     },
-    "target": "ES2017"
+    "target": "es2021"
   },
   "include": [
     "next-env.d.ts",
