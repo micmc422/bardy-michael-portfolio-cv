@@ -1,4 +1,4 @@
-import { Column, Flex, Media, SmartLink } from "@/once-ui/components";
+import { Column, Flex, Media, Skeleton, SmartLink } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
 // import type { Metadata } from "next";
 import { getProjects } from "@/app/utils/serverActions";
@@ -57,28 +57,35 @@ export function Projects({ range }: ProjectsProps) {
   );
 }
 
-export function SkeletonProject({ direction = "column" }: { direction?: "row" | "column" }) {
+export function SkeletonProjects() {
   return (
-    <SmartLink
-      fillWidth
-      unstyled
-      style={{ borderRadius: 'var(--radius-l)' }}
-    >
-      <Flex
-        position="relative"
-        transition="micro-medium"
-        direction={direction}
-        radius="l"
-        mobileDirection="column"
-        fillWidth>
-        <Media
-          border="neutral-alpha-weak"
-          radius="l"
-          loading
-          src='/images/eaa.jpg'
-          aspectRatio="16 / 9"
-        />
-      </Flex>
-    </SmartLink>
+    <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
+      {[0,1,2].map(el => <SkeletonProject key={el} />)}
+    </Column>
   );
+}
+
+function SkeletonProject() {
+  return <Column fillWidth gap="m">
+    <Skeleton shape="block" fillWidth minHeight={"xl"} style={{ borderRadius: "16px" }} />
+    <Flex
+      mobileDirection="column"
+      fillWidth
+      paddingX="s"
+      paddingTop="12"
+      paddingBottom="24"
+      gap="l"
+    >
+      <Column gap="xs" flex={5} >
+        <Skeleton shape="line" height="xl" fillWidth />
+        <Skeleton shape="line" height="xl" width="m"/>
+      </Column>
+      <Column flex={7} gap="16">
+        <Skeleton shape="circle" width="m" />
+        <Skeleton shape="line" height="s" fillWidth />
+        <Skeleton shape="line" height="s" fillWidth />
+        <Skeleton shape="line" height="s" width="m" />
+      </Column>
+    </Flex>
+  </Column>
 }

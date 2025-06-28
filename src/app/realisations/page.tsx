@@ -5,19 +5,16 @@ import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import dynamic from "next/dynamic";
+import { SkeletonProjects } from "@/components/realisations/Projects";
 // Importation dynamique pour Projects
 const Projects = dynamic(() => import('@/components/realisations/Projects').then(mod => mod.Projects), {
-  loading: () => <Column>
-    <Skeleton shape="block" width="l" minHeight={"40"} />
-    <Skeleton shape="line" height="xl" width="l" />
-    <Skeleton shape="line" height="m" width="m" />
-  </Column>,
+  loading: () => <SkeletonProjects />,
 });
 // Importation dynamique pour Tarifs
 const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
   loading: () => <Row gap="s" paddingBottom="l" mobileDirection="column">
     <Column>
-      <Skeleton shape="block" width="l" minHeight={"40"} />
+      <Skeleton shape="block" width="l" minHeight={"40"} radius="l"/>
       <Skeleton shape="line" height="xl" width="l" />
       <Skeleton shape="line" height="m" width="m" />
     </Column>

@@ -1,20 +1,17 @@
 "use server"
 
-import { Column, Heading, Skeleton } from "@/once-ui/components";
+import { Column, Heading } from "@/once-ui/components";
 import { Mailchimp } from "@/components";
 import dynamic from "next/dynamic";
 // Importation dynamique pour Posts
 const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Posts), {
-  loading: () => <Column gap="s" paddingBottom="l">
-    <Skeleton shape="block" width="l" minHeight={"160"} />
-    <Skeleton shape="line" height="xl" width="l" />
-    <Skeleton shape="line" height="m" width="m" />
-  </Column>,
+  loading: () => <SkeletonPosts />,
 });
 
 import { baseURL } from "@/app/resources";
 import { blog, person, newsletter } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
+import { SkeletonPosts } from "@/components/blog/Posts";
 
 
 export async function generateMetadata() {
@@ -56,4 +53,5 @@ export default async function Blog() {
     </Column>
   );
 }
+
 

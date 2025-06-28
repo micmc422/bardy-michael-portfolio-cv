@@ -60,7 +60,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, as, children, styl
         size="m"
         icon="openLink"
         variant="secondary"
-        tooltip="Copy"
+        tooltip="Copier le titre"
         tooltipPosition="right"
       />
     </Flex>
