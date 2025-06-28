@@ -12,7 +12,6 @@ import Post from "@/components/blog/Post";
 import { SocialShareBar } from "@/components/SocialShare";
 import { Reactions } from "@/components/reactions/Reactions";
 import { getReactions } from "@/components/reactions/serverActions";
-import { PushNotificationManager } from "@/components/PWA";
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {

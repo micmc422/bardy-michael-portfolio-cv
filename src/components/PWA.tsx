@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useTransition } from 'react'
 import { subscribeUser, unsubscribeUser, sendNotification } from '@/app/pwaActions'
-import { Button, Column, Dialog, Icon, Row, Switch, Text, Banner, useToast, Flex } from '@/once-ui/components'
+import { Button, Column, Dialog, Icon, Row, Switch, Text, Banner, useToast, Flex, Spinner } from '@/once-ui/components'
+import { opacity } from '@/once-ui/types'
 
 function urlBase64ToUint8Array(base64String: string) {
     const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -86,12 +87,10 @@ export function PushNotificationManager() {
     if (!isSupported) {
         return <></>
     }
-    return <Button variant='tertiary' onClick={() => !!subscription ? handleUnSubscribe() : handleSubscribe()} loading={loading} size='s'>
-        <Row gap='4'>
-            <Icon name={subscription ? 'notifOn' : 'notifOff'} size='s' onBackground={subscription ? 'success-weak' : 'danger-weak'} />
-            {`Notifications ${subscription ? "activées" : "désactivées"}`}
-        </Row>
-    </Button>
+    if (loading) {
+        return <Spinner size='s' />
+    }
+    return <Icon name={subscription ? 'notifOn' : 'notifOff'} size='s' onBackground={subscription ? 'success-weak' : 'danger-weak'} onClick={() => !!subscription ? handleUnSubscribe() : handleSubscribe()} />
 }
 
 export function InstallPrompt() {
@@ -120,15 +119,16 @@ export function InstallPrompt() {
                     <span role="img" aria-label="share icon">
                         {' '}
                         ⎋{' '}
-                    </span>
-                    and then &quot;Add to Home Screen&quot;
+                    </span >
+                    and then & quot;Add to Home Screen & quot;
                     <span role="img" aria-label="plus icon">
                         {' '}
                         ➕{' '}
                     </span>.
-                </p>
-            )}
-        </div>
+                </p >
+            )
+            }
+        </div >
     )
 }
 
