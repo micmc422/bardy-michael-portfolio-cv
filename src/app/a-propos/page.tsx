@@ -8,6 +8,8 @@ import {
   Heading,
   Icon,
   IconButton,
+  Row,
+  Skeleton,
   SmartImage,
   Tag,
   Text,
@@ -17,7 +19,16 @@ import dynamic from "next/dynamic";
 
 // import TableOfContents from "@/components/a-propos/TableOfContents";
 const TableOfContents = dynamic(() => import('@/components/a-propos/TableOfContents'), {
-  loading: () => <p>Chargement de la table des métiéres...</p>,
+  loading: () => <Row>
+    <Skeleton shape="line" height="l" width="xs" />
+    <Skeleton shape="line" height="l" width="xs" />
+    <Skeleton shape="line" height="l" width="xs" />
+    <Skeleton shape="line" height="l" width="xs" />
+    <Skeleton shape="line" height="l" width="xs" />
+    <Skeleton shape="line" height="l" width="xs" />
+    <Skeleton shape="line" height="l" width="xs" />
+  </Row>
+,
 });
 
 import styles from "@/components/a-propos/a-propos.module.scss";

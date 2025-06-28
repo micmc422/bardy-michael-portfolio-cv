@@ -1,17 +1,37 @@
 "use server"
 
-import { Column } from "@/once-ui/components";
+import { Column, Row, Skeleton } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import dynamic from "next/dynamic";
 // Importation dynamique pour Projects
 const Projects = dynamic(() => import('@/components/realisations/Projects').then(mod => mod.Projects), {
-  loading: () => <p>Chargement des projets...</p>,
+  loading: () => <Column>
+    <Skeleton shape="block" width="l" minHeight={"40"} />
+    <Skeleton shape="line" height="xl" width="l" />
+    <Skeleton shape="line" height="m" width="m" />
+  </Column>,
 });
 // Importation dynamique pour Tarifs
 const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
-  loading: () => <p>Chargement des tarifs...</p>, // Composant optionnel affiché pendant le chargement
+  loading: () => <Row gap="s" paddingBottom="l" mobileDirection="column">
+    <Column>
+      <Skeleton shape="block" width="l" minHeight={"40"} />
+      <Skeleton shape="line" height="xl" width="l" />
+      <Skeleton shape="line" height="m" width="m" />
+    </Column>
+    <Column>
+      <Skeleton shape="block" width="l" minHeight={"40"} />
+      <Skeleton shape="line" height="xl" width="l" />
+      <Skeleton shape="line" height="m" width="m" />
+    </Column>
+    <Column>
+      <Skeleton shape="block" width="l" minHeight={"40"} />
+      <Skeleton shape="line" height="xl" width="l" />
+      <Skeleton shape="line" height="m" width="m" />
+    </Column>
+  </Row>, // Composant optionnel affiché pendant le chargement
 });
 
 

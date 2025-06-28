@@ -1,10 +1,14 @@
 "use server"
 
-import { Button, Column, Heading } from "@/once-ui/components";
+import { Button, Column, Heading, Skeleton } from "@/once-ui/components";
 import { Mailchimp } from "@/components";
 // Importation dynamique pour Posts
 const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Posts), {
-  loading: () => <p>Chargement des articles...</p>,
+  loading: () => <Column>
+    <Skeleton shape="block" width="l" minHeight={"40"} />
+    <Skeleton shape="line" height="xl" width="l" />
+    <Skeleton shape="line" height="m" width="m" />
+  </Column>,
 });
 
 import { baseURL } from "@/app/resources";

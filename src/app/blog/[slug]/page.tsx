@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
-import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, SmartLink, Tag, Text } from "@/once-ui/components";
+import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, Skeleton, SmartLink, Spinner, Tag, Text } from "@/once-ui/components";
 import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { Meta, Schema } from "@/once-ui/modules";
@@ -11,28 +11,36 @@ import dynamic from "next/dynamic";
 
 // import CommentSection from "@/components/CommentSection";
 const CommentSection = dynamic(() => import('@/components/CommentSection'), {
-  loading: () => <p>Chargement des Commentaires...</p>, // Composant optionnel affiché pendant le chargement
+  loading: () => <Column>
+    <Skeleton shape="line" height="xl" width="l" />
+    <Skeleton shape="line" height="m" width="m" />
+  </Column>
+, // Composant optionnel affiché pendant le chargement
 });
 
 // import Post from "@/components/blog/Post";
 const Post = dynamic(() => import('@/components/blog/Post'), {
-  loading: () => <p>Chargement des articles...</p>, // Composant optionnel affiché pendant le chargement
+  loading: () => <Column>
+    <Skeleton shape="block" width="l" minHeight={"40"} />
+    <Skeleton shape="line" height="xl" width="l" />
+    <Skeleton shape="line" height="m" width="m" />
+  </Column>, // Composant optionnel affiché pendant le chargement
 });
 
 // import { SocialShareBar } from "@/components/SocialShare";
 const SocialShareBar = dynamic(() => import('@/components/SocialShare').then(mod => mod.SocialShareBar), {
-  loading: () => <p>Chargement de la barre de partage...</p>,
+  loading: () => <>
+    <Skeleton shape="line" height="m" width="xs" />
+  </>,
 });
 
 // import { Reactions } from "@/components/reactions/Reactions";
 const Reactions = dynamic(() => import('@/components/reactions/Reactions').then(mod => mod.Reactions), {
-  loading: () => <p>Chargement des réactions...</p>,
+  loading: () => <Spinner />,
 });
 
 // import ScrollToHash from "@/components/ScrollToHash";
-const ScrollToHash = dynamic(() => import('@/components/ScrollToHash'), {
-  loading: () => <p>Chargement du bouton retour en haut de la page...</p>, // Composant optionnel affiché pendant le chargement
-});
+const ScrollToHash = dynamic(() => import('@/components/ScrollToHash'));
 
 
 

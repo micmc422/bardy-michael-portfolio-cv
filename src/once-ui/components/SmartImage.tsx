@@ -111,7 +111,6 @@ const SmartImage: React.FC<SmartImageProps> = ({
 
   const isVideo = src?.endsWith(".mp4");
   const isYouTube = isYouTubeVideo(src);
-  console.log(priority, src)
   return (
     <>
       <Flex
