@@ -1,6 +1,6 @@
 "use client";
 
-import React, { CSSProperties, useState, useRef, useEffect } from "react";
+import React, { type CSSProperties, useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 import { Flex, Skeleton } from ".";
@@ -47,7 +47,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
       }
     };
 
-    const handleWheel = (event: WheelEvent) => {
+    const handleWheel = () => {
       if (isEnlarged) {
         setIsEnlarged(false);
       }
@@ -151,6 +151,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
             width="100%"
             height="100%"
             src={getYouTubeEmbedUrl(src)}
+            title={alt || "YouTube video"}
             frameBorder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

@@ -1,6 +1,6 @@
 "use client";
 
-import { RDVContentType } from "@/app/api/cal/types/route";
+import type { RDVContentType } from "@/app/api/cal/types/route";
 import { Button, Column, DropdownWrapper, Option, RevealFx } from "@/once-ui/components";
 import { use, useState } from "react";
 import styles from "./RdvDropDown.module.scss";

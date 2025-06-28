@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./HoloFx.module.scss";
 import { Flex } from ".";
-import { CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import classNames from "classnames";
 
 interface MaskOptions {

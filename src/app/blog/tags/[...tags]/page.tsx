@@ -2,10 +2,15 @@
 
 import { Button, Column, Heading } from "@/once-ui/components";
 import { Mailchimp } from "@/components";
-import { Posts } from "@/components/blog/Posts";
+// Importation dynamique pour Posts
+const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Posts), {
+  loading: () => <p>Chargement des articles...</p>,
+});
+
 import { baseURL } from "@/app/resources";
 import { blog, person, newsletter } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
+import dynamic from "next/dynamic";
 
 
 export async function generateMetadata({ params }: { params: Promise<{ tags: string[] }> }) {

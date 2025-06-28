@@ -1,7 +1,7 @@
 
 import React, { forwardRef } from "react";
 import classNames from "classnames";
-import { Column, Flex, Heading, Row, Text } from "@/once-ui/components";
+import { Column, Heading, Row, Text } from "@/once-ui/components";
 import styles from "./steps.module.scss"
 import { slugify } from "@/utils/utils";
 
@@ -27,7 +27,7 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
         const jsonLDList = steps.map(({ title, content }, i) => ({
             "@type": "ListItem",
             "position": i + 1,
-            "item": { "name": content }
+            "item": { "name": content || title }
         }))
 
         return (

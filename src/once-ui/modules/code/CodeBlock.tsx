@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, ReactNode } from "react";
+import React, { useState, useEffect, useRef, type ReactNode } from "react";
 
 import "./CodeHighlight.css";
 import "./LineNumber.css";
@@ -16,7 +16,7 @@ import "prismjs/components/prism-css";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-json";
 import classNames from "classnames";
-import { SpacingToken } from "../../types";
+import type { SpacingToken } from "../../types";
 
 type CodeInstance = {
   code: string | { content: string; error: string | null };
@@ -65,7 +65,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   const [selectedInstance, setSelectedInstance] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const { code, language, label } = codeInstances[selectedInstance] || {
+  const { code, language } = codeInstances[selectedInstance] || {
     code: "",
     language: "",
     label: "Select code",
@@ -135,7 +135,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       fillWidth
       minHeight={3}
       className={classNames(className, {
-        [styles.fullscreen]: isFullscreen,
+        [styles.fullscreen as string]: isFullscreen,
       })}
       style={style}
       {...rest}
@@ -175,7 +175,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
               textVariant="label-default-s"
               onBackground="neutral-strong"
             >
-              {codeInstances[0].label}
+              {codeInstances[0]?.label}
             </Row>
           )}
           {!compact && (

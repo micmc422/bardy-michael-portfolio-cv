@@ -9,7 +9,7 @@ import { about, person, work } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Meta, Schema } from "@/once-ui/modules";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 
 async function getAllprojectsSlugs(): Promise<{ slug: string }[]> {
@@ -61,7 +61,7 @@ export default async function Project({
 }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-  let post = await getprojectData(slugPath);
+  const post = await getprojectData(slugPath);
   if (!post) notFound();
 
   const avatars =

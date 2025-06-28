@@ -2,7 +2,7 @@ import { baseURL } from '@/app/resources';
 import { getPosts } from '@/app/utils/serverActions';
 import { NextResponse } from 'next/server';
 import { postToFacebook } from './postToFacebook';
-import { postToLinkedIn } from './postToLinkedIn';
+// import { postToLinkedIn } from './postToLinkedIn';
 
 const env = process.env.NODE_ENV
 

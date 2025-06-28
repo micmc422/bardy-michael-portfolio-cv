@@ -1,12 +1,12 @@
 "use server"
 
 import { wisp } from "./wispClient";
-import { Content, CreateCommentInput, TagInPost } from "@wisp-cms/client";
-import { PostType, WispPost } from "./types";
+import type { Content, CreateCommentInput, TagInPost } from "@wisp-cms/client";
+import type { PostType, WispPost } from "./types";
 import { person } from "../resources";
 // const TurndownService = require('turndown');
 import TurndownService from 'turndown';
-import { ActionToastResponse } from "@/components/formActionClient";
+import type { ActionToastResponse } from "@/components/formActionClient";
 import { revalidatePath } from "next/cache";
 const baseTeam = [{
     avatar: person.avatar,
@@ -147,7 +147,8 @@ function formatPostData(post: WispPost): PostType {
         content = content.replace(/\sstyle="[^"]*"/gi, '')
         content = content.replace(
             /<div\s+([^>]*?)data-wisp-react-component=["']true["']([^>]*?)><\/div>/gi,
-            (match, before, after, innerHTML) => {
+            (_match, before, after, _innerHTML) => {
+                
                 const fullAttrs = (before + after).trim();
 
                 // Cherche data-name
@@ -186,7 +187,7 @@ function formatPostData(post: WispPost): PostType {
 
         data.content = data.content.replace(
             /<div\s+([^>]*?)data-wisp-react-component=["']true["']([^>]*?)>(.*?)<\/div>/gi,
-            (match, before, after, innerHTML) => {
+            (_match, before, after, _innerHTML) => {
                 const fullAttrs = (before + after).trim();
 
                 // Cherche data-name

@@ -3,7 +3,7 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
 
-import { Flex, InteractiveDetails, InteractiveDetailsProps, Spinner } from ".";
+import { Flex, InteractiveDetails, type InteractiveDetailsProps, Spinner } from ".";
 import styles from "./Switch.module.scss";
 import commonStyles from "./SharedInteractiveStyles.module.scss";
 
@@ -58,8 +58,8 @@ const Switch: React.FC<SwitchProps> = forwardRef<HTMLInputElement, SwitchProps>(
         horizontal={reverse ? "space-between" : undefined}
         fillWidth={reverse}
         className={classNames(styles.container, className, {
-          [styles.reverse]: reverse,
-          [styles.disabled]: disabled,
+          [styles.reverse as string]: reverse,
+          [styles.disabled as string]: disabled,
         })}
         onClick={handleClick}
         role="switch"
@@ -80,16 +80,16 @@ const Switch: React.FC<SwitchProps> = forwardRef<HTMLInputElement, SwitchProps>(
         />
         <div
           className={classNames(styles.switch, {
-            [styles.checked]: isChecked,
-            [styles.disabled]: disabled,
+            [styles.checked as string]: isChecked,
+            [styles.disabled as string]: disabled,
           })}
         >
           <div
             onKeyDown={handleKeyDown}
             tabIndex={disabled ? -1 : 0}
             className={classNames(styles.element, {
-              [styles.checked]: isChecked,
-              [styles.disabled]: disabled,
+              [styles.checked as string]: isChecked,
+              [styles.disabled as string]: disabled,
             })}
           >
             {loading && <Spinner size="xs" />}

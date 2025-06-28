@@ -1,9 +1,9 @@
 import { rdv } from "@/app/resources";
 import { Heading, Text, Background, Column } from "@/once-ui/components";
-import { opacity, SpacingToken } from "@/once-ui/types";
-import { JSX, Suspense } from "react";
+import type { opacity, SpacingToken } from "@/once-ui/types";
+import { type JSX, Suspense } from "react";
 import { RDVDropDown } from "./RdvDropDown";
-import { RDVContentType } from "@/app/api/cal/types/route";
+import type { RDVContentType } from "@/app/api/cal/types/route";
 
 const CAL_API_KEY = process.env.CAL_API_KEY;
 const CAL_API_BASE_URL = 'https://api.cal.com/v2';
@@ -32,7 +32,7 @@ async function getRDVContent(): Promise<RDVContentType[]> {
     return Promise.reject(new Error(error));
   }
 
-  const { data, status } = await response.json();
+  const { data } = await response.json();
   const events = data.eventTypeGroups[0].eventTypes.filter((event: any) => !event.hidden)
     .map((event: any) => ({
       id: event.id,

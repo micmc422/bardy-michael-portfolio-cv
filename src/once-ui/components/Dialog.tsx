@@ -1,7 +1,7 @@
 "use client";
 
 import React, {
-  ReactNode,
+  type ReactNode,
   useEffect,
   useCallback,
   useRef,
@@ -72,7 +72,7 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
     const dialogRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(isOpen);
     const [isAnimating, setIsAnimating] = useState(false);
-    const { stackedDialogOpen, setStackedDialogOpen } = useContext(DialogContext);
+    const { setStackedDialogOpen } = useContext(DialogContext);
 
     useEffect(() => {
       if (stack) {
@@ -183,7 +183,9 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
           'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
         const firstElement = focusableElements[0];
-        firstElement.focus();
+        if (firstElement) {
+          firstElement.focus();
+        }
       }
     }, [isOpen]);
 
@@ -218,7 +220,7 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
         right="0"
         bottom="0"
         className={classNames(styles.overlay, {
-          [styles.open]: isAnimating,
+          [String(styles.open)]: isAnimating,
         })}
         center
         padding="l"
@@ -236,7 +238,7 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
         >
           <Flex
             className={classNames(styles.dialog, {
-              [styles.open]: isAnimating,
+              [String(styles.open)]: isAnimating,
             })}
             style={{
               minHeight: minHeight ? `${minHeight}px` : undefined,

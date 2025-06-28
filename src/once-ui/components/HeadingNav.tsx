@@ -130,7 +130,10 @@ const HeadingNav = forwardRef<HTMLDivElement, props>(({ className, style, ...res
               return aRect.top - bRect.top;
             });
 
-            debouncedUpdateActiveHeading(enteringEntries[0].target.id);
+            const targetId = enteringEntries[0]?.target.id;
+            if (typeof targetId === "string") {
+              debouncedUpdateActiveHeading(targetId);
+            }
           }
         }
       },

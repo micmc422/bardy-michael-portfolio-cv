@@ -8,6 +8,7 @@ export function slugify(str: string): string {
             .replace(/\-\-+/g, "-"); // Replace multiple - with single -
     }
     catch (error) {
+        console.error(error)
         return str; // Fallback to original string if an error occurs
     }
 }

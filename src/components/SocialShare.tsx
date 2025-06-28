@@ -1,8 +1,8 @@
 'use client'
 
 import { baseURL } from '@/app/resources'
-import { Text, Flex, SmartLink, Icon, Column, Row } from '@/once-ui/components'
-import { IconName } from '@/once-ui/icons'
+import { Text, Flex, SmartLink } from '@/once-ui/components'
+import type { IconName } from '@/once-ui/icons'
 import { usePathname } from 'next/navigation'
 import { PushNotificationManager } from './PWA'
 

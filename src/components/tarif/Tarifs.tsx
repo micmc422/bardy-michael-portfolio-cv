@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
 import styles from "./Tarifs.module.scss";
-import { Row, Column, Heading, Text, Card, Background, Line } from "@/once-ui/components";
+import { Row, Column, Heading, Text, Background, Line } from "@/once-ui/components";
 import { rdv } from "@/app/resources/config";
-import { opacity, SpacingToken } from "@/once-ui/types";
+import type { opacity } from "@/once-ui/types";
 
 
 type PricingItem = {
@@ -188,7 +188,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
 );
 
 Tarifs.displayName = "Tarifs";
-interface VoletProps extends React.ComponentProps<typeof Card> {
+interface VoletProps extends React.ComponentProps<typeof Column> {
     className?: string;
     style?: React.CSSProperties;
     volet: PricingItem

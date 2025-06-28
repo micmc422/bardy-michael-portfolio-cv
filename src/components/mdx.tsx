@@ -1,5 +1,5 @@
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import React, { IframeHTMLAttributes, ReactNode } from "react";
+import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
+import React, { type IframeHTMLAttributes, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 import remarkGfm from 'remark-gfm'
 import {
@@ -11,8 +11,8 @@ import {
   InlineCode,
 } from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
-import { TextProps } from "@/once-ui/interfaces";
-import { SmartImageProps } from "@/once-ui/components/SmartImage";
+import type { TextProps } from "@/once-ui/interfaces";
+import type { SmartImageProps } from "@/once-ui/components/SmartImage";
 import { RawGithubFile } from "./RawGithubFile";
 import GitHubRepoSummary from "./gitHubResume";
 import { Faq } from "./Faq";

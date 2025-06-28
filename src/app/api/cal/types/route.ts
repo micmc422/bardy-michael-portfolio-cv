@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 const CAL_API_KEY = process.env.CAL_API_KEY;
 const CAL_API_BASE_URL = 'https://api.cal.com/v2';
@@ -15,7 +15,7 @@ export type RDVContentType = {
     currency: string;
 };
   
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
     if (!CAL_API_KEY) {
         return NextResponse.json({ error: 'Missing Cal.com API key' }, { status: 500 });
     }
@@ -37,7 +37,7 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ error }, { status: response.status });
         }
 
-        const {data, status} = await response.json();
+        const {data} = await response.json();
         const events = data.eventTypeGroups[0].eventTypes.filter((event: any) => !event.hidden)
             .map((event: any) => ({
                 id: event.id,

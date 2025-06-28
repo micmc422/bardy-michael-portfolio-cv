@@ -2,13 +2,13 @@
 
 import React, {
   useState,
-  KeyboardEventHandler,
-  ChangeEventHandler,
-  FocusEventHandler,
+  type KeyboardEventHandler,
+  type ChangeEventHandler,
+  type FocusEventHandler,
   forwardRef,
 } from "react";
 
-import { Flex, Chip, Input, InputProps } from ".";
+import { Flex, Chip, Input, type InputProps } from ".";
 
 interface TagInputProps extends Omit<InputProps, "onChange" | "value"> {
   value: string[];
@@ -43,7 +43,7 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
       setIsFocused(true);
     };
 
-    const handleBlur: FocusEventHandler<HTMLInputElement> = (e) => {
+    const handleBlur: FocusEventHandler<HTMLInputElement> = () => {
       setIsFocused(false);
     };
 

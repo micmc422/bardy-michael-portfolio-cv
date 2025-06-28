@@ -2,8 +2,8 @@
 
 import { mailchimp } from "@/app/resources";
 import { Button, Flex, Heading, Input, Text, Background, Column } from "@/once-ui/components";
-import { opacity, SpacingToken } from "@/once-ui/types";
-import { JSX, useState } from "react";
+import type { opacity, SpacingToken } from "@/once-ui/types";
+import { type JSX, useState } from "react";
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
   let timeout: ReturnType<typeof setTimeout>;
@@ -22,7 +22,6 @@ type NewsletterProps = {
 export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const [touched, setTouched] = useState<boolean>(false);
 
   const validateEmail = (email: string): boolean => {
     if (email === "") {
@@ -47,7 +46,6 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
   const debouncedHandleChange = debounce(handleChange, 2000);
 
   const handleBlur = () => {
-    setTouched(true);
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
     }

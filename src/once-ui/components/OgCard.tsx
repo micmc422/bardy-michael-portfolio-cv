@@ -41,10 +41,11 @@ const formatDisplayUrl = (url: string | undefined): string => {
 
         return domain;
     } catch (error) {
-        let formattedUrl = url.replace(/^https?:\/\//, "");
+        console.error(error)
+        let formattedUrl = (url ?? "").replace(/^https?:\/\//, "");
         formattedUrl = formattedUrl.replace(/^www\./, "");
 
-        formattedUrl = formattedUrl.split("/")[0];
+        formattedUrl = formattedUrl.split("/")[0] ?? "inconnu";
 
         return formattedUrl;
     }
@@ -61,6 +62,8 @@ const getFaviconUrl = (url: string | undefined): string => {
 
         return `/api/og/proxy?url=${encodeURIComponent(faviconSourceUrl)}`;
     } catch (error) {
+        console.error(error)
+
         return "";
     }
 };

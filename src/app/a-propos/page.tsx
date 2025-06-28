@@ -13,10 +13,17 @@ import {
   Text,
 } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
-import TableOfContents from "@/components/a-propos/TableOfContents";
+import dynamic from "next/dynamic";
+
+// import TableOfContents from "@/components/a-propos/TableOfContents";
+const TableOfContents = dynamic(() => import('@/components/a-propos/TableOfContents'), {
+  loading: () => <p>Chargement de la table des métiéres...</p>,
+});
+
 import styles from "@/components/a-propos/a-propos.module.scss";
 import { person, about, social } from "@/app/resources/content";
-import React, { JSX } from "react";
+import React from "react";
+import type { JSX } from "react";
 import { Meta, Schema } from "@/once-ui/modules";
 
 export async function generateMetadata() {
@@ -98,7 +105,7 @@ export default async function About() {
             </Flex>
             {person.languages.length > 0 && (
               <Flex wrap gap="8">
-                {person.languages.map((language, index) => (
+                {person.languages.map((language, _index) => (
                   <Tag key={language} size="l">
                     {language}
                   </Tag>

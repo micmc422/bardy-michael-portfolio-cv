@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 import styles from "./Logo.module.scss";
-import { SpacingToken } from "../types";
+import type { SpacingToken } from "../types";
 import { Flex } from ".";
 
 const sizeMap: Record<string, SpacingToken> = {

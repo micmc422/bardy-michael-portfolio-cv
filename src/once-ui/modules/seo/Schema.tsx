@@ -62,7 +62,6 @@ export function Schema({
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
-    schema.sameAs = schema.sameAs
   } else if (as === "organization") {
     schema.name = title;
     schema.description = description;

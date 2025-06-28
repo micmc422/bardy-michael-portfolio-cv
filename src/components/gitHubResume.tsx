@@ -3,8 +3,8 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import { Star, GitFork, Eye, Calendar, Code, Users, AlertCircle, Loader2 } from "lucide-react"
-import { Accordion, Avatar, Badge, Button, Card, Column, Flex, Grid, Icon, Input, Line, Row, Tag, Text } from "@/once-ui/components"
+import { Loader2 } from "lucide-react"
+import { Accordion, Avatar, Badge, Button, Card, Column, Flex, Grid, Icon, Input, Row, Tag, Text } from "@/once-ui/components"
 
 interface GitHubRepo {
     id: number

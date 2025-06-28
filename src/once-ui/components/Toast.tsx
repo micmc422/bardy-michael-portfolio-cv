@@ -4,7 +4,7 @@ import React, { useEffect, useState, forwardRef } from "react";
 import { IconButton, Icon, Flex, Text } from ".";
 import classNames from "classnames";
 import styles from "./Toast.module.scss";
-import { IconName } from "../icons";
+import type { IconName } from "../icons";
 
 interface ToastProps {
   className?: string;
@@ -50,8 +50,8 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(
         role="alert"
         aria-live="assertive"
         className={classNames(className, styles.toast, styles[variant], {
-          [styles.visible]: visible,
-          [styles.hidden]: !visible,
+          [styles.visible as string]: visible,
+          [styles.hidden as string]: !visible,
         })}
       >
         <Flex fillWidth vertical="center" gap="8">

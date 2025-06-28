@@ -1,9 +1,9 @@
 "use client";
 
-import React, { CSSProperties, forwardRef, useEffect, useRef, useState } from "react";
-import { SpacingToken } from "../types";
+import React, { type CSSProperties, forwardRef, useEffect, useRef, useState } from "react";
+import type { SpacingToken } from "../types";
 import { Flex } from "./Flex";
-import { DisplayProps } from "../interfaces";
+import type { DisplayProps } from "../interfaces";
 import styles from "./Background.module.scss";
 import classNames from "classnames";
 

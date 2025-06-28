@@ -4,7 +4,7 @@ import React, {
   useState,
   useRef,
   useEffect,
-  ReactNode,
+  type ReactNode,
   forwardRef,
   useImperativeHandle,
   useCallback,
@@ -16,7 +16,7 @@ import {
   flip,
   size,
   autoUpdate,
-  Placement,
+  type Placement,
 } from "@floating-ui/react-dom";
 import { Flex, Dropdown } from ".";
 import styles from "./DropdownWrapper.module.scss";

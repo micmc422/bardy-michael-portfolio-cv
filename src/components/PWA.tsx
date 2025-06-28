@@ -1,9 +1,8 @@
 'use client'
 
 import { useState, useEffect, useTransition } from 'react'
-import { subscribeUser, unsubscribeUser, sendNotification } from '@/app/pwaActions'
-import { Button, Column, Dialog, Icon, Row, Switch, Text, Banner, useToast, Flex, Spinner } from '@/once-ui/components'
-import { opacity } from '@/once-ui/types'
+import { subscribeUser, unsubscribeUser } from '@/app/pwaActions'
+import { Icon, useToast, Spinner } from '@/once-ui/components'
 
 function urlBase64ToUint8Array(base64String: string) {
     const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -25,7 +24,6 @@ export function PushNotificationManager() {
     const [subscription, setSubscription] = useState<PushSubscription | null>(
         null
     )
-    const [message, setMessage] = useState('')
     useEffect(() => {
         if ('serviceWorker' in navigator && 'PushManager' in window) {
             setIsSupported(true)
@@ -77,13 +75,14 @@ export function PushNotificationManager() {
             variant: "success", message: "Vous ne recevrez plus les notifications."
         });
     }
-
-    async function sendTestNotification() {
-        if (subscription) {
-            await sendNotification(message)
-            setMessage('')
+    /*
+        async function sendTestNotification() {
+            if (subscription) {
+                await sendNotification(message)
+                setMessage('')
+            }
         }
-    }
+    */
     if (!isSupported) {
         return <></>
     }

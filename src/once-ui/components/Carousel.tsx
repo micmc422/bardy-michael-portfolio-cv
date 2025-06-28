@@ -33,7 +33,9 @@ const Carousel: React.FC<CarouselProps> = ({
   const preloadNextImage = (nextIndex: number) => {
     if (nextIndex >= 0 && nextIndex < images.length) {
       nextImageRef.current = new Image();
-      nextImageRef.current.src = images[nextIndex].src;
+      if (nextImageRef.current) {
+        nextImageRef.current.src = images[nextIndex]?.src as string;
+      }
     }
   };
 
@@ -94,7 +96,7 @@ const Carousel: React.FC<CarouselProps> = ({
           border="neutral-alpha-weak"
           alt={images[activeIndex]?.alt}
           aspectRatio={aspectRatio}
-          src={images[activeIndex]?.src}
+          src={images[activeIndex]?.src as string}
           style={{
             ...(images.length > 1 && {
               cursor: "pointer",

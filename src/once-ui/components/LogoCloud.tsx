@@ -41,7 +41,7 @@ const LogoCloud = forwardRef<HTMLDivElement, LogoCloudProps>(
               .map((index) => (index + 1) % logos.length)
               .sort((a, b) => a - b);
 
-            const nextLogos = nextIndices.map((index) => logos[index]);
+            const nextLogos = nextIndices.map((index) => logos[index]).filter((logo): logo is LogoProps => logo !== undefined);
             setKey((k) => k + 1);
             return nextLogos;
           });

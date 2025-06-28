@@ -64,7 +64,9 @@ export const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImag
   };
 
   const handleTouchMove = (e: TouchEvent) => {
-    updatePosition(e.touches[0].clientX);
+    if (e.touches && e.touches.length > 0 && e.touches[0]) {
+      updatePosition(e.touches[0].clientX);
+    }
   };
 
   useEffect(() => {

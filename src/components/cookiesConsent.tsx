@@ -2,17 +2,18 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Accordion, Button, Column, Feedback, Heading, Icon, Row, Text, useToast } from '@/once-ui/components';
+import { Accordion, Button, Column, Feedback, Icon, Row, Text, useToast } from '@/once-ui/components';
 import { Analytics } from '@vercel/analytics/next';
 
 export const getCookies = (): { [key: string]: string } | undefined => {
     if (document?.cookie === "") return undefined
     return document?.cookie
         ?.split(';')
-        ?.reduce((prev: { [key: string]: string } | undefined, current) => {
+        ?.reduce((prev: { [key: string]: string }, current) => {
             const [key, value] = current.split('=');
-            if (!prev) return undefined;
-            prev[key.trim()] = value;
+            if (typeof key === "string" && key.trim() !== "") {
+                prev[key.trim()] = value ?? "";
+            }
             return prev;
         }, {});
 }

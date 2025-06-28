@@ -1,9 +1,8 @@
 
-import React, { forwardRef, JSX, ReactNode } from "react";
-import { Flex } from "@/once-ui/components";
+import React, { forwardRef, type ReactNode } from "react";
 import { CodeBlock } from "@/once-ui/modules";
 
-interface ComponentProps extends React.ComponentProps<typeof Flex> {
+interface ComponentProps extends React.ComponentProps<typeof CodeBlock> {
     rawCodeUrl: string;
     label?: ReactNode
 }
@@ -74,13 +73,15 @@ function detectLanguageFromURL(url: string) {
         const pathname = new URL(url).pathname;
         const extensionMatch = pathname.match(/\.([a-z0-9]+)$/i);
 
-        if (extensionMatch) {
+        if (extensionMatch && extensionMatch[1]) {
             const ext = extensionMatch[1].toLowerCase();
             return extensionToLanguage[ext] || `Inconnu (extension .${ext})`;
         }
 
         return 'Extension non détectée';
     } catch (err) {
+        console.error(err)
+
         return 'URL invalide';
     }
 }

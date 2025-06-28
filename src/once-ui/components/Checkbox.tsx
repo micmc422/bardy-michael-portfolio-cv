@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, forwardRef } from "react";
 import classNames from "classnames";
-import { Flex, Icon, InteractiveDetails, InteractiveDetailsProps } from ".";
+import { Flex, Icon, InteractiveDetails, type InteractiveDetailsProps } from ".";
 import styles from "./SharedInteractiveStyles.module.scss";
 
 interface CheckboxProps
@@ -59,7 +59,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxP
         vertical="center"
         gap="16"
         className={classNames(styles.container, className, {
-          [styles.disabled]: disabled,
+          [styles.disabled as string]: disabled,
         })}
         style={style}
       >
@@ -99,11 +99,11 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxP
           onClick={toggleItem}
           onKeyDown={handleKeyDown}
           className={classNames(styles.element, {
-            [styles.checked]:
+            [styles.checked as string]:
               controlledIsChecked !== undefined
                 ? controlledIsChecked || isIndeterminate
                 : isChecked,
-            [styles.disabled]: disabled,
+            [styles.disabled as string]: disabled,
           })}
         >
           {(controlledIsChecked !== undefined ? controlledIsChecked : isChecked) &&

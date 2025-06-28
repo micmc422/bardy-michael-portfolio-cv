@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useRef, useEffect, forwardRef, ReactNode } from "react";
+import React, { useState, useRef, useEffect, forwardRef, type ReactNode } from "react";
 import classNames from "classnames";
-import { DropdownWrapper, Flex, Icon, IconButton, Input, InputProps, Option } from ".";
+import { DropdownWrapper, Flex, Icon, IconButton, Input, type InputProps, Option } from ".";
 import inputStyles from "./Input.module.scss";
 import type { OptionProps } from "./Option";
 import type { DropdownWrapperProps } from "./DropdownWrapper";
-import { Placement } from "@floating-ui/react-dom";
+import type { Placement } from "@floating-ui/react-dom";
 
 type SelectOptionType = Omit<OptionProps, "selected">;
 
@@ -101,7 +101,9 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
         case "Enter":
           event.preventDefault();
           if (highlightedIndex !== null && isDropdownOpen) {
-            handleSelect(options[highlightedIndex].value);
+            if (highlightedIndex !== null && options[highlightedIndex]) {
+              handleSelect(options[highlightedIndex].value);
+            }
           } else {
             setIsDropdownOpen(true);
           }
@@ -173,8 +175,8 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
             onKeyDown={handleKeyDown}
             readOnly
             className={classNames("cursor-interactive", "fill-width", {
-              [inputStyles.filled]: isFilled,
-              [inputStyles.focused]: isFocused,
+              [inputStyles.filled as string]: isFilled,
+              [inputStyles.focused as string]: isFocused,
               className,
             })}
             aria-haspopup="listbox"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef, ReactNode, useMemo } from "react";
+import React, { forwardRef, type ReactNode, useMemo } from "react";
 import classNames from "classnames";
 import { Flex, Table } from "@/once-ui/components";
 

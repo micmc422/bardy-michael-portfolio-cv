@@ -2,7 +2,7 @@
 
 import { Row } from "./Row";
 import { IconButton } from "./IconButton";
-import { useState, ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 type TableProps = {
   data: {

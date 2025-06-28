@@ -27,11 +27,11 @@ const Arrow: React.FC<ArrowProps> = ({
 
     if (triggerElement && ref.current) {
       const handleMouseOver = () => {
-        ref.current?.classList.add(styles.active);
+        ref.current?.classList.add(styles.active as string);
       };
 
       const handleMouseOut = () => {
-        ref.current?.classList.remove(styles.active);
+        ref.current?.classList.remove(styles.active as string);
       };
 
       triggerElement.addEventListener("mouseenter", handleMouseOver);

@@ -1,12 +1,13 @@
 import { Column, Flex, Media, SmartLink } from "@/once-ui/components";
 import { ProjectCard } from "@/components";
-import { Metadata } from "next";
+// import type { Metadata } from "next";
 import { getProjects } from "@/app/utils/serverActions";
 import { use } from "react";
 
 interface ProjectsProps {
   range?: [number, number?];
 }
+/*
 interface Projects {
   metadata: Metadata & {
     projectURL?: string;
@@ -20,8 +21,8 @@ interface Projects {
   };
   slug: string;
   content: string;
-}[]
-
+}
+*/
 async function getWorks() {
   const data = await getProjects({});
   return data;

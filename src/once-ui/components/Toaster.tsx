@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { type ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Flex, Toast } from ".";
 import styles from "./Toaster.module.scss";

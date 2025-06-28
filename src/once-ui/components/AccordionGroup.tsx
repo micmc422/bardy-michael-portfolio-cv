@@ -1,12 +1,12 @@
 import React from "react";
-import { Column, Accordion, Line, Flex, Text } from "@/once-ui/components";
+import { Column, Accordion, Line, Text } from "@/once-ui/components";
 
 export type AccordionItem = {
   title: React.ReactNode;
   content: React.ReactNode;
 };
 
-export interface AccordionGroupProps extends React.ComponentProps<typeof Flex> {
+export interface AccordionGroupProps extends React.ComponentProps<typeof Column> {
   items: AccordionItem[];
   size?: "s" | "m" | "l";
 }

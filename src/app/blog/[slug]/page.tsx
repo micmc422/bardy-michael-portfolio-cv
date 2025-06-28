@@ -3,15 +3,37 @@ import { CustomMDX } from "@/components/mdx";
 import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, SmartLink, Tag, Text } from "@/once-ui/components";
 import { about, blog, person, baseURL } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
-import ScrollToHash from "@/components/ScrollToHash";
 import { Meta, Schema } from "@/once-ui/modules";
 import { getComments, getPostBySlug, getPosts, getRelatedPost } from "@/app/utils/serverActions";
-import { Metadata } from "next";
-import CommentSection from "@/components/CommentSection";
-import Post from "@/components/blog/Post";
-import { SocialShareBar } from "@/components/SocialShare";
-import { Reactions } from "@/components/reactions/Reactions";
 import { getReactions } from "@/components/reactions/serverActions";
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+// import CommentSection from "@/components/CommentSection";
+const CommentSection = dynamic(() => import('@/components/CommentSection'), {
+  loading: () => <p>Chargement des Commentaires...</p>, // Composant optionnel affiché pendant le chargement
+});
+
+// import Post from "@/components/blog/Post";
+const Post = dynamic(() => import('@/components/blog/Post'), {
+  loading: () => <p>Chargement des articles...</p>, // Composant optionnel affiché pendant le chargement
+});
+
+// import { SocialShareBar } from "@/components/SocialShare";
+const SocialShareBar = dynamic(() => import('@/components/SocialShare').then(mod => mod.SocialShareBar), {
+  loading: () => <p>Chargement de la barre de partage...</p>,
+});
+
+// import { Reactions } from "@/components/reactions/Reactions";
+const Reactions = dynamic(() => import('@/components/reactions/Reactions').then(mod => mod.Reactions), {
+  loading: () => <p>Chargement des réactions...</p>,
+});
+
+// import ScrollToHash from "@/components/ScrollToHash";
+const ScrollToHash = dynamic(() => import('@/components/ScrollToHash'), {
+  loading: () => <p>Chargement du bouton retour en haut de la page...</p>, // Composant optionnel affiché pendant le chargement
+});
+
 
 
 async function getAllPostsSlugs(): Promise<{ slug: string }[]> {

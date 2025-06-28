@@ -4,9 +4,9 @@ import React, {
   useState,
   useEffect,
   forwardRef,
-  InputHTMLAttributes,
+  type InputHTMLAttributes,
   useCallback,
-  ReactNode,
+  type ReactNode,
 } from "react";
 import classNames from "classnames";
 import { Flex, Text } from ".";
@@ -110,13 +110,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const displayError = validationError || errorMessage;
 
     const inputClassNames = classNames(styles.input, "font-body", "font-default", "font-m", {
-      [styles.filled]: isFilled,
-      [styles.focused]: isFocused,
-      [styles.withPrefix]: hasPrefix,
-      [styles.withSuffix]: hasSuffix,
-      [styles.labelAsPlaceholder]: labelAsPlaceholder,
-      [styles.hasChildren]: children,
-      [styles.error]: displayError && debouncedValue !== "",
+      [styles.filled as string]: isFilled,
+      [styles.focused as string]: isFocused,
+      [styles.withPrefix as string]: hasPrefix,
+      [styles.withSuffix as string]: hasSuffix,
+      [styles.labelAsPlaceholder as string]: labelAsPlaceholder,
+      [styles.hasChildren as string]: children,
+      [styles.error as string]: displayError && debouncedValue !== "",
     });
 
     return (
@@ -127,7 +127,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         fillWidth
         fitHeight
         className={classNames(className, {
-          [styles.error]: (error || (displayError && debouncedValue !== "")) && props.value !== "",
+          [styles.error as string]: (error || (displayError && debouncedValue !== "")) && props.value !== "",
         })}
       >
         <Flex
@@ -139,10 +139,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           className={classNames(
             styles.base,
             {
-              [styles.s]: height === "s",
+              [styles.s as string]: height === "s",
             },
             {
-              [styles.m]: height === "m",
+              [styles.m as string]: height === "m",
             },
             radius === "none" ? "radius-none" : radius ? `radius-l-${radius}` : "radius-l",
           )}
@@ -170,7 +170,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 variant="label-default-m"
                 htmlFor={id}
                 className={classNames(styles.label, styles.inputLabel, {
-                  [styles.floating]: isFocused || isFilled,
+                  [styles.floating as string]: isFocused || isFilled,
                 })}
               >
                 {label}

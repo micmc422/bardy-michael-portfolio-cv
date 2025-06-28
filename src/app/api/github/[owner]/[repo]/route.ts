@@ -1,5 +1,5 @@
 // /app/api/github/[owner]/[repo]/route.ts
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 
 export async function GET(
     req: NextRequest,

@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useRef, useCallback, useEffect, forwardRef, ReactNode } from "react";
+import React, { useState, useRef, useCallback, useEffect, forwardRef, type ReactNode } from "react";
 import classNames from "classnames";
 
 const defaultCharset = ["X", "$", "@", "a", "H", "z", "o", "0", "y", "#", "?", "*", "0", "1", "+"];
 
 function getRandomCharacter(charset: string[]): string {
   const randomIndex = Math.floor(Math.random() * charset.length);
-  return charset[randomIndex];
+  return charset[randomIndex] ?? "";
 }
 
 function createEventHandler(

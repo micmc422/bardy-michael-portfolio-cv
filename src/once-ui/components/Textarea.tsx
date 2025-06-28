@@ -4,9 +4,9 @@ import React, {
   useState,
   useEffect,
   forwardRef,
-  TextareaHTMLAttributes,
+  type TextareaHTMLAttributes,
   useCallback,
-  ReactNode,
+  type ReactNode,
 } from "react";
 import classNames from "classnames";
 import { Flex, Text } from ".";
@@ -44,7 +44,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       id,
       label,
       lines = 3,
-      error = false,
+      // error = false,
       errorMessage,
       description,
       radius,
@@ -72,6 +72,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     const adjustHeight = () => {
       if (textareaRef.current) {
+        setHeight(textareaRef.current.scrollHeight)
         textareaRef.current.style.height = "auto";
         textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set to scroll height
       }
@@ -132,12 +133,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       "font-default",
       "font-m",
       {
-        [styles.filled]: isFilled,
-        [styles.focused]: isFocused,
-        [styles.withPrefix]: hasPrefix,
-        [styles.withSuffix]: hasSuffix,
-        [styles.labelAsPlaceholder]: labelAsPlaceholder,
-        [styles.hasChildren]: children,
+        [styles.filled as string]: isFilled,
+        [styles.focused as string]: isFocused,
+        [styles.withPrefix as string]: hasPrefix,
+        [styles.withSuffix as string]: hasSuffix,
+        [styles.labelAsPlaceholder as string]: labelAsPlaceholder,
+        [styles.hasChildren as string]: children,
       },
     );
 
@@ -148,7 +149,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         fillWidth
         fitHeight
         className={classNames(className, {
-          [styles.error]: displayError && debouncedValue !== "",
+          [styles.error as string]: displayError && debouncedValue !== "",
         })}
       >
         <Flex
@@ -178,7 +179,6 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 } else if (ref) {
                   ref.current = node;
                 }
-                // @ts-ignore
                 textareaRef.current = node;
               }}
               id={id}
@@ -202,7 +202,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 variant="label-default-m"
                 htmlFor={id}
                 className={classNames(styles.label, styles.textareaLabel, {
-                  [styles.floating]: isFocused || isFilled,
+                  [styles.floating as string]: isFocused || isFilled,
                 })}
               >
                 {label}

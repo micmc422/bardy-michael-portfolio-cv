@@ -24,9 +24,9 @@ export async function incrementReaction(formData: FormData): Promise<{ success: 
                     count: sql`reactions.count + 1`,
                 },
             })
-            .returning({ count: reactions.count });;
+            .returning({ count: reactions.count });
 
-        return { success: true, count: res[0].count, message: "Reaction incremented successfully" };
+        return { success: true, count: res?.[0]?.count ?? 0, message: "Reaction incremented successfully" };
     } catch (error) {
         console.error("Error handling reaction:", error);
         return { success: false, message: "Failed to handle reaction" };

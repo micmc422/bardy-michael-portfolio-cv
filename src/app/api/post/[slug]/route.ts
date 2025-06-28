@@ -1,5 +1,5 @@
 import { getPostBySlug } from '@/app/utils/serverActions';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
     req: NextRequest,
@@ -19,6 +19,7 @@ export async function GET(
 
         return NextResponse.json(post);
     } catch (error) {
+        console.error(error)
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
 }

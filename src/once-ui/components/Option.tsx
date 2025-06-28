@@ -67,9 +67,9 @@ const Option = forwardRef<HTMLDivElement, OptionProps>(
           transition="micro-medium"
           onClick={() => onClick?.(value)}
           className={classNames(styles.option, {
-            [styles.danger]: danger,
-            [styles.selected]: selected,
-            [styles.highlighted]: highlighted,
+            [styles.danger as string]: danger,
+            [styles.selected as string]: selected,
+            [styles.highlighted as string]: highlighted,
           })}
           data-value={value}
         >

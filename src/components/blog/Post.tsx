@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, Flex, Heading, Media, Skeleton, SmartImage, SmartLink, Tag, Text } from '@/once-ui/components';
+import { Column, Flex, Heading, Media, SmartImage, SmartLink, Tag, Text } from '@/once-ui/components';
 import styles from './Posts.module.scss';
 import { formatDate } from '@/app/utils/formatDate';
 

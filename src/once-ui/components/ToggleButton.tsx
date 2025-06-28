@@ -1,11 +1,11 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef, type ReactNode } from "react";
 import classNames from "classnames";
 import { ElementType } from "./ElementType";
 import { Flex, Icon } from ".";
 import styles from "./ToggleButton.module.scss";
-import { IconName } from "../icons";
+import type { IconName } from "../icons";
 
 interface CommonProps {
   label?: ReactNode;
@@ -48,7 +48,7 @@ const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
       justifyContent = "center",
       fillWidth = false,
       weight = "default",
-      truncate = false,
+      // truncate = false,
       prefixIcon,
       suffixIcon,
       className,

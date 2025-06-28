@@ -1,6 +1,6 @@
 "use client";
 
-import React, { CSSProperties, useState, useRef, useEffect } from "react";
+import React, { type CSSProperties, useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 import { Flex, Skeleton } from ".";
@@ -47,7 +47,7 @@ const Media: React.FC<MediaProps> = ({
             }
         };
 
-        const handleWheel = (event: WheelEvent) => {
+        const handleWheel = () => {
             if (isEnlarged) {
                 setIsEnlarged(false);
             }

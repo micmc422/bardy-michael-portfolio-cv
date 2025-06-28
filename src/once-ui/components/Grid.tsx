@@ -1,9 +1,9 @@
 "use client";
 
-import React, { CSSProperties, forwardRef } from "react";
+import React, { type CSSProperties, forwardRef } from "react";
 import classNames from "classnames";
 
-import {
+import type {
   GridProps,
   SpacingProps,
   SizeProps,
@@ -12,7 +12,7 @@ import {
   DisplayProps,
   ConditionalProps,
 } from "../interfaces";
-import { SpacingToken, ColorScheme, ColorWeight } from "../types";
+import type { SpacingToken, ColorScheme, ColorWeight } from "../types";
 
 interface ComponentProps
   extends GridProps,

@@ -1,10 +1,10 @@
 "use client";
 
-import { createComment, getComments } from "@/app/utils/serverActions";
+import { createComment } from "@/app/utils/serverActions";
 import { Button, Card, Column, Dialog, Feedback, Flex, Icon, Input, Line, Row, SmartLink, Switch, Text, Textarea, useToast } from "@/once-ui/components";
-import { forwardRef, ReactNode, useEffect, useState } from "react";
-import FormComponent, { ActionToastResponse, SubmitButton } from "./formActionClient";
-import { Comment } from "@wisp-cms/client";
+import { forwardRef, useState } from "react";
+import FormComponent, { SubmitButton, type ActionToastResponse } from "./formActionClient";
+import type { Comment } from "@wisp-cms/client";
 import { formatDate } from "@/app/utils/formatDate";
 
 
@@ -16,7 +16,7 @@ interface CommentSectionProps extends React.ComponentProps<typeof Column> {
 }
 
 
-const CommentSection = forwardRef<HTMLDivElement, CommentSectionProps & { slug: string, comments: Comment[] }>(({ className, style, slug, comments, ...rest }, ref) => {
+const CommentSection = forwardRef<HTMLDivElement, CommentSectionProps & { slug: string, comments: Comment[] }>(({ className, style, slug, comments, ..._rest }, ref) => {
     const rootComments = comments.filter(({ parent }) => !parent)
     return (<Column paddingTop="l" gap="m" fillWidth ref={ref}>
         <Text variant="heading-strong-l">Commentaires</Text>
@@ -35,7 +35,7 @@ CommentSection.displayName = "CommentSection"
 
 export default CommentSection
 
-function CommentBlock({ comment, slug }: { comment: Comment, slug: string }) {
+function CommentBlock({ comment }: { comment: Comment, slug: string }) {
     return <Row fillWidth key={comment.id}>
         <Card radius="l-4" direction="column" border="neutral-alpha-medium" fillWidth>
             <Column fillWidth paddingX="20" paddingY="24" gap="8">
@@ -81,7 +81,7 @@ interface AddCommentProps extends React.ComponentProps<typeof Column> {
     commentId?: string,
     unStyled?: boolean
 }
-const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, className, style, slug, commentId, unStyled, ...rest }, ref) => {
+const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, slug, commentId, unStyled }, ref) => {
     const [isChecked, setIsChecked] = useState(false);
     const [email, setEmail] = useState<string>("")
     const [isOpen, setIsOpen] = useState(false)

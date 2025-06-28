@@ -83,8 +83,10 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
         event.preventDefault();
         if (focusedIndex >= 0 && focusedIndex < buttons.length) {
           const focusedButton = buttons[focusedIndex];
-          setInternalSelected(focusedButton.value);
-          onToggle(focusedButton.value);
+          if (focusedButton) {
+            setInternalSelected(focusedButton.value);
+            onToggle(focusedButton.value);
+          }
         }
         break;
       default:

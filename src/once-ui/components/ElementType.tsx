@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { ReactNode, forwardRef } from "react";
+import React, { type ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
 
 interface ElementTypeProps {

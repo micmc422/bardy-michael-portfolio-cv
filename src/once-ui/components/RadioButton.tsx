@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, forwardRef } from "react";
 import classNames from "classnames";
-import { Flex, InteractiveDetails, InteractiveDetailsProps } from ".";
+import { Flex, InteractiveDetails, type InteractiveDetailsProps } from ".";
 import styles from "./SharedInteractiveStyles.module.scss";
 
 interface RadioButtonProps
@@ -56,7 +56,7 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
         gap="16"
         zIndex={1}
         className={classNames(styles.container, className, {
-          [styles.disabled]: disabled,
+          [styles.disabled as string]: disabled,
         })}
         style={style}
       >
@@ -83,8 +83,8 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
           onKeyDown={handleKeyDown}
           tabIndex={disabled ? -1 : 0}
           className={classNames(styles.element, {
-            [styles.checked]: controlledIsChecked !== undefined ? controlledIsChecked : isChecked,
-            [styles.disabled]: disabled,
+            [styles.checked as string]: controlledIsChecked !== undefined ? controlledIsChecked : isChecked,
+            [styles.disabled as string]: disabled,
           })}
         >
           {(controlledIsChecked !== undefined ? controlledIsChecked : isChecked) && (

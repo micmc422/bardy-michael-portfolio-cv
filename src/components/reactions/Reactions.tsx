@@ -3,7 +3,7 @@
 import React, { useState, forwardRef, startTransition, useOptimistic } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
-import { Badge, Button, Flex, Icon, Spinner, Text, useToast } from "@/once-ui/components";
+import { Button, Flex, Icon, useToast } from "@/once-ui/components";
 import { incrementReaction } from "./serverActions";
 import { AnimatedNumber } from "../animateNumber";
 

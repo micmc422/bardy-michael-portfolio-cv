@@ -1,13 +1,26 @@
 "use server"
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, IconButton, Icon } from "@/once-ui/components";
+import { Heading, Flex, Text, Avatar, RevealFx, Column, Badge, IconButton, Icon } from "@/once-ui/components";
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
-import { Projects } from "@/components/realisations/Projects";
-import { Posts } from "@/components/blog/Posts";
 import { Meta, Schema } from "@/once-ui/modules";
 import { Suspense } from "react";
-import { Tarifs } from "@/components/tarif/Tarifs";
+import dynamic from "next/dynamic";
+
+// Importation dynamique pour Tarifs
+const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
+  loading: () => <p>Chargement des tarifs...</p>, // Composant optionnel affiché pendant le chargement
+});
+
+// Importation dynamique pour Posts
+const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Posts), {
+  loading: () => <p>Chargement des articles...</p>,
+});
+
+// Importation dynamique pour Projects
+const Projects = dynamic(() => import('@/components/realisations/Projects').then(mod => mod.Projects), {
+  loading: () => <p>Chargement des projets...</p>,
+});
 
 export async function generateMetadata() {
   return Meta.generate({

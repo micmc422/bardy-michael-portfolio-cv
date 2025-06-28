@@ -1,8 +1,8 @@
 "use client"
 
-import { Button, ButtonProps, useToast } from "@/once-ui/components";
-import { redirect, useRouter } from "next/navigation";
-import { FormHTMLAttributes, ReactNode, TransitionStartFunction, useActionState, useContext, useRef } from "react"
+import { Button, type ButtonProps } from "@/once-ui/components";
+import { useRouter } from "next/navigation";
+import { type ReactNode, type TransitionStartFunction, useActionState, useContext, useRef } from "react"
 import { createContext } from 'react'
 
 interface FormContextType {
@@ -28,15 +28,15 @@ export const useFormContext = () => useContext(FormContext);
 
 export default function FormComponent({ action, ...props }: CustomFormProps
 ) {
-    const { addToast } = useToast();
     const formRef = useRef<HTMLFormElement>(null);
     const route = useRouter()
     const [state, formAction, isSubmitting] = useActionState(handleSubmit, null);
-
+    console.log(state)
     async function handleSubmit(prev: any, formData: FormData) {
         if (!formData) throw new Error('Aucune donnée de formulaire !');
         try {
             const result = await action(formData);
+            return result
         } catch (e) {
             console.log(e);
         } finally {
@@ -50,7 +50,7 @@ export default function FormComponent({ action, ...props }: CustomFormProps
 }
 
 export function SubmitButton({ children, ...props }: ButtonProps) {
-    const { isSubmitting } = useFormContext?.();
+    const { isSubmitting } = useFormContext?.() || {};
     if (!useFormContext) return <Button type="submit" {...props}>
         {children}
     </Button>;

@@ -1,5 +1,5 @@
-import { Author, TagInPost } from "@wisp-cms/client";
-import { Metadata } from "next";
+import type { Author, TagInPost } from "@wisp-cms/client";
+import type { Metadata } from "next";
 
 export interface PostType {
     metadata: Metadata & {

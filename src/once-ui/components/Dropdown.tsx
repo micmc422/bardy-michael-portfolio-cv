@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, forwardRef, SyntheticEvent } from "react";
+import React, { type ReactNode, forwardRef, type SyntheticEvent } from "react";
 import { Flex } from ".";
 
 interface DropdownProps extends Omit<React.ComponentProps<typeof Flex>, "onSelect"> {

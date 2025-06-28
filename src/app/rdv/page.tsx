@@ -1,7 +1,7 @@
 "use client"
 
 import Script from 'next/script'
-import { use, useEffect } from 'react'
+import { useEffect } from 'react'
 
 declare global {
     interface Window {
@@ -11,11 +11,11 @@ declare global {
 
 
 export default function RdvPage() {
-    let dataLayer = []
+    const dataLayer = []
     useEffect(() => {
         if (typeof window !== 'undefined') {
             window.dataLayer = window.dataLayer || [];
-            function gtag(p0: string, p1: any){dataLayer.push(arguments)}
+            function gtag(_p0: string, _p1: any, ...rest: undefined[]){dataLayer.push(rest)}
             gtag('js', new Date());
             gtag('config', 'G-0FWXELBBJL');
         }

@@ -7,7 +7,7 @@ export const runtime = "edge";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  let now = new Date();
+  const now = new Date();
   let date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
   const slug = searchParams.get("slug");
   const type = searchParams.get("type");

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef, type ReactNode } from "react";
 import styles from "./Fade.module.scss";
 
 import { Flex } from ".";
-import { ColorScheme, ColorWeight, SpacingToken } from "../types";
+import type { ColorScheme, ColorWeight, SpacingToken } from "../types";
 
 type BaseColor =
   | `${ColorScheme}-${ColorWeight}`

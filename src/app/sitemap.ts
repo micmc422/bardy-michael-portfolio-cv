@@ -72,10 +72,5 @@ async function getFileData(route: string) {
 
   const data = await res.json();
   const node = data.data.repository.defaultBranchRef.target.history.nodes[0];
-  console.log(node)
-
-  console.log(`📅 Dernière modification : ${node.committedDate}`);
-  console.log(`👤 Auteur : ${node.author.name}`);
-  console.log(`🔗 Commit : ${node.oid}`);
   return node.committedDate
 }

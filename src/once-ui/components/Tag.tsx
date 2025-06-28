@@ -1,11 +1,11 @@
 "use client";
 
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef, type ReactNode } from "react";
 import classNames from "classnames";
 
 import { Flex, Text, Icon } from ".";
 import styles from "./Tag.module.scss";
-import { IconName } from "../icons";
+import type { IconName } from "../icons";
 
 interface TagProps extends React.ComponentProps<typeof Flex> {
   variant?:

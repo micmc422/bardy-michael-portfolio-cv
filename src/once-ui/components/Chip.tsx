@@ -1,10 +1,10 @@
 "use client";
 
-import React, { ReactNode, MouseEventHandler, forwardRef } from "react";
+import React, { type ReactNode, type MouseEventHandler, forwardRef } from "react";
 import classNames from "classnames";
-import { Text, Icon, IconButton, IconButtonProps, Flex } from ".";
+import { Text, Icon, IconButton, type IconButtonProps, Flex } from ".";
 import styles from "./Chip.module.scss";
-import { IconName } from "../icons";
+import type { IconName } from "../icons";
 
 interface ChipProps extends React.ComponentProps<typeof Flex> {
   label: string;
@@ -75,8 +75,8 @@ const Chip: React.FC<ChipProps> = forwardRef<HTMLDivElement, ChipProps>(
         cursor="interactive"
         transition="micro-medium"
         className={classNames(styles.chip, {
-          [styles.selected]: selected,
-          [styles.unselected]: !selected,
+          [styles.selected as string]: selected,
+          [styles.unselected as string]: !selected,
         })}
         {...rest}
       >
