@@ -1,49 +1,61 @@
 {
   "compilerOptions": {
-    "typeRoots": ["./types", "./node_modules/@types"],
-  /* Base Options: */
-  "esModuleInterop": true,
-  "skipLibCheck": true,
-  "target": "es6",
-  "allowJs": true,
-  "resolveJsonModule": true,
-  "moduleDetection": "force",
-  "isolatedModules": true,
-  "verbatimModuleSyntax": true,
-  /* Transpilation */
-  "jsx": "preserve",
-  "moduleResolution": "node",
-  "module": "esnext",
-  "outDir": "./dist",
-  "rootDir": "./",
-  "incremental": true,
-  "sourceMap": true,
-  "noEmit": true,
-  /* DOM api usuage */
-  "lib": [
-    "dom",
-    "dom.iterable",
-    "esnext"
-  ],
-  /* Code Standard */
-  "strict": true,
-  "noUncheckedIndexedAccess": true,
-  "noImplicitOverride": true,
-  "forceConsistentCasingInFileNames": true,
-  "allowSyntheticDefaultImports": true,
-  "noFallthroughCasesInSwitch": true,
-  "strictNullChecks": true,
-  "noUnusedLocals": true,
-  "noImplicitAny": true,
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ],
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    /* Transpilation */
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "module": "esnext",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "incremental": true,
+    "sourceMap": true,
+    "noEmit": true,
+    /* DOM api usuage */
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    /* Code Standard */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
