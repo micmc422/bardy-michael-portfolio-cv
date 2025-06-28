@@ -161,6 +161,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
         )}
         {!isLoading && !isVideo && !isYouTube && (
           <Image
+            fetchPriority={priority ? "high" : "low"}
             src={src}
             alt={alt}
             priority={!!priority}
@@ -216,6 +217,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
               />
             ) : (
               <Image
+                fetchPriority={priority ? "high" : "low"}
                 src={src}
                 alt={alt}
                 fill

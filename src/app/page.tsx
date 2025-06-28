@@ -4,7 +4,6 @@ import { Heading, Flex, Text, Avatar, RevealFx, Column, Badge, IconButton, Icon,
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
-import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { SkeletonProject } from "@/components/realisations/Projects";
 
@@ -137,9 +136,7 @@ export default async function Home() {
             </Heading>
           </Flex>
           <Flex flex={3} paddingX="20">
-            <Suspense>
-              <Posts range={[1, 2]} columns="2" />
-            </Suspense>
+            <Posts range={[1, 2]} columns="2" />
           </Flex>
         </Flex>
       )}
