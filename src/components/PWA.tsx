@@ -19,7 +19,7 @@ function urlBase64ToUint8Array(base64String: string) {
 
 export function PushNotificationManager() {
     const { addToast } = useToast();
-
+    const [loading, startTransition] = useTransition()
     const [isSupported, setIsSupported] = useState(false)
     const [subscription, setSubscription] = useState<PushSubscription | null>(
         null
@@ -62,7 +62,12 @@ export function PushNotificationManager() {
             console.log({ e })
         }
     }
-
+    function handleSubscribe() {
+        startTransition(() => subscribeToPush())
+    }
+    function handleUnSubscribe() {
+        startTransition(() => unsubscribeFromPush())
+    }
     async function unsubscribeFromPush() {
         await subscription?.unsubscribe()
         setSubscription(null)
@@ -90,7 +95,8 @@ export function PushNotificationManager() {
             </Row>}
             description="Recevoir des notifications lors de la publications de nouveaux articles."
             isChecked={!!subscription}
-            onToggle={() => !!subscription ? unsubscribeFromPush() : subscribeToPush()}
+            onToggle={() => !!subscription ? handleUnSubscribe() : handleSubscribe()}
+            loading={loading}
         />
     </Row>
 }
