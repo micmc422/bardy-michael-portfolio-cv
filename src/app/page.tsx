@@ -6,6 +6,7 @@ import { home, about, person } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import dynamic from "next/dynamic";
 import { SkeletonProject } from "@/components/realisations/Projects";
+import { Faq } from "@/components";
 
 // Importation dynamique pour Tarifs
 const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
@@ -142,7 +143,36 @@ export default async function Home() {
       )}
       <Projects range={[2]} />
       <Tarifs />
-
+      <Faq faqData={JSON.stringify({
+        "title": "Foire aux questions",
+        "faq": [
+          {
+            "title": "Quels types de sites proposez-vous ?",
+            "content": "Je conçois des sites vitrines, e-commerce, blogs et des applications web personnalisées, avec un fort accent sur la performance, l’accessibilité et l’expérience utilisateur. Chaque projet est adapté aux besoins spécifiques de mes clients."
+          },
+          {
+            "title": "Travaillez-vous avec des agences ou directement avec des clients ?",
+            "content": "Les deux ! Je collabore régulièrement avec des agences en tant que développeur freelance, mais j'accompagne aussi directement des entreprises, artisans ou indépendants pour la création et la gestion de leur site web."
+          },
+          {
+            "title": "Quels sont vos délais de réalisation ?",
+            "content": "Cela dépend de la complexité du projet. Un site vitrine simple peut être prêt en 2 à 3 semaines, tandis qu’un site plus technique ou une refonte complète peuvent prendre plusieurs mois. Je m’engage toujours sur un planning réaliste dès le départ."
+          },
+          {
+            "title": "Est-ce que vous assurez la maintenance après livraison ?",
+            "content": "Oui, je propose des forfaits de maintenance pour assurer la sécurité, les mises à jour techniques et les améliorations continues du site, selon les besoins."
+          },
+          {
+            "title": "Est-ce que vous proposez des formations ou un accompagnement à l'utilisation du site ?",
+            "content": "Tout à fait. Je propose des sessions de prise en main, à distance, pour que mes clients puissent gérer eux-mêmes leur contenu ou leur boutique en ligne en toute autonomie."
+          },
+          {
+            "title": "Prenez-vous des stagiaires ?",
+            "content": "Non, je ne prends pas de stagiaires. Je travaille depuis mon domicile dans un environnement de télétravail optimisé pour la concentration et la productivité. Cela ne permet malheureusement pas d'assurer un encadrement de qualité, nécessaire à une expérience de stage enrichissante. Je préfère consacrer mon temps à mes clients et à la qualité des projets livrés."
+          }
+        ]
+      })
+} />
     </Column>
   );
 }

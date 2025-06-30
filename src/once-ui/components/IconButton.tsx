@@ -13,15 +13,15 @@ interface CommonProps {
   id?: string;
   size?: "s" | "m" | "l";
   radius?:
-    | "none"
-    | "top"
-    | "right"
-    | "bottom"
-    | "left"
-    | "top-left"
-    | "top-right"
-    | "bottom-right"
-    | "bottom-left";
+  | "none"
+  | "top"
+  | "right"
+  | "bottom"
+  | "left"
+  | "top-left"
+  | "top-right"
+  | "bottom-right"
+  | "bottom-left";
   tooltip?: string;
   tooltipPosition?: "top" | "bottom" | "left" | "right";
   variant?: "primary" | "secondary" | "tertiary" | "danger" | "ghost";
@@ -99,8 +99,8 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
           radius === "none"
             ? "radius-none"
             : radius
-            ? `radius-${radiusSize}-${radius}`
-            : `radius-${radiusSize}`,
+              ? `radius-${radiusSize}-${radius}`
+              : `radius-${radiusSize}`,
           "text-decoration-none",
           "button",
           "cursor-interactive",

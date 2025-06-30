@@ -7,6 +7,7 @@ interface FaqProps extends React.ComponentProps<typeof Column> {
     className?: string;
     style?: React.CSSProperties;
     "data-props"?: string;
+    faqData?: string
 }
 
 interface FAQType {
@@ -27,8 +28,8 @@ interface LISTType {
 }
 
 const Faq = forwardRef<HTMLDivElement, FaqProps>(
-    ({ className, style, ...rest }, ref) => {
-        const jsonStr = decodeURIComponent(rest["data-props"] || "[]");
+    ({ className, style, faqData, ...rest }, ref) => {
+        const jsonStr = faqData || decodeURIComponent(rest["data-props"] || "[]");
         const { faq, list, title } = JSON.parse(jsonStr) as FAQType | LISTType;
         if (faq) {
             const jsonLDFaq = faq.map(({ title, content }) => ({
