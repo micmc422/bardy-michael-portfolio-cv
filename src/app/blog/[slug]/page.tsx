@@ -8,6 +8,7 @@ import { getComments, getPostBySlug, getPosts, getRelatedPost } from "@/app/util
 import { getReactions } from "@/components/reactions/serverActions";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { ReactionsList } from "@/components/reactions/Reactions";
 
 // import CommentSection from "@/components/CommentSection";
 const CommentSection = dynamic(() => import('@/components/CommentSection'), {
@@ -104,6 +105,8 @@ export default async function Blog({
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
+  const Trigger = () => (reactionsCount?.length || 0) > 0 ? <ReactionsList reactionsCount={reactionsCount} />
+              : <span style={{ fontSize: "2em" }}>☺️</span>
   return (
     <Row fillWidth zIndex={0}>
       <Row maxWidth={12} hide="m" />
@@ -144,7 +147,7 @@ export default async function Blog({
             {post.metadata.sources && post.metadata.sources.length > 0 && (
               <SourcesComponent sources={post.metadata.sources} />
             )}
-            <Reactions postSlug={post.slug} reactionsCount={reactionsCount} />
+            <Reactions postSlug={post.slug} trigger={<Trigger />} />
             <CommentSection slug={post.slug} comments={comments} />
             <Grid gap="8" columns={"2"} paddingTop="16" mobileColumns={"1"}>
               {related?.map((post: any) => <Post

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef, useMemo } from "react";
+import React, { forwardRef, useMemo, type ReactNode } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
 import { Card, Flex, useToast } from "@/once-ui/components";
@@ -14,14 +14,13 @@ interface ReactionsProps extends React.ComponentPropsWithoutRef<"div"> {
   className?: string;
   style?: React.CSSProperties;
   postSlug: string;
-  reactionsCount?: { emoji: string; count: number }[];
+  trigger: ReactNode;
 }
 
 const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
-  ({ className, style, postSlug, reactionsCount, ...rest }, ref) => {
+  ({ className, style, postSlug, trigger, ...rest }, ref) => {
     const { addToast } = useToast();
     const router = useRouter();
-    const updatedCount = useMemo(() => reactionsCount, [reactionsCount])
     const handleReaction = async ({ emoji, tags }: { emoji: string, tags: string[] }) => {
       const formData = new FormData()
       formData.append("postSlug", postSlug)
@@ -55,8 +54,7 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
       >
         <EmojiPickerDropdown onSelect={({ emoji, tags }: { emoji: string, tags: string[] }) => {
           handleReaction({ emoji, tags })
-        }} trigger={(reactionsCount?.length || 0) > 0 ? <ReactionsList reactionsCount={updatedCount} />
-          : <span style={{ fontSize: "2em" }}>☺️</span>} />
+        }} trigger={trigger} />
       </div>
     );
   }
