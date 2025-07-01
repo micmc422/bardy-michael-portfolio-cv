@@ -33,11 +33,13 @@ import {
   HiCodeBracket,
   HiOutlineStar,
   HiOutlineFaceSmile,
-  HiStar
+  HiStar,
+  HiOutlineMagnifyingGlass
 } from "react-icons/hi2";
 
 import { GoRepoForked } from "react-icons/go";
 
+import { IoAtOutline, IoFastFoodOutline, IoFlagOutline, IoFootballOutline, IoGiftOutline, IoGlobeOutline, IoPawOutline } from "react-icons/io5";
 
 import {
   PiHouseDuotone,
@@ -101,6 +103,15 @@ export const iconLibrary: Record<string, IconType> = {
   gitfork: GoRepoForked,
   code: HiCodeBracket,
   smile: HiOutlineFaceSmile,
+  search: HiOutlineMagnifyingGlass,
+  smiley: HiOutlineFaceSmile,
+  paw: IoPawOutline,
+  food: IoFastFoodOutline,
+  ball: IoFootballOutline,
+  world: IoGlobeOutline,
+  gift: IoGiftOutline,
+  symbol: IoAtOutline,
+  flag: IoFlagOutline,
   cookie: RxCookie
 };
 

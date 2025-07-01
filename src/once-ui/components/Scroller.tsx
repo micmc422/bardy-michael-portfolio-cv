@@ -104,7 +104,7 @@ const Scroller: React.FC<ScrollerProps> = ({
   return (
     <Flex fillWidth className={classNames(styles.container, className)} style={style} {...rest}>
       {showPrevButton && (
-        <Fade to="right" width={4} fillHeight position="absolute" left="0" zIndex={1}>
+        <Fade to="right" width={1} fillHeight position="absolute" left="0" zIndex={1}>
           <IconButton
             icon={direction === "row" ? "chevronLeft" : "chevronUp"}
             onClick={handleScrollPrev}
@@ -132,7 +132,7 @@ const Scroller: React.FC<ScrollerProps> = ({
         {wrappedChildren}
       </Flex>
       {showNextButton && (
-        <Fade to="left" width={4} fillHeight position="absolute" right="0" zIndex={1}>
+        <Fade to="left" width={1} fillHeight position="absolute" right="0" zIndex={1}>
           <IconButton
             icon={direction === "row" ? "chevronRight" : "chevronDown"}
             onClick={handleScrollNext}
