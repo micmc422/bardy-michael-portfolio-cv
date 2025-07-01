@@ -20,10 +20,13 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
   ({ className, style, postSlug, reactionsCount, ...rest }, ref) => {
     const { addToast } = useToast();
     const router = useRouter()
-    const handleReaction = async (emoji: string) => {
+    const handleReaction = async ({ emoji, tags }: { emoji: string, tags: string[] }) => {
       const formData = new FormData()
       formData.append("postSlug", postSlug)
       formData.append("reactionName", emoji)
+      const actionType = tags.filter(el => ["LikeAction", "AgreeAction", "DisagreeAction", "CommentAction", "ReactAction"].includes(el))[0];
+      formData.append("actionType", actionType || "ReactAction")
+
       // Optimiste : on incrémente tout de suite
 
       const result = await incrementReaction(formData);
@@ -48,8 +51,8 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
         className={classNames(styles.container, className)}
         {...rest}
       >
-        <EmojiPickerDropdown onSelect={(emoji: string) => {
-          handleReaction(emoji)
+        <EmojiPickerDropdown onSelect={({ emoji, tags }: { emoji: string, tags: string[] }) => {
+          handleReaction({ emoji, tags })
         }} trigger={<Icon size="xl" background="surface" radius="full" name="smile" padding="4" />} />
       </div>
     );
@@ -71,7 +74,7 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
         wrap
         {...rest}
       >
-        {reactionsCount?.sort((a,b)=> a.count - b.count)?.map(({ emoji }) => <CursorCard
+        {reactionsCount?.sort((a, b) => a.count - b.count)?.map(({ emoji }) => <CursorCard
           key={emoji}
           placement="bottom-start"
           maxWidth={24}

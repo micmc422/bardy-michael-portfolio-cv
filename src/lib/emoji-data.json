@@ -8,7 +8,8 @@
             ],
             "tags": [
                 "smile",
-                "happy"
+                "happy",
+                "LikeAction"
             ]
         },
         {
@@ -20,7 +21,8 @@
             "tags": [
                 "happy",
                 "joy",
-                "haha"
+                "haha",
+                "LikeAction"
             ]
         },
         {
@@ -33,7 +35,8 @@
                 "happy",
                 "joy",
                 "laugh",
-                "pleased"
+                "pleased",
+                "LikeAction"
             ]
         },
         {
@@ -42,7 +45,9 @@
             "aliases": [
                 "grin"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😆",
@@ -53,7 +58,8 @@
             ],
             "tags": [
                 "happy",
-                "haha"
+                "haha",
+                "LikeAction"
             ]
         },
         {
@@ -63,7 +69,8 @@
                 "sweat_smile"
             ],
             "tags": [
-                "hot"
+                "hot",
+                "ReactAction"
             ]
         },
         {
@@ -74,7 +81,8 @@
             ],
             "tags": [
                 "lol",
-                "laughing"
+                "laughing",
+                "LikeAction"
             ]
         },
         {
@@ -84,7 +92,8 @@
                 "joy"
             ],
             "tags": [
-                "tears"
+                "tears",
+                "ReactAction"
             ]
         },
         {
@@ -93,7 +102,9 @@
             "aliases": [
                 "slightly_smiling_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🙃",
@@ -101,7 +112,9 @@
             "aliases": [
                 "upside_down_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🫠",
@@ -111,7 +124,8 @@
             ],
             "tags": [
                 "sarcasm",
-                "dread"
+                "dread",
+                "ReactAction"
             ]
         },
         {
@@ -121,7 +135,8 @@
                 "wink"
             ],
             "tags": [
-                "flirt"
+                "flirt",
+                "ReactAction"
             ]
         },
         {
@@ -131,7 +146,8 @@
                 "blush"
             ],
             "tags": [
-                "proud"
+                "proud",
+                "LikeAction"
             ]
         },
         {
@@ -141,7 +157,8 @@
                 "innocent"
             ],
             "tags": [
-                "angel"
+                "angel",
+                "ReactAction"
             ]
         },
         {
@@ -151,7 +168,8 @@
                 "smiling_face_with_three_hearts"
             ],
             "tags": [
-                "love"
+                "love",
+                "LikeAction"
             ]
         },
         {
@@ -162,7 +180,8 @@
             ],
             "tags": [
                 "love",
-                "crush"
+                "crush",
+                "LikeAction"
             ]
         },
         {
@@ -172,7 +191,8 @@
                 "kissing_heart"
             ],
             "tags": [
-                "flirt"
+                "flirt",
+                "ReactAction"
             ]
         },
         {
@@ -181,7 +201,9 @@
             "aliases": [
                 "kissing"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "☺️",
@@ -191,7 +213,8 @@
             ],
             "tags": [
                 "blush",
-                "pleased"
+                "pleased",
+                "LikeAction"
             ]
         },
         {
@@ -200,7 +223,9 @@
             "aliases": [
                 "kissing_closed_eyes"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😙",
@@ -208,7 +233,9 @@
             "aliases": [
                 "kissing_smiling_eyes"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🥲",
@@ -216,7 +243,9 @@
             "aliases": [
                 "smiling_face_with_tear"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😋",
@@ -226,7 +255,8 @@
             ],
             "tags": [
                 "tongue",
-                "lick"
+                "lick",
+                "ReactAction"
             ]
         },
         {
@@ -235,7 +265,9 @@
             "aliases": [
                 "stuck_out_tongue"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😜",
@@ -245,7 +277,8 @@
             ],
             "tags": [
                 "prank",
-                "silly"
+                "silly",
+                "ReactAction"
             ]
         },
         {
@@ -256,7 +289,8 @@
             ],
             "tags": [
                 "goofy",
-                "wacky"
+                "wacky",
+                "ReactAction"
             ]
         },
         {
@@ -266,7 +300,8 @@
                 "stuck_out_tongue_closed_eyes"
             ],
             "tags": [
-                "prank"
+                "prank",
+                "ReactAction"
             ]
         },
         {
@@ -276,7 +311,8 @@
                 "money_mouth_face"
             ],
             "tags": [
-                "rich"
+                "rich",
+                "ReactAction"
             ]
         },
         {
@@ -285,7 +321,9 @@
             "aliases": [
                 "hugs"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤭",
@@ -295,7 +333,8 @@
             ],
             "tags": [
                 "quiet",
-                "whoops"
+                "whoops",
+                "CommentAction"
             ]
         },
         {
@@ -306,7 +345,8 @@
             ],
             "tags": [
                 "gasp",
-                "shock"
+                "shock",
+                "ReactAction"
             ]
         },
         {
@@ -315,7 +355,9 @@
             "aliases": [
                 "face_with_peeking_eye"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤫",
@@ -325,7 +367,8 @@
             ],
             "tags": [
                 "silence",
-                "quiet"
+                "quiet",
+                "CommentAction"
             ]
         },
         {
@@ -334,7 +377,9 @@
             "aliases": [
                 "thinking"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🫡",
@@ -343,7 +388,8 @@
                 "saluting_face"
             ],
             "tags": [
-                "respect"
+                "respect",
+                "AgreeAction"
             ]
         },
         {
@@ -354,7 +400,8 @@
             ],
             "tags": [
                 "silence",
-                "hush"
+                "hush",
+                "CommentAction"
             ]
         },
         {
@@ -364,7 +411,8 @@
                 "raised_eyebrow"
             ],
             "tags": [
-                "suspicious"
+                "suspicious",
+                "ReactAction"
             ]
         },
         {
@@ -374,7 +422,8 @@
                 "neutral_face"
             ],
             "tags": [
-                "meh"
+                "meh",
+                "CommentAction"
             ]
         },
         {
@@ -383,7 +432,9 @@
             "aliases": [
                 "expressionless"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😶",
@@ -393,7 +444,8 @@
             ],
             "tags": [
                 "mute",
-                "silence"
+                "silence",
+                "CommentAction"
             ]
         },
         {
@@ -403,7 +455,8 @@
                 "dotted_line_face"
             ],
             "tags": [
-                "invisible"
+                "invisible",
+                "ReactAction"
             ]
         },
         {
@@ -412,7 +465,9 @@
             "aliases": [
                 "face_in_clouds"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😏",
@@ -421,7 +476,8 @@
                 "smirk"
             ],
             "tags": [
-                "smug"
+                "smug",
+                "ReactAction"
             ]
         },
         {
@@ -431,7 +487,8 @@
                 "unamused"
             ],
             "tags": [
-                "meh"
+                "meh",
+                "CommentAction"
             ]
         },
         {
@@ -440,7 +497,9 @@
             "aliases": [
                 "roll_eyes"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😬",
@@ -448,7 +507,9 @@
             "aliases": [
                 "grimacing"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😮‍💨",
@@ -456,7 +517,9 @@
             "aliases": [
                 "face_exhaling"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤥",
@@ -465,7 +528,8 @@
                 "lying_face"
             ],
             "tags": [
-                "liar"
+                "liar",
+                "ReactAction"
             ]
         },
         {
@@ -475,7 +539,8 @@
                 "shaking_face"
             ],
             "tags": [
-                "shock"
+                "shock",
+                "ReactAction"
             ]
         },
         {
@@ -485,7 +550,8 @@
                 "relieved"
             ],
             "tags": [
-                "whew"
+                "whew",
+                "ReactAction"
             ]
         },
         {
@@ -494,7 +560,9 @@
             "aliases": [
                 "pensive"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😪",
@@ -503,7 +571,8 @@
                 "sleepy"
             ],
             "tags": [
-                "tired"
+                "tired",
+                "ReactAction"
             ]
         },
         {
@@ -512,7 +581,9 @@
             "aliases": [
                 "drooling_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😴",
@@ -521,7 +592,8 @@
                 "sleeping"
             ],
             "tags": [
-                "zzz"
+                "zzz",
+                "CommentAction"
             ]
         },
         {
@@ -532,7 +604,8 @@
             ],
             "tags": [
                 "sick",
-                "ill"
+                "ill",
+                "DisagreeAction"
             ]
         },
         {
@@ -542,7 +615,8 @@
                 "face_with_thermometer"
             ],
             "tags": [
-                "sick"
+                "sick",
+                "DisagreeAction"
             ]
         },
         {
@@ -552,7 +626,8 @@
                 "face_with_head_bandage"
             ],
             "tags": [
-                "hurt"
+                "hurt",
+                "DisagreeAction"
             ]
         },
         {
@@ -564,7 +639,8 @@
             "tags": [
                 "sick",
                 "barf",
-                "disgusted"
+                "disgusted",
+                "DisagreeAction"
             ]
         },
         {
@@ -575,7 +651,8 @@
             ],
             "tags": [
                 "barf",
-                "sick"
+                "sick",
+                "DisagreeAction"
             ]
         },
         {
@@ -586,7 +663,8 @@
             ],
             "tags": [
                 "achoo",
-                "sick"
+                "sick",
+                "DisagreeAction"
             ]
         },
         {
@@ -597,7 +675,8 @@
             ],
             "tags": [
                 "heat",
-                "sweating"
+                "sweating",
+                "ReactAction"
             ]
         },
         {
@@ -608,7 +687,8 @@
             ],
             "tags": [
                 "freezing",
-                "ice"
+                "ice",
+                "ReactAction"
             ]
         },
         {
@@ -618,7 +698,8 @@
                 "woozy_face"
             ],
             "tags": [
-                "groggy"
+                "groggy",
+                "ReactAction"
             ]
         },
         {
@@ -627,7 +708,9 @@
             "aliases": [
                 "dizzy_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😵‍💫",
@@ -635,7 +718,9 @@
             "aliases": [
                 "face_with_spiral_eyes"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤠",
@@ -643,7 +728,9 @@
             "aliases": [
                 "cowboy_hat_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🥳",
@@ -653,7 +740,8 @@
             ],
             "tags": [
                 "celebration",
-                "birthday"
+                "birthday",
+                "LikeAction"
             ]
         },
         {
@@ -662,7 +750,9 @@
             "aliases": [
                 "disguised_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😎",
@@ -671,7 +761,8 @@
                 "sunglasses"
             ],
             "tags": [
-                "cool"
+                "cool",
+                "LikeAction"
             ]
         },
         {
@@ -682,7 +773,8 @@
             ],
             "tags": [
                 "geek",
-                "glasses"
+                "glasses",
+                "ReactAction"
             ]
         },
         {
@@ -691,7 +783,9 @@
             "aliases": [
                 "monocle_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😕",
@@ -699,7 +793,9 @@
             "aliases": [
                 "confused"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🫤",
@@ -708,7 +804,8 @@
                 "face_with_diagonal_mouth"
             ],
             "tags": [
-                "confused"
+                "confused",
+                "ReactAction"
             ]
         },
         {
@@ -718,7 +815,8 @@
                 "worried"
             ],
             "tags": [
-                "nervous"
+                "nervous",
+                "ReactAction"
             ]
         },
         {
@@ -727,7 +825,9 @@
             "aliases": [
                 "slightly_frowning_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "☹️",
@@ -735,7 +835,9 @@
             "aliases": [
                 "frowning_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😮",
@@ -746,7 +848,8 @@
             "tags": [
                 "surprise",
                 "impressed",
-                "wow"
+                "wow",
+                "CommentAction"
             ]
         },
         {
@@ -757,7 +860,8 @@
             ],
             "tags": [
                 "silence",
-                "speechless"
+                "speechless",
+                "CommentAction"
             ]
         },
         {
@@ -768,7 +872,8 @@
             ],
             "tags": [
                 "amazed",
-                "gasp"
+                "gasp",
+                "ReactAction"
             ]
         },
         {
@@ -777,7 +882,9 @@
             "aliases": [
                 "flushed"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🥺",
@@ -787,7 +894,8 @@
             ],
             "tags": [
                 "puppy",
-                "eyes"
+                "eyes",
+                "AgreeAction"
             ]
         },
         {
@@ -798,7 +906,8 @@
             ],
             "tags": [
                 "tears",
-                "gratitude"
+                "gratitude",
+                "ReactAction"
             ]
         },
         {
@@ -807,7 +916,9 @@
             "aliases": [
                 "frowning"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😧",
@@ -816,7 +927,8 @@
                 "anguished"
             ],
             "tags": [
-                "stunned"
+                "stunned",
+                "ReactAction"
             ]
         },
         {
@@ -828,7 +940,8 @@
             "tags": [
                 "scared",
                 "shocked",
-                "oops"
+                "oops",
+                "ReactAction"
             ]
         },
         {
@@ -838,7 +951,8 @@
                 "cold_sweat"
             ],
             "tags": [
-                "nervous"
+                "nervous",
+                "ReactAction"
             ]
         },
         {
@@ -850,7 +964,8 @@
             "tags": [
                 "phew",
                 "sweat",
-                "nervous"
+                "nervous",
+                "ReactAction"
             ]
         },
         {
@@ -861,7 +976,8 @@
             ],
             "tags": [
                 "sad",
-                "tear"
+                "tear",
+                "DisagreeAction"
             ]
         },
         {
@@ -873,7 +989,8 @@
             "tags": [
                 "sad",
                 "cry",
-                "bawling"
+                "bawling",
+                "DisagreeAction"
             ]
         },
         {
@@ -884,7 +1001,8 @@
             ],
             "tags": [
                 "horror",
-                "shocked"
+                "shocked",
+                "ReactAction"
             ]
         },
         {
@@ -893,7 +1011,9 @@
             "aliases": [
                 "confounded"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😣",
@@ -902,7 +1022,8 @@
                 "persevere"
             ],
             "tags": [
-                "struggling"
+                "struggling",
+                "ReactAction"
             ]
         },
         {
@@ -912,7 +1033,8 @@
                 "disappointed"
             ],
             "tags": [
-                "sad"
+                "sad",
+                "DisagreeAction"
             ]
         },
         {
@@ -921,7 +1043,9 @@
             "aliases": [
                 "sweat"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😩",
@@ -930,7 +1054,8 @@
                 "weary"
             ],
             "tags": [
-                "tired"
+                "tired",
+                "ReactAction"
             ]
         },
         {
@@ -941,7 +1066,8 @@
             ],
             "tags": [
                 "upset",
-                "whine"
+                "whine",
+                "ReactAction"
             ]
         },
         {
@@ -950,7 +1076,9 @@
             "aliases": [
                 "yawning_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😤",
@@ -959,7 +1087,8 @@
                 "triumph"
             ],
             "tags": [
-                "smug"
+                "smug",
+                "ReactAction"
             ]
         },
         {
@@ -970,7 +1099,8 @@
                 "pout"
             ],
             "tags": [
-                "angry"
+                "angry",
+                "DisagreeAction"
             ]
         },
         {
@@ -981,7 +1111,8 @@
             ],
             "tags": [
                 "mad",
-                "annoyed"
+                "annoyed",
+                "DisagreeAction"
             ]
         },
         {
@@ -991,7 +1122,8 @@
                 "cursing_face"
             ],
             "tags": [
-                "foul"
+                "foul",
+                "ReactAction"
             ]
         },
         {
@@ -1003,7 +1135,8 @@
             "tags": [
                 "devil",
                 "evil",
-                "horns"
+                "horns",
+                "ReactAction"
             ]
         },
         {
@@ -1016,7 +1149,8 @@
                 "angry",
                 "devil",
                 "evil",
-                "horns"
+                "horns",
+                "DisagreeAction"
             ]
         },
         {
@@ -1025,7 +1159,9 @@
             "aliases": [
                 "clown_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😺",
@@ -1033,7 +1169,9 @@
             "aliases": [
                 "smiley_cat"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😸",
@@ -1041,7 +1179,9 @@
             "aliases": [
                 "smile_cat"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😻",
@@ -1049,7 +1189,9 @@
             "aliases": [
                 "heart_eyes_cat"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😼",
@@ -1057,7 +1199,9 @@
             "aliases": [
                 "smirk_cat"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "😿",
@@ -1067,7 +1211,8 @@
             ],
             "tags": [
                 "sad",
-                "tear"
+                "tear",
+                "DisagreeAction"
             ]
         },
         {
@@ -1078,7 +1223,8 @@
             ],
             "tags": [
                 "email",
-                "envelope"
+                "envelope",
+                "ReactAction"
             ]
         },
         {
@@ -1089,7 +1235,8 @@
             ],
             "tags": [
                 "love",
-                "heart"
+                "heart",
+                "LikeAction"
             ]
         },
         {
@@ -1099,7 +1246,8 @@
                 "gift_heart"
             ],
             "tags": [
-                "chocolates"
+                "chocolates",
+                "ReactAction"
             ]
         },
         {
@@ -1108,7 +1256,9 @@
             "aliases": [
                 "sparkling_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💗",
@@ -1116,7 +1266,9 @@
             "aliases": [
                 "heartpulse"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💓",
@@ -1124,7 +1276,9 @@
             "aliases": [
                 "heartbeat"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💞",
@@ -1132,7 +1286,9 @@
             "aliases": [
                 "revolving_hearts"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💕",
@@ -1140,7 +1296,9 @@
             "aliases": [
                 "two_hearts"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💟",
@@ -1148,7 +1306,9 @@
             "aliases": [
                 "heart_decoration"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "❣️",
@@ -1156,7 +1316,9 @@
             "aliases": [
                 "heavy_heart_exclamation"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💔",
@@ -1164,7 +1326,9 @@
             "aliases": [
                 "broken_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "❤️‍🔥",
@@ -1172,7 +1336,9 @@
             "aliases": [
                 "heart_on_fire"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "❤️‍🩹",
@@ -1180,7 +1346,9 @@
             "aliases": [
                 "mending_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "❤️",
@@ -1189,7 +1357,8 @@
                 "heart"
             ],
             "tags": [
-                "love"
+                "love",
+                "LikeAction"
             ]
         },
         {
@@ -1198,7 +1367,9 @@
             "aliases": [
                 "pink_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧡",
@@ -1206,7 +1377,9 @@
             "aliases": [
                 "orange_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💛",
@@ -1214,7 +1387,9 @@
             "aliases": [
                 "yellow_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💚",
@@ -1222,7 +1397,9 @@
             "aliases": [
                 "green_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💙",
@@ -1230,7 +1407,9 @@
             "aliases": [
                 "blue_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🩵",
@@ -1238,7 +1417,9 @@
             "aliases": [
                 "light_blue_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💜",
@@ -1246,7 +1427,9 @@
             "aliases": [
                 "purple_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤎",
@@ -1254,7 +1437,9 @@
             "aliases": [
                 "brown_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🖤",
@@ -1262,7 +1447,9 @@
             "aliases": [
                 "black_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🩶",
@@ -1270,7 +1457,9 @@
             "aliases": [
                 "grey_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤍",
@@ -1278,7 +1467,9 @@
             "aliases": [
                 "white_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💢",
@@ -1287,7 +1478,8 @@
                 "anger"
             ],
             "tags": [
-                "angry"
+                "angry",
+                "DisagreeAction"
             ]
         },
         {
@@ -1296,7 +1488,9 @@
             "aliases": [
                 "love_you_gesture"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "👊",
@@ -1307,7 +1501,8 @@
                 "punch"
             ],
             "tags": [
-                "attack"
+                "attack",
+                "ReactAction"
             ]
         },
         {
@@ -1317,7 +1512,8 @@
                 "heart_hands"
             ],
             "tags": [
-                "love"
+                "love",
+                "LikeAction"
             ]
         },
         {
@@ -1326,7 +1522,9 @@
             "aliases": [
                 "anatomical_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑",
@@ -1334,7 +1532,9 @@
             "aliases": [
                 "adult"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "👱",
@@ -1342,7 +1542,9 @@
             "aliases": [
                 "blond_haired_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧔",
@@ -1350,7 +1552,9 @@
             "aliases": [
                 "bearded_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑‍🦰",
@@ -1358,7 +1562,9 @@
             "aliases": [
                 "person_red_hair"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑‍🦱",
@@ -1366,7 +1572,9 @@
             "aliases": [
                 "person_curly_hair"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑‍🦳",
@@ -1374,7 +1582,9 @@
             "aliases": [
                 "person_white_hair"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑‍🦲",
@@ -1382,7 +1592,9 @@
             "aliases": [
                 "person_bald"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧓",
@@ -1390,7 +1602,9 @@
             "aliases": [
                 "older_adult"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🙍",
@@ -1398,7 +1612,9 @@
             "aliases": [
                 "frowning_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🙎",
@@ -1406,7 +1622,9 @@
             "aliases": [
                 "pouting_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🙅",
@@ -1417,7 +1635,8 @@
             "tags": [
                 "stop",
                 "halt",
-                "denied"
+                "denied",
+                "ReactAction"
             ]
         },
         {
@@ -1426,7 +1645,9 @@
             "aliases": [
                 "ok_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💁",
@@ -1435,7 +1656,9 @@
                 "tipping_hand_person",
                 "information_desk_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🙋",
@@ -1443,7 +1666,9 @@
             "aliases": [
                 "raising_hand"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧏",
@@ -1451,7 +1676,9 @@
             "aliases": [
                 "deaf_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🙇",
@@ -1461,7 +1688,8 @@
             ],
             "tags": [
                 "respect",
-                "thanks"
+                "thanks",
+                "AgreeAction"
             ]
         },
         {
@@ -1470,7 +1698,9 @@
             "aliases": [
                 "facepalm"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤦‍♂️",
@@ -1478,7 +1708,9 @@
             "aliases": [
                 "man_facepalming"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤦‍♀️",
@@ -1486,7 +1718,9 @@
             "aliases": [
                 "woman_facepalming"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤷",
@@ -1494,7 +1728,9 @@
             "aliases": [
                 "shrug"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🫅",
@@ -1502,7 +1738,9 @@
             "aliases": [
                 "person_with_crown"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "👳",
@@ -1510,7 +1748,9 @@
             "aliases": [
                 "person_with_turban"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "👲",
@@ -1518,7 +1758,9 @@
             "aliases": [
                 "man_with_gua_pi_mao"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤵",
@@ -1529,7 +1771,8 @@
             "tags": [
                 "groom",
                 "marriage",
-                "wedding"
+                "wedding",
+                "ReactAction"
             ]
         },
         {
@@ -1540,7 +1783,8 @@
             ],
             "tags": [
                 "marriage",
-                "wedding"
+                "wedding",
+                "ReactAction"
             ]
         },
         {
@@ -1549,7 +1793,9 @@
             "aliases": [
                 "pregnant_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑‍🍼",
@@ -1557,7 +1803,9 @@
             "aliases": [
                 "person_feeding_baby"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧜",
@@ -1565,7 +1813,9 @@
             "aliases": [
                 "merperson"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💆",
@@ -1574,7 +1824,8 @@
                 "massage"
             ],
             "tags": [
-                "spa"
+                "spa",
+                "ReactAction"
             ]
         },
         {
@@ -1584,7 +1835,8 @@
                 "haircut"
             ],
             "tags": [
-                "beauty"
+                "beauty",
+                "ReactAction"
             ]
         },
         {
@@ -1593,7 +1845,9 @@
             "aliases": [
                 "walking"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧍",
@@ -1601,7 +1855,9 @@
             "aliases": [
                 "standing_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧎",
@@ -1609,7 +1865,9 @@
             "aliases": [
                 "kneeling_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑‍🦯",
@@ -1617,7 +1875,9 @@
             "aliases": [
                 "person_with_probing_cane"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑‍🦼",
@@ -1625,7 +1885,9 @@
             "aliases": [
                 "person_in_motorized_wheelchair"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧑‍🦽",
@@ -1633,7 +1895,9 @@
             "aliases": [
                 "person_in_manual_wheelchair"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🏃",
@@ -1645,7 +1909,8 @@
             "tags": [
                 "exercise",
                 "workout",
-                "marathon"
+                "marathon",
+                "ReactAction"
             ]
         },
         {
@@ -1654,7 +1919,9 @@
             "aliases": [
                 "business_suit_levitating"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧖",
@@ -1663,7 +1930,8 @@
                 "sauna_person"
             ],
             "tags": [
-                "steamy"
+                "steamy",
+                "ReactAction"
             ]
         },
         {
@@ -1673,7 +1941,8 @@
                 "climbing"
             ],
             "tags": [
-                "bouldering"
+                "bouldering",
+                "ReactAction"
             ]
         },
         {
@@ -1682,7 +1951,9 @@
             "aliases": [
                 "person_fencing"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🏌️",
@@ -1690,7 +1961,9 @@
             "aliases": [
                 "golfing"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🏄",
@@ -1698,7 +1971,9 @@
             "aliases": [
                 "surfer"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🚣",
@@ -1706,7 +1981,9 @@
             "aliases": [
                 "rowboat"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🏊",
@@ -1714,7 +1991,9 @@
             "aliases": [
                 "swimmer"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "⛹️",
@@ -1723,7 +2002,8 @@
                 "bouncing_ball_person"
             ],
             "tags": [
-                "basketball"
+                "basketball",
+                "ReactAction"
             ]
         },
         {
@@ -1734,7 +2014,8 @@
             ],
             "tags": [
                 "gym",
-                "workout"
+                "workout",
+                "ReactAction"
             ]
         },
         {
@@ -1743,7 +2024,9 @@
             "aliases": [
                 "bicyclist"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🚵",
@@ -1751,7 +2034,9 @@
             "aliases": [
                 "mountain_bicyclist"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤸",
@@ -1759,7 +2044,9 @@
             "aliases": [
                 "cartwheeling"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤽",
@@ -1767,7 +2054,9 @@
             "aliases": [
                 "water_polo"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤾",
@@ -1775,7 +2064,9 @@
             "aliases": [
                 "handball_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🤹",
@@ -1783,7 +2074,9 @@
             "aliases": [
                 "juggling_person"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧘",
@@ -1792,7 +2085,8 @@
                 "lotus_position"
             ],
             "tags": [
-                "meditation"
+                "meditation",
+                "ReactAction"
             ]
         },
         {
@@ -1802,7 +2096,8 @@
                 "bath"
             ],
             "tags": [
-                "shower"
+                "shower",
+                "ReactAction"
             ]
         },
         {
@@ -1811,7 +2106,9 @@
             "aliases": [
                 "sleeping_bed"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "💑",
@@ -1819,7 +2116,9 @@
             "aliases": [
                 "couple_with_heart"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "👩‍❤️‍👨",
@@ -1827,7 +2126,9 @@
             "aliases": [
                 "couple_with_heart_woman_man"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "👨‍❤️‍👨",
@@ -1835,7 +2136,9 @@
             "aliases": [
                 "couple_with_heart_man_man"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "👩‍❤️‍👩",
@@ -1843,7 +2146,9 @@
             "aliases": [
                 "couple_with_heart_woman_woman"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐵",
@@ -1851,7 +2156,9 @@
             "aliases": [
                 "monkey_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐶",
@@ -1860,7 +2167,8 @@
                 "dog"
             ],
             "tags": [
-                "pet"
+                "pet",
+                "ReactAction"
             ]
         },
         {
@@ -1869,7 +2177,9 @@
             "aliases": [
                 "fox_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐱",
@@ -1878,7 +2188,8 @@
                 "cat"
             ],
             "tags": [
-                "pet"
+                "pet",
+                "ReactAction"
             ]
         },
         {
@@ -1887,7 +2198,9 @@
             "aliases": [
                 "tiger"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐴",
@@ -1895,7 +2208,9 @@
             "aliases": [
                 "horse"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐮",
@@ -1903,7 +2218,9 @@
             "aliases": [
                 "cow"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐷",
@@ -1911,7 +2228,9 @@
             "aliases": [
                 "pig"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐭",
@@ -1919,7 +2238,9 @@
             "aliases": [
                 "mouse"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐰",
@@ -1928,7 +2249,8 @@
                 "rabbit"
             ],
             "tags": [
-                "bunny"
+                "bunny",
+                "ReactAction"
             ]
         },
         {
@@ -1937,7 +2259,9 @@
             "aliases": [
                 "panda_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🐲",
@@ -1945,7 +2269,9 @@
             "aliases": [
                 "dragon_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🍀",
@@ -1954,7 +2280,8 @@
                 "four_leaf_clover"
             ],
             "tags": [
-                "luck"
+                "luck",
+                "ReactAction"
             ]
         },
         {
@@ -1963,7 +2290,9 @@
             "aliases": [
                 "love_hotel"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🌚",
@@ -1971,7 +2300,9 @@
             "aliases": [
                 "new_moon_with_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🌛",
@@ -1979,7 +2310,9 @@
             "aliases": [
                 "first_quarter_moon_with_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🌜",
@@ -1987,7 +2320,9 @@
             "aliases": [
                 "last_quarter_moon_with_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🌝",
@@ -1995,7 +2330,9 @@
             "aliases": [
                 "full_moon_with_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🌞",
@@ -2004,7 +2341,8 @@
                 "sun_with_face"
             ],
             "tags": [
-                "summer"
+                "summer",
+                "ReactAction"
             ]
         },
         {
@@ -2013,7 +2351,9 @@
             "aliases": [
                 "wind_face"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🥊",
@@ -2021,7 +2361,9 @@
             "aliases": [
                 "boxing_glove"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "♥️",
@@ -2029,7 +2371,9 @@
             "aliases": [
                 "hearts"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🧤",
@@ -2037,7 +2381,9 @@
             "aliases": [
                 "gloves"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         },
         {
             "char": "🇸🇮",
@@ -2045,7 +2391,9 @@
             "aliases": [
                 "slovenia"
             ],
-            "tags": []
+            "tags": [
+                "ReactAction"
+            ]
         }
     ],
     "animals": [

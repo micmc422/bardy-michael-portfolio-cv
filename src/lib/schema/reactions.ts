@@ -5,4 +5,5 @@ export const reactions = pgTable('reactions', {
     postSlug: text('post_slug').notNull(),
     emoji: text('emoji').notNull(),
     count: integer('count').notNull().default(0),
+    actionType: text('actionType').notNull(),
 });

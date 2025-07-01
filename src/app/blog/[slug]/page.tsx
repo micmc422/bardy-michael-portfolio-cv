@@ -103,6 +103,7 @@ export default async function Blog({
   const comments = await fetchComments(slug)
   const related = await relatedPost(slug)
   const reactionsCount = await getReactions(slug);
+
   const avatars =
     post.metadata.team?.map((person) => ({
       src: person.avatar,
@@ -126,6 +127,7 @@ export default async function Blog({
               url: `${baseURL}${about.path}`,
               image: `${baseURL}${person.avatar}`,
             }}
+            reactionsCount={reactionsCount}
           />
           <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
             Publications

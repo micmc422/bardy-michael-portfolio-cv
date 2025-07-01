@@ -6,8 +6,8 @@ import type { gridColumns } from "@/once-ui/types";
 import React from "react";
 import { EmojiPicker } from "./EmojiPicker";
 
-export interface EmojiPickerDropdownProps extends Omit<React.ComponentProps<typeof DropdownWrapper>, 'dropdown'> {
-    onSelect: (emoji: string) => void;
+export interface EmojiPickerDropdownProps extends Omit<React.ComponentProps<typeof DropdownWrapper>, 'dropdown' | 'onSelect'> {
+    onSelect: (data: {emoji: string, tags: string[]}) => void;
     background?: StyleProps["background"];
     columns?: gridColumns;
 }
@@ -20,8 +20,8 @@ const EmojiPickerDropdown: React.FC<EmojiPickerDropdownProps> = ({
     columns = "8",
     ...dropdownProps
 }) => {
-    const handleEmojiSelect = (emoji: string) => {
-        onSelect(emoji);
+    const handleEmojiSelect = (emoji: string, tags: string[]) => {
+        onSelect({emoji, tags});
         if (closeAfterClick) {
             dropdownProps.onOpenChange?.(false);
         }

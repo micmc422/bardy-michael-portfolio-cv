@@ -10,6 +10,7 @@ export async function incrementReaction(formData: FormData): Promise<{ success: 
         // In a real application, you would send this to your backend API
         const postSlug = formData.get("postSlug") as string;
         const reactionName = formData.get("reactionName") as string;
+        const actionType = formData.get("actionType") as string;
 
         const res = await db
             .insert(reactions)
@@ -17,6 +18,7 @@ export async function incrementReaction(formData: FormData): Promise<{ success: 
                 postSlug,
                 emoji: reactionName,
                 count: 1,
+                actionType
             })
             .onConflictDoUpdate({
                 target: [reactions.postSlug, reactions.emoji],
@@ -39,6 +41,7 @@ export async function getReactions(postSlug: string) {
             .select({
                 emoji: reactions.emoji,
                 count: reactions.count,
+                actionType: reactions.actionType
             })
             .from(reactions)
             .where(sql`${reactions.postSlug} = ${postSlug}`);

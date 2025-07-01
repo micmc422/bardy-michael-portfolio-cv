@@ -16,6 +16,7 @@ export interface SchemaProps {
     url?: string;
     image?: string;
   };
+  reactionsCount?: { emoji: string, count: number, actionType: string }[]
 }
 
 const schemaTypeMap = {
@@ -38,6 +39,7 @@ export function Schema({
   dateModified,
   image,
   author,
+  reactionsCount
 }: SchemaProps) {
   const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
@@ -92,6 +94,14 @@ export function Schema({
   }
   if (as === 'blogPosting') {
     delete schema.sameAs;
+    if (reactionsCount) {
+      schema.interactionStatistic = reactionsCount.map((item, i) => ({
+        "@type": "InteractionCounter",
+        "interactionType": { "@type": item.actionType }, // Ou "ShareAction", "CommentAction", "ViewAction", etc.
+        "userInteractionCount": item.count, // Le nombre d'interactions
+        "name": item.emoji
+      }))
+    }
   }
 
   return (

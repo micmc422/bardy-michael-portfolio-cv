@@ -77,7 +77,7 @@ const emojiData: EmojiData = Object.keys(generatedEmojiData).length > 0
     : fallbackEmojiData;
 
 export interface EmojiPickerProps extends Omit<React.ComponentProps<typeof Flex>, "onSelect"> {
-    onSelect: (emoji: string) => void;
+    onSelect: (emoji: string, tags: string[]) => void;
     onClose?: () => void;
     className?: string;
     background?: StyleProps["background"];
@@ -115,8 +115,8 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
     }));
 
     const handleEmojiSelect = useCallback(
-        (emoji: string) => {
-            onSelect(emoji);
+        (emoji: string, tags: string[]) => {
+            onSelect(emoji,tags);
             if (onClose) {
                 onClose();
             }
@@ -184,7 +184,7 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
                     if (focusedEmojiIndex >= 0 && focusedEmojiIndex < filteredEmojis.length) {
                         e.preventDefault();
                         if (filteredEmojis[focusedEmojiIndex]) {
-                            handleEmojiSelect(filteredEmojis[focusedEmojiIndex].char);
+                            handleEmojiSelect(filteredEmojis[focusedEmojiIndex].char, filteredEmojis[focusedEmojiIndex].tags ?? []);
                         }
                     }
                     break;
@@ -240,7 +240,7 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
                                     tabIndex={(index === 0 || isFocused) ? 0 : -1}
                                     variant="tertiary"
                                     size="l"
-                                    onClick={() => handleEmojiSelect(emoji.char)}
+                                    onClick={() => handleEmojiSelect(emoji.char, emoji.tags ?? [])}
                                     aria-label={emoji.description}
                                     title={emoji.description}
                                     style={{
