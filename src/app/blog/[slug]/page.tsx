@@ -10,15 +10,6 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
 // import CommentSection from "@/components/CommentSection";
-const ReactionsList = dynamic(() => import('@/components/reactions/Reactions').then(mod => mod.ReactionsList), {
-  loading: () => <Column>
-    <Skeleton shape="line" height="xl" width="l" />
-    <Skeleton shape="line" height="m" width="m" />
-  </Column>
-  , // Composant optionnel affiché pendant le chargement
-});
-
-// import CommentSection from "@/components/CommentSection";
 const CommentSection = dynamic(() => import('@/components/CommentSection'), {
   loading: () => <Column>
     <Skeleton shape="line" height="xl" width="l" />
@@ -142,7 +133,6 @@ export default async function Blog({
               {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
             </Row>
             <SocialShareBar />
-            <ReactionsList reactionsCount={reactionsCount} />
           </Column>
           <Column as="article" fillWidth>
             <CustomMDX source={post.content || ""} />

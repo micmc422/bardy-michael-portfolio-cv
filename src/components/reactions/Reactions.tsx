@@ -3,7 +3,7 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
-import { Card, Flex, Icon, useToast } from "@/once-ui/components";
+import { Card, Flex, useToast } from "@/once-ui/components";
 import { incrementReaction } from "./serverActions";
 import { EmojiPickerDropdown } from "../EmojiPickerDropdown";
 import { useRouter } from "next/navigation";
@@ -53,7 +53,8 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
       >
         <EmojiPickerDropdown onSelect={({ emoji, tags }: { emoji: string, tags: string[] }) => {
           handleReaction({ emoji, tags })
-        }} trigger={<Icon size="xl" background="surface" radius="full" name="smile" padding="4" />} />
+        }} trigger={(reactionsCount?.length || 0) > 0 ? <ReactionsList reactionsCount={reactionsCount} />
+          : <span style={{fontSize: "2em"}}>☺️</span>} />
       </div>
     );
   }
@@ -74,17 +75,16 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
         wrap
         {...rest}
       >
-        {reactionsCount?.sort((a, b) => a.count - b.count)?.map(({ emoji }) => <CursorCard
+        {reactionsCount?.sort((a, b) => b.count - a.count)?.map(({ emoji, count }) => <CursorCard
           key={emoji}
           placement="bottom-start"
-          maxWidth={24}
           trigger={
             <div className={styles.emoji}>{emoji}</div>
           }
 
           overlay={
-            <Card maxWidth={24} radius="l-4" direction="column" border="neutral-alpha-medium">
-              {emoji}
+            <Card maxWidth={24} radius="l-4" direction="column" border="neutral-alpha-medium" padding="xs">
+              <span className={styles.emojiCard}>{emoji} {count}</span>
             </Card>
           }
         />)}
