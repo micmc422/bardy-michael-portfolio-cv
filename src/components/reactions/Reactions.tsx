@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef, useEffect, useMemo } from "react";
+import React, { forwardRef, useMemo } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
 import { Card, Flex, useToast } from "@/once-ui/components";
