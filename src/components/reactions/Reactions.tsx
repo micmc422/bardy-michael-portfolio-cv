@@ -38,6 +38,7 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
           message: "Réaction " + emoji + " " + "ajouter ! Merci",
         });
         router.refresh()
+        console.log({reactionsCount})
       } else {
         console.error(result.message);
         // Ici, si tu veux, tu peux annuler l’optimisme en remettant setCurrentCount à sa valeur initiale
