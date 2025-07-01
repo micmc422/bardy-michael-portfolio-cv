@@ -21,9 +21,14 @@
     background-color: var(--page-background);
     width: fit-content;
     padding-right: 1em;
+    line-height: 75%;
+    flex-direction: row-reverse;
+    max-height: 2em;
+    overflow: clip;
 
     div {
         margin-right: -0.3em;
+
     }
 
     >*:nth-child(1) {
