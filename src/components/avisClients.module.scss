@@ -1,0 +1,6 @@
+.root {
+    overflow: clip;
+    width: calc(100svw - 8px);
+    margin-left: calc(99svw - (var(--responsive-width-m) / -2));
+    margin-right: calc(99svw - (var(--responsive-width-m) / -2));
+}

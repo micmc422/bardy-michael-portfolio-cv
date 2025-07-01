@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import classNames from "classnames";
 import { Avatar, Column, Flex, Icon, Row, Text } from "@/once-ui/components";
 import { AutoScroll } from "@/once-ui/components/AutoScroll";
-
+import styles from "./avisClients.module.scss"
 interface ComponentProps extends React.ComponentProps<typeof Flex> {
     className?: string;
     style?: React.CSSProperties;
@@ -55,7 +55,7 @@ const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
             <Flex
                 ref={ref}
                 style={style}
-                className={classNames(className)}
+                className={classNames(styles.root, className)}
                 {...rest}
             >
                 <AutoScroll>
@@ -115,9 +115,10 @@ const Avis = forwardRef<HTMLDivElement, AvisProps>(
                 width={25}
                 gap="s"
                 background="overlay"
-                padding="xs"
+                padding="s"
                 radius="m"
                 center
+                marginX="s"
                 {...rest}
             >
                 <Row gap="xs">
