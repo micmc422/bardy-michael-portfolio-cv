@@ -170,7 +170,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
         ref={wrapperRef}
         onClick={() => {
             if (closeAfterClick) {
-                handleOpenChange(!isOpen);
+               handleOpenChange(!isOpen);
             }
         }}
         onKeyDown={(e) => {

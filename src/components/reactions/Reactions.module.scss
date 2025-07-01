@@ -1,4 +1,5 @@
 .container {
+    z-index: 10;
     position: sticky;
     bottom: 72px;
     display: flex;
@@ -15,110 +16,13 @@
 }
 
 .list {
-    width: fit-content;
-    transition: all .3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
-    padding-left: 0;
-    padding-right: 1em;
-    border-radius: 2em;
-    animation-duration: 0.5s;
-    animation-name: animate-fade;
-    animation-fill-mode: backwards;
-
-    @keyframes animate-fade {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
+    div {
+        margin-right: -0.3em;
     }
 }
 
 // .open {}
 
-.count {
-    display: flex;
-    position: absolute;
-    left: 1.2em;
-    padding: 4px;
-    width: auto;
-    pointer-events: none;
-}
-
-.list li {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    transition-delay: var(--delay, 0s);
-    padding: 0;
-    margin: 0;
-}
-
-.reactionButton {
-    padding: 0;
-    aspect-ratio: 1;
-
-    &:hover,
-    &:focus,
-    &:focus-visible {
-        border: 1px solid transparent;
-        outline: 0 solid transparent;
-    }
-
-    &:hover div span {
-        transform: translateY(-4px);
-    }
-
-    span {
-        font-size: 2em;
-    }
-}
-
-.open li {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.list li:nth-child(1) {
-    --delay: 0s;
-}
-
-.list li:nth-child(2) {
-    --delay: 0.1s;
-}
-
-.list li:nth-child(3) {
-    --delay: 0.2s;
-}
-
-.list li:nth-child(4) {
-    --delay: 0.3s;
-}
-
-.list li:nth-child(5) {
-    --delay: 0.4s;
-}
-
-/* Sur écran large : horizontal */
-@media (min-width: 700px) {
-    .container {
-        align-items: end;
-    }
-
-    .list {
-        flex-direction: row;
-    }
-
-    .list li {
-        transform: translateX(-10px);
-    }
-
-    .open li {
-        transform: translateX(0);
-    }
+.emoji {
+    cursor: pointer;
 }

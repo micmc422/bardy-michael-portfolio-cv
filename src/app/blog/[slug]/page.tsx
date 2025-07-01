@@ -10,12 +10,21 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
 // import CommentSection from "@/components/CommentSection";
+const ReactionsList = dynamic(() => import('@/components/reactions/Reactions').then(mod => mod.ReactionsList), {
+  loading: () => <Column>
+    <Skeleton shape="line" height="xl" width="l" />
+    <Skeleton shape="line" height="m" width="m" />
+  </Column>
+  , // Composant optionnel affiché pendant le chargement
+});
+
+// import CommentSection from "@/components/CommentSection";
 const CommentSection = dynamic(() => import('@/components/CommentSection'), {
   loading: () => <Column>
     <Skeleton shape="line" height="xl" width="l" />
     <Skeleton shape="line" height="m" width="m" />
   </Column>
-, // Composant optionnel affiché pendant le chargement
+  , // Composant optionnel affiché pendant le chargement
 });
 
 // import Post from "@/components/blog/Post";
@@ -94,13 +103,12 @@ export default async function Blog({
   const comments = await fetchComments(slug)
   const related = await relatedPost(slug)
   const reactionsCount = await getReactions(slug);
-
   const avatars =
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
   return (
-    <Row fillWidth>
+    <Row fillWidth zIndex={0}>
       <Row maxWidth={12} hide="m" />
       <Row fillWidth horizontal="center">
         <Column as="section" maxWidth="xs" gap="l">
@@ -132,6 +140,7 @@ export default async function Blog({
               {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
             </Row>
             <SocialShareBar />
+            <ReactionsList reactionsCount={reactionsCount} />
           </Column>
           <Column as="article" fillWidth>
             <CustomMDX source={post.content || ""} />

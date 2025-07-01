@@ -214,7 +214,11 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
                 onChange={(e) => setInputValue(e.target.value)}
                 hasPrefix={<Icon size="s" onBackground="neutral-weak" name="search" />}
                 aria-label="Search emojis"
-                label={"Rechercher un emojis"} />
+                label={"Rechercher un emojis"}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }} />
 
             <Scroller tabIndex={-1} direction="column" fillHeight>
                 {filteredEmojis.length > 0 ? (
