@@ -12,3 +12,8 @@ export function slugify(str: string): string {
         return str; // Fallback to original string if an error occurs
     }
 }
+
+export function delay(ms:number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+  

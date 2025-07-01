@@ -8,6 +8,7 @@ import { incrementReaction } from "./serverActions";
 import { EmojiPickerDropdown } from "../EmojiPickerDropdown";
 import { useRouter } from "next/navigation";
 import { CursorCard } from "../CursorCard";
+import { delay } from "@/utils/utils";
 
 interface ReactionsProps extends React.ComponentPropsWithoutRef<"div"> {
   className?: string;
@@ -38,6 +39,7 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
           variant: "success",
           message: "Réaction " + emoji + " " + "ajouter ! Merci",
         });
+        await delay(300)
         router.refresh()
       } else {
         console.error(result.message);

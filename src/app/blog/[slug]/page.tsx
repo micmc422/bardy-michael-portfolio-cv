@@ -62,6 +62,11 @@ async function relatedPost(slug: string) {
   return posts
 }
 
+async function reactionsArr(slug: string) {
+  const reactionsCount = await getReactions(slug);
+  return reactionsCount
+}
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return await getAllPostsSlugs();
 }
@@ -93,7 +98,7 @@ export default async function Blog({
   }
   const comments = await fetchComments(slug)
   const related = await relatedPost(slug)
-  const reactionsCount = await getReactions(slug);
+  const reactionsCount = await reactionsArr(slug);
 
   const avatars =
     post.metadata.team?.map((person) => ({
