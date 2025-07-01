@@ -255,8 +255,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                 },
               )}
               tabIndex={-1}
+              suppressHydrationWarning
             >
-              <code ref={codeRef} className={classNames(styles.code, `language-${language}`)}>
+              <code ref={codeRef} className={classNames(styles.code, `language-${language}`)} suppressHydrationWarning>
                 {typeof code === "string" ? code : code.content}
               </code>
             </pre>

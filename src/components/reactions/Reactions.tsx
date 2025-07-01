@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useMemo } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
 import { Card, Flex, useToast } from "@/once-ui/components";
@@ -19,7 +19,8 @@ interface ReactionsProps extends React.ComponentPropsWithoutRef<"div"> {
 const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
   ({ className, style, postSlug, reactionsCount, ...rest }, ref) => {
     const { addToast } = useToast();
-    const router = useRouter()
+    const router = useRouter();
+    const updatedCount = useMemo(()=> reactionsCount, [reactionsCount])
     const handleReaction = async ({ emoji, tags }: { emoji: string, tags: string[] }) => {
       const formData = new FormData()
       formData.append("postSlug", postSlug)
@@ -38,14 +39,16 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
           message: "Réaction " + emoji + " " + "ajouter ! Merci",
         });
         router.refresh()
-        console.log({reactionsCount})
+        console.log({ reactionsCount })
       } else {
         console.error(result.message);
         // Ici, si tu veux, tu peux annuler l’optimisme en remettant setCurrentCount à sa valeur initiale
         // setCurrentCount(currentCount); // ou autre logique
       }
     };
-
+    useEffect(() => {
+      console.log(reactionsCount)
+    }, [reactionsCount])
     return (
       <div
         ref={ref}
@@ -54,8 +57,8 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
       >
         <EmojiPickerDropdown onSelect={({ emoji, tags }: { emoji: string, tags: string[] }) => {
           handleReaction({ emoji, tags })
-        }} trigger={(reactionsCount?.length || 0) > 0 ? <ReactionsList reactionsCount={reactionsCount} />
-          : <span style={{fontSize: "2em"}}>☺️</span>} />
+        }} trigger={(reactionsCount?.length || 0) > 0 ? <ReactionsList reactionsCount={updatedCount} />
+          : <span style={{ fontSize: "2em" }}>☺️</span>} />
       </div>
     );
   }
