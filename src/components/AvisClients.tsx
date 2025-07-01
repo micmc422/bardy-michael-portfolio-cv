@@ -66,6 +66,13 @@ const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "name": "Occitaweb",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "25 avenue gambetta",
+                            "addressLocality": "Albi",
+                            "postalCode": "81000",
+                            "addressCountry": "FR"
+                        },
                         "aggregateRating": {
                             "@type": "AggregateRating",
                             "ratingValue": ${rating},
