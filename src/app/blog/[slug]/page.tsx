@@ -173,7 +173,7 @@ export default async function Blog({
 function SourcesComponent({ sources }: { sources: string[] }) {
   return (<Column>
     <Text variant="heading-strong-l">Sources :</Text>
-    <Grid fillWidth columns="2" gap="16" className="mt-8">
+    <Grid fillWidth columns="2" gap="16" className="mt-8" mobileColumns={"1"}>
       <>{sources.map((source, index) => <OgCard key={index} url={source} />)}</>
     </Grid>
   </Column>)

@@ -86,7 +86,7 @@ const CookieConsent: React.FC = () => {
                 variant: "success", message: <CookieMessage />, keepVisible: true
             });
         }
-        if (cookies?.acceptedCookies === "true") {
+        if (cookies?.acceptedCookies !== "false") {
             setAccepted(true)
         }
     }, [trigger]);
