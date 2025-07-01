@@ -1,6 +1,7 @@
 import React from "react";
 import Script from "next/script";
 import { social } from "@/app/resources/content";
+import type { ReactionType } from "@/components/reactions/serverActions";
 
 export interface SchemaProps {
   as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization";
@@ -16,7 +17,7 @@ export interface SchemaProps {
     url?: string;
     image?: string;
   };
-  reactionsCount?: { emoji: string, count: number, actionType: string }[]
+  reactions?: ReactionType[]
 }
 
 const schemaTypeMap = {
@@ -39,7 +40,7 @@ export function Schema({
   dateModified,
   image,
   author,
-  reactionsCount
+  reactions
 }: SchemaProps) {
   const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
@@ -94,8 +95,8 @@ export function Schema({
   }
   if (as === 'blogPosting') {
     delete schema.sameAs;
-    if (reactionsCount) {
-      schema.interactionStatistic = reactionsCount.map((item) => ({
+    if (reactions) {
+      schema.interactionStatistic = reactions.map((item) => ({
         "@type": "InteractionCounter",
         "interactionType": { "@type": item.actionType }, // Ou "ShareAction", "CommentAction", "ViewAction", etc.
         "userInteractionCount": item.count, // Le nombre d'interactions
@@ -103,7 +104,7 @@ export function Schema({
       }))
     }
   }
-
+  // console.log(schema)
   return (
     <Script
       id={`schema-${as}-${path}`}

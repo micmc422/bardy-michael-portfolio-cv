@@ -30,6 +30,7 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
+
   return (
     <Flex
       suppressHydrationWarning
@@ -144,7 +145,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               horizontal="center"
               flex={1}
             >
-              <Flex horizontal="center" fillWidth minHeight="0">
+              <Flex horizontal="center" fillWidth minHeight="0" as="main">
                 <>{children}</>
               </Flex>
             </Flex>

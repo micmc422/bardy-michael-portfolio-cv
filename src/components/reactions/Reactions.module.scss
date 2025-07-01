@@ -16,6 +16,12 @@
 }
 
 .list {
+    padding: 8px;
+    border-radius: 1em;
+    background-color: var(--page-background);
+    width: fit-content;
+    padding-right: 1em;
+
     div {
         margin-right: -0.3em;
     }
@@ -49,4 +55,20 @@
 
 .emojiCard {
     font-size: 3em;
+}
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: fade 2s infinite ease-in-out;
 }

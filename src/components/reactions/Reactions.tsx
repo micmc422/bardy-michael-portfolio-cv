@@ -1,34 +1,36 @@
 "use client";
 
-import React, { forwardRef, useMemo, type ReactNode } from "react";
+import React, { forwardRef, useState, useTransition } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
-import { Card, Flex, useToast } from "@/once-ui/components";
-import { incrementReaction } from "./serverActions";
+import { Card, Flex, Icon, useToast } from "@/once-ui/components";
+import { getReactions, incrementReaction, type ReactionType } from "./serverActions";
 import { EmojiPickerDropdown } from "../EmojiPickerDropdown";
 import { useRouter } from "next/navigation";
 import { CursorCard } from "../CursorCard";
-import { delay } from "@/utils/utils";
 
 interface ReactionsProps extends React.ComponentPropsWithoutRef<"div"> {
   className?: string;
   style?: React.CSSProperties;
   postSlug: string;
-  trigger: ReactNode;
+  reactions?: ReactionType[];
 }
 
 const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
-  ({ className, style, postSlug, trigger, ...rest }, ref) => {
+  ({ className, style, postSlug, reactions, ...rest }, ref) => {
+    const [reactionArr, setReactionsArr] = useState<ReactionType[]>(reactions || []);
+    const [loading, startTransition] = useTransition()
     const { addToast } = useToast();
     const router = useRouter();
-    const handleReaction = async ({ emoji, tags }: { emoji: string, tags: string[] }) => {
+    function handleReaction({ emoji, tags }: { emoji: string, tags: string[] }) {
+      startTransition(() => UpdateReaction({ emoji, tags }))
+    }
+    const UpdateReaction = async ({ emoji, tags }: { emoji: string, tags: string[] }) => {
       const formData = new FormData()
       formData.append("postSlug", postSlug)
       formData.append("reactionName", emoji)
       const actionType = tags.filter(el => ["LikeAction", "AgreeAction", "DisagreeAction", "CommentAction", "ReactAction"].includes(el))[0];
       formData.append("actionType", actionType || "ReactAction")
-
-      // Optimiste : on incrémente tout de suite
 
       const result = await incrementReaction(formData);
 
@@ -38,7 +40,8 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
           variant: "success",
           message: "Réaction " + emoji + " " + "ajouter ! Merci",
         });
-        await delay(300)
+        const updatedReactions = await getReactions(postSlug);
+        setReactionsArr(updatedReactions)
         router.refresh()
       } else {
         console.error(result.message);
@@ -49,12 +52,14 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
     return (
       <div
         ref={ref}
-        className={classNames(styles.container, className)}
+        className={classNames(styles.container, className, loading && styles.loading)}
         {...rest}
       >
-        <EmojiPickerDropdown onSelect={({ emoji, tags }: { emoji: string, tags: string[] }) => {
-          handleReaction({ emoji, tags })
-        }} trigger={trigger} />
+        <EmojiPickerDropdown
+          onSelect={({ emoji, tags }: { emoji: string, tags: string[] }) => {
+            handleReaction({ emoji, tags })
+          }}
+          trigger={<ReactionsList reactions={reactionArr} />} />
       </div>
     );
   }
@@ -63,12 +68,22 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
 Reactions.displayName = "Reactions";
 
 interface ReactionsListProps extends React.ComponentPropsWithoutRef<typeof Flex> {
-  reactionsCount?: { emoji: string; count: number }[];
+  reactions?: { emoji: string; count: number }[];
 }
 
 const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
-  ({ className, style, reactionsCount, ...rest }, ref) => {
-    const updatedCount = useMemo(() => reactionsCount, [reactionsCount])
+  ({ className, style, reactions, ...rest }, ref) => {
+    if (!reactions?.length) {
+      return <Flex
+        ref={ref}
+        className={classNames(styles.list, className)}
+        wrap
+        {...rest}
+      >
+        <Icon name="smile" />
+      </Flex>
+
+    }
     return (
       <Flex
         ref={ref}
@@ -76,7 +91,7 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
         wrap
         {...rest}
       >
-        {updatedCount?.sort((a, b) => b.count - a.count)?.map(({ emoji, count }) => <CursorCard
+        {reactions?.sort((a, b) => b.count - a.count)?.map(({ emoji, count }) => <CursorCard
           key={emoji}
           placement="bottom-start"
           trigger={

@@ -35,7 +35,13 @@ export async function incrementReaction(formData: FormData): Promise<{ success: 
     }
 }
 
-export async function getReactions(postSlug: string) {
+export interface ReactionType {
+  emoji: string;
+   count: number; 
+   actionType: string;
+}
+
+export async function getReactions(postSlug: string): Promise<ReactionType[]>{
     try {
         const res = await db
             .select({
