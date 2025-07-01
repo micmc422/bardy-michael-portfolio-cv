@@ -3,7 +3,7 @@
 import { reactions } from "@/lib/schema/reactions";
 import { db } from "@/utils/db";
 import { sql } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
+import { revalidateTag, unstable_cache } from "next/cache";
 
 export async function incrementReaction(formData: FormData): Promise<{ success: boolean; count?: number; message?: string }> {
     try {
@@ -28,7 +28,7 @@ export async function incrementReaction(formData: FormData): Promise<{ success: 
                 },
             })
             .returning({ count: reactions.count });
-        revalidatePath(`/blog/${postSlug}`)
+        revalidateTag(`reactions-${postSlug}`)
         return { success: true, count: res?.[0]?.count ?? 0, message: "Reaction incremented successfully" };
     } catch (error) {
         console.error("Error handling reaction:", error);
@@ -44,16 +44,21 @@ export interface ReactionType {
 
 export async function getReactions(postSlug: string): Promise<ReactionType[]> {
     try {
-        const res = await db
-            .select({
-                emoji: reactions.emoji,
-                count: reactions.count,
-                actionType: reactions.actionType
-            })
-            .from(reactions)
-            .where(sql`${reactions.postSlug} = ${postSlug}`);
+        const reactionsCached = unstable_cache(
+            async () => {
+                const res = await db
+                    .select({
+                        emoji: reactions.emoji,
+                        count: reactions.count,
+                        actionType: reactions.actionType
+                    })
+                    .from(reactions)
+                    .where(sql`${reactions.postSlug} = ${postSlug}`);
 
-        return res;
+                return res;
+            }, [`reactions-${postSlug}`]
+        )
+        return await reactionsCached();
     } catch (error) {
         console.error("Error fetching reactions:", error);
         return [];

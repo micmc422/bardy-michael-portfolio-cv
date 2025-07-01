@@ -1,10 +1,10 @@
 "use client";
 
-import React, { forwardRef, useState, useTransition } from "react";
+import React, { forwardRef, useTransition } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
 import { Card, Flex, Icon, useToast } from "@/once-ui/components";
-import { getReactions, incrementReaction, type ReactionType } from "./serverActions";
+import { incrementReaction, type ReactionType } from "./serverActions";
 import { EmojiPickerDropdown } from "../EmojiPickerDropdown";
 import { CursorCard } from "../CursorCard";
 
@@ -17,7 +17,6 @@ interface ReactionsProps extends React.ComponentPropsWithoutRef<"div"> {
 
 const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
   ({ className, style, postSlug, reactions, ...rest }, ref) => {
-    const [reactionArr, setReactionsArr] = useState<ReactionType[]>(reactions || []);
     const [loading, startTransition] = useTransition()
     const { addToast } = useToast();
     function handleReaction({ emoji, tags }: { emoji: string, tags: string[] }) {
@@ -38,8 +37,6 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
           variant: "success",
           message: "Réaction " + emoji + " " + "ajouter ! Merci",
         });
-        const updatedReactions = await getReactions(postSlug);
-        setReactionsArr(updatedReactions)
       } else {
         console.error(result.message);
         // Ici, si tu veux, tu peux annuler l’optimisme en remettant setCurrentCount à sa valeur initiale
@@ -56,7 +53,7 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
           onSelect={({ emoji, tags }: { emoji: string, tags: string[] }) => {
             handleReaction({ emoji, tags })
           }}
-          trigger={<ReactionsList reactions={reactionArr} />} />
+          trigger={<ReactionsList reactions={reactions} />} />
       </div>
     );
   }
