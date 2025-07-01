@@ -3,7 +3,7 @@
 import React, { forwardRef, useTransition } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
-import { Card, Flex, Icon, useToast } from "@/once-ui/components";
+import { Card, Flex, Icon, useToast, Text, Row } from "@/once-ui/components";
 import { incrementReaction, type ReactionType } from "./serverActions";
 import { EmojiPickerDropdown } from "../EmojiPickerDropdown";
 import { CursorCard } from "../CursorCard";
@@ -39,8 +39,6 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
         });
       } else {
         console.error(result.message);
-        // Ici, si tu veux, tu peux annuler l’optimisme en remettant setCurrentCount à sa valeur initiale
-        // setCurrentCount(currentCount); // ou autre logique
       }
     };
     return (
@@ -87,14 +85,14 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
       >
         {reactions?.sort((a, b) => b.count - a.count)?.map(({ emoji, count }) => <CursorCard
           key={emoji}
-          placement="bottom-start"
+          placement="top-start"
           trigger={
             <div className={styles.emoji}>{emoji}</div>
           }
 
           overlay={
             <Card maxWidth={24} radius="l-4" direction="column" border="neutral-alpha-medium" padding="xs">
-              <span className={styles.emojiCard}>{emoji} {count}</span>
+              <Row center className={styles.emojiCard}>{emoji} <Text onBackground="neutral-weak" variant="label-default-l">{count}</Text></Row>
             </Card>
           }
         />)}
