@@ -6,7 +6,6 @@ import styles from "./Reactions.module.scss";
 import { Card, Flex, Icon, useToast } from "@/once-ui/components";
 import { getReactions, incrementReaction, type ReactionType } from "./serverActions";
 import { EmojiPickerDropdown } from "../EmojiPickerDropdown";
-import { useRouter } from "next/navigation";
 import { CursorCard } from "../CursorCard";
 
 interface ReactionsProps extends React.ComponentPropsWithoutRef<"div"> {
@@ -21,7 +20,6 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
     const [reactionArr, setReactionsArr] = useState<ReactionType[]>(reactions || []);
     const [loading, startTransition] = useTransition()
     const { addToast } = useToast();
-    const router = useRouter();
     function handleReaction({ emoji, tags }: { emoji: string, tags: string[] }) {
       startTransition(() => UpdateReaction({ emoji, tags }))
     }
