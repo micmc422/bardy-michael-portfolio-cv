@@ -42,7 +42,6 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
         });
         const updatedReactions = await getReactions(postSlug);
         setReactionsArr(updatedReactions)
-        router.refresh()
       } else {
         console.error(result.message);
         // Ici, si tu veux, tu peux annuler l’optimisme en remettant setCurrentCount à sa valeur initiale

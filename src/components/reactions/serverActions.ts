@@ -3,6 +3,7 @@
 import { reactions } from "@/lib/schema/reactions";
 import { db } from "@/utils/db";
 import { sql } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 
 export async function incrementReaction(formData: FormData): Promise<{ success: boolean; count?: number; message?: string }> {
     try {
@@ -27,7 +28,7 @@ export async function incrementReaction(formData: FormData): Promise<{ success: 
                 },
             })
             .returning({ count: reactions.count });
-
+        revalidatePath(`/blog/${postSlug}`)
         return { success: true, count: res?.[0]?.count ?? 0, message: "Reaction incremented successfully" };
     } catch (error) {
         console.error("Error handling reaction:", error);
@@ -36,12 +37,12 @@ export async function incrementReaction(formData: FormData): Promise<{ success: 
 }
 
 export interface ReactionType {
-  emoji: string;
-   count: number; 
-   actionType: string;
+    emoji: string;
+    count: number;
+    actionType: string;
 }
 
-export async function getReactions(postSlug: string): Promise<ReactionType[]>{
+export async function getReactions(postSlug: string): Promise<ReactionType[]> {
     try {
         const res = await db
             .select({
