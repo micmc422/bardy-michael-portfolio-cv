@@ -95,7 +95,7 @@ export function Schema({
   if (as === 'blogPosting') {
     delete schema.sameAs;
     if (reactionsCount) {
-      schema.interactionStatistic = reactionsCount.map((item, i) => ({
+      schema.interactionStatistic = reactionsCount.map((item) => ({
         "@type": "InteractionCounter",
         "interactionType": { "@type": item.actionType }, // Ou "ShareAction", "CommentAction", "ViewAction", etc.
         "userInteractionCount": item.count, // Le nombre d'interactions
