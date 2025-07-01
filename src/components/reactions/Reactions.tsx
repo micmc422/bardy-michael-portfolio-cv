@@ -20,7 +20,7 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
   ({ className, style, postSlug, reactionsCount, ...rest }, ref) => {
     const { addToast } = useToast();
     const router = useRouter();
-    const updatedCount = useMemo(()=> reactionsCount, [reactionsCount])
+    const updatedCount = useMemo(() => reactionsCount, [reactionsCount])
     const handleReaction = async ({ emoji, tags }: { emoji: string, tags: string[] }) => {
       const formData = new FormData()
       formData.append("postSlug", postSlug)
@@ -39,16 +39,12 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
           message: "Réaction " + emoji + " " + "ajouter ! Merci",
         });
         router.refresh()
-        console.log({ reactionsCount })
       } else {
         console.error(result.message);
         // Ici, si tu veux, tu peux annuler l’optimisme en remettant setCurrentCount à sa valeur initiale
         // setCurrentCount(currentCount); // ou autre logique
       }
     };
-    useEffect(() => {
-      console.log(reactionsCount)
-    }, [reactionsCount])
     return (
       <div
         ref={ref}
@@ -72,6 +68,7 @@ interface ReactionsListProps extends React.ComponentPropsWithoutRef<typeof Flex>
 
 const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
   ({ className, style, reactionsCount, ...rest }, ref) => {
+    const updatedCount = useMemo(() => reactionsCount, [reactionsCount])
     return (
       <Flex
         ref={ref}
@@ -79,7 +76,7 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
         wrap
         {...rest}
       >
-        {reactionsCount?.sort((a, b) => b.count - a.count)?.map(({ emoji, count }) => <CursorCard
+        {updatedCount?.sort((a, b) => b.count - a.count)?.map(({ emoji, count }) => <CursorCard
           key={emoji}
           placement="bottom-start"
           trigger={
