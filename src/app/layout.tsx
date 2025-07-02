@@ -14,8 +14,6 @@ import { Meta } from "@/once-ui/modules";
 
 import { rendezVous } from "./resources/content";
 import CookieConsent from "@/components/cookiesConsent";
-import { getAvis } from "./utils/serverActions";
-import { convertirTimestampGoogle } from "@/utils/utils";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -32,23 +30,6 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-  const { rating, reviews } = await getAvis();
-
-  const reviewsArr = JSON.stringify(reviews.map((el) => ({
-    "@type": "Review",
-    "author": {
-      "@type": "Person",
-      "name": el.author_name
-    },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": el.rating,
-      "bestRating": "5"
-    },
-    "reviewBody": el.text,
-    "datePublished": convertirTimestampGoogle(el.time)
-  })))
-
   return (
     <Flex
       suppressHydrationWarning
@@ -91,30 +72,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             `,
           }}
         />
-        <script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: `{
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Occitaweb",
-            "url": "https://occitaweb.fr",
-            "telephone": "+33 6 72 11 50 06",
-            "priceRange": "€€€",
-            "image": "https://occitaweb.fr/trademark/icon-dark.png",
-            "address": {
-            "@type": "PostalAddress",
-              "streetAddress": "25 avenue gambetta",
-              "addressLocality": "Albi",
-              "postalCode": "81000",
-              "addressCountry": "FR"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": ${rating},
-              "reviewCount": ${reviews.length}
-            },
-            "review": ${reviewsArr}
-            }`
-        }} />
         <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png" />
