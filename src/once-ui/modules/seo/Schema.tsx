@@ -78,14 +78,12 @@ export function Schema({
     schema.image = imageUrl;
     delete schema.sameAs;
     if (projet) {
-      console.log(projet);
-
       schema.mainEntity = {
         "@type": "SoftwareApplication",
         "name": projet.metadata.title,
         "url": "https://occitaweb.fr/realisations/plateforme-introduction-aux-technologies-du-web",
         "description": projet.metadata.summary,
-        "applicationCategory": "EducationApplication",
+        "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "datePublished": projet.metadata.publishedAt,
         "dateModified": projet.metadata.publishedAt,
