@@ -40,6 +40,9 @@ export function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title,
       description,

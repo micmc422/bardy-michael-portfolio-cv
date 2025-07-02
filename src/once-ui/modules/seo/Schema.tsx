@@ -74,15 +74,6 @@ export function Schema({
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
-    schema.speciality = [
-      "Webmaster",
-      "Développeur WordPress",
-      "Next.js",
-      "UX/UI",
-      "SEO local",
-      "performances web",
-      "formation web"
-    ]
   } else if (as === "aboutPage") {
     schema.name = `À propos - ${title}`;
     schema.description = description;
