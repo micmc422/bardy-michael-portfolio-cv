@@ -70,6 +70,19 @@ export function Schema({
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
+  } else if (as === "webPage") {
+    schema.name = title;
+    schema.description = description;
+    schema.image = imageUrl;
+    schema.speciality = [
+      "Webmaster",
+      "Développeur WordPress",
+      "Next.js",
+      "UX/UI",
+      "SEO local",
+      "performances web",
+      "formation web"
+    ]
   } else if (as === "aboutPage") {
     schema.name = `À propos - ${title}`;
     schema.description = description;
@@ -93,15 +106,6 @@ export function Schema({
         "addressCountry": "FR"
       }
     };
-    schema.speciality = [
-      "Webmaster",
-      "Développeur WordPress",
-      "Next.js",
-      "UX/UI",
-      "SEO local",
-      "performances web",
-      "formation web"
-    ]
   } else {
     schema.headline = title;
     schema.description = description;
