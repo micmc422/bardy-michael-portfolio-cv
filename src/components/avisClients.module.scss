@@ -4,3 +4,6 @@
     margin-left: calc(99svw - (var(--responsive-width-m) / -2));
     margin-right: calc(99svw - (var(--responsive-width-m) / -2));
 }
+.avisCli:last-of-type {
+   margin-right: 2vw;
+}

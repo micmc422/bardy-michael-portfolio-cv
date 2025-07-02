@@ -66,27 +66,28 @@ const Avis = forwardRef<HTMLDivElement, AvisProps>(
             <Flex
                 ref={ref}
                 style={style}
-                className={classNames(className)}
+                className={classNames(className, styles.avisCli)}
                 direction="column"
                 width={25}
                 gap="s"
+                marginRight="s"
                 background="overlay"
-                padding="s"
+                padding="l"
                 radius="m"
                 center
                 marginX="s"
                 {...rest}
             >
-                <Row gap="xs">
+                <Row gap="s">
                     <Avatar src={profile_photo_url} size="l" />
-                    <Column>
-                        <Text>{author_name}</Text>
+                    <Column center>
+                        <Text variant="label-strong-xl" onBackground="accent-weak">{author_name}</Text>
                         <div>
                             {stars.map(key => <Icon key={key} name="starfill" onBackground="warning-medium" />)}
                         </div>
                     </Column>
                 </Row>
-                <Text as="div" wrap="wrap" align="center" onBackground="neutral-medium">{text}</Text>
+                <Text as="div" wrap="wrap" align="center" onBackground="neutral-weak">{text}</Text>
             </Flex>
         );
     }

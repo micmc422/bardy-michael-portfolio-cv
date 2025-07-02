@@ -11,22 +11,22 @@ interface PostsProps {
     tags?: string[];
 }
 
-async function fetchPosts(tags?: string[]) {
-    const data = await getPosts({ tags });
+async function fetchPosts(tags?: string[], limit =10) {
+    const data = await getPosts({ tags, limit });
     const sortedBlogs = data.sort((a: any, b: any) => {
         return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
     });
     return sortedBlogs;
 }
 
-export function Posts({
+export async function Posts({
     range,
     columns = '1',
     thumbnail = false,
     direction,
     tags
 }: PostsProps) {
-    const sortedBlogs = use(fetchPosts(tags))
+    const sortedBlogs = await fetchPosts(tags, 0)
 
     const displayedBlogs = range
         ? sortedBlogs.slice(
