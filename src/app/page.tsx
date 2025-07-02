@@ -145,7 +145,6 @@ export default async function Home() {
               </Badge>
             </RevealFx>
           )}
-
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>

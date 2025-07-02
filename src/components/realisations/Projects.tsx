@@ -10,22 +10,7 @@ import { getRandomSixDigitNumber } from "@/utils/utils";
 interface ProjectsProps {
   range?: [number, number?];
 }
-/*
-interface Projects {
-  metadata: Metadata & {
-    projectURL?: string;
-    publishedAt: string;
-    summary: string;
-    images: string[];
-    team: {
-      avatar: string;
-    }[],
-    link?: string;
-  };
-  slug: string;
-  content: string;
-}
-*/
+
 async function getWorks() {
   const data = await getProjects({});
   return data;
@@ -74,7 +59,7 @@ export function Projects({ range }: ProjectsProps) {
           link={post.metadata.link || ""}
         />
       ))}
-      <Script id={`Projects-${typeof work.title === "string" ? work.title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json">{JSON.stringify(jsonLd)}</Script>;
+      <Script id={`Projects-${typeof work.title === "string" ? work.title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
     </Column>
   );
 }
