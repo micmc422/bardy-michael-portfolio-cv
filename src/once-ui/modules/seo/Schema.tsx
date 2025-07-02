@@ -2,6 +2,7 @@ import React from "react";
 import { person, social } from "@/app/resources/content";
 import type { ReactionType } from "@/components/reactions/serverActions";
 import Script from "next/script";
+import type { PostType } from "@/app/utils/types";
 
 export interface SchemaProps {
   as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage";
@@ -18,6 +19,7 @@ export interface SchemaProps {
     image?: string;
   };
   reactions?: ReactionType[]
+  projet?: PostType
 }
 
 const schemaTypeMap = {
@@ -41,7 +43,8 @@ export function Schema({
   dateModified,
   image,
   author,
-  reactions
+  reactions,
+  projet
 }: SchemaProps) {
   const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
@@ -49,7 +52,6 @@ export function Schema({
   const imageUrl = image
     ? `${image.startsWith("\/") ? image : `${image}`}`
     : `/og?title=${encodeURIComponent(title)}`;
-  console.log(imageUrl)
   const url = `${normalizedBaseURL}${normalizedPath}`;
 
   const schemaType = schemaTypeMap[as];
@@ -74,6 +76,43 @@ export function Schema({
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
+    delete schema.sameAs;
+    if (projet) {
+      console.log(projet);
+
+      schema.mainEntity = {
+        "@type": "SoftwareApplication",
+        "name": projet.metadata.title,
+        "url": "https://occitaweb.fr/realisations/plateforme-introduction-aux-technologies-du-web",
+        "description": projet.metadata.summary,
+        "applicationCategory": "EducationApplication",
+        "operatingSystem": "Web",
+        "datePublished": projet.metadata.publishedAt,
+        "dateModified": projet.metadata.publishedAt,
+        "author": {
+          "@type": "Person",
+          name: author?.name,
+          ...(author?.url && { url: author.url }),
+          ...(author?.image && {
+            image: {
+              "@type": "ImageObject",
+              url: author.image,
+            },
+          }),
+          sameAs: schema.sameAs
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Occitaweb",
+          "url": "https://occitaweb.fr",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://occitaweb.fr/trademark/icon-dark.png"
+          }
+        },
+        "keywords": "HTML, CSS, JavaScript, plateforme pédagogique"
+      }
+    }
   } else if (as === "aboutPage") {
     schema.name = `À propos - ${title}`;
     schema.description = description;
@@ -106,7 +145,8 @@ export function Schema({
       schema.dateModified = dateModified || datePublished;
     }
   }
-  if (author) {
+  console.log(as !== "webPage")
+  if (author && as !== "webPage") {
     schema.author = {
       "@type": "Person",
       name: author.name,

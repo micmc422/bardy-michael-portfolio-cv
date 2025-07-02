@@ -86,6 +86,7 @@ export default async function Project({
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
+        projet={post}
       />
       <Column maxWidth="xs" gap="16">
         <Button data-border="rounded" href="/realisations" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
