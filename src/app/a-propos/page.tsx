@@ -28,14 +28,14 @@ const TableOfContents = dynamic(() => import('@/components/a-propos/TableOfConte
     <Skeleton shape="line" height="l" width="xs" />
     <Skeleton shape="line" height="l" width="xs" />
   </Row>
-,
+  ,
 });
 
 import styles from "@/components/a-propos/a-propos.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React from "react";
 import type { JSX } from "react";
-import { Meta, Schema } from "@/once-ui/modules";
+import { Meta } from "@/once-ui/modules";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -72,14 +72,6 @@ export default async function About() {
   ];
   return (
     <Column maxWidth="m">
-      <Schema
-        as="aboutPage"
-        baseURL={baseURL}
-        title={about.title}
-        description={about.description}
-        path={about.path}
-        image={`/og?title=${encodeURIComponent(about.title)}`}
-      />
       {about.tableOfContent.display && (
         <Column
           left="0"
