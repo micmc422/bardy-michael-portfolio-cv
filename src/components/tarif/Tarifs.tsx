@@ -17,6 +17,17 @@ type PricingItem = {
     jsonLD: string;
 };
 
+function getPriceValidUntilDate() {
+    const date = new Date();
+    date.setFullYear(date.getFullYear() + 1);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // mois : 0-11
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+}
+
 const { rating, reviews } = await getAvis();
 
 const defaultTarifs: PricingItem[] = [
@@ -47,6 +58,7 @@ const defaultTarifs: PricingItem[] = [
             },
             "offers": {
                 "@type": "Offer",
+                "priceValidUntil": getPriceValidUntilDate(),
                 "priceCurrency": "EUR",
                 "price": "1200",
                 "priceSpecification": {
@@ -54,6 +66,7 @@ const defaultTarifs: PricingItem[] = [
                     "priceCurrency": "EUR",
                     "price": 1200,
                     "minPrice": 1200,
+                    "maxPrice": 12000,
                     "valueAddedTaxIncluded": false
                 },
                 "availability": "https://schema.org/InStock",
@@ -89,6 +102,7 @@ const defaultTarifs: PricingItem[] = [
             },
             "offers": {
                 "@type": "Offer",
+                "priceValidUntil": getPriceValidUntilDate(),
                 "priceCurrency": "EUR",
                 "price": "600",
                 "priceSpecification": {
@@ -96,6 +110,7 @@ const defaultTarifs: PricingItem[] = [
                     "priceCurrency": "EUR",
                     "price": 600,
                     "minPrice": 600,
+                    "maxPrice": 6000,
                     "valueAddedTaxIncluded": false
                 },
                 "availability": "https://schema.org/InStock",
@@ -131,6 +146,7 @@ const defaultTarifs: PricingItem[] = [
             },
             "offers": {
                 "@type": "Offer",
+                "priceValidUntil": getPriceValidUntilDate(),
                 "priceCurrency": "EUR",
                 "price": "90",
                 "priceSpecification": {
@@ -138,6 +154,7 @@ const defaultTarifs: PricingItem[] = [
                     "priceCurrency": "EUR",
                     "price": 90,
                     "minPrice": 90,
+                    "maxPrice": 1000,
                     "valueAddedTaxIncluded": false
                 },
                 "availability": "https://schema.org/InStock",
