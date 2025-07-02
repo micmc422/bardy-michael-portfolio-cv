@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ tags: str
   return Meta.generate({
     title: `Mot${tags?.length > 1 ? "s" : ""}-clé : ${tags.join(", ")}`,
     description: `Articles du blog pour le${tags?.length > 1 ? "s" : ""} mot${tags?.length > 1 ? "s" : ""}-clé ${tags.join(", ")}`,
-    baseURL: baseURL,
-    image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
+    baseURL,
+    image: `/og?title=${encodeURIComponent(blog.title)}`,
     path: `${blog.path}/tags/${tags?.join("/")}`,
   });
 }

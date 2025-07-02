@@ -47,9 +47,9 @@ export function Schema({
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
   const imageUrl = image
-    ? `${normalizedBaseURL}${image.startsWith("/") ? image : `/${image}`}`
-    : `${normalizedBaseURL}/og?title=${encodeURIComponent(title)}`;
-
+    ? `${image.startsWith("\/") ? image : `${image}`}`
+    : `/og?title=${encodeURIComponent(title)}`;
+  console.log(imageUrl)
   const url = `${normalizedBaseURL}${normalizedPath}`;
 
   const schemaType = schemaTypeMap[as];
@@ -106,7 +106,6 @@ export function Schema({
       schema.dateModified = dateModified || datePublished;
     }
   }
-
   if (author) {
     schema.author = {
       "@type": "Person",
