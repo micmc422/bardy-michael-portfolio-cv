@@ -73,17 +73,12 @@ export default async function About() {
   return (
     <Column maxWidth="m">
       <Schema
-        as="webPage"
+        as="aboutPage"
         baseURL={baseURL}
         title={about.title}
         description={about.description}
         path={about.path}
-        image={`${baseURL}/og?title=${encodeURIComponent(about.title)}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
+        image={`/og?title=${encodeURIComponent(about.title)}`}
       />
       {about.tableOfContent.display && (
         <Column

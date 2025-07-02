@@ -1,10 +1,10 @@
 import React from "react";
 import Script from "next/script";
-import { social } from "@/app/resources/content";
+import { person, social } from "@/app/resources/content";
 import type { ReactionType } from "@/components/reactions/serverActions";
 
 export interface SchemaProps {
-  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization";
+  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage";
   title: string;
   description: string;
   baseURL: string;
@@ -28,6 +28,7 @@ const schemaTypeMap = {
   techArticle: "TechArticle",
   webPage: "WebPage",
   organization: "Organization",
+  aboutPage: "AboutPage",
 };
 
 export function Schema({
@@ -69,6 +70,38 @@ export function Schema({
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
+  } else if (as === "aboutPage") {
+    schema.name = `À propos - ${title}`;
+    schema.description = description;
+    schema.image = imageUrl;
+    schema.mainEntity = {
+      "@type": "Person",
+      name: person.name,
+      "jobTitle": person.role,
+      "url": baseURL,
+      "image": baseURL + person.avatar,
+      "sameAs": social.map(({ link }) => link),
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Occitaweb",
+        "url": "https://occitaweb.fr"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Albi",
+        "postalCode": "81000",
+        "addressCountry": "FR"
+      }
+    };
+    schema.speciality = [
+      "Webmaster",
+      "Développeur WordPress",
+      "Next.js",
+      "UX/UI",
+      "SEO local",
+      "performances web",
+      "formation web"
+    ]
   } else {
     schema.headline = title;
     schema.description = description;
@@ -104,7 +137,7 @@ export function Schema({
       }))
     }
   }
-  // console.log(schema)
+  console.log(schema)
   return (
     <Script
       id={`schema-${as}-${path}`}

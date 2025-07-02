@@ -66,6 +66,10 @@ const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "name": "Occitaweb",
+                        "url": "https://occitaweb.fr",
+                        "telephone": "+33 6 72 11 50 06",
+                        "priceRange": "€€€",
+                        "image": "https://occitaweb.fr/trademark/icon-dark.png",
                         "address": {
                             "@type": "PostalAddress",
                             "streetAddress": "25 avenue gambetta",
