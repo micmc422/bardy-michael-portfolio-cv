@@ -68,7 +68,10 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
     if (!reactions?.length) {
       return <Flex
         ref={ref}
-        className={classNames(styles.list, className)}
+        //className={classNames(styles.list, className)}
+        padding="xs"
+        background="surface"
+        radius="full"
         wrap
         {...rest}
       >
@@ -81,6 +84,8 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
         ref={ref}
         className={classNames(styles.list, className)}
         wrap
+        padding="xs"
+        background="surface"
         {...rest}
       >
         {reactions?.sort((a, b) => b.count - a.count)?.map(({ emoji, count }) => <CursorCard

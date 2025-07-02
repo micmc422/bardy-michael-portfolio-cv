@@ -16,12 +16,10 @@
 }
 
 .list {
-    padding: 8px;
     border-radius: 1em;
-    background-color: var(--page-background);
     width: fit-content;
     padding-right: 1em;
-    line-height: 75%;
+    // line-height: 75%;
     flex-direction: row-reverse;
     max-height: 2em;
     overflow: clip;
@@ -31,7 +29,7 @@
 
     }
 
-    >*:nth-child(1) {
+    >*:nth-child(1):not(span) {
         transform: scale(1.5);
     }
 
