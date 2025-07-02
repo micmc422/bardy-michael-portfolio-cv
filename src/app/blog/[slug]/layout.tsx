@@ -2,7 +2,7 @@ import { baseURL, blog, person } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
 import { getComments, getPostBySlug, getPosts, getRelatedPost } from "@/app/utils/serverActions";
 import { getReactions } from "@/components/reactions/serverActions";
-import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, Row, Skeleton, SmartLink, Spinner, Tag, Text } from "@/once-ui/components";
+import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, Skeleton, SmartLink, Spinner, Tag, Text } from "@/once-ui/components";
 import { Meta, Schema } from "@/once-ui/modules";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -121,6 +121,9 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                 <ScrollToHash />
                 <Reactions postSlug={post.slug} reactions={reactions} />
                 <CommentSection slug={post.slug} comments={comments} />
+                {post.metadata.sources && post.metadata.sources.length > 0 && (
+                    <SourcesComponent sources={post.metadata.sources} />
+                )}
                 <Grid gap="8" columns={"2"} paddingTop="16" mobileColumns={"1"}>
                     {related?.map((post: any) => <Post
                         key={post.slug}
@@ -147,6 +150,13 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
             <HeadingNav fitHeight />
         </Column>
     </Row>
-
 }
 
+function SourcesComponent({ sources }: { sources: string[] }) {
+    return (<Column>
+        <Text variant="heading-strong-l">Sources :</Text>
+        <Grid fillWidth columns="2" gap="16" className="mt-8" mobileColumns={"1"}>
+            <>{sources.map((source, index) => <OgCard key={index} url={source} />)}</>
+        </Grid>
+    </Column>)
+}

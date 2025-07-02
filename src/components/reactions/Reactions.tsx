@@ -69,13 +69,13 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
       return <Flex
         ref={ref}
         //className={classNames(styles.list, className)}
-        padding="xs"
-        background="surface"
+        padding="4"
+        background="neutral-alpha-strong"
         radius="full"
         wrap
         {...rest}
       >
-        <Icon name="smile" />
+        <Icon name="smile" size="l" />
       </Flex>
 
     }
@@ -84,15 +84,18 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
         ref={ref}
         className={classNames(styles.list, className)}
         wrap
-        padding="xs"
-        background="surface"
+        padding="4"
+        paddingRight="8"
+        background="neutral-alpha-strong"
+        radius="l"
+
         {...rest}
       >
         {reactions?.sort((a, b) => b.count - a.count)?.map(({ emoji, count }) => <CursorCard
           key={emoji}
           placement="top-start"
           trigger={
-            <div className={styles.emoji}>{emoji}</div>
+            <Text className={styles.emoji}>{emoji}</Text>
           }
 
           overlay={
