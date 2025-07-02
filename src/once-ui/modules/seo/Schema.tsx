@@ -1,5 +1,4 @@
 import React from "react";
-import Script from "next/script";
 import { person, social } from "@/app/resources/content";
 import type { ReactionType } from "@/components/reactions/serverActions";
 
@@ -143,7 +142,7 @@ export function Schema({
   }
   console.log(schema)
   return (
-    <Script
+    <script
       id={`schema-${as}-${path}`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{

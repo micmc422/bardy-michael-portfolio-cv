@@ -3,12 +3,13 @@ import classNames from "classnames";
 import { Avatar, Column, Flex, Icon, Row, Text } from "@/once-ui/components";
 import { AutoScroll } from "@/once-ui/components/AutoScroll";
 import styles from "./avisClients.module.scss"
+import { getAvis } from "@/app/utils/serverActions";
 interface ComponentProps extends React.ComponentProps<typeof Flex> {
     className?: string;
     style?: React.CSSProperties;
 }
 
-interface AvisType {
+export interface AvisType {
     author_name: string,
     author_url: string,
     language: 'fr-FR',
@@ -21,36 +22,11 @@ interface AvisType {
     translated: string
 }
 
-async function getAvis() {
-    const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID!
-    const GOOGLE_PLACE_API_KEY = process.env.GOOGLE_PLACE_API_KEY!
-    const res = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${GOOGLE_PLACE_ID}&fields=name,rating,reviews&language=fr&key=${GOOGLE_PLACE_API_KEY}`);
-    const avisClients = await res.json();
-    return { rating: avisClients.result.rating, reviews: avisClients.result.reviews.map((el: AvisType) => ({ ...el, translated: `${el.translated}` })) as AvisType[] }
-}
 
-function convertirTimestampGoogle(time: number) {
-    const date = new Date(time * 1000); // Multiplier par 1000 car timestamp est en secondes
-    return date.toISOString().split("T")[0]; // Garde uniquement la date : "YYYY-MM-DD"
-}
 
 const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
     async ({ className, style, ...rest }, ref) => {
-        const { rating, reviews } = await getAvis();
-        const reviewsArr = JSON.stringify(reviews.map((el) => ({
-            "@type": "Review",
-            "author": {
-                "@type": "Person",
-                "name": el.author_name
-            },
-            "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": el.rating,
-                "bestRating": "5"
-            },
-            "reviewBody": el.text,
-            "datePublished": convertirTimestampGoogle(el.time)
-        })))
+        const { reviews } = await getAvis();
         return (
             <Flex
                 ref={ref}
@@ -61,30 +37,6 @@ const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
                 <AutoScroll>
                     {reviews.map((avis, i) => <Avis key={i} {...avis} />)}
                 </AutoScroll>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{
-                    __html: `{
-                        "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "Occitaweb",
-                        "url": "https://occitaweb.fr",
-                        "telephone": "+33 6 72 11 50 06",
-                        "priceRange": "€€€",
-                        "image": "https://occitaweb.fr/trademark/icon-dark.png",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "streetAddress": "25 avenue gambetta",
-                            "addressLocality": "Albi",
-                            "postalCode": "81000",
-                            "addressCountry": "FR"
-                        },
-                        "aggregateRating": {
-                            "@type": "AggregateRating",
-                            "ratingValue": ${rating},
-                            "reviewCount": ${reviews.length}
-                        },
-                        "review": ${reviewsArr}
-                    }`
-                }} />
             </Flex>
         );
     }

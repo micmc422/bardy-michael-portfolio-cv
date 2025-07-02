@@ -8,6 +8,7 @@ import { person } from "../resources";
 import TurndownService from 'turndown';
 import type { ActionToastResponse } from "@/components/formActionClient";
 import { revalidatePath } from "next/cache";
+import type { AvisType } from "@/components/AvisClients";
 const baseTeam = [{
     avatar: person.avatar,
     name: person.name,
@@ -259,4 +260,12 @@ export async function createComment(formData: FormData | void | null): Promise<A
     const { error } = res as unknown as { error: { message: string, code: string } };
     const erreur = error?.message
     return { variant: "danger", message: "Oups une erreur c'est produite : " + erreur, action: null };
+}
+
+export async function getAvis() {
+    const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID!
+    const GOOGLE_PLACE_API_KEY = process.env.GOOGLE_PLACE_API_KEY!
+    const res = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${GOOGLE_PLACE_ID}&fields=name,rating,reviews&language=fr&key=${GOOGLE_PLACE_API_KEY}`);
+    const avisClients = await res.json();
+    return { rating: avisClients.result.rating, reviews: avisClients.result.reviews.map((el: AvisType) => ({ ...el, translated: `${el.translated}` })) as AvisType[] }
 }

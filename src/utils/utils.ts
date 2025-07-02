@@ -16,4 +16,7 @@ export function slugify(str: string): string {
 export function delay(ms:number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-  
+export function convertirTimestampGoogle(time: number) {
+    const date = new Date(time * 1000); // Multiplier par 1000 car timestamp est en secondes
+    return date.toISOString().split("T")[0]; // Garde uniquement la date : "YYYY-MM-DD"
+}
