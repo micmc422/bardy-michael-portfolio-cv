@@ -1,7 +1,6 @@
 import { Column, Flex, Grid, Skeleton } from '@/once-ui/components';
 import Post from './Post';
 import { getPosts } from '@/app/utils/serverActions';
-import { use } from 'react';
 
 interface PostsProps {
     range?: [number] | [number, number];
