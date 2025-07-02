@@ -99,8 +99,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ menuGroups, className, ...re
   const dropdownGroups = menuGroups.filter(group => group.sections);
 
   // Add click handler to close dropdown when clicking on links
-  const handleLinkClick = (href: string) => {
-    console.log(href)
+  const handleLinkClick = (_href: string) => {
     setActiveDropdown(null);
     // Let the default navigation happen
   };

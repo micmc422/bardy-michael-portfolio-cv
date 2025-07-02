@@ -30,8 +30,7 @@ export default function FormComponent({ action, ...props }: CustomFormProps
 ) {
     const formRef = useRef<HTMLFormElement>(null);
     const route = useRouter()
-    const [state, formAction, isSubmitting] = useActionState(handleSubmit, null);
-    console.log(state)
+    const [_state, formAction, isSubmitting] = useActionState(handleSubmit, null);
     async function handleSubmit(prev: any, formData: FormData) {
         if (!formData) throw new Error('Aucune donnée de formulaire !');
         try {

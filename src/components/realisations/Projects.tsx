@@ -5,6 +5,7 @@ import { getProjects } from "@/app/utils/serverActions";
 import { use } from "react";
 import Script from "next/script";
 import { work } from "@/app/resources";
+import { getRandomSixDigitNumber } from "@/utils/utils";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -39,7 +40,6 @@ export function Projects({ range }: ProjectsProps) {
   const displayedProjects = range
     ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)
     : sortedProjects;
-  console.log(displayedProjects)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -74,7 +74,7 @@ export function Projects({ range }: ProjectsProps) {
           link={post.metadata.link || ""}
         />
       ))}
-      <Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>;
+      <Script id={`Projects-${typeof work.title === "string" ? work.title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json">{JSON.stringify(jsonLd)}</Script>;
     </Column>
   );
 }

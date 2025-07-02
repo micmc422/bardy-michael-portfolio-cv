@@ -6,7 +6,7 @@ import { rdv } from "@/app/resources/config";
 import type { opacity } from "@/once-ui/types";
 import Script from "next/script";
 import { getAvis } from "@/app/utils/serverActions";
-import { convertirTimestampGoogle } from "@/utils/utils";
+import { getRandomSixDigitNumber } from "@/utils/utils";
 
 
 type PricingItem = {
@@ -273,7 +273,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     <Text variant="display-strong-xs" onBackground="success-strong">{price}</Text>
                     <Text variant="body-default-xs" onBackground="neutral-strong" align="center">{notes}</Text>
                 </Column>
-                <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
+                <Script id={`Tarifs-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
             </Column>
         );
     }

@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { AccordionGroup, Column, Heading } from "@/once-ui/components";
-import { slugify } from "@/utils/utils";
+import { getRandomSixDigitNumber, slugify } from "@/utils/utils";
 import Script from "next/script";
 
 
@@ -44,7 +44,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             return (<Column ref={ref} gap="l">
                 {title && <Heading as="h2" id={slugify(title)}>{title || "FAQ"}</Heading>}
                 <AccordionGroup items={faq} />
-                <Script type="application/ld+json" dangerouslySetInnerHTML={{
+                <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "FAQPage",
@@ -64,7 +64,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             return (<Column ref={ref} gap="l" paddingBottom="xl">
                 {title && <Heading as="h2" id={slugify(title)}>{title}</Heading>}
                 <AccordionGroup items={list} />
-                <Script type="application/ld+json" dangerouslySetInnerHTML={{
+                <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "ItemList",

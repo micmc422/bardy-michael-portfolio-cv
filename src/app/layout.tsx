@@ -53,7 +53,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
-        <Script
+        <Script id="theme-fn"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
