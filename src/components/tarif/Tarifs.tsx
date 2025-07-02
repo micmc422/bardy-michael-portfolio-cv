@@ -4,6 +4,9 @@ import styles from "./Tarifs.module.scss";
 import { Row, Column, Heading, Text, Background, Line } from "@/once-ui/components";
 import { rdv } from "@/app/resources/config";
 import type { opacity } from "@/once-ui/types";
+import Script from "next/script";
+import { getAvis } from "@/app/utils/serverActions";
+import { convertirTimestampGoogle } from "@/utils/utils";
 
 
 type PricingItem = {
@@ -13,6 +16,8 @@ type PricingItem = {
     notes?: string;
     jsonLD: string;
 };
+
+const { rating, reviews } = await getAvis();
 
 const defaultTarifs: PricingItem[] = [
     {
@@ -31,6 +36,11 @@ const defaultTarifs: PricingItem[] = [
             "image": "/images/blog/cv-cover.png",
             "name": "Création de site web",
             "description": "Création de sites vitrines sur mesure avec WordPress ou Next.js, responsive et optimisés pour le SEO.",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": rating,
+                "reviewCount": reviews.length
+            },
             "brand": {
                 "@type": "Organization",
                 "name": "Occitaweb"
@@ -68,6 +78,11 @@ const defaultTarifs: PricingItem[] = [
             "image": "/images/blog/pagespeed-h2team.png",
             "name": "Refonte & Optimisation",
             "description": "Audit et amélioration de sites existants : UX, SEO, performances, migration vers des technologies modernes.",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": rating,
+                "reviewCount": reviews.length
+            },
             "brand": {
                 "@type": "Organization",
                 "name": "Occitaweb"
@@ -105,6 +120,11 @@ const defaultTarifs: PricingItem[] = [
             "image": "/images/blog/headless.png",
             "name": "Maintenance & accompagnement",
             "description": "Mises à jour, sauvegardes, assistance et évolutions régulières pour assurer la stabilité de votre site.",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": rating,
+                "reviewCount": reviews.length
+            },
             "brand": {
                 "@type": "Organization",
                 "name": "Occitaweb"
@@ -136,7 +156,7 @@ interface TarifsProps extends React.ComponentProps<typeof Column> {
 }
 
 const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
-    ({ tarifs = defaultTarifs,className, style, ...rest }, ref) => {
+    ({ tarifs = defaultTarifs, className, style, ...rest }, ref) => {
         return (
             <Column
                 ref={ref}
@@ -253,7 +273,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     <Text variant="display-strong-xs" onBackground="success-strong">{price}</Text>
                     <Text variant="body-default-xs" onBackground="neutral-strong" align="center">{notes}</Text>
                 </Column>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
+                <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
             </Column>
         );
     }

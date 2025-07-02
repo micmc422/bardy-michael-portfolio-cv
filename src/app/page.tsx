@@ -10,6 +10,7 @@ import { Faq } from "@/components";
 import { AvisClient } from "@/components/AvisClients";
 import { getAvis } from "./utils/serverActions";
 import { convertirTimestampGoogle } from "@/utils/utils";
+import Script from "next/script";
 
 // Importation dynamique pour Tarifs
 const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
@@ -197,7 +198,7 @@ export default async function Home() {
         } />
       </Column>
       <AvisClient />
-      <script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
+      <Script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
         __html: `{
                   "@context": "https://schema.org",
                   "@type": "LocalBusiness",

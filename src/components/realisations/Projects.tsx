@@ -3,6 +3,8 @@ import { ProjectCard } from "@/components";
 // import type { Metadata } from "next";
 import { getProjects } from "@/app/utils/serverActions";
 import { use } from "react";
+import Script from "next/script";
+import { work } from "@/app/resources";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -37,7 +39,26 @@ export function Projects({ range }: ProjectsProps) {
   const displayedProjects = range
     ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)
     : sortedProjects;
-
+  console.log(displayedProjects)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: work.title,
+    description: work.description,
+    "itemListOrder": "https://schema.org/ItemListOrderUnordered",
+    numberOfItems: displayedProjects.length,
+    itemListElement: displayedProjects.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "CreativeWork",
+        name: p.metadata.title,
+        url: p.metadata.projectURL,
+        description: p.metadata.summary,
+        image: p.metadata.image,
+      }
+    }))
+  };
   return (
     <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
       {displayedProjects.map((post, index) => (
@@ -53,6 +74,7 @@ export function Projects({ range }: ProjectsProps) {
           link={post.metadata.link || ""}
         />
       ))}
+      <Script type="application/ld+json">{JSON.stringify(jsonLd)}</Script>;
     </Column>
   );
 }

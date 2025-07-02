@@ -14,6 +14,7 @@ import { Meta } from "@/once-ui/modules";
 
 import { rendezVous } from "./resources/content";
 import CookieConsent from "@/components/cookiesConsent";
+import Script from "next/script";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -52,7 +53,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
-        <script
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {

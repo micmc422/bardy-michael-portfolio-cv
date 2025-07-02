@@ -1,6 +1,7 @@
 import React from "react";
 import { person, social } from "@/app/resources/content";
 import type { ReactionType } from "@/components/reactions/serverActions";
+import Script from "next/script";
 
 export interface SchemaProps {
   as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage";
@@ -140,9 +141,8 @@ export function Schema({
       }))
     }
   }
-  console.log(schema)
   return (
-    <script
+    <Script
       id={`schema-${as}-${path}`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{

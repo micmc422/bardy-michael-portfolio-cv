@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { Column, Heading, Row, Text } from "@/once-ui/components";
 import styles from "./steps.module.scss"
 import { slugify } from "@/utils/utils";
+import Script from "next/script";
 
 interface StepsComponentProps extends React.ComponentProps<typeof Column> {
     className?: string;
@@ -40,7 +41,7 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
             >
                 {title && <Heading as="h2" id={slugify(title)} paddingBottom="l">{title}</Heading>}
                 {steps?.map((step, i) => <StepComponent key={i} step={i} {...step} />)}
-                <script type="application/ld+json" dangerouslySetInnerHTML={{
+                <Script type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "ItemList",
