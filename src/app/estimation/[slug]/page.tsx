@@ -2,11 +2,11 @@
 import { Checkbox, Column, Feedback, Grid, Row, Text, Textarea, ToggleButton } from "@/once-ui/components";
 import { siteTypes, type Option } from "../estimationData";
 import { use, useMemo } from "react";
-import { useSearchParams } from "next/navigation";
+import { notFound, useSearchParams } from "next/navigation";
 import { useToggleOptionParam } from "./hooks";
 import { Schema } from "@/once-ui/modules";
 import { baseURL } from "@/app/resources";
-import { about, estimation, home, person } from "@/app/resources/content";
+import { about, estimation, person } from "@/app/resources/content";
 
 export default function EstimationTypePage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
@@ -14,6 +14,8 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
     const toggleOption = useToggleOptionParam()
     const selectedOptions = routeParams.getAll("options")
     const activeSite = useMemo(() => siteTypes.find((site) => site.slug === slug), [slug, siteTypes])
+    if (!activeSite) notFound()
+
     return <>
         <Schema
             as="webPage"
@@ -21,7 +23,7 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
             path={estimation.path}
             title={estimation.title}
             description={estimation.description}
-            image={`${baseURL}/og?title=${encodeURIComponent(home.title)}`}
+            image={`${baseURL}/og?type=estimation&slug=${slug}`}
             author={{
                 name: person.name,
                 url: `${baseURL}${about.path}`,

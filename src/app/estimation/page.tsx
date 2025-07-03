@@ -1,10 +1,27 @@
 import { Column, Grid, Icon, Text, Row, Card, Background } from "@/once-ui/components";
 import { siteTypes } from "./estimationData";
-import { rdv } from "../resources";
+import { baseURL, rdv } from "../resources";
 import type { opacity } from "@/once-ui/types";
+import { about, estimation, person } from "../resources/content";
+import { Schema } from "@/once-ui/modules";
 
 export default function EstimationPage() {
   return <Grid columns={2} mobileColumns={1} gap="m" >
+    <Schema
+      as="webPage"
+      baseURL={baseURL}
+      path={estimation.path}
+      title={estimation.title}
+      description={estimation.description}
+      image={`${baseURL}/og?title=${encodeURIComponent(estimation.title)}`}
+      author={{
+        name: person.name,
+        url: `${baseURL}${about.path}`,
+        image: `${baseURL}${person.avatar}`,
+      }}
+    />
+
+
     {siteTypes.map(({ name, basePrice, icon, description, includes,slug }, _i) => <Card href={`/estimation/${slug}`} direction="column" padding="s" key={name} border="neutral-alpha-weak" radius="m" gap="s" fillWidth background="transparent" position="relative">
       <Background
         fill

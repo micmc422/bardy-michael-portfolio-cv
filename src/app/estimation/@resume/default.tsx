@@ -1,7 +1,7 @@
 "use client"
 
 import { Button, Column, Feedback, Icon, Input, LetterFx, Line, Row, Text, useToast } from "@/once-ui/components"
-import { notFound, useParams, useSearchParams } from "next/navigation"
+import { useParams, useSearchParams } from "next/navigation"
 import { useMemo, useState, useTransition } from "react";
 import { siteTypes } from "../estimationData";
 import { isValidEmail, toQueryParams } from "@/utils/utils";
@@ -22,7 +22,6 @@ export default function ResumePanel() {
     const { addToast } = useToast()
     const { slug } = useParams<{ slug: string }>();
     const activeSiteType = useMemo(() => siteTypes.find((site) => site.slug === slug), [slug]);
-    if (!activeSiteType) notFound()
     const [email, setEmail] = useState<string>()
     const routeParams = useSearchParams()
     const selectedOptions = routeParams.getAll("options")
@@ -60,8 +59,8 @@ export default function ResumePanel() {
     const jsonLD = JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": `Création de site ${activeSiteType.name}`,
-        "description": activeSiteType.description,
+        "name": `Création de site ${activeSiteType?.name}`,
+        "description": activeSiteType?.description,
         "image": "https://occitaweb.fr/images/blog/cv-cover.png", //TODO
         "brand": {
             "@type": "Organization",
@@ -70,18 +69,18 @@ export default function ResumePanel() {
         "category": "Création de site web sur mesure",
         "offers": {
             "@type": "Offer",
-            "price": activeSiteType.basePrice,
+            "price": activeSiteType?.basePrice,
             "priceCurrency": "EUR",
             "priceValidUntil": "2025-10-01",
             "priceSpecification": {
                 "@type": "PriceSpecification",
                 "priceCurrency": "EUR",
-                "price": activeSiteType.basePrice,
+                "price": activeSiteType?.basePrice,
                 "valueAddedTaxIncluded": false
             },
             "availability": "https://schema.org/InStock",
             "url": "https://occitaweb.fr",
-            "addOn": activeOptions.map((opt) => ({
+            "addOn": activeOptions?.map((opt) => ({
                 "@type": "Offer",
                 "name": opt.name,
                 "description": opt.description,
@@ -162,7 +161,7 @@ export default function ResumePanel() {
             <Button prefixIcon="document" fillWidth loading={loading} disabled={!isValidEmail(email) || loading} as="button"
                 onClick={handleSubmit}>Demander un devis</Button>
         </Column>}
-        <Script id={`Estimation-${activeSiteType?.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
+        {!!activeSiteType && <Script id={`Estimation-${activeSiteType?.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />}
 
     </>
 }

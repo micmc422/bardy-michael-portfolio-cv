@@ -1,5 +1,6 @@
 import { getPosts, getProjects } from "@/app/utils/serverActions";
 import { baseURL, routes as routesConfig } from "@/app/resources";
+import { siteTypes } from "./estimation/estimationData";
 
 
 export default async function sitemap() {
@@ -22,8 +23,17 @@ export default async function sitemap() {
       lastModified
     })
   });
+  const estimationsPromises = siteTypes.map(async ({slug}) => {
+    const lastModified = await getFileData(`/estimation`)
+    return ({
+      url: `${baseURL}/estimation/${slug}`,
+      lastModified
+    })
+  });
+
   const routes = await Promise.all([...routesPromise])
-  return [...routes, ...posts, ...works];
+  const estimations = await Promise.all([...estimationsPromises])
+  return [...routes, ...posts, ...works, ...estimations];
 }
 
 async function getFileData(route: string) {
