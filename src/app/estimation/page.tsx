@@ -5,7 +5,7 @@ import type { opacity } from "@/once-ui/types";
 
 export default function EstimationPage() {
   return <Grid columns={2} mobileColumns={1} gap="m" >
-    {siteTypes.map(({ name, basePrice, icon, description, includes,slug }, i) => <Card href={`/estimation/${slug}`} direction="column" padding="s" key={name} border="neutral-alpha-weak" radius="m" gap="s" fillWidth background="transparent" position="relative">
+    {siteTypes.map(({ name, basePrice, icon, description, includes,slug }, _i) => <Card href={`/estimation/${slug}`} direction="column" padding="s" key={name} border="neutral-alpha-weak" radius="m" gap="s" fillWidth background="transparent" position="relative">
       <Background
         fill
         position="absolute"

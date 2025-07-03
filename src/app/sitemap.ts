@@ -1,4 +1,4 @@
-import { getPosts, getProjects, getTags } from "@/app/utils/serverActions";
+import { getPosts, getProjects } from "@/app/utils/serverActions";
 import { baseURL, routes as routesConfig } from "@/app/resources";
 
 
