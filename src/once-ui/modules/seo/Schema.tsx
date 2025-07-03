@@ -143,7 +143,6 @@ export function Schema({
       schema.dateModified = dateModified || datePublished;
     }
   }
-  console.log(as !== "webPage")
   if (author && as !== "webPage") {
     schema.author = {
       "@type": "Person",

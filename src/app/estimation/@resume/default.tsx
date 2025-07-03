@@ -51,7 +51,6 @@ export default function ResumePanel() {
                         commentaires: `${commentaires?.value}`,
                     })
                 })
-                console.log(commentaires?.value)
                 addToast({ variant: "success", message: "Votre estimation a été transmise je vous transmets un devis dans les plus bref délais" })
             } catch (e) {
                 console.error(e)

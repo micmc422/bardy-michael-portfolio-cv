@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(
     req: NextRequest,
-    { params }: { params: { type: string } }
+    { params }: { params: Promise<{ type: string }> }
 ) {
     try {
         const { type } = await params
@@ -39,7 +39,7 @@ export async function POST(
                 },
             ],
         })
-        console.log(res)
+        if (res.rejected) throw new Error("Envoi de l'email rejeté !")
         return NextResponse.json({ success: true })
     } catch (error) {
         console.error(error)
