@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tags: str
     baseURL,
     image: `/og?title=${encodeURIComponent(blog.title)}`,
     path: `${blog.path}/tags/${tags?.join("/")}`,
+    noIndex: true,
   });
 }
 
