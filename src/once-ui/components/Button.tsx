@@ -34,6 +34,7 @@ interface CommonProps {
   style?: React.CSSProperties;
   id?: string;
   arrowIcon?: boolean;
+  as?: "button"
 }
 
 export type ButtonProps = CommonProps &

@@ -13,7 +13,7 @@ export function slugify(str: string): string {
     }
 }
 
-export function delay(ms:number) {
+export function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 export function convertirTimestampGoogle(time: number) {
@@ -23,4 +23,13 @@ export function convertirTimestampGoogle(time: number) {
 export function getRandomSixDigitNumber() {
     return Math.floor(100000 + Math.random() * 900000);
 }
-  
+export function isValidEmail(email?: string) {
+    if (!email) return false;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return regex.test(email)
+}
+export function toQueryParams(key: string, values: string[]) {
+    const params = new URLSearchParams()
+    values.forEach((val) => params.append(key, val))
+    return params.toString()
+    }

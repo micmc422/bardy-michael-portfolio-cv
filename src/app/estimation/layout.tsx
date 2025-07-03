@@ -24,18 +24,25 @@ const servicesInclus: { name: string, icon: string, desc: string, bgColor?: Colo
     },
 ]
 
-export default async function EstimationLayout({ children }: { children: ReactNode }) {
+export default async function EstimationLayout({ children, resume, headline }: { children: ReactNode, resume: ReactNode, headline: ReactNode }) {
     return <Column center maxWidth={"l"}>
-            <Heading variant="display-strong-xl">Estimation de votre <Text onBackground="brand-weak">projet</Text></Heading>
-            <Text variant="body-default-xl" align="center" wrap="balance" onBackground="neutral-weak">Obtenez une estimation personnalisée pour votre site internet. Du <b>site vitrine</b> au <b>CRM</b> complexe, nous adaptons nos solutions à vos besoins.</Text>
-            {children}
-            <Column background="surface" gap="m" padding="m" radius="xl">
-                <Heading variant="display-strong-m">Services inclus</Heading>
+        {headline}
+        <Row fillWidth gap="l" paddingY="xl" mobileDirection="column">
+            <Column flex={8} background="surface" padding="m" radius="xl">
+                {children}
+            </Column>
+            <Column flex={3} background="surface" padding="m" radius="m" gap="m">
+                {resume}
+            </Column>
+        </Row>
+
+        <Column background="surface" gap="m" padding="m" radius="xl">
+            <Heading variant="display-strong-m">Services inclus</Heading>
             <Row mobileDirection="column" gap="s">
                 <ServicesInclus />
             </Row>
-            </Column>
         </Column>
+    </Column>
 }
 
 function ServicesInclus() {

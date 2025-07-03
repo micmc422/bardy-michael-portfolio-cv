@@ -8,6 +8,9 @@ const person = {
   role: "Développeur Fullstack",
   avatar: "/images/avatar.jpg",
   email: "michael.bardy@occitaweb.fr",
+  adress: "25 avenue Gambetta",
+  postCode: "81000",
+  phone: "(+33) 06 72 11 50 06",
   location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   place: "Albi, France",
   languages: ["Français"], // optional: Leave the array empty if you don't want to display languages
@@ -313,6 +316,14 @@ const blog = {
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
+const estimation = {
+  path: "/estimation",
+  label: "Estimation",
+  title: `Estimation de votre projet web`,
+  description: `Réalisez une estimation en ligne de votre projet, transmettez moi l'estimation et je réaliserais un devis en 72h.`,
+  // Create new blog posts by adding a new .mdx file to app/blog/posts
+  // All posts will be listed on the /blog route
+};
 
 const work = {
   path: "/realisations",
@@ -374,4 +385,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, rendezVous, home, about, blog, work, gallery };
+export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery };

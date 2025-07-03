@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { getPostDataBySlug, getProjectData } from "../utils/serverActions";
+import { siteTypes } from "../estimation/estimationData";
 
 export const runtime = "edge";
 
@@ -13,6 +14,7 @@ export async function GET(request: Request) {
   const type = searchParams.get("type");
   let title = searchParams.get("title") || "Portfolio Michaël Bardy"
   let image = undefined;
+  let totalPrice = 0;
   let tags: { name: string }[] = [];
   if (type === "post" && slug) {
     const post = await getPostDataBySlug(slug);
@@ -29,6 +31,21 @@ export async function GET(request: Request) {
       date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
       title = project.content.title;
       image = project.content.image;
+    }
+  }
+  if (type === "estimation" && slug) {
+    const activeSiteType = siteTypes.find((site) => site.slug === slug)
+    const selectedOptions = searchParams.getAll("options");
+    const activeOptions = activeSiteType?.options.filter((opt) =>
+      !!selectedOptions.find(slctOpt => opt.slug === slctOpt)
+    )
+    if (activeSiteType) {
+      totalPrice = activeSiteType?.basePrice
+      activeOptions?.forEach(({ price }) => totalPrice += price)
+      const postDate = new Date();
+      date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
+      title = "Estimation : " + activeSiteType.name;
+      tags = activeOptions?.map(opt => ({ name: opt.name })) || []
     }
   }
 
@@ -73,7 +90,7 @@ export async function GET(request: Request) {
           height: "800px",
           borderRadius: "100%",
           objectFit: "cover",
-          zIndex: "-1"
+          zIndex: -1
         }}
       />
         : <div
@@ -88,6 +105,39 @@ export async function GET(request: Request) {
           }}
         />
       }
+      {totalPrice > 0 && <div
+        style={{
+          width: "300px",
+          textAlign: "center",
+          display: "flex",
+          position: "absolute",
+          top: "50px",
+          right: "0px",
+          zIndex: 1,
+          fontFamily: "Josefin Bold",
+          fontWeight: 900,
+          fontSize: "36px",
+          color: "white"
+        }}>
+        à partir de 
+      </div>}
+      {totalPrice > 0 && <div
+        style={{
+          width: "300px",
+          textAlign: "center",
+          display: "flex",
+          position: "absolute",
+          top: "100px",
+          right: "0px",
+          zIndex: 1,
+          fontFamily: "Josefin Bold",
+          fontWeight: 900,
+          fontSize: "82px",
+          color: "white"
+        }}>
+        {totalPrice} €
+      </div>}
+
       <div
         style={{
 
@@ -194,10 +244,12 @@ export async function GET(request: Request) {
         </h1>
         {tags?.length > 0 && <div style={{
           display: "flex",
-          gap: "8px"
+          gap: "8px",
+          flexWrap: "wrap"
         }}
         >
-          {tags?.map(({ name }) => <span key={name} style={{
+          {tags?.slice(0,5)?.map(({ name }) => <div key={name} style={{
+            display: "flex",
             backgroundColor: "#9900ff",
             padding: "4px",
             borderRadius: "3px",
@@ -207,7 +259,10 @@ export async function GET(request: Request) {
             margin: 0,
             textShadow: "0 4px 8px rgba(0,0,0,0.3)",
             fontFamily: "Josefin Bold",
-          }}>{name}</span>)}
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}>{name}</div>)}
         </div>}
       </div>
 

@@ -6,6 +6,7 @@ const routes = {
   "/a-propos": true, // /about
   "/realisations": true, // /work
   "/blog": true,
+  "/estimation": true,
 };
 
 // Enable password protection on selected routes
