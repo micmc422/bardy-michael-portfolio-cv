@@ -59,7 +59,7 @@ export async function GET(req: Request) {
     // Parcours les articles récupérés. Dans cet exemple, il n'y a qu'un seul article grâce à `limit: 1`.
     for (const article of articles) {
         // Vérifie si l'article est récent (publié il y a moins de 24 heures) et a bien une date de publication.
-        if (article.metadata.publishedAt && isLessThan24HoursOld(article.metadata.publishedAt)) {
+        if (article.metadata.publishedAt) {
             // Vérifie si l'article a déjà été partagé pour éviter les doublons.
             // C'est essentiel pour ne pas spammer les flux sociaux avec le même contenu.
             if (sharedArticlesSlugs.includes(article.slug)) {
@@ -132,11 +132,11 @@ export async function GET(req: Request) {
             }
 
         } else {
-            // Cas où l'article n'est pas éligible au partage (plus de 24h ou sans date de publication).
+            // Cas où l'article n'est pas éligible au partage (ou sans date de publication).
             console.log(`⏭️ L'article "${article.slug}" a plus de 24 heures ou n'est pas publié. Il ne sera pas diffusé.`);
             return NextResponse.json({
                 status: 'skipped',
-                message: `L'article "${article.slug}" n'est pas éligible au partage (plus de 24h ou non publié).`
+                message: `L'article "${article.slug}" n'est pas éligible au partage (non publié).`
             });
         }
     }
@@ -146,15 +146,3 @@ export async function GET(req: Request) {
     return NextResponse.json({ status: 'no_articles', message: 'Aucun article éligible trouvé à partager.' });
 }
 
-/**
- * Fonction utilitaire pour vérifier si une date de publication est récente (moins de 24 heures).
- * @param dateString La date de publication de l'article sous forme de chaîne (ex: ISO 8601).
- * @returns {boolean} `true` si l'article a moins de 24 heures, `false` sinon.
- */
-function isLessThan24HoursOld(dateString: string): boolean {
-    const publishedDate = new Date(dateString);
-    const now = new Date();
-    const diffMs = now.getTime() - publishedDate.getTime(); // Calcul de la différence en millisecondes
-    const diffHours = diffMs / (1000 * 60 * 60); // Conversion des millisecondes en heures
-    return diffHours < 24;
-}
