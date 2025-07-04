@@ -69,7 +69,7 @@ export default function ResumePanel() {
         "category": "Création de site web sur mesure",
         "offers": {
             "@type": "Offer",
-            "price": activeSiteType?.basePrice,
+            "price": totalPrice,
             "priceCurrency": "EUR",
             "priceValidUntil": "2025-10-01",
             "priceSpecification": {
