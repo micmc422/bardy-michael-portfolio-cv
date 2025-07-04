@@ -149,7 +149,7 @@ export default function ResumePanel() {
         {!!activeSiteType && <Line />}
         <Column>
             {
-                activeSiteType ? <Column>
+                activeSiteType && <Column>
                     <Row horizontal="space-between" vertical="center">
                         <Text variant="label-default-s">Total HT par an : </Text>
                         <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
@@ -161,8 +161,6 @@ export default function ResumePanel() {
                         </Text>
                     </Row>
                 </Column>
-                    :
-                    <Text variant="label-default-l" onBackground="neutral-weak">sélectionnez un type de site</Text>
             }
             {
                 activeSiteType ? <Column>
