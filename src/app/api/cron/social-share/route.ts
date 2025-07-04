@@ -79,7 +79,7 @@ export async function GET(req: Request) {
             try {
                 await Promise.all([
                     postToFacebook(postData),
-                    postToLinkedIn(postData) // Décommenté : Assurez-vous que cette fonction est bien configurée.
+                    postToLinkedIn(postData)
                 ]);
 
                 console.log(`✅ Article "${article.slug}" partagé avec succès sur les médias sociaux.`);
