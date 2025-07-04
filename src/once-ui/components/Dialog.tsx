@@ -32,7 +32,7 @@ const DialogContext = React.createContext<{
   setStackedDialogOpen: (open: boolean) => void;
 }>({
   stackedDialogOpen: false,
-  setStackedDialogOpen: () => { undefined },
+  setStackedDialogOpen: () => null,
 });
 
 export const DialogProvider: React.FC<{
