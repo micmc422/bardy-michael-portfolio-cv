@@ -95,7 +95,7 @@ const Switch: React.FC<SwitchProps> = forwardRef<HTMLInputElement, SwitchProps>(
             {loading && <Spinner size="xs" />}
           </div>
         </div>
-        {props.label && <InteractiveDetails {...props} onClick={() => {}} />}
+        {props.label && <InteractiveDetails {...props} onClick={() => { undefined }} />}
       </Flex>
     );
   },

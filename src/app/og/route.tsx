@@ -187,20 +187,20 @@ export async function GET(request: Request) {
               <path d="M278.358 3.05867C313.049 14.3286 332.567 53.303 321.966 90.1213L213.024 468.461C202.423 505.279 165.715 526.002 131.049 514.748C96.3826 503.494 76.8358 464.515 87.4564 427.703L196.38 49.3535C206.989 12.5375 243.697 -8.18505 278.358 3.05867Z" fill="url(#paint3_linear_2770_4889)" />
               <defs>
                 <linearGradient id="paint0_linear_2770_4889" x1="202.41" y1="465.543" x2="265.728" y2="59.685" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#FA541C" />
-                  <stop offset="1" stop-color="#D62828" />
+                  <stop stopColor="#FA541C" />
+                  <stop offset="1" stopColor="#D62828" />
                 </linearGradient>
                 <linearGradient id="paint1_linear_2770_4889" x1="202.41" y1="465.543" x2="265.728" y2="59.685" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#FA541C" />
-                  <stop offset="1" stop-color="#D62828" />
+                  <stop stopColor="#FA541C" />
+                  <stop offset="1" stopColor="#D62828" />
                 </linearGradient>
                 <linearGradient id="paint2_linear_2770_4889" x1="202.41" y1="465.543" x2="265.728" y2="59.685" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#FA541C" />
-                  <stop offset="1" stop-color="#D62828" />
+                  <stop stopColor="#FA541C" />
+                  <stop offset="1" stopColor="#D62828" />
                 </linearGradient>
                 <linearGradient id="paint3_linear_2770_4889" x1="202.41" y1="465.543" x2="265.728" y2="59.685" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#FA541C" />
-                  <stop offset="1" stop-color="#D62828" />
+                  <stop stopColor="#FA541C" />
+                  <stop offset="1" stopColor="#D62828" />
                 </linearGradient>
               </defs>
             </svg>

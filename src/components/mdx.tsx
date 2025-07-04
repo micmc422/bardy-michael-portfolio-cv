@@ -37,7 +37,7 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
   if (href.startsWith("https://www.wisp.blog")) {
     return <>
       <br />
-      <a href={href} {...props} style={{ marginTop: "2rem", display: "block", textAlign: "center" }} rel="nofollow" target="_blank">
+      <a href={href} {...props} style={{ marginTop: "2rem", display: "block", textAlign: "center" }} rel="nofollow noreferrer" target="_blank">
         {children}
       </a>
     </>

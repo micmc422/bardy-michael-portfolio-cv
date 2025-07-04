@@ -25,7 +25,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           (onClick || href) && "radius-l",
         )}
         href={href}
-        onClick={onClick ? onClick : () => {}}
+        onClick={onClick ? onClick : undefined}
         role="button"
         ref={ref}
       >
