@@ -6,6 +6,8 @@ import { useMemo, useState, useTransition } from "react";
 import { siteTypes } from "../estimationData";
 import { isValidEmail, toQueryParams } from "@/utils/utils";
 import Script from "next/script";
+import { baseURL } from "@/app/resources";
+import { estimation } from "@/app/resources/content";
 
 function getPriceValidUntilDate() {
     const date = new Date();
@@ -61,7 +63,7 @@ export default function ResumePanel() {
         "@type": "Product",
         "name": `Création de site ${activeSiteType?.name}`,
         "description": activeSiteType?.description,
-        "image": "https://occitaweb.fr/images/blog/cv-cover.png", //TODO
+        "image": activeSiteType?.slug ? `${baseURL}/og?type=estimation&slug=${activeSiteType.slug}` : `${baseURL}/og?title=${encodeURIComponent(estimation.title)}`, //TODO
         "brand": {
             "@type": "Organization",
             "name": "Occitaweb"

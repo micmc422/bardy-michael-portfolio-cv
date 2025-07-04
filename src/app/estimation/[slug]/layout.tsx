@@ -1,7 +1,7 @@
 import { baseURL } from "@/app/resources";
 import { estimation } from "@/app/resources/content";
 import { Meta } from "@/once-ui/modules";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { siteTypes } from "../estimationData";
 import { notFound } from "next/navigation";
 
@@ -24,5 +24,5 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function EstimationSlugLayout({ children }: { children: ReactNode }) {
-    return <>{children}</>
+    return <Suspense>{children}</Suspense>
 }
