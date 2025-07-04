@@ -1,4 +1,5 @@
 "use client"
+
 import { Checkbox, Column, Feedback, Grid, Row, Text, Textarea, ToggleButton } from "@/once-ui/components";
 import { siteTypes, type Option } from "../estimationData";
 import { use, useMemo } from "react";
@@ -30,7 +31,6 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
                 image: `${baseURL}${person.avatar}`,
             }}
         />
-
         <Row center wrap gap="s" paddingY="m">
             {siteTypes.map((site) => <ToggleButton prefixIcon={site.icon} key={site.slug} label={site.name} selected={site.slug === slug} href={`/estimation/${site.slug}`} size="s" />)}
         </Row>

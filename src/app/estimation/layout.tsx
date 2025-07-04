@@ -1,5 +1,5 @@
 import { Background, Column, Heading, Icon, Row, Text } from "@/once-ui/components";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { rdv } from "../resources";
 import type { ColorScheme, ColorWeight, opacity } from "@/once-ui/types";
 
@@ -26,13 +26,13 @@ const servicesInclus: { name: string, icon: string, desc: string, bgColor?: Colo
 
 export default async function EstimationLayout({ children, resume, headline }: { children: ReactNode, resume: ReactNode, headline: ReactNode }) {
     return <Column center maxWidth={"l"}>
-        {headline}
+        <Suspense>{headline}</Suspense>
         <Row fillWidth gap="l" paddingY="xl" mobileDirection="column">
             <Column flex={8} background="surface" padding="m" radius="xl">
                 {children}
             </Column>
             <Column flex={3} background="surface" padding="m" radius="m" gap="m">
-                {resume}
+                <Suspense>{resume}</Suspense>
             </Column>
         </Row>
 
