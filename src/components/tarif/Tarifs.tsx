@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
 import styles from "./Tarifs.module.scss";
-import { Row, Column, Heading, Text, Background, Line } from "@/once-ui/components";
+import { Row, Column, Heading, Text, Background, Line, Button } from "@/once-ui/components";
 import { rdv } from "@/app/resources/config";
 import type { opacity } from "@/once-ui/types";
 import Script from "next/script";
@@ -11,6 +11,7 @@ import { getRandomSixDigitNumber } from "@/utils/utils";
 
 type PricingItem = {
     title: string;
+    slug: string;
     price: string;
     features: string[];
     notes?: string;
@@ -33,6 +34,7 @@ const { rating, reviews } = await getAvis();
 const defaultTarifs: PricingItem[] = [
     {
         "title": "Création de site web",
+        "slug": "vitrine",
         "price": "600 € HT",
         "features": [
             "Site vitrine sur mesure (WordPress ou Next.js)",
@@ -78,6 +80,7 @@ const defaultTarifs: PricingItem[] = [
     },
     {
         "title": "Refonte & Optimisation",
+        "slug": "optimisation",
         "price": "600 € HT",
         "features": [
             "Audit UX / SEO / performance",
@@ -122,6 +125,7 @@ const defaultTarifs: PricingItem[] = [
     },
     {
         "title": "Maintenance & gestion",
+        "slug": "maintenance",
         "price": "50 € HT / mois",
         "features": [
             "Mises à jour régulières (CMS, plugins, sécurité)",
@@ -233,7 +237,7 @@ interface VoletProps extends React.ComponentProps<typeof Column> {
 
 const Volet = forwardRef<HTMLDivElement, VoletProps>(
     ({ volet, className, style, ...rest }, ref) => {
-        const { title, price, features, notes, jsonLD } = volet;
+        const { title, slug, price, features, notes, jsonLD } = volet;
         return (
             <Column radius="l-4"
                 ref={ref}
@@ -289,6 +293,9 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     <Text onBackground="accent-weak">À partir de :</Text>
                     <Text variant="display-strong-xs" onBackground="success-strong">{price}</Text>
                     <Text variant="body-default-xs" onBackground="neutral-strong" align="center">{notes}</Text>
+                </Column>
+                <Column padding="m" center>
+                    <Button variant="primary" href={`/estimation/${slug}`}>Estimation en ligne</Button>
                 </Column>
                 <Script id={`Tarifs-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
             </Column>
