@@ -86,7 +86,7 @@ const home = {
 const about = {
   path: "/a-propos",
   label: "Qui suis-je ?",
-  title: `${person.name}`,
+  title: `${person.name} Développeur full-stack`,
   description: `Découvrez ${person.name}, ${person.role} basé à ${person.place}`,
   tableOfContent: {
     display: true,
