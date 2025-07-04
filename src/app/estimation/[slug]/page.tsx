@@ -9,6 +9,8 @@ import { Schema } from "@/once-ui/modules";
 import { baseURL } from "@/app/resources";
 import { about, estimation, person } from "@/app/resources/content";
 
+
+
 export default function EstimationTypePage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
     const routeParams = useSearchParams()

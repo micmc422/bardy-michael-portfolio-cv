@@ -24,6 +24,7 @@ const servicesInclus: { name: string, icon: string, desc: string, bgColor?: Colo
     },
 ]
 
+
 export default async function EstimationLayout({ children, resume, headline }: { children: ReactNode, resume: ReactNode, headline: ReactNode }) {
     return <Column center maxWidth={"l"}>
         <Suspense>{headline}</Suspense>

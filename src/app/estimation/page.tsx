@@ -3,7 +3,17 @@ import { siteTypes } from "./estimationData";
 import { baseURL, rdv } from "../resources";
 import type { opacity } from "@/once-ui/types";
 import { about, estimation, person } from "../resources/content";
-import { Schema } from "@/once-ui/modules";
+import { Meta, Schema } from "@/once-ui/modules";
+
+export async function generateMetadata() {
+    return Meta.generate({
+        title: estimation.title,
+        description: estimation.description,
+        baseURL: baseURL,
+        image: `${baseURL}/og?title=${encodeURIComponent(estimation.title)}`,
+        path: estimation.path,
+    });
+}
 
 export default function EstimationPage() {
   return <>
