@@ -11,6 +11,8 @@ export interface PricingTier {
     name: string
     slug: string
     basePrice: number
+    annualPrice: number
+    periodicite?: "annuelle" | "mensuelle";
     icon: string
     description: string
     includes: string[]
@@ -21,13 +23,14 @@ export interface PricingTier {
 export interface Option {
     name: string;
     price: number;
+    periodicite?: "annuelle" | "mensuelle";
     icon: string;
     slug: string;
     description: string;
 }
 
 
-export const vitrineAdditionalFeatures = [
+export const vitrineAdditionalFeatures: Option[] = [
     {
         name: "Blog intégré",
         price: 400,
@@ -59,6 +62,7 @@ export const vitrineAdditionalFeatures = [
     {
         name: "Maintenance et mises à jour annuelles",
         price: 500,
+        periodicite: "annuelle",
         icon: "settings",
         slug: "maintenance-annuelle",
         description: "Assurez la sécurité, le bon fonctionnement et la compatibilité de votre site avec les dernières technologies, tout au long de l'année."
@@ -100,7 +104,7 @@ export const vitrineAdditionalFeatures = [
     },
 ];
 
-export const portfolioAdditionalFeatures = [
+export const portfolioAdditionalFeatures: Option[] = [
     {
         name: "Intégration de réseaux sociaux avancée",
         price: 200,
@@ -167,13 +171,14 @@ export const portfolioAdditionalFeatures = [
     {
         name: "Maintenance et mises à jour annuelles",
         price: 500,
+        periodicite: "annuelle",
         icon: "settings",
         slug: "maintenance-annuelle",
         description: "Garantissez le bon fonctionnement de votre portfolio, sa sécurité et l'accès aux dernières fonctionnalités pour une image professionnelle constante."
     },
 ];
 
-export const ecommerceAdditionalFeatures = [
+export const ecommerceAdditionalFeatures: Option[] = [
     {
         name: "Gestion des stocks avancée",
         price: 600,
@@ -246,7 +251,7 @@ export const ecommerceAdditionalFeatures = [
     },
 ];
 
-export const crmPlateformeAdditionalFeatures = [
+export const crmPlateformeAdditionalFeatures: Option[] = [
     {
         name: "Tableaux de bord personnalisables",
         price: 800,
@@ -306,6 +311,7 @@ export const crmPlateformeAdditionalFeatures = [
     {
         name: "Support et maintenance niveau 2",
         price: 1200,
+        periodicite: "annuelle",
         icon: "life-buoy",
         slug: "support-maintenance-n2",
         description: "Bénéficiez d'un support technique approfondi pour résoudre les problèmes complexes et assurer la continuité de service de votre plateforme."
@@ -318,7 +324,7 @@ export const crmPlateformeAdditionalFeatures = [
         description: "Assurez une prise en main rapide et efficace de la plateforme pour tous vos utilisateurs grâce à des sessions de formation complètes et adaptées."
     },
 ];
-export const optimisationAdditionalFeatures = [
+export const optimisationAdditionalFeatures: Option[] = [
     {
         name: "Audit complet UX / SEO / technique",
         price: 300,
@@ -369,7 +375,7 @@ export const optimisationAdditionalFeatures = [
         description: "Transfert sécurisé de votre site vers un hébergement plus performant, avec gestion DNS et configuration SSL incluses."
     }
 ]
-export const gestionAdditionalFeatures = [
+export const gestionAdditionalFeatures: Option[] = [
     {
         name: "Pack Sérénité (3h de modifications/mois)",
         price: 120,
@@ -380,6 +386,7 @@ export const gestionAdditionalFeatures = [
     {
         name: "Surveillance de sécurité 24/7",
         price: 90,
+        periodicite: "mensuelle",
         icon: "shield-off",
         slug: "surveillance-securite",
         description: "Détection proactive des intrusions, alertes en temps réel, protection renforcée contre les attaques et malwares."
@@ -387,6 +394,7 @@ export const gestionAdditionalFeatures = [
     {
         name: "Rapport mensuel d'activité",
         price: 60,
+        periodicite: "mensuelle",
         icon: "file-bar-chart",
         slug: "rapport-activite",
         description: "Recevez chaque mois un rapport clair sur les mises à jour, sauvegardes, statistiques de fréquentation et état global du site."
@@ -394,6 +402,7 @@ export const gestionAdditionalFeatures = [
     {
         name: "Intervention urgente garantie sous 24h",
         price: 80,
+        periodicite: "mensuelle",
         icon: "alert-triangle",
         slug: "intervention-urgence",
         description: "En cas de bug ou de panne, bénéficiez d’une prise en charge prioritaire sous 24h, même le week-end."
@@ -401,6 +410,7 @@ export const gestionAdditionalFeatures = [
     {
         name: "Sauvegardes externes (multi-localisation)",
         price: 50,
+        periodicite: "mensuelle",
         icon: "database",
         slug: "sauvegardes-externe",
         description: "Ajout d’un système de sauvegarde en cloud décentralisé (ex : Dropbox, AWS, Google Drive) pour plus de sécurité."
@@ -408,6 +418,7 @@ export const gestionAdditionalFeatures = [
     {
         name: "Optimisation mensuelle des performances",
         price: 100,
+        periodicite: "mensuelle",
         icon: "cpu",
         slug: "optimisation-performance-mensuelle",
         description: "Audit et nettoyage mensuel des fichiers inutiles, base de données, cache, images lourdes pour garder un site fluide."
@@ -415,6 +426,7 @@ export const gestionAdditionalFeatures = [
     {
         name: "Ajout de contenu mensuel (1 article ou page)",
         price: 150,
+        periodicite: "mensuelle",
         icon: "plus-square",
         slug: "ajout-contenu-mensuel",
         description: "Publiez régulièrement un article ou une nouvelle page, avec intégration optimisée et relecture incluse."
@@ -426,6 +438,7 @@ export const siteTypes: PricingTier[] = [
         name: "Site Vitrine",
         slug: "vitrine",
         basePrice: 600,
+        annualPrice: 250,
         icon: "globe",
         description: "Site de présentation simple et élégant",
         includes: ["Design responsive", "5-10 pages", "Formulaire de contact", "SEO de base"],
@@ -434,7 +447,8 @@ export const siteTypes: PricingTier[] = [
     {
         name: "Portfolio",
         slug: "portfolio",
-        basePrice: 1200,
+        basePrice: 800,
+        annualPrice: 250,
         icon: "briefcase",
         description: "Showcase professionnel de vos réalisations",
         includes: ["Galerie interactive", "Blog intégré", "Animations", "Optimisation images"],
@@ -444,6 +458,7 @@ export const siteTypes: PricingTier[] = [
         name: "E-commerce",
         slug: "e-commerce",
         basePrice: 2500,
+        annualPrice: 1000,
         icon: "shoppingCart",
         description: "Boutique en ligne complète",
         includes: ["Catalogue produits", "Panier", "Paiement sécurisé", "Gestion commandes"],
@@ -453,6 +468,7 @@ export const siteTypes: PricingTier[] = [
         name: "CRM/Plateforme",
         slug: "CRM",
         basePrice: 4500,
+        annualPrice: 2000,
         icon: "users",
         description: "Application web sur mesure",
         includes: ["Interface admin", "Base de données", "Authentification", "API personnalisée"],
@@ -462,6 +478,7 @@ export const siteTypes: PricingTier[] = [
         name: "Refonte & Optimisation",
         slug: "optimisation",
         basePrice: 600,
+        annualPrice: 0,
         icon: "palette",
         description: "Amélioration des performance organique de votre site. Rapidité, fonctionnalité design.",
         includes: ["Audit UX / SEO / performance",
@@ -473,6 +490,7 @@ export const siteTypes: PricingTier[] = [
         name: "Maintenance & gestion",
         slug: "maintenance",
         basePrice: 50,
+        annualPrice: 250,
         icon: "construction",
         description: "Gestion courant de votre site.",
         includes: ["Mises à jour régulières (CMS, plugins, sécurité)", "Sauvegardes automatisées", "Assistance prioritaire & suivi des performances", "1h de modifications incluses chaque mois"],

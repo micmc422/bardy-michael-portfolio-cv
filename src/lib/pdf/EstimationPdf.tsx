@@ -213,11 +213,22 @@ export function EstimationPdf({ type, options, email, commentaires = "" }: Props
     const activeOptions = activeSiteType?.options.filter((opt) =>
         !!options.find(slctOpt => opt.slug === slctOpt)
     );
-    const totalPrice = () => {
-        let total = activeSiteType?.basePrice || 0;
-        activeOptions?.forEach(({ price }) => total += price)
-        return total
-    }
+    const getTotals = () => {
+        let total = 0;
+        let monthly = 0;
+        let annualy = activeSiteType?.annualPrice || 0;
+        activeOptions?.forEach(({ price, periodicite }) => {
+            if (!periodicite) {
+                total += price;
+            } else if (periodicite === "mensuelle") {
+                monthly += price;
+            } else if (periodicite === "annuelle") {
+                annualy += price;
+            }
+        });
+        return { total, monthly, annualy };
+    };
+    const { total: totalPrice, monthly, annualy } = getTotals();
 
     return (
         <Document>
@@ -290,16 +301,20 @@ export function EstimationPdf({ type, options, email, commentaires = "" }: Props
                 <View style={styles.summaryContainer}>
                     <View style={styles.summaryBox}>
                         <View style={styles.summaryRow}>
+                            <Text style={styles.summaryLabel}>Coût annuel HT :</Text>
+                            <Text style={styles.summaryValue}>{(annualy + monthly * 12).toFixed(2)} €</Text>
+                        </View>
+                        <View style={styles.summaryRow}>
                             <Text style={styles.summaryLabel}>Sous-total HT :</Text>
-                            <Text style={styles.summaryValue}>{totalPrice().toFixed(2)} €</Text>
+                            <Text style={styles.summaryValue}>{totalPrice.toFixed(2)} €</Text>
                         </View>
                         <View style={styles.summaryRow}>
                             <Text style={styles.summaryLabel}>TVA (20%) :</Text>
-                            <Text style={styles.summaryValue}>{(totalPrice() * 0.2).toFixed(2)} €</Text>
+                            <Text style={styles.summaryValue}>{(totalPrice * 0.2).toFixed(2)} €</Text>
                         </View>
                         <View style={styles.totalRow}>
                             <Text style={styles.totalLabel}>TOTAL TTC :</Text>
-                            <Text style={styles.totalValue}>{(totalPrice() * 1.2).toFixed(2)} €</Text>
+                            <Text style={styles.totalValue}>{(totalPrice * 1.2).toFixed(2)} €</Text>
                         </View>
                     </View>
                 </View>

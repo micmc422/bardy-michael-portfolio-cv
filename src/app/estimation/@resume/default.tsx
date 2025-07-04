@@ -31,10 +31,23 @@ export default function ResumePanel() {
     const activeOptions = useMemo(() => activeSiteType?.options.filter((opt) =>
         !!selectedOptions.find(slctOpt => opt.slug === slctOpt)
     ), [selectedOptions, activeSiteType]);
-    const totalPrice = useMemo(() => {
+
+    const { total: totalPrice, monthly, annualy } = useMemo(() => {
+        let monthly = 0;
+        let annualy = activeSiteType?.annualPrice || 0;
         let total = activeSiteType?.basePrice || 0;
-        activeOptions?.forEach(({ price }) => total += price)
-        return total
+        activeOptions?.forEach(({ price, periodicite }) => {
+            if (!periodicite) {
+                total += price
+            }
+            if (periodicite === "mensuelle") {
+                monthly += price
+            }
+            if (periodicite === "annuelle") {
+                annualy += price
+            }
+        })
+        return { total, monthly, annualy }
     }, [activeOptions, activeSiteType])
     const query = toQueryParams("options", selectedOptions)
     function handleSubmit() {
@@ -116,7 +129,7 @@ export default function ResumePanel() {
 
         {activeOptions &&
             <Column gap="2">
-                {activeOptions?.map(({ name, price, slug }) => <Row horizontal="space-between" key={slug} fillWidth>
+                {activeOptions?.map(({ name, price, slug, periodicite }) => <Row horizontal="space-between" key={slug} fillWidth>
                     <Text variant="body-default-xs" onBackground="neutral-weak">
                         <LetterFx
                             speed="fast"
@@ -125,27 +138,69 @@ export default function ResumePanel() {
                         </LetterFx>
                     </Text>
 
-                    <Text variant="body-strong-xs" onBackground="accent-weak">{price}€</Text>
+                    <Text variant="body-strong-xs" onBackground="accent-weak">{price}€
+                        {periodicite === "mensuelle" && "/mois"}
+                        {periodicite === "annuelle" && "/an"}
+                    </Text>
+
                 </Row>)}
             </Column>
         }
         {!!activeSiteType && <Line />}
-        {
-            activeSiteType ?
-                <Row horizontal="space-between" vertical="center">
-                    <Text variant="label-strong-l">Total estimé : </Text>
-                    <Text variant="display-strong-xs" onBackground="accent-weak">                        <LetterFx
-                        key={totalPrice}
-                        speed="fast"
-                        trigger="instant">
-                        {`${totalPrice}€`}
-                    </LetterFx>
-                    </Text>
-                </Row>
-                :
-                <Text variant="label-default-l" onBackground="neutral-weak">sélectionnez un type de site</Text>
-        }
-
+        <Column>
+            {
+                activeSiteType ? <Column>
+                    <Row horizontal="space-between" vertical="center">
+                        <Text variant="label-default-s">Total HT par an : </Text>
+                        <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
+                            key={annualy + monthly * 12}
+                            speed="fast"
+                            trigger="instant">
+                            {`${annualy + monthly * 12}€`}
+                        </LetterFx>
+                        </Text>
+                    </Row>
+                </Column>
+                    :
+                    <Text variant="label-default-l" onBackground="neutral-weak">sélectionnez un type de site</Text>
+            }
+            {
+                activeSiteType ? <Column>
+                    <Row horizontal="space-between" vertical="center">
+                        <Text variant="label-default-s">Total HT estimé : </Text>
+                        <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
+                            key={totalPrice}
+                            speed="fast"
+                            trigger="instant">
+                            {`${totalPrice}€`}
+                        </LetterFx>
+                        </Text>
+                    </Row>
+                    <Row horizontal="space-between" vertical="center" paddingTop="s">
+                        <Text variant="label-default-s">TVA 20% : </Text>
+                        <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
+                            key={(totalPrice + annualy + monthly * 12) * 0.2}
+                            speed="fast"
+                            trigger="instant">
+                            {`${(totalPrice + annualy + monthly * 12) * 0.2}€`}
+                        </LetterFx>
+                        </Text>
+                    </Row>
+                    <Row horizontal="space-between" vertical="center">
+                        <Text variant="label-strong-l">Total TTC Annuel : </Text>
+                        <Text variant="display-strong-xs" onBackground="accent-weak">                        <LetterFx
+                            key={(totalPrice + annualy + monthly * 12) * 1.2}
+                            speed="fast"
+                            trigger="instant">
+                            {`${(totalPrice + annualy + monthly * 12) * 1.2}€`}
+                        </LetterFx>
+                        </Text>
+                    </Row>
+                </Column>
+                    :
+                    <Text variant="label-default-l" onBackground="neutral-weak">sélectionnez un type de site</Text>
+            }
+        </Column>
         {activeSiteType && slug && <Column gap="s">
             <Feedback
                 variant="success"

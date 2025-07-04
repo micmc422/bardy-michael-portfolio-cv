@@ -1,0 +1,4 @@
+{
+  "ignoreDirs": [".next", "dist", "out", "node_modules"],
+  "ignoreMatches": ["@types/*", "next", "eslint", "typescript"]
+}
