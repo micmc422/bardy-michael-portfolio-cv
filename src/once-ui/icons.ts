@@ -40,7 +40,7 @@ import {
 } from "react-icons/hi2";
 
 import { GoRepoForked } from "react-icons/go";
-
+import { IoIosConstruct } from "react-icons/io";
 import { IoAtOutline, IoFastFoodOutline, IoFlagOutline, IoFootballOutline, IoGiftOutline, IoGlobeOutline, IoPawOutline, IoShieldCheckmark } from "react-icons/io5";
 
 import {
@@ -122,7 +122,8 @@ export const iconLibrary: Record<string, IconType> = {
   palette: PiPaletteBold,
   mobile: PiDeviceMobile,
   shield: IoShieldCheckmark,
-  euro: FaEuroSign
+  euro: FaEuroSign,
+  construction: IoIosConstruct
 };
 
 export type IconLibrary = typeof iconLibrary;

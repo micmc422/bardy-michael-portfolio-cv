@@ -33,7 +33,7 @@ const { rating, reviews } = await getAvis();
 const defaultTarifs: PricingItem[] = [
     {
         "title": "Création de site web",
-        "price": "1 200 € HT",
+        "price": "600 € HT",
         "features": [
             "Site vitrine sur mesure (WordPress ou Next.js)",
             "Design responsive & optimisé SEO",

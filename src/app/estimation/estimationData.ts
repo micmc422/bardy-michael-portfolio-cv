@@ -15,6 +15,7 @@ export interface PricingTier {
     description: string
     includes: string[]
     options: Option[]
+    notes?: string
 }
 
 export interface Option {
@@ -317,6 +318,108 @@ export const crmPlateformeAdditionalFeatures = [
         description: "Assurez une prise en main rapide et efficace de la plateforme pour tous vos utilisateurs grâce à des sessions de formation complètes et adaptées."
     },
 ];
+export const optimisationAdditionalFeatures = [
+    {
+        name: "Audit complet UX / SEO / technique",
+        price: 300,
+        icon: "search",
+        slug: "audit-complet",
+        description: "Analyse approfondie de votre site actuel pour identifier les points faibles en ergonomie, référencement et performance technique."
+    },
+    {
+        name: "Reconstruction sur stack moderne (Next.js, Vite, etc.)",
+        price: 900,
+        icon: "refresh-ccw",
+        slug: "migration-stack-moderne",
+        description: "Migration de votre site vers une architecture plus rapide, plus sécurisée et évolutive (Next.js, Astro, etc.)."
+    },
+    {
+        name: "Optimisation SEO technique",
+        price: 350,
+        icon: "trending-up",
+        slug: "optimisation-seo-technique",
+        description: "Nettoyage du code, structuration des balises, amélioration du maillage interne et des métadonnées pour un meilleur positionnement."
+    },
+    {
+        name: "Refonte UI (interface utilisateur)",
+        price: 600,
+        icon: "layout",
+        slug: "refonte-ui",
+        description: "Modernisation complète de l'apparence de votre site pour un design plus engageant, responsive et cohérent avec votre identité visuelle."
+    },
+    {
+        name: "Sécurisation & mise en conformité RGPD",
+        price: 250,
+        icon: "shield",
+        slug: "securisation-rgpd",
+        description: "Mise à jour des protocoles de sécurité, ajout de bannières de consentement, et conformité avec les réglementations européennes."
+    },
+    {
+        name: "Amélioration des Core Web Vitals",
+        price: 300,
+        icon: "activity",
+        slug: "core-web-vitals",
+        description: "Optimisations ciblées pour améliorer les scores Google sur les indicateurs de performance clés (LCP, CLS, FID)."
+    },
+    {
+        name: "Migration hébergement / DNS",
+        price: 200,
+        icon: "server",
+        slug: "migration-hebergement",
+        description: "Transfert sécurisé de votre site vers un hébergement plus performant, avec gestion DNS et configuration SSL incluses."
+    }
+]
+export const gestionAdditionalFeatures = [
+    {
+        name: "Pack Sérénité (3h de modifications/mois)",
+        price: 120,
+        icon: "clock",
+        slug: "pack-serenite",
+        description: "Idéal pour les sites évolutifs : jusqu’à 3h de modifications techniques ou de contenus incluses chaque mois."
+    },
+    {
+        name: "Surveillance de sécurité 24/7",
+        price: 90,
+        icon: "shield-off",
+        slug: "surveillance-securite",
+        description: "Détection proactive des intrusions, alertes en temps réel, protection renforcée contre les attaques et malwares."
+    },
+    {
+        name: "Rapport mensuel d'activité",
+        price: 60,
+        icon: "file-bar-chart",
+        slug: "rapport-activite",
+        description: "Recevez chaque mois un rapport clair sur les mises à jour, sauvegardes, statistiques de fréquentation et état global du site."
+    },
+    {
+        name: "Intervention urgente garantie sous 24h",
+        price: 80,
+        icon: "alert-triangle",
+        slug: "intervention-urgence",
+        description: "En cas de bug ou de panne, bénéficiez d’une prise en charge prioritaire sous 24h, même le week-end."
+    },
+    {
+        name: "Sauvegardes externes (multi-localisation)",
+        price: 50,
+        icon: "database",
+        slug: "sauvegardes-externe",
+        description: "Ajout d’un système de sauvegarde en cloud décentralisé (ex : Dropbox, AWS, Google Drive) pour plus de sécurité."
+    },
+    {
+        name: "Optimisation mensuelle des performances",
+        price: 100,
+        icon: "cpu",
+        slug: "optimisation-performance-mensuelle",
+        description: "Audit et nettoyage mensuel des fichiers inutiles, base de données, cache, images lourdes pour garder un site fluide."
+    },
+    {
+        name: "Ajout de contenu mensuel (1 article ou page)",
+        price: 150,
+        icon: "plus-square",
+        slug: "ajout-contenu-mensuel",
+        description: "Publiez régulièrement un article ou une nouvelle page, avec intégration optimisée et relecture incluse."
+    }
+]
 
 export const siteTypes: PricingTier[] = [
     {
@@ -354,5 +457,25 @@ export const siteTypes: PricingTier[] = [
         description: "Application web sur mesure",
         includes: ["Interface admin", "Base de données", "Authentification", "API personnalisée"],
         options: crmPlateformeAdditionalFeatures
+    },
+    {
+        name: "Refonte & Optimisation",
+        slug: "optimisation",
+        basePrice: 600,
+        icon: "palette",
+        description: "Amélioration des performance organique de votre site. Rapidité, fonctionnalité design.",
+        includes: ["Audit UX / SEO / performance",
+            "Amélioration design, vitesse & structure",
+            "Migration vers une stack plus moderne (ex. WordPress > Next.js)", "Sécurisation & mises à jour techniques"],
+        options: optimisationAdditionalFeatures
+    },
+    {
+        name: "Maintenance & gestion",
+        slug: "maintenance",
+        basePrice: 50,
+        icon: "construction",
+        description: "Gestion courant de votre site.",
+        includes: ["Mises à jour régulières (CMS, plugins, sécurité)", "Sauvegardes automatisées", "Assistance prioritaire & suivi des performances", "1h de modifications incluses chaque mois"],
+        options: gestionAdditionalFeatures
     },
 ]
