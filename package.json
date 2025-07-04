@@ -63,6 +63,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "globals": "^16.3.0",
     "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^10.2.4",
     "ts-prune": "^0.10.3",
     "typescript": "^5.8.3"
   }
