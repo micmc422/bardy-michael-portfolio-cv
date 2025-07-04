@@ -1,6 +1,6 @@
 "use server"
 
-import { Column, Row, Skeleton } from "@/once-ui/components";
+import { Column, Heading, Row, Skeleton } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
@@ -14,7 +14,7 @@ const Projects = dynamic(() => import('@/components/realisations/Projects').then
 const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
   loading: () => <Row gap="s" paddingBottom="l" mobileDirection="column">
     <Column>
-      <Skeleton shape="block" width="l" minHeight={"40"} radius="l"/>
+      <Skeleton shape="block" width="l" minHeight={"40"} radius="l" />
       <Skeleton shape="line" height="xl" width="l" />
       <Skeleton shape="line" height="m" width="m" />
     </Column>
@@ -58,6 +58,7 @@ export default async function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+      <Heading as="h1" variant="display-strong-l" align="center" paddingBottom="l">Dernières réalistions</Heading>
       <Projects />
       <Tarifs />
     </Column>

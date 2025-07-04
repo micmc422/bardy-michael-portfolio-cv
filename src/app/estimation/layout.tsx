@@ -36,9 +36,8 @@ export default async function EstimationLayout({ children, resume, headline }: {
                 <Suspense>{resume}</Suspense>
             </Column>
         </Row>
-
         <Column background="surface" gap="m" padding="m" radius="xl">
-            <Heading as="h1" variant="display-strong-m">Services inclus</Heading>
+            <Heading variant="display-strong-m">Services inclus</Heading>
             <Row mobileDirection="column" gap="s">
                 <ServicesInclus />
             </Row>

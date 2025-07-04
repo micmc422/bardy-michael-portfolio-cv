@@ -66,9 +66,11 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Accueil",
-  title: `Portfolio de ${person.name}`,
+  title: `Occitaweb création de sites internet`,
   description: `Site portfolio présentant mon travail en tant que ${person.role} et mes projets personnels.`,
-  headline: <>Développeur Full-Stack</>,
+  get headline() {
+    return `${this.title}`;
+  },
   featured: {
     display: true,
     title: <><strong className="ml-4">SEO & IA Générative 🤖</strong></>,
