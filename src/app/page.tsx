@@ -115,7 +115,7 @@ export default async function Home() {
             </Badge>
           </RevealFx>
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
+            <Heading as="h1" wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
           </RevealFx>
@@ -153,7 +153,7 @@ export default async function Home() {
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
+            <Heading variant="display-strong-xs" wrap="balance">
               Dernières actualités
             </Heading>
           </Flex>

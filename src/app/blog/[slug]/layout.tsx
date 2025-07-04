@@ -106,7 +106,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                 <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
                     Publications
                 </Button>
-                <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
+                <Heading as="h1" variant="display-strong-s">{post.metadata.title as string}</Heading>
                 <Column gap="xs">
                     <Row gap="xs" vertical="center" wrap>
                         {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}

@@ -145,7 +145,7 @@ export default async function About() {
                 />
               </Flex>
             )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
+            <Heading as="h1" className={styles.textAlign} variant="display-strong-xl">
               {person.name}
             </Heading>
             <Text
@@ -193,7 +193,7 @@ export default async function About() {
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -261,7 +261,7 @@ export default async function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+              <Heading id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -282,7 +282,6 @@ export default async function About() {
           {about.technical.display && (
             <>
               <Heading
-                as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
                 marginBottom="40"

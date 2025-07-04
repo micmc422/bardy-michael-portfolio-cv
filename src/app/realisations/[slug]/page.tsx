@@ -92,7 +92,7 @@ export default async function Project({
         <Button data-border="rounded" href="/realisations" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
           Projets
         </Button>
-        <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
+        <Heading as="h1" variant="display-strong-s">{post.metadata.title as string}</Heading>
       </Column>
       {post.metadata.image && (
         <SmartImage

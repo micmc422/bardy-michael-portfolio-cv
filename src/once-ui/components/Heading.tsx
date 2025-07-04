@@ -11,7 +11,7 @@ type HeadingProps<T extends ElementType> = TextProps<T> &
   SpacingProps &
   ComponentPropsWithoutRef<T>;
 
-const Heading = <T extends ElementType = "h1">({
+const Heading = <T extends ElementType = "h2">({
   as,
   variant,
   size,
@@ -39,7 +39,7 @@ const Heading = <T extends ElementType = "h1">({
   className,
   ...props
 }: HeadingProps<T>) => {
-  const Component = as || "h1";
+  const Component = as || "h2";
 
   if (variant && (size || weight)) {
     console.warn("When 'variant' is set, 'size' and 'weight' are ignored.");

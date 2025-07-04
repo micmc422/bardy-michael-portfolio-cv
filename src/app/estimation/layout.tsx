@@ -38,7 +38,7 @@ export default async function EstimationLayout({ children, resume, headline }: {
         </Row>
 
         <Column background="surface" gap="m" padding="m" radius="xl">
-            <Heading variant="display-strong-m">Services inclus</Heading>
+            <Heading as="h1" variant="display-strong-m">Services inclus</Heading>
             <Row mobileDirection="column" gap="s">
                 <ServicesInclus />
             </Row>
@@ -78,7 +78,7 @@ function ServicesInclus() {
             }}
         />
         <Row>
-            <Heading as="h3" variant="display-strong-xs">{name}</Heading>
+            <Heading as="h2" variant="display-strong-xs">{name}</Heading>
             <Icon name={icon} size="xl" onBackground={`${bgColor}-weak` as `${ColorScheme}-${ColorWeight}`} />
         </Row>
         <Text onBackground="neutral-weak">{desc}</Text>

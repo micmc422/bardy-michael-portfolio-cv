@@ -6,7 +6,7 @@ export default function NotFound() {
       <Text marginBottom="s" variant="display-strong-xl">
         404
       </Text>
-      <Heading marginBottom="l" variant="display-default-xs">
+      <Heading as="h1" marginBottom="l" variant="display-default-xs">
       😥 Page introuvable
       </Heading>
       <Flex
