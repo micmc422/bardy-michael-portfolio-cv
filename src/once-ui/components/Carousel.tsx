@@ -21,7 +21,7 @@ const Carousel: React.FC<CarouselProps> = ({
   images = [],
   indicator = "line",
   aspectRatio = "16 / 9",
-  sizes,
+  sizes = "(max-width: 1024px) calc(100vw - 30px), 944px",
   revealedByDefault = false,
   priority,
   ...rest
