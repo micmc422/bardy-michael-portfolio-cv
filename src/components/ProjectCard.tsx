@@ -35,10 +35,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Column fillWidth gap="m">
       <Carousel
         priority={priority}
-        sizes="(max-width: 960px) 100vw, 960px"
         images={images.map((image, i) => ({
           src: image,
-          alt: `Aperçu n° ${i +1} de : ` + title,
+          alt: `Aperçu n° ${i + 1} de : ` + title,
         }))}
       />
       <Flex
