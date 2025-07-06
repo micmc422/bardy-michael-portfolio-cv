@@ -67,7 +67,9 @@ const home = {
   image: "/images/og/home.jpg",
   label: "Accueil",
   title: `Occitaweb création de sites internet`,
-  description: `Site portfolio présentant mon travail en tant que ${person.role} et mes projets personnels.`,
+  description: `Découvrez mon portfolio de ${person.role} : réalisations professionnelles, projets personnels, expertise web et création de sites performants.
+
+`,
   get headline() {
     return `${this.title}`;
   },
@@ -87,7 +89,9 @@ const about = {
   path: "/a-propos",
   label: "Qui suis-je ?",
   title: `${person.name} Développeur full-stack`,
-  description: `Découvrez ${person.name}, ${person.role} basé à ${person.place}`,
+  description: `Découvrez ${person.name}, ${person.role} basé à ${person.place}. Portfolio, projets web, création de sites performants pour associations et entreprises.
+
+`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -314,7 +318,7 @@ const blog = {
   path: "/blog",
   label: "Blog",
   title: `Blog – ${person.name}`,
-  description: `Derniéres publications de ${person.name}.`,
+  description: `Dernières publications de ${person.name}, ${person.role} à Albi : articles, actualités web, projets récents, tutoriels et retours d'expérience.`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
@@ -331,7 +335,7 @@ const work = {
   path: "/realisations",
   label: "Portfolio",
   title: `Projets – ${person.name}`,
-  description: `Projets et réalisations de ${person.name}`,
+  description: `${person.name} présente ses projets web réalisés pour entreprises, associations et collectivités locales : sites vitrines, plateformes, outils sur mesure.`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /realisationsisations routes
 };

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const activeSite = siteTypes.find((site) => site.slug === slug)
     if (!activeSite) notFound()
     return Meta.generate({
-        title: `Estimation de votre projet : ${activeSite.name}`,
+        title: `Estimation : ${activeSite.name} | occitaweb.fr`,
         description: activeSite.description,
         baseURL: baseURL,
         image: `${baseURL}/og?type=estimation&slug=${activeSite.slug}`,

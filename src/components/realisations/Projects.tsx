@@ -11,13 +11,8 @@ interface ProjectsProps {
   range?: [number, number?];
 }
 
-async function getWorks() {
-  const data = await getProjects({});
-  return data;
-}
-
 export function Projects({ range }: ProjectsProps) {
-  const projects = use(getWorks());
+  const projects = use(getProjects({}));
   const sortedProjects = projects.sort((a, b) => {
     return new Date(b.metadata.publishedAt as string).getTime() - new Date(a.metadata.publishedAt as string).getTime();
   });

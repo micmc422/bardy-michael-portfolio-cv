@@ -7,7 +7,7 @@ import { Meta, Schema } from "@/once-ui/modules";
 
 export async function generateMetadata() {
     return Meta.generate({
-        title: estimation.title,
+      title: `${estimation.title} | occitaweb.fr`,
         description: estimation.description,
         baseURL: baseURL,
         image: `${baseURL}/og?title=${encodeURIComponent(estimation.title)}`,

@@ -8,6 +8,7 @@ import { useToggleOptionParam } from "./hooks";
 import { Schema } from "@/once-ui/modules";
 import { baseURL } from "@/app/resources";
 import { about, estimation, person } from "@/app/resources/content";
+import { DraggableFlexRow } from "@/components/DraggableRow";
 
 
 
@@ -24,7 +25,7 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
             as="webPage"
             baseURL={baseURL}
             path={estimation.path}
-            title={estimation.title}
+            title={`Estimation : ${activeSite.name}`}
             description={estimation.description}
             image={`${baseURL}/og?type=estimation&slug=${slug}`}
             author={{
@@ -33,9 +34,11 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
                 image: `${baseURL}${person.avatar}`,
             }}
         />
-        <Row center wrap gap="s" paddingY="m">
-            {siteTypes.map((site) => <ToggleButton prefixIcon={site.icon} key={site.slug} label={site.name} selected={site.slug === slug} href={`/estimation/${site.slug}`} size="s" />)}
-        </Row>
+        <DraggableFlexRow>
+            <Row wrap={false} gap="s">
+                {siteTypes.map((site) => <ToggleButton prefixIcon={site.icon} key={site.slug} label={site.name} selected={site.slug === slug} href={`/estimation/${site.slug}`} size="s" />)}
+            </Row>
+        </DraggableFlexRow>
         <Grid columns={2} mobileColumns={1} gap="m">
             {activeSite?.options?.map((option: Option, _i) =>
                 <Checkbox

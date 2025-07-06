@@ -440,7 +440,7 @@ export const siteTypes: PricingTier[] = [
         basePrice: 600,
         annualPrice: 250,
         icon: "globe",
-        description: "Site de présentation simple et élégant",
+        description: "Obtenez une estimation rapide et gratuite pour la création de votre site vitrine. Formulaire simple, réponse personnalisée selon vos besoins et votre budget.",
         includes: ["Design responsive", "5-10 pages", "Formulaire de contact", "SEO de base"],
         options: vitrineAdditionalFeatures
     },
@@ -450,7 +450,7 @@ export const siteTypes: PricingTier[] = [
         basePrice: 800,
         annualPrice: 250,
         icon: "briefcase",
-        description: "Showcase professionnel de vos réalisations",
+        description: "Créez un portfolio professionnel pour exposer vos projets : graphiste, développeur, photographe... Estimez votre site dès maintenant, sans engagement.",
         includes: ["Galerie interactive", "Blog intégré", "Animations", "Optimisation images"],
         options: portfolioAdditionalFeatures
     },
@@ -460,7 +460,7 @@ export const siteTypes: PricingTier[] = [
         basePrice: 2500,
         annualPrice: 1000,
         icon: "shoppingCart",
-        description: "Boutique en ligne complète",
+        description: "Obtenez une estimation précise pour la création de votre boutique en ligne : panier, paiement, livraison, CMS, SEO, tout est pensé pour vendre efficacement.",
         includes: ["Catalogue produits", "Panier", "Paiement sécurisé", "Gestion commandes"],
         options: ecommerceAdditionalFeatures
     },
@@ -470,7 +470,7 @@ export const siteTypes: PricingTier[] = [
         basePrice: 4500,
         annualPrice: 2000,
         icon: "users",
-        description: "Application web sur mesure",
+        description: "Besoin d’un outil adapté à votre activité ? Estimez le prix de votre CRM personnalisé : gestion client, workflow, interface web et automatisations.",
         includes: ["Interface admin", "Base de données", "Authentification", "API personnalisée"],
         options: crmPlateformeAdditionalFeatures
     },
@@ -480,7 +480,7 @@ export const siteTypes: PricingTier[] = [
         basePrice: 600,
         annualPrice: 0,
         icon: "palette",
-        description: "Amélioration des performance organique de votre site. Rapidité, fonctionnalité design.",
+        description: "Refonte complète et optimisation SEO de votre site internet. Obtenez une estimation personnalisée pour un site moderne, rapide et mieux référencé.",
         includes: ["Audit UX / SEO / performance",
             "Amélioration design, vitesse & structure",
             "Migration vers une stack plus moderne (ex. WordPress > Next.js)", "Sécurisation & mises à jour techniques"],
@@ -492,7 +492,7 @@ export const siteTypes: PricingTier[] = [
         basePrice: 50,
         annualPrice: 250,
         icon: "construction",
-        description: "Gestion courant de votre site.",
+        description: "Gestion courante et maintenance de votre site web : mises à jour, sécurité, support technique et suivi pour assurer performance et stabilité au quotidien.",
         includes: ["Mises à jour régulières (CMS, plugins, sécurité)", "Sauvegardes automatisées", "Assistance prioritaire & suivi des performances", "1h de modifications incluses chaque mois"],
         options: gestionAdditionalFeatures
     },
