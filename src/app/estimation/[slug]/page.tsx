@@ -1,6 +1,6 @@
 "use client"
 
-import { Checkbox, Column, Feedback, Grid, Row, Text, Textarea, ToggleButton } from "@/once-ui/components";
+import { Checkbox, Column, Feedback, Grid, Icon, Row, Text, Textarea, ToggleButton } from "@/once-ui/components";
 import { siteTypes, type Option } from "../estimationData";
 import { use, useMemo } from "react";
 import { notFound, useSearchParams } from "next/navigation";
@@ -43,10 +43,11 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
             {activeSite?.options?.map((option: Option, _i) =>
                 <Checkbox
                     key={option.slug}
-                    label={option.name}
+                    label={<Row vertical="center" gap="4"><Icon name={option.icon} size="s" />{option.name}</Row>}
                     description={<Column>
                         <Text onBackground="accent-weak">{option.price}€</Text>
-                        {option.description}
+                        <Row>{option.description}</Row>
+
                     </Column>}
                     aria-label={`Sélectionnez l'option ${option.name}`}
                     isChecked={selectedOptions.includes(option.slug)}

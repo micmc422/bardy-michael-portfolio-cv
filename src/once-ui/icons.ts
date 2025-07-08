@@ -36,12 +36,13 @@ import {
   HiStar,
   HiOutlineMagnifyingGlass,
   HiBriefcase,
-  HiShoppingCart
+  HiShoppingCart,
+  HiArrowRightCircle
 } from "react-icons/hi2";
 
 import { GoRepoForked } from "react-icons/go";
 import { IoIosConstruct } from "react-icons/io";
-import { IoAtOutline, IoFastFoodOutline, IoFlagOutline, IoFootballOutline, IoGiftOutline, IoGlobeOutline, IoPawOutline, IoShieldCheckmark } from "react-icons/io5";
+import { IoAtOutline, IoFastFoodOutline, IoFlagOutline, IoFootballOutline, IoGiftOutline, IoGlobeOutline, IoImages, IoPawOutline, IoPencil, IoPencilOutline, IoSettingsOutline, IoShare, IoShieldCheckmark, IoSparkles } from "react-icons/io5";
 
 import {
   PiHouseDuotone,
@@ -51,10 +52,12 @@ import {
   PiImageDuotone,
   PiPaletteBold,
   PiDeviceMobile,
+  PiUpload,
+  PiLightbulbDuotone,
 } from "react-icons/pi";
 
 import { FaDiscord, FaEuroSign, FaGithub, FaX } from "react-icons/fa6";
-import { FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { FiBarChart2, FiFacebook, FiFilter, FiLayout, FiLinkedin, FiPackage, FiShare2, FiTrendingUp, FiTruck, FiTwitter, FiZap } from "react-icons/fi";
 import { RxCookie } from "react-icons/rx";
 import { MdNotificationsNone, MdOutlineNotificationsOff, MdOutlineNotificationsActive } from "react-icons/md";
 
@@ -123,7 +126,22 @@ export const iconLibrary: Record<string, IconType> = {
   mobile: PiDeviceMobile,
   shield: IoShieldCheckmark,
   euro: FaEuroSign,
-  construction: IoIosConstruct
+  construction: IoIosConstruct,
+  images: IoImages,
+  zap: FiZap,
+  settings: IoSettingsOutline,
+  share2: FiShare2,
+  "bar-chart-2": FiBarChart2,
+  pen: IoPencil,
+  upload: PiUpload,
+  sparkles: IoSparkles,
+  lightbulb: PiLightbulbDuotone,
+  package: FiPackage,
+  "arrow-right-circle": HiArrowRightCircle,
+  truck: FiTruck,
+  filter: FiFilter,
+  "trending-up": FiTrendingUp,
+  layout: FiLayout
 };
 
 export type IconLibrary = typeof iconLibrary;

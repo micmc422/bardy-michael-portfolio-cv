@@ -34,7 +34,7 @@ export const vitrineAdditionalFeatures: Option[] = [
     {
         name: "Blog intégré",
         price: 400,
-        icon: "edit",
+        icon: "book",
         slug: "blog-integre",
         description: "Animez votre site et améliorez votre référencement naturel en publiant régulièrement des articles, des actualités ou des conseils."
     },
@@ -48,7 +48,7 @@ export const vitrineAdditionalFeatures: Option[] = [
     {
         name: "Galerie photo/vidéo avancée",
         price: 350,
-        icon: "image",
+        icon: "images",
         slug: "galerie-avancee",
         description: "Mettez en valeur vos produits ou réalisations avec une galerie interactive, personnalisable et optimisée pour l'affichage."
     },
@@ -77,7 +77,7 @@ export const vitrineAdditionalFeatures: Option[] = [
     {
         name: "Support multilingue (2 langues)",
         price: 700,
-        icon: "language",
+        icon: "flag",
         slug: "support-multilingue",
         description: "Élargissez votre audience en rendant votre site accessible en plusieurs langues, augmentant ainsi votre portée géographique."
     },
@@ -91,14 +91,14 @@ export const vitrineAdditionalFeatures: Option[] = [
     {
         name: "Rédaction de contenu (2 pages)",
         price: 450,
-        icon: "file-text",
+        icon: "pen",
         slug: "redaction-contenu",
         description: "Confiez la création de contenus percutants et optimisés SEO pour deux de vos pages, captivant ainsi votre audience et les moteurs de recherche."
     },
     {
         name: "Formation à l'administration du site",
         price: 300,
-        icon: "user-check",
+        icon: "checkCircle",
         slug: "formation-administration",
         description: "Devenez autonome dans la gestion et la mise à jour de votre site grâce à une formation personnalisée et pratique."
     },
@@ -115,7 +115,7 @@ export const portfolioAdditionalFeatures: Option[] = [
     {
         name: "Page 'À propos' détaillée avec vidéo",
         price: 450,
-        icon: "video",
+        icon: "person",
         slug: "page-a-propos-video",
         description: "Humanisez votre profil et présentez votre parcours, votre vision ou votre processus de travail de manière dynamique et engageante."
     },
@@ -136,7 +136,7 @@ export const portfolioAdditionalFeatures: Option[] = [
     {
         name: "Témoignages clients dynamiques",
         price: 300,
-        icon: "message-square",
+        icon: "users",
         slug: "temoignages-dynamiques",
         description: "Affichez de manière attrayante les retours positifs de vos clients, renforçant ainsi votre crédibilité et votre professionnalisme."
     },
@@ -150,14 +150,14 @@ export const portfolioAdditionalFeatures: Option[] = [
     {
         name: "Intégration d'une boutique simple (produits numériques)",
         price: 800,
-        icon: "shopping-bag",
+        icon: "shoppingCart",
         slug: "boutique-numerique",
         description: "Vendez vos créations numériques (brushes, templates, photos) directement depuis votre portfolio avec un système simple et sécurisé."
     },
     {
         name: "Section 'Services' ou 'Compétences' interactive",
         price: 400,
-        icon: "tool",
+        icon: "book",
         slug: "services-competences-interactives",
         description: "Présentez vos offres ou expertises de manière engageante avec des éléments interactifs (graphiques, toggles, etc.)."
     },
@@ -196,7 +196,7 @@ export const ecommerceAdditionalFeatures: Option[] = [
     {
         name: "Intégration CRM / Emailing (ex: Mailchimp)",
         price: 800,
-        icon: "mail",
+        icon: "email",
         slug: "integration-crm-emailing",
         description: "Automatisez vos campagnes d'emailing (newsletters, paniers abandonnés) et gérez vos relations clients pour fidéliser votre audience."
     },
@@ -245,7 +245,7 @@ export const ecommerceAdditionalFeatures: Option[] = [
     {
         name: "Module de blog pour actualités produits",
         price: 400,
-        icon: "book-open",
+        icon: "book",
         slug: "blog-actualites-produits",
         description: "Partagez des articles sur vos nouveaux produits, des guides d'achat ou des conseils d'utilisation pour engager votre clientèle et améliorer votre SEO."
     },
@@ -269,7 +269,7 @@ export const crmPlateformeAdditionalFeatures: Option[] = [
     {
         name: "Module de communication interne (chat/notifications)",
         price: 900,
-        icon: "message-circle",
+        icon: "messages",
         slug: "communication-interne",
         description: "Facilitez les échanges et la collaboration entre les utilisateurs de la plateforme via un système de chat intégré et des notifications instantanées."
     },
