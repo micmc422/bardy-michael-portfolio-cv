@@ -3,7 +3,7 @@ import { getPosts } from '@/app/utils/serverActions';
 import { NextResponse } from 'next/server';
 
 // Remplacez par votre clé IndexNow et le domaine de votre site
-const INDEXNOW_API_KEY = "ad42fq4aefywxx8c5f742688azqtx4jp"; // Stockez ceci dans vos variables d'environnement Vercel
+const INDEXNOW_API_KEY = process.env.INDEXNOW_API_KEY; // Stockez ceci dans vos variables d'environnement Vercel
 const SITE_DOMAIN = process.env.NEXT_PUBLIC_SITE_DOMAIN || 'https://occitaweb.fr'; // Ou votre domaine réel
 
 export async function GET(request: Request) {
