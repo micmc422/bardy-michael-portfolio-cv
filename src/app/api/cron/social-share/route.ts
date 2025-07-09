@@ -31,12 +31,12 @@ export async function GET(req: Request) {
     }
 
     // Récupère les 10 derniers articles publiés
-    let articles = await getPosts({ limit: 10 });
+    const articles = await getPosts({ limit: 10 });
     // Récupère les slugs des articles déjà partagés depuis Edge Config
     let sharedArticlesSlugs: string[] = (await get(SHARED_ARTICLES_KEY)) || [];
 
     // Filtre les articles déjà partagés
-    let unsharedArticles = articles.filter(post => !sharedArticlesSlugs.includes(post.slug));
+    const unsharedArticles = articles.filter(post => !sharedArticlesSlugs.includes(post.slug));
 
     // Trie les articles non partagés par date de publication (du plus ancien au plus récent)
     unsharedArticles.sort((a, b) => {
