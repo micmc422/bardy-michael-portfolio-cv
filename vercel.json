@@ -1,12 +1,19 @@
 {
     "crons": [
         {
+            "path": "/api/cron/indexNow",
+            "schedule": "0 0 * * *",
+            "userAgent": "vercel-cron/1.0"
+        },
+        {
             "path": "/api/cron/social-share",
-            "schedule": "0 7 * * *"
+            "schedule": "0 7 * * *",
+            "userAgent": "vercel-cron/1.0"
         },
         {
             "path": "/api/cron/refresh-facebook-token",
-            "schedule": "0 4 20 * *"
+            "schedule": "0 4 20 * *",
+            "userAgent": "vercel-cron/1.0"
         }
     ]
 }
