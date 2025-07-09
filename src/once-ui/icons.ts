@@ -42,7 +42,7 @@ import {
 
 import { GoRepoForked } from "react-icons/go";
 import { IoIosConstruct } from "react-icons/io";
-import { IoAtOutline, IoFastFoodOutline, IoFlagOutline, IoFootballOutline, IoGiftOutline, IoGlobeOutline, IoImages, IoPawOutline, IoPencil, IoPencilOutline, IoSettingsOutline, IoShare, IoShieldCheckmark, IoSparkles } from "react-icons/io5";
+import { IoAtOutline, IoFastFoodOutline, IoFlagOutline, IoFootballOutline, IoGiftOutline, IoGlobeOutline, IoImages, IoPawOutline, IoPencil, IoSettingsOutline, IoShieldCheckmark, IoSparkles } from "react-icons/io5";
 
 import {
   PiHouseDuotone,
