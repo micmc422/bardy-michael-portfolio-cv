@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, type ReactNode } from "react";
 import { AccordionGroup, Column, Heading } from "@/once-ui/components";
 import { getRandomSixDigitNumber, slugify } from "@/utils/utils";
 import Script from "next/script";
@@ -15,7 +15,11 @@ interface FAQType {
     title?: string;
     faq?: {
         title: string;
-        content: string;
+        content: ReactNode;
+        link?: {
+            label?: string;
+            path?: string
+        }
     }[];
     list?: never
 }

@@ -1,3 +1,5 @@
+import IconCroixOccitane from "@/lib/jsxSvg/croixOccitane";
+import { Row } from "@/once-ui/components";
 
 const person = {
   firstName: "Michaël",
@@ -75,8 +77,8 @@ const home = {
   },
   featured: {
     display: true,
-    title: <><strong className="ml-4">SEO & IA Générative 🤖</strong></>,
-    href: "/blog/introduction-pourquoi-lia-bouleverse-le-seo",
+    title: <Row center gap="xs"><strong className="ml-4">Webmaster à Albi</strong><IconCroixOccitane /></Row>,
+    href: "/webmaster-albi",
   },
   subline: (
     <>
@@ -322,6 +324,94 @@ const blog = {
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
+const webmasterAlbi = {
+  path: "/webmaster-albi",
+  label: "Webmaster Albi",
+  title: `Webmaster Albi - Création Site Internet & SEO | ${person.name}`,
+  description: `Besoin d'un webmaster à Albi ? Nous créons des sites web performants et optimisés SEO pour les entreprises albigeoises. Demandez votre devis gratuit dès aujourd'hui !`,
+  headline: "Votre Webmaster Expert à Albi pour un Référencement Optimal",
+  subline: "Besoin d'un coup de pouce pour votre présence en ligne à Albi ? En tant que webmaster local, je vous accompagne dans la création de sites internet performants et l'optimisation de votre visibilité sur Google. Découvrez comment transformer votre projet digital en succès, ici, au cœur du Tarn.",
+  pourquoi: [
+    {
+      "titre": "Expertise Locale à Albi",
+      "description": "En tant que webmaster basé à Albi, je connais les spécificités du marché local et les attentes des entreprises du Tarn. Je construis des stratégies digitales qui résonnent avec votre clientèle locale, maximisant votre visibilité à Albi et ses environs.",
+      "icone": "pin",
+      "mots_cles_seo": ["webmaster Albi local", "marché digital Albi", "entreprises Tarn", "visibilité Albi", "référencement local Albi"]
+    },
+    {
+      "titre": "Proximité et Accompagnement Personnalisé à Albi",
+      "description": "Travailler avec un webmaster à Albi, c'est bénéficier d'un contact direct et privilégié. Je vous offre un suivi sur mesure, des rencontres facilitées et une réactivité optimale pour tous vos projets de création de site internet ou d'optimisation SEO à Albi.",
+      "icone": "handshake",
+      "mots_cles_seo": ["webmaster Albi personnalisé", "contact direct Albi", "création site Albi", "SEO Albi", "accompagnement web Albi"]
+    },
+    {
+      "titre": "Résultats Concrets pour Votre Entreprise à Albi",
+      "description": "Mon objectif est de vous apporter des résultats mesurables : plus de trafic, plus de leads et un meilleur positionnement pour votre site web à Albi. Chaque projet est pensé pour optimiser votre retour sur investissement et renforcer votre présence en ligne locale.",
+      "icone": "chart-line",
+      "mots_cles_seo": ["résultats SEO Albi", "trafic site Albi", "leads Albi", "positionnement Google Albi", "présence web Albi"]
+    },
+    {
+      "titre": "Portfolio de Succès à Albi et dans le Tarn",
+      "description": "Découvrez mes réalisations pour des clients situés à Albi et dans le Tarn. Mon portfolio témoigne de mon savoir-faire en développement web, en design UI/UX et en stratégies de référencement naturel adaptées aux entreprises locales d'Albi.",
+      "icone": "lightbulb",
+      "mots_cles_seo": ["portfolio webmaster Albi", "réalisations sites Albi", "développement web Albi", "design UI/UX Albi", "référencement Albi"]
+    }
+  ],
+  process: {
+    title: "Notre Processus de Travail Simplifié à Albi",
+    steps: [
+      {
+        title: "Définition de Votre Projet & Audit Gratuit",
+        content: "Nous commençons par échanger pour comprendre précisément vos besoins, vos objectifs et votre activité à **Albi**. Un audit initial de votre présence en ligne (ou de celle de vos concurrents) est offert pour poser les bases de votre stratégie digitale et maximiser votre **référencement local**."
+      },
+      {
+        title: "Proposition Personnalisée & Devis Transparent",
+        content: "Sur la base de nos échanges, je vous soumets une proposition détaillée et un devis clair, sans surprise, adapté à vos ambitions et à votre budget. Chaque élément est justifié, que ce soit pour la création de site internet ou l'optimisation SEO à Albi."
+      },
+      {
+        title: "Conception & Développement Sur Mesure",
+        content: "Place à la création ! Je développe votre site web en suivant les meilleures pratiques, avec un design optimisé pour l'expérience utilisateur et le mobile. Le SEO 'on-page' est intégré dès cette étape pour un site performant et visible à Albi."
+      },
+      {
+        title: "Optimisation SEO & Lancement",
+        content: "Une fois le site prêt, nous procédons aux dernières optimisations techniques et de contenu pour le référencement. Après votre validation finale, votre site est mis en ligne. Le vrai travail de visibilité pour Albi commence !"
+      },
+      {
+        title: "Suivi, Maintenance & Évolution Continue",
+        content: "Mon accompagnement ne s'arrête pas au lancement. Je propose des services de maintenance, de mises à jour et d'analyse de performances. Nous ajustons ensemble la stratégie pour que votre site continue de grandir et de performer sur Albi et au-delà."
+      }
+    ]
+  },
+  faq: {
+    title: "Questions Fréquentes sur Nos Services de Webmaster à Albi",
+    faq: [
+      {
+        title: "Quel est le coût moyen pour la création d'un site internet à Albi ?",
+        content: "Le coût d'un site internet à Albi varie considérablement en fonction de sa complexité (site vitrine simple, e-commerce, fonctionnalités spécifiques), du design et du contenu. Après une première discussion sur vos besoins, je vous fournis un devis détaillé et transparent, adapté à votre budget et à vos objectifs à Albi.",
+        link: {
+          label: "estimation en ligne",
+          path: "/estimation"
+        }
+      },
+      {
+        title: "Combien de temps faut-il pour créer un site web complet ?",
+        content: "La durée de création d'un site web dépend de l'envergure du projet. Un site vitrine standard pour une entreprise d'Albi peut prendre de 3 à 6 semaines, tandis qu'un site e-commerce plus complexe peut nécessiter plusieurs mois. Je vous donnerai une estimation précise après avoir défini ensemble le cahier des charges de votre projet."
+      },
+      {
+        "title": "Proposez-vous le référencement(SEO) pour mon site à Albi?",
+        content: "Oui, absolument ! L'optimisation pour les moteurs de recherche (SEO) est une composante essentielle de mes services. Je mets en place des stratégies de référencement local à Albi pour améliorer votre visibilité sur Google, attirer plus de clients du Tarn et assurer une croissance durable à votre site web."
+      },
+      {
+        title: "Assurez-vous la maintenance et les mises à jour après la livraison du site ?",
+        content: "Oui, je propose des services de maintenance pour assurer la sécurité, la performance et l'actualisation de votre site web. La maintenance est cruciale pour la pérennité de votre investissement et pour maintenir un bon référencement à Albi. Nous pouvons discuter d'un forfait adapté à vos besoins."
+      },
+      {
+        title: "Pourquoi choisir un webmaster local à Albi plutôt qu'une grande agence ?",
+        content: "Choisir un webmaster local à Albi, c'est bénéficier d'une relation de proximité et d'un accompagnement personnalisé. Je comprends les enjeux spécifiques du marché albigeois et je suis plus réactif. Vous avez un interlocuteur unique et dédié, passionné par la réussite des entreprises du Tarn."
+      }
+    ]
+  }
+};
 const estimation = {
   path: "/estimation",
   label: "Estimation",
@@ -391,4 +481,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery };
+export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi };

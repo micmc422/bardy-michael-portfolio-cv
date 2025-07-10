@@ -56,7 +56,7 @@ import {
   PiLightbulbDuotone,
 } from "react-icons/pi";
 
-import { FaDiscord, FaEuroSign, FaGithub, FaX } from "react-icons/fa6";
+import { FaDiscord, FaEuroSign, FaGithub, FaX, FaMapPin, FaHandshake, FaChartLine } from "react-icons/fa6";
 import { FiBarChart2, FiFacebook, FiFilter, FiLayout, FiLinkedin, FiPackage, FiShare2, FiTrendingUp, FiTruck, FiTwitter, FiZap } from "react-icons/fi";
 import { RxCookie } from "react-icons/rx";
 import { MdNotificationsNone, MdOutlineNotificationsOff, MdOutlineNotificationsActive } from "react-icons/md";
@@ -132,6 +132,7 @@ export const iconLibrary: Record<string, IconType> = {
   settings: IoSettingsOutline,
   share2: FiShare2,
   "bar-chart-2": FiBarChart2,
+  "chart-line": FaChartLine,
   pen: IoPencil,
   upload: PiUpload,
   sparkles: IoSparkles,
@@ -141,7 +142,11 @@ export const iconLibrary: Record<string, IconType> = {
   truck: FiTruck,
   filter: FiFilter,
   "trending-up": FiTrendingUp,
-  layout: FiLayout
+  layout: FiLayout,
+  pin: FaMapPin,
+  handshake: FaHandshake,
+  
+
 };
 
 export type IconLibrary = typeof iconLibrary;

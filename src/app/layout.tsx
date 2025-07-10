@@ -2,6 +2,7 @@
 
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
+import "@/tokens/scheme.scss";
 
 import classNames from "classnames";
 
@@ -145,9 +146,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               horizontal="center"
               flex={1}
             >
-              <Flex horizontal="center" fillWidth minHeight="0" as="main">
+              <Column horizontal="center" fillWidth minHeight="0" as="main">
                 <>{children}</>
-              </Flex>
+              </Column>
             </Flex>
             <Flex
               zIndex={0}
