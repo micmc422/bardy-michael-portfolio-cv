@@ -45,7 +45,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                     "text": content
                 }
             }))
-            return (<Column ref={ref} gap="l">
+            return (<Column ref={ref} gap="l" {...rest}>
                 {title && <Heading as="h2" id={slugify(title)}>{title || "FAQ"}</Heading>}
                 <AccordionGroup items={faq} />
                 <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
@@ -65,7 +65,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 "item": { "name": title || content },
             }))
 
-            return (<Column ref={ref} gap="l" paddingBottom="xl">
+            return (<Column ref={ref} gap="l" paddingBottom="xl" {...rest}>
                 {title && <Heading as="h2" id={slugify(title)}>{title}</Heading>}
                 <AccordionGroup items={list} />
                 <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{

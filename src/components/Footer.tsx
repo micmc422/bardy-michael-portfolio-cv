@@ -27,11 +27,11 @@ export const Footer = () => {
           <Text paddingX="4">{person.name}</Text>
           <Text onBackground="neutral-weak">
             {/* Usage of this template requires attribution. Please don't remove the link to Once UI. */}
-            / Votre site internet{" "}
+            / Votre site internet en {" "}
             <SmartLink
-              href="https://occitaweb.fr"
+              href="https://occitaweb.fr/webmaster-albi"
             >
-              Occitaweb.fr
+              Occitanie
             </SmartLink>
           </Text>
         </Text>

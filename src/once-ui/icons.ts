@@ -60,6 +60,7 @@ import { FaDiscord, FaEuroSign, FaGithub, FaX, FaMapPin, FaHandshake, FaChartLin
 import { FiBarChart2, FiFacebook, FiFilter, FiLayout, FiLinkedin, FiPackage, FiShare2, FiTrendingUp, FiTruck, FiTwitter, FiZap } from "react-icons/fi";
 import { RxCookie } from "react-icons/rx";
 import { MdNotificationsNone, MdOutlineNotificationsOff, MdOutlineNotificationsActive } from "react-icons/md";
+import { ChevronsLeftRight } from "lucide-react";
 
 export const iconLibrary: Record<string, IconType> = {
   notifNone: MdNotificationsNone,
@@ -145,7 +146,7 @@ export const iconLibrary: Record<string, IconType> = {
   layout: FiLayout,
   pin: FaMapPin,
   handshake: FaHandshake,
-  
+  chevronsLeftRight: ChevronsLeftRight
 
 };
 
