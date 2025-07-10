@@ -7,6 +7,7 @@ const routes = {
   "/realisations": true, // /work
   "/blog": true,
   "/estimation": true,
+  "/webmaster-albi": true,
 };
 
 // Enable password protection on selected routes
