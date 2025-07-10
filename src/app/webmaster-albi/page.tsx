@@ -17,7 +17,7 @@ import {
 import { baseURL } from "@/app/resources";
 
 
-import { about, home, person, webmasterAlbi } from "@/app/resources/content";
+import { about, person, webmasterAlbi } from "@/app/resources/content";
 import React from "react";
 import { Meta, Schema } from "@/once-ui/modules";
 import { siteTypes } from "../estimation/estimationData";
