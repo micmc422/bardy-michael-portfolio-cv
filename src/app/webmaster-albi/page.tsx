@@ -1,6 +1,7 @@
 "use server"
 
 import {
+  Accordion,
   Avatar,
   Background,
   Badge,
@@ -100,7 +101,7 @@ export default async function About() {
       </Column>
       <Grid maxWidth={"l"} gap="l" columns={2} tabletColumns="1">
         <Column flex={2} gap="m" padding="l" fill>
-          <Heading variant="display-strong-m" onBackground="brand-weak">Offrez une Nouvelle Vie à Votre Présence en Ligne</Heading>
+          <Heading variant="display-strong-m">Offrez une Nouvelle Vie à Votre Présence en Ligne</Heading>
           <Text onBackground="neutral-medium">
             Votre site web est le reflet de votre entreprise à <strong>Albi</strong>, et un design vieillissant ou des performances lentes peuvent nuire à votre image et à votre référencement. Il est temps de le moderniser ! Je vous propose des solutions de refonte adaptées à vos besoins, que vous souhaitiez une mise à jour esthétique ou une transformation technologique complète.
           </Text>
@@ -127,7 +128,7 @@ export default async function About() {
                 colorEnd: "brand-alpha-weak"
               }}
             />
-            <Heading as="h3" variant="display-default-xs" onBackground="brand-weak">
+            <Heading as="h3" variant="display-default-xs">
               Refonte Graphique Complète : Design et Technologie Modernisés
             </Heading>
             <Text onBackground="neutral-medium">
@@ -154,7 +155,7 @@ export default async function About() {
                 colorEnd: "brand-alpha-weak"
               }}
             />
-            <Heading as="h3" variant="display-default-xs" onBackground="brand-weak">
+            <Heading as="h3" variant="display-default-xs">
               Modernisation avec WordPress Headless et React : Le Meilleur des Deux Mondes
             </Heading>
             <Text onBackground="neutral-medium">
@@ -177,54 +178,38 @@ export default async function About() {
           />
         </Column>
       </Grid>
-      <Column maxWidth={"xl"} gap="l" paddingTop="xl" center>
+      <Column maxWidth={"l"} gap="l" paddingTop="xl" center>
         <Column gap="m" center maxWidth={"s"}>
           <Heading variant="display-strong-m" align="center">SEO Approfondi : Au-delà des Bases pour une Visibilité Maximale</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">Pour qu&apos;un site se distingue sur les moteurs de recherche et les réseaux sociaux, il faut aller au-delà du contenu visible. L&apos;optimisation des métadonnées, l&apos;intégration des Open Graph et l&apos;utilisation des JSON-LD sont cruciales pour une présence en ligne performante à <strong>Albi</strong>.</Text>
         </Column>
-        <Row tabletDirection="column" radius="s" background="overlay" overflow="hidden" isolate>
-          <Background
-            zIndex={-1}
-            fill
-            position="absolute"
-            mask={{
-              cursor: true,
-              x: 50,
-              y: 25,
-              radius: 70
-            }}
-            gradient={{
-              display: true,
-              opacity: 1 as opacity,
-              x: 50,
-              y: 0,
-              colorStart: "accent-alpha-medium",
-              colorEnd: "accent-alpha-weak"
-            }}
-          />
-          <Column gap="xs" padding="m" isolate>
-            <Heading as="h3" variant="body-strong-xl" onBackground="accent-weak">Meta Descriptions & Title Tags</Heading>
+        <Row tabletDirection="column" radius="s" background="overlay">
+          <Column gap="xs" padding="m" flex={2} isolate>
+            <Row gap="xs" vertical="center">
+              <Icon name="code" />
+              <Heading as="h3" variant="body-strong-xl">Meta Descriptions & Title Tags</Heading>
+            </Row>
             <Text>Les métadonnées historiques comme la balise {`<title>`} et la méta-description sont les premières informations que Google et les utilisateurs voient de votre page.</Text>
-            <ul>
-              <li>Bénéfice : Elles influencent directement le taux de clics (CTR) depuis les pages de résultats de recherche (SERP). Un titre accrocheur et une description pertinente incitent davantage les internautes à visiter votre site plutôt que celui d&apos;un concurrent à <strong>Albi</strong>.</li>
-              <li>Intérêt : Elles sont la carte de visite de votre contenu, signalant clairement aux moteurs de recherche le sujet de votre page et donnant envie aux utilisateurs de découvrir ce que vous proposez.</li>
-            </ul>
+            <Accordion title="Bénéfice 📈">Elles influencent directement le taux de clics (CTR) depuis les pages de résultats de recherche (SERP). Un titre accrocheur et une description pertinente incitent davantage les internautes à visiter votre site plutôt que celui d&apos;un concurrent à Albi.</Accordion>
+            <Accordion title="Intérêt 🎯">Elles sont la carte de visite de votre contenu, signalant clairement aux moteurs de recherche le sujet de votre page et donnant envie aux utilisateurs de découvrir ce que vous proposez.</Accordion>
           </Column>
-          <Column gap="xs" padding="m" isolate>
-            <Heading as="h3" variant="body-strong-xl" onBackground="accent-weak">Données Open Graph (OG)</Heading>
+          <Column gap="xs" padding="m" flex={2} isolate>
+            <Row gap="xs" vertical="center">
+              <Icon name="share2" />
+              <Heading as="h3" variant="body-strong-xl">Données Open Graph (OG)</Heading>
+            </Row>
             <Text>Les données Open Graph sont un protocole développé par Facebook, mais largement adopté par tous les réseaux sociaux (LinkedIn, Twitter, etc.). Elles permettent de contrôler précisément l&apos;apparence de votre contenu lorsqu&apos;il est partagé en ligne.</Text>
-            <ul>
-              <li>Bénéfice : Elles garantissent un affichage attrayant et cohérent de vos liens partagés, avec une image, un titre et une description choisis par vous. Cela augmente l&apos;engagement et la visibilité de votre entreprise d&apos;<strong>Albi</strong> sur les plateformes sociales.</li>
-              <li>Intérêt : Sans elles, les réseaux sociaux peuvent choisir une image ou un texte non pertinents, ce qui réduit l&apos;impact de votre partage. Les données OG assurent un branding optimal et une meilleure attractivité.</li>
-            </ul>
+            <Accordion title="Bénéfice 📣">Elles garantissent un affichage attrayant et cohérent de vos liens partagés, avec une image, un titre et une description choisis par vous. Cela augmente l&apos;engagement et la visibilité de votre entreprise d&apos;Albi sur les plateformes sociales.</Accordion>
+            <Accordion title="Intérêt ✨">Sans elles, les réseaux sociaux peuvent choisir une image ou un texte non pertinents, ce qui réduit l&apos;impact de votre partage. Les données OG assurent un branding optimal et une meilleure attractivité.</Accordion>
           </Column>
-          <Column gap="xs" padding="m" isolate>
-            <Heading as="h3" variant="body-strong-xl" onBackground="accent-weak">Données Structurées (JSON-LD)</Heading>
+          <Column gap="xs" padding="m" flex={2} isolate>
+            <Row gap="xs" vertical="center">
+              <Icon name="sparkles" />
+              <Heading as="h3" variant="body-strong-xl">Données Structurées (JSON-LD)</Heading>
+            </Row>
             <Text>Les données structurées JSON-LD sont un format recommandé par Google pour fournir des informations spécifiques sur le contenu de votre page de manière compréhensible pour les moteurs de recherche. Elles permettent d&apos;obtenir des Rich Snippets (extraits enrichis) dans les résultats de recherche.</Text>
-            <ul>
-              <li>Bénéfice : Elles améliorent la visibilité de votre site sur les SERP grâce à des étoiles d&apos;évaluation, des prix, des horaires ou d&apos;autres détails pertinents directement sous votre lien. Cela augmente considérablement votre CTR et votre crédibilité pour les recherches effectuées à <strong>Albi</strong>.</li>
-              <li>Intérêt : Ces informations supplémentaires captent l&apos;attention des utilisateurs et leur donnent une meilleure idée de ce qu&apos;ils trouveront sur votre page avant même de cliquer, favorisant un trafic plus qualifié.</li>
-            </ul>
+            <Accordion title="Bénéfice ⭐">Elles améliorent la visibilité de votre site sur les SERP grâce à des étoiles d&apos;évaluation, des prix, des horaires ou d&apos;autres détails pertinents directement sous votre lien. Cela augmente considérablement votre CTR et votre crédibilité pour les recherches effectuées à Albi.</Accordion>
+            <Accordion title="Intérêt 💡">Ces informations supplémentaires captent l&apos;attention des utilisateurs et leur donnent une meilleure idée de ce qu&apos;ils trouveront sur votre page avant même de cliquer, favorisant un trafic plus qualifié.</Accordion>
           </Column>
         </Row>
       </Column>

@@ -31,7 +31,7 @@ export default function EstimationPage() {
       }}
     />
     <Grid columns={2} mobileColumns={1} gap="m" >
-      {siteTypes.map(({ name, basePrice, icon, description, includes, slug }, _i) => <Card href={`/estimation/${slug}`} direction="column" padding="s" key={name} border="neutral-alpha-weak" radius="m" gap="s" fillWidth background="transparent" position="relative">
+      {siteTypes.map(({ name, basePrice, icon, description, includes, slug }, _i) => <Card href={`/estimation/${slug}`} direction="column" padding="s" key={name} border="neutral-alpha-weak" radius="m" gap="s" fillWidth background="transparent" position="relative" overflow="hidden">
         <Background
           fill
           position="absolute"
@@ -61,7 +61,6 @@ export default function EstimationPage() {
             height: rdv.effects.grid.height,
           }}
         />
-
         <Row vertical="center" horizontal="space-between" fillWidth >
           <Row center gap="xs">
             <Icon name={icon as string} /><Text variant="label-strong-l">{name}</Text>

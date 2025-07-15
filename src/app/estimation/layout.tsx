@@ -46,7 +46,7 @@ export default async function EstimationLayout({ children, resume, headline }: {
 }
 
 function ServicesInclus() {
-    return servicesInclus.map(({ name, icon, desc, bgColor }, i) => <Column key={i} horizontal="start" padding="l" border="neutral-alpha-weak" radius="m" gap="s">
+    return servicesInclus.map(({ name, icon, desc, bgColor }, i) => <Column key={i} horizontal="start" padding="l" border="neutral-alpha-weak" radius="m" gap="s" overflow="hidden">
         <Background
             fill
             position="absolute"
