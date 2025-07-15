@@ -92,5 +92,6 @@ const Avis = forwardRef<HTMLDivElement, AvisProps>(
         );
     }
 );
+Avis.displayName = "Avis";
 
 export { AvisClient };

@@ -12,7 +12,6 @@ const withMDX = mdx({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
- // transpilePackages: ["next-mdx-remote"],
   sassOptions: {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
@@ -35,6 +34,9 @@ const nextConfig = {
         hostname: "avatars.githubusercontent.com",
       }
     ],
+  },
+  eslint: {
+    dirs: ['src'], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
   },
   async redirects() {
     return [
