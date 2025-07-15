@@ -2,9 +2,10 @@ import Script from "next/script";
 import type { ReactNode } from "react";
 import { webmasterAlbi } from "../resources/content";
 import { baseURL } from "../resources";
+import { Column } from "@/once-ui/components";
 
 export default async function AproposLayout({ children }: { children: ReactNode }) {
-    return <>
+    return <Column gap="l" center>
         {children}
         <Script id="About-page" type="application/ld+json" dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -92,5 +93,5 @@ export default async function AproposLayout({ children }: { children: ReactNode 
                 }
             })
         }} />
-    </>
+    </Column>
 }

@@ -358,7 +358,7 @@ const webmasterAlbi = {
     }
   ],
   process: {
-    title: "Notre Processus de Travail Simplifié à Albi",
+    title: "Processus de travail simplifié",
     steps: [
       {
         title: "Définition de Votre Projet & Audit Gratuit",
@@ -383,7 +383,7 @@ const webmasterAlbi = {
     ]
   },
   faq: {
-    title: "Questions Fréquentes sur Nos Services de Webmaster à Albi",
+    title: "Questions fréquentes sur mes services de webmaster à Albi",
     faq: [
       {
         title: "Quel est le coût moyen pour la création d'un site internet à Albi ?",

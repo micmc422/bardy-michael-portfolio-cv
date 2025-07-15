@@ -46,8 +46,8 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 }
             }))
             return (<Column ref={ref} gap="l" {...rest}>
-                {title && <Heading as="h2" id={slugify(title)}>{title || "FAQ"}</Heading>}
-                <AccordionGroup items={faq} />
+                {title && <Heading as="h2" variant="display-strong-s" id={slugify(title)}>{title || "FAQ"}</Heading>}
+                <AccordionGroup items={faq} background="surface" />
                 <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org",
@@ -66,8 +66,8 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             }))
 
             return (<Column ref={ref} gap="l" paddingBottom="xl" {...rest}>
-                {title && <Heading as="h2" id={slugify(title)}>{title}</Heading>}
-                <AccordionGroup items={list} />
+                {title && <Heading as="h2" variant="display-strong-xs" id={slugify(title)}>{title}</Heading>}
+                <AccordionGroup items={list} background="surface" />
                 <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org",

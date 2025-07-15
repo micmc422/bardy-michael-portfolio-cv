@@ -108,6 +108,7 @@ const Flex = forwardRef<HTMLDivElement, ComponentProps>(
       className,
       style,
       children,
+      isolate,
       ...rest
     },
     ref,
@@ -254,6 +255,7 @@ const Flex = forwardRef<HTMLDivElement, ComponentProps>(
       cursor && `cursor-${cursor}`,
       dark && "dark-flex",
       light && "light-flex",
+      isolate && "isolate",
       colorClass,
       className,
       ...variantClasses,
