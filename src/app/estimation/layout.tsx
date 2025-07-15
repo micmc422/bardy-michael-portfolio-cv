@@ -2,6 +2,7 @@ import { Background, Column, Heading, Icon, Row, Text } from "@/once-ui/componen
 import { Suspense, type ReactNode } from "react";
 import { rdv } from "../resources";
 import type { ColorScheme, ColorWeight, opacity } from "@/once-ui/types";
+import { Faq } from "@/components";
 
 const servicesInclus: { name: string, icon: string, desc: string, bgColor?: ColorScheme }[] = [
     {
@@ -24,6 +25,39 @@ const servicesInclus: { name: string, icon: string, desc: string, bgColor?: Colo
     },
 ]
 
+const faqData = {
+    "title": "Foire aux questions (FAQ)",
+    "faq": [
+        {
+            "title": "Quels types de projets web Occitaweb peut-il estimer ?",
+            "content": "Occitaweb peut estimer divers projets, y compris les sites vitrines, les portfolios, les sites e-commerce et les plateformes/CRM personnalisés. Ils proposent également des services de refonte, d'optimisation, de maintenance et de gestion."
+        },
+        {
+            "title": "Quel est le prix de départ pour un site vitrine ?",
+            "content": "Un site vitrine commence à partir de 600€."
+        },
+        {
+            "title": "Quelles fonctionnalités sont incluses dans un devis pour un site e-commerce ?",
+            "content": "Un devis pour un site e-commerce inclut des fonctionnalités telles que le catalogue de produits, les options de paiement sécurisé, la gestion des commandes et un système de gestion de contenu (CMS). Le prix de départ est de 2500€."
+        },
+        {
+            "title": "Que comprend le service de refonte et d'optimisation ?",
+            "content": "Ce service, à partir de 600€, comprend des audits UX/SEO/performance, des améliorations de conception et une migration vers des stacks modernes pour des refontes complètes et l'optimisation SEO."
+        },
+        {
+            "title": "Que couvre le plan de maintenance et de gestion ?",
+            "content": "À partir de 50€, ce plan couvre les mises à jour régulières, la sécurité, le support technique et la surveillance des performances, avec 1 heure de modifications incluse chaque mois."
+        },
+        {
+            "title": "Comment puis-je obtenir un devis personnalisé pour mon projet ?",
+            "content": "Vous pouvez obtenir un devis en sélectionnant un type de site sur la page et il est recommandé de prendre rendez-vous pour des consultations."
+        },
+        {
+            "title": "Occitaweb partage-t-il mes informations personnelles collectées via les cookies ?",
+            "content": "Non, Occitaweb assure qu'aucune information collectée via les cookies (comme les pages visitées, l'origine, le navigateur, le système d'exploitation, le pays) n'est partagée avec des tiers."
+        }
+    ]
+};
 
 export default async function EstimationLayout({ children, resume, headline }: { children: ReactNode, resume: ReactNode, headline: ReactNode }) {
     return <Column center maxWidth={"l"}>
@@ -41,6 +75,9 @@ export default async function EstimationLayout({ children, resume, headline }: {
             <Row mobileDirection="column" gap="s">
                 <ServicesInclus />
             </Row>
+        </Column>
+        <Column paddingTop="xl" maxWidth={"s"}>
+            <Faq faqData={JSON.stringify(faqData)} />
         </Column>
     </Column>
 }
