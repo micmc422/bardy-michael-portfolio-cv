@@ -22,6 +22,7 @@ export interface GridProps extends HTMLAttributes<HTMLDivElement> {
   mobileColumns?: gridColumns;
   tabletRows?: gridColumns;
   mobileRows?: gridColumns;
+  isolate?: boolean;
 }
 
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {

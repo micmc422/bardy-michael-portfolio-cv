@@ -103,6 +103,7 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       className,
       style,
       children,
+      isolate,
       ...rest
     },
     ref,
@@ -197,7 +198,8 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       right && `right-${right}`,
       bottom && `bottom-${bottom}`,
       left && `left-${left}`,
-      generateDynamicClass("background", background),
+      isolate && "isolate",
+  generateDynamicClass("background", background),
       generateDynamicClass("solid", solid),
       generateDynamicClass(
         "border",

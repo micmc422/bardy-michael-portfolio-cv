@@ -128,6 +128,35 @@ export default async function Home() {
         </Flex>
       )}
       <Projects range={[2]} />
+      <Column maxWidth="s" paddingY="24" gap="s" center>
+        <Heading wrap="balance" variant="display-strong-m" align="center">
+          🎯 Fonctionnalités ciblées pour booster votre activité
+        </Heading>
+        <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
+          {`Artisans, commerçants, formateurs ou indépendants, je développe des fonctionnalités web concrètes et personnalisées pour vous : formulaires de devis, gestion des rendez-vous, catalogues interactifs, accès client sécurisé, ou encore outils d'automatisation. L'objectif est simple : optimiser votre temps, enrichir l'expérience de vos utilisateurs et faire de votre site un moteur essentiel à votre développement.`}
+        </Text>
+
+        <RevealFx fillWidth horizontal="center" paddingTop="16" paddingBottom="32" paddingLeft="8">
+          <Badge
+            background="neutral-medium" paddingX="8" paddingY="4" onBackground="brand-strong"
+            arrow={false}
+            href={"/solutions"}
+            center
+            gap="s"
+            id="RDVBtn"
+            aria-label="Lien vers la prise de rendez-vous"
+          >
+            <Icon paddingLeft="12" name="smile" onBackground="brand-strong" />
+            <Text paddingTop="2">Découvrez les solutions que je propose</Text>
+            <IconButton
+              data-border="rounded"
+              variant="ghost"
+              icon="chevronRight"
+            />
+          </Badge>
+        </RevealFx>
+
+      </Column>
       <Tarifs />
       <Column maxWidth={"s"}>
         <Faq faqData={JSON.stringify({

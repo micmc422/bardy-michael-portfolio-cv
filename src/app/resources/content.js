@@ -362,7 +362,118 @@ const webmasterAlbi = {
     steps: [
       {
         title: "Définition de Votre Projet & Audit Gratuit",
-        content: "Nous commençons par échanger pour comprendre précisément vos besoins, vos objectifs et votre activité à **Albi**. Un audit initial de votre présence en ligne (ou de celle de vos concurrents) est offert pour poser les bases de votre stratégie digitale et maximiser votre **référencement local**."
+        content: "Nous commençons par échanger pour comprendre précisément vos besoins, vos objectifs et votre activité à Albi. Un audit initial de votre présence en ligne (ou de celle de vos concurrents) est offert pour poser les bases de votre stratégie digitale et maximiser votre référencement local."
+      },
+      {
+        title: "Proposition Personnalisée & Devis Transparent",
+        content: "Sur la base de nos échanges, je vous soumets une proposition détaillée et un devis clair, sans surprise, adapté à vos ambitions et à votre budget. Chaque élément est justifié, que ce soit pour la création de site internet ou l'optimisation SEO à Albi."
+      },
+      {
+        title: "Conception & Développement Sur Mesure",
+        content: "Place à la création ! Je développe votre site web en suivant les meilleures pratiques, avec un design optimisé pour l'expérience utilisateur et le mobile. Le SEO 'on-page' est intégré dès cette étape pour un site performant et visible à Albi."
+      },
+      {
+        title: "Optimisation SEO & Lancement",
+        content: "Une fois le site prêt, nous procédons aux dernières optimisations techniques et de contenu pour le référencement. Après votre validation finale, votre site est mis en ligne. Le vrai travail de visibilité pour Albi commence !"
+      },
+      {
+        title: "Suivi, Maintenance & Évolution Continue",
+        content: "Mon accompagnement ne s'arrête pas au lancement. Je propose des services de maintenance, de mises à jour et d'analyse de performances. Nous ajustons ensemble la stratégie pour que votre site continue de grandir et de performer sur Albi et au-delà."
+      }
+    ]
+  },
+  faq: {
+    title: "Questions fréquentes sur mes services de webmaster à Albi",
+    faq: [
+      {
+        title: "Quel est le coût moyen pour la création d'un site internet à Albi ?",
+        content: "Le coût d'un site internet à Albi varie considérablement en fonction de sa complexité (site vitrine simple, e-commerce, fonctionnalités spécifiques), du design et du contenu. Après une première discussion sur vos besoins, je vous fournis un devis détaillé et transparent, adapté à votre budget et à vos objectifs à Albi.",
+        link: {
+          label: "estimation en ligne",
+          path: "/estimation"
+        }
+      },
+      {
+        title: "Combien de temps faut-il pour créer un site web complet ?",
+        content: "La durée de création d'un site web dépend de l'envergure du projet. Un site vitrine standard pour une entreprise d'Albi peut prendre de 3 à 6 semaines, tandis qu'un site e-commerce plus complexe peut nécessiter plusieurs mois. Je vous donnerai une estimation précise après avoir défini ensemble le cahier des charges de votre projet."
+      },
+      {
+        "title": "Proposez-vous le référencement(SEO) pour mon site à Albi?",
+        content: "Oui, absolument ! L'optimisation pour les moteurs de recherche (SEO) est une composante essentielle de mes services. Je mets en place des stratégies de référencement local à Albi pour améliorer votre visibilité sur Google, attirer plus de clients du Tarn et assurer une croissance durable à votre site web."
+      },
+      {
+        title: "Assurez-vous la maintenance et les mises à jour après la livraison du site ?",
+        content: "Oui, je propose des services de maintenance pour assurer la sécurité, la performance et l'actualisation de votre site web. La maintenance est cruciale pour la pérennité de votre investissement et pour maintenir un bon référencement à Albi. Nous pouvons discuter d'un forfait adapté à vos besoins."
+      },
+      {
+        title: "Pourquoi choisir un webmaster local à Albi plutôt qu'une grande agence ?",
+        content: "Choisir un webmaster local à Albi, c'est bénéficier d'une relation de proximité et d'un accompagnement personnalisé. Je comprends les enjeux spécifiques du marché albigeois et je suis plus réactif. Vous avez un interlocuteur unique et dédié, passionné par la réussite des entreprises du Tarn."
+      }
+    ]
+  }
+};
+const solutionsWeb = {
+  path: "/solutions",
+  label: "Solutions Web",
+  title: `Solutions digitales pour chaque métier | ${person.name}`,
+  description: `Dans le monde numérique actuel, avoir un site internet est bien plus qu'une simple présence en ligne. Ce n'est pas un prospectus statique ; c'est le centre névralgique de votre communication digitale, un outil dynamique qui évolue avec votre entreprise et interagit avec vos clients.`,
+  headline: "Des solutions adaptées à chaque métier",
+  subline: "Dans le monde numérique actuel, avoir un site internet est bien plus qu'une simple présence en ligne. Ce n'est pas un prospectus statique ; c'est le centre névralgique de votre communication digitale, un outil dynamique qui évolue avec votre entreprise et interagit avec vos clients.",
+  pourquoi: [
+    {
+      "titre": "Restaurateurs",
+      "description": "Que vous soyez un restaurant gastronomique, un bistrot convivial ou un service de livraison, un site web adapté peut révolutionner votre activité.",
+      "icone": "pin",
+      "fonctions": [
+        "Présentation de votre carte et menus dynamiques",
+        "Système de réservation en ligne",
+        "Galerie photos de vos plats et de votre établissement",
+        "Gestion des avis clients",
+        "Intégration avec les plateformes de livraison",
+        "Actualités(événements, soirées à thème)"
+      ]
+    },
+    {
+      "titre": "Commerçants",
+      "description": "Du petit commerce de quartier à la boutique spécialisée, attirez plus de clients et simplifiez vos ventes grâce à une présence en ligne efficace.",
+      "icone": "handshake",
+      "fonctions": [
+        "Vitrine produits en ligne(catalogue ou e-commerce)",
+        "Click & Collect",
+        "Présentation de vos promotions et actualités",
+        "Informations pratiques(horaires, accès, contact)",
+        "Mise en avant de vos événements et ateliers"
+      ]
+    },
+    {
+      "titre": "Entreprises (TPE/PME)",
+      "description": "Développez votre clientèle, renforcez votre crédibilité et facilitez la prise de contact pour les professionnels de la santé, du droit, du conseil, etc.",
+      "icone": "chart-line",
+      "fonctions": ["Site vitrine professionnel et moderne",
+        "Présentation de vos services et savoir-faire",
+        "Formulaires de contact et devis en ligne",
+        "Section actualités / blog(pour le référencement et l'expertise)",
+        "Portfolios et études de cas",
+        "Espace client sécurisé(si nécessaire)"]
+    }, ,
+    {
+      "titre": "Professions Libérales",
+      "description": "Développez votre clientèle, renforcez votre crédibilité et facilitez la prise de contact pour les professionnels de la santé, du droit, du conseil, etc.",
+      "icone": "chart-line",
+      "fonctions": ["Site institutionnel et informatif",
+        "Prise de rendez-vous en ligne",
+        "Présentation détaillée de vos spécialités et expériences",
+        "Articles de blog ou fiches conseils(pour démontrer votre expertise)",
+        "Témoignages et références",
+        "Accès sécurisé pour la documentation(si pertinent)"]
+    },
+  ],
+  process: {
+    title: "Processus de travail simplifié",
+    steps: [
+      {
+        title: "Définition de Votre Projet & Audit Gratuit",
+        content: "Nous commençons par échanger pour comprendre précisément vos besoins, vos objectifs et votre activité à Albi. Un audit initial de votre présence en ligne (ou de celle de vos concurrents) est offert pour poser les bases de votre stratégie digitale et maximiser votre référencement local."
       },
       {
         title: "Proposition Personnalisée & Devis Transparent",
@@ -481,4 +592,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi };
+export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi, solutionsWeb };

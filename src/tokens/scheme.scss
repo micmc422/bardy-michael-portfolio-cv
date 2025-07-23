@@ -47,3 +47,10 @@
     --scheme-neutral-1100: #fcf4e9;
     --scheme-neutral-1200: #fffbef;
 }
+
+.list-none {
+    list-style: none;
+    li {
+        margin-left: -1rem;
+    }
+}
