@@ -69,7 +69,8 @@ export default async function Project({
       src: person.avatar,
     })) || [];
   const publishedAt = post.metadata.publishedAt ? new Date(post.metadata.publishedAt) : new Date();
-  const ModifiedAt = post.metadata.updatedAt ? new Date(post.metadata.updatedAt) : new Date();
+  const modifiedAt = post.metadata.updatedAt ? new Date(post.metadata.updatedAt) : new Date();
+
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
       <Schema
@@ -78,8 +79,8 @@ export default async function Project({
         path={`${work.path}/${post.slug}`}
         title={post.metadata.title as string}
         description={post.metadata.summary}
-        datePublished={`${publishedAt.getFullYear()}-${publishedAt.getMonth() + 1}-${publishedAt.getDate()}`}
-        dateModified={`${ModifiedAt.getFullYear()}-${ModifiedAt.getMonth() + 1}-${ModifiedAt.getDate()}`}
+        datePublished={publishedAt.toISOString()}
+        dateModified={modifiedAt.toISOString()}
         image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title as string)}`}
         author={{
           name: person.name,

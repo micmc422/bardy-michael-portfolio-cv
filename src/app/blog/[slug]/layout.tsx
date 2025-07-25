@@ -75,6 +75,9 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
     if (!post) {
         notFound();
     }
+    const publishedAt = post.metadata.publishedAt ? new Date(post.metadata.publishedAt) : new Date();
+    const modifiedAt = post.metadata.updatedAt ? new Date(post.metadata.updatedAt) : new Date();
+
     const reactions = await getReactions(slug);
     const { comments } = await getComments({ slug })
     const related = await getRelatedPost({ slug })
@@ -93,8 +96,8 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                     path={`${blog.path}/${post.slug}`}
                     title={post.metadata.title as string}
                     description={post.metadata.summary}
-                    datePublished={post.metadata.publishedAt as string}
-                    dateModified={post.metadata.publishedAt as string}
+                    datePublished={publishedAt.toISOString()}
+                    dateModified={modifiedAt.toISOString()}
                     image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title as string)}`}
                     author={{
                         name: person.name,
