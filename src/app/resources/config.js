@@ -10,7 +10,16 @@ const routes = {
   "/webmaster-albi": true,
   "/solutions": true,
 };
-
+const breadCrumbs = {
+  "root": home,
+  "a-propos": about,
+  "realisations": work,
+  "blog": blog,
+  "estimation": estimation,
+  "webmaster-albi": webmasterAlbi,
+  "solutions": solutionsWeb,
+  "blog": blog
+}
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
 const protectedRoutes = {
@@ -18,6 +27,7 @@ const protectedRoutes = {
 };
 
 import { Josefin_Sans, Geist_Mono, Geist, Open_Sans } from "next/font/google";
+import { about, blog, estimation, home, solutionsWeb, webmasterAlbi, work } from "./content";
 
 const primaryFont = Josefin_Sans({
   variable: "--font-secondary",
@@ -199,4 +209,4 @@ const rdv = {
   },
 };
 
-export { routes, protectedRoutes, effects, style, display, mailchimp, rdv, baseURL, font };
+export { routes, protectedRoutes, effects, style, display, mailchimp, rdv, baseURL, font, breadCrumbs };

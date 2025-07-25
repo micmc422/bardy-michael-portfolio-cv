@@ -7,7 +7,7 @@ import styles from "./SharedInteractiveStyles.module.scss";
 
 interface CheckboxProps
   extends Omit<InteractiveDetailsProps, "onClick">,
-    React.InputHTMLAttributes<HTMLInputElement> {
+  React.InputHTMLAttributes<HTMLInputElement> {
   isChecked?: boolean;
   isIndeterminate?: boolean;
   onToggle?: () => void;
@@ -80,6 +80,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxP
           tabIndex={-1}
         />
         <Flex
+          suppressHydrationWarning
           style={{
             borderRadius: "min(var(--static-space-4), var(--radius-xs))",
           }}

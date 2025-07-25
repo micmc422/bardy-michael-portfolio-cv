@@ -2,7 +2,7 @@
 
 import { Checkbox, Column, Feedback, Grid, Icon, Row, Text, Textarea, ToggleButton } from "@/once-ui/components";
 import { siteTypes, type Option } from "../estimationData";
-import { use, useMemo } from "react";
+import { forwardRef, use, useMemo } from "react";
 import { notFound, useSearchParams } from "next/navigation";
 import { useToggleOptionParam } from "./hooks";
 import { Schema } from "@/once-ui/modules";
@@ -24,7 +24,7 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
         <Schema
             as="webPage"
             baseURL={baseURL}
-            path={estimation.path}
+            path={`${estimation.path}/${slug}`}
             title={`Estimation : ${activeSite.name}`}
             description={estimation.description}
             image={`${baseURL}/og?type=estimation&slug=${slug}`}
@@ -41,17 +41,11 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
         </DraggableFlexRow>
         <Grid columns={2} mobileColumns={1} gap="m">
             {activeSite?.options?.map((option: Option, _i) =>
-                <Checkbox
-                    key={option.slug}
-                    label={<Row vertical="center" gap="4"><Icon name={option.icon} size="s" />{option.name}</Row>}
-                    description={<Column>
-                        <Text onBackground="accent-weak">{option.price}€</Text>
-                        <Row>{option.description}</Row>
-
-                    </Column>}
-                    aria-label={`Sélectionnez l'option ${option.name}`}
-                    isChecked={selectedOptions.includes(option.slug)}
-                    onToggle={() => toggleOption(option.slug, !selectedOptions.includes(option.slug))}
+                <CheckBoxItem
+                    key={_i}
+                    option={option}
+                    selectedOptions={selectedOptions}
+                    toggleOption={toggleOption}
                 />)}
         </Grid>
         <Column paddingTop="l" gap="s">
@@ -70,3 +64,30 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
     </>
 }
 
+
+interface CheckBoxItemProps extends React.ComponentProps<typeof Checkbox> {
+    option: Option;
+    selectedOptions: string[];
+    toggleOption: (option: string, checked: boolean) => void;
+}
+
+const CheckBoxItem = forwardRef<HTMLDivElement, CheckBoxItemProps>(
+    ({ option, selectedOptions, toggleOption, ...rest }, ref) => {
+        return (
+            <Checkbox
+                key={option.slug}
+                label={<Row vertical="center" gap="4"
+                ><Icon name={option.icon} size="s" />{option.name}</Row>}
+                description={<Column>
+                    <Text onBackground="accent-weak">{option.price}€</Text>
+                    <Row>{option.description}</Row>
+
+                </Column>}
+                aria-label={`Sélectionnez l'option ${option.name}`}
+                isChecked={selectedOptions.includes(option.slug)}
+                onToggle={() => toggleOption(option.slug, !selectedOptions.includes(option.slug))}
+            />)
+    }
+);
+
+CheckBoxItem.displayName = "CheckBoxItem";

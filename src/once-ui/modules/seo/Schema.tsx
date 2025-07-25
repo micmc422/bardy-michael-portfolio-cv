@@ -1,8 +1,9 @@
 import React from "react";
-import { person, social } from "@/app/resources/content";
+import { home, person, social } from "@/app/resources/content";
 import type { ReactionType } from "@/components/reactions/serverActions";
 import Script from "next/script";
 import type { PostType } from "@/app/utils/types";
+import { breadCrumbs } from "@/app/resources/config";
 
 export interface SchemaProps {
   as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage";
@@ -132,7 +133,61 @@ export function Schema({
         "addressLocality": "Albi",
         "postalCode": "81000",
         "addressCountry": "FR"
-      }
+      },
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Développeur Web",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "lastReviewed": "2024-07-23T14:20:00-05:00"
+          },
+          "description": "Conception et développement de sites WordPress, Next.js, optimisation UX/UI et performances.",
+          "educationRequirements": "Formation technique en développement web et auto‑formation continue.",
+          "skills": ["JavaScript", "React", "Next.js", "WordPress", "SEO", "Performance web"],
+          "estimatedSalary": {
+            "@type": "MonetaryAmountDistribution",
+            "name": "base",
+            "currency": "EUR",
+            "duration": "P1Y",
+            "percentile10": 30000,
+            "percentile25": 35000,
+            "median": 37500,
+            "percentile75": 42500,
+            "percentile90": 45000
+          },
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Albi, FR"
+          }
+        },
+        {
+          "@type": "Occupation",
+          "name": "Formateur Web",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "lastReviewed": "2024-07-23T14:20:00-05:00"
+          },
+          "description": "Animation d’ateliers et formations pour étudiants et professionnels (ex. Université Champollion).",
+          "educationRequirements": "Expérience professionnelle + pédagogie en environnement technique.",
+          "skills": ["Pédagogie", "Communication", "Formation web"],
+          "estimatedSalary": {
+            "@type": "MonetaryAmountDistribution",
+            "name": "base",
+            "currency": "EUR",
+            "duration": "P1Y",
+            "percentile10": 25000,
+            "percentile25": 30000,
+            "median": 32500,
+            "percentile75": 37500,
+            "percentile90": 40000
+          },
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Albi, FR"
+          }
+        }
+      ]
     };
   } else {
     schema.headline = title;
@@ -141,6 +196,38 @@ export function Schema({
     if (datePublished) {
       schema.datePublished = datePublished;
       schema.dateModified = dateModified || datePublished;
+    }
+  }
+  if (as === "webPage" || as === "blog" || as === "aboutPage" || as === "blogPosting") {
+    const partItems = path.split("/").filter(el => el !== "") as unknown as [keyof typeof breadCrumbs, string, string] | [keyof typeof breadCrumbs, string] | [keyof typeof breadCrumbs];
+    // partItems.shift()
+    schema.breadcrumb = {
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": breadCrumbs["root"].title,
+          "item": `${baseURL}${home.path}`
+        }
+      ]
+    }
+    if (partItems?.length > 0) {
+      const lvl2Item = {
+        "@type": "ListItem",
+        "position": 2,
+        "name": breadCrumbs[partItems[0]].title,
+        "item": `${baseURL}${breadCrumbs[partItems[0]].path}`
+      }
+      schema.breadcrumb.itemListElement.push(lvl2Item);
+    }
+    if (partItems.length > 1) {
+      const lvl3Item = {
+        "@type": "ListItem",
+        "position": 3,
+        "name": title,
+        "item": `${baseURL}${path}`
+      }
+      schema.breadcrumb.itemListElement.push(lvl3Item);
     }
   }
   if (author && as !== "webPage") {
