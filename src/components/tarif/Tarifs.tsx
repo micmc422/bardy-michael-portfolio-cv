@@ -4,9 +4,7 @@ import styles from "./Tarifs.module.scss";
 import { Row, Column, Heading, Text, Background, Line, Button } from "@/once-ui/components";
 import { rdv } from "@/app/resources/config";
 import type { opacity } from "@/once-ui/types";
-import Script from "next/script";
-import { getAvis } from "@/app/utils/serverActions";
-import { getRandomSixDigitNumber } from "@/utils/utils";
+import { Schema } from "@/once-ui/modules";
 
 
 type PricingItem = {
@@ -15,21 +13,9 @@ type PricingItem = {
     price: string;
     features: string[];
     notes?: string;
-    jsonLD: string;
+    description: string;
 };
 
-function getPriceValidUntilDate() {
-    const date = new Date();
-    date.setFullYear(date.getFullYear() + 1);
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // mois : 0-11
-    const day = String(date.getDate()).padStart(2, '0');
-
-    return `${year}-${month}-${day}`;
-}
-
-const { rating, reviews } = await getAvis();
 
 const defaultTarifs: PricingItem[] = [
     {
@@ -43,40 +29,7 @@ const defaultTarifs: PricingItem[] = [
             "Livraison clé en main sous 2 à 4 semaines"
         ],
         "notes": "Options : blog, multilingue, réservation, etc.",
-        jsonLD: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "image": "/images/blog/cv-cover.png",
-            "name": "Création de site web",
-            "description": "Création de sites vitrines sur mesure avec WordPress ou Next.js, responsive et optimisés pour le SEO.",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": rating,
-                "reviewCount": reviews.length
-            },
-            "brand": {
-                "@type": "Organization",
-                "name": "Occitaweb"
-            },
-            "offers": {
-                "@type": "Offer",
-                "priceValidUntil": getPriceValidUntilDate(),
-                "priceCurrency": "EUR",
-                "price": "1200",
-                "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "EUR",
-                    "price": 1200,
-                    "minPrice": 1200,
-                    "maxPrice": 12000,
-                    "valueAddedTaxIncluded": false
-                },
-                "availability": "https://schema.org/InStock",
-                "url": "https://occitaweb.fr"
-            },
-            "category": "WebDevelopmentService"
-        }
-        )
+        "description": "Création de sites vitrines sur mesure avec WordPress ou Next.js, responsive et optimisés pour le SEO.",
     },
     {
         "title": "Refonte & Optimisation",
@@ -88,40 +41,7 @@ const defaultTarifs: PricingItem[] = [
             "Migration vers une stack plus moderne (ex. WordPress > Next.js)",
             "Sécurisation & mises à jour techniques"
         ],
-        jsonLD: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "image": "/images/blog/pagespeed-h2team.png",
-            "name": "Refonte & Optimisation",
-            "description": "Audit et amélioration de sites existants : UX, SEO, performances, migration vers des technologies modernes.",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": rating,
-                "reviewCount": reviews.length
-            },
-            "brand": {
-                "@type": "Organization",
-                "name": "Occitaweb"
-            },
-            "offers": {
-                "@type": "Offer",
-                "priceValidUntil": getPriceValidUntilDate(),
-                "priceCurrency": "EUR",
-                "price": "600",
-                "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "EUR",
-                    "price": 600,
-                    "minPrice": 600,
-                    "maxPrice": 6000,
-                    "valueAddedTaxIncluded": false
-                },
-                "availability": "https://schema.org/InStock",
-                "url": "https://occitaweb.fr"
-            },
-            "category": "WebDevelopmentService"
-        }
-        )
+        "description": "Audit et amélioration de sites existants : UX, SEO, performances, migration vers des technologies modernes.",
     },
     {
         "title": "Maintenance & gestion",
@@ -133,40 +53,7 @@ const defaultTarifs: PricingItem[] = [
             "Assistance prioritaire & suivi des performances",
             "1h de modifications incluses chaque mois"
         ],
-        jsonLD: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "image": "/images/blog/headless.png",
-            "name": "Maintenance & accompagnement",
-            "description": "Mises à jour, sauvegardes, assistance et évolutions régulières pour assurer la stabilité de votre site.",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": rating,
-                "reviewCount": reviews.length
-            },
-            "brand": {
-                "@type": "Organization",
-                "name": "Occitaweb"
-            },
-            "offers": {
-                "@type": "Offer",
-                "priceValidUntil": getPriceValidUntilDate(),
-                "priceCurrency": "EUR",
-                "price": "90",
-                "priceSpecification": {
-                    "@type": "PriceSpecification",
-                    "priceCurrency": "EUR",
-                    "price": 90,
-                    "minPrice": 90,
-                    "maxPrice": 1000,
-                    "valueAddedTaxIncluded": false
-                },
-                "availability": "https://schema.org/InStock",
-                "url": "https://occitaweb.fr"
-            },
-            "category": "WebMaintenanceService"
-        }
-        )
+        "description": "Mises à jour, sauvegardes, assistance et évolutions régulières pour assurer la stabilité de votre site.",
     }
 ]
 
@@ -237,7 +124,7 @@ interface VoletProps extends React.ComponentProps<typeof Column> {
 
 const Volet = forwardRef<HTMLDivElement, VoletProps>(
     ({ volet, className, style, ...rest }, ref) => {
-        const { title, slug, price, features, notes, jsonLD } = volet;
+        const { title, description, slug, price, features, notes } = volet;
         return (
             <Column radius="l-4"
                 ref={ref}
@@ -246,9 +133,9 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                 fillWidth
                 overflow="hidden"
                 background="accent-alpha-medium"
-
                 {...rest}
             >
+                <Schema as={"service"} title={title} description={description} path={`estimation/${slug}`} offerSlug={slug} />
                 <Background
                     fill
                     position="absolute"
@@ -297,11 +184,11 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                 <Column padding="m" center>
                     <Button variant="primary" href={`/estimation/${slug}`}>Estimation en ligne</Button>
                 </Column>
-                <Script id={`Tarifs-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
             </Column>
         );
     }
 );
+// <Script id={`Tarifs-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
 
 Volet.displayName = "Volet";
 

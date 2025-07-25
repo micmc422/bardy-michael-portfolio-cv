@@ -40,6 +40,9 @@ export interface WispPost {
     tags: TagInPost[];
 }
 
+export interface OfferType {
+    slug: number;
+}
 export interface Team {
     name: string
     role: string

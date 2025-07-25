@@ -3,13 +3,15 @@ import { home, person, social } from "@/app/resources/content";
 import type { ReactionType } from "@/components/reactions/serverActions";
 import Script from "next/script";
 import type { PostType } from "@/app/utils/types";
-import { breadCrumbs } from "@/app/resources/config";
+import { baseURL, breadCrumbs } from "@/app/resources/config";
+import { getAvis } from "@/app/utils/serverActions";
+import { siteTypes } from "@/app/estimation/estimationData";
 
 export interface SchemaProps {
-  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage";
+  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage" | "service";
   title: string;
   description: string;
-  baseURL: string;
+  baseURL?: string;
   path: string;
   datePublished?: string;
   dateModified?: string;
@@ -21,6 +23,7 @@ export interface SchemaProps {
   };
   reactions?: ReactionType[]
   projet?: PostType
+  offerSlug?: string
 }
 
 const schemaTypeMap = {
@@ -32,21 +35,35 @@ const schemaTypeMap = {
   webPage: "WebPage",
   organization: "Organization",
   aboutPage: "AboutPage",
+  service: "Service",
 };
 
-export function Schema({
+function getPriceValidUntilDate() {
+  const date = new Date();
+  date.setFullYear(date.getFullYear() + 1);
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // mois : 0-11
+  const day = String(date.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+}
+
+export async function Schema({
   as,
   title,
   description,
-  baseURL,
+  // baseURL = baseURL || "https://occitaweb.fr",
   path,
   datePublished,
   dateModified,
   image,
   author,
   reactions,
-  projet
+  projet,
+  offerSlug
 }: SchemaProps) {
+
   const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
@@ -73,6 +90,43 @@ export function Schema({
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
+  } else if (as === "service") {
+    const avis = await getAvis();
+    // console.log(avis);
+    schema.name = title;
+    schema.description = description;
+    schema.image = imageUrl;
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      "ratingValue": avis?.rating,
+      "reviewCount": avis?.reviews.length,
+    };
+    schema.provider = {
+      "@type": "Organization",
+      "name": "Occitaweb",
+      "url": "https://occitaweb.fr"
+    }
+    if (offerSlug) {
+      const offer = siteTypes.find(el => el.slug === offerSlug);
+      let maxPrice = offer?.basePrice || 0
+      offer?.options.forEach(opt => maxPrice += opt.price);
+      schema.offers = {
+        "@type": "Offer",
+        "priceValidUntil": getPriceValidUntilDate(),
+        "priceCurrency": "EUR",
+        "price": offer?.basePrice,
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "EUR",
+          "price": offer?.basePrice,
+          "minPrice": offer?.basePrice,
+          "maxPrice": maxPrice,
+          "valueAddedTaxIncluded": false
+        },
+        "availability": "https://schema.org/InStock",
+        "url": `${baseURL}/estimation/${offer?.slug}`
+      };
+    }
   } else if (as === "webPage") {
     schema.name = title;
     schema.description = description;

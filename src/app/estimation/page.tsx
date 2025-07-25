@@ -6,13 +6,13 @@ import { about, estimation, person } from "../resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 
 export async function generateMetadata() {
-    return Meta.generate({
-      title: `${estimation.title} | occitaweb.fr`,
-        description: estimation.description,
-        baseURL: baseURL,
-        image: `${baseURL}/og?title=${encodeURIComponent(estimation.title)}`,
-        path: estimation.path,
-    });
+  return Meta.generate({
+    title: `${estimation.title} | occitaweb.fr`,
+    description: estimation.description,
+    baseURL: baseURL,
+    image: `${baseURL}/og?title=${encodeURIComponent(estimation.title)}`,
+    path: estimation.path,
+  });
 }
 
 export default function EstimationPage() {
@@ -32,6 +32,7 @@ export default function EstimationPage() {
     />
     <Grid columns={2} mobileColumns={1} gap="m" >
       {siteTypes.map(({ name, basePrice, icon, description, includes, slug }, _i) => <Card href={`/estimation/${slug}`} direction="column" padding="s" key={name} border="neutral-alpha-weak" radius="m" gap="s" fillWidth background="transparent" position="relative" overflow="hidden">
+        <Schema as={"service"} title={name} description={description} path={`estimation/${slug}`} offerSlug={slug} />
         <Background
           fill
           position="absolute"

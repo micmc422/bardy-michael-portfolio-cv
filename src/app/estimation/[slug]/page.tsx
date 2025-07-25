@@ -5,9 +5,6 @@ import { siteTypes, type Option } from "../estimationData";
 import { forwardRef, use, useMemo } from "react";
 import { notFound, useSearchParams } from "next/navigation";
 import { useToggleOptionParam } from "./hooks";
-import { Schema } from "@/once-ui/modules";
-import { baseURL } from "@/app/resources";
-import { about, estimation, person } from "@/app/resources/content";
 import { DraggableFlexRow } from "@/components/DraggableRow";
 
 
@@ -21,19 +18,6 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
     if (!activeSite) notFound()
 
     return <>
-        <Schema
-            as="webPage"
-            baseURL={baseURL}
-            path={`${estimation.path}/${slug}`}
-            title={`Estimation : ${activeSite.name}`}
-            description={estimation.description}
-            image={`${baseURL}/og?type=estimation&slug=${slug}`}
-            author={{
-                name: person.name,
-                url: `${baseURL}${about.path}`,
-                image: `${baseURL}${person.avatar}`,
-            }}
-        />
         <DraggableFlexRow>
             <Row wrap={false} gap="s">
                 {siteTypes.map((site) => <ToggleButton prefixIcon={site.icon} key={site.slug} label={site.name} selected={site.slug === slug} href={`/estimation/${site.slug}`} size="s" />)}

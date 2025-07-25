@@ -324,7 +324,6 @@ async function fetchAvis(): Promise<{ rating: number | null; reviews: AvisType[]
             ...el,
             translated: `${el.translated}`
         })) as AvisType[];
-
         return {
             rating: data.result.rating,
             reviews: avis
