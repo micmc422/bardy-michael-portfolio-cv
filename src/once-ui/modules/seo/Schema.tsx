@@ -4,11 +4,11 @@ import type { ReactionType } from "@/components/reactions/serverActions";
 import Script from "next/script";
 import type { PostType } from "@/app/utils/types";
 import { baseURL, breadCrumbs } from "@/app/resources/config";
-import { getAvis } from "@/app/utils/serverActions";
 import { siteTypes } from "@/app/estimation/estimationData";
+import { getAvis } from "@/app/utils/serverActions";
 
 export interface SchemaProps {
-  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage" | "service";
+  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage" | "product";
   title: string;
   description: string;
   baseURL?: string;
@@ -35,7 +35,7 @@ const schemaTypeMap = {
   webPage: "WebPage",
   organization: "Organization",
   aboutPage: "AboutPage",
-  service: "Service",
+  product: "Product",
 };
 
 function getPriceValidUntilDate() {
@@ -90,42 +90,52 @@ export async function Schema({
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
-  } else if (as === "service") {
-    const avis = await getAvis();
-    // console.log(avis);
+  } else if (as === "product") {
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
-    schema.aggregateRating = {
-      "@type": "AggregateRating",
-      "ratingValue": avis?.rating,
-      "reviewCount": avis?.reviews.length,
-    };
     schema.provider = {
       "@type": "Organization",
       "name": "Occitaweb",
       "url": "https://occitaweb.fr"
     }
     if (offerSlug) {
+      const rating = await getAvis()
       const offer = siteTypes.find(el => el.slug === offerSlug);
       let maxPrice = offer?.basePrice || 0
       offer?.options.forEach(opt => maxPrice += opt.price);
       schema.offers = {
-        "@type": "Offer",
-        "priceValidUntil": getPriceValidUntilDate(),
-        "priceCurrency": "EUR",
-        "price": offer?.basePrice,
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "priceCurrency": "EUR",
-          "price": offer?.basePrice,
-          "minPrice": offer?.basePrice,
-          "maxPrice": maxPrice,
-          "valueAddedTaxIncluded": false
+        "@type": "Product",
+        "image": `${baseURL}/og?title=${encodeURIComponent(offer?.name || title)}`,
+        "name": offer?.name || title,
+        "description": offer?.description || description,
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": rating.rating,
+          "reviewCount": rating.reviews.length
         },
-        "availability": "https://schema.org/InStock",
-        "url": `${baseURL}/estimation/${offer?.slug}`
-      };
+        "brand": {
+          "@type": "Organization",
+          "name": "Occitaweb"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceValidUntil": getPriceValidUntilDate(),
+          "priceCurrency": "EUR",
+          "price": offer?.basePrice || 0,
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "price": offer?.basePrice || 0,
+            "minPrice": offer?.basePrice || 0,
+            "maxPrice": maxPrice,
+            "valueAddedTaxIncluded": false
+          },
+          "availability": "https://schema.org/InStock",
+          "url": "https://occitaweb.fr"
+        },
+        "category": "WebDevelopmentService"
+      }
     }
   } else if (as === "webPage") {
     schema.name = title;
