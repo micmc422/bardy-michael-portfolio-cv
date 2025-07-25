@@ -18,7 +18,6 @@ export function delay(ms: number) {
 }
 export function convertirTimestampGoogle(time: number) {
     const date = new Date(time * 1000); // Multiplier par 1000 car timestamp est en secondes
-    console.log(date.toISOString())
     return date.toISOString().split("T")[0]; // Garde uniquement la date : "YYYY-MM-DD"
 }
 export function getRandomSixDigitNumber() {
