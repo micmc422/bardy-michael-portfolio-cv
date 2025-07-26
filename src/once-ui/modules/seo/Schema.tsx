@@ -4,7 +4,6 @@ import type { ReactionType } from "@/components/reactions/serverActions";
 import Script from "next/script";
 import type { PostType } from "@/app/utils/types";
 import { baseURL, breadCrumbs } from "@/app/resources/config";
-import { getAvis } from "@/app/utils/serverActions";
 import { siteTypes } from "@/app/estimation/estimationData";
 
 export interface SchemaProps {
@@ -91,21 +90,25 @@ export async function Schema({
     schema.description = description;
     schema.image = imageUrl;
   } else if (as === "service") {
-    const avis = await getAvis();
+  //  const avis = await getAvis();
     // console.log(avis);
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
+    /*
     schema.aggregateRating = {
       "@type": "AggregateRating",
       "ratingValue": avis?.rating,
       "reviewCount": avis?.reviews.length,
     };
+    */
     schema.provider = {
       "@type": "Organization",
       "name": "Occitaweb",
-      "url": "https://occitaweb.fr"
+      "url": "https://occitaweb.fr",
+      "sameAs": schema.sameAs
     }
+    delete schema.sameAs;
     if (offerSlug) {
       const offer = siteTypes.find(el => el.slug === offerSlug);
       let maxPrice = offer?.basePrice || 0
