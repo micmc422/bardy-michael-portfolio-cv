@@ -6,10 +6,11 @@ import type { PostType } from "@/app/utils/types";
 import { baseURL, breadCrumbs } from "@/app/resources/config";
 import { siteTypes } from "@/app/estimation/estimationData";
 import { getFileData } from "@/app/sitemap";
+import { getAvis } from "@/app/utils/serverActions";
 
 
 export interface SchemaProps {
-  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage" | "product";
+  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage" | "service";
   title: string;
   description: string;
   baseURL?: string;
@@ -36,7 +37,7 @@ const schemaTypeMap = {
   webPage: "WebPage",
   organization: "Organization",
   aboutPage: "AboutPage",
-  product: "Product",
+  service: "Service",
 };
 
 function getPriceValidUntilDate() {
