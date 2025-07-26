@@ -56,7 +56,7 @@ interface CheckBoxItemProps extends React.ComponentProps<typeof Checkbox> {
 }
 
 const CheckBoxItem = forwardRef<HTMLDivElement, CheckBoxItemProps>(
-    ({ option, selectedOptions, toggleOption, ...rest }, ref) => {
+    ({ option, selectedOptions, toggleOption }) => {
         return (
             <Checkbox
                 key={option.slug}

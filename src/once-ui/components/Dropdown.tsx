@@ -11,7 +11,7 @@ interface DropdownProps extends Omit<React.ComponentProps<typeof Flex>, "onSelec
 }
 
 const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
-  ({ selectedOption, className, children, onEscape, onSelect, ...rest }, ref) => {
+  ({ children, onSelect, ...rest }, ref) => {
     const handleSelect = (event: SyntheticEvent<HTMLDivElement>) => {
       const value = event.currentTarget.getAttribute("data-value");
       if (onSelect && value) {

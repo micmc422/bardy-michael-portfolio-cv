@@ -5,7 +5,8 @@ import Script from "next/script";
 import type { PostType } from "@/app/utils/types";
 import { baseURL, breadCrumbs } from "@/app/resources/config";
 import { siteTypes } from "@/app/estimation/estimationData";
-import { getAvis } from "@/app/utils/serverActions";
+import { getFileData } from "@/app/sitemap";
+
 
 export interface SchemaProps {
   as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage" | "product";
@@ -90,15 +91,27 @@ export async function Schema({
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
-  } else if (as === "product") {
+  } else if (as === "service") {
+    //  const avis = await getAvis();
+    // console.log(avis);
     schema.name = title;
     schema.description = description;
-    schema.image = imageUrl;
+    schema.image = baseURL + imageUrl;
+    /*
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      "ratingValue": avis?.rating,
+      "reviewCount": avis?.reviews.length,
+    };
+    */
+
     schema.provider = {
       "@type": "Organization",
       "name": "Occitaweb",
-      "url": "https://occitaweb.fr"
+      "url": "https://occitaweb.fr",
+      "sameAs": schema.sameAs
     }
+    delete schema.sameAs;
     if (offerSlug) {
       const rating = await getAvis()
       const offer = siteTypes.find(el => el.slug === offerSlug);
@@ -138,9 +151,31 @@ export async function Schema({
       }
     }
   } else if (as === "webPage") {
+    const filepath = path.replace(/\/estimation\/?.*$/, '/estimation')
+    const dateModified = await getFileData(filepath);
     schema.name = title;
     schema.description = description;
     schema.image = imageUrl;
+    schema.inLanguage = "fr-FR";
+    schema.datePublished = "2015-01-01T00:00:00+00:00"; // Date de publication par défaut
+    schema.dateModified = dateModified;
+    schema.mainEntityOfPage = {
+      "@type": "WebPage",
+      "@id": `${baseURL}${path}`
+    };
+    schema.author = {
+      "@type": "Person",
+      "name": person.name,
+      "url": "https://occitaweb.fr/a-propos"
+    };
+    schema.publisher = {
+      "@type": "Organization",
+      "name": "Occitaweb",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://occitaweb.fr/trademark/icon-dark.png" // URL de votre logo
+      }
+    }
     delete schema.sameAs;
     if (projet) {
       schema.mainEntity = {
@@ -266,6 +301,7 @@ export async function Schema({
     const partItems = path.split("/").filter(el => el !== "") as unknown as [keyof typeof breadCrumbs, string, string] | [keyof typeof breadCrumbs, string] | [keyof typeof breadCrumbs];
     // partItems.shift()
     schema.breadcrumb = {
+      "@type": "BreadcrumbList",
       "itemListElement": [
         {
           "@type": "ListItem",

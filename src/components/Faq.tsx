@@ -33,7 +33,7 @@ interface LISTType {
 }
 
 const Faq = forwardRef<HTMLDivElement, FaqProps>(
-    ({ className, style, faqData, ...rest }, ref) => {
+    ({ faqData, ...rest }, ref) => {
         const jsonStr = faqData || decodeURIComponent(rest["data-props"] || "[]");
         const { faq, list, title } = JSON.parse(jsonStr) as FAQType | LISTType;
         if (faq) {

@@ -7,9 +7,6 @@ import { Meta, Schema } from "@/once-ui/modules";
 import { Projects } from "@/components/realisations/Projects";
 import { Faq } from "@/components";
 import { AvisClient } from "@/components/AvisClients";
-import { getAvis } from "./utils/serverActions";
-import { convertirTimestampGoogle } from "@/utils/utils";
-import Script from "next/script";
 import { Posts } from "@/components/blog/Posts";
 import { Tarifs } from "@/components/tarif/Tarifs";
 
@@ -25,22 +22,6 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const { rating, reviews } = await getAvis();
-
-  const reviewsArr = JSON.stringify(reviews.map((el) => ({
-    "@type": "Review",
-    "author": {
-      "@type": "Person",
-      "name": el.author_name
-    },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": el.rating,
-      "bestRating": "5"
-    },
-    "reviewBody": el.text,
-    "datePublished": convertirTimestampGoogle(el.time)
-  })))
 
 
   return (
@@ -191,31 +172,6 @@ export default async function Home() {
         } />
       </Column>
       <AvisClient />
-      <Script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: `{
-                  "@context": "https://schema.org",
-                  "@type": "LocalBusiness",
-                  "name": "Occitaweb",
-                  "url": "https://occitaweb.fr",
-                  "telephone": "+33 6 72 11 50 06",
-                  "priceRange": "€€€",
-                  "image": "https://occitaweb.fr/trademark/icon-dark.png",
-                  "address": {
-                  "@type": "PostalAddress",
-                    "streetAddress": "25 avenue gambetta",
-                    "addressLocality": "Albi",
-                    "postalCode": "81000",
-                    "addressCountry": "FR"
-                  },
-                  "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": ${rating},
-                    "reviewCount": ${reviews.length}
-                  },
-                  "review": ${reviewsArr}
-                  }`
-      }} />
-
     </Column>
   );
 }

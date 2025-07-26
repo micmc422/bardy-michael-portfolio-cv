@@ -11,6 +11,7 @@ export default function RootTemplate({ children }: { children: React.ReactNode; 
             <ScrollToTop offset={500}>
                 <IconButton icon="chevronUp" />
             </ScrollToTop>
+            
         </>
     );
 }

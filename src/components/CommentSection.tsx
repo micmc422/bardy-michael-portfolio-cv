@@ -16,7 +16,7 @@ interface CommentSectionProps extends React.ComponentProps<typeof Column> {
 }
 
 
-const CommentSection = forwardRef<HTMLDivElement, CommentSectionProps & { slug: string, comments: Comment[] }>(({ className, style, slug, comments, ..._rest }, ref) => {
+const CommentSection = forwardRef<HTMLDivElement, CommentSectionProps & { slug: string, comments: Comment[] }>(({ slug, comments }, ref) => {
     const rootComments = comments.filter(({ parent }) => !parent)
     return (<Column paddingTop="l" gap="m" fillWidth ref={ref}>
         <Text variant="heading-strong-l">Commentaires</Text>
