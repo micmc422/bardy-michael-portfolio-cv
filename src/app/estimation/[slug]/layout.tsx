@@ -42,6 +42,6 @@ export default async function EstimationSlugLayout({ children, params }: { child
                 image: `${baseURL}${person.avatar}`,
             }}
         />
-        <Schema as={"service"} title={activeSite.name} description={activeSite.description} path={`estimation/${activeSite.slug}`} offerSlug={activeSite.slug} />
+        <Schema as={"product"} title={activeSite.name} description={activeSite.description} path={`estimation/${activeSite.slug}`} offerSlug={activeSite.slug} />
         {children}</Suspense>
 }

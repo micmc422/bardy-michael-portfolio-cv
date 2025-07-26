@@ -135,7 +135,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                 background="accent-alpha-medium"
                 {...rest}
             >
-                <Schema as={"service"} title={title} description={description} path={`estimation/${slug}`} offerSlug={slug} />
+                <Schema as={"product"} title={title} description={description} path={`estimation/${slug}`} offerSlug={slug} />
                 <Background
                     fill
                     position="absolute"

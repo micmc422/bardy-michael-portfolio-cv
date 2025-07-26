@@ -7,8 +7,9 @@ import { baseURL, breadCrumbs } from "@/app/resources/config";
 import { siteTypes } from "@/app/estimation/estimationData";
 import { getFileData } from "@/app/sitemap";
 
+
 export interface SchemaProps {
-  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage" | "service";
+  as: "website" | "article" | "blog" | "blogPosting" | "techArticle" | "webPage" | "organization" | "aboutPage" | "product";
   title: string;
   description: string;
   baseURL?: string;
@@ -35,7 +36,7 @@ const schemaTypeMap = {
   webPage: "WebPage",
   organization: "Organization",
   aboutPage: "AboutPage",
-  service: "Service",
+  product: "Product",
 };
 
 function getPriceValidUntilDate() {
@@ -103,6 +104,7 @@ export async function Schema({
       "reviewCount": avis?.reviews.length,
     };
     */
+
     schema.provider = {
       "@type": "Organization",
       "name": "Occitaweb",
@@ -111,25 +113,42 @@ export async function Schema({
     }
     delete schema.sameAs;
     if (offerSlug) {
+      const rating = await getAvis()
       const offer = siteTypes.find(el => el.slug === offerSlug);
       let maxPrice = offer?.basePrice || 0
       offer?.options.forEach(opt => maxPrice += opt.price);
       schema.offers = {
-        "@type": "Offer",
-        "priceValidUntil": getPriceValidUntilDate(),
-        "priceCurrency": "EUR",
-        "price": offer?.basePrice,
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "priceCurrency": "EUR",
-          "price": offer?.basePrice,
-          "minPrice": offer?.basePrice,
-          "maxPrice": maxPrice,
-          "valueAddedTaxIncluded": false
+        "@type": "Product",
+        "image": `${baseURL}/og?title=${encodeURIComponent(offer?.name || title)}`,
+        "name": offer?.name || title,
+        "description": offer?.description || description,
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": rating.rating,
+          "reviewCount": rating.reviews.length
         },
-        "availability": "https://schema.org/InStock",
-        "url": `${baseURL}/estimation/${offer?.slug}`
-      };
+        "brand": {
+          "@type": "Organization",
+          "name": "Occitaweb"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceValidUntil": getPriceValidUntilDate(),
+          "priceCurrency": "EUR",
+          "price": offer?.basePrice || 0,
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "EUR",
+            "price": offer?.basePrice || 0,
+            "minPrice": offer?.basePrice || 0,
+            "maxPrice": maxPrice,
+            "valueAddedTaxIncluded": false
+          },
+          "availability": "https://schema.org/InStock",
+          "url": "https://occitaweb.fr"
+        },
+        "category": "WebDevelopmentService"
+      }
     }
   } else if (as === "webPage") {
     const filepath = path.replace(/\/estimation\/?.*$/, '/estimation')
