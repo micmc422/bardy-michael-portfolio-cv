@@ -23,7 +23,7 @@ export default async function sitemap() {
       lastModified
     })
   });
-  const estimationsPromises = siteTypes.map(async ({slug}) => {
+  const estimationsPromises = siteTypes.map(async ({ slug }) => {
     const lastModified = await getFileData(`/estimation`)
     return ({
       url: `${baseURL}/estimation/${slug}`,
@@ -36,7 +36,7 @@ export default async function sitemap() {
   return [...routes, ...posts, ...works, ...estimations];
 }
 
-async function getFileData(route: string) {
+export async function getFileData(route: string) {
 
   const url = process.env.GITHUB_API!;
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Stocke ton token ici de préférence
@@ -78,5 +78,8 @@ async function getFileData(route: string) {
 
   const data = await res.json();
   const node = data.data.repository.defaultBranchRef.target.history.nodes[0];
+  if (!node) {
+    throw new Error(`No commit found for path: src/app${route}/page.tsx`);
+  }
   return node.committedDate
 }

@@ -49,6 +49,54 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     "reviewBody": el.text,
     "datePublished": convertirTimestampGoogle(el.time)
   })))
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Occitaweb",
+    "url": "https://occitaweb.fr",
+    "telephone": "+33 6 72 11 50 06",
+    "priceRange": "€€€",
+    "image": "https://occitaweb.fr/occ-screenshot-wide.png",
+    "logo": "https://occitaweb.fr/trademark/icon-dark.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "25 avenue gambetta",
+      "addressLocality": "Albi",
+      "postalCode": "81000",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "43.923547089460214",
+      "longitude": "2.147658324244786"
+    },
+    "hasMap": "https://www.google.com/maps/place/25+Av.+Gambetta,+81000+Albi",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "serviceType": "Agence de développement web",
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Occitanie"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": rating,
+      "reviewCount": reviews.length
+    },
+    "review": reviewsArr
+  })
   return (
     <Flex
       suppressHydrationWarning
@@ -185,54 +233,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         </ToastProvider>
       </ThemeProvider>
       <Script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: `{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Occitaweb",
-  "url": "https://occitaweb.fr",
-  "telephone": "+33 6 72 11 50 06",
-  "priceRange": "€€€",
-  "image": "https://occitaweb.fr/occ-screenshot-wide.png",
-  "logo": "https://occitaweb.fr/trademark/icon-dark.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "25 avenue gambetta",
-    "addressLocality": "Albi",
-    "postalCode": "81000",
-    "addressCountry": "FR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "43.923547089460214",
-    "longitude": "2.147658324244786"
-  },
-  "hasMap": "https://www.google.com/maps/place/25+Av.+Gambetta,+81000+Albi",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
-    }
-  ],
-  "serviceType": "Agence de développement web",
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "Occitanie"
-  }
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": ${rating},
-    "reviewCount": ${reviews.length}
-  },
-  "review": ${reviewsArr}
-}`
+        __html: schema
       }} />
 
     </Flex>
