@@ -16,7 +16,7 @@ interface ReactionsProps extends React.ComponentPropsWithoutRef<"div"> {
 }
 
 const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
-  ({ className, style, postSlug, reactions, ...rest }, ref) => {
+  ({ className, postSlug, reactions, ...rest }, ref) => {
     const [loading, startTransition] = useTransition()
     const { addToast } = useToast();
     function handleReaction({ emoji, tags }: { emoji: string, tags: string[] }) {
@@ -64,7 +64,7 @@ interface ReactionsListProps extends React.ComponentPropsWithoutRef<typeof Flex>
 }
 
 const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
-  ({ className, style, reactions, ...rest }, ref) => {
+  ({ className, reactions, ...rest }, ref) => {
     if (!reactions?.length) {
       return <Flex
         ref={ref}

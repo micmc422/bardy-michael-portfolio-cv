@@ -13,7 +13,7 @@ interface CardProps extends React.ComponentProps<typeof Flex> {
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ children, href, onClick, style, className, ...rest }, ref) => {
+  ({ children, href, onClick, ...rest }, ref) => {
     return (
       <ElementType
         tabIndex={0}

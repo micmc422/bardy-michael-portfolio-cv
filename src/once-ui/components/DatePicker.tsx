@@ -41,7 +41,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       nextMonth = true,
       minDate,
       maxDate,
-      defaultDate,
+      // defaultDate,
       defaultTime,
       size = "m",
       className,

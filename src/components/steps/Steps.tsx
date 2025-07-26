@@ -68,7 +68,7 @@ interface StepComponentProps extends React.ComponentProps<typeof Column> {
 }
 
 const StepComponent = forwardRef<HTMLDivElement, StepComponentProps>(
-    ({ icon, title, content, step, className, style, ...rest }, ref) => {
+    ({ title, content, step, className, style, ...rest }, ref) => {
         return (
             <Column
                 ref={ref}

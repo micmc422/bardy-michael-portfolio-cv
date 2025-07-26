@@ -20,6 +20,14 @@ const eslintConfig = [
             '@typescript-eslint/no-empty-object-type': 'off',
             '@typescript-eslint/ban-ts-comment': 'off',
             '@typescript-eslint/no-require-imports': 'warn',
+            '@typescript-eslint/no-unused-vars': [
+                'error',
+                {
+                    'argsIgnorePattern': '^_', // Ignore les arguments préfixés par _
+                    'varsIgnorePattern': '^_', // Ignore les variables préfixées par _
+                    'caughtErrorsIgnorePattern': '^_' // Ignore les erreurs capturées préfixées par _
+                }
+            ]
         },
     }),
 ]

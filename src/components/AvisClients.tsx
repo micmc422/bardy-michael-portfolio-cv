@@ -60,7 +60,7 @@ interface AvisProps extends React.ComponentProps<typeof Flex & AvisType> {
 }
 
 const Avis = forwardRef<HTMLDivElement, AvisProps>(
-    async ({ className, style, author_name, author_url, profile_photo_url, rating, relative_time_description, text, ...rest }, ref) => {
+    async ({ className, style, author_name, profile_photo_url, rating, text, ...rest }, ref) => {
         const stars = Array.from({ length: rating }, (_, i) => i);
         return (
             <Flex

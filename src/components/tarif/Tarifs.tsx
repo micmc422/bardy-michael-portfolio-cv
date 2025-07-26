@@ -123,7 +123,7 @@ interface VoletProps extends React.ComponentProps<typeof Column> {
 }
 
 const Volet = forwardRef<HTMLDivElement, VoletProps>(
-    ({ volet, className, style, ...rest }, ref) => {
+    ({ volet, className, ...rest }, ref) => {
         const { title, description, slug, price, features, notes } = volet;
         return (
             <Column radius="l-4"

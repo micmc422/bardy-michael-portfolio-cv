@@ -21,7 +21,7 @@ const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>((
     errorMessage,
     disabled = false,
     autoFocus = false,
-    className,
+    // className,
     ...props
   }, 
   ref
