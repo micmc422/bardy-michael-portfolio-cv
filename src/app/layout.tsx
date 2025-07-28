@@ -76,12 +76,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   }))
   const schema = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "serviceType": "Création de sites internet",
+    "@type": "ProfessionalService",
     "name": "Occitaweb",
     "url": "https://occitaweb.fr",
     "telephone": "+33 6 72 11 50 06",
-    "priceRange": "€€€",
+    "priceRange": "€€€€",
     "image": "https://occitaweb.fr/occ-screenshot-wide.png",
     "logo": "https://occitaweb.fr/trademark/icon-dark.png",
     "address": {
@@ -131,19 +130,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       "reviewCount": reviews.length
     },
     "review": reviewsArr,
-    "potentialAction": {
-      "@type": "BookAction", // Indique que l'action est une réservation/prise de rendez-vous
-      "name": "Prendre un rendez-vous",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://cal.com/occitaweb", // L'URL de votre page Cal.com
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform"
-        ]
-      },
-      "url": "https://cal.com/occitaweb" // Redondance pour certaines interprétations, mais bonne pratique
-    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Catalogue des Services Web Occitaweb",
