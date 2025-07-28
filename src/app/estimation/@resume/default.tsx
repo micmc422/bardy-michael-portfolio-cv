@@ -94,7 +94,7 @@ export default function ResumePanel() {
                 "valueAddedTaxIncluded": false
             },
             "availability": "https://schema.org/InStock",
-            "url": "https://occitaweb.fr",
+            "url": `${baseURL}/estimation/${slug}${query ? `?${query}` : ""}`,
             "addOn": activeOptions?.map((opt) => ({
                 "@type": "Offer",
                 "name": opt.name,
