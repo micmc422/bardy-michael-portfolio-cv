@@ -35,16 +35,16 @@ interface RootLayoutProps {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   const { rating, reviews } = await getAvis();
-  const reviewsArr = JSON.stringify(reviews.map((el) => ({
+  const reviewsArr = (reviews.map((el) => ({
     "@type": "Review",
-    "author": {
-      "@type": "Person",
-      "name": el.author_name
-    },
     "reviewRating": {
       "@type": "Rating",
       "ratingValue": el.rating,
       "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": el.author_name
     },
     "reviewBody": el.text,
     "datePublished": convertirTimestampGoogle(el.time)
