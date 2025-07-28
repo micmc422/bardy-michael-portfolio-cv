@@ -359,6 +359,7 @@ export async function Schema({
   return (
     <Script
       id={`schema-${as}-${path}`}
+      strategy="beforeInteractive"
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(schema),

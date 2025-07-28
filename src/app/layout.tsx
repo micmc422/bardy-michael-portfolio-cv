@@ -204,6 +204,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     >
       <head>
         <Script id="theme-fn"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
