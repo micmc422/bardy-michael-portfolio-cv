@@ -146,7 +146,24 @@ export async function Schema({
           },
           "availability": "https://schema.org/InStock" // Indique que le service est disponible
         },
-        "serviceType": "Développement de site web"
+        "serviceType": offer?.serviceType || "Développement Web",
+        "serviceArea": [ // Ajout du champ serviceArea
+          {
+            "@type": "AdministrativeArea",
+            "name": "Occitanie"
+          },
+          {
+            "@type": "Country",
+            "name": "France"
+          }
+        ],
+        "providerMobility": "https://schema.org/RemoteService",
+        "estimatedServiceDuration": "P4W", // Estimation: 4 semaines pour un site vitrine
+        "serviceOutput": { // Ce que le service produit
+          "@type": "WebSite",
+          "name": "Site web vitrine personnalisé",
+          "description": "Un site web professionnel, responsive et optimisé SEO, prêt à l'emploi."
+        }
       }
     }
   } else if (as === "webPage") {
