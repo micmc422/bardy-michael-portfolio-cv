@@ -18,6 +18,7 @@ import CookieConsent from "@/components/cookiesConsent";
 import Script from "next/script";
 import { convertirTimestampGoogle } from "@/utils/utils";
 import { getAvis } from "./utils/serverActions";
+import { siteTypes } from "./estimation/estimationData";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -49,9 +50,33 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     "reviewBody": el.text,
     "datePublished": convertirTimestampGoogle(el.time)
   })))
+  const offersDev = siteTypes.filter(site => site.serviceType === "Développement Web").map((site) => ({
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": site.name,
+      "url": `${baseURL}/estimation/${site.slug}`,
+    }
+  }))
+  const offersOptimisation = siteTypes.filter(site => site.serviceType === "Optimisation").map((site) => ({
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": site.name,
+      "url": `${baseURL}/estimation/${site.slug}`,
+    }
+  }))
+  const offersMaintenance = siteTypes.filter(site => site.serviceType === "Maintenance").map((site) => ({
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": site.name,
+      "url": `${baseURL}/estimation/${site.slug}`,
+    }
+  }))
   const schema = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "WebDevelopmentService",
     "name": "Occitaweb",
     "url": "https://occitaweb.fr",
     "telephone": "+33 6 72 11 50 06",
@@ -86,16 +111,75 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       }
     ],
     "serviceType": "Agence de développement web",
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "Occitanie"
-    },
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Occitanie"
+      },
+      {
+        "@type": "City",
+        "name": "Albi"
+      },
+      {
+        "@type": "Country",
+        "name": "France"
+      }
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": rating,
       "reviewCount": reviews.length
     },
-    "review": reviewsArr
+    "review": reviewsArr,
+    "potentialAction": {
+      "@type": "BookAction", // Indique que l'action est une réservation/prise de rendez-vous
+      "name": "Prendre un rendez-vous",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://cal.com/occitaweb", // L'URL de votre page Cal.com
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "url": "https://cal.com/occitaweb" // Redondance pour certaines interprétations, mais bonne pratique
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Catalogue des Services Web Occitaweb",
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Développement Web",
+          "itemListElement": offersDev
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Optimisation de site",
+          "itemListElement": offersOptimisation
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Maintenance serveur et gestion de site",
+          "itemListElement": offersMaintenance
+        }
+      ]
+    },
+    "knowsAbout": ["Développement Web", "WordPress", "Next.js", "SEO", "Design UI/UX"],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+33 6 72 11 50 06",
+        "contactType": "Service client",
+        "areaServed": "FR",
+        "availableLanguage": ["French"]
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "contact@occitaweb.fr",
+        "contactType": "Support technique"
+      }
+    ]
   })
   return (
     <Flex

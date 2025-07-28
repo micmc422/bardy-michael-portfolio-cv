@@ -18,6 +18,7 @@ export interface PricingTier {
     includes: string[]
     options: Option[]
     notes?: string
+    serviceType: "Développement Web" | "Maintenance" | "Optimisation";
 }
 
 export interface Option {
@@ -442,7 +443,8 @@ export const siteTypes: PricingTier[] = [
         icon: "globe",
         description: "Obtenez une estimation rapide et gratuite pour la création de votre site vitrine. Formulaire simple, réponse personnalisée selon vos besoins et votre budget.",
         includes: ["Design responsive", "5-10 pages", "Formulaire de contact", "SEO de base"],
-        options: vitrineAdditionalFeatures
+        options: vitrineAdditionalFeatures,
+        serviceType: "Développement Web"
     },
     {
         name: "Portfolio",
@@ -452,7 +454,8 @@ export const siteTypes: PricingTier[] = [
         icon: "briefcase",
         description: "Créez un portfolio professionnel pour exposer vos projets : graphiste, développeur, photographe... Estimez votre site dès maintenant, sans engagement.",
         includes: ["Galerie interactive", "Blog intégré", "Animations", "Optimisation images"],
-        options: portfolioAdditionalFeatures
+        options: portfolioAdditionalFeatures,
+        serviceType: "Développement Web"
     },
     {
         name: "E-commerce",
@@ -462,7 +465,8 @@ export const siteTypes: PricingTier[] = [
         icon: "shoppingCart",
         description: "Obtenez une estimation précise pour la création de votre boutique en ligne : panier, paiement, livraison, CMS, SEO, tout est pensé pour vendre efficacement.",
         includes: ["Catalogue produits", "Panier", "Paiement sécurisé", "Gestion commandes"],
-        options: ecommerceAdditionalFeatures
+        options: ecommerceAdditionalFeatures,
+        serviceType: "Développement Web"
     },
     {
         name: "CRM/Plateforme",
@@ -472,7 +476,8 @@ export const siteTypes: PricingTier[] = [
         icon: "users",
         description: "Besoin d’un outil adapté à votre activité ? Estimez le prix de votre CRM personnalisé : gestion client, workflow, interface web et automatisations.",
         includes: ["Interface admin", "Base de données", "Authentification", "API personnalisée"],
-        options: crmPlateformeAdditionalFeatures
+        options: crmPlateformeAdditionalFeatures,
+        serviceType: "Développement Web"
     },
     {
         name: "Refonte & Optimisation",
@@ -484,7 +489,8 @@ export const siteTypes: PricingTier[] = [
         includes: ["Audit UX / SEO / performance",
             "Amélioration design, vitesse & structure",
             "Migration vers une stack plus moderne (ex. WordPress > Next.js)", "Sécurisation & mises à jour techniques"],
-        options: optimisationAdditionalFeatures
+        options: optimisationAdditionalFeatures,
+        serviceType: "Optimisation"
     },
     {
         name: "Maintenance & gestion",
@@ -494,6 +500,7 @@ export const siteTypes: PricingTier[] = [
         icon: "construction",
         description: "Gestion courante et maintenance de votre site web : mises à jour, sécurité, support technique et suivi pour assurer performance et stabilité au quotidien.",
         includes: ["Mises à jour régulières (CMS, plugins, sécurité)", "Sauvegardes automatisées", "Assistance prioritaire & suivi des performances", "1h de modifications incluses chaque mois"],
-        options: gestionAdditionalFeatures
+        options: gestionAdditionalFeatures,
+        serviceType: "Maintenance"
     },
 ]
