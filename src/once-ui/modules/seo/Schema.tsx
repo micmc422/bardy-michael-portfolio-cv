@@ -6,7 +6,6 @@ import type { PostType } from "@/app/utils/types";
 import { baseURL, breadCrumbs } from "@/app/resources/config";
 import { siteTypes } from "@/app/estimation/estimationData";
 import { getFileData } from "@/app/sitemap";
-import { getAvis } from "@/app/utils/serverActions";
 
 
 export interface SchemaProps {
@@ -116,41 +115,38 @@ export async function Schema({
     }
     delete schema.sameAs;
     if (offerSlug) {
-      const rating = await getAvis()
       const offer = siteTypes.find(el => el.slug === offerSlug);
       let maxPrice = offer?.basePrice || 0
       offer?.options.forEach(opt => maxPrice += opt.price);
       schema.offers = {
-        "@type": "Product",
-        "image": `${baseURL}/og?title=${encodeURIComponent(offer?.name || title)}`,
+        "@context": "https://schema.org",
+        "@type": "Service", // Changement clé : de Product à Service
+        "url": `${baseURL}/estimation/${offerSlug}`, // L'URL de la page spécifique du service
         "name": offer?.name || title,
         "description": offer?.description || description,
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": rating.rating,
-          "reviewCount": rating.reviews.length
-        },
-        "brand": {
+        "image": `${baseURL}/og?title=${encodeURIComponent(offer?.name || title)}`,
+        "provider": { // Changement clé : 'brand' devient 'provider' pour un Service
           "@type": "Organization",
-          "name": "Occitaweb"
+          "name": "Occitaweb",
+          "url": baseURL // URL de l'organisation fournissant le service
         },
         "offers": {
           "@type": "Offer",
+          "url": `${baseURL}/estimation/${offerSlug}`, // L'URL de l'offre correspond à celle du service
           "priceValidUntil": getPriceValidUntilDate(),
           "priceCurrency": "EUR",
-          "price": offer?.basePrice || 0,
+          "price": String(offer?.basePrice || 0), // Prix de base comme chaîne de caractères
           "priceSpecification": {
             "@type": "PriceSpecification",
             "priceCurrency": "EUR",
-            "price": offer?.basePrice || 0,
-            "minPrice": offer?.basePrice || 0,
-            "maxPrice": maxPrice,
+            "price": String(offer?.basePrice || 0), // Prix comme chaîne de caractères
+            "minPrice": String(offer?.basePrice || 0), // Prix min comme chaîne de caractères
+            "maxPrice": String(maxPrice), // Prix max comme chaîne de caractères
             "valueAddedTaxIncluded": false
           },
-          "availability": "https://schema.org/InStock",
-          "url": `${baseURL}/estimation/${offerSlug}`,
+          "availability": "https://schema.org/InStock" // Indique que le service est disponible
         },
-        "category": "WebDevelopmentService"
+        "serviceType": "Développement de site web"
       }
     }
   } else if (as === "webPage") {
