@@ -158,7 +158,6 @@ export async function Schema({
           }
         ],
         "providerMobility": "https://schema.org/RemoteService",
-        "estimatedServiceDuration": "P4W", // Estimation: 4 semaines pour un site vitrine
         "serviceOutput": { // Ce que le service produit
           "@type": "WebSite",
           "name": "Site web vitrine personnalisé",
