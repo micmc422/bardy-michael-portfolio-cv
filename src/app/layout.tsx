@@ -77,7 +77,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "serviceType": "Agence de développement web",
+    "serviceType": "Création de sites internet",
     "name": "Occitaweb",
     "url": "https://occitaweb.fr",
     "telephone": "+33 6 72 11 50 06",

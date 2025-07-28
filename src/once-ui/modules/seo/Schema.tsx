@@ -146,7 +146,7 @@ export async function Schema({
             "valueAddedTaxIncluded": false
           },
           "availability": "https://schema.org/InStock",
-          "url": "https://occitaweb.fr"
+          "url": `${baseURL}/estimation/${offerSlug}`,
         },
         "category": "WebDevelopmentService"
       }
