@@ -504,3 +504,10 @@ export const siteTypes: PricingTier[] = [
         serviceType: "Maintenance"
     },
 ]
+/*
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": rating,
+      "reviewCount": reviews.length
+    },
+*/
