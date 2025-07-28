@@ -188,7 +188,6 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
         );
     }
 );
-// <Script id={`Tarifs-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />
 
 Volet.displayName = "Volet";
 

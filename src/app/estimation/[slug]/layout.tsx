@@ -4,6 +4,8 @@ import { Meta, Schema } from "@/once-ui/modules";
 import { Suspense, type ReactNode } from "react";
 import { siteTypes } from "../estimationData";
 import { notFound } from "next/navigation";
+import { DraggableFlexRow } from "@/components/DraggableRow";
+import { Row, ToggleButton } from "@/once-ui/components";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
     return siteTypes.map(({ slug }) => ({ slug }));
@@ -28,7 +30,7 @@ export default async function EstimationSlugLayout({ children, params }: { child
     const activeSite = siteTypes.find((site) => site.slug === slug)
     if (!activeSite) notFound()
 
-    return <Suspense>
+    return <>
         <Schema
             as="webPage"
             baseURL={baseURL}
@@ -43,5 +45,11 @@ export default async function EstimationSlugLayout({ children, params }: { child
             }}
         />
         <Schema as={"service"} title={activeSite.name} description={activeSite.description} path={`estimation/${activeSite.slug}`} offerSlug={activeSite.slug} />
-        {children}</Suspense>
+        <DraggableFlexRow>
+            <Row wrap={false} gap="s">
+                {siteTypes.map((site) => <ToggleButton prefixIcon={site.icon} key={site.slug} label={site.name} selected={site.slug === slug} href={`/estimation/${site.slug}`} size="s" />)}
+            </Row>
+        </DraggableFlexRow>
+        <Suspense>{children}</Suspense>
+    </>
 }

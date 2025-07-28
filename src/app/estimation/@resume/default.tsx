@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Column, Feedback, Icon, Input, LetterFx, Line, Row, Text, useToast } from "@/once-ui/components"
+import { Button, Column, Feedback, Icon, IconButton, Input, LetterFx, Line, Row, Text, useToast } from "@/once-ui/components"
 import { useParams, useSearchParams } from "next/navigation"
 import { useMemo, useState, useTransition } from "react";
 import { siteTypes } from "../estimationData";
@@ -185,12 +185,26 @@ export default function ResumePanel() {
                         </Text>
                     </Row>
                     <Row horizontal="space-between" vertical="center">
-                        <Text variant="label-strong-l">Total TTC Annuel : </Text>
+                        <Row center><Text variant="label-strong-l">Total TTC :</Text>
+                            <IconButton variant="ghost" icon="infoCircle" tooltip="Pris initial inclue les frais annuel de la première année" tooltipPosition="bottom" size="s" />
+                        </Row>
                         <Text variant="display-strong-xs" onBackground="accent-weak">                        <LetterFx
                             key={(totalPrice + annualy + monthly * 12) * 1.2}
                             speed="fast"
                             trigger="instant">
                             {`${(totalPrice + annualy + monthly * 12) * 1.2}€`}
+                        </LetterFx>
+                        </Text>
+                    </Row>
+                    <Row horizontal="space-between" vertical="center">
+                        <Row center><Text variant="label-default-xs">Frais annuel :</Text>
+                            <IconButton variant="ghost" icon="infoCircle" tooltip="Abonnement annuel au delà de la première année" tooltipPosition="bottom" size="s" />
+                        </Row>
+                        <Text variant="label-strong-xs" onBackground="neutral-weak">                        <LetterFx
+                            key={(annualy + monthly * 12) * 1.2}
+                            speed="fast"
+                            trigger="instant">
+                            {`${(annualy + monthly * 12) * 1.2}€`}
                         </LetterFx>
                         </Text>
                     </Row>
@@ -216,7 +230,7 @@ export default function ResumePanel() {
             <Button prefixIcon="document" fillWidth loading={loading} disabled={!isValidEmail(email) || loading} as="button"
                 onClick={handleSubmit}>Demander un devis</Button>
         </Column>}
-        {!!activeSiteType && <Script id={`Estimation-${activeSiteType?.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />}
+        {!!activeSiteType && <Script id={`Estimation-${activeSiteType?.slug}`} type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLD }} />}
 
     </>
 }

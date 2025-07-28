@@ -26,6 +26,7 @@ export interface SchemaProps {
   reactions?: ReactionType[]
   projet?: PostType
   offerSlug?: string
+  strategy?: "beforeInteractive" | "afterInteractive" | "lazyOnload";
 }
 
 const schemaTypeMap = {
@@ -63,7 +64,8 @@ export async function Schema({
   author,
   reactions,
   projet,
-  offerSlug
+  offerSlug,
+  strategy = "beforeInteractive"
 }: SchemaProps) {
 
   const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
@@ -359,7 +361,7 @@ export async function Schema({
   return (
     <Script
       id={`schema-${as}-${path}`}
-      strategy="beforeInteractive"
+      strategy={strategy}
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(schema),
