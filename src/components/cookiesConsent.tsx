@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Accordion, Button, Column, Feedback, Icon, Row, Text, useToast } from '@/once-ui/components';
+import { Accordion, Button, Column, Feedback, Icon, Row, Text, useToast } from '@once-ui-system/core';
 import { Analytics } from '@vercel/analytics/next';
 
 export const getCookies = (): { [key: string]: string } | undefined => {
@@ -65,7 +65,6 @@ const CookieConsent: React.FC = () => {
                     />
 
                 </Column>
-
             </Accordion>
             <Row gap={"m"}>
                 <Button size='s' onClick={() => AcceptCookies()}>Accepter</Button>
@@ -82,8 +81,10 @@ const CookieConsent: React.FC = () => {
             // Affiche le toast d'avertissement
             //  alert("Nous utilisons des cookies pour améliorer votre expérience. En continuant à naviguer, vous acceptez notre utilisation des cookies.");
             addToast({
+                //@ts-ignore
                 id: "cookieConsent",
-                variant: "success", message: <CookieMessage />, keepVisible: true
+                variant: "success", message: <CookieMessage />,
+                keepVisible: true
             });
         }
         if (cookies?.acceptedCookies !== "false") {

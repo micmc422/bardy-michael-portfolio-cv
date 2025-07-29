@@ -1,4 +1,4 @@
-import { Column, Flex, Skeleton } from "@/once-ui/components";
+import { Column, Flex, Skeleton } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
 // import type { Metadata } from "next";
 import { getProjects } from "@/app/utils/serverActions";

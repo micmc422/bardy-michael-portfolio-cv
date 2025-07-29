@@ -3,7 +3,7 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import classNames from "classnames";
 import styles from "./animatedNumber.module.scss";
-import { Flex, Text } from "@/once-ui/components";
+import { Flex, Text } from "@once-ui-system/core";
 
 interface ComponentProps extends React.ComponentProps<typeof Flex> {
     children: number; // On attend un nombre ici

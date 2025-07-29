@@ -1,8 +1,7 @@
 "use client";
 
 import { mailchimp } from "@/app/resources";
-import { Button, Flex, Heading, Input, Text, Background, Column } from "@/once-ui/components";
-import type { opacity, SpacingToken } from "@/once-ui/types";
+import { Button, Flex, Heading, Input, Text, Background, Column, type opacity, type SpacingToken } from "@once-ui-system/core";
 import { type JSX, useState } from "react";
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
@@ -132,7 +131,6 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
         <Flex id="mc_embed_signup_scroll" fillWidth maxWidth={24} mobileDirection="column" gap="8">
           <Input
             formNoValidate
-            labelAsPlaceholder
             id="mce-EMAIL"
             name="EMAIL"
             type="email"

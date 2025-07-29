@@ -1,7 +1,7 @@
 
 import React, { forwardRef } from "react";
 import classNames from "classnames";
-import { Column, Heading, Row, Text } from "@/once-ui/components";
+import { Column, Heading, Row, Text } from "@once-ui-system/core";
 import styles from "./steps.module.scss"
 import { getRandomSixDigitNumber, slugify } from "@/utils/utils";
 import Script from "next/script";

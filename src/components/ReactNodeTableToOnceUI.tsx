@@ -2,7 +2,7 @@
 
 import React, { forwardRef, type ReactNode, useMemo } from "react";
 import classNames from "classnames";
-import { Flex, Table } from "@/once-ui/components";
+import { Flex, Table } from "@once-ui-system/core";
 
 interface ReactNodeTableToOnceUIProps extends React.ComponentProps<typeof Flex> {
     children: React.ReactNode; // arbre React du tableau (ex: JSX)

@@ -1,7 +1,7 @@
 "use client";
 
 import { createComment } from "@/app/utils/serverActions";
-import { Button, Card, Column, Dialog, Feedback, Flex, Icon, Input, Line, Row, SmartLink, Switch, Text, Textarea, useToast } from "@/once-ui/components";
+import { Button, Card, Column, Dialog, Feedback, Flex, Icon, Input, Line, Row, SmartLink, Switch, Text, Textarea, useToast } from "@once-ui-system/core";
 import { forwardRef, useState } from "react";
 import FormComponent, { SubmitButton, type ActionToastResponse } from "./formActionClient";
 import type { Comment } from "@wisp-cms/client";

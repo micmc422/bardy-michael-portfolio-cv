@@ -67,10 +67,7 @@ const fallbackEmojiData: EmojiData = {
 };
 
 import generatedEmojiData from '../lib/emoji-data.json';
-import type { StyleProps } from "@/once-ui/interfaces";
-import type { gridColumns } from "@/once-ui/types";
-import { Column, Grid, Icon, IconButton, Input, Scroller, type ButtonOption, type Flex, Text, SegmentedControl, Row } from "@/once-ui/components";
-import useDebounce from "@/once-ui/hooks/useDebounce";
+import { Column, Grid, Icon, IconButton, Input, Scroller, type ButtonOption, type Flex, Text, SegmentedControl, Row, type StyleProps, type gridColumns, useDebounce } from "@once-ui-system/core";
 
 const emojiData: EmojiData = Object.keys(generatedEmojiData).length > 0
     ? generatedEmojiData as EmojiData

@@ -1,5 +1,5 @@
 import React, { forwardRef, type ReactNode } from "react";
-import { AccordionGroup, Column, Heading } from "@/once-ui/components";
+import { AccordionGroup, Column, Heading } from "@once-ui-system/core";
 import { getRandomSixDigitNumber, slugify } from "@/utils/utils";
 import Script from "next/script";
 

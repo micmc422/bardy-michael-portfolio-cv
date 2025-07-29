@@ -1,6 +1,5 @@
 import { rdv } from "@/app/resources";
-import { Heading, Text, Background, Column } from "@/once-ui/components";
-import type { opacity, SpacingToken } from "@/once-ui/types";
+import { Heading, Text, Background, Column, type opacity, type SpacingToken } from "@once-ui-system/core";
 import { type JSX, Suspense } from "react";
 import { RDVDropDown } from "./RdvDropDown";
 import type { RDVContentType } from "@/app/api/cal/types/route";
@@ -54,11 +53,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
     <Column
       overflow="hidden"
       width={"s"}
-      padding="xl"
       radius="l"
-      marginBottom="m"
-      horizontal="center"
-      align="center"
       background="surface"
       border="neutral-alpha-weak"
       id="RDV"
@@ -105,26 +100,33 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
           color: rdv.effects.lines.color,
         }}
       />
-      <Heading style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
-        {content.title}
-      </Heading>
-      <Text
-        style={{
-          position: "relative",
-          maxWidth: "var(--responsive-width-xs)",
-        }}
-        wrap="balance"
-        marginBottom="l"
-        onBackground="neutral-medium"
+      <Column
+        padding="xl"
+        marginBottom="m"
+        horizontal="center"
+        align="center"
       >
-        {content.description}
-      </Text>
-      <Suspense fallback={
-        <Text variant="body-default-s" onBackground="neutral-weak">
-          Chargement des disponibilités...
-        </Text>}>
-        <RDVDropDown eventTypesPromise={getRDVContent()} />
-      </Suspense>
+        <Heading style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
+          {content.title}
+        </Heading>
+        <Text
+          style={{
+            position: "relative",
+            maxWidth: "var(--responsive-width-xs)",
+          }}
+          wrap="balance"
+          marginBottom="l"
+          onBackground="neutral-medium"
+        >
+          {content.description}
+        </Text>
+        <Suspense fallback={
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            Chargement des disponibilités...
+          </Text>}>
+          <RDVDropDown eventTypesPromise={getRDVContent()} />
+        </Suspense>
+      </Column>
     </Column >
   );
 };

@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, type ButtonProps } from "@/once-ui/components";
+import { Button, type ButtonProps } from "@once-ui-system/core";
 import { useRouter } from "next/navigation";
 import { type ReactNode, type TransitionStartFunction, useActionState, useContext, useRef } from "react"
 import { createContext } from 'react'

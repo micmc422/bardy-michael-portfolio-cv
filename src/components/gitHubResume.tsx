@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import { Loader2 } from "lucide-react"
-import { Accordion, Avatar, Badge, Button, Card, Column, Flex, Grid, Icon, Input, Row, Tag, Text } from "@/once-ui/components"
+import { Accordion, Avatar, Badge, Button, Card, Column, Flex, Grid, Icon, Input, Row, Tag, Text } from "@once-ui-system/core"
 
 interface GitHubRepo {
     id: number

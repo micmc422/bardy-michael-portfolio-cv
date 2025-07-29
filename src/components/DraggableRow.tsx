@@ -1,6 +1,6 @@
 "use client"
 
-import { Row } from "@/once-ui/components"
+import { Row } from "@once-ui-system/core"
 import { useEffect, useRef, useState, type MouseEvent } from "react"
 
 interface DraggableFlexRowProps {

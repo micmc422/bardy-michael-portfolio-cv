@@ -1,8 +1,6 @@
 "use client";
 
-import { DropdownWrapper } from "@/once-ui/components";
-import type { StyleProps } from "@/once-ui/interfaces";
-import type { gridColumns } from "@/once-ui/types";
+import { DropdownWrapper, type gridColumns, type StyleProps } from "@once-ui-system/core";
 import React from "react";
 import { EmojiPicker } from "./EmojiPicker";
 export interface EmojiPickerDropdownProps extends Omit<React.ComponentProps<typeof DropdownWrapper>, 'dropdown' | 'onSelect'> {

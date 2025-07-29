@@ -3,7 +3,7 @@
 import React, { forwardRef, useTransition } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
-import { Card, Flex, Icon, useToast, Text, Row } from "@/once-ui/components";
+import { Card, Flex, Icon, useToast, Text, Row } from "@once-ui-system/core";
 import { incrementReaction, type ReactionType } from "./serverActions";
 import { EmojiPickerDropdown } from "../EmojiPickerDropdown";
 import { CursorCard } from "../CursorCard";

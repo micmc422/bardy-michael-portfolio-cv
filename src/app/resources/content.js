@@ -1,5 +1,5 @@
 import IconCroixOccitane from "@/lib/jsxSvg/croixOccitane";
-import { Row } from "@/once-ui/components";
+import { Row } from "@once-ui-system/core";
 
 const person = {
   firstName: "Michaël",

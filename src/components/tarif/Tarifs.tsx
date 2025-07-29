@@ -1,10 +1,9 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
 import styles from "./Tarifs.module.scss";
-import { Row, Column, Heading, Text, Background, Line, Button } from "@/once-ui/components";
+import { Row, Column, Heading, Text, Background, Line, Button, type opacity } from "@once-ui-system/core";
 import { rdv } from "@/app/resources/config";
-import type { opacity } from "@/once-ui/types";
-import { Schema } from "@/once-ui/modules";
+import Schema from "@/modules/seo/Schema";
 
 
 type PricingItem = {

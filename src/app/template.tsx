@@ -1,18 +1,16 @@
 "use client";
 
 import React from "react";
-import { IconButton } from "@/once-ui/components";
-import { ScrollToTop } from "@/once-ui/components/ScrollToTop";
+import { Column } from "@once-ui-system/core";
+import { Providers } from "./Providers";
 
 export default function RootTemplate({ children }: { children: React.ReactNode; }) {
     return (
-        <>
-            {children}
-            <ScrollToTop offset={500}>
-                <IconButton icon="chevronUp" />
-            </ScrollToTop>
-            
-        </>
+        <Providers>
+            <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0" suppressHydrationWarning>
+                {children}
+            </Column>
+        </Providers>
     );
 }
 

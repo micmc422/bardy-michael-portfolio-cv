@@ -39,7 +39,10 @@ export async function POST(
                 },
             ],
         })
-        if (res.rejected) throw new Error("Envoi de l'email rejeté !")
+        if (res.rejected.length > 0) {
+            console.error(res)
+            throw new Error("Envoi de l'email rejeté !")
+        }
         return NextResponse.json({ success: true })
     } catch (error) {
         console.error(error)

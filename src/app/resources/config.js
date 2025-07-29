@@ -29,36 +29,36 @@ const protectedRoutes = {
 import { Josefin_Sans, Geist_Mono, Geist, Open_Sans } from "next/font/google";
 import { about, blog, estimation, home, solutionsWeb, webmasterAlbi, work } from "./content";
 
-const primaryFont = Josefin_Sans({
-  variable: "--font-secondary",
+const heading = Josefin_Sans({
+  variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
   weight: ["400"]
 });
-const secondaryFont = Geist({
-  variable: "--font-primary",
+const body = Geist({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
   weight: ["300"]
 });
-const tertiaryFont = Open_Sans({
-  variable: "--font-tertiary",
+const label = Open_Sans({
+  variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
   weight: ["500"]
 });
 
-const monoFont = Geist_Mono({
+const code = Geist_Mono({
   variable: "--font-code",
   subsets: ["latin"],
   display: "swap",
 });
 
-const font = {
-  primary: primaryFont,
-  secondary: secondaryFont,
-  tertiary: tertiaryFont,
-  code: monoFont,
+const fonts = {
+  heading,
+  body,
+  label,
+  code,
 };
 
 const style = {
@@ -71,7 +71,8 @@ const style = {
   solidStyle: "flat",
   surface: "filled",
   transition: "all",
-  scaling: "100"
+  scaling: "100",
+  vizStyle: "categorical"
 };
 
 const effects = {
@@ -209,4 +210,4 @@ const rdv = {
   },
 };
 
-export { routes, protectedRoutes, effects, style, display, mailchimp, rdv, baseURL, font, breadCrumbs };
+export { routes, protectedRoutes, effects, style, display, mailchimp, rdv, baseURL, fonts, breadCrumbs };

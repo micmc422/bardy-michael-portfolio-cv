@@ -4,15 +4,15 @@ import dynamic from "next/dynamic";
 import remarkGfm from 'remark-gfm'
 import {
   Heading,
-  HeadingLink,
-  SmartImage,
+  Media,
   SmartLink,
   Text,
   InlineCode,
-} from "@/once-ui/components";
-import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
-import type { TextProps } from "@/once-ui/interfaces";
-import type { SmartImageProps } from "@/once-ui/components/SmartImage";
+  type MediaProps,
+  HeadingLink,
+  type TextProps,
+  CodeBlock,
+} from "@once-ui-system/core";
 import { RawGithubFile } from "./RawGithubFile";
 import GitHubRepoSummary from "./gitHubResume";
 import { Faq } from "./Faq";
@@ -25,7 +25,7 @@ type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 function CustomLink({ href, children, ...props }: CustomLinkProps) {
-  if (href.endsWith(".git")) {
+  if (href?.endsWith(".git")) {
     const path = href.replace("https://github.com/", "").replace(".git", "")
     const [ownerProvided, repoProvided] = path.split("/")
 
@@ -85,14 +85,14 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
   );
 }
 
-function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) {
+function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
   if (!src) {
     console.error("SmartImage requires a valid 'src' property.");
     return null;
   }
 
   return (
-    <SmartImage
+    <Media
       marginTop="8"
       marginBottom="16"
       enlarge
@@ -123,7 +123,7 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
         style={{ marginTop: "var(--static-space-24)", marginBottom: "var(--static-space-12)" }}
         as={as}
         id={slug}
-        {...props}
+        {...(props as React.HTMLAttributes<HTMLDivElement>)}
       >
         {children}
       </HeadingLink>
@@ -168,7 +168,7 @@ function createCodeBlock(props: any) {
       <CodeBlock
         marginTop="8"
         marginBottom="16"
-        codeInstances={[
+        codes={[
           {
             code: children,
             language,
@@ -204,19 +204,19 @@ const components = {
   Text,
   CodeBlock,
   InlineCode,
-  Accordion: dynamic(() => import("@/once-ui/components").then(mod => mod.Accordion)),
-  AccordionGroup: dynamic(() => import("@/once-ui/components").then(mod => mod.AccordionGroup)),
-  Table: dynamic(() => import("@/once-ui/components").then(mod => mod.Table)),
-  Feedback: dynamic(() => import("@/once-ui/components").then(mod => mod.Feedback)),
-  Button: dynamic(() => import("@/once-ui/components").then(mod => mod.Button)),
-  Card: dynamic(() => import("@/once-ui/components").then(mod => mod.Card)),
-  Grid: dynamic(() => import("@/once-ui/components").then(mod => mod.Grid)),
-  Row: dynamic(() => import("@/once-ui/components").then(mod => mod.Row)),
-  Column: dynamic(() => import("@/once-ui/components").then(mod => mod.Column)),
-  Icon: dynamic(() => import("@/once-ui/components").then(mod => mod.Icon)),
-  SmartImage: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartImage)),
-  SmartLink: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartLink)),
-  OgCard: dynamic(() => import("@/once-ui/components").then(mod => mod.OgCard)),
+  Accordion: dynamic(() => import("@once-ui-system/core").then(mod => mod.Accordion)),
+  AccordionGroup: dynamic(() => import("@once-ui-system/core").then(mod => mod.AccordionGroup)),
+  Table: dynamic(() => import("@once-ui-system/core").then(mod => mod.Table)),
+  Feedback: dynamic(() => import("@once-ui-system/core").then(mod => mod.Feedback)),
+  Button: dynamic(() => import("@once-ui-system/core").then(mod => mod.Button)),
+  Card: dynamic(() => import("@once-ui-system/core").then(mod => mod.Card)),
+  Grid: dynamic(() => import("@once-ui-system/core").then(mod => mod.Grid)),
+  Row: dynamic(() => import("@once-ui-system/core").then(mod => mod.Row)),
+  Column: dynamic(() => import("@once-ui-system/core").then(mod => mod.Column)),
+  Icon: dynamic(() => import("@once-ui-system/core").then(mod => mod.Icon)),
+  Media: dynamic(() => import("@once-ui-system/core").then(mod => mod.Media)),
+  SmartLink: dynamic(() => import("@once-ui-system/core").then(mod => mod.SmartLink)),
+  OgCard: dynamic(() => import("@once-ui-system/core").then(mod => mod.OgCard)),
   RDV: dynamic(() => import("@/components").then(mod => mod.RDV)),
 };
 

@@ -1,7 +1,7 @@
 "use client";
 
 import type { RDVContentType } from "@/app/api/cal/types/route";
-import { Button, Column, DropdownWrapper, Option, RevealFx } from "@/once-ui/components";
+import { Button, Column, DropdownWrapper, Option, RevealFx } from "@once-ui-system/core";
 import { use, useState } from "react";
 import styles from "./RdvDropDown.module.scss";
 
@@ -18,7 +18,7 @@ export const RDVDropDown = ({ eventTypesPromise }: { eventTypesPromise: Promise<
             isOpen={isOpen}
             onOpenChange={setIsOpen}
             maxWidth={40}
-            floatingPlacement="bottom"
+            placement="bottom"
             trigger={
                 <Button
                     variant="secondary"

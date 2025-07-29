@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useTransition } from 'react'
 import { subscribeUser, unsubscribeUser } from '@/app/pwaActions'
-import { Icon, useToast, Spinner } from '@/once-ui/components'
+import { Icon, useToast, Spinner } from '@once-ui-system/core'
 
 function urlBase64ToUint8Array(base64String: string) {
     const padding = '='.repeat((4 - (base64String.length % 4)) % 4)

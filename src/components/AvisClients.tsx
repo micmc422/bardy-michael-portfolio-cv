@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
-import { Avatar, Column, Flex, Icon, Row, Text } from "@/once-ui/components";
-import { AutoScroll } from "@/once-ui/components/AutoScroll";
+import { AutoScroll, Avatar, Column, Flex, Icon, Row, Text } from "@once-ui-system/core";
 import styles from "./avisClients.module.scss"
 import { getAvis } from "@/app/utils/serverActions";
 interface ComponentProps extends React.ComponentProps<typeof Flex> {
@@ -34,7 +33,7 @@ const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
                 className={classNames(styles.root, className)}
                 {...rest}
             >
-                <AutoScroll>
+                <AutoScroll gap="m">
                     {reviews.map((avis, i) => <Avis key={i} {...avis} />)}
                 </AutoScroll>
             </Flex>
@@ -69,8 +68,6 @@ const Avis = forwardRef<HTMLDivElement, AvisProps>(
                 className={classNames(className, styles.avisCli)}
                 direction="column"
                 width={25}
-                gap="s"
-                marginRight="s"
                 background="overlay"
                 padding="l"
                 radius="m"

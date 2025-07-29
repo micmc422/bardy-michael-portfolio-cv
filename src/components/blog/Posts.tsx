@@ -1,4 +1,4 @@
-import { Column, Flex, Grid, Skeleton } from '@/once-ui/components';
+import { Column, Flex, Grid, Skeleton } from '@once-ui-system/core';
 import Post from './Post';
 import { getPosts } from '@/app/utils/serverActions';
 

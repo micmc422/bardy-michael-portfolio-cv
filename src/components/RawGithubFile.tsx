@@ -1,6 +1,6 @@
 
 import React, { forwardRef, type ReactNode } from "react";
-import { CodeBlock } from "@/once-ui/modules";
+import { CodeBlock } from "@once-ui-system/core";
 
 interface ComponentProps extends React.ComponentProps<typeof CodeBlock> {
     rawCodeUrl: string;
@@ -26,7 +26,7 @@ const RawGithubFile = forwardRef<HTMLDivElement, ComponentProps>(
             <CodeBlock
                 ref={ref}
                 copyButton
-                codeInstances={[
+                codes={[
                     {
                         code,
                         language,

@@ -1,6 +1,6 @@
 import { getPosts, getProjects } from "@/app/utils/serverActions";
 import { baseURL, routes as routesConfig } from "@/app/resources";
-import { siteTypes } from "./estimation/estimationData";
+import { siteTypes } from "./(main)/estimation/estimationData";
 
 
 export default async function sitemap() {

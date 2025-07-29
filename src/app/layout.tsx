@@ -1,24 +1,15 @@
-"use server"
-
-import "@/once-ui/styles/index.scss";
-import "@/once-ui/tokens/index.scss";
-import "@/tokens/scheme.scss";
-
+import '@once-ui-system/core/css/styles.css';
+import '@once-ui-system/core/css/tokens.css';
 import classNames from "classnames";
 
-import { Footer, Header, RDV } from "@/components";
-import { baseURL, effects, style, font, home } from "@/app/resources";
+import { baseURL, style, fonts, home } from "@/app/resources";
 
-import { Background, Column, Flex, ThemeProvider, ToastProvider } from "@/once-ui/components";
-import type { opacity, SpacingToken } from "@/once-ui/types";
-import { Meta } from "@/once-ui/modules";
+import { Column, Flex, Meta } from "@once-ui-system/core";
 
-import { rendezVous } from "./resources/content";
-import CookieConsent from "@/components/cookiesConsent";
 import Script from "next/script";
 import { convertirTimestampGoogle } from "@/utils/utils";
 import { getAvis } from "./utils/serverActions";
-import { siteTypes } from "./estimation/estimationData";
+import { siteTypes } from "./(main)/estimation/estimationData";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -173,43 +164,57 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       as="html"
       lang="fr"
       background="page"
-      data-neutral={style.neutral}
-      data-brand={style.brand}
-      data-accent={style.accent}
-      data-solid={style.solid}
-      data-solid-style={style.solidStyle}
-      data-border={style.border}
-      data-surface={style.surface}
-      data-transition={style.transition}
       className={classNames(
-        font.primary.variable,
-        font.secondary.variable,
-        font.tertiary.variable,
-        font.code.variable,
+        fonts.heading.variable,
+        fonts.body.variable,
+        fonts.label.variable,
+        fonts.code.variable,
       )}
     >
       <head>
         <Script id="theme-fn"
-          strategy="beforeInteractive"
+          // strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              (function() {
+              (function () {
                 try {
-                  const theme = localStorage.getItem('theme') || 'system';
                   const root = document.documentElement;
-                  if (theme === 'system') {
-                    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    root.setAttribute('data-theme', isDark ? 'dark' : 'light');
-                  } else {
-                    root.setAttribute('data-theme', theme);
-                  }
+
+                  const defaultTheme = 'system';
+                  root.setAttribute('data-neutral', ${style.neutral});
+                  root.setAttribute('data-brand', ${style.brand});
+                  root.setAttribute('data-accent', ${style.accent});
+                  root.setAttribute('data-solid', ${style.solid});
+                  root.setAttribute('data-solid-style', ${style.solidStyle});
+                  root.setAttribute('data-border', ${style.border});
+                  root.setAttribute('data-surface', ${style.surface});
+                  root.setAttribute('data-transition', ${style.transition});
+                  root.setAttribute('data-scaling', ${style.scaling});
+                  root.setAttribute('data-viz-style', ${style.vizStyle});
+
+                  const resolveTheme = (themeValue) => {
+                    if (!themeValue || themeValue === 'system') {
+                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    }
+                    return themeValue;
+                  };
+
+                  const theme = localStorage.getItem('data-theme');
+                  const resolvedTheme = resolveTheme(theme);
+                  root.setAttribute('data-theme', resolvedTheme);
+
+                  const styleKeys = ['neutral', 'brand', 'accent', 'solid', 'solid-style', 'viz-style', 'border', 'surface', 'transition', 'scaling'];
+                  styleKeys.forEach(key => {
+                    const value = localStorage.getItem('data-' + key);
+                    if (value) {
+                      root.setAttribute('data-' + key, value);
+                    }
+                  });
                 } catch (e) {
                   document.documentElement.setAttribute('data-theme', 'dark');
                 }
               })();
-            `,
-          }}
-        />
+            `}} />
         <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png" />
@@ -228,85 +233,12 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <ThemeProvider>
-        <ToastProvider>
-          <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
-            <Background
-              position="fixed"
-              mask={{
-                x: effects.mask.x,
-                y: effects.mask.y,
-                radius: effects.mask.radius,
-                cursor: effects.mask.cursor
-              }}
-              gradient={{
-                display: effects.gradient.display,
-                opacity: effects.gradient.opacity as opacity,
-                x: effects.gradient.x,
-                y: effects.gradient.y,
-                width: effects.gradient.width,
-                height: effects.gradient.height,
-                tilt: effects.gradient.tilt,
-                colorStart: effects.gradient.colorStart,
-                colorEnd: effects.gradient.colorEnd,
-              }}
-              dots={{
-                display: effects.dots.display,
-                opacity: effects.dots.opacity as opacity,
-                size: effects.dots.size as SpacingToken,
-                color: effects.dots.color,
-              }}
-              grid={{
-                display: effects.grid.display,
-                opacity: effects.grid.opacity as opacity,
-                color: effects.grid.color,
-                width: effects.grid.width,
-                height: effects.grid.height,
-              }}
-              lines={{
-                display: effects.lines.display,
-                opacity: effects.lines.opacity as opacity,
-                size: effects.lines.size as SpacingToken,
-                thickness: effects.lines.thickness,
-                angle: effects.lines.angle,
-                color: effects.lines.color,
-              }}
-            />
-            <Flex fillWidth minHeight="16" hide="s"></Flex>
-            <Header />
-            <Flex
-              zIndex={0}
-              fillWidth
-              paddingY="l"
-              paddingX="l"
-              horizontal="center"
-              flex={1}
-            >
-              <Column horizontal="center" fillWidth minHeight="0" as="main">
-                <>{children}</>
-              </Column>
-            </Flex>
-            <Flex
-              zIndex={0}
-              fillWidth
-              paddingY="l"
-              paddingX="l"
-              horizontal="center"
-              flex={1}
-            >
-              <Flex horizontal="center" fillWidth minHeight="0">
-                <RDV content={rendezVous} />
-              </Flex>
-            </Flex>
-            <Footer />
-          </Column>
-          <CookieConsent />
-        </ToastProvider>
-      </ThemeProvider>
+      <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
+        {children}
+      </Column>
       <Script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
         __html: schema
       }} />
-
-    </Flex>
+    </Flex >
   );
 }

@@ -7,7 +7,7 @@ import {
     StyleSheet,
     Image
 } from "@react-pdf/renderer"
-import { siteTypes } from "@/app/estimation/estimationData"
+import { siteTypes } from "@/app/(main)/estimation/estimationData"
 
 export type Props = {
     type: string

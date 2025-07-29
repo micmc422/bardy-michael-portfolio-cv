@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/once-ui/components';
+import { Button } from '@once-ui-system/core';
 
 export default function AvailabilityCalendar({ href = "https://cal.com/occitaweb" }: { href?: string }) {
     return (

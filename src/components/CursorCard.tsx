@@ -12,7 +12,7 @@ import React, {
 import { createPortal } from "react-dom";
 import type { Placement } from "@floating-ui/react-dom";
 import styles from "./CursorCard.module.scss";
-import { Flex } from "@/once-ui/components";
+import { Flex } from "@once-ui-system/core";
 
 export interface CursorCardProps extends React.ComponentProps<typeof Flex> {
     trigger?: ReactNode;

@@ -8,7 +8,7 @@ import {
   Heading,
   SmartLink,
   Text,
-} from "@/once-ui/components";
+} from "@once-ui-system/core";
 
 interface ProjectCardProps {
   href: string;
@@ -29,14 +29,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
-  priority
 }) => {
   return (
     <Column fillWidth gap="m">
       <Carousel
-        priority={priority}
-        images={images.map((image, i) => ({
-          src: image,
+       // priority={priority}
+        items={images.map((image, i) => ({
+          slide: image,
           alt: `Aperçu n° ${i + 1} de : ` + title,
         }))}
       />

@@ -1,10 +1,10 @@
 'use client'
 
 import { baseURL } from '@/app/resources'
-import { Text, Flex, SmartLink } from '@/once-ui/components'
-import type { IconName } from '@/once-ui/icons'
+import { Text, Flex, SmartLink } from '@once-ui-system/core'
 import { usePathname } from 'next/navigation'
 import { PushNotificationManager } from './PWA'
+import type { IconName } from '@/app/resources/icons'
 
 
 export function SocialShareBar() {

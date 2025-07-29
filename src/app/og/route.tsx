@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { getPostDataBySlug, getProjectData } from "../utils/serverActions";
-import { siteTypes } from "../estimation/estimationData";
+import { siteTypes } from "../(main)/estimation/estimationData";
 
 export const runtime = "edge";
 
