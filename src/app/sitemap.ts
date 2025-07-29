@@ -79,7 +79,8 @@ export async function getFileData(route: string) {
   const data = await res.json();
   const node = data.data.repository.defaultBranchRef.target.history.nodes[0];
   if (!node) {
-    throw new Error(`No commit found for path: src/app${route}/page.tsx`);
+    console.warn(`No commit found for path: src/app${route}/page.tsx`);
+    return new Date().toISOString(); // Retourne la date actuelle si aucune donnée n'est trouvée
   }
   return node.committedDate
 }

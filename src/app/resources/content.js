@@ -523,6 +523,178 @@ const solutionsWeb = {
     ]
   }
 };
+export const solutionsHébergement = {
+  path: "/solutions/hebergement",
+  label: "Hébergement",
+  title: `L'Hébergement Web de Demain : Cloud vs. Traditionnel`,
+  description: `adaptez votre hébergement à vos besoins avec le Cloud. Découvrez pourquoi le Cloud est la solution d'hébergement de demain, surpassant les modèles traditionnels en termes de performance, scalabilité et sécurité.`,
+  headline: "Pourquoi le Cloud surpasse les solutions traditionnelles",
+  subline: "L'hébergement est la pierre angulaire de votre présence en ligne. Il détermine non seulement la performance de votre site, mais aussi sa sécurité, sa scalabilité et son coût à long terme. Alors, pourquoi le Cloud est-il la solution d'hébergement de demain ?",
+  "introduction": {
+    "titre": "Trois modèles, trois philosophies",
+    "modeles": [
+      {
+        "nom": "Mutualisé",
+        "icone": "👥",
+        "description": "Plusieurs sites partagent un même serveur et ses ressources. Économique et simple, mais les performances et la sécurité sont partagées."
+      },
+      {
+        "nom": "Dédié",
+        "icone": "🖥️",
+        "description": "Un serveur entier pour un seul client. Performance et contrôle maximum, mais coûteux et complexe à gérer."
+      },
+      {
+        "nom": "Cloud",
+        "icone": "☁️",
+        "description": "Un réseau de serveurs virtuels interconnectés. Flexible, scalable et hautement disponible. Le meilleur des deux mondes."
+      }
+    ]
+  },
+  "performance_scalabilite": {
+    "titre": "Performance et Scalabilité : La Révolution du Cloud",
+    "description": "Le Cloud ne se contente pas d'être rapide, il s'adapte à vos besoins en temps réel, une capacité que les solutions traditionnelles ne peuvent égaler.",
+    "performance_relative": {
+      "titre": "Indice de Performance Relatif",
+      "labels": ["Mutualisé", "Dédié", "Cloud"],
+      "valeurs": [50, 85, 95],
+      "unite": "%",
+      "explication": "Le Cloud et le Dédié offrent des performances supérieures, mais le Cloud maintient sa vitesse même lors des pics de trafic grâce à sa nature distribuée."
+    },
+    "capacite_scalabilite": {
+      "titre": "Capacité de Scalabilité",
+      "types": [
+        {
+          "nom": "Mutualisé",
+          "niveau": 40,
+          "explication": "Limitée : Nécessite une mise à niveau manuelle."
+        },
+        {
+          "nom": "Dédié",
+          "niveau": 80,
+          "explication": "Fixe : Puissant, mais l'augmentation de capacité est une migration complexe."
+        },
+        {
+          "nom": "Cloud",
+          "niveau": 100,
+          "explication": "Élastique : Les ressources s'ajustent automatiquement à la demande."
+        }
+      ]
+    }
+  },
+  "flexibilite_controle": {
+    "titre": "Contrôle vs. Simplicité",
+    "description": "Chaque solution offre un compromis différent entre le niveau de contrôle sur le serveur et la simplicité de gestion au quotidien.",
+    "criteres": ["Contrôle total", "Simplicité de gestion", "Personnalisation", "Maintenance externalisée", "Scalabilité facile"],
+    "donnees_radar": [
+      {
+        "label": "Mutualisé",
+        "valeurs": [1, 9, 2, 9, 2]
+      },
+      {
+        "label": "Dédié",
+        "valeurs": [10, 2, 10, 1, 3]
+      },
+      {
+        "label": "Cloud",
+        "valeurs": [7, 8, 8, 8, 10]
+      }
+    ],
+    "explication": "Le Cloud offre un équilibre idéal, fournissant un contrôle significatif (via IaaS) tout en simplifiant la maintenance de l'infrastructure de base."
+  },
+  "securite_fiabilite": {
+    "titre": "Sécurité et Fiabilité : Votre Tranquillité d'Esprit",
+    "types": [
+      {
+        "nom": "Mutualisé",
+        "disponibilite": 99.0,
+        "explication": "Risque de \"contamination croisée\" et fiabilité dépendante des \"voisins\"."
+      },
+      {
+        "nom": "Dédié",
+        "disponibilite": 99.8,
+        "explication": "Sécurité isolée mais entièrement sous la responsabilité de l'utilisateur."
+      },
+      {
+        "nom": "Cloud",
+        "disponibilite": 99.95,
+        "explication": "Sécurité multi-couches et redondance native pour une disponibilité maximale."
+      }
+    ]
+  },
+  "analyse_couts": {
+    "titre": "Analyse des Coûts : Le Coût Total de Possession (TCO)",
+    "description": "Le prix mensuel n'est qu'une partie de l'équation. Le TCO inclut la gestion, la maintenance et les coûts cachés.",
+    "couts_annuels": {
+      "labels": ["Mutualisé", "Dédié", "Cloud (Exemple)"],
+      "donnees_directes": [324, 3060, 720],
+      "donnees_gestion_maintenance": [0, 1200, 0],
+      "explication": "Le modèle \"paiement à l'usage\" du Cloud élimine le gaspillage lié au sur-provisionnement, offrant un TCO optimisé sur le long terme malgré un coût de départ potentiellement plus élevé que le mutualisé."
+    }
+  },
+  "verdict": {
+    "titre": "Verdict : Quel hébergement pour votre projet ?",
+    "question_principale": "Quel est votre besoin principal ?",
+    "options": [
+      {
+        "besoin": "Prix le plus bas et simplicité maximale",
+        "recommandation": "Mutualisé"
+      },
+      {
+        "besoin": "Performance maximale et contrôle total",
+        "recommandation": "Dédié"
+      },
+      {
+        "besoin": "Scalabilité, fiabilité et agilité",
+        "recommandation": "Cloud"
+      }
+    ]
+  },
+  "recommandation_personnalisee_ia": {
+    "titre": "Obtenez votre recommandation personnalisée ✨",
+    "description": "Répondez à quelques questions pour que notre IA vous aide à choisir l'hébergement idéal.",
+    "champs": [
+      {
+        "id": "siteType",
+        "label": "Type de site web :",
+        "options": [
+          { "value": "blog", "text": "Blog personnel" },
+          { "value": "ecommerce", "text": "Site e-commerce" },
+          { "value": "webapp", "text": "Application web complexe" },
+          { "value": "portfolio", "text": "Portfolio / Site vitrine" },
+          { "value": "media", "text": "Site de médias/contenu" }
+        ]
+      },
+      {
+        "id": "traffic",
+        "label": "Trafic estimé :",
+        "options": [
+          { "value": "faible", "text": "Faible (quelques centaines/jour)" },
+          { "value": "moyen", "text": "Moyen (milliers/jour)" },
+          { "value": "eleve", "text": "Élevé (dizaines de milliers+/jour)" },
+          { "value": "variable", "text": "Très variable (pics saisonniers)" }
+        ]
+      },
+      {
+        "id": "budget",
+        "label": "Budget :",
+        "options": [
+          { "value": "tres-limite", "text": "Très limité (moins de 10€/mois)" },
+          { "value": "modere", "text": "Modéré (10€ - 50€/mois)" },
+          { "value": "flexible", "text": "Flexible (50€+/mois)" }
+        ]
+      },
+      {
+        "id": "techSkill",
+        "label": "Compétences techniques :",
+        "options": [
+          { "value": "debutant", "text": "Débutant" },
+          { "value": "intermediaire", "text": "Intermédiaire" },
+          { "value": "expert", "text": "Expert" }
+        ]
+      }
+    ]
+  }
+}
 const estimation = {
   path: "/estimation",
   label: "Estimation",

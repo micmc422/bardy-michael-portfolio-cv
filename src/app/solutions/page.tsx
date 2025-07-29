@@ -1,4 +1,4 @@
-import { Background, Badge, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text } from "@/once-ui/components";
+import { Background, Badge, Button, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text } from "@/once-ui/components";
 import { about, baseURL } from "../resources";
 import { person, solutionsWeb } from "../resources/content";
 import type { opacity } from "@/once-ui/types";
@@ -118,6 +118,15 @@ export default function SolutionsPage() {
                     </Column>
                 ))}
             </Grid>
+            <Column maxWidth="xl" paddingY="24" gap="s" center>
+                <Heading wrap="balance" variant="display-strong-m" align="center">
+                    ☁️ Votre site, toujours rapide. Toujours en ligne.
+                </Heading>
+                <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
+                    {`Ne perdez plus de clients à cause d’un site lent ou indisponible. Grâce à un hébergement cloud dernière génération (Vercel), vos pages se chargent en un éclair, même aux heures de pointe. Résultat : plus de conversions, une meilleure image, et zéro stress côté technique.`}
+                </Text>
+                <Button href="/solutions/hebergement">🚀 Solutions d'hébergement</Button>
+            </Column>
         </>
     );
 }
