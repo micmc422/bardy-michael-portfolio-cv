@@ -1,6 +1,6 @@
 "use server"
 
-import { Heading, Flex, Text, Avatar, RevealFx, Column, Badge, IconButton, Icon, Meta, Schema } from "@once-ui-system/core";
+import { Heading, Flex, Text, Avatar, RevealFx, Column, Badge, IconButton, Icon, Meta } from "@once-ui-system/core";
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
 import { Projects } from "@/components/realisations/Projects";
@@ -8,6 +8,7 @@ import { Faq } from "@/components";
 import { AvisClient } from "@/components/AvisClients";
 import { Posts } from "@/components/blog/Posts";
 import { Tarifs } from "@/components/tarif/Tarifs";
+import Schema from "@/modules/seo/Schema";
 
 
 export async function generateMetadata() {

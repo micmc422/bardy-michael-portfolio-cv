@@ -1,6 +1,7 @@
 import { about, baseURL, person } from "@/app/resources";
 import { solutionsHébergement } from "@/app/resources/content";
-import { Badge, Column, Heading, Icon, IconButton, Meta, RevealFx, Row, Schema, Text } from "@once-ui-system/core";
+import Schema from "@/modules/seo/Schema";
+import { Badge, Column, Heading, Icon, IconButton, Meta, RevealFx, Row, Text } from "@once-ui-system/core";
 import { BarChart } from "@once-ui-system/core";
 
 
