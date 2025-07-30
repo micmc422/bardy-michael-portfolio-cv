@@ -330,8 +330,8 @@ export async function Schema({
             const lvl2Item = {
                 "@type": "ListItem",
                 "position": 2,
-                "name": breadCrumbs[partItems[0]].title,
-                "item": `${baseURL}${breadCrumbs[partItems[0]].path}`
+                "name": breadCrumbs[partItems[0]]?.title || title,
+                "item": `${baseURL}${breadCrumbs[partItems[0]]?.path || path}`
             }
             schema.breadcrumb.itemListElement.push(lvl2Item);
         }

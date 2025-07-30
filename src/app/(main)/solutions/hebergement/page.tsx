@@ -1,7 +1,7 @@
 import { about, baseURL, person } from "@/app/resources";
 import { solutionsHébergement } from "@/app/resources/content";
 import Schema from "@/modules/seo/Schema";
-import { Badge, Column, Heading, Icon, IconButton, Meta, RevealFx, Row, Text } from "@once-ui-system/core";
+import { Badge, Column, Heading, Icon, IconButton, Meta, RevealFx, Row, Text, type DataPoint } from "@once-ui-system/core";
 import { BarChart } from "@once-ui-system/core";
 
 
@@ -79,28 +79,36 @@ export default async function HebergementPage() {
                 </Row>
             </Column>
             <Column maxWidth="s" paddingY="16" gap="m">
-                <Heading wrap="balance" variant="display-strong-m">
-                    {solutionsHébergement.performance_scalabilite.titre}
-                </Heading>
-                <BarChart
-                    background="surface"
-                    title="Daily Time Spent on Activities"
-                    axis="x"
-                    barWidth="xl"
-                    legend={{
-                        position: "bottom-center",
-                    }}
-                    series={[
-                        { key: "Reading", color: "aqua" },
-                        { key: "Sports", color: "yellow" },
-                        { key: "Doomscrolling", color: "orange" }
-                    ]}
-                    data={[
-                        { label: "Minutes per day", "Reading": 16, "Sports": 36, "Doomscrolling": 128 },
-                    ]}
-                />
+                <BarChartperformanceScalabilite />
             </Column>
         </Column>
 
     </>
+}
+
+function BarChartperformanceScalabilite() {
+    const { titre, description, performance_relative } = solutionsHébergement.performance_scalabilite;
+    const { titre: label, labels, valeurs } = performance_relative;
+    const couleurs = ["aqua", "yellow", "orange"];
+    type Keys = typeof labels[number];
+    const series = labels.map((key, i) => ({ key, color: couleurs[i] }))
+    const data: DataPoint = { label }
+    labels.forEach((key, i) => data[key as Keys] = valeurs[i])
+    console.log(data)
+    return <BarChart
+        background="overlay"
+        title={titre}
+        description={description}
+        axis="x"
+        barWidth="xl"
+        legend={{
+            position: "bottom-center",
+        }}
+        gap="l"
+        series={series}
+        data={[
+            data,
+        ]}
+    />
+
 }
