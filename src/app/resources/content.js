@@ -604,20 +604,21 @@ export const solutionsHébergement = {
   },
   "securite_fiabilite": {
     "titre": "Sécurité et Fiabilité : Votre Tranquillité d'Esprit",
+    "description": "",
     "types": [
       {
         "nom": "Mutualisé",
-        "disponibilite": 99.0,
+        "percent": 99.0,
         "explication": "Risque de \"contamination croisée\" et fiabilité dépendante des \"voisins\"."
       },
       {
         "nom": "Dédié",
-        "disponibilite": 99.8,
+        "percent": 99.8,
         "explication": "Sécurité isolée mais entièrement sous la responsabilité de l'utilisateur."
       },
       {
         "nom": "Cloud",
-        "disponibilite": 99.95,
+        "percent": 99.95,
         "explication": "Sécurité multi-couches et redondance native pour une disponibilité maximale."
       }
     ]

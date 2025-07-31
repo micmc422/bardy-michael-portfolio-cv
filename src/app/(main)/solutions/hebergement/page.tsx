@@ -1,11 +1,12 @@
 import { about, baseURL, person } from "@/app/resources";
 import { solutionsHébergement } from "@/app/resources/content";
 import Schema from "@/modules/seo/Schema";
-import { Badge, Column, Heading, Icon, IconButton, Meta, RevealFx, Row, Text, type DataPoint } from "@once-ui-system/core";
+import { Badge, Column, Flex, Grid, Heading, Icon, IconButton, Meta, RevealFx, Row, Text, type DataPoint } from "@once-ui-system/core";
 import { BarChart } from "@once-ui-system/core";
-import { FlexibilitySection } from "./FlexibilitySection";
 import { ChartCardContainer } from "@/components/chart";
-import { couleurs } from "@/components/chart/theme";
+import { LinesBars } from "@/components/chart/LinesBars";
+import { Radar } from "@/components/chart/Radar";
+import { DougNut } from "@/components/chart/DougNut";
 
 export async function generateMetadata() {
     return Meta.generate({
@@ -87,13 +88,19 @@ export default async function HebergementPage() {
                     <BarChartperformanceScalabilite />
                 </Column>
                 <Column maxWidth="s" gap="m">
-                    <CapacitScalabilite />
+                    <LinesBars {...solutionsHébergement.performance_scalabilite.capacite_scalabilite} />
                 </Column>
             </Row>
         </Column>
         <Row maxWidth={"s"} gap="l" align="start" paddingX="m">
-            <FlexibilitySection />
+            <Radar {...solutionsHébergement.flexibilite_controle} />
         </Row>
+        <ChartCardContainer gap="l" align="start" paddingX="m" paddingY="s">
+            <Heading wrap="pretty" variant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
+            <Flex gap="l" horizontal="center" wrap>
+                {solutionsHébergement.securite_fiabilite.types.map((el, i) => <DougNut key={i} {...el} />)}
+            </Flex>
+        </ChartCardContainer>
     </>
 }
 
@@ -101,7 +108,7 @@ function BarChartperformanceScalabilite() {
     const { titre, description, performance_relative } = solutionsHébergement.performance_scalabilite;
     const { titre: label, labels, valeurs, explication } = performance_relative;
     type Keys = typeof labels[number];
-    const series = labels.map((key, i) => ({ key, color: couleurs[i] }))
+    const series = labels.map((key, i) => ({ key }))
     const data: DataPoint = { label }
     labels.forEach((key, i) => data[key as Keys] = valeurs[i])
     return <ChartCardContainer>
@@ -126,24 +133,4 @@ function BarChartperformanceScalabilite() {
         </Column>
     </ChartCardContainer>
 }
-
-function CapacitScalabilite() {
-    const { titre, description, types } = solutionsHébergement.performance_scalabilite.capacite_scalabilite;
-    return <ChartCardContainer maxWidth={"s"}>
-        <Column paddingY='12' paddingX="20" gap="4">
-            <Heading wrap="pretty" variant='heading-strong-xs'>{titre}</Heading>
-            <Text onBackground="neutral-weak" variant="label-default-s" >{description}</Text>
-        </Column>
-        <Column paddingY='12' paddingX="20" gap="4">
-            {types.map(({ nom, niveau, explication }, i) => {
-                return <Column key={i} gap="2">
-                    <Heading as="h3" onBackground="brand-weak" variant='heading-strong-xs'>{nom}</Heading>
-                    <Row height={"24"} style={{ width: `${niveau}%`, backgroundImage: `linear-gradient(to right, transparent, var(--data-${couleurs[i]}))`, border: `2px solid var(--data-${couleurs[i]})` }} radius="m"></Row>
-                    <Text onBackground="neutral-medium" variant="label-default-s" paddingTop="xs">{explication}</Text>
-                </Column>
-            })}
-        </Column>
-    </ChartCardContainer>
-}
-
 

@@ -68,6 +68,7 @@ export const defaultChartOptions: ChartOptions = {
 interface ChartCardProps extends React.ComponentProps<typeof Flex> {
     className?: string;
     style?: React.CSSProperties;
+    chartStyle?: React.CSSProperties;
     id: string;
     titre?: ReactNode;
     description?: ReactNode;
@@ -82,7 +83,7 @@ interface ChartCardProps extends React.ComponentProps<typeof Flex> {
 // 🧩 Reusable Chart component
 //
 const ChartCard = forwardRef<HTMLDivElement, ChartCardProps>(
-    ({ id, chartType, data, options = {}, plugins = [], titre, description, explication, ...props }, ref) => {
+    ({ id, chartType, data, options = {}, plugins = [], titre, description, explication, chartStyle, ...props }, ref) => {
         const chartRef = useRef<HTMLCanvasElement | null>(null);
         const chartInstanceRef = useRef<Chart | null>(null);
 
@@ -112,7 +113,7 @@ const ChartCard = forwardRef<HTMLDivElement, ChartCardProps>(
                 {titre && <Heading wrap="pretty" variant='heading-strong-xs' paddingX="m">{titre}</Heading>}
                 {description && <Text wrap="pretty" onBackground='neutral-weak' variant='label-default-s' paddingX="m">{description}</Text>}
             </Column>
-            <Flex height={"l"} center>
+            <Flex center style={chartStyle}>
                 <canvas id={id} ref={chartRef}></canvas>
             </Flex>
             <Column maxWidth={"s"} paddingX="m"            >
