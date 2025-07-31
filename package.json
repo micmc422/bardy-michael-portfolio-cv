@@ -24,6 +24,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/edge-config": "^1.4.0",
     "@wisp-cms/client": "^0.0.23",
+    "chart.js": "^4.5.0",
     "classnames": "^2.5.1",
     "drizzle-orm": "^0.44.4",
     "google-auth-library": "^10.2.0",

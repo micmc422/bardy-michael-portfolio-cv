@@ -7,6 +7,7 @@ export const ThemeToggle: React.FC = () => {
   const { theme, setTheme } = useTheme();
 
   return (<ToggleButton
+    suppressHydrationWarning
     prefixIcon={theme === 'dark' ? 'sun' : 'moon'}
     onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
     selected={false}

@@ -17,14 +17,14 @@ export default async function sitemap() {
   const activeRoutes = Object.keys(routesConfig).filter((route) => routesConfig[route as keyof typeof routesConfig]);
 
   const routesPromise = activeRoutes.map(async (route) => {
-    const lastModified = await getFileData(route !== "/" ? route : "")
+    const lastModified = await getFileData(route !== "/" ? route : "/(main)")
     return ({
       url: `${baseURL}${route !== "/" ? route : ""}`,
       lastModified
     })
   });
   const estimationsPromises = siteTypes.map(async ({ slug }) => {
-    const lastModified = await getFileData(`/estimation`)
+    const lastModified = await getFileData(`/(main)/estimation`)
     return ({
       url: `${baseURL}/estimation/${slug}`,
       lastModified

@@ -557,18 +557,12 @@ export const solutionsHébergement = {
       "titre": "Indice de Performance Relatif",
       "labels": ["Mutualisé", "Dédié", "Cloud"],
       "valeurs": [50, 85, 95],
-      "barChatData": {
-        series: [
-          { key: "Mutualisé", color: "aqua" },
-          { key: "Dédié", color: "yellow" },
-          { key: "Cloud", color: "orange" }
-        ],
-      },
       "unite": "%",
       "explication": "Le Cloud et le Dédié offrent des performances supérieures, mais le Cloud maintient sa vitesse même lors des pics de trafic grâce à sa nature distribuée."
     },
     "capacite_scalabilite": {
       "titre": "Capacité de Scalabilité",
+      "description": `La scalabilité désigne la capacité d’un système à gérer une augmentation de charge sans perte de performance. En d'autres termes, plus ton site a de visiteurs, plus il doit pouvoir encaisser sans broncher (ou planter).`,
       "types": [
         {
           "nom": "Mutualisé",

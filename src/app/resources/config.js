@@ -210,4 +210,18 @@ const rdv = {
   },
 };
 
+export const dataConfig = {
+  variant: "gradient", // flat | gradient | outline
+  mode: "categorical", // categorical | divergent | sequential
+  height: 24, // default chart height
+  axisLine: {
+    stroke: "var(--neutral-alpha-weak)",
+  },
+  tick: {
+    fill: "var(--neutral-on-background-weak)",
+    fontSize: 11,
+  },
+  tickLine: true
+}
+
 export { routes, protectedRoutes, effects, style, display, mailchimp, rdv, baseURL, fonts, breadCrumbs };

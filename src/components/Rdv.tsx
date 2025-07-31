@@ -52,7 +52,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
   return (
     <Column
       overflow="hidden"
-      width={"s"}
+      maxWidth={"s"}
       radius="l"
       background="surface"
       border="neutral-alpha-weak"

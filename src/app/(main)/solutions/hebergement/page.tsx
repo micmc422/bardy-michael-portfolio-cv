@@ -3,7 +3,9 @@ import { solutionsHébergement } from "@/app/resources/content";
 import Schema from "@/modules/seo/Schema";
 import { Badge, Column, Heading, Icon, IconButton, Meta, RevealFx, Row, Text, type DataPoint } from "@once-ui-system/core";
 import { BarChart } from "@once-ui-system/core";
-
+import { FlexibilitySection } from "./FlexibilitySection";
+import { ChartCardContainer } from "@/components/chart";
+import { couleurs } from "@/components/chart/theme";
 
 export async function generateMetadata() {
     return Meta.generate({
@@ -20,7 +22,7 @@ export default async function HebergementPage() {
         <Schema
             as="webPage"
             baseURL={baseURL}
-            path={`${baseURL}${solutionsHébergement.path}`}
+            path={`${solutionsHébergement.path}`}
             title={solutionsHébergement.title}
             description={solutionsHébergement.description}
             image={`${baseURL}/og?title=${encodeURIComponent(solutionsHébergement.title)}`}
@@ -62,53 +64,86 @@ export default async function HebergementPage() {
                     </Badge>
                 </RevealFx>
             </Column>
-            <Column maxWidth="s" paddingY="16">
-                <Heading wrap="balance" variant="display-strong-m">
-                    {solutionsHébergement.introduction.titre}
-                </Heading>
-                <Row gap="m" paddingY="16">
-                    {solutionsHébergement.introduction.modeles.map((model, i) => <Column maxWidth="s" paddingY="8" key={i} center>
-                        <Text style={{ fontSize: "6vmax" }}>{model.icone}</Text>
-                        <Heading wrap="balance" variant="heading-default-m" paddingTop="8">
-                            {model.nom}
-                        </Heading>
-                        <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
-                            {model.description}
-                        </Text>
-                    </Column>)}
-                </Row>
-            </Column>
-            <Column maxWidth="s" paddingY="16" gap="m">
-                <BarChartperformanceScalabilite />
-            </Column>
+            <Row center>
+                <Column maxWidth="s" paddingY="16" center>
+                    <Heading wrap="balance" variant="display-strong-m">
+                        {solutionsHébergement.introduction.titre}
+                    </Heading>
+                    <Row gap="m" paddingY="16">
+                        {solutionsHébergement.introduction.modeles.map((model, i) => <Column maxWidth="s" paddingY="8" key={i} center>
+                            <Text style={{ fontSize: "6vmax" }}>{model.icone}</Text>
+                            <Heading wrap="balance" variant="heading-default-m" paddingTop="8">
+                                {model.nom}
+                            </Heading>
+                            <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
+                                {model.description}
+                            </Text>
+                        </Column>)}
+                    </Row>
+                </Column>
+            </Row>
+            <Row tabletDirection="column" maxWidth={"xl"} gap="l" align="start" paddingX="m">
+                <Column maxWidth="s" gap="m">
+                    <BarChartperformanceScalabilite />
+                </Column>
+                <Column maxWidth="s" gap="m">
+                    <CapacitScalabilite />
+                </Column>
+            </Row>
         </Column>
-
+        <Row maxWidth={"s"} gap="l" align="start" paddingX="m">
+            <FlexibilitySection />
+        </Row>
     </>
 }
 
 function BarChartperformanceScalabilite() {
     const { titre, description, performance_relative } = solutionsHébergement.performance_scalabilite;
-    const { titre: label, labels, valeurs } = performance_relative;
-    const couleurs = ["aqua", "yellow", "orange"];
+    const { titre: label, labels, valeurs, explication } = performance_relative;
     type Keys = typeof labels[number];
     const series = labels.map((key, i) => ({ key, color: couleurs[i] }))
     const data: DataPoint = { label }
     labels.forEach((key, i) => data[key as Keys] = valeurs[i])
-    console.log(data)
-    return <BarChart
-        background="overlay"
-        title={titre}
-        description={description}
-        axis="x"
-        barWidth="xl"
-        legend={{
-            position: "bottom-center",
-        }}
-        gap="l"
-        series={series}
-        data={[
-            data,
-        ]}
-    />
-
+    return <ChartCardContainer>
+        <BarChart
+            title={titre}
+            description={description}
+            axis="x"
+            barWidth="xl"
+            background="transparent"
+            border="transparent"
+            legend={{
+                position: "bottom-center",
+            }}
+            gap="32"
+            series={series}
+            data={[
+                data,
+            ]}
+        />
+        <Column paddingX="m">
+            <Text onBackground="neutral-medium" variant="label-default-s">{explication}</Text>
+        </Column>
+    </ChartCardContainer>
 }
+
+function CapacitScalabilite() {
+    const { titre, description, types } = solutionsHébergement.performance_scalabilite.capacite_scalabilite;
+    return <ChartCardContainer maxWidth={"s"}>
+        <Column paddingY='s'>
+            <Heading wrap="pretty" variant='heading-strong-xs' paddingX="m">{titre}</Heading>
+            <Text onBackground="neutral-weak" variant="label-default-s" paddingTop="4" paddingX="m">{description}</Text>
+        </Column>
+        <Column gap="s" paddingX="m">
+            {types.map(({ nom, niveau, explication }, i) => {
+                return <Column key={i} gap="2">
+                    <Heading as="h3" onBackground="brand-weak" variant='heading-strong-xs'>{nom}</Heading>
+                    <Row height={"24"} style={{ width: `${niveau}%`, backgroundImage: `linear-gradient(to right, transparent, var(--data-${couleurs[i]}))`, border: `2px solid var(--data-${couleurs[i]})` }} radius="m"></Row>
+                    <Text onBackground="neutral-medium" variant="label-default-s" paddingTop="xs">{explication}</Text>
+                </Column>
+            })}
+        </Column>
+    </ChartCardContainer>
+}
+
+
