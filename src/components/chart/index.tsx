@@ -135,8 +135,7 @@ const ChartCardContainer = forwardRef<HTMLDivElement, ChartCardContainerProps>(
         return (
             <Column
                 background='surface'
-                radius='l'
-                paddingBottom='s'
+                radius='m'
                 border="neutral-strong"
                 ref={ref}
                 style={style}

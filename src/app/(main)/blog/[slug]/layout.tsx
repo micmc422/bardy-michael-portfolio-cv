@@ -90,7 +90,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
     return <Row fillWidth zIndex={0}>
         <Row maxWidth={12} hide="m" />
         <Row fillWidth horizontal="center">
-            <Column maxWidth="xs" gap="l">
+            <Column maxWidth="xs" gap="l" paddingX="s">
                 <Schema
                     as="blogPosting"
                     baseURL={baseURL}

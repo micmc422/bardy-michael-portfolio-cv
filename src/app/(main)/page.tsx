@@ -43,7 +43,7 @@ export default async function Home() {
         <Column maxWidth="s">
           <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
             <Badge
-              background="brand-alpha-weak" paddingX="8" paddingY="4" onBackground="brand-strong"
+              background="brand-alpha-weak" paddingX="xs" paddingY="4" onBackground="brand-strong"
               arrow={false}
               href={about.calendar.link}
               center
@@ -61,12 +61,12 @@ export default async function Home() {
             </Badge>
           </RevealFx>
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading as="h1" wrap="balance" variant="display-strong-l">
+            <Heading as="h1" wrap="balance" variant="display-strong-l" paddingX="xs">
               {home.headline}
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" paddingX="xs">
               {home.subline}
             </Text>
           </RevealFx>

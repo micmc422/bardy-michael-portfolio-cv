@@ -121,7 +121,7 @@ function BarChartperformanceScalabilite() {
                 data,
             ]}
         />
-        <Column paddingX="m">
+        <Column paddingY='12' paddingX="20" gap="4">
             <Text onBackground="neutral-medium" variant="label-default-s">{explication}</Text>
         </Column>
     </ChartCardContainer>
@@ -130,11 +130,11 @@ function BarChartperformanceScalabilite() {
 function CapacitScalabilite() {
     const { titre, description, types } = solutionsHébergement.performance_scalabilite.capacite_scalabilite;
     return <ChartCardContainer maxWidth={"s"}>
-        <Column paddingY='s'>
-            <Heading wrap="pretty" variant='heading-strong-xs' paddingX="m">{titre}</Heading>
-            <Text onBackground="neutral-weak" variant="label-default-s" paddingTop="4" paddingX="m">{description}</Text>
+        <Column paddingY='12' paddingX="20" gap="4">
+            <Heading wrap="pretty" variant='heading-strong-xs'>{titre}</Heading>
+            <Text onBackground="neutral-weak" variant="label-default-s" >{description}</Text>
         </Column>
-        <Column gap="s" paddingX="m">
+        <Column paddingY='12' paddingX="20" gap="4">
             {types.map(({ nom, niveau, explication }, i) => {
                 return <Column key={i} gap="2">
                     <Heading as="h3" onBackground="brand-weak" variant='heading-strong-xs'>{nom}</Heading>

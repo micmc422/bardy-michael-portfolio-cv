@@ -125,7 +125,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
     ({ volet, className, ...rest }, ref) => {
         const { title, description, slug, price, features, notes } = volet;
         return (
-            <Column radius="l-4"
+            <Column radius="m"
                 ref={ref}
                 className={classNames(styles.volet, className)}
                 direction="column"
@@ -165,7 +165,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     }}
                 />
 
-                <Heading as="h3" variant="display-strong-xs" padding="m" className={styles.titre} onBackground="accent-weak">{title}</Heading>
+                <Heading as="h3" variant="display-strong-xs" padding="m" paddingTop="l" className={styles.titre} onBackground="accent-weak">{title}</Heading>
                 <Line background="page" />
                 <Row fillWidth padding="m">
                     <ul className={styles.list}>
