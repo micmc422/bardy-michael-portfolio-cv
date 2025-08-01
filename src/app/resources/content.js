@@ -328,7 +328,7 @@ const webmasterAlbi = {
   path: "/webmaster-albi",
   label: "Webmaster Albi",
   title: `Webmaster Albi - Création Site Internet & SEO | ${person.name}`,
-  description: `Besoin d'un webmaster à Albi ? Nous créons des sites web performants et optimisés SEO pour les entreprises albigeoises. Demandez votre devis gratuit dès aujourd'hui !`,
+  description: `Webmaster à Albi : création de sites web rapides et optimisés SEO pour entreprises locales. Devis gratuit, contactez-nous dès aujourd'hui !`,
   headline: "Votre Webmaster Expert à Albi pour un Référencement Optimal",
   subline: "Besoin d'un coup de pouce pour votre présence en ligne à Albi ? En tant que webmaster local, je vous accompagne dans la création de sites internet performants et l'optimisation de votre visibilité sur Google. Découvrez comment transformer votre projet digital en succès, ici, au cœur du Tarn.",
   pourquoi: [
@@ -416,7 +416,7 @@ const solutionsWeb = {
   path: "/solutions",
   label: "Solutions Web",
   title: `Solutions digitales pour chaque métier | ${person.name}`,
-  description: `Dans le monde numérique actuel, avoir un site internet est bien plus qu'une simple présence en ligne. Ce n'est pas un prospectus statique ; c'est le centre névralgique de votre communication digitale, un outil dynamique qui évolue avec votre entreprise et interagit avec vos clients.`,
+  description: `Un site web n’est plus un simple prospectus statique, mais le cœur dynamique de votre communication digitale, évoluant avec votre entreprise.`,
   headline: "Des solutions adaptées à chaque métier",
   subline: "Dans le monde numérique actuel, avoir un site internet est bien plus qu'une simple présence en ligne. Ce n'est pas un prospectus statique ; c'est le centre névralgique de votre communication digitale, un outil dynamique qui évolue avec votre entreprise et interagit avec vos clients.",
   pourquoi: [
@@ -527,7 +527,7 @@ export const solutionsHébergement = {
   path: "/solutions/hebergement",
   label: "Hébergement",
   title: `L'Hébergement Web de Demain : Cloud vs. Traditionnel`,
-  description: `adaptez votre hébergement à vos besoins avec le Cloud. Découvrez pourquoi le Cloud est la solution d'hébergement de demain, surpassant les modèles traditionnels en termes de performance, scalabilité et sécurité.`,
+  description: `Le Cloud dépasse l’hébergement traditionnel en performance, scalabilité et sécurité. Adaptez votre solution selon vos besoins dès aujourd’hui.`,
   headline: "Pourquoi le Cloud surpasse les solutions traditionnelles",
   subline: "L'hébergement est la pierre angulaire de votre présence en ligne. Il détermine non seulement la performance de votre site, mais aussi sa sécurité, sa scalabilité et son coût à long terme. Alors, pourquoi le Cloud est-il la solution d'hébergement de demain ?",
   "introduction": {
