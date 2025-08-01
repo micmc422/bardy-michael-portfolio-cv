@@ -283,7 +283,7 @@ export default async function About() {
 
           {about.technical.display && (
             <>
-              <Heading
+              <Heading as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
                 marginBottom="40"

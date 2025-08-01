@@ -251,7 +251,7 @@ export default async function About() {
       </Column>
       <Column maxWidth={"l"} gap="m" paddingTop="xl" center>
         <Column gap="s" maxWidth={"xs"} center>
-          <Heading variant="display-strong-s" align="center">{webmasterAlbi.process.title}</Heading>
+          <Heading as="h2" variant="display-strong-s" align="center">{webmasterAlbi.process.title}</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">Pour vous garantir une collaboration fluide et des résultats à la hauteur de vos attentes, voici les étapes clés de notre processus de travail. De la première prise de contact à la livraison de votre projet web et au-delà, chaque phase est pensée pour l’efficacité et la transparence.</Text>
         </Column>
         <StepsComponent maxWidth={"xs"} data-props={JSON.stringify({ steps: webmasterAlbi.process.steps })} />

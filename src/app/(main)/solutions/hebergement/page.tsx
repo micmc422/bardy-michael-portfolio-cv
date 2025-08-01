@@ -36,7 +36,7 @@ export default async function HebergementPage() {
         <Column maxWidth="xl" paddingY="24" gap="m">
             <Column maxWidth="s">
                 <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                    <Heading as="h1" wrap="balance" variant="display-strong-l">
+                    <Heading as="h2" wrap="balance" variant="display-strong-l">
                         {solutionsHébergement.title}
                     </Heading>
                 </RevealFx>
