@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import {
     RadarChart as RechartsRadarChart,
     Radar as RechartsRadar,
@@ -33,27 +33,26 @@ const RadarChart: React.FC<RadarChartProps> = ({
     axis = "both",
     border = "neutral-medium",
     variant: variantProp,
-    outerRadius = "80%",
+    outerRadius = "100%",
     tooltipCursor = false,
     "data-viz-style": dataVizStyle,
     ...flex
 }) => {
+    const seriesArray = Array.isArray(series) ? series : series ? [series] : [];
     const {
         variant: themeVariant,
         mode,
-        height,
+        height = 32,
         tick: { fill: tickFill, fontSize: tickFontSize },
         axis: { stroke: _axisLineStroke },
     } = useDataTheme();
-    console.log(height)
     const variant = variantProp || themeVariant;
     const legend = {
         display: legendProp.display !== undefined ? legendProp.display : true,
-        position: legendProp.position || "top-left",
+        position: legendProp.position || "bottom-center",
         direction: legendProp.direction,
     };
 
-    const seriesArray = Array.isArray(series) ? series : series ? [series] : [];
     const seriesKeys = seriesArray.map((s) => s.key);
     const chartId = React.useMemo(() => Math.random().toString(36).substring(2, 9), []);
     /*
@@ -65,18 +64,18 @@ const RadarChart: React.FC<RadarChartProps> = ({
     const autoKeys = Object.keys(data[0] || {}).filter(
         (key) => !seriesKeys.includes(key) && key !== "subject" && key !== "fullMark"
     );
-    const autoSeries =
-        seriesArray.length > 0
-            ? seriesArray.map((s, index) => ({
-                ...s,
-                color: s.color || getDistributedColor(index, seriesArray.length),
-            }))
-            : autoKeys.map((key, index) => ({
-                key,
-                color: getDistributedColor(index, autoKeys.length),
-            }));
+    const autoSeries = useMemo(() => seriesArray.length > 0
+        ? seriesArray.map((s, index) => ({
+            ...s,
+            color: s.color || getDistributedColor(index, seriesArray.length),
+        }))
+        : autoKeys.map((key, index) => ({
+            key,
+            color: getDistributedColor(index, autoKeys.length),
+        })), [])
 
     const radarColors = autoSeries.map((s) => `var(--data-${s.color})`);
+
     return (
         <Column fillWidth minHeight={height} border={border} radius="l" data-viz-style={dataVizStyle || mode} background="surface" {...flex}>
             <ChartHeader
@@ -105,6 +104,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
                                             value: series.key,
                                             color: radarColors[index],
                                         }));
+
                                         return (
                                             <Legend
                                                 variant={variant as ChartVariant}
@@ -173,7 +173,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
                                     name={series.key}
                                     fill={`url(#barGradient${chartId}${index})`}
                                     stroke={radarColors[index]}
-                                    strokeWidth={1}
+                                    strokeWidth={2}
                                     transform="translate(0, -1)"
                                 />
                             ))}

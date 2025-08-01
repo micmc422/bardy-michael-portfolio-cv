@@ -110,7 +110,7 @@ const ChartCard = forwardRef<HTMLDivElement, ChartCardProps>(
 
         return (<ChartCardContainer ref={ref} direction='column'  {...props}>
             <Column paddingY='s'>
-                {titre && <Heading wrap="pretty" variant='heading-strong-xs' paddingX="m">{titre}</Heading>}
+                {titre && <Heading as="span" wrap="pretty" variant='heading-strong-xs' paddingX="m">{titre}</Heading>}
                 {description && <Text wrap="pretty" onBackground='neutral-weak' variant='label-default-s' paddingX="m">{description}</Text>}
             </Column>
             <Flex center style={chartStyle}>

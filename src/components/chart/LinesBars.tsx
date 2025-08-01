@@ -18,7 +18,7 @@ const LinesBars = forwardRef<HTMLDivElement, LinesBarsDataType>(({ titre, descri
 
     return <ChartCardContainer ref={ref} maxWidth={"s"} {...props}>
         <Column paddingY='12' paddingX="20" gap="4">
-            <Heading as="h2" wrap="pretty" variant='heading-strong-xs'>{titre}</Heading>
+            <Heading as="span" wrap="pretty" variant='heading-strong-xs'>{titre}</Heading>
             <Text onBackground="neutral-weak" variant="label-default-s" >{description}</Text>
         </Column>
         <Column paddingY='12' paddingX="20" gap="l">

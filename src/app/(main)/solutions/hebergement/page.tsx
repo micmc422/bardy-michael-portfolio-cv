@@ -36,7 +36,7 @@ export default async function HebergementPage() {
         <Column maxWidth="xl" paddingY="24" gap="m">
             <Column maxWidth="s">
                 <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                    <Heading as="h2" wrap="balance" variant="display-strong-l">
+                    <Heading wrap="balance" variant="display-strong-l">
                         {solutionsHébergement.title}
                     </Heading>
                 </RevealFx>
@@ -67,7 +67,7 @@ export default async function HebergementPage() {
             </Column>
             <Row center>
                 <Column maxWidth="s" paddingY="16" center>
-                    <Heading as="h2" wrap="balance" variant="display-strong-m">
+                    <Heading as="span" wrap="balance" variant="display-strong-m">
                         {solutionsHébergement.introduction.titre}
                     </Heading>
                     <Row gap="m" paddingY="16">
@@ -96,12 +96,15 @@ export default async function HebergementPage() {
             <RadarChart
                 {...solutionsHébergement.flexibilite_controle} />
         </Row>
-        <ChartCardContainer gap="l" align="start" paddingX="m" paddingY="s">
-            <Heading as="h2" wrap="pretty" variant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
-            <Flex gap="l" horizontal="center" wrap>
-                {solutionsHébergement.securite_fiabilite.types.map((el, i) => <DougNut key={i} {...el} />)}
-            </Flex>
-        </ChartCardContainer>
+        <Row maxWidth={"s"} gap="l" align="start" paddingX="m">
+
+            <ChartCardContainer gap="l" align="start" paddingX="l" paddingY="m">
+                <Heading as="h2" wrap="pretty" variant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
+                <Flex gap="l" horizontal="center" wrap>
+                    {solutionsHébergement.securite_fiabilite.types.map((el, i) => <DougNut key={i} {...el} />)}
+                </Flex>
+            </ChartCardContainer>
+        </Row>
     </>
 }
 
