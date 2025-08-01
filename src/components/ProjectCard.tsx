@@ -49,7 +49,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       >
         {title && (
           <Flex flex={5}>
-            <Heading wrap="balance" variant="heading-strong-xl">
+            <Heading as="h2" wrap="balance" variant="heading-strong-xl">
               {title}
             </Heading>
           </Flex>

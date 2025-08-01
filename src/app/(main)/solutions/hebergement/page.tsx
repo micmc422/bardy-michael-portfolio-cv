@@ -1,11 +1,11 @@
 import { about, baseURL, person } from "@/app/resources";
 import { solutionsHébergement } from "@/app/resources/content";
 import Schema from "@/modules/seo/Schema";
-import { Badge, Column, Flex, Grid, Heading, Icon, IconButton, Meta, RevealFx, Row, Text, type DataPoint } from "@once-ui-system/core";
+import { Badge, Column, Flex, Heading, Icon, IconButton, Meta, RevealFx, Row, Text, type DataPoint } from "@once-ui-system/core";
 import { BarChart } from "@once-ui-system/core";
 import { ChartCardContainer } from "@/components/chart";
 import { LinesBars } from "@/components/chart/LinesBars";
-import { Radar } from "@/components/chart/Radar";
+import { RadarChart } from "@/components/chart/Radar";
 import { DougNut } from "@/components/chart/DougNut";
 
 export async function generateMetadata() {
@@ -67,13 +67,13 @@ export default async function HebergementPage() {
             </Column>
             <Row center>
                 <Column maxWidth="s" paddingY="16" center>
-                    <Heading wrap="balance" variant="display-strong-m">
+                    <Heading as="h2" wrap="balance" variant="display-strong-m">
                         {solutionsHébergement.introduction.titre}
                     </Heading>
                     <Row gap="m" paddingY="16">
                         {solutionsHébergement.introduction.modeles.map((model, i) => <Column maxWidth="s" paddingY="8" key={i} center>
                             <Text style={{ fontSize: "6vmax" }}>{model.icone}</Text>
-                            <Heading wrap="balance" variant="heading-default-m" paddingTop="8">
+                            <Heading as="h2" wrap="balance" variant="heading-default-m" paddingTop="8">
                                 {model.nom}
                             </Heading>
                             <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
@@ -93,10 +93,11 @@ export default async function HebergementPage() {
             </Row>
         </Column>
         <Row maxWidth={"s"} gap="l" align="start" paddingX="m">
-            <Radar {...solutionsHébergement.flexibilite_controle} />
+            <RadarChart
+                {...solutionsHébergement.flexibilite_controle} />
         </Row>
         <ChartCardContainer gap="l" align="start" paddingX="m" paddingY="s">
-            <Heading wrap="pretty" variant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
+            <Heading as="h2" wrap="pretty" variant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
             <Flex gap="l" horizontal="center" wrap>
                 {solutionsHébergement.securite_fiabilite.types.map((el, i) => <DougNut key={i} {...el} />)}
             </Flex>
@@ -108,7 +109,7 @@ function BarChartperformanceScalabilite() {
     const { titre, description, performance_relative } = solutionsHébergement.performance_scalabilite;
     const { titre: label, labels, valeurs, explication } = performance_relative;
     type Keys = typeof labels[number];
-    const series = labels.map((key, i) => ({ key }))
+    const series = labels.map((key) => ({ key }))
     const data: DataPoint = { label }
     labels.forEach((key, i) => data[key as Keys] = valeurs[i])
     return <ChartCardContainer>

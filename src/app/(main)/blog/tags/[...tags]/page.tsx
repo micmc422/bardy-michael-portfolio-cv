@@ -51,7 +51,7 @@ export default async function Blog({ params }: { params: Promise<{ tags: string[
       <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
         Publications
       </Button>
-      <Heading as="h1" marginTop="l" marginBottom="l" variant="display-strong-s">
+      <Heading as="h2" marginTop="l" marginBottom="l" variant="display-strong-s">
         Mot-clé : {tags.join(" - ")}
       </Heading>
 

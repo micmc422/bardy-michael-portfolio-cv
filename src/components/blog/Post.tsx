@@ -47,7 +47,7 @@ export default function Post({ post, thumbnail, direction, excludeNav }: PostPro
                     padding="24"
                     vertical="center">
                     <Heading
-                        as="h2"
+                        as="h3"
                         variant="heading-strong-l"
                         wrap="balance"
                         data-exclude-nav={excludeNav ? 'true' : 'false'}>

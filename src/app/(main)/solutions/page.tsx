@@ -64,7 +64,7 @@ export default function SolutionsPage() {
                 </Column>
             </Column>
             <Column maxWidth="xs" paddingY="24" gap="s">
-                <Heading wrap="balance" variant="display-strong-m" align="center">
+                <Heading as="h2" wrap="balance" variant="display-strong-m" align="center">
                     🎯 Fonctionnalités ciblées pour booster votre activité
                 </Heading>
                 <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
@@ -119,7 +119,7 @@ export default function SolutionsPage() {
                 ))}
             </Grid>
             <Column maxWidth="xl" paddingY="24" gap="s" center>
-                <Heading wrap="balance" variant="display-strong-m" align="center">
+                <Heading as="h2" wrap="balance" variant="display-strong-m" align="center">
                     ☁️ Votre site, toujours rapide. Toujours en ligne.
                 </Heading>
                 <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">

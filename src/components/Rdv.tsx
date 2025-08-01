@@ -106,7 +106,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
         horizontal="center"
         align="center"
       >
-        <Heading style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
+        <Heading as="h2" style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
           {content.title}
         </Heading>
         <Text

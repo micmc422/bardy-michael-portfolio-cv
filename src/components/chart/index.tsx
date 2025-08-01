@@ -5,7 +5,6 @@ import {
     Chart,
     type ChartType,
     type ChartData,
-    type ChartOptions,
     type Plugin
 } from 'chart.js/auto';
 import classNames from 'classnames';
@@ -40,27 +39,28 @@ export const wrapLabels = (label: string, maxWidth: number): string | string[] =
 
 // 🧠 Tooltip title callback
 //
+/*
 const tooltipTitleCallback = (tooltipItems: any[]): string => {
     const item = tooltipItems[0];
     const label = item.chart.data.labels?.[item.dataIndex];
     return Array.isArray(label) ? label.join(' ') : label;
 };
+*/
 
 // ⚙️ Default chart options
 //
-export const defaultChartOptions: ChartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-        legend: {
-            position: 'bottom'
-        },
-        tooltip: {
-            callbacks: {
-                title: tooltipTitleCallback
-            }
-        }
-    }
+export const defaultChartOptions = {
+    variant: "gradient",
+    mode: "categorical",
+    height: 24,
+    axis: {
+        stroke: "var(--neutral-alpha-weak)",
+    },
+    tick: {
+        fill: "var(--neutral-on-background-weak)",
+        fontSize: 11,
+        line: false,
+    },
 };
 
 // 📊 ChartCard component props
@@ -75,7 +75,7 @@ interface ChartCardProps extends React.ComponentProps<typeof Flex> {
     explication?: ReactNode;
     chartType: ChartType;
     data: ChartData;
-    options?: ChartOptions;
+    options?: any;
     plugins?: Plugin[];
 }
 

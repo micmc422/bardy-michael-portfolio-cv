@@ -61,7 +61,7 @@ export default async function Home() {
             </Badge>
           </RevealFx>
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading as="h1" wrap="balance" variant="display-strong-l" paddingX="xs">
+            <Heading wrap="balance" variant="display-strong-l" paddingX="xs">
               {home.headline}
             </Heading>
           </RevealFx>
@@ -100,7 +100,7 @@ export default async function Home() {
         {routes["/blog"] && (
           <Flex fillWidth gap="24" mobileDirection="column">
             <Flex flex={1} paddingLeft="l" paddingTop="24">
-              <Heading variant="display-strong-xs" wrap="balance">
+              <Heading as="h2" variant="display-strong-xs" wrap="balance">
                 Dernières actualités
               </Heading>
             </Flex>
@@ -110,7 +110,7 @@ export default async function Home() {
           </Flex>
         )}
         <Projects range={[2]} />
-        <Heading wrap="balance" variant="display-strong-m" align="center">
+        <Heading as="h2" wrap="balance" variant="display-strong-m" align="center">
           🎯 Fonctionnalités ciblées pour booster votre activité
         </Heading>
         <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">

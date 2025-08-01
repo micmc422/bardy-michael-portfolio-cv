@@ -1,9 +1,9 @@
 "use client"
 
 import { ChartCard } from "@/components/chart";
-import { Column, Flex, Heading, Row, Text } from "@once-ui-system/core";
+import { Column, Flex, Row, Text } from "@once-ui-system/core";
 import type { BubbleDataPoint, ChartData, ChartTypeRegistry, Point } from "chart.js";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef } from "react";
 
 interface DougNutDataType extends React.ComponentProps<typeof Flex> {
     nom: string;

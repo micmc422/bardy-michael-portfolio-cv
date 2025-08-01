@@ -583,22 +583,19 @@ export const solutionsHébergement = {
     }
   },
   "flexibilite_controle": {
-    "titre": "Contrôle vs. Simplicité",
+    "title": "Contrôle vs. Simplicité",
     "description": "Chaque solution offre un compromis différent entre le niveau de contrôle sur le serveur et la simplicité de gestion au quotidien.",
-    "criteres": ["Contrôle total", "Simplicité de gestion", "Personnalisation", "Maintenance externalisée", "Scalabilité facile"],
-    "donnees_radar": [
-      {
-        "label": "Mutualisé",
-        "valeurs": [1, 9, 2, 9, 2]
-      },
-      {
-        "label": "Dédié",
-        "valeurs": [10, 2, 10, 1, 3]
-      },
-      {
-        "label": "Cloud",
-        "valeurs": [7, 8, 8, 8, 10]
-      }
+    "series": [
+      { key: "Mutualisé" },
+      { key: "Dédié" },
+      { key: "Cloud" }
+    ],
+    "data": [
+      { subject: 'Contrôle total', Mutualisé: 1, Dédié: 10, Cloud: 7, fullMark: 10 },
+      { subject: 'Simplicité de gestion', Mutualisé: 9, Dédié: 2, Cloud: 8, fullMark: 10 },
+      { subject: 'Personnalisation', Mutualisé: 2, Dédié: 10, Cloud: 8, fullMark: 10 },
+      { subject: 'Maintenance externalisée', Mutualisé: 9, Dédié: 1, Cloud: 8, fullMark: 10 },
+      { subject: 'Scalabilité facile', Mutualisé: 2, Dédié: 3, Cloud: 10, fullMark: 10 },
     ],
     "explication": "Le Cloud offre un équilibre idéal, fournissant un contrôle significatif (via IaaS) tout en simplifiant la maintenance de l'infrastructure de base."
   },
