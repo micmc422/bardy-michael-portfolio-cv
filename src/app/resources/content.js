@@ -10,7 +10,7 @@ const person = {
   role: "Développeur Fullstack",
   avatar: "/images/avatar.jpg",
   email: "michael.bardy@occitaweb.fr",
-  adress: "25 avenue Gambetta",
+  address: "25 avenue Gambetta",
   postCode: "81000",
   phone: "(+33) 06 72 11 50 06",
   location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -82,7 +82,7 @@ const home = {
   },
   subline: (
     <>
-      Depuis 2015, je réalise des sites internet et des applications web pour le compte d&apos;agences et de porteur de projet. Je crée des sites internet uniques & performant.
+      Depuis 2015, je réalise des sites internet et des applications web pour le compte d&apos;agences et de porteurs de projets. Je crée des sites internet uniques & performants.
     </>
   ),
 };
@@ -269,11 +269,11 @@ const about = {
         description: <>J’ai commencé par apprendre HTML/CSS et PHP via des ressources en ligne et des stages, puis découvert WordPress. Ces dernières années, je me suis tourné vers JavaScript, Node.js, React, et enfin Next.js.</>,
       },
       {
-        name: "Technique de base de managenement 2",
-        description: <>En travaillant de la grande distribution j&apos;ai étudié les fondamentaux du management.</>
+        name: "Techniques de base de management 2",
+        description: <>En travaillant dans la grande distribution, j&apos;ai étudié les fondamentaux du management.</>
       },
       {
-        name: "Baccalauréat technoligique en communication commerciale ICECLA albi",
+        name: "Baccalauréat technologique en communication commerciale ICECLA Albi",
         description: <>J&apos;ai obtenu un Baccalauréat technologique en communication commerciale, où j&apos;ai étudié le marketing en ligne et le personal branding.</>,
       },
     ],
@@ -284,7 +284,7 @@ const about = {
     skills: [
       {
         title: "Figma",
-        description: <>Création de systéme d&apos;interface et de design WEB.</>,
+        description: <>Création de système d&apos;interface et de design web.</>,
         images: [],
       },
       {
@@ -398,7 +398,7 @@ const webmasterAlbi = {
         content: "La durée de création d'un site web dépend de l'envergure du projet. Un site vitrine standard pour une entreprise d'Albi peut prendre de 3 à 6 semaines, tandis qu'un site e-commerce plus complexe peut nécessiter plusieurs mois. Je vous donnerai une estimation précise après avoir défini ensemble le cahier des charges de votre projet."
       },
       {
-        "title": "Proposez-vous le référencement(SEO) pour mon site à Albi?",
+        "title": "Proposez-vous le référencement (SEO) pour mon site à Albi ?",
         content: "Oui, absolument ! L'optimisation pour les moteurs de recherche (SEO) est une composante essentielle de mes services. Je mets en place des stratégies de référencement local à Albi pour améliorer votre visibilité sur Google, attirer plus de clients du Tarn et assurer une croissance durable à votre site web."
       },
       {
@@ -430,7 +430,7 @@ const solutionsWeb = {
         "Galerie photos de vos plats et de votre établissement",
         "Gestion des avis clients",
         "Intégration avec les plateformes de livraison",
-        "Actualités(événements, soirées à thème)"
+        "Actualités (événements, soirées à thème)"
       ]
     },
     {
@@ -438,10 +438,10 @@ const solutionsWeb = {
       "description": "Du petit commerce de quartier à la boutique spécialisée, attirez plus de clients et simplifiez vos ventes grâce à une présence en ligne efficace.",
       "icone": "handshake",
       "fonctions": [
-        "Vitrine produits en ligne(catalogue ou e-commerce)",
+        "Vitrine produits en ligne (catalogue ou e-commerce)",
         "Click & Collect",
         "Présentation de vos promotions et actualités",
-        "Informations pratiques(horaires, accès, contact)",
+        "Informations pratiques (horaires, accès, contact)",
         "Mise en avant de vos événements et ateliers"
       ]
     },
@@ -452,10 +452,10 @@ const solutionsWeb = {
       "fonctions": ["Site vitrine professionnel et moderne",
         "Présentation de vos services et savoir-faire",
         "Formulaires de contact et devis en ligne",
-        "Section actualités / blog(pour le référencement et l'expertise)",
+        "Section actualités / blog (pour le référencement et l'expertise)",
         "Portfolios et études de cas",
-        "Espace client sécurisé(si nécessaire)"]
-    }, ,
+        "Espace client sécurisé (si nécessaire)"]
+    },
     {
       "titre": "Professions Libérales",
       "description": "Développez votre clientèle, renforcez votre crédibilité et facilitez la prise de contact pour les professionnels de la santé, du droit, du conseil, etc.",
@@ -463,9 +463,9 @@ const solutionsWeb = {
       "fonctions": ["Site institutionnel et informatif",
         "Prise de rendez-vous en ligne",
         "Présentation détaillée de vos spécialités et expériences",
-        "Articles de blog ou fiches conseils(pour démontrer votre expertise)",
+        "Articles de blog ou fiches conseils (pour démontrer votre expertise)",
         "Témoignages et références",
-        "Accès sécurisé pour la documentation(si pertinent)"]
+        "Accès sécurisé pour la documentation (si pertinent)"]
     },
   ],
   process: {
@@ -509,7 +509,7 @@ const solutionsWeb = {
         content: "La durée de création d'un site web dépend de l'envergure du projet. Un site vitrine standard pour une entreprise d'Albi peut prendre de 3 à 6 semaines, tandis qu'un site e-commerce plus complexe peut nécessiter plusieurs mois. Je vous donnerai une estimation précise après avoir défini ensemble le cahier des charges de votre projet."
       },
       {
-        "title": "Proposez-vous le référencement(SEO) pour mon site à Albi?",
+        "title": "Proposez-vous le référencement (SEO) pour mon site à Albi ?",
         content: "Oui, absolument ! L'optimisation pour les moteurs de recherche (SEO) est une composante essentielle de mes services. Je mets en place des stratégies de référencement local à Albi pour améliorer votre visibilité sur Google, attirer plus de clients du Tarn et assurer une croissance durable à votre site web."
       },
       {
@@ -698,7 +698,7 @@ const estimation = {
   path: "/estimation",
   label: "Estimation",
   title: `Estimation de votre projet web`,
-  description: `Réalisez une estimation en ligne de votre projet, transmettez moi l'estimation et je réaliserais un devis en 72h.`,
+  description: `Réalisez une estimation en ligne de votre projet, transmettez-moi l'estimation et je réaliserai un devis en 72h.`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
@@ -709,14 +709,14 @@ const work = {
   title: `Projets – ${person.name}`,
   description: `${person.name} présente ses projets web réalisés pour entreprises, associations et collectivités locales : sites vitrines, plateformes, outils sur mesure.`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /realisationsisations routes
+  // All projects will be listed on the /home and /realisations routes
 };
 
 const gallery = {
   path: "/gallery",
-  label: "Gallery",
-  title: `Gallerie – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
+  label: "Galerie",
+  title: `Galerie – ${person.name}`,
+  description: `Une collection de photos de ${person.name}`,
   // Images by https://lorant.one
   // These are placeholder images, replace with your own
   images: [

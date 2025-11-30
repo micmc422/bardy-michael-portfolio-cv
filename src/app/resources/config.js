@@ -17,8 +17,7 @@ const breadCrumbs = {
   "blog": blog,
   "estimation": estimation,
   "webmaster-albi": webmasterAlbi,
-  "solutions": solutionsWeb,
-  "blog": blog
+  "solutions": solutionsWeb
 }
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
