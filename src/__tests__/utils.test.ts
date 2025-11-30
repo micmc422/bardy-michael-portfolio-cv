@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { slugify, delay, convertirTimestampGoogle, getRandomSixDigitNumber, isValidEmail, toQueryParams } from '../utils/utils'
+import { slugify, delay, convertirTimestampGoogle, getRandomSixDigitNumber, isValidEmail, toQueryParams } from '@/utils/utils'
 
 describe('slugify', () => {
   it('should convert a simple string to lowercase with dashes', () => {
