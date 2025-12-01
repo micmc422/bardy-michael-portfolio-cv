@@ -14,7 +14,8 @@ import {
 
 import { ChartHeader, ChartStatus, Column, DataTooltip, Legend, LinearGradient, Row, useDataTheme, type ChartProps, type ChartVariant } from "@once-ui-system/core";
 import { getDistributedColor } from "./utils/colorDistribution";
-import type { DataTooltipProps } from "@once-ui-system/core/dist/modules/data";
+
+type DataTooltipProps = React.ComponentProps<typeof DataTooltip>;
 
 interface RadarChartProps extends ChartProps {
     outerRadius?: number | string;
@@ -86,7 +87,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
             <Row fill>
                 <ChartStatus
                     loading={loading}
-                    isEmpty={!data || data.length === 0}
+                    empty={!data || data.length === 0}
                     emptyState={emptyState}
                 />
                 {!loading && data && data.length > 0 && (
@@ -153,7 +154,9 @@ const RadarChart: React.FC<RadarChartProps> = ({
                             <RechartsTooltip
                                 cursor={{ stroke: tooltipCursor ? "var(--neutral-alpha-weak)" : "transparent" }}
                                 content={(props) => (
-                                    <DataTooltip {...props as DataTooltipProps} variant={variant as ChartVariant} />
+                                    // Type assertion needed: Recharts TooltipContentProps uses readonly payload array
+                                    // while DataTooltipProps expects mutable array - this is safe as we don't mutate payload
+                                    <DataTooltip {...props as unknown as DataTooltipProps} variant={variant as ChartVariant} />
                                 )}
                             />
                             <defs>

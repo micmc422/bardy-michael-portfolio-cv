@@ -88,7 +88,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
         })) || [];
 
     return <Row fillWidth zIndex={0}>
-        <Row maxWidth={12} hide="m" />
+        <Row maxWidth={12} m={{ hide: true }} />
         <Row fillWidth horizontal="center">
             <Column maxWidth="xs" gap="l" paddingX="s">
                 <Schema
@@ -128,7 +128,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                 {post.metadata.sources && post.metadata.sources.length > 0 && (
                     <SourcesComponent sources={post.metadata.sources} />
                 )}
-                <Grid gap="8" columns={"2"} paddingTop="16" mobileColumns={"1"}>
+                <Grid gap="8" columns={"2"} paddingTop="16" s={{ columns: "1" }}>
                     {related?.map((post: any) => <Post
                         key={post.slug}
                         post={post}
@@ -140,7 +140,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
 
             </Column>
         </Row>
-        <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
+        <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" m={{ hide: true }}>
             <Row
                 gap="12"
                 paddingLeft="2"
@@ -159,7 +159,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
 function SourcesComponent({ sources }: { sources: string[] }) {
     return (<Column>
         <Text variant="heading-strong-l">Sources :</Text>
-        <Grid fillWidth columns="2" gap="16" className="mt-8" mobileColumns={"1"}>
+        <Grid fillWidth columns="2" gap="16" className="mt-8" s={{ columns: "1" }}>
             <>{sources.map((source, index) => <OgCard key={index} url={source} />)}</>
         </Grid>
     </Column>)

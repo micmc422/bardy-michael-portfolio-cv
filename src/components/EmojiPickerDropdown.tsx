@@ -1,12 +1,12 @@
 "use client";
 
-import { DropdownWrapper, type gridColumns, type StyleProps } from "@once-ui-system/core";
+import { DropdownWrapper, type gridSize, type StyleProps } from "@once-ui-system/core";
 import React from "react";
 import { EmojiPicker } from "./EmojiPicker";
 export interface EmojiPickerDropdownProps extends Omit<React.ComponentProps<typeof DropdownWrapper>, 'dropdown' | 'onSelect'> {
     onSelect: (data: { emoji: string, tags: string[] }) => void;
     background?: StyleProps["background"];
-    columns?: gridColumns;
+    columns?: gridSize;
 }
 
 const EmojiPickerDropdown: React.FC<EmojiPickerDropdownProps> = ({

@@ -38,7 +38,7 @@ export async function Posts({
         <>
             {displayedBlogs.length > 0 && (
                 <Grid
-                    columns={columns} mobileColumns="1"
+                    columns={columns} s={{ columns: "1" }}
                     fillWidth marginBottom="40" gap="12">
                     {displayedBlogs.map((post) => (
                         <Post
@@ -67,7 +67,7 @@ export function SkeletonPost({ direction = "column", ...attrs }: { direction?: "
         transition="micro-medium"
         direction={direction}
         radius="l"
-        mobileDirection="column"
+        s={{ direction: "column" }}
         fillWidth
         gap='m'
         center

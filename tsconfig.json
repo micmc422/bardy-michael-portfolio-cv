@@ -14,7 +14,7 @@
     "verbatimModuleSyntax": true,
     /* Transpilation */
     "jsx": "react-jsx",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "module": "esnext",
     "outDir": "./dist",
     "rootDir": "./",

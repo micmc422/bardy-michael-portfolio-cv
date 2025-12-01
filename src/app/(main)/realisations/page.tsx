@@ -12,7 +12,7 @@ const Projects = dynamic(() => import('@/components/realisations/Projects').then
 });
 // Importation dynamique pour Tarifs
 const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
-  loading: () => <Row gap="s" paddingBottom="l" mobileDirection="column">
+  loading: () => <Row gap="s" paddingBottom="l" s={{ direction: "column" }}>
     <Column>
       <Skeleton shape="block" width="l" minHeight={"40"} radius="l" />
       <Skeleton shape="line" height="xl" width="l" />

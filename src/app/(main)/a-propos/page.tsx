@@ -79,16 +79,16 @@ export default async function About() {
           position="fixed"
           paddingLeft="24"
           gap="32"
-          hide="s"
+          s={{ hide: true }}
         >
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Flex fillWidth mobileDirection="column" horizontal="center">
+      <Flex fillWidth s={{ direction: "column" }} horizontal="center">
         {about.avatar.display && (
           <Column
             key={"screen-avatar"}
-            hide="s"
+            s={{ hide: true }}
             className={styles.avatar}
             position="sticky"
             minWidth="160"
@@ -201,7 +201,7 @@ export default async function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                    <Flex fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
@@ -212,7 +212,7 @@ export default async function About() {
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="4">
                       {experience.role}
                     </Text>
-                    {experience?.description && <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="16">
+                    {experience?.description && <Flex fillWidth horizontal="between" vertical="end" marginBottom="16">
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.description}
                       </Text>
