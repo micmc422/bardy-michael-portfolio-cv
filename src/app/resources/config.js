@@ -25,32 +25,40 @@ const protectedRoutes = {
   "/realisations/automate-design-handovers-with-a-figma-to-code-pipeline": true,
 };
 
-import { Josefin_Sans, Geist_Mono, Geist, Open_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { about, blog, estimation, home, solutionsWeb, webmasterAlbi, work } from "./content";
 
-const heading = Josefin_Sans({
+// Use local font for Josefin Sans (heading)
+const heading = localFont({
+  src: "../../../public/fonts/JosefinSans-Regular.woff2",
   variable: "--font-heading",
-  subsets: ["latin"],
+  weight: "400",
   display: "swap",
-  weight: ["400"]
-});
-const body = Geist({
-  variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300"]
-});
-const label = Open_Sans({
-  variable: "--font-label",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500"]
 });
 
-const code = Geist_Mono({
-  variable: "--font-code",
-  subsets: ["latin"],
+// Use local font for Geist Sans from the geist package (body)
+const body = localFont({
+  src: "../../../public/fonts/Geist-Variable.woff2",
+  variable: "--font-body",
+  weight: "100 900",
   display: "swap",
+});
+
+// Use local font for Open Sans (label)
+const label = localFont({
+  src: "../../../public/fonts/OpenSans-Medium.woff2",
+  variable: "--font-label",
+  weight: "500",
+  display: "swap",
+});
+
+// Use local font for Geist Mono from the geist package (code)
+const code = localFont({
+  src: "../../../public/fonts/GeistMono-Variable.woff2",
+  variable: "--font-code",
+  weight: "100 900",
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 const fonts = {

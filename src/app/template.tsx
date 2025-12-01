@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Column } from "@once-ui-system/core";
 import { Providers } from "./Providers";
 

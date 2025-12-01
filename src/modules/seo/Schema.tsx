@@ -1,4 +1,3 @@
-import React from "react";
 import { home, person, social } from "@/app/resources/content";
 import type { ReactionType } from "@/components/reactions/serverActions";
 import Script from "next/script";

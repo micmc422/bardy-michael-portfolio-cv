@@ -26,7 +26,7 @@ export default function Post({ post, thumbnail, direction, excludeNav }: PostPro
                 direction={direction}
                 radius="l"
                 className={styles.hover}
-                mobileDirection="column"
+                s={{ direction: "column" }}
                 fillWidth>
                 {post.metadata.image && thumbnail && (
                     <Media
@@ -85,7 +85,7 @@ export function SkeletonPost({ direction = "column" }: { direction?: "row" | "co
                 direction={direction}
                 radius="l"
                 className={styles.hover}
-                mobileDirection="column"
+                s={{ direction: "column" }}
                 fillWidth>
                 <Media
                     border="neutral-alpha-weak"
