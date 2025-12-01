@@ -14,7 +14,8 @@ import {
 
 import { ChartHeader, ChartStatus, Column, DataTooltip, Legend, LinearGradient, Row, useDataTheme, type ChartProps, type ChartVariant } from "@once-ui-system/core";
 import { getDistributedColor } from "./utils/colorDistribution";
-import type { DataTooltipProps } from "@once-ui-system/core/dist/modules/data";
+
+type DataTooltipProps = React.ComponentProps<typeof DataTooltip>;
 
 interface RadarChartProps extends ChartProps {
     outerRadius?: number | string;
