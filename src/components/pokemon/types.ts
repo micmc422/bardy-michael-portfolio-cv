@@ -1,4 +1,8 @@
 // Types for Pokemon data based on PokeAPI response structure
+
+// API Configuration
+export const POKEMON_API_BASE_URL = 'https://pokeapi.co/api/v2';
+
 export interface PokemonType {
     slot: number;
     type: {

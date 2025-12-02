@@ -3,11 +3,18 @@ import {
     transformPokemon, 
     STAT_NAME_MAP, 
     STAT_DISPLAY_NAMES,
-    TYPE_COLORS 
+    TYPE_COLORS,
+    POKEMON_API_BASE_URL
 } from '@/components/pokemon/types';
 import type { Pokemon } from '@/components/pokemon/types';
 
 describe('Pokemon Types', () => {
+    describe('POKEMON_API_BASE_URL', () => {
+        it('should have the correct API URL', () => {
+            expect(POKEMON_API_BASE_URL).toBe('https://pokeapi.co/api/v2');
+        });
+    });
+
     describe('STAT_NAME_MAP', () => {
         it('should map all stat names correctly', () => {
             expect(STAT_NAME_MAP['hp']).toBe('hp');

@@ -6,7 +6,7 @@ import { PokemonCard } from "./PokemonCard";
 import { PokemonCompareRadar } from "./PokemonCompareRadar";
 import { PokemonDifferences } from "./PokemonDifferences";
 import type { Pokemon, PokemonForComparison } from "./types";
-import { transformPokemon } from "./types";
+import { transformPokemon, POKEMON_API_BASE_URL } from "./types";
 
 const PokemonCompare: React.FC = () => {
     const [pokemon1Name, setPokemon1Name] = useState<string>("");
@@ -21,7 +21,7 @@ const PokemonCompare: React.FC = () => {
     const fetchPokemon = useCallback(async (name: string): Promise<PokemonForComparison | null> => {
         if (!name.trim()) return null;
         
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase().trim()}`);
+        const response = await fetch(`${POKEMON_API_BASE_URL}/pokemon/${encodeURIComponent(name.toLowerCase().trim())}`);
         if (!response.ok) {
             throw new Error("Pokémon non trouvé");
         }

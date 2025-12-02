@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useId } from "react";
 import {
     RadarChart as RechartsRadarChart,
     Radar as RechartsRadar,
@@ -15,6 +15,7 @@ import {
 import { Column, Row, Text, Flex } from "@once-ui-system/core";
 import type { PokemonForComparison } from "./types";
 import { STAT_DISPLAY_NAMES } from "./types";
+import { getDistributedColor } from "@/components/chart/utils/colorDistribution";
 
 interface PokemonCompareRadarProps {
     pokemon1: PokemonForComparison;
@@ -31,7 +32,7 @@ const PokemonCompareRadar: React.FC<PokemonCompareRadarProps> = ({
     pokemon1,
     pokemon2,
 }) => {
-    const chartId = useMemo(() => Math.random().toString(36).substring(2, 9), []);
+    const chartId = useId();
 
     // Transform stats to radar chart data format
     const data: StatDataPoint[] = useMemo(() => {
@@ -44,8 +45,9 @@ const PokemonCompareRadar: React.FC<PokemonCompareRadarProps> = ({
         }));
     }, [pokemon1, pokemon2]);
 
-    const color1 = "var(--data-blue)";
-    const color2 = "var(--data-orange)";
+    // Use color distribution utility for consistent colors
+    const color1 = `var(--data-${getDistributedColor(0, 2)})`;
+    const color2 = `var(--data-${getDistributedColor(1, 2)})`;
 
     return (
         <Column fillWidth border="neutral-medium" radius="l" background="surface" padding="m">
