@@ -62,7 +62,7 @@ const faqData = {
 export default async function EstimationLayout({ children, resume, headline }: { children: ReactNode, resume: ReactNode, headline: ReactNode }) {
     return <Column center maxWidth={"l"}>
         <>{headline}</>
-        <Row fillWidth gap="l" paddingY="xl" mobileDirection="column" flex={12}>
+        <Row fillWidth gap="l" paddingY="xl" s={{ direction: "column" }} flex={12}>
             <Column flex={3} background="surface" padding="m" radius="xl" fillWidth>
                 {children}
             </Column>
@@ -72,7 +72,7 @@ export default async function EstimationLayout({ children, resume, headline }: {
         </Row>
         <Column background="surface" gap="m" padding="m" radius="xl">
             <Heading as="h2" variant="display-strong-m">Services inclus</Heading>
-            <Row mobileDirection="column" gap="s">
+            <Row s={{ direction: "column" }} gap="s">
                 <ServicesInclus />
             </Row>
         </Column>

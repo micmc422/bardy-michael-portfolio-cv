@@ -125,7 +125,7 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, slug
         >
             <FormComponent action={handleSubmit}>
                 <Column fill gap="16">
-                    <Row vertical="center" gap="16" mobileDirection="column">
+                    <Row vertical="center" gap="16" s={{ direction: "column" }}>
                         <Input
                             id="author"
                             name="author"
@@ -154,7 +154,7 @@ const AddComment = forwardRef<HTMLDivElement, AddCommentProps>(({ children, slug
                         label="Message"
                         aria-label="Message"
                     />
-                    <Row vertical="start" gap="16" mobileDirection="column">
+                    <Row vertical="start" gap="16" s={{ direction: "column" }}>
                         <Input id="url"
                             name="url"
                             label="Votre site internet"

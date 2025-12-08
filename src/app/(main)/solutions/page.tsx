@@ -71,7 +71,7 @@ export default function SolutionsPage() {
                     {`Chaque activité a ses spécificités, et votre site web doit en être le reflet. Que vous soyez artisan, commerçant, formateur ou indépendant, je développe des fonctionnalités adaptées à vos besoins concrets : formulaire de devis, prise de rendez-vous, catalogue, espace client, outils d'automatisation… L’objectif ? Gagner du temps, offrir une meilleure expérience à vos utilisateurs et faire de votre site un véritable levier de développement.`}
                 </Text>
             </Column>
-            <Grid columns={4} tabletColumns={2} mobileColumns={1} background="page" radius="l" maxWidth="xl" padding="s" gap="l" overflow="hidden">
+            <Grid columns={4} m={{ columns: 2 }} s={{ columns: 1 }} background="page" radius="l" maxWidth="xl" padding="s" gap="l" overflow="hidden">
                 <Background
                     zIndex={-1}
                     fill

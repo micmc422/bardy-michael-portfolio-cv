@@ -67,7 +67,7 @@ const fallbackEmojiData: EmojiData = {
 };
 
 import generatedEmojiData from '../lib/emoji-data.json';
-import { Column, Grid, Icon, IconButton, Input, Scroller, type ButtonOption, type Flex, Text, SegmentedControl, Row, type StyleProps, type gridColumns, useDebounce } from "@once-ui-system/core";
+import { Column, Grid, Icon, IconButton, Input, Scroller, type ButtonOption, type Flex, Text, SegmentedControl, Row, type StyleProps, type gridSize, useDebounce } from "@once-ui-system/core";
 
 const emojiData: EmojiData = Object.keys(generatedEmojiData).length > 0
     ? generatedEmojiData as EmojiData
@@ -78,7 +78,7 @@ export interface EmojiPickerProps extends Omit<React.ComponentProps<typeof Flex>
     onClose?: () => void;
     className?: string;
     background?: StyleProps["background"];
-    columns?: gridColumns;
+    columns?: gridSize;
     style?: React.CSSProperties;
 }
 

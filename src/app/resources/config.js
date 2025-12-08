@@ -25,33 +25,34 @@ const protectedRoutes = {
   "/realisations/automate-design-handovers-with-a-figma-to-code-pipeline": true,
 };
 
-import { Josefin_Sans, Geist_Mono, Geist, Open_Sans } from "next/font/google";
 import { about, blog, estimation, home, solutionsWeb, webmasterAlbi, work } from "./content";
 
-const heading = Josefin_Sans({
+// Using system fonts as fallback
+const heading = {
   variable: "--font-heading",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400"]
-});
-const body = Geist({
+  style: {
+    fontFamily: "'Josefin Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  }
+};
+const body = {
   variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300"]
-});
-const label = Open_Sans({
+  style: {
+    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+  }
+};
+const label = {
   variable: "--font-label",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500"]
-});
+  style: {
+    fontFamily: "'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  }
+};
 
-const code = Geist_Mono({
+const code = {
   variable: "--font-code",
-  subsets: ["latin"],
-  display: "swap",
-});
+  style: {
+    fontFamily: "'Roboto Mono', 'Courier New', Courier, monospace",
+  }
+};
 
 const fonts = {
   heading,

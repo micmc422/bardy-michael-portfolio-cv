@@ -17,7 +17,7 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
     if (!activeSite) notFound()
 
     return <>
-        <Grid columns={2} mobileColumns={1} gap="m" paddingTop="m">
+        <Grid columns={2} s={{ columns: 1 }} gap="m" paddingTop="m">
             {activeSite?.options?.map((option: Option, _i) =>
                 <Checkbox
                     suppressHydrationWarning

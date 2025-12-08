@@ -83,7 +83,7 @@ export default async function HebergementPage() {
                     </Row>
                 </Column>
             </Row>
-            <Row tabletDirection="column" maxWidth={"xl"} gap="l" align="start" paddingX="m">
+            <Row m={{ direction: "column" }} maxWidth={"xl"} gap="l" align="start" paddingX="m">
                 <Column maxWidth="s" gap="m">
                     <BarChartperformanceScalabilite />
                 </Column>

@@ -22,8 +22,7 @@ import { baseURL } from "@/app/resources";
 
 
 import { about, person, webmasterAlbi } from "@/app/resources/content";
-import React from "react";
- import Meta from "@/modules/seo/Meta";
+import Meta from "@/modules/seo/Meta";
 import { siteTypes } from "../estimation/estimationData";
 import { StepsComponent } from "@/components/steps/Steps";
 import { Faq } from "@/components";
@@ -100,7 +99,7 @@ export default async function About() {
           </RevealFx>
         </Column>
       </Column>
-      <Grid maxWidth={"l"} gap="l" columns={2} tabletColumns="1">
+      <Grid maxWidth={"l"} gap="l" columns={2} m={{ columns: "1" }}>
         <Column flex={2} gap="m" padding="l" fill>
           <Heading as="h2" variant="display-strong-m">Offrez une Nouvelle Vie à Votre Présence en Ligne</Heading>
           <Text onBackground="neutral-medium">
@@ -184,7 +183,7 @@ export default async function About() {
           <Heading as="h2" variant="display-strong-m" align="center">SEO Approfondi : Au-delà des Bases pour une Visibilité Maximale</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">Pour qu&apos;un site se distingue sur les moteurs de recherche et les réseaux sociaux, il faut aller au-delà du contenu visible. L&apos;optimisation des métadonnées, l&apos;intégration des Open Graph et l&apos;utilisation des JSON-LD sont cruciales pour une présence en ligne performante à <strong>Albi</strong>.</Text>
         </Column>
-        <Row tabletDirection="column" radius="s" background="overlay">
+        <Row m={{ direction: "column" }} radius="s" background="overlay">
           <Column gap="xs" padding="m" flex={2}>
             <Row gap="xs" vertical="center">
               <Icon name="code" />
@@ -219,7 +218,7 @@ export default async function About() {
           <Heading as="h2" variant="display-strong-s">Services</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">De la création sur mesure (site vitrine, e-commerce, portfolio…) à la gestion quotidienne (mise à jour, sécurité, sauvegardes), je vous accompagne pour garantir la fiabilité et l’efficacité de votre présence en ligne. J’assure également l’optimisation des performances (vitesse, SEO, responsive design) afin d’offrir à vos visiteurs une expérience fluide et engageante, tout en maximisant votre visibilité sur les moteurs de recherche.</Text>
         </Column>
-        <Grid columns={"3"} tabletColumns={"2"} mobileColumns={"1"} gap="xs">
+        <Grid columns={"3"} m={{ columns: "2" }} s={{ columns: "1" }} gap="xs">
           {siteTypes.map((service, i) => <Card key={i} radius="s-4" direction="column" border="neutral-alpha-medium" fillWidth href={`/estimation/${service.slug}`}>
             <Media src={`/og?type=estimation&slug=${service.slug}`} fillWidth aspectRatio="16/8" topLeftRadius="s" topRightRadius="s" />
             <Column fillWidth paddingX="20" paddingY="12" gap="8" vertical="center">
@@ -237,7 +236,7 @@ export default async function About() {
           <Heading as="h2" variant="display-strong-s" align="center">Pourquoi Choisir Votre Webmaster à <strong>Albi</strong> ?</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">Choisir le bon partenaire digital est essentiel pour le succès de votre entreprise. En tant que webmaster basé à Albi, je ne me contente pas de créer des sites web ; je construis des solutions digitales adaptées aux spécificités de notre belle ville du Tarn. Découvrez pourquoi faire appel à un expert local fait toute la différence pour propulser votre visibilité en ligne et atteindre vos objectifs commerciaux, ici même, à Albi.</Text>
         </Column>
-        <Grid columns={"4"} tabletColumns={2} mobileColumns={1} gap="xs" maxWidth={"l"}>
+        <Grid columns={"4"} m={{ columns: 2 }} s={{ columns: 1 }} gap="xs" maxWidth={"l"}>
           {webmasterAlbi.pourquoi.map((service, i) => <Column key={i} maxWidth={30} paddingX="20" paddingY="12" gap="8" background="overlay" padding="xs" vertical="center" radius="xs">
             <Column gap="l">
               <Heading as="h3" variant="label-strong-xl" onBackground="accent-weak">{service.titre}</Heading>
