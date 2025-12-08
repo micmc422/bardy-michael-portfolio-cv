@@ -29,7 +29,6 @@ export async function incrementReaction(formData: FormData): Promise<{ success: 
             })
             .returning({ count: reactions.count });
         revalidatePath(`/blog/${postSlug}`);
-        // revalidateTag(`reactions-${postSlug}`);
 
         return { success: true, count: res?.[0]?.count ?? 0, message: "Reaction incremented successfully" };
     } catch (error) {

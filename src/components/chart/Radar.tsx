@@ -162,6 +162,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
                             <RechartsTooltip
                                 cursor={{ stroke: tooltipCursor ? "var(--neutral-alpha-weak)" : "transparent" }}
                                 content={(props) => (
+                                    // Type assertion needed due to readonly vs mutable array incompatibility between Recharts and DataTooltip
                                     <DataTooltip {...props as unknown as DataTooltipProps} variant={variant as ChartVariant} />
                                 )}
                             />

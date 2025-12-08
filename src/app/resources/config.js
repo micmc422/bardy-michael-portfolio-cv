@@ -27,7 +27,7 @@ const protectedRoutes = {
 
 import { about, blog, estimation, home, solutionsWeb, webmasterAlbi, work } from "./content";
 
-// Using system fonts as fallback
+// Using system fonts as fallback - font names listed are for browsers that have them installed
 const heading = {
   variable: "--font-heading",
   style: {
