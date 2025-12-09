@@ -48,7 +48,7 @@ export default async function Blog({ params }: { params: Promise<{ tags: string[
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
+      <Button rounded href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
         Publications
       </Button>
       <Heading as="h2" marginTop="l" marginBottom="l" variant="display-strong-s">

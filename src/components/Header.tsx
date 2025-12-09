@@ -59,7 +59,7 @@ export const Header = () => {
         fillWidth
         padding="8"
         horizontal="center"
-        data-border="rounded"
+        rounded
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
           {person.place && <Flex hide="s">{person.place}</Flex>}

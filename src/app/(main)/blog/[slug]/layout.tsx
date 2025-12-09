@@ -107,7 +107,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                     }}
                     reactions={reactions}
                 />
-                <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
+                <Button rounded href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
                     Publications
                 </Button>
                 <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>

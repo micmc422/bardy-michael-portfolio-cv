@@ -141,7 +141,7 @@ export default async function About() {
                 <Flex paddingX="8">Planifier un RDV</Flex>
                 <IconButton
                   href={about.calendar.link}
-                  data-border="rounded"
+                  rounded
                   variant="secondary"
                   icon="chevronRight"
                 />
@@ -158,7 +158,7 @@ export default async function About() {
               {person.role}
             </Text>
             {social.length > 0 && (
-              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth data-border="rounded">
+              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth rounded>
                 {social.map(
                   (item) =>
                     item.link && (
