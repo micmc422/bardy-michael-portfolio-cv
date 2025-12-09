@@ -36,7 +36,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
 
   return (
     <Column
-      left="0"
+      left={0}
       style={{
         top: "50%",
         transform: "translateY(-50%)",
@@ -58,7 +58,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
               vertical="center"
               onClick={() => scrollTo(section.title, 80)}
             >
-              <Flex height="1" minWidth="16" background="neutral-strong"></Flex>
+              <Flex height={1} minWidth={16} background="neutral-strong"></Flex>
               <Text>{section.title}</Text>
             </Flex>
             {about.tableOfContent.subItems && (
@@ -74,7 +74,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                     vertical="center"
                     onClick={() => scrollTo(item, 80)}
                   >
-                    <Flex height="1" minWidth="8" background="neutral-strong"></Flex>
+                    <Flex height={1} minWidth={8} background="neutral-strong"></Flex>
                     <Text>{item}</Text>
                   </Flex>
                 ))}

@@ -74,7 +74,7 @@ export default async function About() {
     <Column maxWidth="m">
       {about.tableOfContent.display && (
         <Column
-          left="0"
+          left={0}
           style={{ top: "50%", transform: "translateY(-50%)" }}
           position="fixed"
           paddingLeft="24"
@@ -91,7 +91,7 @@ export default async function About() {
             hide="s"
             className={styles.avatar}
             position="sticky"
-            minWidth="160"
+            minWidth={160}
             paddingX="l"
             paddingBottom="xl"
             gap="m"
@@ -118,7 +118,7 @@ export default async function About() {
           <Column
             id={about.intro.title}
             fillWidth
-            minHeight="160"
+            minHeight={160}
             vertical="center"
             marginBottom="32"
           >
