@@ -107,7 +107,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                     }}
                     reactions={reactions}
                 />
-                <Button data-border="rounded" href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
+                <Button rounded href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
                     Publications
                 </Button>
                 <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
@@ -140,7 +140,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
 
             </Column>
         </Row>
-        <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" hide="m">
+        <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top={80} gap="16" hide="m">
             <Row
                 gap="12"
                 paddingLeft="2"

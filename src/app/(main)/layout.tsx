@@ -48,7 +48,7 @@ export default async function MainLayout({ children }: { children: React.ReactNo
                 color: effects.lines.color,
             }}
         />
-        <Column center fillWidth minHeight="0" as="main" gap="l" paddingX="s">
+        <Column center fillWidth minHeight={0} as="main" gap="l" paddingX="s">
             <Header />
             {children}
             <RDV content={rendezVous} />

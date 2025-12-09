@@ -48,8 +48,8 @@ export const Header = () => {
 
   return (
     <>
-      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={1} />
+      <Fade hide="s" fillWidth position="fixed" height={80} zIndex={9} />
+      <Fade show="s" fillWidth position="fixed" bottom={0} to="top" height={80} zIndex={1} />
       <Flex
         fitHeight
         position="unset"
@@ -59,7 +59,7 @@ export const Header = () => {
         fillWidth
         padding="8"
         horizontal="center"
-        data-border="rounded"
+        rounded
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
           {person.place && <Flex hide="s">{person.place}</Flex>}
@@ -78,7 +78,7 @@ export const Header = () => {
               {routes["/"] && (
                 <ToggleButton aria-label={`accueil du porfolio de ${person.name}`} prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              <Line background="neutral-alpha-medium" vert maxHeight={24} />
               {routes["/a-propos"] && (
                 <>
                   <ToggleButton
@@ -157,7 +157,7 @@ export const Header = () => {
               )}
               {display.themeSwitcher && (
                 <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                  <Line background="neutral-alpha-medium" vert maxHeight={24} />
                   <ThemeToggle />
                 </>
               )}

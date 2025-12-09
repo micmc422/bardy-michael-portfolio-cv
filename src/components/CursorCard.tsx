@@ -98,8 +98,8 @@ const CursorCard = forwardRef<HTMLDivElement, CursorCardProps>(
                         <Flex
                             zIndex={10}
                             position="fixed"
-                            top="0"
-                            left="0"
+                            top={0}
+                            left={0}
                             pointerEvents="none"
                             ref={cardRef}
                             className={`${styles.fadeIn} ${className || ""}`}

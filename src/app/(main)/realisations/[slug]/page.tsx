@@ -91,7 +91,7 @@ export default async function Project({
         projet={post}
       />
       <Column maxWidth="xs" gap="16">
-        <Button data-border="rounded" href="/realisations" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
+        <Button rounded href="/realisations" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
           Projets
         </Button>
         <Heading as="h1" variant="display-strong-s">{post.metadata.title as string}</Heading>

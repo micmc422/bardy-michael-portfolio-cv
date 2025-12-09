@@ -54,7 +54,7 @@ export default async function Home() {
               <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
               <Text paddingTop="4">Planifier un RDV</Text>
               <IconButton
-                data-border="rounded"
+                rounded
                 variant="ghost"
                 icon="chevronRight"
               />
@@ -130,7 +130,7 @@ export default async function Home() {
             <Icon paddingLeft="12" name="smile" onBackground="brand-strong" />
             <Text paddingTop="2">Découvrez les solutions que je propose</Text>
             <IconButton
-              data-border="rounded"
+              rounded
               variant="ghost"
               icon="chevronRight"
             />
