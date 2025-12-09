@@ -22,10 +22,10 @@
     "@joplin/turndown-plugin-gfm": "^1.0.64",
     "@mdx-js/loader": "^3.1.1",
     "@neondatabase/serverless": "^1.0.2",
-    "@next/mdx": "^16.0.6",
-    "@once-ui-system/core": "^1.5.5",
+    "@next/mdx": "^16.0.8",
+    "@once-ui-system/core": "^1.5.6",
     "@react-pdf/renderer": "^4.3.1",
-    "@vercel/analytics": "^1.5.0",
+    "@vercel/analytics": "^1.6.1",
     "@vercel/edge-config": "^1.4.3",
     "@wisp-cms/client": "^0.0.23",
     "chart.js": "^4.5.1",
@@ -39,8 +39,8 @@
     "nodemailer": "^7.0.11",
     "open-graph-scraper": "^6.11.0",
     "prismjs": "^1.30.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-icons": "^5.5.0",
     "recharts": "^3.5.1",
     "remark-gfm": "^4.0.1",
@@ -52,38 +52,41 @@
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.1.0",
     "@eslint/eslintrc": "^3.3.3",
-    "@next/eslint-plugin-next": "^16.0.6",
+    "@next/eslint-plugin-next": "^16.0.8",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
-    "@types/node": "^24.10.1",
+    "@types/node": "^24.10.2",
     "@types/nodemailer": "^7.0.4",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
     "@types/turndown": "^5.0.6",
     "@types/web-push": "^3.6.4",
     "@types/ws": "^8.18.1",
-    "@typescript-eslint/eslint-plugin": "^8.48.0",
-    "@typescript-eslint/parser": "^8.48.0",
-    "@vitejs/plugin-react": "^5.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.49.0",
+    "@typescript-eslint/parser": "^8.49.0",
+    "@vitejs/plugin-react": "^5.1.2",
     "depcheck": "^1.4.7",
     "eslint": "^9.39.1",
-    "eslint-config-next": "^16.0.6",
+    "eslint-config-next": "^16.0.8",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^16.5.0",
-    "jsdom": "^27.2.0",
+    "jsdom": "^27.3.0",
     "postcss-custom-media": "^11.0.6",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^10.4.0",
+    "postcss-preset-env": "^10.5.0",
     "ts-prune": "^0.10.3",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.14"
+    "vitest": "^4.0.15"
   },
   "pnpm": {
     "overrides": {
       "@types/react": "19.2.7",
       "@types/react-dom": "19.2.3"
-    }
+    },
+    "ignoredBuiltDependencies": [
+      "unrs-resolver"
+    ]
   }
 }
