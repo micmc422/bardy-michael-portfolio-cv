@@ -14,7 +14,6 @@ import {
 
 import { ChartHeader, ChartStatus, Column, DataTooltip, Legend, LinearGradient, Row, useDataTheme, type ChartProps, type ChartVariant } from "@once-ui-system/core";
 import { getDistributedColor } from "./utils/colorDistribution";
-import type { DataTooltipProps } from "@once-ui-system/core/dist/modules/data";
 
 interface RadarChartProps extends ChartProps {
     outerRadius?: number | string;
@@ -153,7 +152,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
                             <RechartsTooltip
                                 cursor={{ stroke: tooltipCursor ? "var(--neutral-alpha-weak)" : "transparent" }}
                                 content={(props) => (
-                                    <DataTooltip {...props as unknown as DataTooltipProps} variant={variant as ChartVariant} />
+                                    <DataTooltip {...props as unknown as any} variant={variant as ChartVariant} />
                                 )}
                             />
                             <defs>

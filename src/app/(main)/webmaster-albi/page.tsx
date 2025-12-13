@@ -37,6 +37,7 @@ export async function generateMetadata() {
     path: webmasterAlbi.path,
   });
 }
+export const dynamic = "force-dynamic";
 export default async function About() {
   return (
     <>

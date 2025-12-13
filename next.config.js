@@ -34,6 +34,14 @@ const nextConfig = {
         hostname: "www.google.com",
       }
     ],
+    localPatterns: [
+      {
+        pathname: "/og",
+      },
+      {
+        pathname: "/images",
+      },
+    ],
   },
   async redirects() {
     return [
