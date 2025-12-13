@@ -196,7 +196,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                 {/* Détails techniques */}
                 <Accordion title="Détails">
                     <Column gap="m" fillWidth>
-                        <Grid columns="2" s={{ display: "flex", flexDirection: "column" }} gap="m" fillWidth>
+                        <Grid columns="2" s={{ columns: "1" }} gap="m" fillWidth>
                             <Column gap="s">
                                 <Column vertical="center" >
                                     <Text variant="label-strong-s" onBackground="brand-weak">Langage principal:</Text>

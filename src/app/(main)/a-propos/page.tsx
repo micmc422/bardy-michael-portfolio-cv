@@ -79,7 +79,7 @@ export default async function About() {
           position="fixed"
           paddingLeft="24"
           gap="32"
-          s={{ display: "none" }}
+          s={{ hide: true }}
         >
           <TableOfContents structure={structure} about={about} />
         </Column>
@@ -88,7 +88,7 @@ export default async function About() {
         {about.avatar.display && (
           <Column
             key={"screen-avatar"}
-            s={{ display: "none" }}
+            s={{ hide: true }}
             className={styles.avatar}
             position="sticky"
             minWidth={160}
