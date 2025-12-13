@@ -27,7 +27,6 @@ export default function NotFound() {
         <Flex paddingX="8">Retourner à l&apos;accueil</Flex>
         <IconButton
           href={"/"}
-          rounded
           variant="secondary"
           icon="chevronRight"
         />

@@ -106,7 +106,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                     <Heading as="h2" variant="display-strong-m">Tarifs 💰</Heading>
                     <Text variant="body-default-l" align="center" onBackground="neutral-weak">Des offres simples et adaptées à vos besoins : que vous lanciez un projet, optimisiez un site existant ou souhaitiez un accompagnement régulier.</Text>
                 </Column>
-                <Row center gap="s" mobileDirection="column">
+                <Row center gap="s" s={{direction: "column"}}>
                     {tarifs.map((tarif, i) => <Volet key={i} volet={tarif} />)}
                 </Row>
             </Column>

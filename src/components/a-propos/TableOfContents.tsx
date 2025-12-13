@@ -3,6 +3,7 @@
 import React from "react";
 import { Column, Flex, Text } from "@once-ui-system/core";
 import styles from "./a-propos.module.scss";
+import { display } from "@/app/resources";
 
 interface TableOfContentsProps {
   structure: {
@@ -36,7 +37,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
 
   return (
     <Column
-      left={0}
+      left="0"
       style={{
         top: "50%",
         transform: "translateY(-50%)",
@@ -45,7 +46,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
       position="fixed"
       paddingLeft="24"
       gap="32"
-      hide="m"
+      m={{ display: "none" }}
     >
       {structure
         .filter((section) => section.display)
@@ -65,7 +66,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
               <>
                 {section.items.map((item, itemIndex) => (
                   <Flex
-                    hide="l"
+                    l={{ display: "none" }}
                     key={itemIndex}
                     style={{ cursor: "pointer" }}
                     className={styles.hover}

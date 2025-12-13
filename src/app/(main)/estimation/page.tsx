@@ -30,7 +30,7 @@ export default function EstimationPage() {
         image: `${baseURL}${person.avatar}`,
       }}
     />
-    <Grid columns={2} mobileColumns={1} gap="m" >
+    <Grid columns={2} s={{ display: "flex", flexDirection: "column" }} gap="m" >
       {siteTypes.map(({ name, basePrice, icon, description, includes, slug }, _i) => <Card href={`/estimation/${slug}`} direction="column" key={name} border="neutral-alpha-weak" radius="m" fillWidth background="transparent" position="relative" overflow="hidden">
         <Schema as={"service"} title={name} description={description} path={`estimation/${slug}`} offerSlug={slug} />
         <Background

@@ -74,21 +74,21 @@ export default async function About() {
     <Column maxWidth="m">
       {about.tableOfContent.display && (
         <Column
-          left={0}
+          left="0"
           style={{ top: "50%", transform: "translateY(-50%)" }}
           position="fixed"
           paddingLeft="24"
           gap="32"
-          hide="s"
+          s={{ display: "none" }}
         >
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Flex fillWidth mobileDirection="column" horizontal="center">
+      <Flex fillWidth s={{direction: "column"}} horizontal="center">
         {about.avatar.display && (
           <Column
             key={"screen-avatar"}
-            hide="s"
+            s={{ display: "none" }}
             className={styles.avatar}
             position="sticky"
             minWidth={160}
@@ -141,7 +141,7 @@ export default async function About() {
                 <Flex paddingX="8">Planifier un RDV</Flex>
                 <IconButton
                   href={about.calendar.link}
-                  rounded
+                 // rounded
                   variant="secondary"
                   icon="chevronRight"
                 />
@@ -158,7 +158,9 @@ export default async function About() {
               {person.role}
             </Text>
             {social.length > 0 && (
-              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth rounded>
+              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth
+              // rounded
+              >
                 {social.map(
                   (item) =>
                     item.link && (
@@ -201,7 +203,7 @@ export default async function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                    <Flex fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
@@ -212,7 +214,7 @@ export default async function About() {
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="4">
                       {experience.role}
                     </Text>
-                    {experience?.description && <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="16">
+                    {experience?.description && <Flex fillWidth horizontal="between" vertical="end" marginBottom="16">
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.description}
                       </Text>

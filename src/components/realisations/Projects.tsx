@@ -71,7 +71,7 @@ export function SkeletonProject() {
   return <Column fillWidth gap="m">
     <Skeleton shape="block" fillWidth minHeight={"xl"} style={{ borderRadius: "16px" }} />
     <Flex
-      mobileDirection="column"
+      s={{direction: "column"}}
       fillWidth
       paddingX="s"
       paddingTop="12"

@@ -67,7 +67,7 @@ export function SkeletonPost({ direction = "column", ...attrs }: { direction?: "
         transition="micro-medium"
         direction={direction}
         radius="l"
-        mobileDirection="column"
+        s={{direction: "column"}}
         fillWidth
         gap='m'
         center
