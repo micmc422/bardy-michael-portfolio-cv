@@ -7,7 +7,7 @@ self?.addEventListener('push', function (event) {
             data = event.data.json(); // Essayer de parser comme JSON
         } catch (e) {
             // Si ce n'est pas du JSON, essayez de le lire comme du texte brut
-            console.warn('Push data is not JSON, treating as plain text.');
+            console.warn('Push data is not JSON, treating as plain text.', e);
             data = {
                 title: 'Notification', // Titre par défaut
                 body: event.data.text(), // Le contenu est le texte brut

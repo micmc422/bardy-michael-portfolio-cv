@@ -44,7 +44,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
         mode,
         height = 32,
         tick: { fill: tickFill, fontSize: tickFontSize },
-        axis: { stroke: _axisLineStroke },
+        // axis: { stroke: _axisLineStroke },
     } = useDataTheme();
     const variant = variantProp || themeVariant;
     const legend = {
