@@ -98,16 +98,16 @@ const CursorCard = forwardRef<HTMLDivElement, CursorCardProps>(
                         <Flex
                             zIndex={10}
                             position="fixed"
-                            top={0}
-                            left={0}
-                            pointerEvents="none"
-                            ref={cardRef}
-                            className={`${styles.fadeIn} ${className || ""}`}
                             style={{
+                                top: 0,
+                                left: 0,
                                 isolation: "isolate",
                                 transform: `translate(calc(${mousePosition.x}px ${placement.includes("left") ? "- 100%" : placement.includes("right") ? "" : "- 50%"}), calc(${mousePosition.y}px ${placement.includes("top") ? "- 100%" : placement.includes("bottom") ? "" : "- 50%"}))`,
                                 ...style,
                             }}
+                            pointerEvents="none"
+                            ref={cardRef}
+                            className={`${styles.fadeIn} ${className || ""}`}
                             {...flex}
                         >
                             {overlay}

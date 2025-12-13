@@ -63,7 +63,7 @@ export default function EstimationPage() {
           }}
         />
         <Column padding="s" gap="s">
-          <Row vertical="center" horizontal="space-between" fillWidth >
+          <Row vertical="center" horizontal="between" fillWidth >
             <Row center gap="xs">
               <Icon name={icon as string} /><Text variant="label-strong-l">{name}</Text>
             </Row>

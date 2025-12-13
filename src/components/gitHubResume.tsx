@@ -128,7 +128,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
 
             {/* Affichage des données du dépôt */}
             {repoData && (<>
-                <Row gap="xs" fillWidth horizontal="space-between" s={{direction: "column"}}>
+                <Row gap="xs" fillWidth horizontal="between" s={{direction: "column"}}>
                     <Row gap="xs" center>
                         <Avatar size={"l"} src={repoData.owner.avatar_url || "/placeholder.svg"} />
                         <Column>
@@ -154,7 +154,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                     </Row>
                 </Row>
                 <Card radius="m" padding="m" background="surface" fillWidth>
-                    <Grid columns="4" mobileColumns={2} gap="m" fillWidth>
+                    <Grid columns="4" s={{ columns: "2" }} gap="m" fillWidth>
                         <Column center>
                             <Row gap="xs" center>
                                 <Icon name="star" style={{ color: "#FECC55" }} size="xl" />
