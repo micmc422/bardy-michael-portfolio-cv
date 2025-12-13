@@ -51,7 +51,7 @@ export const Footer = () => {
           )}
         </Flex>
       </Flex>
-      <Flex height="80" s={{ hide: false }} l={{ hide: true }} m={{ hide: true }}></Flex>
+      <Flex height="80" l={{ hide: true }} m={{ hide: true }}></Flex>
     </Flex>
   );
 };
