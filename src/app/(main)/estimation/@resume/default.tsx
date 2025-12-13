@@ -119,7 +119,7 @@ export default function ResumePanel() {
                     <Icon name={activeSiteType.icon} />
                     <Text variant="label-strong-l">{activeSiteType.name}</Text>
                 </Row>
-                <Row horizontal="space-between">
+                <Row horizontal="between">
                     <Text onBackground="neutral-medium">Prix de base : </Text>
                     <Text onBackground="accent-weak" variant="body-strong-m">{activeSiteType.basePrice}€</Text>
                 </Row>
@@ -129,7 +129,7 @@ export default function ResumePanel() {
 
         {activeOptions &&
             <Column gap="2">
-                {activeOptions?.map(({ name, price, slug, periodicite }) => <Row horizontal="space-between" key={slug} fillWidth>
+                {activeOptions?.map(({ name, price, slug, periodicite }) => <Row horizontal="between" key={slug} fillWidth>
                     <Text variant="body-default-xs" onBackground="neutral-weak">
                         <LetterFx
                             speed="fast"
@@ -150,7 +150,7 @@ export default function ResumePanel() {
         <Column>
             {
                 activeSiteType && <Column>
-                    <Row horizontal="space-between" vertical="center">
+                    <Row horizontal="between" vertical="center">
                         <Text variant="label-default-s">Total HT par an : </Text>
                         <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
                             key={annualy + monthly * 12}
@@ -164,7 +164,7 @@ export default function ResumePanel() {
             }
             {
                 activeSiteType ? <Column>
-                    <Row horizontal="space-between" vertical="center">
+                    <Row horizontal="between" vertical="center">
                         <Text variant="label-default-s">Total HT estimé : </Text>
                         <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
                             key={totalPrice}
@@ -174,7 +174,7 @@ export default function ResumePanel() {
                         </LetterFx>
                         </Text>
                     </Row>
-                    <Row horizontal="space-between" vertical="center" paddingTop="s">
+                    <Row horizontal="between" vertical="center" paddingTop="s">
                         <Text variant="label-default-s">TVA 20% : </Text>
                         <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
                             key={(totalPrice + annualy + monthly * 12) * 0.2}
@@ -184,7 +184,7 @@ export default function ResumePanel() {
                         </LetterFx>
                         </Text>
                     </Row>
-                    <Row horizontal="space-between" vertical="center">
+                    <Row horizontal="between" vertical="center">
                         <Row center><Text variant="label-strong-l">Total TTC :</Text>
                             <IconButton variant="ghost" icon="infoCircle" tooltip="Pris initial inclue les frais annuel de la première année" tooltipPosition="bottom" size="s" />
                         </Row>
@@ -196,7 +196,7 @@ export default function ResumePanel() {
                         </LetterFx>
                         </Text>
                     </Row>
-                    <Row horizontal="space-between" vertical="center">
+                    <Row horizontal="between" vertical="center">
                         <Row center><Text variant="label-default-xs">Frais annuel :</Text>
                             <IconButton variant="ghost" icon="infoCircle" tooltip="Abonnement annuel au delà de la première année" tooltipPosition="bottom" size="s" />
                         </Row>

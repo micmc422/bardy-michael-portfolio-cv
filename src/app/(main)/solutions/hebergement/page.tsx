@@ -58,7 +58,6 @@ export default async function HebergementPage() {
                         <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
                         <Text paddingTop="4">Planifier un RDV</Text>
                         <IconButton
-                            rounded
                             variant="ghost"
                             icon="chevronRight"
                         />

@@ -1,5 +1,4 @@
 import mdx from "@next/mdx";
-import remarkGfm from 'remark-gfm'
 
 const withMDX = mdx({
   extension: /\.mdx?$/,
@@ -34,6 +33,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "www.google.com",
       }
+    ],
+    localPatterns: [
+      {
+        pathname: "/og",
+      },
+      {
+        pathname: "/images",
+      },
     ],
   },
   async redirects() {

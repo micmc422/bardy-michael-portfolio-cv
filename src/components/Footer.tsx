@@ -19,7 +19,7 @@ export const Footer = () => {
         paddingY="8"
         paddingX="16"
         gap="16"
-        horizontal="space-between"
+        horizontal="between"
         vertical="center"
       >
         <Text variant="body-default-s" onBackground="neutral-strong">
@@ -51,7 +51,7 @@ export const Footer = () => {
           )}
         </Flex>
       </Flex>
-      <Flex height={80} show="s"></Flex>
+      <Flex height="80" l={{ hide: true }} m={{ hide: true }}></Flex>
     </Flex>
   );
 };

@@ -79,7 +79,7 @@ export default async function About() {
           position="fixed"
           paddingLeft="24"
           gap="32"
-          s={{ display: "none" }}
+          s={{ hide: true }}
         >
           <TableOfContents structure={structure} about={about} />
         </Column>
@@ -88,7 +88,7 @@ export default async function About() {
         {about.avatar.display && (
           <Column
             key={"screen-avatar"}
-            s={{ display: "none" }}
+            s={{ hide: true }}
             className={styles.avatar}
             position="sticky"
             minWidth={160}
@@ -98,7 +98,7 @@ export default async function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+            <Avatar src={`${person.avatar}`} size="xl" />
             <Flex gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.place}
