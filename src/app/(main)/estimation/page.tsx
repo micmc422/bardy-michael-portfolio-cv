@@ -66,7 +66,7 @@ export default function EstimationPage() {
         <Column padding="s" gap="s">
           <Row vertical="center" horizontal="between" fillWidth >
             <Row center gap="xs">
-              <Icon name={icon as string} /><Text as="h2" variant="label-strong-l">{name}</Text>
+              <Icon name={icon as string} /><Text as="h3" variant="label-strong-l">{name}</Text>
             </Row>
             <Text variant="body-default-xs" onBackground="neutral-weak">À partir de {basePrice}€</Text>
           </Row>

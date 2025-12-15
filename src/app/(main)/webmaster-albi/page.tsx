@@ -212,9 +212,9 @@ export default async function About() {
           </Column>
         </Row>
       </Column>
-      <Column as="section" maxWidth={"l"} gap="m" paddingTop="xl" center aria-labelledby="pourquoi-section-title">
+      <Column as="section" maxWidth={"l"} gap="m" paddingTop="xl" center aria-labelledby="services-section-title">
         <Column gap="s" maxWidth={"xs"} center>
-          <Heading as="h2" variant="display-strong-s">Services</Heading>
+          <Heading as="h2" id="services-section-title" variant="display-strong-s">Services</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">De la création sur mesure (site vitrine, e-commerce, portfolio…) à la gestion quotidienne (mise à jour, sécurité, sauvegardes), je vous accompagne pour garantir la fiabilité et l’efficacité de votre présence en ligne. J’assure également l’optimisation des performances (vitesse, SEO, responsive design) afin d’offrir à vos visiteurs une expérience fluide et engageante, tout en maximisant votre visibilité sur les moteurs de recherche.</Text>
         </Column>
         <Grid columns={"3"} m={{ columns: "2" }} s={{ columns: "1" }} gap="xs">
@@ -232,11 +232,11 @@ export default async function About() {
       </Column>
       <Column as="section" maxWidth={"l"} gap="m" paddingTop="xl" center aria-labelledby="pourquoi-section-title">
         <Column gap="s" maxWidth={"xs"} center>
-          <Heading as="h2" variant="display-strong-s" align="center">Pourquoi Choisir Votre Webmaster à <strong>Albi</strong> ?</Heading>
+          <Heading as="h2" id="pourquoi-section-title" variant="display-strong-s" align="center">Pourquoi Choisir Votre Webmaster à <strong>Albi</strong> ?</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">Choisir le bon partenaire digital est essentiel pour le succès de votre entreprise. En tant que webmaster basé à Albi, je ne me contente pas de créer des sites web ; je construis des solutions digitales adaptées aux spécificités de notre belle ville du Tarn. Découvrez pourquoi faire appel à un expert local fait toute la différence pour propulser votre visibilité en ligne et atteindre vos objectifs commerciaux, ici même, à Albi.</Text>
         </Column>
         <Grid columns={"4"} s={{ columns: "1" }} m={{ columns: "2" }} gap="xs" maxWidth={"l"}>
-          {webmasterAlbi.pourquoi.map((service, i) => <Column key={i} maxWidth={30} paddingX="20" paddingY="12" gap="8" background="overlay" padding="xs" vertical="center" radius="xs">
+          {webmasterAlbi.pourquoi.map((service, i) => <Column as="article" key={i} maxWidth={30} paddingX="20" paddingY="12" gap="8" background="overlay" padding="xs" vertical="center" radius="xs">
             <Column gap="l">
               <Heading as="h3" variant="label-strong-xl" onBackground="accent-weak">{service.titre}</Heading>
             </Column>
@@ -247,9 +247,9 @@ export default async function About() {
           </Column>)}
         </Grid>
       </Column>
-      <Column as="section" maxWidth={"l"} gap="m" paddingTop="xl" center aria-labelledby="pourquoi-section-title">
+      <Column as="section" maxWidth={"l"} gap="m" paddingTop="xl" center aria-labelledby="process-section-title">
         <Column gap="s" maxWidth={"xs"} center>
-          <Heading as="h2" variant="display-strong-s" align="center">{webmasterAlbi.process.title}</Heading>
+          <Heading as="h2" id="process-section-title" variant="display-strong-s" align="center">{webmasterAlbi.process.title}</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak" align="center">Pour vous garantir une collaboration fluide et des résultats à la hauteur de vos attentes, voici les étapes clés de notre processus de travail. De la première prise de contact à la livraison de votre projet web et au-delà, chaque phase est pensée pour l’efficacité et la transparence.</Text>
         </Column>
         <StepsComponent maxWidth={"xs"} data-props={JSON.stringify({ steps: webmasterAlbi.process.steps })} />
