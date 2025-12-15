@@ -1,9 +1,7 @@
 "use client";
 
-import React from "react";
 import { Column, Flex, Text } from "@once-ui-system/core";
 import styles from "./a-propos.module.scss";
-import { display } from "@/app/resources";
 
 interface TableOfContentsProps {
   structure: {
@@ -46,7 +44,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
       position="fixed"
       paddingLeft="24"
       gap="32"
-      m={{ display: "none" }}
+      m={{ hide: true }}
     >
       {structure
         .filter((section) => section.display)
@@ -59,14 +57,14 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
               vertical="center"
               onClick={() => scrollTo(section.title, 80)}
             >
-              <Flex height={1} minWidth={16} background="neutral-strong"></Flex>
+              <Flex height="1" minWidth="16" background="neutral-strong"></Flex>
               <Text>{section.title}</Text>
             </Flex>
             {about.tableOfContent.subItems && (
               <>
                 {section.items.map((item, itemIndex) => (
                   <Flex
-                    l={{ display: "none" }}
+                    l={{ hide: true }}
                     key={itemIndex}
                     style={{ cursor: "pointer" }}
                     className={styles.hover}
@@ -75,7 +73,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                     vertical="center"
                     onClick={() => scrollTo(item, 80)}
                   >
-                    <Flex height={1} minWidth={8} background="neutral-strong"></Flex>
+                    <Flex height="1" minWidth="8" background="neutral-strong"></Flex>
                     <Text>{item}</Text>
                   </Flex>
                 ))}

@@ -14,7 +14,6 @@ import {
 
 import { ChartHeader, ChartStatus, Column, DataTooltip, Legend, LinearGradient, Row, useDataTheme, type ChartProps, type ChartVariant } from "@once-ui-system/core";
 import { getDistributedColor } from "./utils/colorDistribution";
-import type { DataTooltipProps } from "@once-ui-system/core/dist/modules/data";
 
 interface RadarChartProps extends ChartProps {
     outerRadius?: number | string;
@@ -44,7 +43,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
         mode,
         height = 32,
         tick: { fill: tickFill, fontSize: tickFontSize },
-        axis: { stroke: _axisLineStroke },
+        // axis: { stroke: _axisLineStroke },
     } = useDataTheme();
     const variant = variantProp || themeVariant;
     const legend = {
@@ -86,11 +85,11 @@ const RadarChart: React.FC<RadarChartProps> = ({
             <Row fill>
                 <ChartStatus
                     loading={loading}
-                    isEmpty={!data || data.length === 0}
+                    empty={!data || data.length === 0}
                     emptyState={emptyState}
                 />
                 {!loading && data && data.length > 0 && (
-                    <RechartsResponsiveContainer width="100%" height="100%" id={chartId}>
+                    <RechartsResponsiveContainer id={chartId}>
                         <RechartsRadarChart outerRadius={outerRadius} data={data}>
                             <RechartsPolarGrid stroke="var(--neutral-alpha-weak)" />
                             <RechartsPolarAngleAxis dataKey="subject" tick={{ fill: tickFill, fontSize: tickFontSize }} />
@@ -153,7 +152,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
                             <RechartsTooltip
                                 cursor={{ stroke: tooltipCursor ? "var(--neutral-alpha-weak)" : "transparent" }}
                                 content={(props) => (
-                                    <DataTooltip {...props as DataTooltipProps} variant={variant as ChartVariant} />
+                                    <DataTooltip {...props as unknown as any} variant={variant as ChartVariant} />
                                 )}
                             />
                             <defs>

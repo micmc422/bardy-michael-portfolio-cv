@@ -14,7 +14,7 @@
     "verbatimModuleSyntax": true,
     /* Transpilation */
     "jsx": "react-jsx",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "module": "esnext",
     "outDir": "./dist",
     "rootDir": "./",
@@ -35,7 +35,8 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noImplicitAny": true,
     "plugins": [
       {

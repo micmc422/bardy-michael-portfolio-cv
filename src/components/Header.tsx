@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
+import { Flex, Line, ToggleButton } from "@once-ui-system/core";
 import styles from "@/components/Header.module.scss";
 
 import { routes, display } from "@/app/resources";
@@ -12,7 +12,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
   timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+  locale?: string;
 };
 
 const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
@@ -48,7 +48,6 @@ export const Header = () => {
 
   return (
     <>
-      <Fade s={{ display: "none" }} fillWidth position="fixed" height={80} zIndex={9} />
       <Flex
         fitHeight
         position="unset"
@@ -60,7 +59,7 @@ export const Header = () => {
         horizontal="center"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {person.place && <Flex s={{ display: "none" }}>{person.place}</Flex>}
+          {person.place && <Flex className={styles.desktopOnly}>{person.place}</Flex>}
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex
@@ -74,83 +73,96 @@ export const Header = () => {
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
               {routes["/"] && (
-                <ToggleButton aria-label={`accueil du porfolio de ${person.name}`} prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton
+                  aria-label={`accueil du porfolio de ${person.name}`}
+                  prefixIcon="home"
+                  href="/"
+                  selected={pathname === "/"}
+                />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight={24} />
               {routes["/a-propos"] && (
                 <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="person"
-                    href="/a-propos"
-                    label={about.label}
-                    aria-label={about.label}
-                    selected={pathname === "/a-propos"}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="person"
-                    href="/a-propos"
-                    aria-label={about.label}
-                    selected={pathname === "/a-propos"}
-                  />
+                  <Flex s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      href="/a-propos"
+                      label={about.label}
+                      aria-label={about.label}
+                      selected={pathname === "/a-propos"}
+                    />
+                  </Flex>
+                  <Flex hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      href="/a-propos"
+                      aria-label={about.label}
+                      selected={pathname === "/a-propos"}
+                    />
+                  </Flex>
                 </>
               )}
               {routes["/realisations"] && (
                 <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="grid"
-                    href="/realisations"
-                    label={work.label}
-                    aria-label={work.label}
-                    selected={pathname.startsWith("/realisations")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="grid"
-                    href="/realisations"
-                    aria-label={work.label}
-                    selected={pathname.startsWith("/realisations")}
-                  />
+                  <Flex s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="grid"
+                      href="/realisations"
+                      label={work.label}
+                      aria-label={work.label}
+                      selected={pathname.startsWith("/realisations")}
+                    />
+                  </Flex>
+                  <Flex hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="grid"
+                      href="/realisations"
+                      aria-label={work.label}
+                      selected={pathname.startsWith("/realisations")}
+                    />
+                  </Flex>
                 </>
               )}
               {routes["/estimation"] && (
                 <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="euro"
-                    href="/estimation"
-                    label={estimation.label}
-                    aria-label={estimation.label}
-                    selected={pathname.startsWith("/estimation")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="euro"
-                    href="/estimation"
-                    aria-label={estimation.label}
-                    selected={pathname.startsWith("/estimation")}
-                  />
+                  <Flex s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="euro"
+                      href="/estimation"
+                      label={estimation.label}
+                      aria-label={estimation.label}
+                      selected={pathname.startsWith("/estimation")}
+                    />
+                  </Flex>
+                  <Flex hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="euro"
+                      href="/estimation"
+                      aria-label={estimation.label}
+                      selected={pathname.startsWith("/estimation")}
+                    />
+                  </Flex>
                 </>
               )}
               {routes["/blog"] && (
                 <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="book"
-                    href="/blog"
-                    label={blog.label}
-                    aria-label={blog.label}
-                    selected={pathname.startsWith("/blog")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="book"
-                    href="/blog"
-                    aria-label={blog.label}
-                    selected={pathname.startsWith("/blog")}
-                  />
+                  <Flex s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="book"
+                      href="/blog"
+                      label={blog.label}
+                      aria-label={blog.label}
+                      selected={pathname.startsWith("/blog")}
+                    />
+                  </Flex>
+                  <Flex hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="book"
+                      href="/blog"
+                      aria-label={blog.label}
+                      selected={pathname.startsWith("/blog")}
+                    />
+                  </Flex>
                 </>
               )}
               {display.themeSwitcher && (
@@ -170,7 +182,7 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            <Flex s={{ display: "none" }}>{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
+            <Flex className={styles.desktopOnly}>{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
           </Flex>
         </Flex>
       </Flex>

@@ -46,21 +46,25 @@ const social = [
     name: "GitHub",
     icon: "github",
     link: "https://github.com/micmc422",
+    essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/in/micha%C3%ABl-bardy-62249168/",
+    essential: true,
   },
   {
     name: "Facebook",
     icon: "facebook",
     link: "https://www.facebook.com/occitaweb/",
+    essential: true,
   },
   {
     name: "Email",
     icon: "email",
     link: `mailto:${person.email}`,
+    essential: true,
   },
 ];
 
@@ -285,24 +289,42 @@ const about = {
       {
         title: "Figma",
         description: <>Création de système d&apos;interface et de design web.</>,
+        tags: [
+          {
+            name: "Figma",
+            icon: "figma",
+          },
+        ],
         images: [],
       },
       {
         title: "node.js",
         description: <>Création d’API et d’applications serveur avec Node.js : gestion asynchrone, Express, accès aux fichiers et intégration de bases de données.</>,
+
+        tags: [
+          { name: "node.js", icon: "nodejs" }
+        ]
       },
       {
         title: "Typescript",
-        description: <>Développement d’applications robustes avec TypeScript : typage statique, détection d’erreurs à la compilation et amélioration de la maintenabilité du code.</>
+        description: <>Développement d’applications robustes avec TypeScript : typage statique, détection d’erreurs à la compilation et amélioration de la maintenabilité du code.</>,
+        tags: [
+          { name: "typescript", icon: "typescript" }
+        ]
       },
       {
         title: "Prisma",
-        description: <>Gestion de base de données avec Prisma : modélisation du schéma, requêtes type-safe, migrations et intégration fluide avec Node.js et TypeScript.</>
+        description: <>Gestion de base de données avec Prisma : modélisation du schéma, requêtes type-safe, migrations et intégration fluide avec Node.js et TypeScript.</>,
+        tags: [
+          { name: "prisma", icon: "prisma" }
+        ]
       },
       {
         title: "Next.js",
         description: <>Conception de sites web complets : vitrine, e-commerce, front-end et back-end sur mesure.</>,
-        // optional: leave the array empty if you don't want to display images
+        tags: [
+          { name: "next.js", icon: "nextjs" }
+        ],
         images: [
           {
             src: "/images/gallery/pagespeed-h2team.png",
