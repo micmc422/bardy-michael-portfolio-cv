@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
+import { Flex, Line, ToggleButton } from "@once-ui-system/core";
 import styles from "@/components/Header.module.scss";
 
 import { routes, display } from "@/app/resources";
@@ -48,7 +48,6 @@ export const Header = () => {
 
   return (
     <>
-      <Fade fillWidth position="fixed" height={80} zIndex={9} className={styles.desktopOnly} />
       <Flex
         fitHeight
         position="unset"

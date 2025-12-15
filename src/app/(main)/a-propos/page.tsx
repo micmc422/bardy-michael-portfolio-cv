@@ -84,68 +84,71 @@ export default async function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Flex fillWidth s={{direction: "column"}} horizontal="center">
+      <Row fillWidth s={{ direction: "column" }} horizontal="center" className="pointer-events-none">
         {about.avatar.display && (
           <Column
-            key={"screen-avatar"}
-            s={{ hide: true }}
             className={styles.avatar}
+            top="64"
+            fitHeight
             position="sticky"
-            minWidth={160}
+            s={{ position: "relative", style: { top: "auto" } }}
+            xs={{ style: { top: "auto" } }}
+            minWidth="160"
             paddingX="l"
             paddingBottom="xl"
             gap="m"
             flex={3}
             horizontal="center"
+            zIndex={-1}
           >
-            <Avatar src={`${person.avatar}`} size="xl" />
-            <Flex gap="8" vertical="center">
+            <Avatar src={person.avatar} size="xl" />
+            <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              {person.place}
-            </Flex>
-            {person.languages.length > 0 && (
-              <Flex wrap gap="8">
-                {person.languages.map((language, _index) => (
-                  <Tag key={language} size="l">
+              {person.location}
+            </Row>
+            {person.languages && person.languages.length > 0 && (
+              <Row wrap gap="8">
+                {person.languages.map((language, index) => (
+                  <Tag key={index} size="l">
                     {language}
                   </Tag>
                 ))}
-              </Flex>
+              </Row>
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={styles.blockAlign} flex={9} maxWidth={40} zIndex={10}>
           <Column
             id={about.intro.title}
             fillWidth
-            minHeight={160}
+            minHeight="160"
             vertical="center"
             marginBottom="32"
           >
             {about.calendar.display && (
-              <Flex
+              <Row
                 fitWidth
                 border="brand-alpha-medium"
-                className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
                 background="brand-alpha-weak"
                 radius="full"
                 padding="4"
                 gap="8"
                 marginBottom="m"
                 vertical="center"
+                className={styles.blockAlign}
+                style={{
+                  backdropFilter: "blur(var(--static-space-1))",
+                }}
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Planifier un RDV</Flex>
+                <Row paddingX="8">Schedule a call</Row>
                 <IconButton
                   href={about.calendar.link}
-                 // rounded
+                  data-border="rounded"
                   variant="secondary"
                   icon="chevronRight"
                 />
-              </Flex>
+              </Row>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
@@ -158,34 +161,46 @@ export default async function About() {
               {person.role}
             </Text>
             {social.length > 0 && (
-              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth
-              // rounded
+              <Row
+                className={styles.blockAlign}
+                paddingTop="20"
+                paddingBottom="8"
+                gap="8"
+                wrap
+                horizontal="center"
+                fitWidth
+                data-border="rounded"
               >
-                {social.map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Button
-                          className="s-flex-hide"
-                          key={item.name}
-                          href={item.link}
-                          prefixIcon={item.icon}
-                          label={item.name}
-                          size="s"
-                          variant="secondary"
-                        />
-                        <IconButton
-                          className="s-flex-show"
-                          size="l"
-                          key={`${item.name}-icon`}
-                          href={item.link}
-                          icon={item.icon}
-                          variant="secondary"
-                        />
-                      </React.Fragment>
-                    ),
-                )}
-              </Flex>
+                {social
+                  .filter((item) => item.essential)
+                  .map(
+                    (item) =>
+                      item.link && (
+                        <React.Fragment key={item.name}>
+                          <Row s={{ hide: true }}>
+                            <Button
+                              key={item.name}
+                              href={item.link}
+                              prefixIcon={item.icon}
+                              label={item.name}
+                              size="s"
+                              weight="default"
+                              variant="secondary"
+                            />
+                          </Row>
+                          <Row hide s={{ hide: false }}>
+                            <IconButton
+                              size="l"
+                              key={`${item.name}-icon`}
+                              href={item.link}
+                              icon={item.icon}
+                              variant="secondary"
+                            />
+                          </Row>
+                        </React.Fragment>
+                      ),
+                  )}
+              </Row>
             )}
           </Column>
 
@@ -203,59 +218,50 @@ export default async function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Flex fillWidth horizontal="between" vertical="end" marginBottom="4">
+                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
-                    </Flex>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="4">
+                    </Row>
+                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
                       {experience.role}
                     </Text>
-                    {experience?.description && <Flex fillWidth horizontal="between" vertical="end" marginBottom="16">
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.description}
-                      </Text>
-                    </Flex>}
-
-                    <Column as="ul" gap="4">
-                      {experience.achievements.map((achievement: JSX.Element, index: number) => (
-                        <Text
-                          as="li"
-                          variant="body-default-m"
-                          key={`${experience.company}-${index}`}
-                        >
-                          {achievement}
-                        </Text>
-                      ))}
+                    <Column as="ul" gap="16">
+                      {experience.achievements.map(
+                        (achievement: React.ReactNode, index: number) => (
+                          <Text
+                            as="li"
+                            variant="body-default-m"
+                            key={`${experience.company}-${index}`}
+                          >
+                            {achievement}
+                          </Text>
+                        ),
+                      )}
                     </Column>
-                    {experience.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
+                    {experience.images && experience.images.length > 0 && (
+                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
                         {experience.images.map((image, index) => (
-                          <Flex
+                          <Row
                             key={index}
                             border="neutral-medium"
                             radius="m"
-                            //@ts-ignore
                             minWidth={image.width}
-                            //@ts-ignore
                             height={image.height}
                           >
                             <Media
                               enlarge
                               radius="m"
-                              //@ts-ignore
                               sizes={image.width.toString()}
-                              //@ts-ignore
                               alt={image.alt}
-                              //@ts-ignore
                               src={image.src}
                             />
-                          </Flex>
+                          </Row>
                         ))}
-                      </Flex>
+                      </Row>
                     )}
                   </Column>
                 ))}
@@ -285,7 +291,8 @@ export default async function About() {
 
           {about.technical.display && (
             <>
-              <Heading as="h2"
+              <Heading
+                as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
                 marginBottom="40"
@@ -295,35 +302,41 @@ export default async function About() {
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
+                    <Text id={skill.title} variant="heading-strong-l">
+                      {skill.title}
+                    </Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">
                       {skill.description}
                     </Text>
+                    {skill.tags && skill.tags.length > 0 && (
+                      <Row wrap gap="8" paddingTop="8">
+                        {skill.tags.map((tag, tagIndex) => (
+                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                            {tag.name}
+                          </Tag>
+                        ))}
+                      </Row>
+                    )}
                     {skill.images && skill.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" gap="12" wrap>
+                      <Row fillWidth paddingTop="m" gap="12" wrap>
                         {skill.images.map((image, index) => (
-                          <Flex
+                          <Row
                             key={index}
                             border="neutral-medium"
                             radius="m"
-                            //@ts-ignore
                             minWidth={image.width}
-                            //@ts-ignore
                             height={image.height}
                           >
                             <Media
                               enlarge
                               radius="m"
-                              //@ts-ignore
                               sizes={image.width.toString()}
-                              //@ts-ignore
                               alt={image.alt}
-                              //@ts-ignore
                               src={image.src}
                             />
-                          </Flex>
+                          </Row>
                         ))}
-                      </Flex>
+                      </Row>
                     )}
                   </Column>
                 ))}
@@ -331,7 +344,8 @@ export default async function About() {
             </>
           )}
         </Column>
-      </Flex>
+      </Row>
     </Column>
+
   );
 }

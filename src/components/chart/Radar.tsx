@@ -89,7 +89,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
                     emptyState={emptyState}
                 />
                 {!loading && data && data.length > 0 && (
-                    <RechartsResponsiveContainer width="100%" height="100%" id={chartId}>
+                    <RechartsResponsiveContainer id={chartId}>
                         <RechartsRadarChart outerRadius={outerRadius} data={data}>
                             <RechartsPolarGrid stroke="var(--neutral-alpha-weak)" />
                             <RechartsPolarAngleAxis dataKey="subject" tick={{ fill: tickFill, fontSize: tickFontSize }} />
