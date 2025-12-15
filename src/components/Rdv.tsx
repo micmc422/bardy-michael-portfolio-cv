@@ -51,12 +51,14 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
 
   return (
     <Column
+      as="section"
       overflow="hidden"
       maxWidth={"s"}
       radius="l"
       background="surface"
       border="neutral-alpha-weak"
       id="RDV"
+      aria-labelledby="rdv-title"
     >
       <Background
         fill
@@ -106,7 +108,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
         horizontal="center"
         align="center"
       >
-        <Heading as="h2" style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
+        <Heading as="h2" id="rdv-title" style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
           {content.title}
         </Heading>
         <Text

@@ -71,9 +71,10 @@ export default async function About() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column as="article" maxWidth="m">
       {about.tableOfContent.display && (
         <Column
+          as="aside"
           left="0"
           style={{ top: "50%", transform: "translateY(-50%)" }}
           position="fixed"

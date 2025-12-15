@@ -87,7 +87,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
             src: person.avatar,
         })) || [];
 
-    return <Row fillWidth zIndex={0}>
+    return <Row as="article" fillWidth zIndex={0}>
         <Row maxWidth={12} m={{ hide: true }} />
         <Row fillWidth horizontal="center">
             <Column maxWidth="xs" gap="l" paddingX="s">
@@ -110,8 +110,8 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                 <Button rounded href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
                     Publications
                 </Button>
-                <Heading variant="display-strong-s">{post.metadata.title as string}</Heading>
-                <Column gap="xs">
+                <Heading as="h1" variant="display-strong-s">{post.metadata.title as string}</Heading>
+                <Column as="header" gap="xs">
                     <Row gap="xs" vertical="center" wrap>
                         {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
                         <Text variant="body-default-s" onBackground="neutral-weak">
@@ -123,24 +123,25 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                 </Column>
                 {children}
                 <ScrollToHash />
-                <Reactions postSlug={post.slug} reactions={reactions} />
-                <CommentSection slug={post.slug} comments={comments} />
-                {post.metadata.sources && post.metadata.sources.length > 0 && (
-                    <SourcesComponent sources={post.metadata.sources} />
-                )}
-                <Grid gap="8" columns={"2"} paddingTop="16" s={{ columns: "1" }} >
-                    {related?.map((post: any) => <Post
-                        key={post.slug}
-                        post={post}
-                        thumbnail={true}
-                        direction={"column"}
-                        excludeNav
-                    />)}
-                </Grid>
-
+                <Column as="footer" gap="l">
+                    <Reactions postSlug={post.slug} reactions={reactions} />
+                    <CommentSection slug={post.slug} comments={comments} />
+                    {post.metadata.sources && post.metadata.sources.length > 0 && (
+                        <SourcesComponent sources={post.metadata.sources} />
+                    )}
+                    <Grid gap="8" columns={"2"} paddingTop="16" s={{ columns: "1" }} >
+                        {related?.map((post: any) => <Post
+                            key={post.slug}
+                            post={post}
+                            thumbnail={true}
+                            direction={"column"}
+                            excludeNav
+                        />)}
+                    </Grid>
+                </Column>
             </Column>
         </Row>
-        <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" m={{ hide: true }}>
+        <Column as="aside" maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" m={{ hide: true }} aria-label="Navigation dans l'article">
             <Row
                 gap="12"
                 paddingLeft="2"

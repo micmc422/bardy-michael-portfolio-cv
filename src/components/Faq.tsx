@@ -45,7 +45,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                     "text": content
                 }
             }))
-            return (<Column ref={ref} gap="l" {...rest}>
+            return (<Column as="section" ref={ref} gap="l" aria-labelledby={title ? slugify(title) : undefined} {...rest}>
                 {title && <Heading as="h2" variant="display-strong-s" id={slugify(title)}>{title || "FAQ"}</Heading>}
                 <AccordionGroup items={faq} background="surface" />
                 <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
@@ -65,7 +65,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 "item": { "name": title || content },
             }))
 
-            return (<Column ref={ref} gap="l" paddingBottom="xl" {...rest}>
+            return (<Column as="section" ref={ref} gap="l" paddingBottom="xl" aria-labelledby={title ? slugify(title) : undefined} {...rest}>
                 {title && <Heading as="h2" variant="display-strong-xs" id={slugify(title)}>{title}</Heading>}
                 <AccordionGroup items={list} background="surface" />
                 <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{

@@ -1,4 +1,4 @@
-import { Column, Grid, Icon, Text, Row, Card, Background, type opacity } from "@once-ui-system/core";
+import { Column, Grid, Heading, Icon, Text, Row, Card, Background, type opacity } from "@once-ui-system/core";
 import { siteTypes } from "./estimationData";
 import { baseURL, rdv } from "../../resources";
 import { about, estimation, person } from "../../resources/content";
@@ -16,7 +16,8 @@ export async function generateMetadata() {
 }
 
 export default function EstimationPage() {
-  return <>
+  return <Column as="section" aria-labelledby="estimation-page-title">
+    <Heading as="h1" id="estimation-page-title" className="sr-only">{estimation.title}</Heading>
     <Schema
       as="webPage"
       baseURL={baseURL}
@@ -31,7 +32,7 @@ export default function EstimationPage() {
       }}
     />
     <Grid columns={2} s={{ columns: "1" }} gap="m" >
-      {siteTypes.map(({ name, basePrice, icon, description, includes, slug }, _i) => <Card href={`/estimation/${slug}`} direction="column" key={name} border="neutral-alpha-weak" radius="m" fillWidth background="transparent" position="relative" overflow="hidden">
+      {siteTypes.map(({ name, basePrice, icon, description, includes, slug }, _i) => <Card as="article" href={`/estimation/${slug}`} direction="column" key={name} border="neutral-alpha-weak" radius="m" fillWidth background="transparent" position="relative" overflow="hidden">
         <Schema as={"service"} title={name} description={description} path={`estimation/${slug}`} offerSlug={slug} />
         <Background
           fill
@@ -65,7 +66,7 @@ export default function EstimationPage() {
         <Column padding="s" gap="s">
           <Row vertical="center" horizontal="between" fillWidth >
             <Row center gap="xs">
-              <Icon name={icon as string} /><Text variant="label-strong-l">{name}</Text>
+              <Icon name={icon as string} /><Text as="h2" variant="label-strong-l">{name}</Text>
             </Row>
             <Text variant="body-default-xs" onBackground="neutral-weak">À partir de {basePrice}€</Text>
           </Row>
@@ -78,5 +79,5 @@ export default function EstimationPage() {
         </Column>
       </Card>)}
     </Grid>
-  </>
+  </Column>
 }
