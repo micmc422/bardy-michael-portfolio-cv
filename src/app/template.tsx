@@ -7,9 +7,7 @@ import { Providers } from "./Providers";
 export default function RootTemplate({ children }: { children: React.ReactNode; }) {
     return (
         <Providers>
-            <Column style={{ minHeight: "100vh" }} fillWidth margin="0" padding="0" suppressHydrationWarning>
-                {children}
-            </Column>
+            {children}
         </Providers>
     );
 }
