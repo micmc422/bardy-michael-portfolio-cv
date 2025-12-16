@@ -48,15 +48,15 @@ export default async function MainLayout({ children }: { children: React.ReactNo
                 color: effects.lines.color,
             }}
         />
-        <Column center fillWidth minHeight={0} as="main" gap="l" paddingX="s" overflowX="hidden">
-            <Header />
+        <Header />
+        <Column center fillWidth minHeight={0} as="main" paddingY="24" gap="m" maxWidth={"xl"} aria-labelledby="hero-title" paddingX="s" overflowX="hidden">
             {children}
             <RDV content={rendezVous} />
-            <Footer />
-            <CookieConsent />
-            <ScrollToTop offset={500}>
-                <IconButton icon="chevronUp" />
-            </ScrollToTop>
         </Column>
+        <Footer />
+        <CookieConsent />
+        <ScrollToTop offset={500} zIndex={10}>
+            <IconButton icon="chevronUp" />
+        </ScrollToTop>
     </>
 }

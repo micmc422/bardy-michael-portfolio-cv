@@ -39,65 +39,63 @@ export default async function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column as="section" paddingY="24" gap="m" maxWidth={"xl"} aria-labelledby="hero-title">
-        <Column maxWidth="s">
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
-            <Badge
-              background="brand-alpha-weak" paddingX="xs" paddingY="4" onBackground="brand-strong"
-              arrow={false}
-              href={about.calendar.link}
-              center
-              gap="s"
-              id="RDVBtn"
-              aria-label="Lien vers la prise de rendez-vous"
-            >
-              <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
-              <Text paddingTop="4">Planifier un RDV</Text>
-              <IconButton
-                variant="ghost"
-                icon="chevronRight"
+      <Column maxWidth="s" as="section" aria-labelledby="entete-title">
+        <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
+          <Badge
+            background="brand-alpha-weak" paddingX="xs" paddingY="4" onBackground="brand-strong"
+            arrow={false}
+            href={about.calendar.link}
+            center
+            gap="s"
+            id="RDVBtn"
+            aria-label="Lien vers la prise de rendez-vous"
+          >
+            <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
+            <Text paddingTop="4">Planifier un RDV</Text>
+            <IconButton
+              variant="ghost"
+              icon="chevronRight"
+            />
+          </Badge>
+        </RevealFx>
+        <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
+          <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs">
+            {home.headline}
+          </Heading>
+        </RevealFx>
+        <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
+          <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" paddingX="xs">
+            {home.subline}
+          </Text>
+        </RevealFx>
+        <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="8">
+          <Badge background="brand-weak" onBackground="neutral-weak" border="accent-alpha-weak" gap="8" vertical="center" paddingY="4" marginBottom="m" href={about.path} effect={false} id="auteur" aria-label="liens vers la page à propos de l'auteur" arrow={false}
+          >
+            {about.avatar.display && (
+              <Avatar
+                style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                src={person.avatar}
+                size="m"
               />
+            )}
+            {about.title}
+          </Badge>
+        </RevealFx>
+        {home.featured.display && (
+          <RevealFx fillWidth horizontal="start" paddingLeft="8">
+            <Badge background="brand-alpha-weak" paddingX="4" paddingBottom="2" paddingTop="4" onBackground="neutral-strong" textVariant="body-default-s"
+              href={home.featured.href} marginBottom="m" aria-label={`lire : ${home.featured.title}`} arrow={false}>
+              <Text paddingY="2">{home.featured.title}</Text>
             </Badge>
           </RevealFx>
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" paddingX="xs">
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="8">
-            <Badge background="brand-weak" onBackground="neutral-weak" border="accent-alpha-weak" gap="8" vertical="center" paddingY="4" marginBottom="m" href={about.path} effect={false} id="auteur" aria-label="liens vers la page à propos de l'auteur" arrow={false}
-            >
-              {about.avatar.display && (
-                <Avatar
-                  style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                  src={person.avatar}
-                  size="m"
-                />
-              )}
-              {about.title}
-            </Badge>
-          </RevealFx>
-          {home.featured.display && (
-            <RevealFx fillWidth horizontal="start" paddingLeft="8">
-              <Badge background="brand-alpha-weak" paddingX="4" paddingBottom="2" paddingTop="4" onBackground="neutral-strong" textVariant="body-default-s"
-                href={home.featured.href} marginBottom="m" aria-label={`lire : ${home.featured.title}`} arrow={false}>
-                <Text paddingY="2">{home.featured.title}</Text>
-              </Badge>
-            </RevealFx>
-          )}
-        </Column>
+        )}
       </Column>
       <Column as="section" paddingY="24" gap="m" maxWidth={"m"} aria-labelledby="fonctionnalites-title">
         <RevealFx translateY="16" delay={0.6}>
           <Projects range={[1, 1]} />
         </RevealFx>
         {routes["/blog"] && (
-          <Flex as="section" fillWidth gap="24" s={{direction: "column"}} aria-labelledby="blog-title">
+          <Flex as="section" fillWidth gap="24" s={{ direction: "column" }} aria-labelledby="blog-title">
             <Flex flex={1} paddingLeft="l" paddingTop="24">
               <Heading as="h2" id="blog-title" variant="display-strong-xs" wrap="balance">
                 Dernières actualités
