@@ -4,7 +4,7 @@ import { baseURL } from "@/app/resources";
 import { siteCheck, person } from "@/app/resources/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
-import { isValidUrl } from "@/app/utils/siteCheck";
+import { isValidUrl } from "@/app/utils/urlUtils";
 import Link from "next/link";
 
 interface PageParams {

@@ -4,7 +4,7 @@ import { baseURL } from "../../resources";
 import { siteCheck, person } from "../../resources/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
-import { isValidUrl, normalizeUrl } from "@/app/utils/siteCheck";
+import { isValidUrl, normalizeUrl } from "@/app/utils/urlUtils";
 
 export async function generateMetadata() {
   return Meta.generate({
