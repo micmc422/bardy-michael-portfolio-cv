@@ -39,7 +39,7 @@ export default async function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column paddingY="24" gap="m" maxWidth={"xl"}>
+      <Column as="section" paddingY="24" gap="m" maxWidth={"xl"} aria-labelledby="hero-title">
         <Column maxWidth="s">
           <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
             <Badge
@@ -60,7 +60,7 @@ export default async function Home() {
             </Badge>
           </RevealFx>
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l" paddingX="xs">
+            <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs">
               {home.headline}
             </Heading>
           </RevealFx>
@@ -92,14 +92,14 @@ export default async function Home() {
           )}
         </Column>
       </Column>
-      <Column paddingY="24" gap="m" maxWidth={"m"}>
+      <Column as="section" paddingY="24" gap="m" maxWidth={"m"} aria-labelledby="fonctionnalites-title">
         <RevealFx translateY="16" delay={0.6}>
           <Projects range={[1, 1]} />
         </RevealFx>
         {routes["/blog"] && (
-          <Flex fillWidth gap="24" s={{direction: "column"}}>
+          <Flex as="section" fillWidth gap="24" s={{direction: "column"}} aria-labelledby="blog-title">
             <Flex flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" variant="display-strong-xs" wrap="balance">
+              <Heading as="h2" id="blog-title" variant="display-strong-xs" wrap="balance">
                 Dernières actualités
               </Heading>
             </Flex>
@@ -109,7 +109,7 @@ export default async function Home() {
           </Flex>
         )}
         <Projects range={[2]} />
-        <Heading as="h2" wrap="balance" variant="display-strong-m" align="center">
+        <Heading as="h2" id="fonctionnalites-title" wrap="balance" variant="display-strong-m" align="center">
           🎯 Fonctionnalités ciblées pour booster votre activité
         </Heading>
         <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
@@ -136,7 +136,7 @@ export default async function Home() {
         </RevealFx>
         <Tarifs />
       </Column>
-      <Column maxWidth={"s"}>
+      <Column as="section" maxWidth={"s"} aria-label="Questions fréquentes">
         <Faq faqData={JSON.stringify({
           "title": "",
           "faq": [
@@ -168,7 +168,9 @@ export default async function Home() {
         })
         } />
       </Column>
-      <AvisClient />
+      <Column as="section" aria-label="Avis clients">
+        <AvisClient />
+      </Column>
     </>
   );
 }

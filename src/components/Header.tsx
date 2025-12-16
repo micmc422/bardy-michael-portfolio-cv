@@ -61,7 +61,7 @@ export const Header = () => {
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
           {person.place && <Flex className={styles.desktopOnly}>{person.place}</Flex>}
         </Flex>
-        <Flex fillWidth horizontal="center">
+        <Flex as="nav" fillWidth horizontal="center" aria-label="Navigation principale">
           <Flex
             background="surface"
             border="neutral-alpha-medium"

@@ -71,23 +71,25 @@ export default async function About() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column as="article" maxWidth="m" className="isolate">
       {about.tableOfContent.display && (
         <Column
+          as="aside"
           left="0"
           style={{ top: "50%", transform: "translateY(-50%)" }}
           position="fixed"
           paddingLeft="24"
           gap="32"
           s={{ hide: true }}
+
         >
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Row fillWidth s={{ direction: "column" }} horizontal="center" className="pointer-events-none">
+      <Row fillWidth s={{ direction: "column" }} horizontal="center">
         {about.avatar.display && (
           <Column
-            className={styles.avatar}
+            className={"isolate"}
             top="64"
             fitHeight
             position="sticky"
@@ -99,7 +101,7 @@ export default async function About() {
             gap="m"
             flex={3}
             horizontal="center"
-            zIndex={-1}
+            zIndex={1}
           >
             <Avatar src={person.avatar} size="xl" />
             <Row gap="8" vertical="center">
@@ -117,7 +119,7 @@ export default async function About() {
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40} zIndex={10}>
+        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
             fillWidth

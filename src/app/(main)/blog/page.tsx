@@ -27,7 +27,7 @@ export async function generateMetadata() {
 
 export default async function Blog() {
   return (
-    <Column maxWidth="s">
+    <Column as="section" maxWidth="s" aria-labelledby="blog-page-title">
       <Schema
         as="blog"
         baseURL={baseURL}
@@ -41,7 +41,7 @@ export default async function Blog() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="display-strong-s">
+      <Heading as="h1" id="blog-page-title" marginBottom="l" variant="display-strong-s">
         {blog.title}
       </Heading>
       <Column

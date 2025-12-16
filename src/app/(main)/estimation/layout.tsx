@@ -66,17 +66,17 @@ export default async function EstimationLayout({ children, resume, headline }: {
             <Column flex={3} background="surface" padding="m" radius="xl" fillWidth>
                 {children}
             </Column>
-            <Column flex={1} background="surface" padding="m" radius="m" gap="m">
+            <Column as="aside" flex={1} background="surface" padding="m" radius="m" gap="m" aria-label="Résumé de l'estimation">
                 <Suspense>{resume}</Suspense>
             </Column>
         </Row>
-        <Column background="surface" gap="m" padding="m" radius="xl">
-            <Heading as="h2" variant="display-strong-m">Services inclus</Heading>
+        <Column as="section" background="surface" gap="m" padding="m" radius="xl" aria-labelledby="services-inclus-title">
+            <Heading as="h2" id="services-inclus-title" variant="display-strong-m">Services inclus</Heading>
             <Row s={{direction: "column"}} gap="s">
                 <ServicesInclus />
             </Row>
         </Column>
-        <Column paddingTop="xl" maxWidth={"s"}>
+        <Column as="section" paddingTop="xl" maxWidth={"s"} aria-label="Questions fréquentes">
             <Faq faqData={JSON.stringify(faqData)} />
         </Column>
     </Column>

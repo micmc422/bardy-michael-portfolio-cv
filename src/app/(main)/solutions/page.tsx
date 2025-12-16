@@ -30,10 +30,10 @@ export default function SolutionsPage() {
                 }}
             />
 
-            <Column maxWidth="xl" paddingY="24" gap="m">
+            <Column as="section" maxWidth="xl" paddingY="24" gap="m" aria-labelledby="solutions-hero-title">
                 <Column maxWidth="s">
                     <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                        <Heading as="h1" wrap="balance" variant="display-strong-l">
+                        <Heading as="h1" id="solutions-hero-title" wrap="balance" variant="display-strong-l">
                             {solutionsWeb.headline}
                         </Heading>
                     </RevealFx>
@@ -62,8 +62,8 @@ export default function SolutionsPage() {
                     </RevealFx>
                 </Column>
             </Column>
-            <Column maxWidth="xs" paddingY="24" gap="s">
-                <Heading as="h2" wrap="balance" variant="display-strong-m" align="center">
+            <Column as="section" maxWidth="xs" paddingY="24" gap="s" aria-labelledby="fonctionnalites-section-title">
+                <Heading as="h2" id="fonctionnalites-section-title" wrap="balance" variant="display-strong-m" align="center">
                     🎯 Fonctionnalités ciblées pour booster votre activité
                 </Heading>
                 <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
@@ -92,8 +92,8 @@ export default function SolutionsPage() {
                 />
 
                 {solutionsWeb.pourquoi.map((item, index) => (
-                    <Column background="overlay" paddingX="s" paddingY="l" radius="m" key={index} maxWidth="s" gap="m">
-                        <Heading as="h2" wrap="balance" variant="heading-default-l">
+                    <Column as="article" background="overlay" paddingX="s" paddingY="l" radius="m" key={index} maxWidth="s" gap="m">
+                        <Heading as="h3" wrap="balance" variant="heading-default-l">
                             <Row vertical="center" gap="s" align="start">
                                 <Icon name={item?.icone || "check"} onBackground="brand-strong" />
                                 {item?.titre}
@@ -117,8 +117,8 @@ export default function SolutionsPage() {
                     </Column>
                 ))}
             </Grid>
-            <Column maxWidth="xl" paddingY="24" gap="s" center>
-                <Heading as="h2" wrap="balance" variant="display-strong-m" align="center">
+            <Column as="section" maxWidth="xl" paddingY="24" gap="s" center aria-labelledby="hebergement-section-title">
+                <Heading as="h2" id="hebergement-section-title" wrap="balance" variant="display-strong-m" align="center">
                     ☁️ Votre site, toujours rapide. Toujours en ligne.
                 </Heading>
                 <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">

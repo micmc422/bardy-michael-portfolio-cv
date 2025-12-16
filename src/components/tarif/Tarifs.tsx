@@ -66,6 +66,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
     ({ tarifs = defaultTarifs, className, style, ...rest }, ref) => {
         return (
             <Column
+                as="section"
                 ref={ref}
                 style={style}
                 className={classNames(styles.component, className)}
@@ -75,6 +76,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                 background="page"
                 radius="l-8"
                 padding="xl"
+                aria-labelledby="tarifs-title"
                 {...rest}
             >
                 <Background
@@ -103,7 +105,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                 />
 
                 <Column maxWidth={"xs"} center>
-                    <Heading as="h2" variant="display-strong-m">Tarifs 💰</Heading>
+                    <Heading as="h2" id="tarifs-title" variant="display-strong-m">Tarifs 💰</Heading>
                     <Text variant="body-default-l" align="center" onBackground="neutral-weak">Des offres simples et adaptées à vos besoins : que vous lanciez un projet, optimisiez un site existant ou souhaitiez un accompagnement régulier.</Text>
                 </Column>
                 <Row center gap="s" s={{direction: "column"}}>
@@ -125,7 +127,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
     ({ volet, className, ...rest }, ref) => {
         const { title, description, slug, price, features, notes } = volet;
         return (
-            <Column radius="m"
+            <Column as="article" radius="m"
                 ref={ref}
                 className={classNames(styles.volet, className)}
                 direction="column"

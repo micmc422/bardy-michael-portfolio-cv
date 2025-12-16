@@ -44,7 +44,7 @@ export async function generateMetadata() {
 
 export default async function Work() {
   return (
-    <Column maxWidth="m">
+    <Column as="section" maxWidth="m" aria-labelledby="realisations-page-title">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -58,7 +58,7 @@ export default async function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading as="h1" variant="display-strong-l" align="center" paddingBottom="l">Dernières réalistions</Heading>
+      <Heading as="h1" id="realisations-page-title" variant="display-strong-l" align="center" paddingBottom="l">Dernières réalisations</Heading>
       <Projects />
       <Tarifs />
     </Column>
