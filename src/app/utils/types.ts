@@ -58,6 +58,8 @@ export interface AnalysisItem {
     value: string | number | boolean;
     status: AnalysisStatus;
     description?: string;
+    impact?: string;
+    recommendation?: string;
 }
 
 export interface PerformanceAnalysis {

@@ -1,5 +1,5 @@
 import { analyzeSEO } from "@/app/utils/siteCheck";
-import { AnalysisCard } from "@/components/site-check/AnalysisCard";
+import { AnalysisCardWithScoreReport } from "@/components/site-check/AnalysisCardWithScoreReport";
 
 interface PageParams {
   params: Promise<{ url: string }>;
@@ -25,7 +25,8 @@ export default async function SEOSlot({ params }: PageParams) {
   ];
 
   return (
-    <AnalysisCard
+    <AnalysisCardWithScoreReport
+      category="seo"
       title="SEO"
       icon="search"
       score={results.score}

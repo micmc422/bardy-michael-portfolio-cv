@@ -1,5 +1,5 @@
 import { analyzeSecurity } from "@/app/utils/siteCheck";
-import { AnalysisCard } from "@/components/site-check/AnalysisCard";
+import { AnalysisCardWithScoreReport } from "@/components/site-check/AnalysisCardWithScoreReport";
 
 interface PageParams {
   params: Promise<{ url: string }>;
@@ -21,7 +21,8 @@ export default async function SecuritySlot({ params }: PageParams) {
   ];
 
   return (
-    <AnalysisCard
+    <AnalysisCardWithScoreReport
+      category="security"
       title="Sécurité"
       icon="shield"
       score={results.score}

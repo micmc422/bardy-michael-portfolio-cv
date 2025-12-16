@@ -1,5 +1,5 @@
 import { analyzePerformance } from "@/app/utils/siteCheck";
-import { AnalysisCard } from "@/components/site-check/AnalysisCard";
+import { AnalysisCardWithScoreReport } from "@/components/site-check/AnalysisCardWithScoreReport";
 
 interface PageParams {
   params: Promise<{ url: string }>;
@@ -19,7 +19,8 @@ export default async function PerformanceSlot({ params }: PageParams) {
   ];
 
   return (
-    <AnalysisCard
+    <AnalysisCardWithScoreReport
+      category="performance"
       title="Performance"
       icon="zap"
       score={results.score}
