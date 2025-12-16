@@ -49,3 +49,74 @@ export interface Team {
     avatar: string
     linkedIn: string
 }
+
+// Site Check Analysis Types
+export type AnalysisStatus = 'success' | 'warning' | 'error';
+
+export interface AnalysisItem {
+    label: string;
+    value: string | number | boolean;
+    status: AnalysisStatus;
+    description?: string;
+}
+
+export interface PerformanceAnalysis {
+    url: string;
+    loadTime: AnalysisItem;
+    pageSize: AnalysisItem;
+    requestCount: AnalysisItem;
+    compression: AnalysisItem;
+    resources: {
+        html: number;
+        css: number;
+        js: number;
+        images: number;
+        fonts: number;
+    };
+    score: number;
+}
+
+export interface SEOAnalysis {
+    url: string;
+    title: AnalysisItem;
+    description: AnalysisItem;
+    headings: AnalysisItem;
+    images: AnalysisItem;
+    links: AnalysisItem;
+    sitemap: AnalysisItem;
+    robots: AnalysisItem;
+    viewport: AnalysisItem;
+    structuredData: AnalysisItem;
+    ogTags: AnalysisItem;
+    score: number;
+}
+
+export interface SecurityAnalysis {
+    url: string;
+    https: AnalysisItem;
+    hsts: AnalysisItem;
+    csp: AnalysisItem;
+    xFrameOptions: AnalysisItem;
+    xContentTypeOptions: AnalysisItem;
+    mixedContent: AnalysisItem;
+    score: number;
+}
+
+export interface AccessibilityAnalysis {
+    url: string;
+    language: AnalysisItem;
+    ariaAttributes: AnalysisItem;
+    formLabels: AnalysisItem;
+    altTexts: AnalysisItem;
+    landmarks: AnalysisItem;
+    score: number;
+}
+
+export interface MobileAnalysis {
+    url: string;
+    viewport: AnalysisItem;
+    responsiveDesign: AnalysisItem;
+    touchTargets: AnalysisItem;
+    fontSizes: AnalysisItem;
+    score: number;
+}
