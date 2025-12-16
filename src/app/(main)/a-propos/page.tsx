@@ -2,6 +2,7 @@
 
 import {
   Avatar,
+  Badge,
   Button,
   Column,
   Flex,
@@ -10,6 +11,7 @@ import {
   IconButton,
   Media,
   Meta,
+  RevealFx,
   Row,
   Skeleton,
   Tag,
@@ -128,29 +130,24 @@ export default async function About() {
             marginBottom="32"
           >
             {about.calendar.display && (
-              <Row
-                fitWidth
-                border="brand-alpha-medium"
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                vertical="center"
-                className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-              >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Row paddingX="8">Schedule a call</Row>
-                <IconButton
+              <RevealFx fillWidth horizontal="start" s={{ horizontal: "center" }} paddingTop="16" paddingBottom="32" paddingLeft="8">
+                <Badge
+                  background="brand-alpha-weak" paddingX="xs" paddingY="4" onBackground="brand-strong"
+                  arrow={false}
                   href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />
-              </Row>
+                  center
+                  gap="s"
+                  id="RDVBtn"
+                  aria-label="Lien vers la prise de rendez-vous"
+                >
+                  <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
+                  <Text paddingTop="4">Planifier un RDV</Text>
+                  <IconButton
+                    variant="ghost"
+                    icon="chevronRight"
+                  />
+                </Badge>
+              </RevealFx>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
