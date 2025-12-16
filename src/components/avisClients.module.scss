@@ -1,9 +1,15 @@
 .root {
-    overflow: clip;
-    width: calc(100svw - 8px);
-    margin-left: calc(99svw - (var(--responsive-width-m) / -2));
-    margin-right: calc(99svw - (var(--responsive-width-m) / -2));
+    overflow-x: clip;
+    overflow-y: hidden;
+    width: calc(100svw);
+    overflow: hidden;
 }
+
+.avisCli {
+    flex-shrink: 0;
+    width: 300px;
+}
+
 .avisCli:last-of-type {
-   margin-right: 2vw;
+    margin-right: var(--spacing-m);
 }

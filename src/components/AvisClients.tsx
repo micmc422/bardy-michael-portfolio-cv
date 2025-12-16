@@ -67,12 +67,10 @@ const Avis = forwardRef<HTMLDivElement, AvisProps>(
                 style={style}
                 className={classNames(className, styles.avisCli)}
                 direction="column"
-                width={25}
                 background="overlay"
                 padding="l"
                 radius="m"
                 center
-                marginX="s"
                 {...rest}
             >
                 <Row gap="s">
