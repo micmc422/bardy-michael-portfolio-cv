@@ -167,9 +167,9 @@ async function fetchSEOAnalysis(url: string): Promise<SEOAnalysis> {
             h1Count === 1 ? 'Structure correcte' : h1Count === 0 ? 'Aucun H1 trouvé' : 'Plusieurs H1 détectés'
         )
 
-        // Images alt check
+        // Images alt check - empty alt="" is valid for decorative images
         const imgTags = html.match(/<img[^>]*>/gi) || []
-        const imgsWithAlt = imgTags.filter(img => /alt=["'][^"']+["']/i.test(img)).length
+        const imgsWithAlt = imgTags.filter(img => /alt=["'][^"']*["']/i.test(img)).length
         const imgItem = createAnalysisItem(
             'Images avec Alt',
             `${imgsWithAlt}/${imgTags.length}`,
@@ -177,13 +177,13 @@ async function fetchSEOAnalysis(url: string): Promise<SEOAnalysis> {
             imgTags.length === 0 ? 'Aucune image trouvée' : `${Math.round(imgsWithAlt / imgTags.length * 100)}% des images ont un attribut alt`
         )
 
-        // Links
-        const internalLinks = (html.match(/<a[^>]+href=["'][^"'#]+["']/gi) || []).length
+        // Links - count all links (internal and external)
+        const allLinks = (html.match(/<a[^>]+href=["'][^"'#]+["']/gi) || []).length
         const linksItem = createAnalysisItem(
-            'Liens internes',
-            internalLinks,
-            internalLinks > 5 ? 'success' : internalLinks > 0 ? 'warning' : 'error',
-            `${internalLinks} liens trouvés`
+            'Liens',
+            allLinks,
+            allLinks > 5 ? 'success' : allLinks > 0 ? 'warning' : 'error',
+            `${allLinks} liens trouvés sur la page`
         )
 
         // Sitemap check
@@ -341,14 +341,18 @@ async function fetchSecurityAnalysis(url: string): Promise<SecurityAnalysis> {
             xcto ? 'Protection MIME activée' : 'Protection MIME manquante'
         )
 
-        // Mixed content check (simple check via HTML)
+        // Mixed content check (improved to check multiple resource types)
         const html = await response.text()
-        const hasMixedContent = isHttps && /src=["']http:\/\//i.test(html)
+        const hasMixedContent = isHttps && (
+            /src=["']http:\/\//i.test(html) || 
+            /href=["']http:\/\/[^"']+\.(css|js)/i.test(html) ||
+            /action=["']http:\/\//i.test(html)
+        )
         const mixedItem = createAnalysisItem(
             'Contenu mixte',
             hasMixedContent ? 'Détecté' : 'Aucun',
             hasMixedContent ? 'error' : 'success',
-            hasMixedContent ? 'Ressources HTTP sur page HTTPS' : 'Pas de contenu mixte détecté'
+            hasMixedContent ? 'Ressources HTTP détectées sur page HTTPS' : 'Pas de contenu mixte détecté'
         )
 
         const analysisItems = [httpsItem, hstsItem, cspItem, xfoItem, xctoItem, mixedItem]
@@ -421,14 +425,19 @@ async function fetchAccessibilityAnalysis(url: string): Promise<AccessibilityAna
             ariaCount > 0 ? 'Attributs ARIA détectés' : 'Peu ou pas d\'attributs ARIA'
         )
 
-        // Form labels
-        const inputs = (html.match(/<input[^>]+type=["'](?!hidden|submit|button|reset)[^"']*["'][^>]*>/gi) || []).length
+        // Form labels - count visible form inputs that need labels
+        const allInputs = html.match(/<input[^>]*>/gi) || []
+        const visibleInputs = allInputs.filter(input => {
+            const typeMatch = input.match(/type=["']([^"']+)["']/i)
+            const inputType = typeMatch?.[1]?.toLowerCase() ?? 'text'
+            return !['hidden', 'submit', 'button', 'reset', 'image'].includes(inputType)
+        }).length
         const labels = (html.match(/<label[^>]*>/gi) || []).length
         const formLabelsItem = createAnalysisItem(
             'Labels de formulaire',
-            `${labels} labels, ${inputs} champs`,
-            inputs === 0 || labels >= inputs * 0.8 ? 'success' : labels >= inputs * 0.5 ? 'warning' : 'error',
-            inputs === 0 ? 'Aucun champ de formulaire' : `${Math.round(labels / inputs * 100)}% des champs ont un label`
+            `${labels} labels, ${visibleInputs} champs`,
+            visibleInputs === 0 || labels >= visibleInputs * 0.8 ? 'success' : labels >= visibleInputs * 0.5 ? 'warning' : 'error',
+            visibleInputs === 0 ? 'Aucun champ de formulaire' : `${Math.round(labels / visibleInputs * 100)}% des champs ont un label`
         )
 
         // Alt texts

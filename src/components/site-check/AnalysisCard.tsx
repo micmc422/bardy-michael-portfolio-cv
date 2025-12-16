@@ -40,6 +40,14 @@ function getScoreColor(score: number): ColorScheme {
   return "danger";
 }
 
+// Format value for display - French labels for consistency with rest of codebase
+function formatValue(value: string | number | boolean): string {
+  if (typeof value === "boolean") {
+    return value ? "Oui" : "Non";
+  }
+  return String(value);
+}
+
 export function AnalysisCard({ title, icon, score, items }: AnalysisCardProps) {
   const scoreColor = getScoreColor(score);
 
@@ -95,11 +103,7 @@ function AnalysisItemRow({ item }: AnalysisItemRowProps) {
         <Row gap="s" vertical="center" horizontal="between" fillWidth>
           <Text variant="label-default-s">{item.label}</Text>
           <Text variant="body-default-s" onBackground={`${statusColor}-weak`}>
-            {typeof item.value === "boolean"
-              ? item.value
-                ? "Oui"
-                : "Non"
-              : String(item.value)}
+            {formatValue(item.value)}
           </Text>
         </Row>
         {item.description && (
