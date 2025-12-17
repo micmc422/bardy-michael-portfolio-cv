@@ -4,7 +4,27 @@ import { unstable_cache } from 'next/cache'
 import type { SEOAnalysis } from '../types'
 import { createAnalysisItem, calculateScore } from './helpers'
 
+/**
+ * Analyze SEO using Puppeteer for accurate detection of dynamically loaded content.
+ * Falls back to simple fetch if Puppeteer fails.
+ */
 async function fetchSEOAnalysis(url: string): Promise<SEOAnalysis> {
+    // Try Puppeteer first for accurate detection of dynamically-loaded content (e.g., JSON-LD)
+    try {
+        const { fetchPageWithPuppeteer } = await import('@/lib/puppeteer')
+        const result = await fetchPageWithPuppeteer(url, { timeout: 30000 })
+        return analyzeSEOFromHtml(url, result.html, true)
+    } catch (puppeteerError) {
+        console.warn('Puppeteer SEO analysis failed, falling back to fetch:', puppeteerError)
+        return fetchSEOAnalysisFallback(url)
+    }
+}
+
+/**
+ * Fallback SEO analysis using simple fetch.
+ * Used when Puppeteer is not available.
+ */
+async function fetchSEOAnalysisFallback(url: string): Promise<SEOAnalysis> {
     try {
         const controller = new AbortController()
         const timeoutId = setTimeout(() => controller.abort(), 15000)
@@ -18,6 +38,33 @@ async function fetchSEOAnalysis(url: string): Promise<SEOAnalysis> {
         clearTimeout(timeoutId)
 
         const html = await response.text()
+        return analyzeSEOFromHtml(url, html, false)
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue'
+        const errorItem = createAnalysisItem('Erreur', errorMessage, 'error', 'Impossible d\'analyser le SEO')
+        return {
+            url,
+            title: errorItem,
+            description: errorItem,
+            headings: errorItem,
+            images: errorItem,
+            links: errorItem,
+            sitemap: errorItem,
+            robots: errorItem,
+            viewport: errorItem,
+            structuredData: errorItem,
+            ogTags: errorItem,
+            score: 0,
+            usedPuppeteer: false
+        }
+    }
+}
+
+/**
+ * Analyze SEO from HTML content.
+ */
+async function analyzeSEOFromHtml(url: string, html: string, usedPuppeteer: boolean): Promise<SEOAnalysis> {
+    try {
 
         // Title check
         const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i)
@@ -164,7 +211,8 @@ async function fetchSEOAnalysis(url: string): Promise<SEOAnalysis> {
             viewport: viewportItem,
             structuredData: structuredItem,
             ogTags: ogItem,
-            score: calculateScore(analysisItems)
+            score: calculateScore(analysisItems),
+            usedPuppeteer
         }
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue'
@@ -181,7 +229,8 @@ async function fetchSEOAnalysis(url: string): Promise<SEOAnalysis> {
             viewport: errorItem,
             structuredData: errorItem,
             ogTags: errorItem,
-            score: 0
+            score: 0,
+            usedPuppeteer
         }
     }
 }

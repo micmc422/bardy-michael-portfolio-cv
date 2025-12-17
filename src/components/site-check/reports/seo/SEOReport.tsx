@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, Row, Text, Icon } from "@once-ui-system/core";
+import { Column, Row, Text, Icon, Tag } from "@once-ui-system/core";
 import type { SEOAnalysis, AnalysisItem } from "@/app/utils/types";
 import { AnalysisCard } from "../../AnalysisCard";
 
@@ -247,11 +247,23 @@ export function SEOReport({ results }: { results: SEOAnalysis }) {
   ];
 
   return (
-    <AnalysisCard
-      title="SEO"
-      icon="search"
-      score={results.score}
-      items={items}
-    />
+    <Column gap="m" fillWidth>
+      {results.usedPuppeteer && (
+        <Row gap="xs" horizontal="end">
+          <Tag size="s" variant="success">
+            <Row gap="4" vertical="center">
+              <Icon name="check" size="xs" />
+              <Text variant="label-default-xs">Analyse Puppeteer (contenu dynamique inclus)</Text>
+            </Row>
+          </Tag>
+        </Row>
+      )}
+      <AnalysisCard
+        title="SEO"
+        icon="search"
+        score={results.score}
+        items={items}
+      />
+    </Column>
   );
 }

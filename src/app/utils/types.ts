@@ -98,6 +98,7 @@ export interface SEOAnalysis {
     structuredData: AnalysisItem;
     ogTags: AnalysisItem;
     score: number;
+    usedPuppeteer?: boolean;
 }
 
 export interface SecurityAnalysis {

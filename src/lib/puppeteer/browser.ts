@@ -203,8 +203,9 @@ export async function fetchPageWithPuppeteer(url: string, options: BrowserOption
                 try {
                     const lcpObserver = new PerformanceObserver((list) => {
                         const entries = list.getEntries();
-                        if (entries.length > 0) {
-                            lcp = entries[entries.length - 1].startTime;
+                        const lastEntry = entries[entries.length - 1];
+                        if (lastEntry) {
+                            lcp = lastEntry.startTime;
                         }
                     });
                     lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
