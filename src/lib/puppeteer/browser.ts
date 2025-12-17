@@ -9,7 +9,7 @@
 
 // URL to the Chromium binary package hosted in /public
 // In production, uses the deployed project URL
-// In development, uses a fallback URL from a trusted source
+// In development/preview, uses the official sparticuz/chromium example
 const CHROMIUM_PACK_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/chromium-pack.tar`
     : "https://github.com/nichochar/puppeteer-example/releases/download/v1.0.0/chromium-v132.0.0-pack.tar";
