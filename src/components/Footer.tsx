@@ -1,22 +1,24 @@
-import { Flex, IconButton, SmartLink, Text } from "@once-ui-system/core";
-import { person, social } from "@/app/resources/content";
+import { Column, Flex, IconButton, SmartLink, Text } from "@once-ui-system/core";
+import { person, rendezVous, social } from "@/app/resources/content";
 import styles from "./Footer.module.scss";
+import { RDV } from "./Rdv";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Flex
+    <Column
       as="footer"
       fillWidth
-      paddingX="8"
+      padding={"m"}
+      gap="m"
       horizontal="center"
-      s={{direction: "column"}}
     >
+      <RDV content={rendezVous} />
       <Flex
         className={styles.mobile}
         maxWidth="m"
-        gap="16"
+        gap="m"
         horizontal="between"
         vertical="center"
       >
@@ -33,7 +35,7 @@ export const Footer = () => {
             </SmartLink>
           </Text>
         </Text>
-        <Flex gap="16">
+        <Flex gap="s">
           {social.map(
             (item) =>
               item.link && (
@@ -49,7 +51,6 @@ export const Footer = () => {
           )}
         </Flex>
       </Flex>
-      <Flex height="80" l={{ hide: true }} m={{ hide: true }}></Flex>
-    </Flex>
+    </Column>
   );
 };

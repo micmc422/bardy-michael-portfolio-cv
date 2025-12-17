@@ -68,7 +68,7 @@ export const Header = () => {
         as="header"
         zIndex={9}
         fillWidth
-        padding="8"
+        padding="xs"
         horizontal="center"
         data-border="rounded"
         s={{
@@ -84,11 +84,11 @@ export const Header = () => {
             border="neutral-alpha-weak"
             radius="m-4"
             shadow="l"
-            padding="4"
+            padding="2"
             horizontal="center"
             zIndex={1}
           >
-            <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
+            <Row gap="xs" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
                 <ToggleButton
                   aria-label={`Accueil du portfolio de ${person.name}`}
@@ -193,7 +193,7 @@ export const Header = () => {
         </Row>
         <Flex fillWidth horizontal="end" vertical="center">
           <Flex
-            paddingRight="12"
+            paddingRight="s"
             horizontal="end"
             vertical="center"
             textVariant="body-default-s"
