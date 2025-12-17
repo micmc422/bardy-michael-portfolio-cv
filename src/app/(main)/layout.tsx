@@ -48,7 +48,7 @@ export default async function MainLayout({ children }: { children: React.ReactNo
             }}
         />
         <Header />
-        <Column center fillWidth minHeight={0} as="main" paddingY="24" gap="m" aria-labelledby="hero-title" paddingX="s" overflowX="hidden">
+        <Column center fillWidth minHeight={0} as="main" paddingY="l" gap="l" aria-labelledby="hero-title" paddingX="s" overflowX="hidden">
             {children}
         </Column>
         <Footer />
