@@ -85,6 +85,31 @@ export interface PerformanceAnalysis {
     usedPuppeteer?: boolean;
 }
 
+// Open Graph metadata
+export interface OpenGraphData {
+    title?: string;
+    description?: string;
+    image?: string;
+    url?: string;
+    type?: string;
+    siteName?: string;
+    locale?: string;
+    // Twitter Card
+    twitterCard?: string;
+    twitterSite?: string;
+    twitterCreator?: string;
+    twitterTitle?: string;
+    twitterDescription?: string;
+    twitterImage?: string;
+}
+
+// JSON-LD structured data
+export interface JsonLdData {
+    type: string;
+    raw: string;
+    parsed: Record<string, unknown>;
+}
+
 export interface SEOAnalysis {
     url: string;
     title: AnalysisItem;
@@ -99,6 +124,10 @@ export interface SEOAnalysis {
     ogTags: AnalysisItem;
     score: number;
     usedPuppeteer?: boolean;
+    // Detailed metadata
+    openGraph?: OpenGraphData;
+    jsonLdData?: JsonLdData[];
+    metaTags?: Record<string, string>;
 }
 
 export interface SecurityAnalysis {

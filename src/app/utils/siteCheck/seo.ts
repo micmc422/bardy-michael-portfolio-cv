@@ -1,8 +1,101 @@
 'use server'
 
 import { unstable_cache } from 'next/cache'
-import type { SEOAnalysis } from '../types'
+import type { SEOAnalysis, OpenGraphData, JsonLdData } from '../types'
 import { createAnalysisItem, calculateScore } from './helpers'
+
+/**
+ * Extract Open Graph and Twitter Card metadata from HTML.
+ */
+function extractOpenGraphData(html: string): OpenGraphData {
+    const getMetaContent = (property: string): string | undefined => {
+        const match = html.match(new RegExp(`<meta[^>]+(?:property|name)=["']${property}["'][^>]+content=["']([^"']+)["']`, 'i')) ||
+            html.match(new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']${property}["']`, 'i'))
+        return match?.[1]?.trim()
+    }
+
+    return {
+        title: getMetaContent('og:title'),
+        description: getMetaContent('og:description'),
+        image: getMetaContent('og:image'),
+        url: getMetaContent('og:url'),
+        type: getMetaContent('og:type'),
+        siteName: getMetaContent('og:site_name'),
+        locale: getMetaContent('og:locale'),
+        // Twitter Card
+        twitterCard: getMetaContent('twitter:card'),
+        twitterSite: getMetaContent('twitter:site'),
+        twitterCreator: getMetaContent('twitter:creator'),
+        twitterTitle: getMetaContent('twitter:title'),
+        twitterDescription: getMetaContent('twitter:description'),
+        twitterImage: getMetaContent('twitter:image'),
+    }
+}
+
+/**
+ * Extract all JSON-LD structured data from HTML.
+ */
+function extractJsonLdData(html: string): JsonLdData[] {
+    const jsonLdScripts = html.match(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi) || []
+    const results: JsonLdData[] = []
+
+    for (const script of jsonLdScripts) {
+        const contentMatch = script.match(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i)
+        if (contentMatch?.[1]) {
+            try {
+                const raw = contentMatch[1].trim()
+                const parsed = JSON.parse(raw) as Record<string, unknown>
+                const type = (parsed['@type'] as string) || 'Unknown'
+                results.push({ type, raw, parsed })
+            } catch {
+                // Invalid JSON, skip
+            }
+        }
+    }
+
+    return results
+}
+
+/**
+ * Extract all meta tags from HTML.
+ */
+function extractMetaTags(html: string): Record<string, string> {
+    const metaTags: Record<string, string> = {}
+
+    // Match meta tags with name attribute
+    const nameMatches = html.matchAll(/<meta[^>]+name=["']([^"']+)["'][^>]+content=["']([^"']+)["']/gi)
+    for (const match of nameMatches) {
+        if (match[1] && match[2]) {
+            metaTags[match[1]] = match[2]
+        }
+    }
+
+    // Match meta tags with content before name
+    const nameMatches2 = html.matchAll(/<meta[^>]+content=["']([^"']+)["'][^>]+name=["']([^"']+)["']/gi)
+    for (const match of nameMatches2) {
+        if (match[2] && match[1]) {
+            metaTags[match[2]] = match[1]
+        }
+    }
+
+    // Match meta tags with property attribute (Open Graph)
+    const propMatches = html.matchAll(/<meta[^>]+property=["']([^"']+)["'][^>]+content=["']([^"']+)["']/gi)
+    for (const match of propMatches) {
+        if (match[1] && match[2]) {
+            metaTags[match[1]] = match[2]
+        }
+    }
+
+    // Match meta tags with content before property
+    const propMatches2 = html.matchAll(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']([^"']+)["']/gi)
+    for (const match of propMatches2) {
+        if (match[2] && match[1]) {
+            metaTags[match[2]] = match[1]
+        }
+    }
+
+    return metaTags
+}
 
 /**
  * Analyze SEO using Puppeteer for accurate detection of dynamically loaded content.
@@ -197,6 +290,11 @@ async function analyzeSEOFromHtml(url: string, html: string, usedPuppeteer: bool
             !hasOg ? 'Ajoutez dans le <head> : <meta property="og:title" content="Titre pour Facebook/LinkedIn" />, <meta property="og:description" content="Description attractive" />, <meta property="og:image" content="https://votresite.com/image-partage.jpg" /> (1200x630px recommandé).' : undefined
         )
 
+        // Extract detailed metadata
+        const openGraph = extractOpenGraphData(html)
+        const jsonLdData = extractJsonLdData(html)
+        const metaTags = extractMetaTags(html)
+
         const analysisItems = [titleItem, descItem, headingsItem, imgItem, linksItem, sitemapItem, robotsItem, viewportItem, structuredItem, ogItem]
 
         return {
@@ -212,7 +310,11 @@ async function analyzeSEOFromHtml(url: string, html: string, usedPuppeteer: bool
             structuredData: structuredItem,
             ogTags: ogItem,
             score: calculateScore(analysisItems),
-            usedPuppeteer
+            usedPuppeteer,
+            // Detailed metadata
+            openGraph,
+            jsonLdData,
+            metaTags
         }
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue'

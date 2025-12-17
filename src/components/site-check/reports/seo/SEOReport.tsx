@@ -3,6 +3,9 @@
 import { Column, Row, Text, Icon, Tag } from "@once-ui-system/core";
 import type { SEOAnalysis, AnalysisItem } from "@/app/utils/types";
 import { AnalysisCard } from "../../AnalysisCard";
+import { OpenGraphPreview } from "../../OpenGraphPreview";
+import { JsonLdViewer } from "../../JsonLdViewer";
+import { MetaTagsViewer } from "../../MetaTagsViewer";
 
 interface SourceLink {
   label: string;
@@ -247,7 +250,7 @@ export function SEOReport({ results }: { results: SEOAnalysis }) {
   ];
 
   return (
-    <Column gap="m" fillWidth>
+    <Column gap="l" fillWidth>
       {results.usedPuppeteer && (
         <Row gap="xs" horizontal="end">
           <Tag size="s" variant="success">
@@ -258,12 +261,56 @@ export function SEOReport({ results }: { results: SEOAnalysis }) {
           </Tag>
         </Row>
       )}
+      
+      {/* Main SEO Analysis Card */}
       <AnalysisCard
         title="SEO"
         icon="search"
         score={results.score}
         items={items}
       />
+
+      {/* Open Graph Preview */}
+      {results.openGraph && (
+        <Column
+          padding="l"
+          gap="m"
+          background="surface"
+          radius="l"
+          border="neutral-alpha-weak"
+          fillWidth
+        >
+          <OpenGraphPreview data={results.openGraph} url={results.url} />
+        </Column>
+      )}
+
+      {/* JSON-LD Viewer */}
+      {results.jsonLdData && (
+        <Column
+          padding="l"
+          gap="m"
+          background="surface"
+          radius="l"
+          border="neutral-alpha-weak"
+          fillWidth
+        >
+          <JsonLdViewer data={results.jsonLdData} />
+        </Column>
+      )}
+
+      {/* Meta Tags Viewer */}
+      {results.metaTags && (
+        <Column
+          padding="l"
+          gap="m"
+          background="surface"
+          radius="l"
+          border="neutral-alpha-weak"
+          fillWidth
+        >
+          <MetaTagsViewer data={results.metaTags} />
+        </Column>
+      )}
     </Column>
   );
 }
