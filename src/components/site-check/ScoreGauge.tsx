@@ -63,7 +63,14 @@ export function ScoreGauge({ score, color, size = 100 }: ScoreGaugeProps) {
           transform: "translateX(-50%)",
         }}
       >
-        <Text variant="display-strong-l" onBackground={`${color}-weak`}>
+        <Text
+          variant="display-strong-l"
+          onBackground={`${color}-weak`}
+          style={{
+            textShadow:
+              "0 2px 0 var(--page-background), 0 -2px 0 var(--page-background), 2px 0 0 var(--page-background), -2px 0 0 var(--page-background), 0 0 2px var(--page-background)",
+          }}
+        >
           {score}
         </Text>
         <Text variant="body-default-xs" onBackground="neutral-weak">

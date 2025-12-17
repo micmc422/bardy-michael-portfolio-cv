@@ -5,7 +5,6 @@ import {
   Badge,
   Button,
   Column,
-  Flex,
   Heading,
   Icon,
   IconButton,
@@ -37,7 +36,6 @@ const TableOfContents = dynamic(() => import('@/components/a-propos/TableOfConte
 import styles from "@/components/a-propos/a-propos.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React from "react";
-import type { JSX } from "react";
 
 export async function generateMetadata() {
   return Meta.generate({

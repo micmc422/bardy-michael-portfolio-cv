@@ -60,6 +60,9 @@ export interface AnalysisItem {
     description?: string;
     impact?: string;
     recommendation?: string;
+    // Optional client-side rendering overrides
+    valueComponent?: React.ReactNode;
+    contentComponent?: React.ReactNode;
 }
 
 export interface PerformanceAnalysis {

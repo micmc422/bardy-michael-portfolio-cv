@@ -72,12 +72,16 @@ export function AnalysisCard({ title, icon, score, items }: AnalysisCardProps) {
         <Row gap="s" vertical="center" fillWidth>
           <Icon name={statusIcon} size="s" onBackground={`${statusColor}-weak`} />
           <Text variant="label-default-s">{item.label}</Text>
-          <Text variant="body-default-xs" onBackground={`${statusColor}-weak`} style={{ marginLeft: "auto" }}>
-            {formatValue(item.value)}
-          </Text>
+          {item.valueComponent ? (
+            <Row style={{ marginLeft: "auto" }}>{item.valueComponent}</Row>
+          ) : (
+            <Text variant="body-default-xs" onBackground={`${statusColor}-weak`} style={{ marginLeft: "auto" }}>
+              {formatValue(item.value)}
+            </Text>
+          )}
         </Row>
       ),
-      content: (
+      content: item.contentComponent ?? (
         <Column gap="s" paddingLeft="l">
           {item.description && (
             <Row gap="xs" vertical="start">

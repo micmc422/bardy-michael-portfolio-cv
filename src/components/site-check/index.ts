@@ -3,3 +3,8 @@ export { AnalysisCardWithScoreReport } from "./AnalysisCardWithScoreReport";
 export { ScoreGauge } from "./ScoreGauge";
 export { OverallScore } from "./OverallScore";
 export { AnalysisScoreTracker } from "./AnalysisScoreTracker";
+export { SecurityReport } from "./reports/security/SecurityReport";
+export { SEOReport } from "./reports/seo/SEOReport";
+export { PerformanceReport } from "./reports/performance/PerformanceReport";
+export { AccessibilityReport } from "./reports/accessibility/AccessibilityReport";
+export { MobileReport } from "./reports/mobile/MobileReport";
