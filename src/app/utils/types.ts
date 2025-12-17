@@ -71,6 +71,9 @@ export interface PerformanceAnalysis {
     pageSize: AnalysisItem;
     requestCount: AnalysisItem;
     compression: AnalysisItem;
+    ttfb?: AnalysisItem;
+    fcp?: AnalysisItem;
+    lcp?: AnalysisItem;
     resources: {
         html: number;
         css: number;
@@ -79,6 +82,7 @@ export interface PerformanceAnalysis {
         fonts: number;
     };
     score: number;
+    usedPuppeteer?: boolean;
 }
 
 export interface SEOAnalysis {

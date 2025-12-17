@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, Row, Text, Icon } from "@once-ui-system/core";
+import { Column, Row, Text, Icon, Tag } from "@once-ui-system/core";
 import type { PerformanceAnalysis, AnalysisItem } from "@/app/utils/types";
 import { AnalysisCard } from "../../AnalysisCard";
 
@@ -118,6 +118,68 @@ export function PerformanceReport({ results }: { results: PerformanceAnalysis })
         { label: "PageSpeed Insights", href: "https://pagespeed.web.dev/" },
       ]
     ),
+  ];
+
+  // Add TTFB if available (Puppeteer analysis)
+  if (results.ttfb) {
+    items.push(
+      createDetailedContent(
+        results.ttfb,
+        [
+          { text: "TTFB mesure le temps entre la requête et le premier octet reçu", type: "info" },
+          { text: "Un bon TTFB est < 200ms (Core Web Vitals)", type: "tip" },
+          { text: "Facteurs : temps de réponse serveur, DNS, SSL/TLS, réseau", type: "info" },
+          { text: "TTFB lent = problème côté serveur ou base de données", type: "warning" },
+        ],
+        [
+          { label: "TTFB (web.dev)", href: "https://web.dev/articles/ttfb" },
+          { label: "Optimiser TTFB", href: "https://web.dev/articles/optimize-ttfb" },
+        ]
+      )
+    );
+  }
+
+  // Add FCP if available (Puppeteer analysis)
+  if (results.fcp) {
+    items.push(
+      createDetailedContent(
+        results.fcp,
+        [
+          { text: "FCP mesure quand le premier contenu devient visible", type: "info" },
+          { text: "Bon FCP : < 1.8s (Core Web Vitals)", type: "tip" },
+          { text: "Affecté par : CSS bloquant, polices, JavaScript", type: "info" },
+          { text: "Utilisez font-display: swap pour les polices", type: "tip" },
+        ],
+        [
+          { label: "FCP (web.dev)", href: "https://web.dev/articles/fcp" },
+          { label: "Optimiser FCP", href: "https://web.dev/articles/optimize-fcp" },
+        ]
+      )
+    );
+  }
+
+  // Add LCP if available (Puppeteer analysis)
+  if (results.lcp) {
+    items.push(
+      createDetailedContent(
+        results.lcp,
+        [
+          { text: "LCP mesure quand l'élément principal est visible (image, texte)", type: "info" },
+          { text: "Bon LCP : < 2.5s (Core Web Vital critique pour le SEO)", type: "tip" },
+          { text: "Souvent affecté par l'image hero ou le premier titre", type: "info" },
+          { text: "Préchargez l'image LCP avec <link rel='preload'>", type: "tip" },
+          { text: "Un mauvais LCP pénalise directement votre classement Google", type: "warning" },
+        ],
+        [
+          { label: "LCP (web.dev)", href: "https://web.dev/articles/lcp" },
+          { label: "Optimiser LCP", href: "https://web.dev/articles/optimize-lcp" },
+        ]
+      )
+    );
+  }
+
+  // Add page size
+  items.push(
     createDetailedContent(
       results.pageSize,
       [
@@ -134,7 +196,11 @@ export function PerformanceReport({ results }: { results: PerformanceAnalysis })
         { label: "Compression d'images", href: "https://squoosh.app/" },
         { label: "Bundlephobia (taille packages JS)", href: "https://bundlephobia.com/" },
       ]
-    ),
+    )
+  );
+
+  // Add request count
+  items.push(
     createDetailedContent(
       results.requestCount,
       [
@@ -148,7 +214,11 @@ export function PerformanceReport({ results }: { results: PerformanceAnalysis })
         { label: "HTTP/2 (MDN)", href: "https://developer.mozilla.org/docs/Glossary/HTTP_2" },
         { label: "Lazy Loading (web.dev)", href: "https://web.dev/articles/lazy-loading" },
       ]
-    ),
+    )
+  );
+
+  // Add compression
+  items.push(
     createDetailedContent(
       results.compression,
       [
@@ -162,15 +232,27 @@ export function PerformanceReport({ results }: { results: PerformanceAnalysis })
         { label: "Activer Gzip/Brotli", href: "https://web.dev/articles/reduce-network-payloads-using-text-compression" },
         { label: "Test de compression", href: "https://www.giftofspeed.com/gzip-test/" },
       ]
-    ),
-  ];
+    )
+  );
 
   return (
-    <AnalysisCard
-      title="Performance"
-      icon="zap"
-      score={results.score}
-      items={items}
-    />
+    <Column gap="m" fillWidth>
+      {results.usedPuppeteer && (
+        <Row gap="xs" horizontal="end">
+          <Tag size="s" variant="success">
+            <Row gap="4" vertical="center">
+              <Icon name="check" size="xs" />
+              <Text variant="label-default-xs">Analyse Puppeteer (Core Web Vitals)</Text>
+            </Row>
+          </Tag>
+        </Row>
+      )}
+      <AnalysisCard
+        title="Performance"
+        icon="zap"
+        score={results.score}
+        items={items}
+      />
+    </Column>
   );
 }
