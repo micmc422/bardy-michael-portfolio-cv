@@ -6,10 +6,13 @@
     "dev": "next dev --turbopack --port 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --quiet"
+    "lint": "eslint . --quiet",
+    "clean": "rm -rf .turbo node_modules .next",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.6",
+    "@joplin/turndown-plugin-gfm": "^1.0.64",
     "@once-ui-system/core": "^1.5.8",
     "@repo/config": "workspace:*",
     "@repo/ui": "workspace:*",
@@ -27,12 +30,13 @@
     "recharts": "^3.6.0",
     "sass": "^1.97.0",
     "sharp": "^0.34.5",
-    "turndown": "^7.2.2",
-    "@joplin/turndown-plugin-gfm": "^1.0.64"
+    "turndown": "^7.2.2"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.1.0",
     "@next/eslint-plugin-next": "16.1.0",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@sparticuz/chromium": "^143.0.0",
     "@types/node": "^25.0.3",
     "@types/react": "19.2.7",

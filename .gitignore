@@ -6,7 +6,6 @@ node_modules
 .pnp.js
 .yarn/install-state.gz
 package-lock.json
-pnpm-lock.yaml
 
 # testing
 /coverage
@@ -17,6 +16,7 @@ pnpm-lock.yaml
 
 # production
 /build
+dist/
 
 # misc
 .DS_Store
@@ -41,7 +41,13 @@ certificates
 # Puppeteer chromium binary (generated at build time)
 public/chromium-pack.tar
 
+# Turborepo
+.turbo
+
 # Monorepo
 apps/*/.next
 apps/*/node_modules
+apps/*/.turbo
 packages/*/node_modules
+packages/*/.turbo
+packages/*/dist

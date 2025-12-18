@@ -1,6 +1,6 @@
-# 🎨 Bardy Michael — Monorepo
+# 🎨 Bardy Michael — Turborepo Monorepo
 
-Ce dépôt contient le code source du monorepo de **Michael Bardy**, développeur web freelance, organisé en 4 applications distinctes.
+Ce dépôt contient le code source du monorepo de **Michael Bardy**, développeur web freelance, organisé en 4 applications distinctes avec [Turborepo](https://turbo.build/repo).
 
 👉 **Sites en ligne** :
 - Portfolio : [https://occitaweb.fr](https://occitaweb.fr)
@@ -19,10 +19,13 @@ Ce dépôt contient le code source du monorepo de **Michael Bardy**, développeu
 │   ├── site-check/    # Outil d'analyse SEO (port 3002)
 │   └── docs/          # Documentation Nextra (port 3003)
 ├── packages/
-│   ├── config/        # Configuration partagée (resources, types)
-│   ├── ui/            # Composants UI partagés
-│   ├── utils/         # Utilitaires partagés
-│   └── seo-resources/ # Ressources SEO (types, analysis)
+│   ├── config/            # Configuration partagée (resources, types)
+│   ├── eslint-config/     # Configuration ESLint partagée
+│   ├── typescript-config/ # Configuration TypeScript partagée
+│   ├── ui/                # Composants UI partagés
+│   ├── utils/             # Utilitaires partagés
+│   └── seo-resources/     # Ressources SEO (types, analysis)
+├── turbo.json             # Configuration Turborepo
 └── pnpm-workspace.yaml
 ```
 
@@ -30,6 +33,7 @@ Ce dépôt contient le code source du monorepo de **Michael Bardy**, développeu
 
 ## 🚀 Technologies utilisées
 
+- **Turborepo** — orchestration du monorepo avec cache intelligent
 - **Next.js 16** — framework React moderne
 - **TypeScript** — typage fort pour un code robuste
 - **Once UI** — système de design
@@ -56,7 +60,7 @@ pnpm install
 ### Lancer les projets
 
 ```bash
-# Lancer tous les projets
+# Lancer tous les projets (avec Turborepo)
 pnpm dev
 
 # Lancer un projet spécifique
@@ -69,8 +73,8 @@ pnpm dev:docs         # Port 3003
 ### Build
 
 ```bash
-# Build tous les projets
-pnpm build
+# Build tous les projets (avec cache Turborepo)
+pnpm build:all
 
 # Build un projet spécifique
 pnpm build:portfolio
@@ -89,6 +93,22 @@ pnpm test
 pnpm test:utils
 pnpm test:seo
 pnpm test:portfolio
+```
+
+### Autres commandes
+
+```bash
+# Vérification des types
+pnpm typecheck
+
+# Linting
+pnpm lint
+
+# Nettoyage complet
+pnpm clean
+
+# Formatage
+pnpm format
 ```
 
 ---
@@ -128,9 +148,32 @@ Documentation Nextra du monorepo :
 | Package | Description |
 |---------|-------------|
 | @repo/config | Configuration partagée (routes, fonts, style) |
-| @repo/ui | Composants UI (Header, Footer, etc.) |
+| @repo/eslint-config | Configuration ESLint partagée |
+| @repo/typescript-config | Configuration TypeScript partagée |
+| @repo/ui | Composants UI (ThemeToggle, etc.) |
 | @repo/utils | Utilitaires (slugify, formatDate, etc.) |
 | @repo/seo-resources | Ressources SEO (types, analysis) |
+
+---
+
+## ⚡ Turborepo
+
+Ce monorepo utilise [Turborepo](https://turbo.build/repo) pour:
+- **Cache intelligent** : Les builds sont mis en cache et ne sont relancés que si le code change
+- **Exécution parallèle** : Les tâches indépendantes s'exécutent en parallèle
+- **Dépendances de tâches** : Les builds respectent l'ordre des dépendances
+
+### Configuration (`turbo.json`)
+```json
+{
+  "tasks": {
+    "build": { "dependsOn": ["^build"], "outputs": [".next/**", "dist/**"] },
+    "dev": { "cache": false, "persistent": true },
+    "lint": { "dependsOn": ["^lint"] },
+    "test": { "cache": false }
+  }
+}
+```
 
 ---
 
@@ -151,6 +194,7 @@ Les anciennes URLs sont automatiquement redirigées :
 
 - [ ] Améliorer la couverture de tests
 - [ ] Ajouter des tests E2E
+- [ ] Configurer Remote Caching Vercel
 
 ### 📩 Contact
 
