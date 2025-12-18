@@ -39,8 +39,8 @@ export default async function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column maxWidth={"xl"}>
-        <Column maxWidth="s" as="section" aria-labelledby="entete-title">
+      <Column as="section" maxWidth={"xl"}>
+        <Column maxWidth="s" aria-labelledby="entete-title">
           <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
             <Badge
               background="brand-alpha-weak" paddingX="xs" paddingY="4" onBackground="brand-strong"
@@ -92,7 +92,7 @@ export default async function Home() {
           )}
         </Column>
       </Column>
-      <Column as="section" paddingY="24" gap="m" maxWidth={"m"} aria-labelledby="fonctionnalites-title">
+      <Column as="section" paddingY="m" gap="m" maxWidth={"m"} aria-labelledby="fonctionnalites-title">
         <RevealFx translateY="16" delay={0.6}>
           <Projects range={[1, 1]} />
         </RevealFx>

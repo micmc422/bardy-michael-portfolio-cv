@@ -43,6 +43,7 @@ import {
 import { GoRepoForked } from "react-icons/go";
 import { IoIosConstruct } from "react-icons/io";
 import { IoAtOutline, IoFastFoodOutline, IoFlagOutline, IoFootballOutline, IoGiftOutline, IoGlobeOutline, IoImages, IoPawOutline, IoPencil, IoSettingsOutline, IoShieldCheckmark, IoSparkles } from "react-icons/io5";
+import { SiFigma, SiNodedotjs, SiTypescript, SiNextdotjs, SiPrisma } from "react-icons/si";
 
 import {
     PiHouseDuotone,
@@ -146,7 +147,12 @@ export const iconLibrary: Record<string, IconType> = {
     layout: FiLayout,
     pin: FaMapPin,
     handshake: FaHandshake,
-    chevronsLeftRight: ChevronsLeftRight
+    chevronsLeftRight: ChevronsLeftRight,
+    figma: SiFigma,
+    nodejs: SiNodedotjs,
+    typescript: SiTypescript,
+    nextjs: SiNextdotjs,
+    prisma: SiPrisma
 };
 
 export type IconLibrary = typeof iconLibrary;
