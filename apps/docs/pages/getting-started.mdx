@@ -1,0 +1,82 @@
+# Démarrage
+
+## Prérequis
+
+- **Node.js** >= 18
+- **pnpm** >= 10.12.1
+
+## Installation
+
+```bash
+# Cloner le repository
+git clone https://github.com/micmc422/bardy-michael-portfolio-cv.git
+cd bardy-michael-portfolio-cv
+
+# Installer les dépendances
+pnpm install
+```
+
+## Variables d'environnement
+
+Créez un fichier `.env.local` à la racine de chaque application :
+
+### Portfolio (apps/portfolio/.env.local)
+
+```env
+DATABASE_URL=postgresql://...
+WISP_API_KEY=your-wisp-api-key
+GOOGLE_CALENDAR_ID=your-calendar-id
+NEXT_PUBLIC_VAPID_PUBLIC_KEY=your-vapid-key
+VAPID_PRIVATE_KEY=your-vapid-private-key
+```
+
+### Blog (apps/blog/.env.local)
+
+```env
+WISP_API_KEY=your-wisp-api-key
+FACEBOOK_ACCESS_TOKEN=your-facebook-token
+LINKEDIN_ACCESS_TOKEN=your-linkedin-token
+```
+
+### Site-Check (apps/site-check/.env.local)
+
+```env
+# Pas de variables requises pour le développement local
+```
+
+## Lancer les applications
+
+```bash
+# Lancer toutes les applications
+pnpm dev
+
+# Lancer une application spécifique
+pnpm dev:portfolio    # http://localhost:3000
+pnpm dev:blog         # http://localhost:3001
+pnpm dev:site-check   # http://localhost:3002
+```
+
+## Build
+
+```bash
+# Build toutes les applications
+pnpm build
+
+# Build une application spécifique
+pnpm build:portfolio
+pnpm build:blog
+pnpm build:site-check
+```
+
+## Tests
+
+```bash
+# Lancer tous les tests
+pnpm test
+
+# Lancer les tests en mode watch
+pnpm test:watch
+
+# Lancer les tests avec couverture
+pnpm test:coverage
+```

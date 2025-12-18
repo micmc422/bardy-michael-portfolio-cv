@@ -1,0 +1,32 @@
+# Blog
+
+Application blog pour les articles et actualités.
+
+## Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Liste des articles |
+| `/[slug]` | Détail d'un article |
+| `/tags/[...tags]` | Articles par tag |
+
+## Fonctionnalités
+
+- **Wisp CMS** - Gestion du contenu
+- **Commentaires** - Système de commentaires
+- **Réactions** - Emoji reactions
+- **Partage social** - LinkedIn, Facebook
+- **SEO** - Métadonnées optimisées
+
+## API Routes
+
+- `GET /api/post/[slug]` - Données article
+- `POST /api/cron/social-share` - Partage automatique
+- `POST /api/cron/indexNow` - Indexation SEO
+
+## Composants
+
+- `Posts` - Liste des articles
+- `Post` - Affichage article
+- `CommentSection` - Section commentaires
+- `SocialShare` - Boutons de partage

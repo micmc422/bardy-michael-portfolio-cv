@@ -1,0 +1,65 @@
+# Package UI
+
+Composants UI partagés basés sur Once UI.
+
+## Installation
+
+```bash
+# Dans un package.json d'application
+"@repo/ui": "workspace:*"
+```
+
+## Composants disponibles
+
+### Header
+
+Navigation principale responsive.
+
+```tsx
+import { Header } from "@repo/ui"
+
+<Header />
+```
+
+### Footer
+
+Pied de page avec liens et réseaux sociaux.
+
+```tsx
+import { Footer } from "@repo/ui"
+
+<Footer />
+```
+
+### Faq
+
+Accordéon FAQ avec schema.org.
+
+```tsx
+import { Faq } from "@repo/ui"
+
+<Faq faqData={JSON.stringify({
+  title: "Questions fréquentes",
+  faq: [
+    { title: "Question 1", content: "Réponse 1" },
+    { title: "Question 2", content: "Réponse 2" }
+  ]
+})} />
+```
+
+### CookieConsent
+
+Banner de consentement cookies.
+
+```tsx
+import { CookieConsent } from "@repo/ui"
+
+<CookieConsent />
+```
+
+## Style
+
+Les composants utilisent :
+- **Once UI** pour le design system
+- **SCSS Modules** pour les styles personnalisés
+- **CSS Variables** pour la thématisation

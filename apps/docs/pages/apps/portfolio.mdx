@@ -1,0 +1,31 @@
+# Portfolio
+
+Application portfolio principale présentant les réalisations et services.
+
+## Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Page d'accueil |
+| `/a-propos` | Page à propos |
+| `/realisations` | Portfolio de projets |
+| `/realisations/[slug]` | Détail d'un projet |
+| `/blog` | Liste des articles |
+| `/estimation` | Estimateur de projet |
+| `/solutions` | Solutions proposées |
+| `/webmaster-albi` | Page SEO locale |
+
+## Composants clés
+
+- `Header` - Navigation principale
+- `Footer` - Pied de page
+- `ProjectCard` - Carte de projet
+- `AvisClients` - Avis clients Google
+- `Tarifs` - Grille tarifaire
+
+## API Routes
+
+- `GET /api/cal/availability` - Disponibilité calendrier
+- `POST /api/estimation/[type]` - Soumission estimation
+- `GET /api/project/[slug]` - Données projet
+- `GET /api/og/fetch` - Scraping Open Graph
