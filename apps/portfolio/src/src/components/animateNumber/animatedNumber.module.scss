@@ -1,8 +1,0 @@
-.component {
-    font-variant-numeric: tabular-nums; // pour éviter les sauts visuels
-
-    .value {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        display: inline-block;
-    }
-}
