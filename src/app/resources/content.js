@@ -725,6 +725,42 @@ const estimation = {
   // All posts will be listed on the /blog route
 };
 
+const siteCheck = {
+  path: "/site-check",
+  label: "Analyse de Site",
+  title: "Analyse de Site Web",
+  description: "Analysez gratuitement les performances, le SEO, la sécurité et l'accessibilité de votre site web.",
+  headline: "Analysez votre site web",
+  subline: "Obtenez une analyse complète et gratuite de votre site internet : performances, SEO, sécurité, accessibilité et compatibilité mobile.",
+  categories: {
+    performance: {
+      title: "Performance",
+      description: "Analyse des temps de chargement, taille des ressources et Core Web Vitals",
+      icon: "zap"
+    },
+    seo: {
+      title: "SEO",
+      description: "Audit des balises meta, structure des titres, liens et données structurées",
+      icon: "search"
+    },
+    security: {
+      title: "Sécurité",
+      description: "Vérification HTTPS, en-têtes de sécurité et cookies",
+      icon: "shield"
+    },
+    accessibility: {
+      title: "Accessibilité",
+      description: "Analyse des attributs ARIA, contraste des couleurs et navigation clavier",
+      icon: "users"
+    },
+    mobile: {
+      title: "Mobile",
+      description: "Compatibilité mobile, viewport et tailles des éléments tactiles",
+      icon: "mobile"
+    }
+  }
+};
+
 const work = {
   path: "/realisations",
   label: "Portfolio",
@@ -785,4 +821,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi, solutionsWeb };
+export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi, solutionsWeb, siteCheck };
