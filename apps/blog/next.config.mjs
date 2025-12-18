@@ -48,6 +48,42 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Redirect portfolio routes to main site
+      {
+        source: "/a-propos",
+        destination: "https://occitaweb.fr/a-propos",
+        permanent: true,
+        basePath: false
+      },
+      {
+        source: "/realisations/:path*",
+        destination: "https://occitaweb.fr/realisations/:path*",
+        permanent: true,
+        basePath: false
+      },
+      {
+        source: "/estimation/:path*",
+        destination: "https://occitaweb.fr/estimation/:path*",
+        permanent: true,
+        basePath: false
+      },
+      {
+        source: "/solutions/:path*",
+        destination: "https://occitaweb.fr/solutions/:path*",
+        permanent: true,
+        basePath: false
+      },
+      // Redirect site-check routes to SEO subdomain
+      {
+        source: "/site-check/:path*",
+        destination: "https://seo.occitaweb.fr/:path*",
+        permanent: true,
+        basePath: false
+      }
+    ]
+  },
   async headers() {
     return [
       {

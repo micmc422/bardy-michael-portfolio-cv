@@ -1,0 +1,99 @@
+# Package SEO Resources
+
+Ressources et utilitaires pour l'analyse SEO.
+
+## Installation
+
+```bash
+# Dans un package.json d'application
+"@repo/seo-resources": "workspace:*"
+```
+
+## Types
+
+```typescript
+import type { 
+  SEOAnalysisResult,
+  SEOIssue,
+  MetaTagsData,
+  PerformanceData,
+  SecurityData,
+  AccessibilityData,
+  MobileData,
+  OpenGraphData,
+  JsonLdData
+} from "@repo/seo-resources"
+```
+
+## Analyse SEO
+
+### Performance
+
+```typescript
+import { analyzePerformance } from "@repo/seo-resources/analysis"
+
+const perfData = await analyzePerformance(url)
+// {
+//   loadTime: 1.5,
+//   firstContentfulPaint: 0.8,
+//   largestContentfulPaint: 2.1,
+//   ...
+// }
+```
+
+### SEO
+
+```typescript
+import { analyzeSEO } from "@repo/seo-resources/analysis"
+
+const seoData = await analyzeSEO(url)
+// {
+//   metaTags: { title, description, ... },
+//   headings: [...],
+//   links: [...],
+//   ...
+// }
+```
+
+### Sécurité
+
+```typescript
+import { analyzeSecurity } from "@repo/seo-resources/analysis"
+
+const securityData = await analyzeSecurity(url)
+// {
+//   https: true,
+//   hsts: true,
+//   ...
+// }
+```
+
+### Accessibilité
+
+```typescript
+import { analyzeAccessibility } from "@repo/seo-resources/analysis"
+
+const a11yData = await analyzeAccessibility(url)
+```
+
+### Mobile
+
+```typescript
+import { analyzeMobile } from "@repo/seo-resources/analysis"
+
+const mobileData = await analyzeMobile(url)
+```
+
+## Rapports
+
+Composants React pour afficher les résultats.
+
+```tsx
+import { 
+  PerformanceReport,
+  SEOReport,
+  SecurityReport,
+  AccessibilityReport,
+  MobileReport
+} from "@repo/seo-resources/reports"
+```

@@ -1,0 +1,69 @@
+# Déploiement
+
+Guide de déploiement sur Vercel.
+
+## Configuration Vercel
+
+Chaque application doit être configurée comme un projet séparé sur Vercel.
+
+### Portfolio
+
+```json
+{
+  "buildCommand": "pnpm --filter @repo/portfolio build",
+  "outputDirectory": "apps/portfolio/.next",
+  "installCommand": "pnpm install"
+}
+```
+
+### Blog
+
+```json
+{
+  "buildCommand": "pnpm --filter @repo/blog build",
+  "outputDirectory": "apps/blog/.next",
+  "installCommand": "pnpm install"
+}
+```
+
+### Site-Check
+
+```json
+{
+  "buildCommand": "pnpm --filter @repo/site-check build",
+  "outputDirectory": "apps/site-check/.next",
+  "installCommand": "pnpm install"
+}
+```
+
+## Domaines
+
+| Application | Domaine |
+|-------------|---------|
+| Portfolio | occitaweb.fr |
+| Blog | blog.occitaweb.fr |
+| Site-Check | seo.occitaweb.fr |
+| Docs | docs.occitaweb.fr |
+
+## Variables d'environnement
+
+Configurez les variables d'environnement dans les paramètres Vercel de chaque projet.
+
+## Cron Jobs
+
+Les cron jobs sont configurés dans `vercel.json` :
+
+```json
+{
+  "crons": [
+    {
+      "path": "/api/cron/indexNow",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/cron/social-share",
+      "schedule": "0 7 * * *"
+    }
+  ]
+}
+```

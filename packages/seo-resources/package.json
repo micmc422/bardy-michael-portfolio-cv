@@ -1,0 +1,35 @@
+{
+  "name": "@repo/seo-resources",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./analysis": "./src/analysis/index.ts",
+    "./reports": "./src/reports/index.ts",
+    "./types": "./src/types.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "open-graph-scraper": "^6.11.0",
+    "puppeteer-core": "^24.33.1",
+    "sharp": "^0.34.5",
+    "turndown": "^7.2.2",
+    "@joplin/turndown-plugin-gfm": "^1.0.64"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^143.0.0",
+    "@types/turndown": "^5.0.6",
+    "puppeteer": "^24.33.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "peerDependencies": {
+    "react": "^19.2.3"
+  }
+}

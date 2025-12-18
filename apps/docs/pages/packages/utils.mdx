@@ -1,0 +1,63 @@
+# Package Utils
+
+Utilitaires partagés pour toutes les applications.
+
+## Installation
+
+```bash
+# Dans un package.json d'application
+"@repo/utils": "workspace:*"
+```
+
+## Fonctions disponibles
+
+### formatDate
+
+Formate une date en français.
+
+```typescript
+import { formatDate } from "@repo/utils"
+
+formatDate("2024-01-15") // "15 janvier 2024"
+formatDate("2024-01-15", { short: true }) // "15 janv. 2024"
+```
+
+### slugify
+
+Convertit un texte en slug URL.
+
+```typescript
+import { slugify } from "@repo/utils"
+
+slugify("Mon Article de Blog") // "mon-article-de-blog"
+```
+
+### getRandomSixDigitNumber
+
+Génère un identifiant aléatoire.
+
+```typescript
+import { getRandomSixDigitNumber } from "@repo/utils"
+
+getRandomSixDigitNumber() // 847293
+```
+
+### convertirTimestampGoogle
+
+Convertit un timestamp Google en date ISO.
+
+```typescript
+import { convertirTimestampGoogle } from "@repo/utils"
+
+convertirTimestampGoogle(1705312800) // "2024-01-15"
+```
+
+## Database
+
+Connection Neon PostgreSQL via Drizzle ORM.
+
+```typescript
+import { db } from "@repo/utils/db"
+
+const results = await db.query.users.findMany()
+```

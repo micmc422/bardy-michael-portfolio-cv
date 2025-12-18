@@ -1,0 +1,59 @@
+# Package Config
+
+Configuration partagée pour toutes les applications.
+
+## Installation
+
+```bash
+# Dans un package.json d'application
+"@repo/config": "workspace:*"
+```
+
+## Exports
+
+```typescript
+import { baseURL, style, fonts, routes } from "@repo/config"
+import { person, social, home, about, blog } from "@repo/config/content"
+import { iconLibrary } from "@repo/config/icons"
+```
+
+## Configuration principale
+
+### Routes
+
+```javascript
+const routes = {
+  "/": true,
+  "/a-propos": true,
+  "/realisations": true,
+  "/blog": true,
+  "/estimation": true,
+  "/webmaster-albi": true,
+  "/solutions": true,
+  "/site-check": true,
+}
+```
+
+### Style
+
+```javascript
+const style = {
+  theme: "dark",
+  brand: "orange",
+  accent: "indigo",
+  neutral: "sand",
+  border: "rounded",
+  solid: "contrast",
+  solidStyle: "flat",
+  surface: "filled",
+  transition: "all",
+  scaling: "100",
+}
+```
+
+### Fonts
+
+- **Heading**: Josefin Sans
+- **Body**: Geist
+- **Label**: Open Sans
+- **Code**: Geist Mono

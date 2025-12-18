@@ -54,6 +54,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Legacy route redirects
       {
         source: "/about/:path*",
         destination: "/a-propos/:path*",
@@ -63,6 +64,32 @@ const nextConfig = {
         source: "/work/:path*",
         destination: "/realisations/:path*",
         permanent: true
+      },
+      // Cross-app redirects - redirect blog routes to blog subdomain
+      {
+        source: "/blog",
+        destination: "https://blog.occitaweb.fr",
+        permanent: true,
+        basePath: false
+      },
+      {
+        source: "/blog/:path*",
+        destination: "https://blog.occitaweb.fr/:path*",
+        permanent: true,
+        basePath: false
+      },
+      // Cross-app redirects - redirect site-check routes to SEO subdomain
+      {
+        source: "/site-check",
+        destination: "https://seo.occitaweb.fr",
+        permanent: true,
+        basePath: false
+      },
+      {
+        source: "/site-check/:path*",
+        destination: "https://seo.occitaweb.fr/:path*",
+        permanent: true,
+        basePath: false
       }
     ]
   },

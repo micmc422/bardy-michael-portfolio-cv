@@ -1,0 +1,52 @@
+# Bienvenue sur la documentation Occitaweb
+
+Ce monorepo contient l'ensemble des applications et packages du projet Occitaweb.
+
+## 📁 Structure du projet
+
+Le projet est organisé en **monorepo** avec pnpm workspaces :
+
+```
+├── apps/
+│   ├── portfolio/     # Site portfolio principal (port 3000)
+│   ├── blog/          # Application blog (port 3001)
+│   ├── site-check/    # Outil d'analyse SEO (port 3002)
+│   └── docs/          # Documentation Nextra (port 3003)
+├── packages/
+│   ├── config/        # Configuration partagée
+│   ├── ui/            # Composants UI partagés
+│   ├── utils/         # Utilitaires partagés
+│   └── seo-resources/ # Ressources SEO
+└── pnpm-workspace.yaml
+```
+
+## 🚀 Démarrage rapide
+
+```bash
+# Installation des dépendances
+pnpm install
+
+# Lancer tous les projets
+pnpm dev
+
+# Lancer un projet spécifique
+pnpm dev:portfolio
+pnpm dev:blog
+pnpm dev:site-check
+```
+
+## 📦 Applications
+
+| Application | Description | Port |
+|-------------|-------------|------|
+| Portfolio | Site portfolio principal | 3000 |
+| Blog | Application blog | 3001 |
+| Site-Check | Outil d'analyse SEO | 3002 |
+| Docs | Documentation | 3003 |
+
+## 🔗 Liens utiles
+
+- [GitHub Repository](https://github.com/micmc422/bardy-michael-portfolio-cv)
+- [Site Portfolio](https://occitaweb.fr)
+- [Blog](https://blog.occitaweb.fr)
+- [SEO Tool](https://seo.occitaweb.fr)

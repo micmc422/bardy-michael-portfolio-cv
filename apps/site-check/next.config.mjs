@@ -4,7 +4,7 @@ const nextConfig = {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
   },
-  transpilePackages: ["@repo/ui", "@repo/config", "@repo/utils"],
+  transpilePackages: ["@repo/ui", "@repo/config", "@repo/utils", "@repo/seo-resources"],
   images: {
     remotePatterns: [
       {
@@ -26,6 +26,36 @@ const nextConfig = {
         pathname: "/images/**",
       },
     ],
+  },
+  async redirects() {
+    return [
+      // Redirect portfolio routes to main site
+      {
+        source: "/a-propos",
+        destination: "https://occitaweb.fr/a-propos",
+        permanent: true,
+        basePath: false
+      },
+      {
+        source: "/realisations/:path*",
+        destination: "https://occitaweb.fr/realisations/:path*",
+        permanent: true,
+        basePath: false
+      },
+      {
+        source: "/estimation/:path*",
+        destination: "https://occitaweb.fr/estimation/:path*",
+        permanent: true,
+        basePath: false
+      },
+      // Redirect blog routes to blog subdomain
+      {
+        source: "/blog/:path*",
+        destination: "https://blog.occitaweb.fr/:path*",
+        permanent: true,
+        basePath: false
+      }
+    ]
   },
   async headers() {
     return [
