@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -11,7 +11,7 @@ package-lock.json
 /coverage
 
 # next.js
-/.next/
+.next/
 /out/
 
 # production
@@ -39,3 +39,8 @@ certificates
 
 # Puppeteer chromium binary (generated at build time)
 public/chromium-pack.tar
+
+# Monorepo
+apps/*/.next
+apps/*/node_modules
+packages/*/node_modules
