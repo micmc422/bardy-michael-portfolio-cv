@@ -9,7 +9,8 @@
     "dev:blog": "pnpm --filter @repo/blog dev",
     "dev:site-check": "pnpm --filter @repo/site-check dev",
     "dev:docs": "pnpm --filter @repo/docs dev",
-    "build": "pnpm --filter '@repo/*' build",
+    "build": "pnpm --filter @repo/portfolio build",
+    "build:all": "pnpm --filter '@repo/*' build",
     "build:portfolio": "pnpm --filter @repo/portfolio build",
     "build:blog": "pnpm --filter @repo/blog build",
     "build:site-check": "pnpm --filter @repo/site-check build",
@@ -27,6 +28,9 @@
     "clean:eslint": "eslint . --fix",
     "clean": "npm run clean:deps && npm run clean:exports && npm run clean:check && npm run clean:eslint",
     "postinstall": "node scripts/postinstall.mjs"
+  },
+  "dependencies": {
+    "next": "16.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",

@@ -1,4 +1,8 @@
 {
+    "buildCommand": "pnpm --filter @repo/portfolio build",
+    "outputDirectory": "apps/portfolio/.next",
+    "installCommand": "pnpm install",
+    "framework": "nextjs",
     "crons": [
         {
             "path": "/api/cron/indexNow",
