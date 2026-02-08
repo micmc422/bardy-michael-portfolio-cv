@@ -16,6 +16,79 @@ importers:
         specifier: ^2.5.4
         version: 2.8.3
 
+  apps/site-check:
+    dependencies:
+      '@once-ui-system/core':
+        specifier: ^1.5.8
+        version: 1.6.0(next@16.1.0(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.97.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.97.3)(sharp@0.34.5)
+      '@sparticuz/chromium-min':
+        specifier: ^143.0.0
+        version: 143.0.4
+      lucide-react:
+        specifier: ^0.562.0
+        version: 0.562.0(react@19.2.3)
+      next:
+        specifier: 16.1.0
+        version: 16.1.0(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.97.3)
+      puppeteer-core:
+        specifier: ^24.33.1
+        version: 24.37.2
+      react:
+        specifier: 19.2.3
+        version: 19.2.3
+      react-dom:
+        specifier: 19.2.3
+        version: 19.2.3(react@19.2.3)
+      sass:
+        specifier: ^1.97.0
+        version: 1.97.3
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
+    devDependencies:
+      '@bardy-michael/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@bardy-michael/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
+      '@eslint/eslintrc':
+        specifier: 3.2.0
+        version: 3.2.0
+      '@next/eslint-plugin-next':
+        specifier: 16.1.0
+        version: 16.1.0
+      '@sparticuz/chromium':
+        specifier: ^143.0.0
+        version: 143.0.4
+      '@types/node':
+        specifier: ^25.0.3
+        version: 25.2.2
+      '@types/react':
+        specifier: 19.2.7
+        version: 19.2.7
+      '@types/react-dom':
+        specifier: 19.2.3
+        version: 19.2.3(@types/react@19.2.7)
+      eslint:
+        specifier: ^9.39.2
+        version: 9.39.2
+      eslint-config-next:
+        specifier: 16.1.0
+        version: 16.1.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)
+      eslint-config-prettier:
+        specifier: ^10.1.8
+        version: 10.1.8(eslint@9.39.2)
+      puppeteer:
+        specifier: ^24.33.1
+        version: 24.37.2(typescript@5.9.3)
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+      typescript-eslint:
+        specifier: ^8.54.0
+        version: 8.54.0(eslint@9.39.2)(typescript@5.9.3)
+
   apps/web:
     dependencies:
       '@bardy-michael/utils':
@@ -130,6 +203,9 @@ importers:
       '@csstools/postcss-global-data':
         specifier: ^3.1.0
         version: 3.1.0(postcss@8.5.6)
+      '@eslint/eslintrc':
+        specifier: 3.2.0
+        version: 3.2.0
       '@next/eslint-plugin-next':
         specifier: 16.1.0
         version: 16.1.0
@@ -217,6 +293,9 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      typescript-eslint:
+        specifier: ^8.54.0
+        version: 8.54.0(eslint@9.39.2)(typescript@5.9.3)
       vitest:
         specifier: ^4.0.16
         version: 4.0.18(@types/node@25.2.2)(jsdom@27.4.0)(sass@1.97.3)(yaml@2.8.2)
@@ -226,9 +305,6 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.3.3
         version: 3.3.3
-      '@next/eslint-plugin-next':
-        specifier: 16.1.0
-        version: 16.1.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.50.0
         version: 8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)
@@ -247,9 +323,6 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^7.0.1
         version: 7.0.1(eslint@9.39.2)
-      eslint-plugin-unused-imports:
-        specifier: ^4.3.0
-        version: 4.3.0(@typescript-eslint/eslint-plugin@8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)
     devDependencies:
       eslint:
         specifier: ^9.39.2
@@ -895,6 +968,10 @@ packages:
 
   '@eslint/core@0.17.0':
     resolution: {integrity: sha512-yL/sLrpmtDaFEiUj1osRP4TI2MDz1AddJL+jZ7KSqvBuliN4xqYY54IfdN8qD8Toa6g1iloph1fxQNkjOxrrpQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/eslintrc@3.2.0':
+    resolution: {integrity: sha512-grOjVNN8P3hjJn/eIETF1wwd12DdnwFDoyceUJLYYdkpbwq3nLi+4fqrTAONx7XDALqlL220wC/RHSC/QTI/0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/eslintrc@3.3.3':
@@ -5752,6 +5829,20 @@ snapshots:
   '@eslint/core@0.17.0':
     dependencies:
       '@types/json-schema': 7.0.15
+
+  '@eslint/eslintrc@3.2.0':
+    dependencies:
+      ajv: 6.12.6
+      debug: 4.4.3
+      espree: 10.4.0
+      globals: 14.0.0
+      ignore: 5.3.2
+      import-fresh: 3.3.1
+      js-yaml: 4.1.1
+      minimatch: 3.1.2
+      strip-json-comments: 3.1.1
+    transitivePeerDependencies:
+      - supports-color
 
   '@eslint/eslintrc@3.3.3':
     dependencies:

@@ -58,6 +58,7 @@
     "@bardy-michael/eslint-config": "workspace:*",
     "@bardy-michael/tsconfig": "workspace:*",
     "@csstools/postcss-global-data": "^3.1.0",
+    "@eslint/eslintrc": "3.2.0",
     "@next/eslint-plugin-next": "16.1.0",
     "@sparticuz/chromium": "^143.0.0",
     "@testing-library/jest-dom": "^6.9.1",
@@ -87,6 +88,7 @@
     "puppeteer": "^24.33.1",
     "ts-prune": "^0.10.3",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0",
     "vitest": "^4.0.16"
   }
 }

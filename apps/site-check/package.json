@@ -1,0 +1,39 @@
+{
+  "name": "@bardy-michael/site-check",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack --port 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --quiet",
+    "postinstall": "node scripts/postinstall.mjs"
+  },
+  "dependencies": {
+    "@once-ui-system/core": "^1.5.8",
+    "@sparticuz/chromium-min": "^143.0.0",
+    "lucide-react": "^0.562.0",
+    "next": "16.1.0",
+    "puppeteer-core": "^24.33.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "sass": "^1.97.0",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@bardy-michael/eslint-config": "workspace:*",
+    "@bardy-michael/tsconfig": "workspace:*",
+    "@eslint/eslintrc": "3.2.0",
+    "@next/eslint-plugin-next": "16.1.0",
+    "@sparticuz/chromium": "^143.0.0",
+    "@types/node": "^25.0.3",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "16.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "puppeteer": "^24.33.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
+  }
+}

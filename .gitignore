@@ -41,7 +41,7 @@ next-env.d.ts
 certificates
 
 # Puppeteer chromium binary (generated at build time)
-public/chromium-pack.tar
+**/chromium-pack.tar
 
 # turbo
 .turbo
