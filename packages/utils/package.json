@@ -1,0 +1,23 @@
+{
+  "name": "@bardy-michael/utils",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "lint": "echo 'No lint configured'",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@bardy-michael/tsconfig": "workspace:*",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  }
+}

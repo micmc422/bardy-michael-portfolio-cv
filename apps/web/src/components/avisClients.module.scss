@@ -1,0 +1,15 @@
+.root {
+    overflow-x: clip;
+    overflow-y: hidden;
+    width: calc(100svw);
+    overflow: hidden;
+}
+
+.avisCli {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.avisCli:last-of-type {
+    margin-right: var(--spacing-m);
+}

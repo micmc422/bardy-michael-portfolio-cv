@@ -1,0 +1,26 @@
+{
+  "extends": "@bardy-michael/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ],
+    "outDir": "./dist",
+    "rootDir": "./",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

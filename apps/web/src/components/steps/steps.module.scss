@@ -1,0 +1,21 @@
+.stepCount {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    // padding: 1em;
+    border: 2px solid var(--neutral-alpha-weak);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-on-background-weak);
+}
+
+.stepLine {
+    display: flex;
+    width: 3px;
+    height: 100%;
+    background-color: var(--neutral-alpha-weak);
+    margin: 4px auto;
+    border-radius: 2px;
+}

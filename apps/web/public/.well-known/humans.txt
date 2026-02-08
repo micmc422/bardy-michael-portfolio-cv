@@ -1,0 +1,8 @@
+/* TEAM */
+Developer: Michaël Bardy
+Site: https://occitaweb.fr
+Contact: contact@occitaweb.fr
+Twitter: @occitaweb
+
+/* THANKS */
+Made with ❤️ in Occitanie

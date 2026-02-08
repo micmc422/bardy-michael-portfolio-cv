@@ -1,4 +1,0 @@
-{
-  "ignoreDirs": [".next", "dist", "out", "node_modules"],
-  "ignoreMatches": ["@types/*", "next", "eslint", "typescript","@csstools/postcss-global-data", "postcss-custom-media", "postcss-flexbugs-fixes","postcss-preset-env"]
-}

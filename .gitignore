@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -9,9 +10,11 @@ package-lock.json
 
 # testing
 /coverage
+coverage
 
 # next.js
 /.next/
+.next/
 /out/
 
 # production
@@ -39,3 +42,6 @@ certificates
 
 # Puppeteer chromium binary (generated at build time)
 public/chromium-pack.tar
+
+# turbo
+.turbo
