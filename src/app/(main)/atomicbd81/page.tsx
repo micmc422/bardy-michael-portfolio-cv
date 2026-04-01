@@ -4,6 +4,7 @@ import { person, atomicBd81 } from "@/app/resources/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
 import PasswordProtect from "@/components/PasswordProtect";
+import { validateAtomicBd81Password } from "./actions";
 
 export async function generateMetadata() {
     return Meta.generate({
@@ -41,7 +42,7 @@ function CostTable({ tableau }: { tableau: { headers: string[]; rows: string[][]
                     {row.map((cell, cellIdx) => (
                         <Column key={cellIdx} flex={cellIdx === 0 ? 2 : 1}>
                             <Text
-                                variant={cellIdx === 0 ? "body-default-s" : "body-default-s"}
+                                variant="body-default-s"
                                 onBackground={cellIdx === 0 ? "neutral-strong" : "neutral-weak"}
                             >
                                 {cell}
@@ -61,7 +62,7 @@ export default function AtomicBd81Page() {
     const alternativesSection = atomicBd81.sections[3];
 
     return (
-        <PasswordProtect password="atomicbd81">
+        <PasswordProtect validateAction={validateAtomicBd81Password} storageKey="atomicbd81-auth">
             <Schema
                 as="webPage"
                 baseURL={baseURL}

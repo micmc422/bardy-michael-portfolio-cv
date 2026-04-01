@@ -1,22 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Column, Heading, Input, Text, Icon, Row } from "@once-ui-system/core";
 
 interface PasswordProtectProps {
   children: React.ReactNode;
-  password: string;
+  validateAction: (password: string) => Promise<boolean>;
+  storageKey?: string;
 }
 
-export default function PasswordProtect({ children, password }: PasswordProtectProps) {
+export default function PasswordProtect({ children, validateAction, storageKey = "pw-auth" }: PasswordProtectProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState(false);
 
-  function handleSubmit(formData: FormData) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const stored = sessionStorage.getItem(storageKey);
+      if (stored === "true") {
+        setIsAuthenticated(true);
+      }
+    }
+  }, [storageKey]);
+
+  async function handleSubmit(formData: FormData) {
     const input = formData.get("password") as string;
-    if (input === password) {
+    const isValid = await validateAction(input);
+    if (isValid) {
       setIsAuthenticated(true);
       setError(false);
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem(storageKey, "true");
+      }
     } else {
       setError(true);
     }
