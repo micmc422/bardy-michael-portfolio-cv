@@ -821,4 +821,144 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi, solutionsWeb, siteCheck };
+const atomicBd81 = {
+  path: "/atomicbd81",
+  label: "Étude de cas - AtomicBD",
+  title: "Étude de cas : Boutique en ligne BD/Manga - AtomicBD Albi",
+  description:
+    "Analyse stratégique pour accompagner la transition d'une librairie physique de BD/Manga vers une activité Phygitale (physique + digitale).",
+  headline: "AtomicBD : Du physique au Phygital",
+  subline:
+    "Analyse stratégique pour accompagner la transition d'une librairie physique de BD/Manga vers une activité Phygitale (physique + digitale).",
+  sections: [
+    {
+      id: "charge-de-travail",
+      titre: "Charge de travail : Le défi de la double gestion",
+      icone: "package",
+      description:
+        "Passer d'une boutique physique à une boutique en ligne n'est pas une simple « vitrine », c'est l'ouverture d'un second point de vente avec des flux logistiques différents.",
+      points: [
+        {
+          titre: "Gestion du catalogue",
+          description:
+            "Il faut créer des fiches produits optimisées (titre, résumé, visuel de couverture, état pour l'occasion). Pour une librairie, cela représente des milliers de références.",
+        },
+        {
+          titre: "Synchronisation des stocks",
+          description:
+            "C'est le point critique. Si un tome de One Piece est vendu en magasin, il doit disparaître du site instantanément pour éviter les commandes non honorées.",
+        },
+        {
+          titre: "Logistique quotidienne",
+          description:
+            "La préparation des colis (picking), l'emballage (protection des coins de BD, très fragile) et le dépôt aux points de collecte demandent 1 à 2 heures par jour minimum.",
+        },
+        {
+          titre: "Service Client",
+          description:
+            "Répondre aux mails, gérer les retours (livres abîmés pendant le transport) et les litiges de livraison.",
+        },
+      ],
+    },
+    {
+      id: "couts",
+      titre: "Coûts : Investissement et fonctionnement",
+      icone: "euro",
+      description:
+        "Le budget varie selon la solution choisie (SaaS type Shopify vs Open Source type WooCommerce).",
+      tableau: {
+        headers: [
+          "Poste de dépense",
+          "Coût Initial (Lancement)",
+          "Coût de Maintenance (Annuel)",
+        ],
+        rows: [
+          [
+            "Plateforme E-commerce",
+            "500 € - 3 000 € (Config/Design)",
+            "350 € - 1 200 € (Abonnement/Hébergement)",
+          ],
+          [
+            "Synchronisation Stock/Caisse",
+            "200 € - 800 € (Interface)",
+            "150 € - 400 €",
+          ],
+          ["Marketing & SEO", "500 € (Lancement)", "Variable (selon budget pub)"],
+          [
+            "Logistique (Emballages)",
+            "200 € (Stock initial)",
+            "Proportionnel aux ventes",
+          ],
+          ["Commissions Paiement", "0 €", "~1,5 % à 3 % par transaction"],
+        ],
+      },
+    },
+    {
+      id: "pertinence",
+      titre: "Pertinence et Viabilité",
+      icone: "trending-up",
+      description:
+        "Le marché de la BD et du Manga est en pleine expansion, mais la concurrence est féroce (Amazon, Fnac, grandes surfaces).",
+      avantages: [
+        {
+          titre: "Élargissement de la zone de chalandise",
+          description:
+            "Vendre dans toute la France (voire la francophonie) et plus seulement à l'échelle locale.",
+        },
+        {
+          titre: "Disponibilité 24h/24",
+          description:
+            "Les clients peuvent précommander les nouveautés à minuit.",
+        },
+        {
+          titre: "Données clients",
+          description:
+            "Possibilité de créer des newsletters ciblées selon les séries préférées des clients.",
+        },
+      ],
+      contraintes: [
+        {
+          titre: "Faibles marges",
+          description:
+            "Le prix du livre est fixe (Loi Lang). Les frais de port et d'emballage grignotent rapidement la marge.",
+        },
+        {
+          titre: "Guerre de la visibilité",
+          description:
+            "Sans budget publicitaire ou une forte présence sur les réseaux sociaux, le site risque de rester invisible.",
+        },
+      ],
+    },
+    {
+      id: "alternatives",
+      titre: "Solutions alternatives",
+      icone: "lightbulb",
+      description:
+        "Si la création d'un site complet semble trop lourde, d'autres options existent pour numériser l'activité.",
+      alternatives: [
+        {
+          titre: "Click & Collect pur",
+          description:
+            "Utiliser une plateforme comme Canal BD ou Bubble qui permet aux clients de réserver en ligne et de payer/récupérer en magasin. Cela supprime la gestion des colis.",
+        },
+        {
+          titre: "Vente via les Marketplaces",
+          description:
+            "Vendre sur Rakuten, eBay ou la Fnac. Vous profitez de leur trafic, mais vous payez une commission élevée (souvent 15 %). C'est idéal pour déstocker ou vendre de l'occasion.",
+        },
+        {
+          titre: "Social Selling",
+          description:
+            "Utiliser Instagram ou TikTok pour présenter les nouveautés et proposer des ventes directes via message privé (facturation simplifiée via PayPal ou Stripe).",
+        },
+        {
+          titre: "Abonnement Manga",
+          description:
+            "Créer une offre de « box » mensuelle avec une sélection de la librairie, permettant de lisser les revenus et de prévoir les stocks à l'avance.",
+        },
+      ],
+    },
+  ],
+};
+
+export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi, solutionsWeb, siteCheck, atomicBd81 };
