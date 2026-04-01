@@ -474,7 +474,7 @@ export default function AtomicBd81Page() {
                                 <Column as="ul" gap="8" paddingLeft="m">
                                     {phase.actions.map((action, aIdx) => (
                                         <Row as="li" key={aIdx} gap="xs" vertical="start">
-                                            <Icon name="check" size="s" onBackground="success-strong" style={{ marginTop: "4px", flexShrink: 0 }} />
+                                            <Icon name="check" size="s" onBackground="success-strong" />
                                             <Text variant="body-default-m" onBackground="neutral-weak">
                                                 {action}
                                             </Text>
