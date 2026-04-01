@@ -885,7 +885,7 @@ const atomicBd81 = {
         rows: [
           [
             "Plateforme E-commerce (Next.js + Vercel)",
-            "1 500 € - 4 000 € (Développement sur-mesure)",
+            "1 500 € - 4 000 € (Développement sur mesure)",
             "0 € - 240 € (Hébergement Vercel Pro : 20 €/mois)",
           ],
           [
@@ -1006,9 +1006,9 @@ const atomicBd81 = {
         "Si la création d'un site complet semble trop lourde, d'autres options existent pour numériser l'activité progressivement avec un investissement et un risque moindres.",
       alternatives: [
         {
-          titre: "Site sur-mesure Next.js + Vercel + Neon",
+          titre: "Site sur mesure Next.js + Vercel + Neon",
           description:
-            "Développer une boutique en ligne sur-mesure avec Next.js (React), hébergée sur Vercel (CDN mondial, déploiement automatique) et une base de données Neon (PostgreSQL serverless). Cette stack moderne offre des performances optimales (temps de chargement < 1s, score Lighthouse 95+), un SEO natif grâce au Server-Side Rendering, et un coût d'hébergement quasi nul (plan gratuit Vercel jusqu'à 100 Go de bande passante/mois, Neon gratuit jusqu'à 0,5 Go). L'assistance IA (GitHub Copilot, Claude) permet de développer et maintenir le code efficacement, même en solo. Coût : 1 500 à 4 000 € de développement initial + 0 à 20 €/mois d'hébergement. Des sites comme bookshop.org ou Snipcart démontrent la viabilité du e-commerce sur des stacks modernes similaires.",
+            "Développer une boutique en ligne sur mesure avec Next.js (React), hébergée sur Vercel (CDN mondial, déploiement automatique) et une base de données Neon (PostgreSQL serverless). Cette stack moderne offre des performances optimales (temps de chargement < 1s, score Lighthouse 95+), un SEO natif grâce au Server-Side Rendering, et un coût d'hébergement quasi nul (plan gratuit Vercel jusqu'à 100 Go de bande passante/mois, Neon gratuit jusqu'à 0,5 Go). L'assistance IA (GitHub Copilot, Claude) permet de développer et maintenir le code efficacement, même en solo. Coût : 1 500 à 4 000 € de développement initial + 0 à 20 €/mois d'hébergement. Des sites comme bookshop.org ou Snipcart démontrent la viabilité du e-commerce sur des stacks modernes similaires.",
         },
         {
           titre: "Vente via les Marketplaces",
