@@ -830,6 +830,8 @@ const atomicBd81 = {
   headline: "AtomicBD : Du physique au Phygital",
   subline:
     "Analyse stratégique pour accompagner la transition d'une librairie physique de BD/Manga vers une activité Phygitale (physique + digitale).",
+  maquetteAlphaUrl:
+    "https://www.figma.com/make/2hjrMkPloIhRQGxvAFMhd9/eCommerce-site-mockup?t=Y6FaGZevrKHzZdv0-1&preview-route=%2Fcatalogue%3Fcategory%3Dmanga",
   contexte:
     "AtomicBD est une librairie spécialisée BD et Manga située à Albi (Tarn). Comme de nombreux commerces indépendants, elle fait face à la nécessité de se digitaliser pour élargir sa clientèle et pérenniser son activité. Le marché du manga en France a explosé ces dernières années : selon le SNE (Syndicat national de l'édition), le manga représentait 47 millions d'exemplaires vendus en France en 2023, faisant de la France le 2ᵉ marché mondial après le Japon. Parallèlement, le e-commerce du livre progresse de 8 à 10 % par an (Fevad, 2024). Cette étude analyse la faisabilité d'un passage au « Phygital » pour une boutique de cette taille.",
   chiffresCles: [

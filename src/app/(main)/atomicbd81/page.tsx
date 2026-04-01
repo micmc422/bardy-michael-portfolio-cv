@@ -1,4 +1,4 @@
-import { Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type opacity } from "@once-ui-system/core";
+import { Button, Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type opacity } from "@once-ui-system/core";
 import { baseURL } from "@/app/resources";
 import { person, atomicBd81 } from "@/app/resources/content";
 import Meta from "@/modules/seo/Meta";
@@ -91,6 +91,17 @@ export default function AtomicBd81Page() {
                     <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l">
                         {atomicBd81.subline}
                     </Text>
+                </RevealFx>
+                <RevealFx translateY="8" delay={0.4} fillWidth horizontal="start">
+                    <Button
+                        href={atomicBd81.maquetteAlphaUrl}
+                        variant="secondary"
+                        size="l"
+                        prefixIcon="openLink"
+                        arrowIcon
+                    >
+                        Voir la maquette alpha
+                    </Button>
                 </RevealFx>
             </Column>
 
