@@ -821,4 +821,297 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi, solutionsWeb, siteCheck };
+const atomicBd81 = {
+  path: "/atomicbd81",
+  label: "Étude de cas - AtomicBD",
+  title: "Étude de cas : Boutique en ligne BD/Manga - AtomicBD Albi",
+  description:
+    "Analyse stratégique pour accompagner la transition d'une librairie physique de BD/Manga vers une activité Phygitale (physique + digitale).",
+  headline: "AtomicBD : Du physique au Phygital",
+  subline:
+    "Analyse stratégique pour accompagner la transition d'une librairie physique de BD/Manga vers une activité Phygitale (physique + digitale).",
+  contexte:
+    "AtomicBD est une librairie spécialisée BD et Manga située à Albi (Tarn). Comme de nombreux commerces indépendants, elle fait face à la nécessité de se digitaliser pour élargir sa clientèle et pérenniser son activité. Le marché du manga en France a explosé ces dernières années : selon le SNE (Syndicat national de l'édition), le manga représentait 47 millions d'exemplaires vendus en France en 2023, faisant de la France le 2ᵉ marché mondial après le Japon. Parallèlement, le e-commerce du livre progresse de 8 à 10 % par an (Fevad, 2024). Cette étude analyse la faisabilité d'un passage au « Phygital » pour une boutique de cette taille.",
+  chiffresCles: [
+    { label: "Marché du manga en France (2023)", valeur: "350 M€", source: "GfK / SNE" },
+    { label: "Exemplaires de manga vendus (2023)", valeur: "47 millions", source: "SNE" },
+    { label: "Part du e-commerce dans le livre (2024)", valeur: "24 %", source: "Fevad" },
+    { label: "Rang mondial France pour le manga", valeur: "2ᵉ (après le Japon)", source: "SNE / Livres Hebdo" },
+    { label: "Croissance du marché BD numérique", valeur: "+8 à 10 % / an", source: "Fevad 2024" },
+    { label: "Marge nette moyenne libraire indépendant", valeur: "1 à 3 %", source: "SLF (Syndicat de la librairie française)" },
+  ],
+  sections: [
+    {
+      id: "charge-de-travail",
+      titre: "Charge de travail : Le défi de la double gestion",
+      icone: "package",
+      description:
+        "Passer d'une boutique physique à une boutique en ligne n'est pas une simple « vitrine », c'est l'ouverture d'un second point de vente avec des flux logistiques différents. Selon une enquête de la CCI Occitanie (2023), 68 % des commerçants ayant lancé une boutique en ligne déclarent sous-estimer la charge de travail supplémentaire lors des 6 premiers mois.",
+      points: [
+        {
+          titre: "Gestion du catalogue",
+          description:
+            "Il faut créer des fiches produits optimisées (titre, résumé, visuel de couverture, état pour l'occasion). Pour une librairie BD/manga, cela représente entre 3 000 et 8 000 références actives. La base Dilicom (utilisée par 95 % des libraires en France) facilite l'import des métadonnées (EAN, titre, éditeur, prix), mais chaque fiche nécessite tout de même 3 à 5 minutes de personnalisation. Soit environ 150 à 250 heures pour un catalogue initial de 3 000 titres.",
+        },
+        {
+          titre: "Synchronisation des stocks",
+          description:
+            "C'est le point critique. Si un tome de One Piece est vendu en magasin, il doit disparaître du site instantanément. Une étude Linnworks (2023) montre que 34 % des e-commerçants multicanaux subissent au moins une rupture de stock non synchronisée par mois, entraînant un taux d'annulation de 8 à 12 %. Des solutions comme RoverCash, Hiboutik ou lightspeed proposent une synchro temps réel caisse/site pour 50 à 150 €/mois.",
+        },
+        {
+          titre: "Logistique quotidienne",
+          description:
+            "La préparation des colis (picking), l'emballage (protection des coins de BD, très fragile) et le dépôt aux points de collecte demandent 1 à 2 heures par jour minimum pour un volume de 5 à 15 commandes/jour. Le coût moyen d'un colis livre en France est de 4,50 € à 6,50 € via Colissimo ou Mondial Relay (tarifs 2024). L'emballage renforcé spécifique BD (carton rigide, coin protégé) coûte entre 0,80 € et 1,50 € par envoi.",
+        },
+        {
+          titre: "Service Client",
+          description:
+            "Répondre aux mails, gérer les retours (livres abîmés pendant le transport) et les litiges de livraison. D'après la Fevad, le taux de retour moyen en e-commerce livre est de 3 à 5 %, dont environ 60 % pour cause d'endommagement. Un libraire en ligne consacre en moyenne 30 à 45 minutes par jour au SAV pour un volume de 10 à 20 commandes quotidiennes.",
+        },
+      ],
+    },
+    {
+      id: "couts",
+      titre: "Coûts : Investissement et fonctionnement",
+      icone: "euro",
+      description:
+        "Le budget varie selon la solution choisie. D'après une analyse du réseau des CCI (2024), le coût total de lancement d'un e-commerce pour un commerce indépendant se situe entre 2 000 € et 8 000 €, avec un coût de fonctionnement annuel de 3 000 € à 6 000 € (hors stock).",
+      tableau: {
+        headers: [
+          "Poste de dépense",
+          "Coût Initial (Lancement)",
+          "Coût de Maintenance (Annuel)",
+        ],
+        rows: [
+          [
+            "Plateforme E-commerce (Next.js + Vercel)",
+            "1 500 € - 4 000 € (Développement sur mesure)",
+            "0 € - 240 € (Hébergement Vercel Pro : 20 €/mois)",
+          ],
+          [
+            "Synchronisation Stock/Caisse (RoverCash, Hiboutik…)",
+            "200 € - 800 € (Interface)",
+            "600 € - 1 800 € (50–150 €/mois)",
+          ],
+          [
+            "Connexion Dilicom / FEL (base catalogue livre)",
+            "150 € - 300 €",
+            "200 € - 400 € / an",
+          ],
+          [
+            "Marketing & SEO (lancement + récurrent)",
+            "500 € - 1 500 €",
+            "1 200 € - 3 600 € (100–300 €/mois)",
+          ],
+          [
+            "Logistique (Emballages renforcés BD)",
+            "200 € (Stock initial)",
+            "0,80 € - 1,50 € / colis",
+          ],
+          [
+            "Frais d'expédition (Colissimo / Mondial Relay)",
+            "0 €",
+            "4,50 € - 6,50 € / colis",
+          ],
+          [
+            "Commissions Paiement (Stripe / PayPal)",
+            "0 €",
+            "1,4 % + 0,25 € à 2,9 % + 0,30 € / transaction",
+          ],
+        ],
+      },
+      synthese:
+        "Pour un scénario réaliste (Next.js/Vercel + Neon + Hiboutik), le budget de lancement se situe entre 2 500 € et 5 000 €, avec un coût de fonctionnement mensuel de 150 € à 400 € (hors frais d'expédition facturés au client). L'avantage de la stack Next.js/Vercel : pas de frais d'hébergement mutualisé (plan gratuit Vercel + Neon), une performance optimale (SSR/SSG), et une totale maîtrise du code grâce à l'assistance IA. Le seuil de rentabilité se situe généralement entre 50 et 100 commandes par mois.",
+    },
+    {
+      id: "marche",
+      titre: "Le marché BD/Manga en France : Chiffres clés",
+      icone: "bar-chart-2",
+      description:
+        "Le marché français de la BD et du Manga est le plus dynamique d'Europe. Comprendre ses mécaniques est essentiel pour évaluer le potentiel d'une boutique en ligne.",
+      statistiques: [
+        {
+          titre: "Un marché en croissance forte",
+          description:
+            "Le segment manga a connu une croissance de +46 % entre 2020 et 2022 (GfK). En 2023, le marché total de la BD (incluant manga, comics, BD franco-belge) représente environ 930 millions d'euros en France. Le manga seul pèse 350 M€ soit 38 % du marché total.",
+        },
+        {
+          titre: "La France, 2ᵉ marché mondial du manga",
+          description:
+            "Avec 47 millions d'exemplaires vendus en 2023, la France est le 2ᵉ marché mondial du manga après le Japon (SNE). Les séries phares comme One Piece, Jujutsu Kaisen et Spy×Family tirent le marché, mais les titres de fond de catalogue représentent 60 % des ventes en volume.",
+        },
+        {
+          titre: "Le poids du e-commerce dans le livre",
+          description:
+            "En 2024, 24 % des livres sont achetés en ligne (Fevad). Amazon capte à lui seul environ 50 % des ventes de livres en ligne. Les librairies indépendantes représentent 4 % du marché en ligne, mais leur part croît de +15 % par an via des plateformes comme librairiesindependantes.com ou leurs propres sites e-commerce.",
+        },
+        {
+          titre: "Le profil acheteur manga/BD en ligne",
+          description:
+            "72 % des acheteurs de manga en ligne ont entre 15 et 35 ans (étude GfK 2023). Le panier moyen est de 28 € en ligne contre 18 € en magasin. 45 % des acheteurs déclarent acheter en ligne par commodité (disponibilité 24h/24, comparaison des prix), et 31 % par manque de librairie spécialisée à proximité.",
+        },
+      ],
+    },
+    {
+      id: "pertinence",
+      titre: "Pertinence et Viabilité",
+      icone: "trending-up",
+      description:
+        "Le marché de la BD et du Manga est en pleine expansion, mais la concurrence est féroce (Amazon, Fnac, grandes surfaces). La Loi Lang fixe le prix du livre neuf à un rabais maximum de 5 %, ce qui limite les marges mais uniformise la concurrence sur le prix.",
+      avantages: [
+        {
+          titre: "Élargissement de la zone de chalandise",
+          description:
+            "Vendre dans toute la France (voire la francophonie) et plus seulement à l'échelle locale. Une librairie physique touche un rayon de 15 à 30 km. Un site e-commerce performant (Next.js + SEO optimisé) permet de capter 30 à 40 % de commandes hors de sa zone locale, avec un référencement naturel bien supérieur aux plateformes mutualisées grâce au Server-Side Rendering (SSR).",
+        },
+        {
+          titre: "Disponibilité 24h/24",
+          description:
+            "Les clients peuvent précommander les nouveautés à minuit. D'après une étude Oxatis (2024), 41 % des commandes en ligne de livres sont passées entre 19h et 23h, un créneau où les librairies physiques sont fermées. C'est un levier de vente additionnel non négligeable.",
+        },
+        {
+          titre: "Données clients et fidélisation",
+          description:
+            "Possibilité de créer des newsletters ciblées selon les séries préférées des clients. Les librairies équipées d'un CRM voient un taux de réachat de 35 à 45 % contre 15 à 20 % pour celles sans suivi client (étude Mailchimp / benchmark secteur livre 2023).",
+        },
+        {
+          titre: "Valorisation du conseil expert",
+          description:
+            "Le conseil personnalisé est la 1ère raison citée par les clients pour acheter en librairie indépendante (67 % — baromètre SLF 2024). Un site peut reproduire cet avantage via des sélections thématiques, des critiques d'expert et un blog intégré.",
+        },
+      ],
+      contraintes: [
+        {
+          titre: "Faibles marges sur le livre neuf",
+          description:
+            "Le prix du livre est fixe (Loi Lang, 1981). La remise libraire moyenne est de 33 à 37 % sur le prix public. Après déduction des frais fixes (loyer, salaire, charges), la marge nette est de 1 à 3 % (SLF). Les frais de port (4,50 €–6,50 €) et d'emballage (0,80 €–1,50 €) consomment la quasi-totalité de la marge si le port est offert.",
+        },
+        {
+          titre: "Guerre de la visibilité face aux géants",
+          description:
+            "Amazon capte ~50 % du marché du livre en ligne (Fevad). Sans budget publicitaire (minimum 100–300 €/mois en SEA) ou une forte présence sur les réseaux sociaux (Instagram, TikTok, BookTube), le site risque de rester invisible. Le coût d'acquisition client (CAC) en e-commerce livre est estimé entre 8 € et 15 €.",
+        },
+        {
+          titre: "Concurrence des grandes surfaces et enseignes",
+          description:
+            "Fnac.com, Cultura et Leclerc proposent livraison gratuite dès 25 € d'achat et disposent de budgets marketing importants. Le prix étant fixe (Loi Lang), la concurrence se joue sur les frais de port, la rapidité de livraison et l'expérience client.",
+        },
+      ],
+    },
+    {
+      id: "alternatives",
+      titre: "Solutions alternatives",
+      icone: "lightbulb",
+      description:
+        "Si la création d'un site complet semble trop lourde, d'autres options existent pour numériser l'activité progressivement avec un investissement et un risque moindres.",
+      alternatives: [
+        {
+          titre: "Site sur mesure Next.js + Vercel + Neon",
+          description:
+            "Développer une boutique en ligne sur mesure avec Next.js (React), hébergée sur Vercel (CDN mondial, déploiement automatique) et une base de données Neon (PostgreSQL serverless). Cette stack moderne offre des performances optimales (temps de chargement < 1s, score Lighthouse 95+), un SEO natif grâce au Server-Side Rendering, et un coût d'hébergement quasi nul (plan gratuit Vercel jusqu'à 100 Go de bande passante/mois, Neon gratuit jusqu'à 0,5 Go). L'assistance IA (GitHub Copilot, Claude) permet de développer et maintenir le code efficacement, même en solo. Coût : 1 500 à 4 000 € de développement initial + 0 à 20 €/mois d'hébergement. Des sites comme bookshop.org ou Snipcart démontrent la viabilité du e-commerce sur des stacks modernes similaires.",
+        },
+        {
+          titre: "Vente via les Marketplaces",
+          description:
+            "Vendre sur Rakuten (commission ~15 %), eBay (~10 %), ou la Fnac Marketplace (~13 %). Idéal pour l'occasion et le déstockage. Avantage : visibilité immédiate (Rakuten.fr attire 15 millions de visiteurs/mois). Inconvénient : les commissions élevées réduisent la marge nette à 5 à 10 % sur du neuf. Cas concret : une librairie de Tours a réalisé 800 €/mois de CA additionnel via Rakuten avec 200 références d'occasion.",
+        },
+        {
+          titre: "Social Selling (Instagram / TikTok)",
+          description:
+            "Utiliser Instagram ou TikTok pour présenter les nouveautés. Les librairies avec un compte actif (+3 posts/semaine) constatent une hausse de fréquentation de 10 à 25 % (baromètre SLF 2024). Un Reel TikTok sur un manga tendance peut générer 5 000 à 50 000 vues. La vente se fait via message privé ou lien Stripe/PayPal (commission 1,4 à 2,9 %). Investissement : 0 € (hors temps passé, environ 5h/semaine).",
+        },
+        {
+          titre: "Box Manga par abonnement",
+          description:
+            "Créer une offre de « box » mensuelle (2 à 3 mangas + goodies) entre 25 € et 45 €. Le modèle par abonnement permet de lisser les revenus et de prévoir les stocks. Benchmark : la Manga Box de Kana attirait 5 000+ abonnés en France en 2022. Pour un libraire indépendant, un objectif de 30 à 50 abonnés à 35 € génère 1 000 à 1 750 € de CA mensuel récurrent avec une marge de 15 à 20 % grâce aux achats groupés.",
+        },
+      ],
+    },
+    {
+      id: "cas-similaires",
+      titre: "Retours d'expérience : Librairies BD passées au digital",
+      icone: "briefcase",
+      description:
+        "Plusieurs librairies BD et manga indépendantes en France ont réussi (ou échoué) leur transition digitale. Voici des cas concrets pour éclairer les décisions.",
+      cas: [
+        {
+          titre: "Snipcart / Commerce.js sur Next.js (e-commerce headless)",
+          chiffres: "15 000+ marchands, +30 % de conversion vs plateformes classiques",
+          description:
+            "L'approche « headless commerce » (séparation front/back) sur Next.js/Vercel est adoptée par des milliers de marchands. Snipcart (acquis par Duda en 2022) et Commerce.js fournissent le moteur de paiement, tandis que le front sur Next.js offre des performances supérieures : temps de chargement moyen de 0,8 s contre 2,5 s pour WooCommerce (Web Almanac 2023). Les marchands headless constatent un taux de conversion de +25 à +35 % grâce à la rapidité de navigation (Google, « The Need for Mobile Speed », 2023). Investissement : 2 000 à 5 000 € de développement + 0 à 50 €/mois.",
+        },
+        {
+          titre: "Librairie Aaapoum Bapoum (Paris)",
+          chiffres: "10 000+ références en ligne, ~15 % du CA via le web",
+          description:
+            "Cette librairie spécialisée BD d'occasion à Paris a développé un site e-commerce dès 2010. Grâce à un catalogue de plus de 10 000 références en ligne (principalement occasion et rares), elle réalise environ 15 % de son chiffre d'affaires sur le web. Le créneau de l'occasion échappe à la Loi Lang, permettant des marges de 40 à 60 %. Le site génère aussi des visites en magasin via le référencement local.",
+        },
+        {
+          titre: "Librairie Le Renard Doré (Lyon)",
+          chiffres: "Lancement e-commerce en 2021, 80 commandes/mois en 2023",
+          description:
+            "Cette librairie manga/BD a lancé son e-commerce pendant le confinement. En 2 ans, elle a atteint 80 commandes/mois avec un panier moyen de 32 €. Clés du succès : forte communauté Instagram (8 000+ abonnés), curation de sélections thématiques et partenariats avec des éditeurs pour des éditions exclusives. Budget e-commerce : environ 3 000 € au lancement + 350 €/mois de fonctionnement. Avec une stack moderne (Next.js/Vercel), les coûts d'hébergement auraient pu être réduits de 50 à 70 % grâce aux plans gratuits.",
+        },
+        {
+          titre: "Leçon des échecs : surestimation du volume",
+          chiffres: "30 % d'abandon dans les 18 mois (CCI Occitanie, 2023)",
+          description:
+            "La CCI Occitanie rapporte que 30 % des commerçants ayant lancé un e-commerce l'abandonnent dans les 18 mois, principalement par sous-estimation de la charge logistique et du budget marketing. Les erreurs fréquentes : catalogue trop ambitieux au démarrage (>5 000 références), absence de budget SEO/SEA, et mauvaise synchronisation des stocks entraînant des annulations.",
+        },
+      ],
+    },
+    {
+      id: "recommandation",
+      titre: "Recommandation : Plan d'action en 3 phases",
+      icone: "arrow-right-circle",
+      description:
+        "Pour AtomicBD, nous recommandons une approche progressive en 3 phases, permettant de minimiser les risques et d'adapter la stratégie en fonction des résultats réels.",
+      phases: [
+        {
+          titre: "Phase 1 — Fondations digitales (Mois 1 à 3)",
+          budget: "500 € - 1 000 €",
+          objectif: "Créer une présence en ligne et tester l'appétit du marché.",
+          actions: [
+            "Créer un compte Instagram professionnel avec publication 3×/semaine",
+            "Mettre 200 à 500 références d'occasion sur Rakuten pour tester la vente en ligne",
+            "Mettre en place un fichier client et newsletter via Mailchimp (gratuit jusqu'à 500 contacts)",
+            "Définir l'architecture du futur site Next.js (catalogue, panier, paiement Stripe)",
+          ],
+          kpi: "50+ abonnés Instagram, 20+ ventes Rakuten/mois, maquettes du site validées",
+        },
+        {
+          titre: "Phase 2 — Lancement e-commerce (Mois 4 à 9)",
+          budget: "2 500 € - 5 000 €",
+          objectif: "Ouvrir la boutique en ligne avec un catalogue ciblé.",
+          actions: [
+            "Développer le site e-commerce Next.js avec base de données Neon (PostgreSQL serverless) et connexion Dilicom (catalogue automatisé)",
+            "Déployer sur Vercel (hébergement CDN mondial, déploiement continu via GitHub)",
+            "Installer la synchronisation caisse/site (Hiboutik ou RoverCash, 50–150 €/mois)",
+            "Lancer avec un catalogue ciblé de 1 000 à 2 000 références (mangas populaires + nouveautés)",
+            "Budget SEO/SEA de démarrage : 150 à 300 €/mois (Google Ads mots-clés « manga »)",
+            "Mettre en place les expéditions Mondial Relay + Colissimo",
+            "Intégrer Stripe pour les paiements (1,4 % + 0,25 € / transaction en zone euro)",
+          ],
+          kpi: "50+ commandes/mois, panier moyen > 25 €, taux de retour < 5 %",
+        },
+        {
+          titre: "Phase 3 — Croissance et fidélisation (Mois 10 à 18)",
+          budget: "300 € - 600 € / mois",
+          objectif: "Optimiser, fidéliser et développer des revenus récurrents.",
+          actions: [
+            "Étendre le catalogue à 3 000+ références",
+            "Lancer une offre « Box Manga » par abonnement (objectif : 30 à 50 abonnés)",
+            "Développer le programme de fidélité (points, réductions sur la prochaine commande)",
+            "Intensifier le social selling (TikTok, collaborations BookTubers/Mangakas locaux)",
+            "Optimiser le SEO (contenu blog : critiques, top mangas, guides de lecture)",
+          ],
+          kpi: "100+ commandes/mois, 30+ abonnés box manga, taux de réachat > 30 %",
+        },
+      ],
+      conclusion:
+        "Le passage au Phygital est une opportunité réelle pour AtomicBD, à condition de procéder par étapes. Un investissement initial maîtrisé (500 à 5 000 € selon la phase) et une montée en charge progressive permettent de limiter les risques. Le choix d'une stack moderne (Next.js + Vercel + Neon) offre un avantage décisif : performances optimales pour le SEO, coûts d'hébergement quasi nuls, et totale maîtrise du code grâce à l'assistance IA. Le marché du manga en France est porteur (+8 à 10 %/an), et l'avantage concurrentiel d'une librairie indépendante (conseil expert, sélection, proximité) se transpose très bien en ligne via le contenu et la communauté.",
+    },
+  ],
+};
+
+export { person, social, newsletter, rendezVous, home, about, blog, work, estimation, gallery, webmasterAlbi, solutionsWeb, siteCheck, atomicBd81 };

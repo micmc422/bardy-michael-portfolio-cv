@@ -25,6 +25,7 @@ const breadCrumbs = {
 // Set password in the .env file, refer to .env.example
 const protectedRoutes = {
   "/realisations/automate-design-handovers-with-a-figma-to-code-pipeline": true,
+  "/atomicbd81": true,
 };
 
 import { Josefin_Sans, Geist_Mono, Geist, Open_Sans } from "next/font/google";
