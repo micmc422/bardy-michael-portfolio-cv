@@ -1,4 +1,4 @@
-import { Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, type opacity } from "@once-ui-system/core";
+import { Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type opacity } from "@once-ui-system/core";
 import { baseURL } from "@/app/resources";
 import { person, atomicBd81 } from "@/app/resources/content";
 import Meta from "@/modules/seo/Meta";
@@ -58,8 +58,11 @@ function CostTable({ tableau }: { tableau: { headers: string[]; rows: string[][]
 export default function AtomicBd81Page() {
     const chargeSection = atomicBd81.sections[0];
     const coutsSection = atomicBd81.sections[1];
-    const pertinenceSection = atomicBd81.sections[2];
-    const alternativesSection = atomicBd81.sections[3];
+    const marcheSection = atomicBd81.sections[2];
+    const pertinenceSection = atomicBd81.sections[3];
+    const alternativesSection = atomicBd81.sections[4];
+    const casSection = atomicBd81.sections[5];
+    const recommandationSection = atomicBd81.sections[6];
 
     return (
         <PasswordProtect validateAction={validateAtomicBd81Password} storageKey="atomicbd81-auth">
@@ -90,6 +93,51 @@ export default function AtomicBd81Page() {
                     </Text>
                 </RevealFx>
             </Column>
+
+            {/* Contexte */}
+            {atomicBd81.contexte && (
+                <Column as="section" maxWidth="m" paddingBottom="l" gap="m">
+                    <Feedback variant="info" fillWidth>
+                        <Text variant="body-default-m">
+                            {atomicBd81.contexte}
+                        </Text>
+                    </Feedback>
+                </Column>
+            )}
+
+            {/* Chiffres clés */}
+            {atomicBd81.chiffresCles && (
+                <Column as="section" maxWidth="m" paddingBottom="l" gap="l" aria-labelledby="chiffres-cles-title">
+                    <Heading as="h2" id="chiffres-cles-title" variant="display-strong-m">
+                        📊 Chiffres clés du marché
+                    </Heading>
+                    <Grid columns={3} s={{ columns: "1" }} m={{ columns: "2" }} gap="m">
+                        {atomicBd81.chiffresCles.map((chiffre, idx) => (
+                            <Column
+                                key={idx}
+                                background="brand-alpha-weak"
+                                padding="l"
+                                radius="m"
+                                border="brand-alpha-medium"
+                                gap="xs"
+                                horizontal="center"
+                            >
+                                <Text variant="display-strong-m" onBackground="brand-strong" align="center">
+                                    {chiffre.valeur}
+                                </Text>
+                                <Text variant="body-default-s" onBackground="neutral-strong" align="center">
+                                    {chiffre.label}
+                                </Text>
+                                <Text variant="body-default-xs" onBackground="neutral-weak" align="center">
+                                    Source : {chiffre.source}
+                                </Text>
+                            </Column>
+                        ))}
+                    </Grid>
+                </Column>
+            )}
+
+            <Line maxWidth="m" background="neutral-alpha-weak" />
 
             {/* Section 1: Charge de travail */}
             {chargeSection && (
@@ -142,12 +190,60 @@ export default function AtomicBd81Page() {
                     </Text>
 
                     {coutsSection.tableau && <CostTable tableau={coutsSection.tableau} />}
+
+                    {coutsSection.synthese && (
+                        <Feedback variant="success" fillWidth>
+                            <Text variant="body-default-m">
+                                {coutsSection.synthese}
+                            </Text>
+                        </Feedback>
+                    )}
                 </Column>
             )}
 
             <Line maxWidth="m" background="neutral-alpha-weak" />
 
-            {/* Section 3: Pertinence et Viabilité */}
+            {/* Section 3: Marché BD/Manga */}
+            {marcheSection && (
+                <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={marcheSection.id}>
+                    <Row gap="s" vertical="center">
+                        <Icon name={marcheSection.icone} size="l" onBackground="brand-strong" />
+                        <Heading as="h2" id={marcheSection.id} variant="display-strong-m">
+                            {marcheSection.titre}
+                        </Heading>
+                    </Row>
+                    <Text variant="body-default-l" onBackground="neutral-weak">
+                        {marcheSection.description}
+                    </Text>
+
+                    <Grid columns={2} s={{ columns: "1" }} gap="m">
+                        {marcheSection.statistiques?.map((stat, idx) => (
+                            <Column
+                                key={idx}
+                                background="surface"
+                                padding="l"
+                                radius="m"
+                                border="neutral-alpha-weak"
+                                gap="s"
+                            >
+                                <Row gap="xs" vertical="center">
+                                    <Icon name="bar-chart-2" onBackground="brand-strong" />
+                                    <Heading as="h3" variant="heading-strong-m">
+                                        {stat.titre}
+                                    </Heading>
+                                </Row>
+                                <Text variant="body-default-m" onBackground="neutral-weak">
+                                    {stat.description}
+                                </Text>
+                            </Column>
+                        ))}
+                    </Grid>
+                </Column>
+            )}
+
+            <Line maxWidth="m" background="neutral-alpha-weak" />
+
+            {/* Section 4: Pertinence et Viabilité */}
             {pertinenceSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={pertinenceSection.id}>
                     <Row gap="s" vertical="center">
@@ -168,7 +264,7 @@ export default function AtomicBd81Page() {
                                 Les points forts (Avantages)
                             </Row>
                         </Heading>
-                        <Grid columns={3} s={{ columns: "1" }} gap="m">
+                        <Grid columns={2} s={{ columns: "1" }} gap="m">
                             {pertinenceSection.avantages?.map((item, idx) => (
                                 <Column
                                     key={idx}
@@ -197,7 +293,7 @@ export default function AtomicBd81Page() {
                                 Les points de vigilance (Contraintes)
                             </Row>
                         </Heading>
-                        <Grid columns={2} s={{ columns: "1" }} gap="m">
+                        <Grid columns={3} s={{ columns: "1" }} gap="m">
                             {pertinenceSection.contraintes?.map((item, idx) => (
                                 <Column
                                     key={idx}
@@ -222,7 +318,7 @@ export default function AtomicBd81Page() {
 
             <Line maxWidth="m" background="neutral-alpha-weak" />
 
-            {/* Section 4: Solutions alternatives */}
+            {/* Section 5: Solutions alternatives */}
             {alternativesSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={alternativesSection.id}>
                     <Row gap="s" vertical="center">
@@ -272,6 +368,135 @@ export default function AtomicBd81Page() {
                             </Column>
                         ))}
                     </Grid>
+                </Column>
+            )}
+
+            <Line maxWidth="m" background="neutral-alpha-weak" />
+
+            {/* Section 6: Cas similaires */}
+            {casSection && (
+                <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={casSection.id}>
+                    <Row gap="s" vertical="center">
+                        <Icon name={casSection.icone} size="l" onBackground="brand-strong" />
+                        <Heading as="h2" id={casSection.id} variant="display-strong-m">
+                            {casSection.titre}
+                        </Heading>
+                    </Row>
+                    <Text variant="body-default-l" onBackground="neutral-weak">
+                        {casSection.description}
+                    </Text>
+
+                    <Column gap="m">
+                        {casSection.cas?.map((cas, idx) => (
+                            <Column
+                                key={idx}
+                                background="surface"
+                                padding="l"
+                                radius="m"
+                                border="neutral-alpha-weak"
+                                gap="s"
+                            >
+                                <Row fillWidth horizontal="between" vertical="center" gap="s">
+                                    <Heading as="h3" variant="heading-strong-m">
+                                        {cas.titre}
+                                    </Heading>
+                                    <Row
+                                        background="brand-alpha-weak"
+                                        paddingX="s"
+                                        paddingY="4"
+                                        radius="s"
+                                        style={{ whiteSpace: "nowrap" }}
+                                    >
+                                        <Text
+                                            variant="label-default-s"
+                                            onBackground="brand-strong"
+                                        >
+                                            {cas.chiffres}
+                                        </Text>
+                                    </Row>
+                                </Row>
+                                <Text variant="body-default-m" onBackground="neutral-weak">
+                                    {cas.description}
+                                </Text>
+                            </Column>
+                        ))}
+                    </Column>
+                </Column>
+            )}
+
+            <Line maxWidth="m" background="neutral-alpha-weak" />
+
+            {/* Section 7: Recommandation - Plan d'action */}
+            {recommandationSection && (
+                <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={recommandationSection.id}>
+                    <Row gap="s" vertical="center">
+                        <Icon name={recommandationSection.icone} size="l" onBackground="brand-strong" />
+                        <Heading as="h2" id={recommandationSection.id} variant="display-strong-m">
+                            {recommandationSection.titre}
+                        </Heading>
+                    </Row>
+                    <Text variant="body-default-l" onBackground="neutral-weak">
+                        {recommandationSection.description}
+                    </Text>
+
+                    <Column gap="l">
+                        {recommandationSection.phases?.map((phase, idx) => (
+                            <Column
+                                key={idx}
+                                background="surface"
+                                padding="l"
+                                radius="m"
+                                border="neutral-alpha-weak"
+                                gap="m"
+                            >
+                                <Row fillWidth horizontal="between" vertical="center" gap="s">
+                                    <Heading as="h3" variant="heading-strong-l">
+                                        {phase.titre}
+                                    </Heading>
+                                    <Row
+                                        background="success-alpha-weak"
+                                        paddingX="s"
+                                        paddingY="4"
+                                        radius="s"
+                                        style={{ whiteSpace: "nowrap" }}
+                                    >
+                                        <Text
+                                            variant="label-default-s"
+                                            onBackground="success-strong"
+                                        >
+                                            {phase.budget}
+                                        </Text>
+                                    </Row>
+                                </Row>
+                                <Text variant="body-default-m" onBackground="brand-strong">
+                                    🎯 Objectif : {phase.objectif}
+                                </Text>
+                                <Column as="ul" gap="8" paddingLeft="m">
+                                    {phase.actions.map((action, aIdx) => (
+                                        <Row as="li" key={aIdx} gap="xs" vertical="start">
+                                            <Icon name="check" size="s" onBackground="success-strong" style={{ marginTop: "4px", flexShrink: 0 }} />
+                                            <Text variant="body-default-m" onBackground="neutral-weak">
+                                                {action}
+                                            </Text>
+                                        </Row>
+                                    ))}
+                                </Column>
+                                <Feedback variant="info" fillWidth>
+                                    <Text variant="label-default-s">
+                                        📈 KPI cibles : {phase.kpi}
+                                    </Text>
+                                </Feedback>
+                            </Column>
+                        ))}
+                    </Column>
+
+                    {recommandationSection.conclusion && (
+                        <Feedback variant="success" fillWidth>
+                            <Text variant="body-default-m">
+                                {recommandationSection.conclusion}
+                            </Text>
+                        </Feedback>
+                    )}
                 </Column>
             )}
         </PasswordProtect>
