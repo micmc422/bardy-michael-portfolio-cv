@@ -29,6 +29,7 @@ const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
         return (
             <Flex
                 ref={ref}
+                // min-height reserves space before avis load, preventing CLS (card height ~180px + gap)
                 style={{ minHeight: "220px", ...style }}
                 className={classNames(styles.root, className)}
                 {...rest}
