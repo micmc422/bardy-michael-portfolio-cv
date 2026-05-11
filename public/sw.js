@@ -31,5 +31,5 @@ self?.addEventListener('push', function (event) {
 
 self?.addEventListener('notificationclick', function (event) {
     event.notification.close()
-    event.waitUntil(clients.openWindow('https://occitaweb-git-pwa-occitaweb.vercel.app'))
+    event.waitUntil(clients.openWindow('https://occitaweb.fr'))
 })

@@ -29,7 +29,7 @@ const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
         return (
             <Flex
                 ref={ref}
-                style={style}
+                style={{ minHeight: "220px", ...style }}
                 className={classNames(styles.root, className)}
                 {...rest}
             >

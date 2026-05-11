@@ -40,20 +40,20 @@ const heading = Josefin_Sans({
 const body = Geist({
   variable: "--font-body",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   weight: ["300"]
 });
 const label = Open_Sans({
   variable: "--font-label",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   weight: ["500"]
 });
 
 const code = Geist_Mono({
   variable: "--font-code",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
 });
 
 const fonts = {

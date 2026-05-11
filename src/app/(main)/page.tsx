@@ -59,11 +59,9 @@ export default async function Home() {
               />
             </Badge>
           </RevealFx>
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs">
-              {home.headline}
-            </Heading>
-          </RevealFx>
+          <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs" fillWidth paddingBottom="16">
+            {home.headline}
+          </Heading>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" paddingX="xs">
               {home.subline}
@@ -123,8 +121,8 @@ export default async function Home() {
             href={"/solutions"}
             center
             gap="s"
-            id="RDVBtn"
-            aria-label="Lien vers la prise de rendez-vous"
+            id="solutions-btn"
+            aria-label="Découvrez les solutions proposées"
           >
             <Icon paddingLeft="12" name="smile" onBackground="brand-strong" />
             <Text paddingTop="2">Découvrez les solutions que je propose</Text>
