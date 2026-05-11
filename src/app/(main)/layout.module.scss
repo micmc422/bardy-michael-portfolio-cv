@@ -1,0 +1,12 @@
+/* Hide the fixed background on small screens and for users who prefer reduced motion.
+   The component stays mounted (server component) but is not painted, which removes
+   the gradient/dots/grid paint layers that are expensive on low-end mobile devices. */
+.background {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+}

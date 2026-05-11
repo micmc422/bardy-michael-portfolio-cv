@@ -79,7 +79,7 @@ const style = {
 
 const effects = {
   mask: {
-    cursor: true,
+    cursor: false,
     x: 50,
     y: 50,
     radius: 100,

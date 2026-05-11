@@ -25,7 +25,6 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "fr-FR" })
         timeZone,
         hour: "2-digit",
         minute: "2-digit",
-        second: "2-digit",
         hour12: false,
       };
       const timeString = new Intl.DateTimeFormat(locale, options).format(now);
@@ -33,7 +32,7 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "fr-FR" })
     };
 
     updateTime();
-    const intervalId = setInterval(updateTime, 1000);
+    const intervalId = setInterval(updateTime, 60000);
 
     return () => clearInterval(intervalId);
   }, [timeZone, locale]);

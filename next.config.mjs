@@ -12,7 +12,7 @@ const withMDX = mdx({
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   experimental: {
-    optimizePackageImports: ["lucide-react", "react-icons"],
+    optimizePackageImports: ["lucide-react", "react-icons", "@once-ui-system/core"],
   },
   sassOptions: {
     compiler: "modern",
