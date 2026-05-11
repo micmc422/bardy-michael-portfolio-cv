@@ -40,12 +40,13 @@ export async function Posts({
                 <Grid
                     columns={columns} s={{ columns: "1" }}
                     fillWidth marginBottom="40" gap="12">
-                    {displayedBlogs.map((post) => (
+                    {displayedBlogs.map((post, index) => (
                         <Post
                             key={post.slug}
                             post={post}
                             thumbnail={thumbnail}
                             direction={direction}
+                            index={index}
                         />
                     ))}
                 </Grid>

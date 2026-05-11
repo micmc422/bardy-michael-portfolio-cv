@@ -9,9 +9,10 @@ interface PostProps {
     thumbnail: boolean;
     direction?: "row" | "column";
     excludeNav?: boolean;
+    index?: number;
 }
 
-export default function Post({ post, thumbnail, direction, excludeNav }: PostProps) {
+export default function Post({ post, thumbnail, direction, excludeNav, index }: PostProps) {
     const tags = post.metadata.tag?.split(',').map((tag: string) => tag.trim());
     return (
         <SmartLink
@@ -30,7 +31,7 @@ export default function Post({ post, thumbnail, direction, excludeNav }: PostPro
                 fillWidth>
                 {post.metadata.image && thumbnail && (
                     <Media
-                        priority
+                        priority={index === 0}
                         className={styles.image}
                         sizes="(max-width: 768px) 100vw, 640px"
                         border="neutral-alpha-weak"

@@ -27,7 +27,7 @@ interface RootLayoutProps {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   const { rating, reviews } = await getAvis();
-  const reviewsArr = (reviews.map((el) => ({
+  const reviewsArr = (reviews.slice(0, 3).map((el) => ({
     "@type": "Review",
     "reviewRating": {
       "@type": "Rating",
