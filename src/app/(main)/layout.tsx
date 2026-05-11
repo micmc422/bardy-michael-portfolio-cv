@@ -6,7 +6,7 @@ import styles from "./layout.module.scss";
 
 export default async function MainLayout({ children }: { children: React.ReactNode }) {
     return <>
-        <div className={styles.background}>
+        <div className={styles.background} aria-hidden="true">
             <Background
                 fill
                 position="fixed"
