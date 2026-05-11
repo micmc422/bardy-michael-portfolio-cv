@@ -1,6 +1,6 @@
 import { Background, Column, IconButton, ScrollToTop, type opacity, type SpacingToken } from "@once-ui-system/core";
 import { effects } from "../resources";
-import { Footer, Header, RDV } from "@/components";
+import { Footer, Header } from "@/components";
 import CookieConsent from "@/components/cookiesConsent";
 
 export default async function MainLayout({ children }: { children: React.ReactNode }) {
