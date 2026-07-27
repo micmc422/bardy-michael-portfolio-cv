@@ -26,7 +26,14 @@ export default function CommentSection({ slug }: CommentSectionProps) {
   const resolved = theme === "dark" ? "dark" : "light";
   const themeAttr = resolved;
 
+  // Si les IDs Giscus ne sont pas renseignés (.env.local), on n'injecte pas
+  // un script cassé : on affiche un message discret à la place.
+  const giscusReady =
+    GISCUS_REPO_ID && GISCUS_REPO_ID !== "REPO_ID_A_REMPLACER" &&
+    GISCUS_CATEGORY_ID && GISCUS_CATEGORY_ID !== "CATEGORY_ID_A_REMPLACER";
+
   useEffect(() => {
+    if (!giscusReady) return;
     const container = ref.current;
     if (!container) return;
     container.innerHTML = "";
@@ -54,16 +61,29 @@ export default function CommentSection({ slug }: CommentSectionProps) {
       window.postMessage({ giscus: { setConfig: { theme: t } } }, "*");
     };
     return () => sendTheme(themeAttr);
-  }, [themeAttr, slug]);
+  }, [giscusReady, themeAttr, slug]);
 
   // Re-configure le thème au changement
   useEffect(() => {
+    if (!giscusReady) return;
     const t = themeAttr;
     const id = setInterval(() => {
       window.postMessage({ giscus: { setConfig: { theme: t } } }, "*");
     }, 300);
     return () => clearInterval(id);
-  }, [themeAttr]);
+  }, [giscusReady, themeAttr]);
+
+  if (!giscusReady) {
+    return (
+      <section style={{ marginTop: "2rem" }} aria-label="Commentaires">
+        <p style={{ opacity: 0.6, fontSize: "0.9rem" }}>
+          Commentaires désactivés (Giscus non configuré). Renseignez{" "}
+          <code>NEXT_PUBLIC_GISCUS_REPO_ID</code> et{" "}
+          <code>NEXT_PUBLIC_GISCUS_CATEGORY_ID</code> dans <code>.env.local</code>.
+        </p>
+      </section>
+    );
+  }
 
   return (
     <section style={{ marginTop: "2rem", minHeight: 200 }} aria-label="Commentaires">
