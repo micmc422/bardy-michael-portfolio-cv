@@ -1,0 +1,604 @@
+---
+title: "📢 Optimisez le SEO de votre portfolio via Facebook et LinkedIn"
+description: "Apprenez à programmer une tâche automatisée pour publier vos contenus sur Facebook : tutoriel pratique, outils recommandés et gain de temps assuré."
+publishedAt: 2025-06-16T21:03:24.058Z
+updatedAt: 2025-08-01T11:21:50.947Z
+image: "/blog/publication-automatique-darticles-sur-facebook-avec-une-tache-cron-vercel-cron/2d89acac-7cff-46da-a8e0-6c0cba53f22c.jpg"
+tags: ["Vercel","facebook","Next.js"]
+author: "michael Bardy"
+---
+Dans le cadre de l’amélioration continue de mon site, j’ai conçu un système automatisé pour diffuser les nouveaux articles de blog sur les réseaux sociaux (Facebook et LinkedIn). L'objectif est avant tout d'améliorer le SEO du site en générant des backlinks et en augmentant la visibilité des contenus.
+
+Pour qu’un portfolio technique soit efficace sur le long terme, il ne suffit pas de produire du contenu de qualité : il faut aussi le promouvoir de manière régulière. Cela permet d’optimiser son référencement naturel (SEO), d’attirer un public ciblé et de renforcer sa crédibilité professionnelle.
+
+Un point particulièrement délicat est la gestion des tokens d’accès aux APIs des réseaux sociaux. En particulier, le token Facebook a une durée de vie limitée à environ 60 jours, ce qui complique l’automatisation. Un token expiré empêche toute nouvelle publication. Il est donc essentiel de mettre en place un système fiable qui renouvelle automatiquement le token avant expiration (idéalement tous les 50 jours), afin d’éviter toute rupture de service.
+
+Voici une synthèse de cette architecture serverless, pensée pour être robuste, évolutive et facilement intégrable dans un workflow DevOps moderne.
+
+* * *
+
+## 🔍 Problématique
+
+Publier automatiquement une URL sur les réseaux sociaux via une API est relativement simple d’un point de vue technique. Le principal obstacle vient de la gestion des tokens d’authentification, dont la durée de validité est limitée. Facebook permet de générer des tokens dits "long-lived", mais ces derniers expirent malgré tout (≈ 60 jours).
+
+Pour LinkedIn, la documentation API est particulièrement dense et la gestion des médias (images notamment) reste complexe à mettre en œuvre correctement. C’est encore en cours d’optimisation.
+
+* * *
+
+## 🎯 Objectifs
+
+Les objectifs du projet sont les suivants :
+
+-   **Renouveler automatiquement le token Facebook**, sans intervention manuelle, en le stockant dans Vercel Edge Config.
+    
+-   **Publier automatiquement** les nouveaux articles enrichis avec les métadonnées OpenGraph (titre, description, image).
+    
+-   Centraliser ces opérations dans des API routes Next.js.
+    
+-   Piloter l’exécution avec des tâches planifiées via Vercel Cron.
+    
+
+Ce dispositif assure un gain de temps conséquent et garantit une présence régulière et optimisée sur les réseaux sociaux.
+
+* * *
+
+## 🔄 Gestion automatique du token Facebook
+
+Le token Facebook "long-lived" doit être rafraîchi environ tous les 50 jours pour garantir la continuité des publications.
+
+Le mécanisme mis en place est le suivant :
+
+1.  Une API route `/api/cron/refresh-facebook-token` est appelée chaque jour par une tâche cron Vercel.
+    
+2.  Elle vérifie si un token est présent dans Edge Config.
+    
+3.  Si oui, elle appelle l’API Graph de Facebook pour renouveler le token.
+    
+4.  Le nouveau token est stocké dans Edge Config.
+    
+5.  Les erreurs éventuelles sont loguées pour suivi.
+    
+
+Ce processus garantit que le token Facebook reste valide en permanence, évitant les interruptions de service.
+
+
+// route.ts — https://raw.githubusercontent.com/micmc422/bardy-michael-portfolio-cv/refs/heads/main/src/app/api/cron/refresh-facebook-token/route.ts
+```ts
+// /app/api/refresh-facebook-token/route.ts
+import { NextResponse } from "next/server";
+import { getAll, has, get } from '@vercel/edge-config';
+
+// On récupère les identifiants de l'app Facebook
+const facebook_app_id = process.env.FACEBOOK_APP_ID!;
+const facebook_app_secret = process.env.FACEBOOK_APP_SECRET!;
+
+// Route GET appelée par une tâche cron Vercel
+export async function GET() {
+    try {
+        // Vérifie si un token existe déjà dans l'Edge Config
+        const hasFacebookToken = await has('facebook_token');
+
+        if (hasFacebookToken) {
+            const oldToken = await get('facebook_token') as string;
+
+            // On tente de renouveler le token
+            const result = await updateFacebookToken(oldToken);
+
+            if (result?.success) {
+                return NextResponse.json({
+                    facebookToken: result.newToken,
+                    status: 'success',
+                    message: 'Token Facebook renouvelé.'
+                });
+            } else {
+                return NextResponse.json({
+                    status: 'error',
+                    message: 'Échec du renouvellement du token Facebook.'
+                }, { status: 500 });
+            }
+        }
+
+        // Aucun token Facebook trouvé → retour d'état
+        const configItems = await getAll();
+        return NextResponse.json({
+            configItems,
+            status: 'ok',
+            message: 'Aucun token Facebook à rafraîchir.'
+        });
+    } catch (err: any) {
+        console.error('Erreur lors du rafraîchissement du token :', err);
+        return NextResponse.json({
+            status: 'error',
+            message: 'Erreur serveur lors de la tentative de rafraîchissement.'
+        }, { status: 500 });
+    }
+}
+
+// Fonction qui appelle l'API Facebook pour renouveler le token
+async function updateFacebookToken(oldToken: string): Promise<{ success: boolean, newToken?: string }> {
+    try {
+        // Appel à Facebook pour échanger le token
+        const res = await fetch(`https://graph.facebook.com/v21.0/oauth/access_token?grant_type=fb_exchange_token&client_id=${facebook_app_id}&client_secret=${facebook_app_secret}&fb_exchange_token=${oldToken}`);
+        const data = await res.json();
+
+        if (!data.access_token) {
+            console.error('Réponse invalide de Facebook :', data);
+            return { success: false };
+        }
+
+        // Mise à jour dans l’Edge Config
+        const updateRes = await fetch(
+            `https://api.vercel.com/v1/edge-config/${process.env.VERCEL_EDGE_ID}/items?teamId=${process.env.VERCEL_TEAM_ID}`,
+            {
+                method: 'PATCH',
+                headers: {
+                    Authorization: `Bearer ${process.env.VERCEL_API_TOKEN}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    items: [
+                        {
+                            operation: 'update',
+                            key: 'facebook_token',
+                            value: data.access_token,
+                        },
+                    ],
+                }),
+            }
+        );
+
+        const result = await updateRes.json();
+
+        if (updateRes.ok) {
+            return { success: true, newToken: data.access_token };
+        } else {
+            console.error('Échec de la mise à jour Vercel Edge:', result);
+            return { success: false };
+        }
+    } catch (error) {
+        console.error('Erreur dans updateFacebookToken:', error);
+        return { success: false };
+    }
+}
+```
+
+
+* * *
+
+## 📰 Publication automatique des articles récents
+
+Deuxième volet du système : une API route `/api/cron/social-share`, qui automatise la diffusion des articles récents.
+
+Son fonctionnement est le suivant :
+
+1.  Récupérer les articles publiés dans les dernières 24 heures.
+    
+2.  Extraire les métadonnées OpenGraph via `open-graph-scraper`.
+    
+3.  Générer les publications enrichies (titre, description, image).
+    
+4.  Diffuser automatiquement :
+    
+    -   Sur LinkedIn (via API UGC v2).
+        
+    -   Sur Facebook (via Graph API Feed).
+        
+
+
+// route.ts — https://raw.githubusercontent.com/micmc422/bardy-michael-portfolio-cv/refs/heads/main/src/app/api/cron/social-share/route.ts
+```ts
+import { baseURL } from '@/app/resources';
+import { getPosts } from '@/app/utils/serverActions';
+import { NextResponse } from 'next/server';
+import { postToFacebook } from './postToFacebook';
+import { postToLinkedIn } from './postToLinkedIn';
+import { get } from '@vercel/edge-config';
+export const revalidate = 0;
+// Environnement d'exécution
+const env = process.env.NODE_ENV;
+// Clé Edge Config pour les slugs partagés
+const SHARED_ARTICLES_KEY = 'sharedArticlesSlugs';
+const STORED_SLUG_LENGTH = 40
+/**
+ * Gère la requête GET pour la publication automatique d'articles.
+ * Appelé par une tâche planifiée (cron job) via Vercel Cron Jobs.
+ */
+export async function GET(req: Request) {
+    // Vérification de sécurité (jeton secret requis en production)
+    if (!(env === 'development') && req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
+        console.error("🚫 Accès non autorisé.");
+        return NextResponse.json({ status: 'Unauthorized', code: 401, message: 'Accès non autorisé.' });
+    }
+
+    // Vérification du jour de la semaine (désactivé le week-end et mercredi)
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    if (dayOfWeek === 0 || dayOfWeek === 6 || dayOfWeek === 3) {
+        const dayName = today.toLocaleDateString('fr-FR', { weekday: 'long' });
+        console.log(`⏱️ Partage désactivé aujourd'hui (${dayName}).`);
+        return NextResponse.json({ status: 'skipped', message: `Partage désactivé le week-end et le mercredi. Actuellement, c'est ${dayName}.` });
+    }
+
+    // Récupère les 10 derniers articles publiés
+    const articles = await getPosts({ limit: 10 });
+    // Récupère les slugs des articles déjà partagés depuis Edge Config
+    let sharedArticlesSlugs: string[] = (await get(SHARED_ARTICLES_KEY)) || [];
+
+    // Filtre les articles déjà partagés
+    const unsharedArticles = articles.filter(post => !sharedArticlesSlugs.includes(post.slug));
+
+    // Trie les articles non partagés par date de publication (du plus ancien au plus récent)
+    unsharedArticles.sort((a, b) => {
+        const dateA = a.metadata.publishedAt ? new Date(a.metadata.publishedAt).getTime() : 0;
+        const dateB = b.metadata.publishedAt ? new Date(b.metadata.publishedAt).getTime() : 0;
+        return dateA - dateB;
+    });
+
+    // Traite et partage le premier article éligible (le plus ancien non partagé)
+    if (unsharedArticles.length > 0) {
+        const articleToShare = unsharedArticles[0]!; // Prend le plus ancien article non partagé
+
+        if (articleToShare.metadata.publishedAt) {
+            // Prépare les données pour le partage
+            const postData = {
+                title: articleToShare.metadata.title as string,
+                description: articleToShare.metadata.description as string,
+                url: `${baseURL}/blog/${articleToShare.slug}`
+            };
+
+            try {
+                // Publie l'article sur les plateformes sociales en parallèle
+                console.log("publie ! ", articleToShare.slug)
+                await Promise.all([
+                    postToFacebook(postData),
+                    postToLinkedIn(postData)
+                ]);
+                console.log(`✅ Article "${articleToShare.slug}" partagé.`);
+
+                // Met à jour la liste locale des slugs partagés
+                const arrayLength = sharedArticlesSlugs.unshift(articleToShare.slug);
+                // Garde les 10 derniers slugs partagés
+                if (arrayLength > STORED_SLUG_LENGTH) {
+                    sharedArticlesSlugs = sharedArticlesSlugs.slice(0, STORED_SLUG_LENGTH);
+                }
+
+                // Met à jour Edge Config avec la nouvelle liste
+                const updateRes = await fetch(
+                    `https://api.vercel.com/v1/edge-config/${process.env.VERCEL_EDGE_ID}/items?teamId=${process.env.VERCEL_TEAM_ID}`,
+                    {
+                        method: 'PATCH',
+                        headers: {
+                            Authorization: `Bearer ${process.env.VERCEL_API_TOKEN}`,
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            items: [
+                                {
+                                    operation: 'update',
+                                    key: SHARED_ARTICLES_KEY,
+                                    value: sharedArticlesSlugs,
+                                },
+                            ],
+                        }),
+                    }
+                );
+
+                // Gère l'échec de la mise à jour Edge Config
+                if (!updateRes.ok) {
+                    const errorResult = await updateRes.json();
+                    console.error("❌ Échec mise à jour Edge Config:", errorResult);
+                    return NextResponse.json({ status: 'error', message: "Échec mise à jour Edge Config après partage." });
+                }
+                console.log(updateRes)
+                return NextResponse.json({ status: 'done', message: `Article "${articleToShare.slug}" partagé et Edge Config mis à jour.`, sharedCount: 1, unsharedArticles });
+
+            } catch (socialError) {
+                // Gère les erreurs de partage social
+                console.error(`❌ Échec partage article "${articleToShare.slug}":`, socialError);
+                return NextResponse.json({ status: 'error', message: `Erreur lors du partage social pour l'article "${articleToShare.slug}".` });
+            }
+        } else {
+            console.log(`⏭️ L'article "${articleToShare.slug}" n'est pas publié.`);
+            return NextResponse.json({
+                status: 'skipped',
+                message: `L'article "${articleToShare.slug}" n'est pas éligible au partage (non publié).`
+            });
+        }
+    }
+
+    // Aucun article éligible trouvé
+    console.log('ℹ️ Aucun article éligible trouvé à partager.');
+    return NextResponse.json({ status: 'no_articles', message: 'Aucun article éligible trouvé à partager.' });
+}
+```
+
+
+* * *
+
+### Exemple LinkedIn
+
+
+// postToLinkedIn.ts — https://raw.githubusercontent.com/micmc422/bardy-michael-portfolio-cv/refs/heads/main/src/app/api/cron/social-share/postToLinkedIn.ts
+```ts
+import { get } from '@vercel/edge-config';
+import ogs from 'open-graph-scraper'; // Importation pour scraper les métadonnées Open Graph
+
+/**
+ * Publie un article sur LinkedIn en tant que post UGC.
+ * Utilise les métadonnées Open Graph de l'URL de l'article pour un aperçu riche.
+ *
+ * @param article Un objet contenant les détails de l'article (titre, description, URL).
+ * @returns {Promise<void>} Une promesse qui se résout en cas de succès, ou rejette une erreur détaillée.
+ */
+export async function postToLinkedIn(article: { title: string; description: string; url: string }): Promise<void> {
+    // Récupération du token d'accès LinkedIn.
+    const accessToken = (await get('linkedin_token')) as string;
+    if (!accessToken) {
+        throw new Error('Erreur critique: Le token d\'accès LinkedIn est manquant.');
+    }
+
+    // Récupération de l'URN de l'auteur.
+    const personURN = process.env.LINKEDIN_AUTHOR_URN;
+    if (!personURN) {
+        throw new Error('Erreur critique: L\'URN de l\'auteur LinkedIn est manquant.');
+    }
+
+    try {
+        // Extraction des métadonnées Open Graph.
+        const ogResult = await ogs({ url: article.url });
+        const ogData = ogResult.result;
+
+        console.log('Données OpenGraph brutes récupérées :', ogData); // Pour débogage
+
+        const ogTitle = ogData.ogTitle || article.title;
+        const ogDescription = ogData.ogDescription || article.description;
+        let ogImage: string | undefined;
+
+        // Logique d'extraction de l'URL de l'image Open Graph plus robuste
+        if (ogData.ogImage) {
+            if (Array.isArray(ogData.ogImage)) {
+                // Cherche la première image valide dans le tableau
+                const firstImage = ogData.ogImage.find(img => typeof img === 'object' && img !== null && 'url' in img);
+                if (firstImage) {
+                    ogImage = (firstImage as { url: string }).url;
+                }
+            } else if (typeof ogData.ogImage === 'object' && ogData.ogImage !== null && 'url' in ogData.ogImage) {
+                // Gère un objet image unique
+                ogImage = (ogData.ogImage as { url: string }).url;
+            } else if (typeof ogData.ogImage === 'string') {
+                // Gère une URL d'image directe
+                ogImage = ogData.ogImage;
+            }
+        }
+
+        console.log('URL de l\'image OpenGraph extraite :', ogImage); // Pour débogage
+
+        // Construction du payload JSON pour le post LinkedIn.
+        const postBody: any = {
+            author: personURN,
+            lifecycleState: 'PUBLISHED',
+            specificContent: {
+                'com.linkedin.ugc.ShareContent': {
+                    shareCommentary: {
+                        text: ogTitle
+                    },
+                    shareMediaCategory: 'ARTICLE',
+                    media: [
+                        {
+                            status: 'READY',
+                            description: {
+                                text: ogDescription
+                            },
+                            originalUrl: article.url,
+                            title: {
+                                text: ogTitle
+                            },
+                        }
+                    ]
+                }
+            },
+            visibility: {
+                'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
+            }
+        };
+
+        // Ajoute la miniature si une URL d'image valide a été trouvée
+        if (ogImage && ogImage.startsWith('http')) { // Simple validation pour s'assurer que c'est une URL HTTP(S)
+            (postBody.specificContent['com.linkedin.ugc.ShareContent'].media[0] as any).thumbnails = [
+                { resolvedUrl: ogImage }
+            ];
+        } else {
+            console.warn('⚠️ Aucune URL d\'image OpenGraph valide trouvée ou extraite. Le post LinkedIn n\'aura pas de miniature.');
+        }
+
+        // Envoi de la requête HTTP POST à l'API LinkedIn.
+        const res = await fetch('https://api.linkedin.com/v2/ugcPosts', {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                'X-Restli-Protocol-Version': '2.0.0',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postBody)
+        });
+
+        // Gestion de la réponse de l'API.
+        if (!res.ok) {
+            const errorText = await res.text();
+            const errorMessage = `❌ Échec publication LinkedIn: Statut ${res.status} - ${res.statusText}. Détails: ${errorText}`;
+            console.error(errorMessage);
+            throw new Error(errorMessage);
+        }
+
+        console.log('🎉 Article posté sur LinkedIn avec succès !');
+    } catch (error) {
+        console.error('⚠️ Erreur lors de la publication sur LinkedIn:', error);
+        throw error;
+    }
+}
+```
+
+
+### Exemple Facebook
+
+
+// postToFacebook.ts — https://raw.githubusercontent.com/micmc422/bardy-michael-portfolio-cv/refs/heads/main/src/app/api/cron/social-share/postToFacebook.ts
+```ts
+import { get } from '@vercel/edge-config';
+
+/**
+ * Publie un article donné sur une page Facebook configurée.
+ * Récupère le token d'accès de la page et l'ID de la page depuis les sources sécurisées (Edge Config et variables d'environnement).
+ * Interagit avec l'API Graph de Facebook pour créer un nouveau post.
+ *
+ * @param article Un objet contenant les informations essentielles de l'article à partager.
+ * Ex: { title: "Mon Super Article", description: "Une description captivante", url: "https://monblog.com/article-slug" }
+ * @returns {Promise<void>} Une promesse qui se résout sans valeur en cas de succès, ou rejette une erreur détaillée en cas d'échec.
+ */
+export async function postToFacebook(article: { title: string; description: string; url: string }): Promise<void> {
+    // === Section 1 : Récupération des Informations d'Authentification et de Configuration ===
+
+    // 1. Récupération du token d'accès Facebook depuis Vercel Edge Config.
+    // C'est la méthode recommandée pour les secrets qui peuvent changer ou être gérés dynamiquement.
+    const accessToken = await get('facebook_token') as string;
+
+    // Vérification critique : S'assurer que le token d'accès est disponible.
+    // Sans ce token, aucune requête API ne peut être authentifiée.
+    if (!accessToken) {
+        const errorMessage = 'Erreur critique: Le token d\'accès Facebook est manquant dans Edge Config. Impossible de publier.';
+        console.error(errorMessage);
+        throw new Error(errorMessage); // Lance une erreur pour stopper l'exécution et signaler le problème.
+    }
+
+    // 2. Récupération de l'ID de la page Facebook depuis les variables d'environnement.
+    // Cet ID est spécifique à la page où le post doit être publié.
+    const pageId = process.env.FACEBOOK_PAGE_ID;
+
+    // Vérification critique : S'assurer que l'ID de la page est défini.
+    if (!pageId) {
+        const errorMessage = 'Erreur critique: L\'ID de la page Facebook (FACEBOOK_PAGE_ID) est manquant dans les variables d\'environnement. Impossible de publier.';
+        console.error(errorMessage);
+        throw new Error(errorMessage);
+    }
+
+    // URL de base pour l'API Graph de Facebook pour la publication sur le fil d'actualité d'une page.
+    const apiUrl = `https://graph.facebook.com/${pageId}/feed`;
+
+    // === Section 2 : Préparation des Données du Post ===
+
+    // Préparation des paramètres de la requête.
+    // URLSearchParams est utilisé pour construire une chaîne de requête URL sécurisée et correctement encodée.
+    const params = new URLSearchParams({
+        // Le message principal du post, combinant le titre et la description de l'article avec un double saut de ligne pour la lisibilité.
+        message: `${article.title}\n\n${article.description}`,
+        // L'URL de l'article qui sera partagée. Facebook va souvent extraire les métadonnées Open Graph de cette URL
+        // pour générer un aperçu riche (titre, image, description) directement dans le post.
+        link: article.url,
+        // Le token d'accès est inclus en tant que paramètre de requête pour l'authentification.
+        access_token: accessToken
+    });
+
+    // === Section 3 : Exécution de la Requête API et Gestion des Erreurs ===
+
+    try {
+        // Envoi de la requête HTTP POST à l'API Graph de Facebook.
+        // Les paramètres sont ajoutés directement à l'URL.
+        const res = await fetch(`${apiUrl}?${params.toString()}`, {
+            method: 'POST',
+            // Spécifie le type de contenu de la requête. Important pour que l'API interprète correctement les données.
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        });
+
+        // 5. Gestion de la réponse de l'API.
+        // Si la réponse HTTP n'est pas dans la plage 2xx (e.g., 400 Bad Request, 500 Internal Server Error),
+        // cela indique une erreur de l'API Facebook.
+        if (!res.ok) {
+            const errorText = await res.text(); // Tente de récupérer le corps de la réponse d'erreur pour des détails.
+            const errorMessage = `❌ Échec de la publication Facebook: Statut ${res.status} - ${res.statusText}. Détails: ${errorText}`;
+            console.error(errorMessage);
+            throw new Error(errorMessage); // Relance une erreur avec des informations complètes.
+        }
+
+        // Si la publication est réussie, l'API retourne un objet JSON contenant souvent l'ID du post.
+        const result = await res.json();
+        console.log(`🎉 Article posté sur Facebook avec succès. ID du post: ${result.id}`);
+        // `void` signifie que la fonction n'a pas besoin de retourner une valeur en cas de succès.
+    } catch (error) {
+        // Capture les erreurs qui peuvent survenir pendant l'appel `fetch` (ex: problèmes réseau, CORS).
+        console.error('⚠️ Erreur inattendue lors de l\'envoi de la requête à Facebook:', error);
+        throw error; // Relance l'erreur pour qu'elle puisse être gérée par la fonction appelante (dans `route.ts`).
+    }
+}
+```
+
+
+* * *
+
+## ⚙️ Orchestration avec Vercel Cron
+
+Deux tâches planifiées orchestrent l’automatisation :
+
+-   `/api/cron/refresh-facebook-token` → tous les jours à 4h (renouvellement du token Facebook).
+    
+-   `/api/cron/social-share` → tous les jours à 5h (publication des articles).
+    
+
+Exemple de configuration :
+
+
+// vercel.json — https://raw.githubusercontent.com/micmc422/bardy-michael-portfolio-cv/refs/heads/main/vercel.json
+```json
+{
+    "crons": [
+        {
+            "path": "/api/cron/indexNow",
+            "schedule": "0 0 * * *"
+        },
+        {
+            "path": "/api/cron/social-share",
+            "schedule": "0 7 * * *"
+        },
+        {
+            "path": "/api/cron/refresh-facebook-token",
+            "schedule": "0 4 20 * *"
+        }
+    ]
+}
+```
+
+
+Le système publie sur les réseaux sociaux chaque jour à 7h UTC (Vercel ne gérant pas les fuseaux horaires ni les heures d’été, soyez vigilants) et régénère un token Facebook le 20 du mois à 4h.
+
+Ce modèle serverless offre une architecture performante, scalable, et totalement compatible avec un processus d’intégration continue (CI/CD) déployé sur Vercel.
+
+* * *
+
+## 🚀 Résultats obtenus
+
+-   Le token Facebook reste toujours valide.
+    
+-   Les articles récents sont automatiquement publiés sur les réseaux.
+    
+-   Les publications sont enrichies avec des métadonnées OpenGraph.
+    
+-   Le système fonctionne de manière autonome, fiable et invisible.
+    
+
+* * *
+
+## 📅 Perspectives d’évolution
+
+-   Implémenter un fallback pour les erreurs d’API.
+    
+-   Étendre le système à d’autres plateformes (Mastodon, X...).
+    
+-   Ajouter la publication rétroactive d’anciens articles.
+    
+
+* * *
+
+En résumé : un système automatisé, robuste et léger, qui simplifie la gestion des publications tout en améliorant la visibilité SEO du portfolio 🚀.
+
+[Powered by Synscribe](https://www.synscribe.com/?utm_source=web&utm_campaign=attribution&utm_content=cmbzl013c00037ikc0fflg39w)

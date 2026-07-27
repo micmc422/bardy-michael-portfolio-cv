@@ -1,4 +1,3 @@
-import type { Author, TagInPost } from "@wisp-cms/client";
 import type { Metadata } from "next";
 
 export interface PostType {
@@ -23,26 +22,10 @@ export interface PostType {
     content?: string;
 }
 
-export interface WispPost {
-    id: string;
-    createdAt: Date;
-    teamId: string;
-    description: string | null;
-    title: string;
-    content?: string;
-    metadata?: { team?: Team[], sources?: string[], [key: string]: any } | null;
-    slug: string;
-    image: string | null;
-    authorId: string;
-    updatedAt: string;
-    publishedAt: string;
-    author: Author;
-    tags: TagInPost[];
-}
-
 export interface OfferType {
     slug: number;
 }
+
 export interface Team {
     name: string
     role: string

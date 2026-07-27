@@ -1,0 +1,108 @@
+---
+title: "🛡️ Le jour où François a compris l’intérêt de la sécurité web"
+description: "François, victime d'une cyberattaque, découvre Vercel et apprend à sécuriser son site web après quelques erreurs... mémorables"
+publishedAt: 2025-05-29T20:06:08.319Z
+updatedAt: 2025-07-04T22:58:52.051Z
+image: "/blog/le-jour-ou-francois-a-compris-l-interet-de-la-securite-web/2d89acac-7cff-46da-a8e0-6c0cba53f22c.jpg"
+tags: ["DDoS","Vercel"]
+author: "michael Bardy"
+---
+![Meme représentant le héro de Mr. Robot](/blog/le-jour-ou-francois-a-compris-l-interet-de-la-securite-web/2d89acac-7cff-46da-a8e0-6c0cba53f22c.jpg)
+
+François, personnage public et un peu bricoleur à ses heures perdues, vient tout juste de mettre en ligne son nouveau site. Fier de son travail, il s’endort paisiblement… jusqu’à ce qu’il se réveille en sursaut à 3h du matin, l’ordinateur allumé et l’écran figé.
+
+> « 😳 Pourquoi ça ne marche pas ?… J’ai pourtant tout redémarré ! »
+
+* * *
+
+### ⚔️ L’assaut des bots
+
+À minuit pile, une horde de robots malveillants déferle sur son pauvre petit serveur :
+
+-   🌀 **Tsunami de requêtes** : plus de 200 000 visiteurs… sauf qu’aucun n’est réel.
+    
+-   🚧 **Site KO** : erreurs, pages blanches, et frustration maximale.
+    
+-   🔥 **Réaction paniquée** : François tente tout — reboot, ban d’IP… jusqu’à bloquer la sienne.
+    
+
+* * *
+
+### 🧪 Les tentatives (dés)astreignantes
+
+François essaie alors **tout ce qu’il trouve sur Google** :
+
+-   ☁️ **Cloudflare "Under Attack"** : bonne idée… mais il oublie de changer les DNS. Résultat ? Site inaccessible.
+    
+-   💸 **VPS plus puissant** : deux fois plus cher, toujours aussi fragile.
+    
+-   🧩 **Plugin miracle à 5 €** : bloque tout… y compris ses vrais visiteurs.
+    
+
+Spoiler : rien ne marche.
+
+* * *
+
+### 🧭 Ce que François _aurait dû_ faire
+
+Avant de se lancer tête baissée dans la jungle du web, François aurait pu suivre quelques bonnes pratiques simples, mais ô combien salvatrices :
+
+-   🔒 **Utiliser une plateforme gérée** (comme Vercel ou autre) dès le départ, au lieu de monter un serveur à la main sur une vieille instance qu’il paie 4,99€/mois.
+    
+-   🧰 **Prévoir un pare-feu applicatif** (WAF), pour filtrer les requêtes douteuses avant même qu’elles n’atteignent son code.
+    
+-   📈 **Surveiller le trafic** avec un système d’alertes ou un dashboard — pas avec des `tail -f` lancés en boucle dans le terminal.
+    
+-   💾 **Mettre en place un vrai système de sauvegarde**, pas un script bash qui écrase ses propres fichiers toutes les 2 heures.
+    
+-   🪪 **Limiter l’accès aux zones sensibles**, avec des URL cachées, des mots de passe, ou au moins un `robots.txt` bien pensé.
+    
+
+Mais bon… François a préféré apprendre **à la dure**. Et comme souvent dans ces cas-là, c’est **l’attaque qui forme l’expert** (ou du moins, qui pousse à déléguer à ceux qui le sont).
+
+* * *
+
+### 🛡️ L’arrivée des Renforts : Vercel
+
+Fatigué et au bout du rouleau, François découvre **Vercel**, et là… tout change :
+
+-   🚨 **Détection automatique** : les attaques sont stoppées net, avant même d’atteindre le site.
+    
+-   🧠 **Challenge malin** : les bots se font recaler par un petit test, les vrais visiteurs passent sans souci.
+    
+-   📲 **Alertes instantanées** : plus besoin de scruter son terminal, François reçoit une notif dès qu’un pic de trafic suspect apparaît.
+    
+
+* * *
+
+### 🌤️ Le calme après la tempête
+
+Le lendemain matin, François découvre… que tout a tenu 💪 :
+
+-   ⏱️ **0 minute de coupure**, malgré l’attaque massive.
+    
+-   🧱 **Des milliards de requêtes bloquées**, sans surcoût.
+    
+-   📊 **Un tableau de bord clair** : géolocalisation des attaques, origine, type de bot… tout y est.
+    
+
+Et surtout :
+
+-   😴 **François a dormi**. Vraiment dormi.
+    
+
+* * *
+
+### 📚 Moralité
+
+François a compris une chose essentielle :
+
+> 🔧 On peut aimer bidouiller, mais face à une armée de bots, mieux vaut faire appel aux experts.
+
+Aujourd’hui, son site tourne sur Vercel, en toute sérénité. Et lui ?  
+👉 Il consacre enfin ses nuits à son travail…  
+…au lieu de combattre des lignes de commande à la lampe frontale.
+
+* * *
+
+[Powered by Synscribe](https://www.synscribe.com/?utm_source=web&utm_campaign=attribution&utm_content=cmb9t16ox00054x7i1aooe1cd)

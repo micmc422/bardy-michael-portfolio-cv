@@ -1,0 +1,56 @@
+---
+title: "Migrer son site WordPress vers Next.js : guide complet 2026"
+description: "Pourquoi et comment migrer un site WordPress vers Next.js — méthode, coûts, SEO."
+publishedAt: 2026-07-27T20:05:41.494Z
+updatedAt: 2026-07-27T20:42:08.574Z
+image: "/blog/migrer-son-site-wordpress-vers-nextjs-guide-complet-2026/2d89acac-7cff-46da-a8e0-6c0cba53f22c.jpg"
+tags: ["Next.js","Wordpress","SEO"]
+author: "michael Bardy"
+---
+![Migration WP vers Next.js](/blog/migrer-son-site-wordpress-vers-nextjs-guide-complet-2026/2d89acac-7cff-46da-a8e0-6c0cba53f22c.jpg)
+
+Votre site WordPress rame, les mises à jour cassent des plugins et la facture d'hébergement grimpe ? La migration vers Next.js est souvent l'occasion de repartir sur des bases saines : un site plus rapide, plus sûr et moins coûteux à faire tourner.
+
+## Pourquoi quitter WordPress ?
+
+WordPress motorise un tiers du web, mais ce n'est pas toujours le bon outil. Pour un site vitrine ou un portfolio, la stack se retourne contre vous : plugins à maintenir, failles de sécurité récurrentes, temps de chargement plombés par le thème.
+
+Next.js prend le contre-pied : les pages sont générées à l'avance et servies depuis un CDN. Résultat concret sur les Core Web Vitals :
+
+| Critère | WordPress (thème classique) | Next.js statique |
+| --- | --- | --- |
+| LCP | 2,5 – 5 s | < 1 s |
+| Maintenance | Plugins + core à jour | Quasi nulle |
+| Sécurité | Surface d'attaque large | Pas de backend exposé |
+| Hébergement | 10 – 50 €/mois | 0 – 5 €/mois |
+
+## Comment se passe une migration ?
+
+<Steps title="Ma méthode de migration en 4 étapes" steps={[{"title":"Audit de l existant","content":"Inventaire des pages, du trafic SEO, des fonctionnalités et des points de friction (vitesse, accessibilité, sécurité)."},{"title":"Maquette et structure","content":"Reconstruction de l arborescence avec les redirections 301, design system et composants réutilisables."},{"title":"Développement et contenu","content":"Intégration des pages, migration du contenu, optimisation des images et des Core Web Vitals."},{"title":"Mise en ligne et suivi","content":"Déploiement sur Vercel, vérification Search Console, monitoring des performances pendant 30 jours."}]} />
+
+## Et le contenu du blog ?
+
+Pas besoin d'abandonner la simplicité d'un éditeur : un CMS headless (comme celui qui propulse ce blog) permet de continuer à rédiger dans une interface confortable, pendant que Next.js se charge de l'affichage.
+
+Exemple de redirection 301 conservée côté Next.js :
+
+
+// redirections-301.next.config.js — https://raw.githubusercontent.com/micmc422/blogfiles/refs/heads/main/migrer-wordpress-nextjs/redirections-301.next.config.js
+```js
+export default {
+  async redirects() {
+    return [{ source, destination, permanent: true }];
+  },
+};
+```
+
+
+## Combien ça coûte ?
+
+Chaque projet est différent, mais l'ordre de grandeur pour un site vitrine se situe entre 2 000 et 6 000 € selon le périmètre. Le retour sur investissement se joue sur l'hébergement (souvent divisé par 5), la maintenance et les conversions gagnées grâce à la vitesse.
+
+Vous voulez un chiffrage précis ? \[Demandez une estimation en ligne\](/estimation), c'est gratuit et sans engagement. Vous pouvez aussi consulter \[mes réalisations\](/realisations) pour voir des migrations déjà menées.
+
+<Faq title="Questions fréquentes sur le passage à Next.js" faq={[{"title":"Combien de temps dure une migration vers Next.js ?","content":"Pour un site vitrine, comptez 2 à 4 semaines selon le nombre de pages et les intégrations (CMS, formulaires, analytics)."},{"title":"Mon référencement va-t-il souffrir pendant la migration ?","content":"Non, si les redirections 301 sont correctement mises en place et que les balises meta sont conservées. C est un point central de ma méthode."},{"title":"Quel est le coût d hébergement d un site Next.js ?","content":"Un site vitrine Next.js s héberge gratuitement ou pour quelques euros par mois sur Vercel, souvent moins cher qu un hébergement WordPress infogéré."}]} />
+
+[Powered by Synscribe](https://www.synscribe.com/?utm_source=web&utm_campaign=attribution&utm_content=cms3nlp070006fae6drkljrzu)

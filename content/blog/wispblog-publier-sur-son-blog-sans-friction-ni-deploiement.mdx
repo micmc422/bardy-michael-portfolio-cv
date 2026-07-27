@@ -1,0 +1,114 @@
+---
+title: "✨ Wisp.blog : Publier sur son blog sans friction ni déploiement"
+description: "Wisp est un CMS ultra-léger conçu pour les développeurs, sans interface lourde, dédié à la publication simple et rapide d’articles en Markdown."
+publishedAt: 2025-05-28T00:00:53.659Z
+updatedAt: 2025-08-01T11:47:55.728Z
+image: "/blog/wispblog-publier-sur-son-blog-sans-friction-ni-deploiement/2d89acac-7cff-46da-a8e0-6c0cba53f22c.jpg"
+tags: ["Headless","blogging","Next.js"]
+author: "michael Bardy"
+---
+Quand on développe son site en **React** ou **Next.js**, on veut souvent tout contrôler, y compris le contenu. Comme beaucoup, j’utilisais des fichiers `.mdx` pour rédiger mes articles de blog : une solution souple — on code, on versionne, on déploie.
+
+Mais au fil du temps, une réalité s’est imposée : chaque petite modification me forçait à faire un commit Git, mettre à jour le dépôt, attendre un redéploiement… Parfois pour corriger une simple virgule. Jusqu’au jour où j’ai découvert [**Wisp.blog**](https://wisp.blog).
+
+* * *
+
+## 🚀 Wisp, c’est quoi ?
+
+Wisp est un **CMS ultra-léger** pensé pour les développeurs.  
+Pas de back-office complexe, pas de tableaux de bord interminables.
+
+👉 L’idée est simple : **publier des articles en Markdown** le plus facilement possible.  
+L’interface est minimaliste et rapide :
+
+✅ Édition en Markdown, avec rendu immédiat  
+✅ Drag & drop d’images  
+✅ Gestion des brouillons  
+✅ Champs personnalisés si besoin
+
+Mais surtout : **une intégration ultra-simple avec les sites statiques**, comme ceux en React ou Next.js.
+
+* * *
+
+## 🔁 Pourquoi passer de MDX statiques à Wisp ?
+
+Avant Wisp, mon blog tournait avec un classique dossier `/content` rempli de `.mdx`, versionné dans Git.
+
+Chaque nouvel article suivait ce workflow :
+
+1.  Créer un fichier `.mdx` avec front-matter YAML
+    
+2.  Ajouter la route ou mettre à jour les configs
+    
+3.  Commit + push sur GitHub
+    
+4.  Déploiement sur Vercel
+    
+5.  Vérifier en production
+    
+
+👉 C’était trop rigide pour un contenu éditorial.  
+**Corriger une coquille ? Ajouter une image ? Republier un brouillon ?**  
+→ Tout demandait un déploiement. Pas idéal pour un blog dynamique.
+
+Avec Wisp, c’est devenu beaucoup plus simple :
+
+-   Je publie mes articles depuis l’interface Wisp
+    
+-   Le site récupère le contenu via l’API JSON fournie
+    
+-   Pas besoin de rebuild. Pas de Git. Les mises à jour sont immédiates.
+    
+
+* * *
+
+## ✅ Les bénéfices concrets
+
+Ce que m’a apporté Wisp :
+
+-   **Gain de temps** : un clic sur "Publish", l’article est en ligne.
+    
+-   **Moins de friction** : pas besoin d’ouvrir VS Code pour chaque correction.
+    
+-   **Meilleure expérience d’écriture** : un éditeur clair, rapide et fluide.
+    
+-   **API simple et propre** : récupération des articles, tri, filtrage par tags, etc.
+    
+-   **Markdown natif** : toujours aussi agréable d’écrire en Markdown.
+    
+
+* * *
+
+## 🔧 L’intégration technique
+
+Dans mon Next.js, j’ai remplacé la lecture des `.mdx` par un simple appel API :
+
+
+// wisp-fetch.ts — https://raw.githubusercontent.com/micmc422/blogfiles/refs/heads/main/wispblog-publier-sur-son-blog-sans-friction-ni-deploiement/wisp-fetch.ts
+```ts
+const res = await fetch('https://cdn.wisp.blog/api/v1/blogs/<slug>/posts');
+const posts = await res.json();
+```
+
+
+👉 Ensuite, je mappe les articles vers mes composants.  
+Le rendu reste identique.  
+Le contenu, lui, devient **éditable en temps réel**.
+
+* * *
+
+## 🧠 En résumé
+
+Avec **Wisp.blog**, j’ai remplacé une chaîne de publication rigide par une interface fluide et légère.  
+Mon blog est toujours statique côté technique (Next.js / Vercel), mais **dynamique côté contenu**.  
+Plus besoin de passer par Git pour publier une idée.
+
+👉 Je rédige. Je publie. C’est en ligne.  
+👉 Je garde le contrôle du design, du routage, et de l’expérience utilisateur.
+
+* * *
+
+Si vous êtes développeur et que vous gérez encore vos contenus en Markdown localement :  
+**testez Wisp.blog** — vous redécouvrirez le plaisir d’écrire.
+
+[Powered by Synscribe](https://www.synscribe.com/?utm_source=web&utm_campaign=attribution&utm_content=cmb76hv4a00038edrnx11oqg0)

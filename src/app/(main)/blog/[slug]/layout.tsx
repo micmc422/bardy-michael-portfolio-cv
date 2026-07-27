@@ -1,6 +1,6 @@
 import { baseURL, blog, person } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
-import { getComments, getPostBySlug, getPosts, getRelatedPost } from "@/app/utils/serverActions";
+import { getPostBySlug, getPosts, getRelatedPost } from "@/app/utils/serverActions";
 import { getReactions } from "@/components/reactions/serverActions";
 import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, Skeleton, SmartLink, Spinner, Tag, Text } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
@@ -72,15 +72,13 @@ interface BlogLayoutProps {
 
 export default async function BlogLayout({ children, params }: BlogLayoutProps) {
     const { slug } = await params;
-    const post = await getPostBySlug(slug)
-    if (!post) {
-        notFound();
-    }
+    const postResult = await getPostBySlug(slug);
+    if (!postResult) notFound();
+    const post = postResult;
     const publishedAt = post.metadata.publishedAt ? new Date(post.metadata.publishedAt) : new Date();
     const modifiedAt = post.metadata.updatedAt ? new Date(post.metadata.updatedAt) : new Date();
 
     const reactions = await getReactions(slug);
-    const { comments } = await getComments({ slug })
     const related = await getRelatedPost({ slug })
     const avatars =
         post.metadata.team?.map((person) => ({
@@ -125,7 +123,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                 <ScrollToHash />
                 <Column as="footer" gap="l">
                     <Reactions postSlug={post.slug} reactions={reactions} />
-                    <CommentSection slug={post.slug} comments={comments} />
+                    <CommentSection slug={post.slug} />
                     {post.metadata.sources && post.metadata.sources.length > 0 && (
                         <SourcesComponent sources={post.metadata.sources} />
                     )}

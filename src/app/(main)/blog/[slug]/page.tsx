@@ -10,10 +10,9 @@ export default async function Blog({
   params
 }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug)
-  if (!post) {
-    notFound();
-  }
+  const postResult = await getPostBySlug(slug);
+  if (!postResult) notFound();
+  const post = postResult;
 
   return (
     <Column as="article" fillWidth>

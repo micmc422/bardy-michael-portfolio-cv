@@ -44,9 +44,9 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getprojectData(slug)
-
-  if (!post) notFound();
+  const postResult = await getprojectData(slug);
+  if (!postResult) notFound();
+  const post = postResult;
 
   return Meta.generate({
     title: post.metadata.title as string,
@@ -62,8 +62,9 @@ export default async function Project({
 }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-  const post = await getprojectData(slugPath);
-  if (!post) notFound();
+  const postResult = await getprojectData(slugPath);
+  if (!postResult) notFound();
+  const post = postResult;
 
   const avatars =
     post.metadata.team?.map((person) => ({

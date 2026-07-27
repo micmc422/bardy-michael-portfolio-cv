@@ -34,14 +34,6 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
       <GitHubRepoSummary ownerProvided={ownerProvided} repoProvided={repoProvided} />
     </>
   }
-  if (href.startsWith("https://www.wisp.blog")) {
-    return <>
-      <br />
-      <a href={href} {...props} style={{ marginTop: "2rem", display: "block", textAlign: "center" }} rel="nofollow noreferrer" target="_blank">
-        {children}
-      </a>
-    </>
-  }
   if (href.startsWith("https://raw.githubusercontent.com")) {
     return <RawGithubFile rawCodeUrl={href} label={children} />
   }

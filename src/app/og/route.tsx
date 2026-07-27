@@ -4,7 +4,7 @@ import { person } from "@/app/resources/content";
 import { getPostDataBySlug, getProjectData } from "../utils/serverActions";
 import { siteTypes } from "../(main)/estimation/estimationData";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
@@ -13,24 +13,26 @@ export async function GET(request: Request) {
   const slug = searchParams.get("slug");
   const type = searchParams.get("type");
   let title = searchParams.get("title") || "Portfolio Michaël Bardy"
-  let image = undefined;
+  let image: string | undefined = undefined;
   let totalPrice = 0;
   let tags: { name: string }[] = [];
   if (type === "post" && slug) {
     const post = await getPostDataBySlug(slug);
-    const postDate = new Date(post.publishedAt);
-    date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
-    title = post.title;
-    image = post.image;
-    tags = post.tags
+    if (post) {
+      const postDate = new Date(post.metadata.publishedAt ?? Date.now());
+      date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
+      title = String(post.metadata.title ?? title);
+      image = post.metadata.image ?? undefined;
+      tags = post.metadata.tags ?? []
+    }
   }
   if (type === "project" && slug) {
     const project = await getProjectData(slug);
     if (project) {
-      const postDate = new Date(project.createdAt);
+      const postDate = new Date(project.metadata.publishedAt ?? Date.now());
       date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
-      title = project.content.title;
-      image = project.content.image;
+      title = String(project.metadata.title ?? title);
+      image = project.metadata.image ?? undefined;
     }
   }
   if (type === "estimation" && slug) {
