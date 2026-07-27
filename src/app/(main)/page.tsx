@@ -59,7 +59,7 @@ export default async function Home() {
               />
             </Badge>
           </RevealFx>
-          <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs" fillWidth paddingBottom="m">
+          <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs" paddingBottom="m">
             {home.headline}
           </Heading>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
