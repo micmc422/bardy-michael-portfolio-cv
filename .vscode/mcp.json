@@ -1,12 +1,19 @@
 {
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "context7-api-key",
+            "description": "Context7 API Key (ctx7sk-…)",
+            "password": true
+        }
+    ],
     "servers": {
         "context7": {
             "type": "http",
             "url": "https://mcp.context7.com/mcp",
             "headers": {
-                "CONTEXT7_API_KEY": "ctx7sk-39fd3220-579b-4692-b71e-ed22b28991f2"
+                "CONTEXT7_API_KEY": "${input:context7-api-key}"
             }
         }
     }
 }
-//ctx7sk-000792c4-7b39-4b3a-bdb2-f12c8f4d3457
