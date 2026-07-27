@@ -53,6 +53,9 @@ const nextConfig = {
       {
         pathname: "/images/**",
       },
+      {
+        pathname: "/blog/**",
+      },
     ],
   },
   async redirects() {

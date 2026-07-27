@@ -1,4 +1,4 @@
-import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
+import { type MDXRemoteProps } from "next-mdx-remote/rsc";
 import React, { type IframeHTMLAttributes, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 import remarkGfm from 'remark-gfm'
@@ -212,21 +212,20 @@ const components = {
   RDV: dynamic(() => import("@/components").then(mod => mod.RDV)),
 };
 
+import * as runtime from "react/jsx-runtime";
+import { evaluate } from "@mdx-js/mdx";
+
 type CustomMDXProps = MDXRemoteProps & {
   components?: typeof components;
 };
-const options = {
-  mdxOptions: {
+
+export async function CustomMDX(props: CustomMDXProps) {
+  const source = props.source;
+  if (!source) return null;
+  const { default: Content } = await evaluate(source, {
+    ...runtime,
     remarkPlugins: [remarkGfm],
     rehypePlugins: [],
-  },
-};
-
-export function CustomMDX(props: CustomMDXProps) {
-  return (
-    <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-      options={options} />
-  );
+  });
+  return <Content components={{ ...components, ...(props.components || {}) }} />;
 }

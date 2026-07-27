@@ -128,7 +128,8 @@ function postProcessMarkdown(md) {
   out = out.replace(/^\\#/gm, "#");
 
   // 3) <div data-wisp-react-component="true" data-name="X" data-props="<enc>">
-  //    -> <X prop="..." />
+  //    -> <X data-props="<enc>" />
+  //    (StepsComponent/Faq lisent data-props = JSON encodé en URI)
   out = out.replace(
     /<div\s+([^>]*?)data-wisp-react-component=["']true["']([^>]*?)\/?>(?:<\/div>)?/gi,
     (_m, before, after) => {
@@ -136,25 +137,8 @@ function postProcessMarkdown(md) {
       const nameMatch = full.match(/data-name=["']([^"']+)["']/);
       const name = nameMatch ? nameMatch[1] : "WispComponent";
       const propsMatch = full.match(/data-props=["']([^"']+)["']/);
-      let attrs = "";
-      if (propsMatch) {
-        try {
-          const decoded = decodeURIComponent(propsMatch[1]);
-          const props = JSON.parse(decoded);
-          for (const [k, v] of Object.entries(props)) {
-            if (v !== null && typeof v === "object") {
-              // tableau/objet -> expression JSX { ... }
-              attrs += ` ${k}={${JSON.stringify(v)}}`;
-            } else {
-              const safe = String(v).replace(/"/g, "&quot;");
-              attrs += ` ${k}="${safe}"`;
-            }
-          }
-        } catch {
-          /* ignore */
-        }
-      }
-      return `<${name}${attrs} />`;
+      const dataProps = propsMatch ? propsMatch[1] : "";
+      return `<${name} data-props="${dataProps}" />`;
     }
   );
 
