@@ -215,7 +215,28 @@ function formatPostData(post: WispPost): PostType {
         turndownService.keep(['div']);
         // turndownService.escape = (string) => string;
 
-        data.content = turndownService.turndown(content || "");
+        data.content = turndownService.turndown(content || "")
+
+        // Turndown insère une ligne vide après chaque </tr>, ce qui casse les
+        // tables GFM (le séparateur | --- | doit suivre le header SANS ligne vide).
+        // On recolle les lignes de tableau (commençant par |) en retirant les
+        // lignes vides qui les séparent, sans toucher au reste du document.
+        const mdLines = data.content.split("\n")
+        const isTableRow = (l: string) => /^\s*\|/.test(l)
+        const cleaned: string[] = []
+        for (let i = 0; i < mdLines.length; i++) {
+          const cur = mdLines[i] ?? ""
+          // Retire une ligne vide située ENTRE deux lignes de tableau
+          if (isTableRow(cur) && cleaned.length >= 2) {
+            const maybeEmpty = cleaned[cleaned.length - 1] ?? ""
+            const beforeEmpty = cleaned[cleaned.length - 2] ?? ""
+            if (maybeEmpty.trim() === "" && isTableRow(beforeEmpty)) {
+              cleaned.pop() // retire la ligne vide intercalée
+            }
+          }
+          cleaned.push(cur)
+        }
+        data.content = cleaned.join("\n")
 
         data.content = data.content.replace(
             /<div\s+([^>]*?)data-wisp-react-component=["']true["']([^>]*?)>(.*?)<\/div>/gi,

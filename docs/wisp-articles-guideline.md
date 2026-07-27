@@ -1,6 +1,6 @@
 # Guideline — Rédaction d'articles de blog (Wisp CMS + composants React custom)
 
-> Workflow : générer un fichier `.mdx` dans `articles/` (dossier non versionné), puis coller son contenu dans l'éditeur Wisp CMS. Le pipeline `formatPostData()` (`src/app/utils/serverActions.ts`) convertit le HTML Wisp → markdown (turndown), et `CustomMDX` (`src/components/mdx.tsx`) rend le tout avec les composants ci-dessous.
+> Workflow : générer un fichier `.mdx` dans `articles/` (dossier non versionné), **prévisualiser en dev sur `/blog`** (les brouillons apparaissent en tête de liste → aperçu réel sur `/blog/apercu/<fichier>`), puis coller son contenu dans l'éditeur Wisp CMS. Le pipeline `formatPostData()` (`src/app/utils/serverActions.ts`) convertit le HTML Wisp → markdown (turndown), et `CustomMDX` (`src/components/mdx.tsx`) rend le tout avec les composants ci-dessous. L'aperçu dev (`src/app/utils/devArticles.ts`) applique la même transformation `data-wisp-react-component` → `<Faq/>`/`<Steps/>` que la prod ; il est inactif hors `NODE_ENV=development`. Un commentaire HTML `<!-- … -->` en tête de fichier porte les métadonnées à saisir dans Wisp (la ligne `Titre … : XXX` alimente le titre de l'aperçu) et est retiré du rendu.
 
 ## 1. Pipeline & règle d'or
 
@@ -59,17 +59,23 @@ Exemples :
 [Démo CSS clamp()](https://codepen.io/user/pen/abc123)
 ```
 
-## 4. Blocs de code
+## 4. Extraits de code (via dépôt `micmc422/blogfiles`)
 
-Fence avec langage, et optionnellement un nom de fichier après `:` (les tirets deviennent des espaces dans le label) :
+**Ne jamais écrire de bloc ` ``` ` (fence) dans l'article Wisp** : le compilateur MDX échoue (`Could not parse import/exports with acorn`) dès qu'un fence contient du code JS/TS. À la place, le code est hébergé dans le dépôt [`micmc422/blogfiles`](https://github.com/micmc422/blogfiles) et affiché par un lien « magique » intercepté par `mdx.tsx` (ligne 45-46) → composant `RawGithubFile` (`CodeBlock` Once UI avec bouton copier).
 
-````md
-```js:mon-fichier.js
-const hello = "world";
+Syntaxe dans l'article (lien Markdown vers le fichier brut) :
+
+```md
+Voir l'exemple de redirection 301 côté Next.js :
+
+[redirections-301-next.config.mjs](https://raw.githubusercontent.com/micmc422/blogfiles/main/redirections-301-next.config.mjs)
 ```
-````
 
-Rendu : `CodeBlock` Once UI avec bouton copier, label `Js | mon fichier.js`.
+- Le segment après `/main/` devient le label (les tirets → espaces). Le `CodeBlock` détecte le langage depuis l'extension (`.mjs` → JavaScript, `.ts` → TypeScript, etc.).
+- Ajouter le fichier correspondant dans `micmc422/blogfiles` (branche `main`) avant publication.
+- Cas particulier : si l'URL contient `micmc422/blogfiles`, le préfixe de chemin est masqué (label = seul le nom de fichier/restant).
+
+> Une image de couverture ou un snippet inline court peut rester en texte, mais tout bloc de code multi-lignes **doit** passer par ce mécanisme de dépôt.
 
 ## 5. Images et médias
 
@@ -82,7 +88,46 @@ Image markdown standard → composant `Media` Once UI (16/9, enlarge au clic, co
 - Toujours renseigner l'alt (accessibilité + SEO).
 - Héberger via Wisp (imagedelivery.net) ou `/images/blog/` du site.
 
-## 6. Structure d'un article
+## 6. Métadonnées Wisp (à saisir dans le CMS)
+
+Le site consomme ces champs (mapping `formatPostData()` → `PostType.metadata`) :
+
+| Champ Wisp | Utilisation côté site | Obligatoire |
+|---|---|---|
+| **Title** | h1 de l'article, `<title>`, OG/Twitter, JSON-LD `blogPosting`, cartes de liste | ✅ |
+| **Slug** | URL `/blog/<slug>` (généré depuis le titre, vérifier qu'il est court et parlant) | ✅ |
+| **Description** | `summary` : meta description, OG/Twitter description, JSON-LD, intro des cartes | ✅ (150-160 car.) |
+| **Image (cover)** | Vignette des listes + image OG (`/og?slug=…&type=post`) — 16/9 conseillé | ✅ |
+| **Tags** | Tags cliquables (`/blog/tags/<name>`) + filtrage `getPosts({ tags })` | ✅ (2-4 tags) |
+| **Publication date** | `publishedAt` : tri des listes, date affichée, JSON-LD `datePublished`/`dateModified` | ✅ (auto à la publication) |
+| **Metadata JSON** (champ `metadata` de l'article Wisp) | `team` : auteurs affichés (défaut : Michaël Bardy via `baseTeam`) · `sources` : URLs rendues en cartes OG en fin d'article | optionnel |
+
+Exemple de champ Metadata JSON (uniquement si nécessaire) :
+
+```json
+{
+  "sources": ["https://nextjs.org/docs", "https://web.dev/articles/vitals"],
+  "team": [{ "name": "…", "role": "…", "avatar": "https://…", "linkedIn": "https://…" }]
+}
+```
+
+### En-tête des brouillons `.mdx`
+
+Chaque brouillon dans `articles/` DOIT commencer par un commentaire HTML listant ces métadonnées, prêtes à copier dans Wisp (le commentaire est retiré du rendu d'aperçu ; la ligne `Titre … : XXX` alimente le titre de l'aperçu dev) :
+
+```html
+<!--
+  Titre (à saisir dans Wisp) : Mon titre d'article
+  Slug : mon-titre-article
+  Description : Meta description 150-160 caractères.
+  Image de couverture : suggestion de visuel 16/9 (à uploader dans Wisp)
+  Tags : tag1, tag2, tag3
+  Metadata JSON : {"sources":["https://…"]} (ou « aucune »)
+  ⚠ Coller le contenu CI-DESSOUS (sans ce commentaire) dans l'éditeur Wisp.
+-->
+```
+
+## 7. Structure d'un article
 
 - **Pas de `#` (h1)** dans le corps : le titre vient des métadonnées Wisp. Commencer à `##`.
 - Les `##`/`###` génèrent des ancres cliquables (slug auto) → table des matières `HeadingNav` automatique.
@@ -117,11 +162,11 @@ Appel à l'action (contact, RDV, lien interne vers /realisations ou /estimation)
 <div data-wisp-react-component="true" data-name="Faq" data-props="…"></div>
 ```
 
-## 7. Composants Once UI également enregistrés
+## 8. Composants Once UI également enregistrés
 
 Disponibles dans le registre MDX (usage direct JSX fiable uniquement via le pipeline dev — depuis Wisp, préférer les blocs `data-wisp-react-component` ou le markdown pur) : `Heading`, `Text`, `CodeBlock`, `InlineCode`, `Accordion`, `AccordionGroup`, `Table`, `Feedback`, `Button`, `Card`, `Grid`, `Row`, `Column`, `Icon`, `Media`, `SmartLink`, `OgCard`, `RDV`.
 
-## 8. Checklist avant collage dans Wisp
+## 9. Checklist avant collage dans Wisp
 
 - [ ] Aucun `#` h1 dans le corps
 - [ ] `data-props` bien passés dans `encodeURIComponent` (tester `JSON.parse(decodeURIComponent(...))`)
@@ -129,9 +174,10 @@ Disponibles dans le registre MDX (usage direct JSX fiable uniquement via le pipe
 - [ ] Fences avec langage (`js`, `ts`, `bash`, `css`, `html`…)
 - [ ] Alt sur toutes les images
 - [ ] Liens internes en chemin relatif (`/blog/...`, `/realisations/...`)
+- [ ] En-tête <!-- métadonnées Wisp --> complet (titre, slug, description 150-160c, image, tags)
 - [ ] Ton : français, vouvoiement pro, orienté freelance/PME locale (Albi/Occitanie)
 
-## 9. Générer l'encodage `data-props`
+## 10. Générer l'encodage `data-props`
 
 ```js
 // Node one-liner
