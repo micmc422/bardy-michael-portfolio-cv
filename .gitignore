@@ -40,3 +40,6 @@ certificates
 # Puppeteer chromium binary (generated at build time)
 public/chromium-pack.tar
 .env*
+
+# Brouillons d'articles Wisp (générés localement, collés manuellement dans le CMS)
+/articles/

@@ -56,6 +56,7 @@ Alias : `@/*` → `./src/*`.
 3. **Params async Next 16** : `{ params }: { params: Promise<{ slug: string }> }` puis `await params`.
 4. **Routes en français** + redirects permanents (`/about`→`/a-propos`, `/work`→`/realisations`) dans `next.config.mjs`.
 5. Data Wisp toujours via server actions cachées — ne pas appeler `wisp.*` directement dans les pages.
+   - **Rédaction d'articles blog** : suivre `docs/wisp-articles-guideline.md`. Générer les brouillons `.mdx` dans `articles/` (non versionné) ; l'utilisateur les colle dans Wisp CMS. Composants custom via `<div data-wisp-react-component="true" data-name="Faq|Steps" data-props="<JSON encodeURIComponent>">`.
 6. Variables d'env dans `.env.local` (jamais commité) : `DATABASE_URL`, `WISP_BLOG_ID`, VAPID keys, tokens sociaux, `PASSWORD_PROTECT_ROUTE`.
 7. TS strict : `noUncheckedIndexedAccess`, `verbatimModuleSyntax` (→ `import type` obligatoire pour les types).
 8. Vars inutilisées : préfixe `_` (règle ESLint) ; `unused-imports/no-unused-imports` = error.

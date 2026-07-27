@@ -40,5 +40,6 @@ Stack : Next.js 16.2 (Turbopack), React 19.2, TS 5.9 strict, @once-ui-system/cor
 
 ## Optional
 
+- [docs/wisp-articles-guideline.md](docs/wisp-articles-guideline.md) : guideline rédaction articles Wisp (composants custom Faq/Steps, liens magiques, workflow articles/)
 - [README.md](README.md) : présentation publique
 - [public/manifest.json](public/manifest.json) + [public/sw.js](public/sw.js) : PWA
