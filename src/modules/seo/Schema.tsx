@@ -1,7 +1,6 @@
 import React from "react";
 import { home, person, social } from "@/app/resources/content";
 import type { ReactionType } from "@/components/reactions/serverActions";
-import Script from "next/script";
 import type { PostType } from "@/app/utils/types";
 import { baseURL, breadCrumbs } from "@/app/resources/config";
 import { siteTypes } from "@/app/(main)/estimation/estimationData";
@@ -25,6 +24,7 @@ export interface SchemaProps {
     reactions?: ReactionType[]
     projet?: PostType
     offerSlug?: string
+    /** @deprecated JSON-LD est rendu via une balise <script> native ; conservé pour compat. */
     strategy?: "beforeInteractive" | "afterInteractive" | "lazyOnload";
 }
 
@@ -64,7 +64,7 @@ export async function Schema({
     reactions,
     projet,
     offerSlug,
-    strategy = "beforeInteractive"
+    strategy: _strategy = "beforeInteractive"
 }: SchemaProps) {
 
     const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
@@ -371,12 +371,11 @@ export async function Schema({
         }
     }
     return (
-        <Script
+        <script
             id={`schema-${as}-${path}`}
-            strategy={strategy}
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-                __html: JSON.stringify(schema),
+                __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
             }}
         />
     );

@@ -5,7 +5,6 @@ import { useParams, useSearchParams } from "next/navigation"
 import { useMemo, useState, useTransition } from "react";
 import { siteTypes } from "../estimationData";
 import { isValidEmail, toQueryParams } from "@/utils/utils";
-import Script from "next/script";
 import { baseURL } from "@/app/resources";
 import { estimation } from "@/app/resources/content";
 
@@ -230,7 +229,7 @@ export default function ResumePanel() {
             <Button prefixIcon="document" fillWidth loading={loading} disabled={!isValidEmail(email) || loading} 
                 onClick={handleSubmit}>Demander un devis</Button>
         </Column>}
-        {!!activeSiteType && <Script id={`Estimation-${activeSiteType?.slug}`} type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: jsonLD }} />}
+        {!!activeSiteType && <script id={`Estimation-${activeSiteType?.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />}
 
     </>
 }

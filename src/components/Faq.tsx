@@ -1,7 +1,6 @@
 import React, { forwardRef, type ReactNode } from "react";
 import { AccordionGroup, Column, Heading } from "@once-ui-system/core";
 import { getRandomSixDigitNumber, slugify } from "@/utils/utils";
-import Script from "next/script";
 
 
 interface FaqProps extends React.ComponentProps<typeof Column> {
@@ -48,7 +47,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             return (<Column as="section" ref={ref} gap="l" aria-labelledby={title ? slugify(title) : undefined} {...rest}>
                 {title && <Heading as="h2" variant="display-strong-s" id={slugify(title)}>{title || "FAQ"}</Heading>}
                 <AccordionGroup items={faq} background="surface" />
-                <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
+                <script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "FAQPage",
@@ -68,7 +67,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
             return (<Column as="section" ref={ref} gap="l" paddingBottom="xl" aria-labelledby={title ? slugify(title) : undefined} {...rest}>
                 {title && <Heading as="h2" variant="display-strong-xs" id={slugify(title)}>{title}</Heading>}
                 <AccordionGroup items={list} background="surface" />
-                <Script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
+                <script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org",
                         "@type": "ItemList",

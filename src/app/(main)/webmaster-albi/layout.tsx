@@ -1,4 +1,3 @@
-import Script from "next/script";
 import type { ReactNode } from "react";
 import { webmasterAlbi } from "../../resources/content";
 import { baseURL } from "../../resources";
@@ -7,7 +6,7 @@ import { Column } from "@once-ui-system/core";
 export default async function WebmasterAlbiLayout({ children }: { children: ReactNode }) {
     return <Column as="article" gap="l" center>
         {children}
-        <Script id="About-page" type="application/ld+json" dangerouslySetInnerHTML={{
+        <script id="About-page" type="application/ld+json" dangerouslySetInnerHTML={{
             __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "AboutPage",

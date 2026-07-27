@@ -3,7 +3,6 @@ import { ProjectCard } from "@/components";
 // import type { Metadata } from "next";
 import { getProjects } from "@/app/utils/serverActions";
 import { use } from "react";
-import Script from "next/script";
 import { work } from "@/app/resources";
 import { getRandomSixDigitNumber } from "@/utils/utils";
 
@@ -54,7 +53,7 @@ export function Projects({ range }: ProjectsProps) {
           link={post.metadata.link || ""}
         />
       ))}
-      <Script id={`Projects-${typeof work.title === "string" ? work.title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json">{JSON.stringify(jsonLd)}</Script>
+      <script id={`Projects-${typeof work.title === "string" ? work.title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     </Column>
   );
 }

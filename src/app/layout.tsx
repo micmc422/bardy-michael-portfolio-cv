@@ -233,13 +233,13 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png" />
           <meta name="theme-color" content="#ffffff" />
+          <script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
+            __html: schema
+          }} />
         </head>
         <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
           {children}
         </Column>
-        <Script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: schema
-        }} />
       </Flex >
     </LayoutProvider>
   );
