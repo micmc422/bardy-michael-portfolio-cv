@@ -39,3 +39,4 @@ certificates
 
 # Puppeteer chromium binary (generated at build time)
 public/chromium-pack.tar
+.env*

@@ -8,10 +8,13 @@ Ce dépôt contient le code source du site portfolio de **Michael Bardy**, déve
 
 ## 🚀 Technologies utilisées
 
-- **Next.js 15** — framework React moderne
-- **TypeScript** — typage fort pour un code robuste
-- **Tailwind CSS** — pour un design minimaliste et rapide
-- **Vercel** — déploiement serverless
+- **Next.js 16** — App Router, Turbopack en dev
+- **React 19** + **TypeScript** (mode strict) — typage fort pour un code robuste
+- **Once UI** (`@once-ui-system/core`) — design system, complété par des SCSS Modules
+- **Wisp CMS** — blog et réalisations (headless)
+- **Neon Postgres + Drizzle ORM** — données (réactions, commentaires…)
+- **Vercel** — déploiement serverless, crons et Edge Config
+- **Vitest + Testing Library** — tests unitaires
 
 ---
 
@@ -19,30 +22,44 @@ Ce dépôt contient le code source du site portfolio de **Michael Bardy**, déve
 
 ### Prérequis
 
-- Node.js >= 18
-- pnpm ou npm
+- Node.js >= 20
+- pnpm (version définie dans `package.json` → `packageManager`)
 
 ### Installation
 
 ```bash
 pnpm install
-# ou
-npm install
 ```
 
 Lancer le projet
 
 ```bash
-pnpm run dev
-# ou
-npm run dev
+pnpm dev
 ```
 
 Le site sera accessible sur <http://localhost:3000>
 
+### Scripts utiles
+
+```bash
+pnpm build           # build production
+pnpm lint            # ESLint
+pnpm test            # tests unitaires (Vitest)
+pnpm test:coverage   # couverture
+pnpm clean           # depcheck + ts-prune + npm-check + eslint --fix
+```
+
 ### 🚀 Déploiement
 
 Le site est déployé automatiquement sur Vercel lors des pushs sur la branche main.
+
+## 🤖 Agents IA
+
+Les instructions pour les assistants de code (Copilot, Hermes, Claude…) sont dans :
+
+- `AGENTS.md` — conventions, architecture, pièges (source de vérité)
+- `llms.txt` — index des fichiers clés
+- `.github/copilot-instructions.md` — patterns détaillés
 
 ## 📄 À propos
 
@@ -53,10 +70,6 @@ Ce projet a pour objectif de présenter :
 - Mes compétences en développement
 
 Priorité : rapidité, accessibilité, expérience utilisateur.
-
-## 📝 TODO
-
-Ajouter des tests unitaires
 
 ### 📩 Contact
 

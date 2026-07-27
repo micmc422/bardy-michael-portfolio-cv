@@ -1,0 +1,44 @@
+# Bardy Michael — Portfolio & CV (occitaweb.fr)
+
+> Portfolio/CV de Michaël Bardy, développeur web freelance à Albi (Occitaweb). Next.js 16 App Router + React 19 + TypeScript strict + Once UI, contenu blog/projets via Wisp CMS, déployé sur Vercel. Routes et contenu en français.
+
+Stack : Next.js 16.2 (Turbopack), React 19.2, TS 5.9 strict, @once-ui-system/core, SCSS Modules (pas de Tailwind), Wisp CMS, Neon Postgres + Drizzle, MDX, Vitest, ESLint 9, Biome, pnpm 10.
+
+## Instructions agents
+
+- [AGENTS.md](AGENTS.md) : conventions, commandes, architecture, pièges — À LIRE EN PREMIER
+- [.github/copilot-instructions.md](.github/copilot-instructions.md) : patterns détaillés (synchronisé avec le code)
+- [.github/agents/once-ui.md](.github/agents/once-ui.md) : API complète Once UI (110+ composants, providers, thèmes)
+
+## Configuration
+
+- [package.json](package.json) : scripts (dev/build/lint/test/clean), dépendances exactes
+- [src/app/resources/config.js](src/app/resources/config.js) : baseURL, routes actives, protectedRoutes, fonts, style
+- [src/app/resources/content.js](src/app/resources/content.js) : tout le contenu du site (person, pages, services)
+- [next.config.mjs](next.config.mjs) : MDX, images, redirects (/about→/a-propos), headers sécurité/cache
+- [tsconfig.json](tsconfig.json) : alias @/* → ./src/*, strict + verbatimModuleSyntax
+- [vercel.json](vercel.json) : crons Vercel (indexNow, social-share, refresh-facebook-token)
+- [eslint.config.js](eslint.config.js) : config ESLint 9 effective ; [biome.json](biome.json) : formatage
+
+## Code clé
+
+- [src/app/layout.tsx](src/app/layout.tsx) : root layout, Meta, Schema.org LocalBusiness
+- [src/app/utils/serverActions.ts](src/app/utils/serverActions.ts) : server actions Wisp cachées (getPosts, getProjects…)
+- [src/app/utils/types.ts](src/app/utils/types.ts) : PostType, WispPost, ProjectType, AvisType
+- [src/app/utils/wispClient.ts](src/app/utils/wispClient.ts) : client Wisp (WISP_BLOG_ID)
+- [src/components/mdx.tsx](src/components/mdx.tsx) : composants MDX custom
+- [src/modules/seo/Schema.tsx](src/modules/seo/Schema.tsx) : rich data Schema.org
+- [src/app/utils/siteCheck/](src/app/utils/siteCheck/) : moteur d'audit site (perf, seo, a11y, mobile, sécurité)
+- [src/utils/db.ts](src/utils/db.ts) : Neon Postgres + Drizzle
+
+## Tests & CI
+
+- [vitest.config.ts](vitest.config.ts) : jsdom, globals, alias @
+- [src/__tests__/](src/__tests__/) : tests unitaires (formatDate, utils)
+- [.github/workflows/ci.yml](.github/workflows/ci.yml) : CI GitHub Actions (Node 20, pnpm)
+- [.github/workflows/lighthouse-ci.yml](.github/workflows/lighthouse-ci.yml) : budget perf Lighthouse
+
+## Optional
+
+- [README.md](README.md) : présentation publique
+- [public/manifest.json](public/manifest.json) + [public/sw.js](public/sw.js) : PWA
