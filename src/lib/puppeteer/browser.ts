@@ -12,7 +12,7 @@
 // In development/preview, uses the official sparticuz/chromium example
 const CHROMIUM_PACK_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/chromium-pack.tar`
-    : "https://github.com/nichochar/puppeteer-example/releases/download/v1.0.0/chromium-v132.0.0-pack.tar";
+    : "https://github.com/Sparticuz/chromium/releases/download/v149.0.0/chromium-v149.0.0-pack.x64.tar";
 
 // Cache the Chromium executable path to avoid re-downloading on subsequent requests
 let cachedExecutablePath: string | null = null;

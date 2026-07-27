@@ -16,8 +16,15 @@ async function main() {
     // Convert file:// URL to regular path
     const chromiumPath = chromiumResolvedPath.replace(/^file:\/\//, "");
 
-    // Get the package root directory (goes up from build/esm/index.js to package root)
-    const chromiumDir = dirname(dirname(dirname(chromiumPath)));
+    // Walk up from the resolved entry point (build/index.js or build/esm/index.js)
+    // until we find the package root containing bin/
+    let chromiumDir = dirname(chromiumPath);
+    while (
+      chromiumDir !== dirname(chromiumDir) &&
+      !existsSync(join(chromiumDir, "bin"))
+    ) {
+      chromiumDir = dirname(chromiumDir);
+    }
     const binDir = join(chromiumDir, "bin");
 
     if (!existsSync(binDir)) {
