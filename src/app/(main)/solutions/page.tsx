@@ -1,4 +1,4 @@
-import { Background, Badge, Button, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text, type opacity } from "@once-ui-system/core";
+import { Background, Badge, Button, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text, type Opacity } from "@once-ui-system/core";
 import { about, baseURL } from "../../resources";
 import { person, solutionsWeb } from "../../resources/content";
  import Meta from "@/modules/seo/Meta";
@@ -83,7 +83,7 @@ export default function SolutionsPage() {
                     }}
                     gradient={{
                         display: true,
-                        opacity: 1 as opacity,
+                        opacity: 1 as Opacity,
                         x: 50,
                         y: 0,
                         colorStart: "accent-alpha-strong",

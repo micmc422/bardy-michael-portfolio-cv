@@ -1,4 +1,4 @@
-import { Button, Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type opacity } from "@once-ui-system/core";
+import { Button, Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type Opacity } from "@once-ui-system/core";
 import { baseURL } from "@/app/resources";
 import { person, atomicBd81 } from "@/app/resources/content";
 import Meta from "@/modules/seo/Meta";
@@ -355,7 +355,7 @@ export default function AtomicBd81Page() {
                             }}
                             gradient={{
                                 display: true,
-                                opacity: 1 as opacity,
+                                opacity: 1 as Opacity,
                                 x: 50,
                                 y: 0,
                                 colorStart: "accent-alpha-strong",

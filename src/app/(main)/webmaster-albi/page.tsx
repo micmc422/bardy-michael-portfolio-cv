@@ -16,7 +16,7 @@ import {
   RevealFx,
   Row,
   Text,
-  type opacity
+  type Opacity
 } from "@once-ui-system/core";
 import { baseURL } from "@/app/resources";
 
@@ -120,7 +120,7 @@ export default async function About() {
               }}
               gradient={{
                 display: true,
-                opacity: 1 as opacity,
+                opacity: 1 as Opacity,
                 x: 50,
                 y: 0,
                 colorStart: "accent-alpha-strong",
@@ -147,7 +147,7 @@ export default async function About() {
               }}
               gradient={{
                 display: true,
-                opacity: 1 as opacity,
+                opacity: 1 as Opacity,
                 x: 50,
                 y: 0,
                 colorStart: "accent-alpha-strong",

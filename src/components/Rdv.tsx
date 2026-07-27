@@ -1,5 +1,5 @@
 import { rdv } from "@/app/resources";
-import { Heading, Text, Background, Column, type opacity, type SpacingToken } from "@once-ui-system/core";
+import { Heading, Text, Background, Column, type Opacity, type SpacingToken } from "@once-ui-system/core";
 import { type JSX, Suspense } from "react";
 import { RDVDropDown } from "./RdvDropDown";
 import type { RDVContentType } from "@/app/api/cal/types/route";
@@ -71,7 +71,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
         }}
         gradient={{
           display: rdv.effects.gradient.display,
-          opacity: rdv.effects.gradient.opacity as opacity,
+          opacity: rdv.effects.gradient.opacity as Opacity,
           x: rdv.effects.gradient.x,
           y: rdv.effects.gradient.y,
           width: rdv.effects.gradient.width,
@@ -82,20 +82,20 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
         }}
         dots={{
           display: rdv.effects.dots.display,
-          opacity: rdv.effects.dots.opacity as opacity,
+          opacity: rdv.effects.dots.opacity as Opacity,
           size: rdv.effects.dots.size as SpacingToken,
           color: rdv.effects.dots.color,
         }}
         grid={{
           display: rdv.effects.grid.display,
-          opacity: rdv.effects.grid.opacity as opacity,
+          opacity: rdv.effects.grid.opacity as Opacity,
           color: rdv.effects.grid.color,
           width: rdv.effects.grid.width,
           height: rdv.effects.grid.height,
         }}
         lines={{
           display: rdv.effects.lines.display,
-          opacity: rdv.effects.lines.opacity as opacity,
+          opacity: rdv.effects.lines.opacity as Opacity,
           size: rdv.effects.lines.size as SpacingToken,
           thickness: rdv.effects.lines.thickness,
           angle: rdv.effects.lines.angle,

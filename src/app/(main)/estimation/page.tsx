@@ -1,4 +1,4 @@
-import { Column, Grid, Heading, Icon, Text, Row, Card, Background, type opacity } from "@once-ui-system/core";
+import { Column, Grid, Heading, Icon, Text, Row, Card, Background, type Opacity } from "@once-ui-system/core";
 import { siteTypes } from "./estimationData";
 import { baseURL, rdv } from "../../resources";
 import { about, estimation, person } from "../../resources/content";
@@ -46,7 +46,7 @@ export default function EstimationPage() {
           }}
           gradient={{
             display: true,
-            opacity: rdv.effects.gradient.opacity as opacity,
+            opacity: rdv.effects.gradient.opacity as Opacity,
             x: rdv.effects.gradient.x,
             y: rdv.effects.gradient.y,
             width: rdv.effects.gradient.width,
@@ -57,7 +57,7 @@ export default function EstimationPage() {
           }}
           grid={{
             display: rdv.effects.grid.display,
-            opacity: rdv.effects.grid.opacity as opacity,
+            opacity: rdv.effects.grid.opacity as Opacity,
             color: "accent-alpha-medium",
             width: rdv.effects.grid.width,
             height: rdv.effects.grid.height,

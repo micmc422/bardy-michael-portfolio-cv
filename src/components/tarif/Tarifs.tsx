@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
 import styles from "./Tarifs.module.scss";
-import { Row, Column, Heading, Text, Background, Line, Button, type opacity } from "@once-ui-system/core";
+import { Row, Column, Heading, Text, Background, Line, Button, type Opacity } from "@once-ui-system/core";
 import { rdv } from "@/app/resources/config";
 import Schema from "@/modules/seo/Schema";
 
@@ -90,13 +90,13 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                     }}
                     dots={{
                         display: true,
-                        opacity: 0.6 as opacity,
+                        opacity: 0.6 as Opacity,
                         size: "8",
                         color: "accent-background-medium"
                     }}
                     gradient={{
                         display: true,
-                        opacity: 1 as opacity,
+                        opacity: 1 as Opacity,
                         x: 50,
                         y: 0,
                         colorStart: "accent-alpha-strong",
@@ -149,7 +149,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     }}
                     gradient={{
                         display: true,
-                        opacity: rdv.effects.gradient.opacity as opacity,
+                        opacity: rdv.effects.gradient.opacity as Opacity,
                         x: rdv.effects.gradient.x,
                         y: rdv.effects.gradient.y,
                         width: rdv.effects.gradient.width,
@@ -160,7 +160,7 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     }}
                     grid={{
                         display: rdv.effects.grid.display,
-                        opacity: rdv.effects.grid.opacity as opacity,
+                        opacity: rdv.effects.grid.opacity as Opacity,
                         color: "neutral-alpha-medium",
                         width: rdv.effects.grid.width,
                         height: rdv.effects.grid.height,

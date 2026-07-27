@@ -1,7 +1,7 @@
 import { Background, Column, Heading, Icon, Row, Text } from "@once-ui-system/core";
 import { Suspense, type ReactNode } from "react";
 import { rdv } from "../../resources";
-import type { ColorScheme, ColorWeight, opacity } from "@once-ui-system/core";
+import type { ColorScheme, ColorWeight, Opacity } from "@once-ui-system/core";
 import { Faq } from "@/components";
 
 const servicesInclus: { name: string, icon: string, desc: string, bgColor?: ColorScheme }[] = [
@@ -96,7 +96,7 @@ function ServicesInclus() {
             }}
             gradient={{
                 display: true,
-                opacity: rdv.effects.gradient.opacity as opacity,
+                opacity: rdv.effects.gradient.opacity as Opacity,
                 x: rdv.effects.gradient.x,
                 y: rdv.effects.gradient.y,
                 width: rdv.effects.gradient.width,
@@ -107,7 +107,7 @@ function ServicesInclus() {
             }}
             grid={{
                 display: rdv.effects.grid.display,
-                opacity: rdv.effects.grid.opacity as opacity,
+                opacity: rdv.effects.grid.opacity as Opacity,
                 color: `${bgColor}-alpha-medium`,
                 width: rdv.effects.grid.width,
                 height: rdv.effects.grid.height,

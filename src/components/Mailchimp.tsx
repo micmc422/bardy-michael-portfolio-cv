@@ -1,7 +1,7 @@
 "use client";
 
 import { mailchimp } from "@/app/resources";
-import { Button, Flex, Heading, Input, Text, Background, Column, type opacity, type SpacingToken } from "@once-ui-system/core";
+import { Button, Flex, Heading, Input, Text, Background, Column, type Opacity, type SpacingToken } from "@once-ui-system/core";
 import { type JSX, useState } from "react";
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
@@ -72,7 +72,7 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
             }}
             gradient={{
               display: mailchimp.effects.gradient.display,
-              opacity: mailchimp.effects.gradient.opacity as opacity,
+              opacity: mailchimp.effects.gradient.opacity as Opacity,
               x: mailchimp.effects.gradient.x,
               y: mailchimp.effects.gradient.y,
               width: mailchimp.effects.gradient.width,
@@ -83,20 +83,20 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
             }}
             dots={{
               display: mailchimp.effects.dots.display,
-              opacity: mailchimp.effects.dots.opacity as opacity,
+              opacity: mailchimp.effects.dots.opacity as Opacity,
               size: mailchimp.effects.dots.size as SpacingToken,
               color: mailchimp.effects.dots.color,
             }}
             grid={{
               display: mailchimp.effects.grid.display,
-              opacity: mailchimp.effects.grid.opacity as opacity,
+              opacity: mailchimp.effects.grid.opacity as Opacity,
               color: mailchimp.effects.grid.color,
               width: mailchimp.effects.grid.width,
               height: mailchimp.effects.grid.height,
             }}
             lines={{
               display: mailchimp.effects.lines.display,
-              opacity: mailchimp.effects.lines.opacity as opacity,
+              opacity: mailchimp.effects.lines.opacity as Opacity,
               size: mailchimp.effects.lines.size as SpacingToken,
               thickness: mailchimp.effects.lines.thickness,
               angle: mailchimp.effects.lines.angle,
