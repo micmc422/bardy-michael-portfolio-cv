@@ -1,0 +1,2003 @@
+[
+  {
+    "id": "httpsvercelcomblogbuildingefficientmcpservers",
+    "title": "Building efficient MCP servers",
+    "url": "https://vercel.com/blog/building-efficient-mcp-servers",
+    "source": "Vercel News",
+    "summary": "The standardizes how to build integrations for AI models. We built the to help developers create their own MCP servers using popular frameworks such as Next.js, Nuxt, and SvelteKit. Production apps like , , , and use the MCP adapter to deploy their own MCP servers on Vercel, and they've seen substantial growth in the past month. Model Context Protocol (MCP) MCP adapterZapierComposioVapiSolana MC",
+    "tags": [
+      "next.js",
+      "ux",
+      "ui",
+      "vercel",
+      "ia",
+      "ai",
+      "framework",
+      "svelte",
+      "nuxt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.016Z",
+    "used": true
+  },
+  {
+    "id": "httpsvercelcomblogvercelandshopifyarerebuildinghydrogen",
+    "title": "Vercel and Shopify are rebuilding Hydrogen",
+    "url": "https://vercel.com/blog/vercel-and-shopify-are-rebuilding-hydrogen",
+    "source": "Vercel News",
+    "summary": "Hydrogen made headless storefronts easy to ship, but not portable. At Vercel Ship 26 in New York, we announced that we are working with Shopify to rebuild it from the ground up, a shared bet on a web.more open The new version is open source and runtime agnostic, meaning it can run anywhere JavaScript does. You can build with , , or even bring your own custom framework.SvelteNuxtNext.js Our strat",
+    "tags": [
+      "next.js",
+      "javascript",
+      "ux",
+      "ui",
+      "vercel",
+      "framework",
+      "svelte",
+      "nuxt"
+    ],
+    "foundAt": "2026-07-28T11:04:08.992Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogflux2proimagemodelisnowavailableonvercelaigateway",
+    "title": "FLUX.2 Pro image model is now available on Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/flux-2-pro-image-model-is-now-available-on-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access the newest image model FLUX.2 Pro from Black Forest Labs via Vercel's with no other provider accounts required. AI Gateway FLUX.2 Pro is a newly trained base model designed for advanced visual intelligence, offering higher-resolution outputs (up to 4MP), improved knowledge of the real world, and precise control over lighting and spatial composition. It introduces multi-referenc",
+    "tags": [
+      "design",
+      "ux",
+      "ui",
+      "image",
+      "vercel",
+      "edge",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogprotectionagainstreactrouterandremixvulnerabilitiescve202543864",
+    "title": "Protection against React Router and Remix vulnerabilities",
+    "url": "https://vercel.com/changelog/protection-against-react-router-and-remix-vulnerabilities-cve-2025-43864",
+    "source": "Vercel News",
+    "summary": "Security researchers reviewing the Remix web framework have discovered two high-severity vulnerabilities in React Router. Vercel proactively deployed mitigation to the Vercel Firewall and .Vercel customers are protected and enable an external party to modify the response using certain request headers, which can lead to cache poisoning Denial of Service (DoS). CVE 43865 enables vulnerabilities su",
+    "tags": [
+      "react",
+      "search",
+      "vercel",
+      "cache",
+      "security",
+      "ia",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.017Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogvercelaisdk33",
+    "title": "Vercel AI SDK 3.3",
+    "url": "https://vercel.com/blog/vercel-ai-sdk-3-3",
+    "source": "Vercel News",
+    "summary": "The is a toolkit for building AI applications with JavaScript and TypeScript. Its unified API allows you to use any language model and provides powerful UI integrations into leading web frameworks such as and .Vercel AI SDKNext.jsSvelte Read more",
+    "tags": [
+      "next.js",
+      "typescript",
+      "javascript",
+      "ui",
+      "vercel",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.022Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloggpt3appnextjsverceledgefunctions",
+    "title": "Building a GPT-3 app with Next.js and streaming (historical)",
+    "url": "https://vercel.com/blog/gpt-3-app-next-js-vercel-edge-functions",
+    "source": "Vercel News",
+    "summary": "This post is historical and describes Edge Functions as they existed at the time. For new projects, use with the Node.js runtime and .Note:Vercel FunctionsFluid compute The field of artificial intelligence continues to take the world by storm. Huge strides have been made in text and image generation through tools like ChatGPT, GPT-3, DALL-E, and Stable Diffusion. It’s spawned a wave of exciting",
+    "tags": [
+      "next.js",
+      "ui",
+      "image",
+      "vercel",
+      "edge",
+      "ia",
+      "gpt",
+      "chatgpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.026Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogvercelacquiresbetterauth",
+    "title": "Vercel acquires Better Auth to accelerate open source auth",
+    "url": "https://vercel.com/blog/vercel-acquires-better-auth",
+    "source": "Vercel News",
+    "summary": "Vercel is acquiring , the company behind the open source , which has 4.7M+ weekly npm downloads and more than 850 contributors. Founder Bereket Engida and the core team are joining Vercel to continue their work on Better Auth and agent identity.Better AuthTypeScript authentication library Last year, we behind Next.js, AI SDK, and Nuxt: software that's open by default, loosely coupled, and portabl",
+    "tags": [
+      "next.js",
+      "typescript",
+      "ux",
+      "ui",
+      "vercel",
+      "ai",
+      "nuxt"
+    ],
+    "foundAt": "2026-07-28T11:04:08.991Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloginsideworkflowdevkithowframeworkintegrationswork",
+    "title": "Inside Workflow DevKit: How framework integrations work",
+    "url": "https://vercel.com/blog/inside-workflow-devkit-how-framework-integrations-work",
+    "source": "Vercel News",
+    "summary": "When we announced the at Ship AI just over a month ago, we wanted it to reflect our , allowing developers to build with any framework and deploy to any platform. Workflow Development Kit (WDK)Open SDK Strategy At launch, WDK supported Next.js and Nitro. Today it works with eight frameworks, including SvelteKit, Astro, Express, and Hono, with TanStack Start and React Router in active development.",
+    "tags": [
+      "next.js",
+      "react",
+      "ui",
+      "ai",
+      "framework",
+      "astro",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelognanobananaprogemini3proimagenowavailableintheaigateway",
+    "title": "Nano Banana Pro (Gemini 3 Pro Image) now available in the AI Gateway",
+    "url": "https://vercel.com/changelog/nano-banana-pro-gemini-3-pro-image-now-available-in-the-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access Google's cutting edge image model, Nano Banana Pro (Gemini 3 Pro Image), via Vercel's with no other provider accounts required.AI Gateway Nano Banana Pro (Gemini 3 Pro Image) is designed to work for more advanced use cases than Nano Banana. This model introduces improvements specifically for professional and creative workflows, like the generation of diagrams with accurate labe",
+    "tags": [
+      "design",
+      "ui",
+      "image",
+      "vercel",
+      "edge",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggpt5gpt5miniandgpt5nanoarenowavailableinvercelaigateway",
+    "title": "GPT-5, GPT-5-mini, and GPT-5-nano are now available in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/gpt-5-gpt-5-mini-and-gpt-5-nano-are-now-available-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access GPT-5, GPT-5-mini, and GPT-5-nano by , models designed to push the frontier of reasoning and domain expertise, using Vercel's with no other provider accounts required. OpenAIAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher t",
+    "tags": [
+      "performance",
+      "design",
+      "ui",
+      "vercel",
+      "ia",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggptoss20bandgptoss120barenowsupportedinvercelaigateway",
+    "title": "gpt-oss-20b and gpt-oss-120b are now supported in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/gpt-oss-20b-and-gpt-oss-120b-are-now-supported-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access gpt-oss-20b and gpt-oss-120b by , open-weight reasoning models designed to push the open model frontier, using Vercel's with no other provider accounts required.OpenAIAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher than pro",
+    "tags": [
+      "performance",
+      "design",
+      "ui",
+      "vercel",
+      "ia",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogbotidnowavailableforallframeworks",
+    "title": "Vercel BotID now  available for all frameworks",
+    "url": "https://vercel.com/changelog/botid-now-available-for-all-frameworks",
+    "source": "Vercel News",
+    "summary": "You can now use Vercel BotID to protect your most sensitive endpoints in any JavaScript framework, like SvelteKit and Nuxt. BotID is our for high-value endpoints like registration, checkout, and AI interactions. Since launch, it has already protected nearly a million API requests.advanced bot protection Installing or upgrading to adds support for universal JavaScript environments with the new f",
+    "tags": [
+      "javascript",
+      "ux",
+      "vercel",
+      "ai",
+      "framework",
+      "svelte",
+      "nuxt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogaisdk42",
+    "title": "AI SDK 4.2",
+    "url": "https://vercel.com/blog/ai-sdk-4-2",
+    "source": "Vercel News",
+    "summary": "The is an open-source toolkit for building AI applications with JavaScript and TypeScript. Its unified provider API allows you to use any language model and enables powerful UI integrations into leading web frameworks such as and .AI SDKNext.jsSvelte Read more",
+    "tags": [
+      "next.js",
+      "typescript",
+      "javascript",
+      "ui",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.018Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogaisdk41",
+    "title": "AI SDK 4.1",
+    "url": "https://vercel.com/blog/ai-sdk-4-1",
+    "source": "Vercel News",
+    "summary": "The is an open-source toolkit for building AI applications with JavaScript and TypeScript. Its unified provider API allows you to use any language model and enables powerful UI integrations into leading web frameworks such as and .AI SDKNext.jsSvelte Read more",
+    "tags": [
+      "next.js",
+      "typescript",
+      "javascript",
+      "ui",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.020Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogaisdk40",
+    "title": "AI SDK 4.0",
+    "url": "https://vercel.com/blog/ai-sdk-4-0",
+    "source": "Vercel News",
+    "summary": "The is an open-source toolkit for building AI applications with JavaScript and TypeScript. Its unified provider API allows you to use any language model and enables powerful UI integrations into leading web frameworks such as and .AI SDKNext.jsSvelte Read more",
+    "tags": [
+      "next.js",
+      "typescript",
+      "javascript",
+      "ui",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.021Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogwhatsnewinsvelte5",
+    "title": "What's new in Svelte 5",
+    "url": "https://vercel.com/blog/whats-new-in-svelte-5",
+    "source": "Vercel News",
+    "summary": "With its compiler-first approach, fine-grained reactivity, and ability to integrate with any JavaScript project, Svelte stands apart from other frameworks. At Vercel, we're big fans of Svelte—deeply invested in its success and constantly working to make our platform the best place to build and deploy Svelte apps. , let's explore what makes this release exciting.With the arrival of Svelte 5 Read mo",
+    "tags": [
+      "react",
+      "javascript",
+      "ui",
+      "vercel",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.021Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogaisdk34",
+    "title": "AI SDK 3.4",
+    "url": "https://vercel.com/blog/ai-sdk-3-4",
+    "source": "Vercel News",
+    "summary": "The is an open-source toolkit for building AI applications with JavaScript and TypeScript. Its unified provider API allows you to use any language model and enables powerful UI integrations into leading web frameworks such as and .AI SDKNext.jsSvelte Read more",
+    "tags": [
+      "next.js",
+      "typescript",
+      "javascript",
+      "ui",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.021Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogturbopackmovinghomes",
+    "title": "Turbopack updates: Moving homes",
+    "url": "https://vercel.com/blog/turbopack-moving-homes",
+    "source": "Vercel News",
+    "summary": "Turbopack is a new JavaScript/TypeScript bundler we’ve been cooking at Vercel. Building on 10+ years of learnings from webpack, we want to build a bundler that can be used with many frameworks. We’re moving the Turbopack codebase into the Next.js repository—and wanted to share an update on our progress with Turbopack so far, as well as where we’re headed. Read more",
+    "tags": [
+      "next.js",
+      "typescript",
+      "javascript",
+      "ui",
+      "webp",
+      "vercel",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.022Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogaisdk3generativeui",
+    "title": "Introducing AI SDK 3.0 with Generative UI support",
+    "url": "https://vercel.com/blog/ai-sdk-3-generative-ui",
+    "source": "Vercel News",
+    "summary": "Last October, we launched , a generative UI design tool that converts text and image prompts to React UIs and streamlines the design engineering process.v0.dev Today, we are open sourcing v0's technology with the release of the . Developers can now move beyond plaintext and markdown chatbots to give LLMs rich, component-based interfaces.Generative UIVercel AI SDK 3.0 Read more",
+    "tags": [
+      "react",
+      "design",
+      "ui",
+      "image",
+      "vercel",
+      "ai",
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:04:09.022Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogamazonopensearchserverlessisnowavailableinthevercelmarketplace",
+    "title": "Amazon OpenSearch Serverless is now available in the Vercel Marketplace",
+    "url": "https://vercel.com/changelog/amazon-opensearch-serverless-is-now-available-in-the-vercel-marketplace",
+    "source": "Vercel News",
+    "summary": "is now available in the , with guided setup and automatic project configuration built into the Vercel dashboard.Amazon OpenSearch ServerlessVercel Marketplace By bringing Amazon OpenSearch Serverless into the Vercel Marketplace, teams benefit from a unified workflow: This integration is powered by the next generation of Amazon OpenSearch Serverless APIs, with Vercel participating as a key design p",
+    "tags": [
+      "search",
+      "design",
+      "ui",
+      "vercel",
+      "serverless",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.995Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelognuxtmcptoolkitmcpapps",
+    "title": "Nuxt MCP Toolkit now supports MCP apps",
+    "url": "https://vercel.com/changelog/nuxt-mcp-toolkit-mcp-apps",
+    "source": "Vercel News",
+    "summary": "The now supports . Your agent tools can return interactive HTML responses that MCP clients like Claude and ChatGPT render inline, rather than plain-text responses.Nuxt MCP ToolkitMCP apps Declare a tool with the macro, then read pre-hydrated data, trigger follow-up prompts, or call other tools from inside the UI with the composable. The toolkit bundles each Vue SFC into a self-contained HTML fi",
+    "tags": [
+      "ux",
+      "ui",
+      "ai",
+      "gpt",
+      "chatgpt",
+      "nuxt"
+    ],
+    "foundAt": "2026-07-28T11:04:08.995Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelognextjsmay2026securityrelease",
+    "title": "Next.js May 2026 security release",
+    "url": "https://vercel.com/changelog/next-js-may-2026-security-release",
+    "source": "Vercel News",
+    "summary": "Summary We have shipped a coordinated security release for Next.js addressing 13 advisories across denial of service, middleware and proxy bypass, server-side request forgery, cache poisoning, and cross-site scripting. One advisory addresses an upstream React Server Components vulnerability tracked as . CVE-2026-23870 Patched versions are available for both React and Next.js, and all should upgra",
+    "tags": [
+      "next.js",
+      "react",
+      "cache",
+      "security",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.996Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggpt55onaigateway",
+    "title": "GPT 5.5 on AI Gateway",
+    "url": "https://vercel.com/changelog/gpt-5.5-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "GPT-5.5 is now available on .Vercel AI Gateway There are 2 variants: GPT-5.5 and GPT-5.5 Pro. Both models are tuned for long-running agentic work across coding, computer use, knowledge work, and scientific research, and are more token-efficient than the previous generation. GPT-5.5 is stronger at agentic coding and long-horizon work where the model needs to hold context across a large system and c",
+    "tags": [
+      "search",
+      "vercel",
+      "edge",
+      "ia",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:08.996Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvercelflagsga",
+    "title": "Vercel Flags is now generally available",
+    "url": "https://vercel.com/changelog/vercel-flags-ga",
+    "source": "Vercel News",
+    "summary": "is now generally available. Vercel Flags Vercel Flags is a feature flag provider built into the Vercel platform. Create and manage feature flags with targeting rules, user segments, and environment controls directly in the Vercel Dashboard. The provides a framework-native way to define and use these flags within Next.js and SvelteKit applications, integrating directly with your existing codebase:",
+    "tags": [
+      "next.js",
+      "ui",
+      "vercel",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:08.996Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogserhantsplaybookforrapidaiiteration",
+    "title": "SERHANT.'s playbook for rapid AI iteration",
+    "url": "https://vercel.com/blog/serhants-playbook-for-rapid-ai-iteration",
+    "source": "Vercel News",
+    "summary": "Impact at a glance Using multiple models to balance cost, speed, and complexity Worry-free scale: Adding users and assets Future-proofing an unpredictable landscape Started with Next.js on Vercel, which made it easier to expand to a React Native iOS app without rebuilding their backend Engineers focus on AI design and iteration instead of platform plumbing Orchestrates OpenAI, Claude, and Gemi",
+    "tags": [
+      "next.js",
+      "react",
+      "design",
+      "ui",
+      "vercel",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.997Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogmcpappssupportonvercel",
+    "title": "MCP Apps support on Vercel",
+    "url": "https://vercel.com/changelog/mcp-apps-support-on-vercel",
+    "source": "Vercel News",
+    "summary": "Teams can now build and deploy MCP Apps on Vercel with full support for Next.js. MCP Apps are similar to , but are a provider-agnostic open standard for embedded UIs. They run inside iframes and communicate with any compatible host, such as Cursor, Claude.ai, and ChatGPT, using a shared bridge.ChatGPT apps This architecture uses JSON-RPC over , enabling a single UI to function across any compatib",
+    "tags": [
+      "next.js",
+      "ui",
+      "vercel",
+      "ai",
+      "gpt",
+      "chatgpt"
+    ],
+    "foundAt": "2026-07-28T11:04:08.998Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowrampkept100uptimethrough100xtrafficsurgesonvercel",
+    "title": "How Ramp kept 100% uptime through 100x traffic surges on Vercel ",
+    "url": "https://vercel.com/blog/how-ramp-kept-100-uptime-through-100x-traffic-surges-on-vercel",
+    "source": "Vercel News",
+    "summary": "Ramp on Vercel Full site migration to Next.js on Vercel 100% uptime and 0% error rates through 100x surges AI SDK implemented to build semantic search across scattered internal assets Ramp is a financial operations platform that combines bill payments, corporate cards, procurement, and travel to help businesses save time and money. The team rebuilt its marketing site on Next.js and Vercel, mi",
+    "tags": [
+      "next.js",
+      "search",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.999Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggpt52codexnowavailableonvercelaigateway",
+    "title": "GPT 5.2 Codex now available on Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/gpt-5-2-codex-now-available-on-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access GPT 5.2 Codex with Vercel's and no other provider accounts required. GPT 5.2 Codex combines GPT 5.2's strength in professional knowledge work with GPT 5.1 Codex Max's agentic coding capabilities.AI Gateway GPT 5.2 Codex is better at working on long running coding tasks compared to predecessors and can handle more complex tasks like large refactors and migrations more reliably.",
+    "tags": [
+      "ui",
+      "vercel",
+      "edge",
+      "ia",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.002Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogaisdk6",
+    "title": "AI SDK 6",
+    "url": "https://vercel.com/blog/ai-sdk-6",
+    "source": "Vercel News",
+    "summary": "With over 20 million monthly downloads and adoption by teams ranging from startups to Fortune 500 companies, the is the leading TypeScript toolkit for building AI applications. It provides a unified API, allowing you to integrate with any AI provider, and seamlessly integrates with Next.js, React, Svelte, Vue, and Node.js. The AI SDK enables you to build everything from chatbots to complex backgr",
+    "tags": [
+      "next.js",
+      "react",
+      "typescript",
+      "ui",
+      "ai",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.002Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvercelknowledgebase",
+    "title": "Vercel Knowledge Base",
+    "url": "https://vercel.com/changelog/vercel-knowledge-base",
+    "source": "Vercel News",
+    "summary": "Vercel is a new home for guides, tutorials, and best practices for developers building on Vercel, including how to:Knowledge Base You can use the Knowledge Base to find and explore guides for specific use cases with: Read more Build agentic apps with the AI cloud Host your Backend with your preferred framework Secure your apps with Vercel's built-in features : describe what you're trying to",
+    "tags": [
+      "ui",
+      "vercel",
+      "edge",
+      "ia",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.002Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogresourcesforprotectingagainstreact2shell",
+    "title": "React2Shell Security Bulletin",
+    "url": "https://vercel.com/blog/resources-for-protecting-against-react2shell",
+    "source": "Vercel News",
+    "summary": "CVE-2025-55182 is a critical vulnerability in React that requires immediate action. Next.js and other frameworks that React are affected. Read the bulletin and act now. Read more",
+    "tags": [
+      "next.js",
+      "react",
+      "ui",
+      "security",
+      "ia",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogcve202555182",
+    "title": "Summary of CVE-2025-55182",
+    "url": "https://vercel.com/changelog/cve-2025-55182",
+    "source": "Vercel News",
+    "summary": "See the for the latest updates. React2Shell security bulletin Summary Impact Resolution Credit References A critical-severity vulnerability in React Server Components () affects React 19 and frameworks that use it, including Next.js (). Under certain conditions, specially crafted requests could lead to unintended remote code execution. CVE-2025-55182CVE-2025-66478 We also worked with the React",
+    "tags": [
+      "next.js",
+      "react",
+      "security",
+      "ia",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogimageonlymodelsavailableinvercelaigateway",
+    "title": "Image-only models available in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/image-only-models-available-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access image-only models via Vercel's with no other provider accounts required. In addition to multimodal models with image generation capabilities that are currently available in AI Gateway (e.g., , , etc.), these image-only models are exclusively for image generation. The models include: Black Forest Labs:AI GatewayGPT-5.1Nano Banana Pro Google: To use these models, set to the corr",
+    "tags": [
+      "ui",
+      "image",
+      "vercel",
+      "ia",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogsecuritythroughdesigncreatingtheimprovedfirewallexperience",
+    "title": "Security through design: Creating the improved Firewall experience",
+    "url": "https://vercel.com/blog/security-through-design-creating-the-improved-firewall-experience",
+    "source": "Vercel News",
+    "summary": "At Vercel, we believe security should be intuitive, not intimidating. The best security tool is the one that's actually used. It should be clear, useful, and never in the way. But that's not always the norm. Security tooling can often feel like a tradeoff against shipping velocity. When UX is an afterthought, teams leave tools off or in \"logging mode\" forever, even when risks are high. That's why",
+    "tags": [
+      "design",
+      "ux",
+      "ui",
+      "vercel",
+      "security",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggemini3pronowavailableinvercelaigateway",
+    "title": "Gemini 3 Pro now available in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/gemini-3-pro-now-available-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access Google's latest model, Gemini 3 Pro, via Vercel's with no other provider accounts required.AI Gateway Gemini 3 Pro excels at challenging tasks involving reasoning or agentic workflows. In particular, the model improves on Gemini 2.5 Pro's performance in multi-step function calling, planning, reasoning over complex images/long documents, and instruction following. To use Gemini",
+    "tags": [
+      "performance",
+      "ui",
+      "image",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogfluidcomputebenchmarkresults",
+    "title": "Server rendering benchmarks: Fluid Compute and Cloudflare Workers",
+    "url": "https://vercel.com/blog/fluid-compute-benchmark-results",
+    "source": "Vercel News",
+    "summary": "Independent developer recently published comparing server-side rendering performance between and Cloudflare Workers. The tests measured 100 iterations across Next.js, React, SvelteKit, and other frameworks.Theo Brownecomprehensive benchmarksFluid compute The results showed that for compute-bound tasks, Fluid compute performed 1.2 to 5 times faster than Cloudflare Workers, with more consistent r",
+    "tags": [
+      "next.js",
+      "react",
+      "performance",
+      "ui",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.006Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogchatgptappssupportonvercel",
+    "title": "ChatGPT apps support on Vercel",
+    "url": "https://vercel.com/changelog/chatgpt-apps-support-on-vercel",
+    "source": "Vercel News",
+    "summary": "You can now build and deploy directly on Vercel, with full support for modern web frameworks.ChatGPT apps ChatGPT apps let you integrate custom UI components and functionality within ChatGPT, deployed and served by Vercel. Frameworks like can now power these experiences using the Model Context Protocol (MCP), running natively inside the OpenAI sandbox rather than in a nested iframe. Check out o",
+    "tags": [
+      "ui",
+      "vercel",
+      "ai",
+      "gpt",
+      "chatgpt",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.006Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogchatgptisnowsupportedonvercelmcp",
+    "title": "ChatGPT can now integrate with Vercel MCP",
+    "url": "https://vercel.com/changelog/chatgpt-is-now-supported-on-vercel-mcp",
+    "source": "Vercel News",
+    "summary": "You can now use ChatGPT with our official Model Context Protocol (MCP) server. For security, Vercel MCP currently supports AI clients that have been reviewed and approved by Vercel.Vercel MCP, Connectors within ChatGPT are available in on the web.beta to Pro and Plus accounts Follow the steps below to set up Vercel as a connector within ChatGPT: You should now be able to select Vercel as a conne",
+    "tags": [
+      "vercel",
+      "security",
+      "ia",
+      "ai",
+      "gpt",
+      "chatgpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.007Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogbuildslackagentswithvercelslackbolt",
+    "title": "Deploy Slack's Bolt.js to Vercel with @vercel/slack-bolt",
+    "url": "https://vercel.com/changelog/build-slack-agents-with-vercel-slack-bolt",
+    "source": "Vercel News",
+    "summary": "We've published , our official adapter for deploying Slack's to Vercel's AI Cloud.@vercel/slack-boltBolt for JavaScript Bolt provides a type-safe library for responding to Slack webhook events. However, Slack's API requires a response within three seconds or users are faced with timeouts. This has made it hard to build Slack agents on traditional serverless platforms. Our adapter uses streaming",
+    "tags": [
+      "javascript",
+      "ui",
+      "vercel",
+      "serverless",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.012Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogvercelcollaborateswithopenaiforgpt5launch",
+    "title": "Vercel collaborates with OpenAI for GPT-5 launch",
+    "url": "https://vercel.com/blog/vercel-collaborates-with-openai-for-gpt-5-launch",
+    "source": "Vercel News",
+    "summary": "The GPT-5 family of models, released today, is now available through and in production on . Thanks to OpenAI, Vercel has been testing these models over the past few weeks in v0, Next.js, AI SDK, andAI Gatewayv0.dev Vercel Sandbox. From our testing, GPT-5 is noticeably better at frontend design than previous models. It generates polished, balanced UIs with clean, composable code. Internally, we’ve",
+    "tags": [
+      "next.js",
+      "design",
+      "ui",
+      "vercel",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogzaisglm45andglm45airarenowsupportedinvercelaigateway",
+    "title": "Z.ai's GLM-4.5 and GLM-4.5 Air are now supported in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/z-ais-glm-4-5-and-glm-4-5-air-are-now-supported-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access , new flagship models from designed to unify frontier reasoning, coding, and agentic capabilities, using Vercel's with no other provider accounts required.GLM-4.5 and GLM-4.5 AirZ.aiAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for",
+    "tags": [
+      "performance",
+      "design",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvercelagentnowinlimitedbeta",
+    "title": "Vercel Agent now in Limited Beta",
+    "url": "https://vercel.com/changelog/vercel-agent-now-in-limited-beta",
+    "source": "Vercel News",
+    "summary": "Vercel Agent is now available in . Agent is an AI assistant built into the Vercel dashboard that analyzes your app performance and security data.Limited Beta Agent focuses on Observability, summarizing anomalies, identifying likely causes, and recommending specific actions. These actions can span across the platform, including managing firewall rules in response to traffic spikes or geographic ano",
+    "tags": [
+      "performance",
+      "geo",
+      "ui",
+      "vercel",
+      "security",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowwereadaptingseoforllmsandaisearch",
+    "title": "How we’re adapting SEO for LLMs and AI search",
+    "url": "https://vercel.com/blog/how-were-adapting-seo-for-llms-and-ai-search",
+    "source": "Vercel News",
+    "summary": "Search is changing. Backlinks and keywords aren’t enough anymore. AI-first interfaces like ChatGPT and Google’s AI Overviews now answer questions before users ever click a link (if at all). Large language models (LLMs) have become a new layer in the discovery process, reshaping how, where, and when content is seen. This shift is changing how visibility works. It’s still early, and nobody has all t",
+    "tags": [
+      "seo",
+      "search",
+      "ai",
+      "llm",
+      "gpt",
+      "chatgpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.016Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowferndelivers6mmonthlyviewsand80fasterdocswithvercel",
+    "title": "How Fern delivers 6M+ monthly views and 80% faster docs with Vercel",
+    "url": "https://vercel.com/blog/how-fern-delivers-6m-monthly-views-and-80-faster-docs-with-vercel",
+    "source": "Vercel News",
+    "summary": "is improving how teams build and host documentation. As a , Fern enables companies like Webflow and ElevenLabs to create, customize, and serve API documentation from a single Next.js application—scaling seamlessly across multiple customer domains. With 6 million+ page views per month and 1 million+ unique visitors, performance and reliability are key.Fernmulti-tenant platform By running on Vercel’",
+    "tags": [
+      "next.js",
+      "performance",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.016Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogprotectionagainstreactroutervulnerabilitycve202531137",
+    "title": "Protection against React Router vulnerability CVE-2025-31137",
+    "url": "https://vercel.com/changelog/protection-against-react-router-vulnerability-cve-2025-31137",
+    "source": "Vercel News",
+    "summary": "Security researchers reviewing the Remix web framework have a high-severity vulnerability in React Router that allows URL manipulation through the / header. recently discoveredHostX-Forwarded-Host Our investigation determined that Vercel and our customers are unaffected: A patch has been issued and released in Remix 2.16.3 / React Router 7.4.1. We recommend customers update to the latest version",
+    "tags": [
+      "react",
+      "search",
+      "vercel",
+      "security",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.017Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogvercelacquirestremor",
+    "title": "Vercel acquires Tremor to invest in open source React components",
+    "url": "https://vercel.com/blog/vercel-acquires-tremor",
+    "source": "Vercel News",
+    "summary": "is an open source library built on top of React, Tailwind CSS, and Radix. It consists of 35 unique components and 300 blocks that can be copy-pasted to build visually rich and interactive dashboards. The Tremor community has seen impressive growth with over 16,000 stars, 300,000 monthly downloads, and 5,500,000 installs to date.Tremor Today, Tremor and its cofounders and are joining Vercel’s Des",
+    "tags": [
+      "react",
+      "css",
+      "tailwind",
+      "ui",
+      "vercel",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.020Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogrequesterspublicippostalcodenowavailableinvercelfunctions",
+    "title": "Requester's public IP postal code now available in Vercel Functions",
+    "url": "https://vercel.com/changelog/requesters-public-ip-postal-code-now-available-in-vercel-functions",
+    "source": "Vercel News",
+    "summary": "The header is now part of , providing the postal code associated with the requester’s public IP address. This complements existing headers like , , and .x-vercel-ip-postal-codex-vercel-ip-countryx-vercel-ip-cityx-vercel-ip-country-regionVercel’s geolocation capabilities The header is accessible in Vercel Functions, including . Here's a TypeScript example:x-vercel-ip-postal-codeEdge Middleware Po",
+    "tags": [
+      "typescript",
+      "geo",
+      "vercel",
+      "edge",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.020Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogleonardoaiperformantlygenerates45millionimagesdailywithnextjsandvercel",
+    "title": "Leonardo generates 4.5M images daily with Next.js and Vercel",
+    "url": "https://vercel.com/blog/leonardo-ai-performantly-generates-4-5-million-images-daily-with-next-js-and-vercel",
+    "source": "Vercel News",
+    "summary": "Generating more than 4.5 million images a day, merges artificial intelligence with creativity to transform content creation across industries like gaming, marketing, and design.Leonardo.ai Read more",
+    "tags": [
+      "next.js",
+      "design",
+      "image",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.022Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowwecontinuedportingturborepotorust",
+    "title": "Using Zig in our incremental Turborepo migration from Go to Rust",
+    "url": "https://vercel.com/blog/how-we-continued-porting-turborepo-to-rust",
+    "source": "Vercel News",
+    "summary": "We’ve been porting , the high-performance build system for JavaScript and TypeScript, from Go to Rust. We talked about , so now let’s talk about how we began porting our two main commands: and .Turborepohow we started the porting processrunprune Read more",
+    "tags": [
+      "typescript",
+      "javascript",
+      "performance",
+      "ui",
+      "ssr",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.024Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvercelpostgres",
+    "title": "Introducing Vercel Postgres",
+    "url": "https://vercel.com/changelog/vercel-postgres",
+    "source": "Vercel News",
+    "summary": "is a serverless PostgresSQL database, designed to integrate with Vercel Functions and any frontend framework.Vercel Postgres Vercel Postgres is available for Hobby and Pro users during the public beta. or get started with a template:Check out our documentation Read more Next.js Kysely Prisma",
+    "tags": [
+      "next.js",
+      "design",
+      "vercel",
+      "serverless",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.025Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowvercelandnextjskeepripplingontheirrisingpathtosuccess",
+    "title": "How Vercel and Next.js keep Rippling on their rising path to success",
+    "url": "https://vercel.com/blog/how-vercel-and-next-js-keep-rippling-on-their-rising-path-to-success",
+    "source": "Vercel News",
+    "summary": "After going from $13M to $100M in revenue in two years, HR platform Rippling needed a frontend stack as fast and flexible as its innovative solutions. As they scaled to over 600 pages, engineer Robert Schneiderman realized that a fullstack WordPress solution wouldn't be able to handle their stakeholders' rapid iteration needs while maintaining the performance their customers require. By leveragin",
+    "tags": [
+      "next.js",
+      "performance",
+      "ui",
+      "vercel",
+      "ai",
+      "wordpress"
+    ],
+    "foundAt": "2026-07-28T11:04:09.026Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogbehindthescenesofvercelsinfrastructure",
+    "title": "Behind the scenes of Vercel's infrastructure: Achieving optimal scalability and performance",
+    "url": "https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure",
+    "source": "Vercel News",
+    "summary": "Vercel's platform provides speed, reliability, and the convenience of not having to worry about setting up and maintaining your own infrastructure. But what exactly goes on behind the scenes when we deploy our projects to Vercel, and what happens when you make a request to a site on the platform? This post will go behind the scenes, explaining how Vercel builds and deploys serverless applications",
+    "tags": [
+      "performance",
+      "ui",
+      "vercel",
+      "serverless",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.026Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogusingsveltekit10onvercel",
+    "title": "Using SvelteKit 1.0 on Vercel",
+    "url": "https://vercel.com/blog/using-sveltekit-1-0-on-vercel",
+    "source": "Vercel News",
+    "summary": "This post is historical. Product names and runtime guidance may have changed. For new projects, use with the Node.js runtime and . Use for request-time routing before a response completes.Note:Vercel FunctionsFluid computeRouting Middleware is a new framework for building web applications that is gaining popularity among developers for its simplicity and performance. Built on top of Svelte (li",
+    "tags": [
+      "performance",
+      "ui",
+      "vercel",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.027Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblognext",
+    "title": "Next.js",
+    "url": "https://vercel.com/blog/next",
+    "source": "Vercel News",
+    "summary": "We're very proud to open-source , a small framework for server-rendered universal JavaScript webapps, built on top of React, Webpack and Babel, which powers this very site!Next.js Read more",
+    "tags": [
+      "next.js",
+      "react",
+      "javascript",
+      "ui",
+      "webp",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.029Z",
+    "used": false
+  },
+  {
+    "id": "httpswwwredditcomrnextjscomments1ilv3atwhydoyouthinknextjsissopopular",
+    "title": "Why do you think NextJS is so popular?",
+    "url": "https://www.reddit.com/r/nextjs/comments/1ilv3at/why_do_you_think_nextjs_is_so_popular/",
+    "source": "nextjs: search results - nextjs",
+    "summary": "I just checked stats on NextJs and I’m surprised how popular it is. It’s basically the most popular web framework right now (if not counting nodejs/react) What makes it so great? Is it the SSR? Ease of learning? React/Vercel ecosystem? submitted by /u/james-jiang [link] [comments]",
+    "tags": [
+      "nextjs",
+      "react",
+      "vercel",
+      "ssr",
+      "ia",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:11.912Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogkimik3isnowavailableonaigateway",
+    "title": "Kimi K3 is now available on AI Gateway",
+    "url": "https://vercel.com/changelog/kimi-k3-is-now-available-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "is now available on AI Gateway.Kimi K3 from Moonshot AI K3 is an open-source model with a 1M-token context window and native visual understanding, accepting text, image, and video inputs. Built for long-horizon software engineering, knowledge work, and deep reasoning, K3 is especially strong where code meets visual and spatial reasoning, which suits frontend, game development, and CAD workflows. T",
+    "tags": [
+      "ui",
+      "image",
+      "edge",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.990Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvercelpluginnowavailableinvscodeandgithubcopilotcli",
+    "title": "Vercel Plugin now available in VS Code and GitHub Copilot CLI",
+    "url": "https://vercel.com/changelog/vercel-plugin-now-available-in-vs-code-and-github-copilot-cli",
+    "source": "Vercel News",
+    "summary": "The is now available in VS Code and the GitHub Copilot CLI.Vercel Plugin GitHub Copilot now has Vercel platform knowledge on demand, with skills for Next.js, AI SDK, Vercel Functions, and more. The Vercel plugin also helps Copilot stay up to date with the latest Vercel APIs and recommended patterns. To install it for Copilot Chat, search for in the Extensions panel in VS Code.@agentPlugins verce",
+    "tags": [
+      "next.js",
+      "search",
+      "vercel",
+      "edge",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.991Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogbringyourdockerfiletovercelfunctions",
+    "title": "Bring your Dockerfile to Vercel Functions",
+    "url": "https://vercel.com/changelog/bring-your-dockerfile-to-vercel-functions",
+    "source": "Vercel News",
+    "summary": "now support deploying HTTP servers from a or , using Open Container Initiative (OCI) compatible images on Fluid compute.Vercel FunctionsDockerfileContainerfile This makes it easier to bring existing applications written in any language to Vercel while keeping the preview deployments, logs, routing, and autoscaling benefits of using Vercel Functions and Fluid compute. To use container images with",
+    "tags": [
+      "ui",
+      "image",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.992Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogvercelopensourceprogramspring2026cohort",
+    "title": "Vercel Open Source Program: Spring 2026 cohort",
+    "url": "https://vercel.com/blog/vercel-open-source-program-spring-2026-cohort",
+    "source": "Vercel News",
+    "summary": "The world runs on open source software. The frameworks, libraries, and tools we rely on are made possible by communities that share ideas and build in the open. At Vercel, we want to help those communities thrive. That’s why we run the : a developer initiative that gives maintainers the resources and support they need to keep shipping and growing their projects.Vercel Open Source Program Four time",
+    "tags": [
+      "ui",
+      "vercel",
+      "ia",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:08.992Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogaisdk7",
+    "title": "AI SDK 7",
+    "url": "https://vercel.com/blog/ai-sdk-7",
+    "source": "Vercel News",
+    "summary": "AI SDK, with over 16 million weekly downloads, is the TypeScript SDK for building AI applications, features, frameworks, and agents across any model provider. It's the same layer , Vercel's open-source agent framework, is built on.eve AI SDK 7 adds production depth for agent work across five areas: Building well-behaved agents requires fine-grained control over model reasoning, tool context, and f",
+    "tags": [
+      "typescript",
+      "ui",
+      "vercel",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:08.993Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowokararunscmoagentsfor120000companiesonvercel",
+    "title": "How Okara runs CMO agents for 120,000 companies on Vercel",
+    "url": "https://vercel.com/blog/how-okara-runs-cmo-agents-for-120000-companies-on-vercel",
+    "source": "Vercel News",
+    "summary": "Okara on Vercel 4 billion tokens processed daily across a multi-provider AI stack on Vercel AI CMOs actively managing growth for 120,000+ businesses Eight sub-agents handling SEO, GEO, social, content, Reddit, and Hacker News New AI models available to users the same day they ship Okara is an AI CMO that directs a team of specialized sub-agents to drive marketing, so founders don't have to.",
+    "tags": [
+      "seo",
+      "geo",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.994Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogbuildchatsdkwebuisinvueorsvelte",
+    "title": "Build Chat SDK web UIs in Vue or Svelte",
+    "url": "https://vercel.com/changelog/build-chat-sdk-web-uis-in-vue-or-svelte",
+    "source": "Vercel News",
+    "summary": "The Chat SDK now has first-class support for Vue and Svelte, joining the existing React integration. Because the adapter speaks the , the same server route works. Each framework ships its own , built on the matching AI SDK package for React, Vue, or Svelte.web adapterAI SDK UI message stream protocoluseChat The Vue and Svelte helpers return a reactive instance, so read and directly in your tem",
+    "tags": [
+      "react",
+      "ui",
+      "ai",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:08.994Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvercelmetricsincli",
+    "title": "Query observability metrics using the Vercel CLI",
+    "url": "https://vercel.com/changelog/vercel-metrics-in-cli",
+    "source": "Vercel News",
+    "summary": "You can now access Observability Plus metrics in the Vercel CLI. Query observability data for any Vercel team or project using the new command. Coding agents can also leverage this new command to better analyze the performance, reliability, or security of applications on Vercel, as well as debug issues.vercel metrics This feature is available in public beta for all teams with Observability Plus.",
+    "tags": [
+      "performance",
+      "vercel",
+      "security",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.996Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggptimage2onaigateway",
+    "title": "GPT Image 2 on AI Gateway",
+    "url": "https://vercel.com/changelog/gpt-image-2-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "GPT Image 2 is now available on .Vercel AI Gateway OpenAI's newest image model supports detailed instruction following, accurate placement and relationships between objects, and rendering of dense text across multiple aspect ratios. The model can render fine-grained elements including small text, iconography, UI elements, dense compositions, and subtle stylistic constraints, at up to 2K resolution",
+    "tags": [
+      "ui",
+      "image",
+      "vercel",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:08.996Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogopus47onaigateway",
+    "title": "Claude Opus 4.7 on AI Gateway",
+    "url": "https://vercel.com/changelog/opus-4.7-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "Claude Opus 4.7 from Anthropic is now available on .Vercel AI Gateway Opus 4.7 is optimized for long-running, asynchronous agents and handles complex, multi-step tasks with reliable agentic execution. The model shows gains on knowledge-worker tasks, particularly where it needs to visually verify its own outputs. Opus 4.7 is also stronger at programmatic tool-calling with image-processing libraries",
+    "tags": [
+      "image",
+      "vercel",
+      "edge",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.996Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowwaldiummadeablogplatformworkforhumansandaialike",
+    "title": "How Waldium made a blog platform work for humans and AI alike",
+    "url": "https://vercel.com/blog/how-waldium-made-a-blog-platform-work-for-humans-and-ai-alike",
+    "source": "Vercel News",
+    "summary": "is a two-person, YC-backed startup that built an agentic CMS for businesses. Co-founded by Amrutha Gujjar and CTO Shivam Singhal, the platform automates content research and creation, and gives every customer blog its own MCP server endpoint so AI agents can query it directly. Today, it all runs from a single deployment on Vercel.WaldiumNext.js Amrutha spent years building software where the infr",
+    "tags": [
+      "next.js",
+      "search",
+      "ui",
+      "vercel",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.997Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogminimaxm27onaigateway",
+    "title": "MiniMax M2.7 is live on AI Gateway",
+    "url": "https://vercel.com/changelog/minimax-m2.7-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "MiniMax M2.7 is now available on in two variants: standard and high-speed. M2.7 is a major step up from previous M2-series models in software engineering, agentic workflows, and professional office tasks.Vercel AI Gateway The model natively supports multi-agent collaboration, complex skill orchestration, and dynamic tool search for building agentic workflows. M2.7 also improves on production debu",
+    "tags": [
+      "search",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.998Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogusegpt54miniandnanoonaigateway",
+    "title": "Use GPT 5.4 Mini and Nano on AI Gateway",
+    "url": "https://vercel.com/changelog/use-gpt-5-4-mini-and-nano-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "GPT-5.4 Mini and GPT-5.4 Nano from OpenAI are now available on . Both models deliver state-of-the-art performance for their size class in coding and computer use, and are built for sub-agent workflows where multiple smaller models coordinate on parts of a larger task.Vercel AI Gateway The models also support the verbosity and reasoning level parameters, giving you control over response detail and",
+    "tags": [
+      "performance",
+      "ui",
+      "vercel",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:08.998Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelognextforge6",
+    "title": "next-forge 6 is now available",
+    "url": "https://vercel.com/changelog/next-forge-6",
+    "source": "Vercel News",
+    "summary": "is a production-grade Turborepo template for Next.js apps, designed to be a comprehensive, opinionated starting point for new apps.next-forge This major release comes with a number of DX improvements, an agent skill, and new guides for quickstart, Docker, and migration paths. next-forge skill You can now install a next-forge skill into your preferred agent, giving it structured knowledge of next-f",
+    "tags": [
+      "next.js",
+      "design",
+      "ui",
+      "edge",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:08.998Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggpt54isnowonaigateway",
+    "title": "GPT 5.4 is now on AI Gateway",
+    "url": "https://vercel.com/changelog/gpt-5-4-is-now-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "GPT-5.4 and GPT-5.4 Pro are now available on AI Gateway. This model brings the agentic and reasoning leaps from GPT-5.3-Codex to all domains. This includes knowledge work like reports, spreadsheets, presentations, and analysis in addition to coding. It handles complex multi-step workflows more reliably, including tasks that involve tools, research, and pulling from multiple sources. GPT-5.4 is fas",
+    "tags": [
+      "search",
+      "edge",
+      "ia",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:08.998Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloguseminimaxm25onaigateway",
+    "title": "Use MiniMax M2.5 on AI Gateway",
+    "url": "https://vercel.com/changelog/use-minimax-m2-5-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "MiniMax M2.5 is now available on AI Gateway. M2.5 plans before it builds, breaking down functions, structure, and UI design before writing code. It handles full-stack projects across Web, Android, iOS, Windows, and Mac, covering the entire development lifecycle from initial system design through code review. Compared to M2.1, it adapts better to unfamiliar codebases and uses fewer search rounds to",
+    "tags": [
+      "search",
+      "design",
+      "ui",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.000Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvercelflagsisnowinpublicbeta",
+    "title": "Vercel Flags is now in public beta",
+    "url": "https://vercel.com/changelog/vercel-flags-is-now-in-public-beta",
+    "source": "Vercel News",
+    "summary": "is a feature flag provider built into the Vercel platform. It lets you create and manage feature flags with targeting rules, user segments, and environment controls directly in the Vercel Dashboard.Vercel Flags The Flags SDK provides a framework-native way to define and use these flags within Next.js and SvelteKit applications, integrating directly with your existing codebase: And you can use them",
+    "tags": [
+      "next.js",
+      "ui",
+      "vercel",
+      "framework",
+      "svelte"
+    ],
+    "foundAt": "2026-07-28T11:04:09.000Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowwebuiltaeotrackingforcodingagents",
+    "title": "How we built AEO tracking for coding agents",
+    "url": "https://vercel.com/blog/how-we-built-aeo-tracking-for-coding-agents",
+    "source": "Vercel News",
+    "summary": "AI has changed the way that people find information. For businesses, this means it's critical to understand how LLMs search for and summarize their web content. We're building an AI Engine Optimization (AEO) system to track how models discover, interpret, and reference Vercel and our sites. This started as a prototype focused only on standard chat models, but we quickly realized that wasn’t enoug",
+    "tags": [
+      "search",
+      "ui",
+      "vercel",
+      "ai",
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:04:09.000Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogparalleljoinsthevercelagentmarketplace",
+    "title": "Parallel joins the Vercel Agent Marketplace",
+    "url": "https://vercel.com/changelog/parallel-joins-the-vercel-agent-marketplace",
+    "source": "Vercel News",
+    "summary": "is now available on the with native integration support.ParallelVercel Agent Marketplace Parallel provides web tools and agents designed for LLM-powered applications, including Search, Extract, Tasks, FindAll, and Monitoring capabilities. The Vercel integration provides a single API key that works across all Parallel products, with billing handled directly through your Vercel account. For develop",
+    "tags": [
+      "search",
+      "design",
+      "vercel",
+      "ai",
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:04:09.000Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogqwen3maxthinkingnowavailableonaigateway",
+    "title": "Qwen 3 Max Thinking now available on AI Gateway",
+    "url": "https://vercel.com/changelog/qwen-3-max-thinking-now-available-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access Qwen 3 Max Thinking via with no other provider accounts required.AI Gateway Qwen 3 Max Thinking integrates thinking and non-thinking modes for improved performance on complex reasoning tasks. The model autonomously selects and uses its built-in search, memory, and code interpreter tools during conversations without requiring manual tool selection. The tools reduce hallucination",
+    "tags": [
+      "performance",
+      "search",
+      "ui",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.001Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogsummariesofcve202559471andcve202559472",
+    "title": "Summaries of CVE-2025-59471 and CVE-2025-59472",
+    "url": "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472",
+    "source": "Vercel News",
+    "summary": "Two medium-severity denial-of-service vulnerabilities were discovered in self-hosted Next.js applications. Both issues can cause server crashes through memory exhaustion under specific configurations. No data exposure or privilege escalation is possible. Applications hosted on Vercel’s platform are not affected by these issues, and require no customer action. (CVSS 5.9) affects the Image Optimiz",
+    "tags": [
+      "next.js",
+      "ui",
+      "image",
+      "vercel",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:04:09.001Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogrecraftimagemodelsnowonaigateway",
+    "title": "Recraft image models now on AI Gateway",
+    "url": "https://vercel.com/changelog/recraft-image-models-now-on-ai-gateway",
+    "source": "Vercel News",
+    "summary": "Recraft models are now available via Vercel's with no other provider accounts required. You can access Recraft's image models, V3 and V2.AI Gateway These image models excel at photorealism, accurate text rendering, and complex prompt following. V3 supports long multi-word text generation with precise positioning, anatomical correctness, and native vector output. It includes 20+ specialized styles",
+    "tags": [
+      "ui",
+      "image",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.001Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogexperimentalbuildmodehonoexpress",
+    "title": "Experimental build mode for Hono and Express projects",
+    "url": "https://vercel.com/changelog/experimental-build-mode-hono-express",
+    "source": "Vercel News",
+    "summary": "Users can opt in to an experimental build mode for and projects, which lets you filter logs by route, similar to Next.js.HonoExpress It also updates the build pipeline with better module resolution: To enable it, set in your project's .VERCEL_EXPERIMENTAL_BACKENDS=1environment variables Read more Relative imports no longer require file extensions TypeScript path aliases are supported Improve",
+    "tags": [
+      "next.js",
+      "typescript",
+      "ui",
+      "vercel",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:04:09.001Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloguseperplexitywebsearchwithvercelaigateway",
+    "title": "Use Perplexity Web Search with Vercel AI Gateway",
+    "url": "https://vercel.com/blog/use-perplexity-web-search-with-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "Models are powerful, but they're limited to their training data and knowledge cutoff date. When users ask about today's news, current prices, or the latest API changes, models can offer outdated information or admit they don't know. Provider-agnostic web search on AI Gateway changes this. With a single line of code, you can give any model the ability to search the web in real-time. It works with O",
+    "tags": [
+      "search",
+      "vercel",
+      "edge",
+      "ai",
+      "perplexity"
+    ],
+    "foundAt": "2026-07-28T11:04:09.001Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogintroducingreactbestpractices",
+    "title": "Introducing: React Best Practices",
+    "url": "https://vercel.com/blog/introducing-react-best-practices",
+    "source": "Vercel News",
+    "summary": "We've encapsulated 10+ years of React and Next.js optimization knowledge into , a structured repository optimized for AI agents and LLMs. react-best-practices Read more",
+    "tags": [
+      "next.js",
+      "react",
+      "edge",
+      "ai",
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:04:09.001Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogwebinterfaceguidelinesnowavailableasanagentcommand",
+    "title": " Web Interface Guidelines now available as an agent command",
+    "url": "https://vercel.com/changelog/web-interface-guidelines-now-available-as-an-agent-command",
+    "source": "Vercel News",
+    "summary": "You can now install Vercel's as skill/command for your agent.Web Interface Guidelines Run to review UI code for accessibility, keyboard support, form behavior, animation, performance, and more./web-interface-guidelines Install with a single command: curl -fsSL https://vercel.com/design/guidelines/install | bash Supports Claude Code, Cursor, OpenCode, Windsurf, and Gemini CLI. For other agents,",
+    "tags": [
+      "performance",
+      "design",
+      "ui",
+      "vercel",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.002Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogourmilliondollarhackerchallengeforreact2shell",
+    "title": "Our $1 million hacker challenge for React2Shell",
+    "url": "https://vercel.com/blog/our-million-dollar-hacker-challenge-for-react2shell",
+    "source": "Vercel News",
+    "summary": "In the weeks following React2Shell's disclosure, our firewall blocked over 6 million exploit attempts targeting deployments running vulnerable versions of Next.js, with 2.3 million in a single 24-hour period at peak. This was possible thanks to Seawall, the deep request inspection layer of the Vercel Web Application Firewall (WAF). We worked with 116 security researchers to find every WAF bypass t",
+    "tags": [
+      "next.js",
+      "react",
+      "search",
+      "vercel",
+      "security"
+    ],
+    "foundAt": "2026-07-28T11:04:09.002Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogaddcachetagsfromfunctionresponsesregardlessofframework",
+    "title": "Add cache tags from Function responses, regardless of framework",
+    "url": "https://vercel.com/changelog/add-cache-tags-from-function-responses-regardless-of-framework",
+    "source": "Vercel News",
+    "summary": "You can now add one or more cache tags to your Function response by importing the function from npm package.addCacheTag@vercel/functions import { addCacheTag } from '@vercel/functions' Once the cached response has a tag associated with it, you can later invalidate the cache in one of several ways: Available on all plans and all frameworks. Learn more about .cache invalidation Read more Dashboa",
+    "tags": [
+      "vercel",
+      "cache",
+      "ia",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggpt52modelsnowavailableonvercelaigateway",
+    "title": "GPT 5.2 models now available on Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/gpt-5-2-models-now-available-on-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access OpenAI's latest GPT-5.2 models with Vercel's and no other provider accounts required.AI Gateway These models perform better than the GPT-5.1 model series, with noted improvements in professional knowledge work, coding, and long-context reasoning. Other highlights include fewer hallucinations, more accurate vision to interpret graphs and visualizations, strong complex front-end",
+    "tags": [
+      "ui",
+      "vercel",
+      "edge",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelognova2litenowavailableonvercelaigateway",
+    "title": "Nova 2 Lite now available on Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/nova-2-lite-now-available-on-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access Amazon's latest model Nova 2 Lite via Vercel's with no other provider accounts required. Nova 2 Lite is a reasoning model for everyday workloads that can process text, images, and videos to generate text.AI Gateway To use Nova 2 Lite, set to in the . Extending thinking is disabled by default. To enable reasoning for this model, set in the . The reasoning content is redacted",
+    "tags": [
+      "ui",
+      "image",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogdeepseekv32nowinvercelaigateway",
+    "title": "DeepSeek V3.2 models now available in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/deepseek-v3-2-now-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access DeepSeek's latest models, DeepSeek V3.2 and DeepSeek V3.2 Speciale, via Vercel's with no other provider accounts required.AI Gateway DeepSeek V3.2 supports combined thinking and tool use, handling agent-style operations (tool calls) in both reasoning and non-reasoning modes. DeepSeek V3.2 Speciale is optimized for maximal reasoning performance, and is suited for complex task us",
+    "tags": [
+      "performance",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggrok41fastmodelsnowavailableonvercelaigateway",
+    "title": "Grok 4.1 Fast models now available on Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/grok-4-1-fast-models-now-available-on-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access xAI's latest models, Grok 4.1 Fast Reasoning and Grok 4.1 Fast Non-Reasoning, via Vercel's with no other provider accounts required. These models have a 2M context window and are designed for agentic tool calling.AI Gateway Grok 4.1 Fast Reasoning is best suited for structured reasoning and agentic operations that require high accuracy, whereas Grok 4.1 Fast Non-Reasoning is ta",
+    "tags": [
+      "design",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloggpt51modelsnowavailableinvercelaigateway",
+    "title": "GPT 5.1 models now available in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/gpt-5-1-models-now-available-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access OpenAI's latest models, GPT-5.1 Instant and GPT-5.1 Thinking, using Vercel's with no other provider accounts required.AI Gateway To use these models with the , set the model to or :AI SDKopenai/gpt-5.1-instantopenai/gpt-5.1-thinking AI Gateway provides a unified API for calling models, tracking usage and cost, and configuring retries, failover, and performance optimizations fo",
+    "tags": [
+      "performance",
+      "ui",
+      "vercel",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogcve202552662xssonnuxtdevtools",
+    "title": "CVE-2025-52662: XSS on Nuxt DevTools",
+    "url": "https://vercel.com/changelog/cve-2025-52662-xss-on-nuxt-devtools",
+    "source": "Vercel News",
+    "summary": "A medium-severity in Nuxt DevTools was responsibly disclosed, and has been fixed for version 2.6.4. This issue may have allowed Nuxt auth token extraction via XSS under certain configurations. security vulnerability Nuxt DevTools users are encouraged to upgrade to the latest version. Read more details below. A vulnerability chain in Nuxt DevTools allows remote code execution in development enviro",
+    "tags": [
+      "ux",
+      "security",
+      "ia",
+      "ai",
+      "nuxt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogcachingdetailsnowavailableinruntimelogs",
+    "title": "Caching details now available in Runtime Logs",
+    "url": "https://vercel.com/changelog/caching-details-now-available-in-runtime-logs",
+    "source": "Vercel News",
+    "summary": "You can now view more details on how Vercel's globally serves cached content to users as quickly as possible. CDN In the right-hand panel of the Runtime Logs page, we now list: This is available to all Vercel users at no additional cost. or learn more about .Try it outRuntime Logs Read more : A unique identifier for a specific version of a cached pageCache key : Tags associated with the cach",
+    "tags": [
+      "ui",
+      "vercel",
+      "cache",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogopenaigptosssafeguard20bnowavailableinvercelaigateway",
+    "title": "OpenAI's GPT-OSS-Safeguard-20B now available in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/openai-gpt-oss-safeguard-20b-now-available-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access OpenAI's latest open source model, GPT-OSS-Safeguard-20B using Vercel's with no other provider accounts required.AI Gateway GPT-OSS-Safeguard-20B is a fine-tuned version of its general-purpose GPT-OSS model, designed for developers to implement custom, policy-driven content moderation. AI Gateway lets you call the model with a consistent unified API and just a single string upd",
+    "tags": [
+      "design",
+      "ui",
+      "vercel",
+      "ai",
+      "gpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogintroducingworkflow",
+    "title": "Built-in durability: Introducing Workflow Development Kit",
+    "url": "https://vercel.com/blog/introducing-workflow",
+    "source": "Vercel News",
+    "summary": "Building reliable software shouldn't require mastering distributed systems. Yet for developers building AI agents or data pipelines, making async functions reliable typically requires message queues, retry logic, and persistence layers. Adding that infrastructure often takes longer than writing the actual business logic. The is an open source TypeScript framework that makes durability a language-",
+    "tags": [
+      "typescript",
+      "ui",
+      "ia",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogopensourceworkflowdevkitisnowinpublicbeta",
+    "title": "Open source Workflow Development Kit is now in public beta",
+    "url": "https://vercel.com/changelog/open-source-workflow-dev-kit-is-now-in-public-beta",
+    "source": "Vercel News",
+    "summary": "Workflow Development Kit, a framework for building durable, long-running processes, is now in public beta. Workflow Development Kit brings durability, reliability, and observability to async JavaScript so you can build apps and AI agents that suspend, resume, and maintain state with ease. Turning functions into durable workflows is made simple by the directive:\"use workflow\" :Key highlights inclu",
+    "tags": [
+      "javascript",
+      "ui",
+      "ia",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogupdateregardingvercelservicedisruptiononoctober202025",
+    "title": "Update regarding Vercel service disruption on October 20, 2025",
+    "url": "https://vercel.com/blog/update-regarding-vercel-service-disruption-on-october-20-2025",
+    "source": "Vercel News",
+    "summary": "At Vercel, our philosophy is to , not blame, our vendors. Customers use our services to gain velocity, reliability, and ship wonderful products. Whether we picked A or B as one of the components of our “circuit design” is entirely our responsibility.take ownership for Vercel is fully accountable for this incident, even if it's that it was triggered by the unexpected outage of AWS (called ). Ver",
+    "tags": [
+      "design",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogrunningnextjsinsidechatgptadeepdiveintonativeappintegration",
+    "title": "Running Next.js inside ChatGPT: A deep dive into native app integration",
+    "url": "https://vercel.com/blog/running-next-js-inside-chatgpt-a-deep-dive-into-native-app-integration",
+    "source": "Vercel News",
+    "summary": "When OpenAI announced the Apps SDK with Model Context Protocol (MCP) support, it opened the door to embedding web applications directly into ChatGPT. But there's a significant difference between serving static HTML in an iframe and running a full Next.js application with client-side navigation, React Server Components, and dynamic routing. This is the story of how we bridged that gap. We created a",
+    "tags": [
+      "next.js",
+      "react",
+      "ai",
+      "gpt",
+      "chatgpt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogclaudehaiku45nowavailableinvercelaigateway",
+    "title": "Claude Haiku 4.5 now available in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/claude-haiku-4-5-now-available-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access Anthropic's latest model, Claude Haiku 4.5 using Vercel's with no other provider accounts required. Haiku 4.5 matches Sonnet 4's performance on coding, computer use, and agent tasks at substantially lower cost and faster speeds.AI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure perform",
+    "tags": [
+      "performance",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogviewandquerybotverificationdatainvercelobservability",
+    "title": "View & query bot verification data in Vercel Observability",
+    "url": "https://vercel.com/changelog/view-and-query-bot-verification-data-in-vercel-observability",
+    "source": "Vercel News",
+    "summary": "Vercel inspects every request to identify bot traffic. For requests claiming to come from a verified source, Vercel cross-checks against its directory of and validates them against strict verification criteria.verified bots We've added three new dimensions to the query builder when analyzing Edge Requests to help you understand bot activity to your projects: Additionally, the Edge Requests dashbo",
+    "tags": [
+      "ui",
+      "vercel",
+      "edge",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.006Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogcollaboratingwithanthropiconclaudesonnet45",
+    "title": "Collaborating with Anthropic on Claude Sonnet 4.5 to power intelligent coding agents",
+    "url": "https://vercel.com/blog/collaborating-with-anthropic-on-claude-sonnet-4-5",
+    "source": "Vercel News",
+    "summary": "Claude Sonnet 4.5 is now available on with full support in . We’ve been testing the model in v0, across our Next.js build pipelines, and inside our new Coding Agent Platform template. The model shows improvements in design sensibility and code quality, with measurable gains when building and linting Next.js applications.Vercel AI GatewayAI SDK Claude Sonnet 4.5 builds on Anthropic's strengths in",
+    "tags": [
+      "next.js",
+      "design",
+      "ui",
+      "vercel",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.006Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogverceldomainsatcostpricingandthefastestontheweb",
+    "title": "Vercel Domains overhauled with instant search and at-cost pricing",
+    "url": "https://vercel.com/changelog/vercel-domains-at-cost-pricing-and-the-fastest-on-the-web",
+    "source": "Vercel News",
+    "summary": "We’ve rebuilt end to end, making it faster, simpler, and more affordable to find and buy the right domain for your project.Vercel Domains This update makes Vercel Domains the fastest way to claim a name and get to production. As part of the overhaul, we’ve partnered with as our upstream registrar, delivering better pricing and reliability.name.com An upcoming blog will share how we built this sp",
+    "tags": [
+      "search",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.006Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogqwen3nextmodelsarenowsupportedinvercelaigateway",
+    "title": "Qwen3-Next models are now supported in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/qwen3-next-models-are-now-supported-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access , two ultra-efficient models from , designed to activate only 3B parameters, using Vercel's with no other provider accounts required.Qwen3 NextQwenLMAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher than provider-average upti",
+    "tags": [
+      "performance",
+      "design",
+      "ui",
+      "vercel",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.007Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogmoonshotaiskimik20905modelisnowsupportedinvercelaigateway",
+    "title": "Moonshot AI's Kimi K2 0905 model is now supported in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/moonshot-ais-kimi-k2-0905-model-is-now-supported-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access , a new model from focused on agentic coding with a 256K context window, using Vercel with no other provider accounts required.Kimi K2 0905Moonshot AIAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher than provider-average up",
+    "tags": [
+      "performance",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.012Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogdevinraycastwindsurfandgoosenowsupportedonvercelmcp",
+    "title": "Devin, Raycast, Windsurf, and Goose now supported on Vercel MCP",
+    "url": "https://vercel.com/changelog/devin-raycast-windsurf-and-goose-now-supported-on-vercel-mcp",
+    "source": "Vercel News",
+    "summary": "You can now use , , , and with our official Model Context Protocol (MCP) server. For security, Vercel MCP currently supports AI clients that have been reviewed and approved by Vercel.DevinRaycastWindsurfGooseVercel MCP, Follow the steps below to get started with each client: With Vercel MCP you can give agents , , and more.access to protected deploymentsanalyze build logs Read more about using .",
+    "tags": [
+      "ui",
+      "vercel",
+      "security",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.013Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogdeployxmcpserverswithzeroconfiguration",
+    "title": "Deploy xmcp servers with zero-configuration",
+    "url": "https://vercel.com/changelog/deploy-xmcp-servers-with-zero-configuration",
+    "source": "Vercel News",
+    "summary": "Vercel now supports , a framework for building and shipping MCP servers with TypeScript, with zero-configuration.xmcp xmcp uses file-based routing to create tools for your MCP server. Once you've created a file for your tool, you can use a default export in a way that feels familiar to many other file-based routing frameworks. Below, we create a \"greeting\" tool. Learn more about in the documentat",
+    "tags": [
+      "typescript",
+      "ui",
+      "vercel",
+      "ia",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.013Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvltisnowavailableinbuildsviazeroconfiguration",
+    "title": "vlt is now available in builds via zero configuration",
+    "url": "https://vercel.com/changelog/vlt-is-now-available-in-builds-via-zero-configuration",
+    "source": "Vercel News",
+    "summary": "Vercel now supports the package manager for builds with zero configuration in builds. vlt Starting today, Projects that contain a file will automatically run as the default using .vlt-lock.jsonvlt installvltInstall Command requires node to run and is only available in the modern .vlt20.xbuild image Learn more about .package manager support on Vercel Read more",
+    "tags": [
+      "ui",
+      "image",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogimprovedmetricssearchinobservabilityplus",
+    "title": "Improved metrics search in Observability Plus",
+    "url": "https://vercel.com/changelog/improved-metrics-search-in-observability-plus",
+    "source": "Vercel News",
+    "summary": "We’ve improved the metrics search and navigation experience in Vercel Observability, making it faster and easier to build .custom queries You can now: These updates are available now for all teams with .Observability Plus or learn more about and .Try it outObservabilityObservability Plus Read more Quickly find metrics by typing partial names or common abbreviations like for \"time to first byte",
+    "tags": [
+      "search",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogsummer2025ossprogram",
+    "title": "Vercel Open Source Program: Summer cohort",
+    "url": "https://vercel.com/blog/summer-2025-oss-program",
+    "source": "Vercel News",
+    "summary": "In April, we launched the , a developer initiative that gives maintainers the resources, credits, and support they need to ship faster and scale confidently, starting with the .Vercel Open Source Programspring 2025 cohort We're now honored to announce the summer 2025 cohort. From AI-powered calendars to beautifully styled React Native components, open source builders continue to amaze us. Here ar",
+    "tags": [
+      "react",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogqwen3coderisnowsupportedinvercelaigateway",
+    "title": "Qwen3-Coder is now supported in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/qwen3-coder-is-now-supported-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access , a model from , an Alibaba Cloud company, designed to handle complex, multi-step coding workflows, using Vercel's with no other provider accounts required.Qwen3 CoderQwenLMAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher th",
+    "tags": [
+      "performance",
+      "design",
+      "ui",
+      "vercel",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogmoonshotaikimik2modelisnowsupportedinvercelaigateway",
+    "title": "Moonshot AI's Kimi K2 model is now supported in Vercel AI Gateway",
+    "url": "https://vercel.com/changelog/moonshot-ai-kimi-k2-model-is-now-supported-in-vercel-ai-gateway",
+    "source": "Vercel News",
+    "summary": "You can now access , a new mixture-of-experts (MoE) language model from , using Vercel's with no other provider accounts required.Kimi K2Moonshot AIAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher than provider-average uptime. To use it with t",
+    "tags": [
+      "performance",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.014Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogclerkjoinsthevercelmarketplace",
+    "title": "Clerk joins the Vercel Marketplace",
+    "url": "https://vercel.com/changelog/clerk-joins-the-vercel-marketplace",
+    "source": "Vercel News",
+    "summary": "is now available as an on the Vercel Marketplace. Clerkauthentication provider Built for modern frameworks like Next.js, simplifies authentication while giving teams full control over UI, sessions, and user roles, all tightly integrated with Vercel’s deployment model.Clerk With the integration, you get access to: Get started with on the Vercel Marketplace.Clerk Read more Instant provisioning o",
+    "tags": [
+      "next.js",
+      "ui",
+      "vercel",
+      "ai",
+      "framework"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangeloginngestjoinsthevercelmarketplace",
+    "title": "Inngest joins the Vercel Marketplace",
+    "url": "https://vercel.com/changelog/inngest-joins-the-vercel-marketplace",
+    "source": "Vercel News",
+    "summary": "You can now install directly from the Vercel Marketplace to quickly build reliable background jobs and AI workflows for your Next.js app.Inngest Inngest is a great fit to add AI features or emerging agentic patterns to your Vercel projects: Start building workflows with on the Vercel Marketplace . Inngesttoday Read more Write background jobs directly in your `app/` directory Full support for",
+    "tags": [
+      "next.js",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogsandboxnowsupportssudoandinstallingrpmpackages",
+    "title": "Sandbox now supports sudo and installing RPM packages",
+    "url": "https://vercel.com/changelog/sandbox-now-supports-sudo-and-installing-rpm-packages",
+    "source": "Vercel News",
+    "summary": "You can now run commands with inside , giving you full control over runtime environment setup, just like on a traditional Linux system.sudoVercel Sandbox This makes it possible to install system dependencies at runtime, like Go, Python packages, or custom binaries, before executing your code. is available via the method:sudorunCommand The sandbox configuration is designed to be easy to use:sud",
+    "tags": [
+      "design",
+      "ux",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogcve202549826",
+    "title": "CVE-2025-49826",
+    "url": "https://vercel.com/changelog/cve-2025-49826",
+    "source": "Vercel News",
+    "summary": "Summary Impact Resolution Credit References A vulnerability affecting Next.js has been addressed. It impacted versions and involved a cache poisoning bug leading to a Denial of Service (DoS) condition.>=15.1.0 <15.1.8 This issue does not impact customers hosted on Vercel. Under certain conditions, this issue may allow a HTTP 204 response to be cached for static pages, leading to the 204 response",
+    "tags": [
+      "next.js",
+      "vercel",
+      "cache",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogzeroconfigurationsupportfornitro",
+    "title": "Zero-configuration support for Nitro",
+    "url": "https://vercel.com/changelog/zero-configuration-support-for-nitro",
+    "source": "Vercel News",
+    "summary": "Vercel now supports applications, a backend toolkit for building web servers, with zero-configuration.Nitro Nitro powers frameworks like Nuxt.js, TanStack Start, and SolidStart. or .Deploy Nitro on Vercelvisit Nitro's Vercel documentation Read more",
+    "tags": [
+      "ux",
+      "ui",
+      "vercel",
+      "framework",
+      "nuxt"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogvercelbotidisnowgenerallyavailable",
+    "title": "Vercel BotID is now generally available",
+    "url": "https://vercel.com/changelog/vercel-botid-is-now-generally-available",
+    "source": "Vercel News",
+    "summary": "Vercel BotID is an invisible CAPTCHA with no visible challenges or manual bot management required. BotID is a new protection layer on Vercel designed for public, high-value routes such as checkouts, signups, AI chat interfaces, LLM-powered endpoints, and public APIs that are targets for sophisticated bots mimicking real user behavior. Unlike IP-based or heuristic systems, BotID: Powered by , BotID",
+    "tags": [
+      "design",
+      "ui",
+      "vercel",
+      "ai",
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogrununtrustedcodewithvercelsandbox",
+    "title": "Run untrusted code with Vercel Sandbox",
+    "url": "https://vercel.com/changelog/run-untrusted-code-with-vercel-sandbox",
+    "source": "Vercel News",
+    "summary": "Vercel Sandbox is a secure cloud resource powered by . It is designed to run untrusted code, such as code generated by AI agents, in isolated and ephemeral environments.Fluid compute Sandbox is a standalone SDK that can be executed from any environment, including non-Vercel platforms. Sandbox workloads run in ephemeral, isolated microVMs via the new , supporting execution times up to 45 minutes.Sa",
+    "tags": [
+      "design",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelogmanuallypurgethecdncache",
+    "title": "Manually purge the CDN cache",
+    "url": "https://vercel.com/changelog/manually-purge-the-cdn-cache",
+    "source": "Vercel News",
+    "summary": "Users with the role can now purge Vercel’s CDN cache manually, either via the project's or by running in CLI version 44.2.0 or later.Membercache settings dashboardvercel cache purge --type=cdn By default, the CDN cache is purged automatically with each new deployment. For cases where you want to refresh cached content instantly (without waiting for a new build), you can now manually purge the g",
+    "tags": [
+      "ui",
+      "vercel",
+      "cache",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.015Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomblogfluidcomputeevolvingserverlessforaiworkloads",
+    "title": "Fluid compute: Evolving serverless for AI workloads",
+    "url": "https://vercel.com/blog/fluid-compute-evolving-serverless-for-ai-workloads",
+    "source": "Vercel News",
+    "summary": "AI’s rapid evolution is reshaping the tech industry and app development. Traditional serverless computing was designed for quick, stateless web app transactions. LLM interactions require a different sustained compute and continuous execution patterns. Read more",
+    "tags": [
+      "design",
+      "ui",
+      "serverless",
+      "ai",
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:04:09.016Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelog45percentfasterbuildinitialization",
+    "title": "45% faster build initialization",
+    "url": "https://vercel.com/changelog/45-percent-faster-build-initialization",
+    "source": "Vercel News",
+    "summary": "Builds on Vercel now initialize 45% faster on average, reducing build times by around 15 seconds for Pro and Enterprise teams. Build initialization includes steps like restoring the build cache and fetching your code before the runs. These improvements come from continued enhancements to .Build CommandHive, Vercel’s build infrastructure This improvement also reduced I/O wait times for file writes",
+    "tags": [
+      "ui",
+      "vercel",
+      "cache",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.016Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcombloghowconsensysrebuiltmetamaskiowithvercelandnextjs",
+    "title": "How Consensys rebuilt MetaMask.io with Vercel and Next.js",
+    "url": "https://vercel.com/blog/how-consensys-rebuilt-metamask-io-with-vercel-and-next-js",
+    "source": "Vercel News",
+    "summary": "Since 2014, Consensys has shaped the web3 movement with tools like and , , and —the most widely used on the web, with millions of users across the globe.LineaInfuraMetaMaskself-custodial wallet As the blockchain ecosystem quickly matured, the need for a site that could move as fast as the teams building it became clear. To meet that demand, Consensys migrated MetaMask.io to Next.js and Vercel, cr",
+    "tags": [
+      "next.js",
+      "ui",
+      "vercel",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:04:09.016Z",
+    "used": false
+  },
+  {
+    "id": "httpsvercelcomchangelognewoneclickaibotmanagedruleset",
+    "title": "New one-click AI bot managed ruleset",
+    "url": "https://vercel.com/changelog/new-one-click-ai-bot-managed-ruleset",
+    "source": "Vercel News",
+    "summary": "You can now block AI crawlers and scrapers like GPTBot (OpenAI), ClaudeBot (Anthropic), PerplexityBot, Bytespider (ByteDance), and others with a single toggle using the AI bot managed ruleset. Now available for free on all plans. The ruleset is managed by Vercel and updates automatically as new crawlers appear, with no additional action required. This protection operates with zero latency impact t",
+    "tags": [
+      "ui",
+      "vercel",
+      "ai",
+      "gpt",
+      "perplexity"
+    ],
+    "foundAt": "2026-07-28T11:04:09.016Z",
+    "used": false
+  }
+]

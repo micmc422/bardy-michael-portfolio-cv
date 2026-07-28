@@ -55,6 +55,14 @@ function readAll(dir: string): LocalPostMeta[] {
   });
 }
 
+/** Un article est "publié" si sa date de publication est dans le passé ou le présent.
+ *  Les articles datés dans le futur ne doivent pas être visibles par les visiteurs. */
+export function isPublished(meta: LocalPostMeta, now: Date = new Date()): boolean {
+  if (!meta.publishedAt) return true; // pas de date => considéré comme déjà publié
+  const d = new Date(meta.publishedAt);
+  return !isNaN(d.getTime()) && d.getTime() <= now.getTime();
+}
+
 function sortByDateDesc(posts: LocalPostMeta[]): LocalPostMeta[] {
   return [...posts].sort((a, b) => {
     const da = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
@@ -68,7 +76,7 @@ export function getLocalPosts({
   page = 1,
   tags,
 }: { limit?: number | "all"; page?: number; tags?: string[] } = {}): LocalPostMeta[] {
-  let posts = sortByDateDesc(readAll(BLOG_DIR));
+  let posts = sortByDateDesc(readAll(BLOG_DIR)).filter((p) => isPublished(p));
   if (tags && tags.length) {
     posts = posts.filter((p) => (p.tags || []).some((t) => tags.includes(t)));
   }
@@ -82,7 +90,9 @@ export function getLocalPosts({
 export function getLocalPostBySlug(slug: string): LocalPostMeta | null {
   const file = path.join(BLOG_DIR, `${slug}.mdx`);
   if (!fs.existsSync(file)) return null;
-  return parseFile(file, slug);
+  const meta = parseFile(file, slug);
+  if (!isPublished(meta)) return null; // article planifié dans le futur -> 404
+  return meta;
 }
 
 export function getLocalProjects({ limit = "all" }: { limit?: number | "all" } = {}): LocalPostMeta[] {
@@ -98,7 +108,7 @@ export function getLocalProjectBySlug(slug: string): LocalPostMeta | null {
 }
 
 export function getLocalRelatedPosts(slug: string, limit = 4): LocalPostMeta[] {
-  const all = sortByDateDesc(readAll(BLOG_DIR));
+  const all = sortByDateDesc(readAll(BLOG_DIR)).filter((p) => isPublished(p));
   const current = all.find((p) => p.slug === slug);
   const tagged = current?.tags || [];
   const others = all.filter((p) => p.slug !== slug);
