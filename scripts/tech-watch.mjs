@@ -2,16 +2,13 @@
 /**
  * VEILLE TECHNOLOGIQUE — exécuté par l'agent Hermes en local (WSL), PAS par un cron serveur.
  *
- * Lit des flux RSS tech pertinents pour l'activité Occitaweb (dev web freelance Albi,
- * Next.js, performance, SEO/GEO, accessibilité, TypeScript, CSS, UX, IA générative,
- * e-commerce/vitrine), filtre par pertinence métier, dédupe par URL, et stocke les
- * sujets dans content/ideas.json (lu ensuite par scripts/generate-article.mjs --from-ideas).
+ * Lit des flux RSS tech pertinents pour l'activité Occitaweb, filtre par pertinence métier,
+ * dédupe par URL, et stocke les sujets dans content/ideas.json.
  *
  * Usage : node scripts/tech-watch.mjs
  */
 import fs from "node:fs";
 import path from "node:path";
-import Parser from "rss-parser";
 
 const ROOT = process.cwd();
 const IDEAS_FILE = path.join(ROOT, "content", "ideas.json");
@@ -48,8 +45,46 @@ function scoreRelevance(text) {
   return KEYWORDS.filter((k) => lower.includes(k));
 }
 
+async function fetchText(url) {
+  const res = await fetch(url, { headers: { "user-agent": "Mozilla/5.0" } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+  return res.text();
+}
+
+function parseRSSItems(xml) {
+  const items = [];
+  const titleRe = /<title[^>]*>([\s\S]*?)<\/title>/gi;
+  const linkRe = /<link[^>]*>([\s\S]*?)<\/link>/gi;
+  const descRe = /<(?:content|description|summary)[^>]*>([\s\S]*?)<\/(?:content|description|summary)>/gi;
+  const titles = [];
+  const links = [];
+  const descs = [];
+  let m;
+  while ((m = titleRe.exec(xml))) {
+    titles.push(m[1].replace(/<[^>]+>/g, "").trim());
+  }
+  while ((m = linkRe.exec(xml))) {
+    links.push(m[1].replace(/<[^>]+>/g, "").trim());
+  }
+  while ((m = descRe.exec(xml))) {
+    descs.push(m[1].replace(/<[^>]+>/g, "").trim().slice(0, 400));
+  }
+  const len = Math.min(titles.length, links.length);
+  for (let i = 0; i < len; i++) {
+    items.push({ title: titles[i], link: links[i], contentSnippet: descs[i] || "" });
+  }
+  return items;
+}
+
+async function parseFeed(feed) {
+  const xml = await fetchText(feed);
+  const items = parseRSSItems(xml);
+  const source = (xml.match(/<title[^>]*>([\s\S]*?)<\/title>/) || [])[1]
+    ?.replace(/<[^>]+>/g, "").trim() || feed;
+  return { source, items };
+}
+
 async function main() {
-  const parser = new Parser({ timeout: 10000 });
   let existing = [];
   if (fs.existsSync(IDEAS_FILE)) {
     try { existing = JSON.parse(fs.readFileSync(IDEAS_FILE, "utf8")); } catch {}
@@ -60,14 +95,13 @@ async function main() {
 
   for (const feed of FEEDS) {
     try {
-      const parsed = await parser.parseURL(feed);
-      const source = parsed.title || feed;
-      for (const item of parsed.items ?? []) {
+      const { source, items } = await parseFeed(feed);
+      for (const item of items) {
         fetched++;
         const title = item.title ?? "";
         const url = item.link ?? "";
         if (!url || seen.has(url)) continue;
-        const summary = (item.contentSnippet || item.content || "").slice(0, 400);
+        const summary = (item.contentSnippet || "").trim();
         const tags = scoreRelevance(`${title} ${summary}`);
         if (tags.length === 0) continue;
         newIdeas.push({
@@ -82,7 +116,7 @@ async function main() {
         });
         seen.add(url);
       }
-      console.log(`✓ ${source}: ${parsed.items?.length ?? 0} items`);
+      console.log(`✓ ${source}: ${items.length} items`);
     } catch (e) {
       console.error(`⚠️ Flux ignoré ${feed}:`, e.message);
     }

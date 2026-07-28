@@ -1,5 +1,1467 @@
 [
   {
+    "id": "httpsdevtokernelpryanicenjoythebubblewhileitlaststhesecretbehindyouraibilli94",
+    "title": "Enjoy the Bubble While It Lasts: The Secret Behind Your AI Bill",
+    "url": "https://dev.to/kernelpryanic/enjoy-the-bubble-while-it-lasts-the-secret-behind-your-ai-bill-i94",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;Somebody else is paying for your AI subscription. Not most of it. Almost all of it.&lt;/p&gt; &lt;p&gt;That's the open secret of this whole era, and it's not on the pricing page. The arithmetic is inconvenient enough that nobody selling you a plan is in a hurry to walk you through it.&lt;/p&gt; &lt;p&gt;SemiAnalysis &lt;a href=\"https://x.com/SemiAnalysis_/status/2064815044085318040\" rel",
+    "tags": [
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:53:22.068Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtoalzaruccohasanagenteverburnedyourbudgetovernighthowdoyouguardagainstit567c",
+    "title": "Has an agent ever burned your budget overnight? How do you guard against it?",
+    "url": "https://dev.to/alzarucco/has-an-agent-ever-burned-your-budget-overnight-how-do-you-guard-against-it-567c",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;I've been building agents for a few months and the failure that scared me wasn't a crash, it was cost. An agent loops, every individual call looks fine, and you find out from the bill.&lt;/p&gt; &lt;p&gt;So I built a proxy that sits in front of the agent and stops it. Budget cap that cuts mid-stream, but also: it notices when the agent is sending the identical prompt over and over and br",
+    "tags": [
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:53:22.069Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtootareadypressuretestingotaonhasurarawkubernetesmanifestsandhonestkubectlproofpj4",
+    "title": "Pressure-testing Ota on Hasura: raw Kubernetes manifests and honest kubectl proof",
+    "url": "https://dev.to/otaready/pressure-testing-ota-on-hasura-raw-kubernetes-manifests-and-honest-kubectl-proof-pj4",
+    "source": "DEV Community",
+    "summary": "&lt;h2&gt; Overview &lt;/h2&gt; &lt;p&gt;&lt;a href=\"https://github.com/hasura/graphql-engine\" rel=\"noopener noreferrer\"&gt;Hasura&lt;/a&gt; exposed a useful execution-governance boundary:&lt;br&gt; raw Kubernetes manifests without Helm or Compose owning the operational path.&lt;/p&gt; &lt;p&gt;That sounds simple. It is also easy to overclaim.&lt;/p&gt; &lt;p&gt;&lt;code&gt;kubectl&lt;/",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:53:22.069Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202607kirkiwordpressvisualbuilderinfinitecanvas",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/07/kirki-wordpress-visual-builder-infinite-canvas/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "This article is a sponsored by Kirki For years, WordPress users have relied on traditional page builders to create websites without writing code. While these builders made web design more accessible, many still come with familiar compromises — rigid layouts, reliance on multiple third-party plugins, bloated code, and performance trade-offs that can slow down your site. Kirki takes a different appr",
+    "tags": [
+      "performance",
+      "design",
+      "ui",
+      "ia",
+      "wordpress"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": true
+  },
+  {
+    "id": "httpssmashingmagazinecom202607matchingaimodalityuserintentdesigningrightinterface",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/07/matching-ai-modality-user-intent-designing-right-interface/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "The design community has entered a period of conversational tunnel vision. Because Large Language Models (LLMs) are trained on dialogue, the industry has collectively decided that the chat bubble is the natural home for every AI capability. While the chat interface is a viable and powerful option for many tasks, it is one tool in an expansive toolkit. UX and Product teams must be intentional about",
+    "tags": [
+      "design",
+      "ux",
+      "ia",
+      "ai",
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": true
+  },
+  {
+    "id": "httpssmashingmagazinecom202605databackedtruthsuserexperienceroi",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/data-backed-truths-user-experience-roi/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "In the high-stakes economy of today, the cost of a friction-heavy interface is no longer just “lost clicks”, but potentially millions in wasted engineering spend and lost business value. As a veteran UX designer who has helped build digital products since the early mobile-first era, I’ve watched business leaders shift from viewing design as a “cosmetic preference” to recognising that user experien",
+    "tags": [
+      "design",
+      "ux",
+      "ui",
+      "ia",
+      "mobile"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": true
+  },
+  {
+    "id": "httpssmashingmagazinecom202606howmakedesignsystemaiready",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/06/how-make-design-system-ai-ready/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "AI-generated prototypes often don't deliver consistently decent results because of tiny inconsistencies scattered all across a design system. I's decisions made but not documented, hard-coded values never cleaned up, or relying too much on AI making sense of mock-ups or design flows on its own. Yesterday I stumbled upon a useful practical guide by Hardik Pandya from Atlassian — on how to reduce dr",
+    "tags": [
+      "design",
+      "ui",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": true
+  },
+  {
+    "id": "httpssmashingmagazinecom202604productionreadybecomesdesigndeliverableux",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/04/production-ready-becomes-design-deliverable-ux/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "In early 2026, I noticed that the UX designer’s toolkit seemed to shift overnight. The industry standard “Should designers code?” debate was abruptly settled by the market, not through a consensus of our craft, but through the brute force of job requirements. If you browse LinkedIn today, you’ll notice a stark change: UX roles increasingly demand AI-augmented development, technical orchestration,",
+    "tags": [
+      "design",
+      "ux",
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": true
+  },
+  {
+    "id": "httpssmashingmagazinecom202603animemarveldcdesigningdigitalproductsemotionflow",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/03/anime-marvel-dc-designing-digital-products-emotion-flow/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Design isn’t only pixels and patterns. It’s pacing and feelings, too. Some products feel cinematic as they guide us through uncertainty, relief, confidence, and calm without yanking us around. That’s Emotion in Flow. Others undercut their own moments with a joke in the wrong place, a surprise pop-up, or a jumpy transition. That’s Emotion in Conflict. These aren’t UX-only ideas. You can see them ev",
+    "tags": [
+      "design",
+      "ux",
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": true
+  },
+  {
+    "id": "httpsgithubblogaiandmlgithubcopilotgithubcopilotappforbeginnersgettingstarted",
+    "title": "GitHub Copilot app for Beginners: Getting started",
+    "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-getting-started/",
+    "source": "The GitHub Blog",
+    "summary": "AI coding tools often begin with a chat window. While that works for quick questions or generating code, real software development rarely happens in a straight line. One minute you&rsquo;re fixing a bug, the next you&rsquo;re reviewing a pull request, digging into an unfamiliar part of the codebase, or exploring a new idea. The GitHub Copilot app is designed for that kind of workflow. Instead o",
+    "tags": [
+      "design",
+      "ui",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": true
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogbuildaipoweredappsopenllmvultrgpu",
+    "title": "Build AI-powered applications using OpenLLM and Vultr Cloud GPU",
+    "url": "https://developer.mozilla.org/en-US/blog/build-ai-powered-apps-openllm-vultr-gpu/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "ui",
+      "ai",
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": true
+  },
+  {
+    "id": "httpscsstrickscomalmanacfunctionsttranslate",
+    "title": "translate()",
+    "url": "https://css-tricks.com/almanac/functions/t/translate/",
+    "source": "CSS-Tricks",
+    "summary": "Sometimes designers have silly ideas that eventually grow on you. That happened to me with this concept where I had to build columns of items moving in opposite directions when a user scrolls the page. CodePen Embed Fallback Note: This &#8230; Using Scroll-Driven Animations for Opposing Scroll Directions originally handwritten and published with love on CSS-Tricks. You should really get the newsl",
+    "tags": [
+      "css",
+      "design",
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": true
+  },
+  {
+    "id": "httpscsstrickscomcssscrolltriggeredanimationsfirstlook",
+    "title": "A First Look at Scroll-Triggered Animations",
+    "url": "https://css-tricks.com/css-scroll-triggered-animations-first-look/",
+    "source": "CSS-Tricks",
+    "summary": "There's a brand new ariaNotify() method — defined by the WAI-ARIA 1.3 Specification — that provides a means of programmatically triggering narration in a screen reader. The Siren Song of ariaNotify() originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": true
+  },
+  {
+    "id": "httpscsstrickscomthesirensongofarianotify",
+    "title": "The Siren Song of ariaNotify()",
+    "url": "https://css-tricks.com/the-siren-song-of-arianotify/",
+    "source": "CSS-Tricks",
+    "summary": "Props for That creates live props based things CSS can't normally see in the browser. Things like cursor position, progress values, certain form states, current time, scroll velocity. Prop For That originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": true
+  },
+  {
+    "id": "httpssmashingmagazinecom202607whenmakessenseblockmainthread",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/07/when-makes-sense-block-main-thread/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "We’ve all heard of the sacred rule in modern web development, the rule never to be broken. The rule of “Never block the main thread.” You almost can’t miss it as a web developer; it’s in almost every performance guide, and to be fair, it is good advice. We all know the browser’s main thread is single-threaded, meaning it can only do one thing at a time. Plus, as we know, the main thread isn’t ours",
+    "tags": [
+      "performance",
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202606desktopwallpapercalendarsjuly2026",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/06/desktop-wallpaper-calendars-july-2026/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "The scent of rain after a hot day, watching the moon rise on a summer night’s sky, or going for a swim in a nearby lake — July is full of small, distinctive moments that can quietly spark new inspiration. So, why not bring a bit of that summer joy to your desktop, too, this month? For this post, artists and designers from across the globe once again tickled their creativity and designed desktop w",
+    "tags": [
+      "design",
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605buildingselfcorrectingcolorsystemscontrastcolor",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/building-self-correcting-color-systems-contrast-color/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "The HTTP Archive Web Almanac has been tracking color contrast failures for years. The numbers have barely moved. After half a decade of design system tooling, accessibility linters, and entire JavaScript libraries dedicated to computing readable text colors, 70% of websites still fail basic WCAG contrast checks in 2025. The WebAIM Million paints an even grimmer picture — 83.9% of homepages flagged",
+    "tags": [
+      "javascript",
+      "design",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202604bugfreeworkforceaidisruptingteams",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/04/bug-free-workforce-ai-disrupting-teams/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Through many discussions with industry colleagues, we’ve started hearing a phrase more often when swapping stories about AI adoption: “Now I don’t have to bug [someone].” Product designers don’t need to bug researchers anymore — retrieval-augment generation (RAG) tools surface insights instantly. Product Managers don’t need to bug designers for mockups — AI generates acceptable options. Engineers",
+    "tags": [
+      "search",
+      "design",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202604identifyingnecessarytransparencymomentsagenticaipart1",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/04/identifying-necessary-transparency-moments-agentic-ai-part1/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Designing for autonomous agents presents a unique frustration. We hand a complex task to an AI, it vanishes for 30 seconds (or 30 minutes), and then it returns with a result. We stare at the screen. Did it work? Did it hallucinate? Did it check the compliance database or skip that step? We typically respond to this anxiety with one of two extremes. We either keep the system a Black Box, hiding eve",
+    "tags": [
+      "design",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202604practicalguidedesignprinciples",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/04/practical-guide-design-principles/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "We often see design principles as rigid guidelines that dictate design decisions. But actually, they are an incredible tool to rally the team around a shared purpose and document the values and beliefs that an organization embodies. They align teams and inform decision-making. They also keep us afloat amidst all the hype, big assumptions, desire for faster delivery, and AI workslop. But how do we",
+    "tags": [
+      "design",
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtoaciiderixxd3f21e795ce4ebarettranslateslegacywindowsx86binariestonativelinuxexecutablesej2",
+    "title": "ARET translates legacy Windows x86 binaries to native Linux executables",
+    "url": "https://dev.to/aciiderixx_d3f21e795ce4eb/aret-translates-legacy-windows-x86-binaries-to-native-linux-executables-ej2",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;&lt;a href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fqxum5xm26hse1mwc3uot.png\" class=\"article-body-image-wrapper\"&gt;&lt;img src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-t",
+    "tags": [
+      "ux",
+      "image",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtohaseebthedev0architectingforzeronetworkdependencieschallengesinofflineonlygeofencing4h10",
+    "title": "Architecting for Zero-Network Dependencies: Challenges in Offline-Only Geofencing",
+    "url": "https://dev.to/haseebthedev0/architecting-for-zero-network-dependencies-challenges-in-offline-only-geofencing-4h10",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;It happened during a quiet midday prayer. The mosque was silent, the atmosphere heavy with focus, and then—the unmistakable, high-pitched trill of a ringtone ripped through the air. Everyone turned. I felt my face flush crimson as I fumbled for my device, frantically hitting the side button to silence it. It was a standard, generic notification, but in that space, it felt like a siren. I",
+    "tags": [
+      "geo",
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblogsecuritysupplychainsecuritythecaseforacooldownwhydependabotnowwaitsbeforeissuingversionupdates",
+    "title": "The case for a cooldown: Why Dependabot now waits before issuing version updates",
+    "url": "https://github.blog/security/supply-chain-security/the-case-for-a-cooldown-why-dependabot-now-waits-before-issuing-version-updates/",
+    "source": "The GitHub Blog",
+    "summary": "In September 2025, an attacker phished the credentials of a single npm maintainer and published booby-trapped versions of chalk, debug, and around a dozen other packages that are together downloaded more than 2 billion times a week. The code rewrote cryptocurrency wallet addresses inside any browser app that loaded it. The poisoned versions were live for roughly two hours before the community caug",
+    "tags": [
+      "ui",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblogaiandmlgithubcopilotcopilotvsrawapiaccesswhatareyouactuallypayingfor",
+    "title": "Copilot vs. raw API access: What are you actually paying for?",
+    "url": "https://github.blog/ai-and-ml/github-copilot/copilot-vs-raw-api-access-what-are-you-actually-paying-for/",
+    "source": "The GitHub Blog",
+    "summary": "I keep seeing this question: &ldquo;Why would I pay for GitHub Copilot when I can call the same models through an API?&rdquo; It&rsquo;s a fair question. The answer depends on what work you need to own. Are you building a product feature with your own prompts, retrieval, routing, logs, security model, and billing controls? Or are you trying to get from a GitHub Issue to a reviewed pull reque",
+    "tags": [
+      "ui",
+      "security",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblogdeveloperskillsgithubgithubforbeginnersyourroadmaptomasteringthegithubessentials",
+    "title": "GitHub for Beginners: Your roadmap to mastering the GitHub essentials",
+    "url": "https://github.blog/developer-skills/github/github-for-beginners-your-roadmap-to-mastering-the-github-essentials/",
+    "source": "The GitHub Blog",
+    "summary": "Everyone starts somewhere. Whether you&rsquo;re writing your very first line of code or you&rsquo;ve been building for years and never fully learned the tools underneath, this guide is your on-ramp. This is the entire GitHub for Beginners series distilled into one holistic story&mdash;a detailed path that takes you from &ldquo;what even is a repository?&rdquo; all the way to collaborating on re",
+    "tags": [
+      "ui",
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogviewtransitionsbeginnerguide",
+    "title": "A beginner-friendly guide to view transitions in CSS",
+    "url": "https://developer.mozilla.org/en-US/blog/view-transitions-beginner-guide/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css",
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogfiximagelcp",
+    "title": "Fix your website&apos;s Largest Contentful Paint by optimizing image loading",
+    "url": "https://developer.mozilla.org/en-US/blog/fix-image-lcp/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "image",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogfixjavascriptperformance",
+    "title": "Fixing your website&apos;s JavaScript performance",
+    "url": "https://developer.mozilla.org/en-US/blog/fix-javascript-performance/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "javascript",
+      "performance"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogstaticsitegenerationwithnextjs",
+    "title": "Static Site Generation (SSG) with Next.js",
+    "url": "https://developer.mozilla.org/en-US/blog/static-site-generation-with-nextjs/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "next.js",
+      "ssg"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogborderimagesinterop2023",
+    "title": "Border images in CSS: A key focus area for Interop 2023",
+    "url": "https://developer.mozilla.org/en-US/blog/border-images-interop-2023/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css",
+      "image"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusbloglearnjavascriptconsolemethods",
+    "title": "Developer essentials: JavaScript console methods",
+    "url": "https://developer.mozilla.org/en-US/blog/learn-javascript-console-methods/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "javascript",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusbloggettingstartedwithcsscontainerqueries",
+    "title": "Getting started with CSS container queries",
+    "url": "https://developer.mozilla.org/en-US/blog/getting-started-with-css-container-queries/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogsearchingcodewithgrep",
+    "title": "Developer essentials: How to search code using grep",
+    "url": "https://developer.mozilla.org/en-US/blog/searching-code-with-grep/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "search",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogmdndocsjune2023",
+    "title": "MDN doc updates: CSS selectors &amp; media queries, WebGPU &amp; WebTransport APIs, Progressive web apps",
+    "url": "https://developer.mozilla.org/en-US/blog/mdn-docs-june-2023/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscom",
+    "title": "CSS-Tricks",
+    "url": "https://css-tricks.com",
+    "source": "CSS-Tricks",
+    "summary": "A learning community for front-end designers and developers",
+    "tags": [
+      "css",
+      "design"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomalmanacpropertiesppointerevents",
+    "title": "pointer-events",
+    "url": "https://css-tricks.com/almanac/properties/p/pointer-events/",
+    "source": "CSS-Tricks",
+    "summary": "Read all about boundary-aware CSS, accessible grid lanes, time-based web designs, full-bleed, the customizable select, and new web platform features. What’s !important #15: Boundary-aware CSS, Time-based CSS, Full-bleed CSS, and More originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css",
+      "design"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomwhatsimportant14",
+    "title": "What’s !important #14: Gap Decorations, random(), &#060;select&gt; field-sizing, and More",
+    "url": "https://css-tricks.com/whats-important-14/",
+    "source": "CSS-Tricks",
+    "summary": "CSS has always had pseudo-classes that style things based on user interactions. Recent features, however, are blurring the line between what CSS \"listens\" for and how they are alternatives to what Javascript typically listens for. The Shifting Line Between CSS States and JavaScript Events originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]",
+    "tags": [
+      "javascript",
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomcssstatesandjavascriptevents",
+    "title": "The Shifting Line Between CSS States and JavaScript Events",
+    "url": "https://css-tricks.com/css-states-and-javascript-events/",
+    "source": "CSS-Tricks",
+    "summary": "The translateZ() function moves an element closer to or farther from the user. translateZ() originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "javascript",
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscompropforthat",
+    "title": "Prop For That",
+    "url": "https://css-tricks.com/prop-for-that/",
+    "source": "CSS-Tricks",
+    "summary": "CSS functions, the alpha() function, Grid Lanes, some things about Dialog that you might not know, CSS Wordle, and more — this is What’s !important right now. What’s !important #13: @function, alpha(), CSS Wordle, and More originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202607howturnbrandstrategyintovisualdirection",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/07/how-turn-brand-strategy-into-visual-direction/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "When a branding project fails, it usually happens long before the logo stage: in the strategy phase, when words like “modern,” “trustworthy,” “premium,” “friendly,” and “disruptive” are left undefined. The result is a gap between what the brand is supposed to communicate and what the designer is expected to create. This is the space I like to call the “pre-concept” phase. At the beginning of a pro",
+    "tags": [
+      "design",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202607designingdistressedusersmentalhealthappsui",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/07/designing-distressed-users-mental-health-apps-ui/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Mental health applications keep facing a continuing, measurable crisis: many people stop using them quickly. The data is stark: almost 95% of users who open the app on day 1 abandon the app by day 30, with a median 30-day retention of only 3.3%. Even the recognised mental health giants lose around 50% of their users within the first ten days. This severe engagement loss and retention collapse are",
+    "tags": [
+      "ui",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202606whyaccessibilityoperationalcapabilitynotfeature",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/06/why-accessibility-operational-capability-not-feature/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "This article is a sponsored by Level Access We know that right now, a senior engineer is shipping a checkout flow they “built” in a single afternoon. AI assistant does the heavy lifting, happy path runs clean, and a rotating chevron spins on the order summary. Two weeks later, engineering gets a notice from customer support: a blind customer using a screen reader can’t complete the purchase becaus",
+    "tags": [
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202606designinguncertaintyhowaisuperchargesprobabilisticthinking",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/06/designing-uncertainty-how-ai-supercharges-probabilistic-thinking/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "In 2024, an Air Canada customer asked a chatbot about bereavement fares. The bot confidently gave him a refund policy that didn’t exist. The airline refused to honor it. A tribunal ruled in the customer’s favor. The bot hadn't decided anything; it had predicted an answer based on patterns in its training data. The company treated that prediction as policy. This is the risk at the heart of designin",
+    "tags": [
+      "design",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202606benefitscognitiveinclusionuxresearch",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/06/benefits-cognitive-inclusion-ux-research/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "In the summer of 2024, I became co-chair of a working group of expert researchers who came together to determine how best to perform accessibility testing with people with cognitive disabilities. This was work I did for Fable, where I am currently VP of Innovation. Cognitive disability is an umbrella term for several disabilities that impact how people process information, and it usually affects m",
+    "tags": [
+      "search",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605fourlevelscustomerunderstanding",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/four-levels-customer-understanding/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Many companies think they know fairly well what their users want and need, and how they make their decisions. Yet most of the time these are merely big assumptions and big hunches — with little real evidence to support them. In practice, obvious reasons might be true, but they rarely paint the full picture. To understand our customers, we must triangulate across four levels of customer understandi",
+    "tags": [
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605mathematicallayoutssiblingindexsiblingcount",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/mathematical-layouts-sibling-index-sibling-count/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "You know that thing where you have a grid of cards, and you want them to fade in one after another? That staggered cascade effect. Looks great. Should be simple. And yet every time I’ve built it, the implementation has made me feel like I’m doing something fundamentally stupid. What’s Coming The current spec only counts all element siblings. But the CSSWG has documented a planned extension in iss",
+    "tags": [
+      "css",
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202604sessiontimeoutsaccessibilitybarrierauthenticationdesign",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/04/session-timeouts-accessibility-barrier-authentication-design/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "For web professionals, session management is a balancing act between user experience, cybersecurity, and resource usage. For people with disabilities, it is more than that — it is a barrier to buying digital tickets, scrolling on social media, or applying for a loan online. Session timeout accessibility can be the difference between a bad day and a good day for those with disabilities. For many, g",
+    "tags": [
+      "security",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202604legacysystems",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/04/legacy-systems/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Imagine that you need to improve the UX of a legacy system. A system that has been silently working in the background for almost a decade. It’s slow, half-broken, unreliable, and severely outdated — a sort of “black box” that everyone relies upon, but nobody really knows what’s happening under the hood. Where would you even start? Legacy stories are often daunting, adventurous, and utterly confusi",
+    "tags": [
+      "ux",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202603sitesearchparadoxwhybigboxalwayswins",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/03/site-search-paradox-why-big-box-always-wins/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "In the early days of the web, the search bar was a luxury, added to a site once it became “too big” to navigate by clicking. We treated it like an index at the back of a book: a literal, alphabetical list of words that pointed to specific pages. If you typed the exact word the author used, you found what you needed. If you didn’t, you were met with a “0 Results Found” screen that felt like a digit",
+    "tags": [
+      "search",
+      "ux"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202603movingfrommomenttotemporalapi",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/03/moving-from-moment-to-temporal-api/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Almost any kind of application written in JavaScript works with times or dates in some capacity. In the beginning, this was limited to the built-in Date API. This API includes basic functionality, but is quite limited in what it can do. Third-party libraries like Moment.js, and later built-in APIs such as the Intl APIs and the new Temporal API, add much greater flexibility to working with times an",
+    "tags": [
+      "javascript",
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:51.114Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202603beyondborderradiuscsscornershapepropertyui",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/03/beyond-border-radius-css-corner-shape-property-ui/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "When I first started building websites, rounded corners required five background images, one for each corner, one for the body, and a prayer that the client wouldn’t ask for a different radius. Then the border-radius property landed, and the entire web collectively sighed with relief. That was over fifteen years ago, and honestly, we’ve been riding that same wave ever since. Just as then, I hope t",
+    "tags": [
+      "ui",
+      "image"
+    ],
+    "foundAt": "2026-07-28T11:39:51.114Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtodipali444smartphonemarketscenariokeytrendsconsumerdemandinnovationandfuturegrowthoutlook151k",
+    "title": "Smartphone Market Scenario: Key Trends, Consumer Demand, Innovation, and Future Growth Outlook",
+    "url": "https://dev.to/dipali444/smartphone-market-scenario-key-trends-consumer-demand-innovation-and-future-growth-outlook-151k",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;The smartphone industry has become one of the most dynamic and influential sectors in the global technology landscape. Over the past decade, smartphones have evolved from simple communication devices into multifunctional digital hubs that support work, entertainment, education, healthcare, finance, and social interaction. Continuous innovation in hardware, software, and connectivity has t",
+    "tags": [
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtozira125confidenceisnotauthorizationasafergithubissueautomationpolicy4o01",
+    "title": "Confidence Is Not Authorization: A Safer GitHub Issue-Automation Policy",
+    "url": "https://dev.to/zira125/confidence-is-not-authorization-a-safer-github-issue-automation-policy-4o01",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;GitHub's new issue automations can now label, type, assign, or close issues with a confidence level and a rationale. That sounds like a small UX improvement. It is actually a policy-design problem: a model's confidence is a guess about its own output, while authorization is a rule about what the system is allowed to change.&lt;/p&gt; &lt;p&gt;If you let those concepts collapse into one t",
+    "tags": [
+      "design",
+      "ux"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtoninghonggangsameaicodingtoolstwolanguagesforbuyingthema7c8d318in",
+    "title": "Same AI Coding Tools, Two Languages For Buying Them a7c8d3",
+    "url": "https://dev.to/ninghonggang/same-ai-coding-tools-two-languages-for-buying-them-a7c8d3-18in",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;Reading the Juejin search results for 热门 AI this morning, I kept tripping over the same AI coding tools but rating them with two completely different vocabularies. One review crowns winners in tier letters (S, A, B, D). Another review, covering almost the same tools, crowns winners in procurement language (等保三级认证, 国密SM4加密, 中文代码生成接受率87%). The names on the shortlists overlap. The vocabulary",
+    "tags": [
+      "search",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtonelvinochiengmyfirstexperiencelearninggoduringthepiscine4oa3",
+    "title": "My First Experience Learning Go During the Piscine",
+    "url": "https://dev.to/nelvin_ochieng/my-first-experience-learning-go-during-the-piscine-4oa3",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;I started learning Go out of curiosity and because I wanted to experience a peer-to-peer learning environment. My journey began during the LakeHub Piscine, an intensive one-month coding program where we learned through daily quests, weekly projects, checkpoints, and collaboration with fellow learners.&lt;/p&gt; &lt;p&gt;At first, concepts like variables, loops, functions, and slices were",
+    "tags": [
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtowavixlivekitxwavixbringingrealphonecallsintoyourapps4b3o",
+    "title": "LiveKit x Wavix: Bringing real phone calls into your apps",
+    "url": "https://dev.to/wavix/livekit-x-wavix-bringing-real-phone-calls-into-your-apps-4b3o",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;We’re excited to announce that Wavix now integrates directly with LiveKit, making it easier than ever to handle both inbound and outbound calls inside your LiveKit-powered applications.&lt;br&gt; Whether you’re building a voice AI agent, customer support tool, or simply want to add telephony to your app, this integration has you covered.&lt;/p&gt; &lt;p&gt;LiveKit is a real-time communic",
+    "tags": [
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtonttystopbuildingyoursaaslikeagiantenterpriseapp5d7p",
+    "title": "Stop Building Your SaaS Like a Giant Enterprise App",
+    "url": "https://dev.to/ntty/stop-building-your-saas-like-a-giant-enterprise-app-5d7p",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;I spent three months building a multi-tenant architecture for a project that ended up having four users. I used a microservices approach, a distributed message queue, and a complex database partitioning strategy because I was terrified of \"scaling issues\" before I even had a single paying customer.&lt;/p&gt; &lt;p&gt;I treated my MVP like it was already a Fortune 500 product. This is a c",
+    "tags": [
+      "ui",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblog",
+    "title": "The GitHub Blog",
+    "url": "https://github.blog/",
+    "source": "The GitHub Blog",
+    "summary": "Updates, ideas, and inspiration from GitHub to help developers build and design software.",
+    "tags": [
+      "design",
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblogaiandmlgithubcopilottheharnessisallyouneedmostly",
+    "title": "The harness is all you need (mostly)",
+    "url": "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/",
+    "source": "The GitHub Blog",
+    "summary": "If you&rsquo;re feeling overwhelmed by AI right now, you&rsquo;re not alone. Every day it seems there is a new tool, new MCP, new model, new skill, new workflow, new feature, new social post that is some form of &ldquo;Hey look! I have completely figured out AI with this one weird prompt.&rdquo; I&hellip;don&rsquo;t believe you. I work with AI every single day, and what I&rsquo;m finding",
+    "tags": [
+      "ia",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblogsecuritynextchapterrestructuringgithubsbugbountyprogram",
+    "title": "Next chapter: Restructuring GitHub&#8217;s bug bounty program",
+    "url": "https://github.blog/security/next-chapter-restructuring-githubs-bug-bounty-program/",
+    "source": "The GitHub Blog",
+    "summary": "The security research community makes GitHub safer for everyone. That&rsquo;s the simple idea behind our bug bounty program. For more than a decade, researchers from around the world have helped us find and fix vulnerabilities before they could be exploited, and we&rsquo;ve worked hard to be a program worth their time. Today, we&rsquo;re sharing some meaningful changes to how the program wor",
+    "tags": [
+      "search",
+      "security"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblogaiandmlgithubcopilothowtobuildinteractiveexperienceswithcanvases",
+    "title": "How to build interactive experiences with canvases",
+    "url": "https://github.blog/ai-and-ml/github-copilot/how-to-build-interactive-experiences-with-canvases/",
+    "source": "The GitHub Blog",
+    "summary": "Most developers are now working alongside agents, or are at least familiar with how to do so. Agents help you explore ideas and turn them into action, from planning projects to automating workflows. Oftentimes, a conversation is all you need to move your work forward. But what about tasks that don&rsquo;t quite fit the conversation mold? Some tasks are easier when you can see and interact wi",
+    "tags": [
+      "ui",
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblogopensourcemaintainers100millionforopensourceamilestonebuiltbythecommunity",
+    "title": "$100 million for open source: A milestone built by the community",
+    "url": "https://github.blog/open-source/maintainers/100-million-for-open-source-a-milestone-built-by-the-community/",
+    "source": "The GitHub Blog",
+    "summary": "We launched GitHub Sponsors in 2019 with a simple belief: the people who build and maintain open source software deserve to be supported for their work. Since then, tens of thousands of sponsors&mdash;individuals and organizations alike&mdash;have turned that belief into action. We&rsquo;re proud to announce that more than $100 million has been invested in open source maintainers and projects t",
+    "tags": [
+      "ui",
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsgithubblogengineeringthecostofsayingyeshaschanged",
+    "title": "The cost of saying yes has changed",
+    "url": "https://github.blog/engineering/the-cost-of-saying-yes-has-changed/",
+    "source": "The GitHub Blog",
+    "summary": "The most expensive part of a small feature request used to be writing the code. Now it&rsquo;s usually the meeting about whether or not to write the code. That&rsquo;s a real shift, and it quietly breaks a lot of engineering instincts. Engineers learn early that most &ldquo;small asks&rdquo; aren&rsquo;t small: they need tests, a rollout plan, someone to think through the edge cases and own the",
+    "tags": [
+      "ui",
+      "edge"
+    ],
+    "foundAt": "2026-07-28T11:39:51.572Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblog",
+    "title": "MDN Blog",
+    "url": "https://developer.mozilla.org/en-US/blog/",
+    "source": "MDN Blog",
+    "summary": "The MDN Web Docs blog publishes articles about web development, open source software, web platform updates, tutorials, changes and updates to MDN, and more.",
+    "tags": [
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:50.003Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogimageformatscodecscompressiontools",
+    "title": "Image formats: Codecs and compression tools",
+    "url": "https://developer.mozilla.org/en-US/blog/image-formats-codecs-compression-tools/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "image"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogimageformatspixelsgraphics",
+    "title": "Image formats: Pixel data from encoders to decoders",
+    "url": "https://developer.mozilla.org/en-US/blog/image-formats-pixels-graphics/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "image"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogcolormodelshumansdevices",
+    "title": "Image formats: Color models for humans and devices",
+    "url": "https://developer.mozilla.org/en-US/blog/color-models-humans-devices/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "image"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogjavascripttemporaliscoming",
+    "title": "JavaScript Temporal is coming",
+    "url": "https://developer.mozilla.org/en-US/blog/javascript-temporal-is-coming/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "javascript"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogdailyholidayjavascriptchallenges",
+    "title": "Countdown to the holidays with daily coding challenges",
+    "url": "https://developer.mozilla.org/en-US/blog/daily-holiday-javascript-challenges/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogoptimizewebperformance",
+    "title": "Monitoring and optimizing website performance",
+    "url": "https://developer.mozilla.org/en-US/blog/optimize-web-performance/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "performance"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogjavascriptintlsegmenteri18n",
+    "title": "Locale-sensitive text segmentation in JavaScript with Intl.Segmenter",
+    "url": "https://developer.mozilla.org/en-US/blog/javascript-intl-segmenter-i18n/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "javascript"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogdebugmobileappsacrossdevices",
+    "title": "How to debug mobile apps across devices",
+    "url": "https://developer.mozilla.org/en-US/blog/debug-mobile-apps-across-devices/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "mobile"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusbloghtmldetailsexclusiveaccordions",
+    "title": "Exclusive accordions using the HTML details element",
+    "url": "https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogjavascriptsetmethods",
+    "title": "New JavaScript Set methods",
+    "url": "https://developer.mozilla.org/en-US/blog/javascript-set-methods/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "javascript"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogtestjavascriptwithjestonvultr",
+    "title": "Testing JavaScript with Jest on Vultr",
+    "url": "https://developer.mozilla.org/en-US/blog/test-javascript-with-jest-on-vultr/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "javascript"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogcolorpalettescsscolormix",
+    "title": "Creating color palettes with the CSS color-mix() function",
+    "url": "https://developer.mozilla.org/en-US/blog/color-palettes-css-color-mix/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogintroductiontowebsustainability",
+    "title": "Introduction to web sustainability",
+    "url": "https://developer.mozilla.org/en-US/blog/introduction-to-web-sustainability/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogmigratingfromgithubtogitlabseamlesslyastepbystepguide",
+    "title": "Migrating from GitHub to GitLab seamlessly: A step-by-step guide",
+    "url": "https://developer.mozilla.org/en-US/blog/migrating-from-github-to-gitlab-seamlessly-a-step-by-step-guide/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:50.004Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogcustomeasingincsswithlinear",
+    "title": "Creating custom easing effects in CSS animations using the linear() function",
+    "url": "https://developer.mozilla.org/en-US/blog/custom-easing-in-css-with-linear/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogscrollprogressanimationsincss",
+    "title": "Scroll progress animations in CSS",
+    "url": "https://developer.mozilla.org/en-US/blog/scroll-progress-animations-in-css/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogaiexplainpostmortem",
+    "title": "Reflections on AI Explain: A postmortem",
+    "url": "https://developer.mozilla.org/en-US/blog/ai-explain-postmortem/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogintroducingaihelp",
+    "title": "Introducing AI Help (Beta): Your Companion for Web Development",
+    "url": "https://developer.mozilla.org/en-US/blog/introducing-ai-help/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusbloglearncsshuescolorshsl",
+    "title": "Learn how to use hue in CSS colors with HSL",
+    "url": "https://developer.mozilla.org/en-US/blog/learn-css-hues-colors-hsl/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogjavascriptshapedrawingfunction",
+    "title": "How to draw any regular shape with just one JavaScript function",
+    "url": "https://developer.mozilla.org/en-US/blog/javascript-shape-drawing-function/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "javascript"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogregularexpressionsreferenceupdates",
+    "title": "New reference pages on MDN for JavaScript regular expressions",
+    "url": "https://developer.mozilla.org/en-US/blog/regular-expressions-reference-updates/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "javascript"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogcssnotpseudomultipleselectors",
+    "title": "How :not() chains multiple selectors",
+    "url": "https://developer.mozilla.org/en-US/blog/css-not-pseudo-multiple-selectors/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevelopermozillaorgenusblogcsscolormodulelevel4",
+    "title": "New functions, gradients, and hues in CSS colors (Level 4)",
+    "url": "https://developer.mozilla.org/en-US/blog/css-color-module-level-4/",
+    "source": "MDN Blog",
+    "summary": "",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.005Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomalmanacpropertieswwritingmode",
+    "title": "writing-mode",
+    "url": "https://css-tricks.com/almanac/properties/w/writing-mode/",
+    "source": "CSS-Tricks",
+    "summary": "The pointer-events property controls whether an element can become the target of pointer events like clicks, hover states, and other pointer-based events. In other words, it lets you decide whether the browser should treat an element as interactive when the &#8230; pointer-events originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomwhatsimportant15",
+    "title": "What’s !important #15: Boundary-aware CSS, Time-based CSS, Full-bleed CSS, and More",
+    "url": "https://css-tricks.com/whats-important-15/",
+    "source": "CSS-Tricks",
+    "summary": "We recently got the shape() function and corner-shape property. What else could we possibly need as far as making shapes in CSS? Let me tell you: the border-shape property! Get Ready For the Powerful CSS border-shape Property! originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomgetreadyforthepowerfulcssbordershapeproperty",
+    "title": "Get Ready For the Powerful CSS border-shape Property!",
+    "url": "https://css-tricks.com/get-ready-for-the-powerful-css-border-shape-property/",
+    "source": "CSS-Tricks",
+    "summary": "I know you’re busy, so for What’s !important #14, I’ll be sprinting through what’s been a stacked couple of weeks despite few browser updates. From CSS Quake to CSS Gap Decorations, this isn’t one to miss! What’s !important #14: Gap Decorations, random(), &lt;select&gt; field-sizing, and More originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as wel",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomalmanacfunctionsttranslatez",
+    "title": "translateZ()",
+    "url": "https://css-tricks.com/almanac/functions/t/translatez/",
+    "source": "CSS-Tricks",
+    "summary": "The translateY() function shifts an element vertically by the specified amount. translateY() originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomalmanacfunctionsttranslatey",
+    "title": "translateY()",
+    "url": "https://css-tricks.com/almanac/functions/t/translatey/",
+    "source": "CSS-Tricks",
+    "summary": "The translateX() function shifts an element horizontally by the specified amount. translateX() originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomalmanacfunctionsttranslatex",
+    "title": "translateX()",
+    "url": "https://css-tricks.com/almanac/functions/t/translatex/",
+    "source": "CSS-Tricks",
+    "summary": "The CSS translate() function shifts an element from its default position on a 2-dimensional plane translate() originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomscrolldrivenanimationsopposingscrolldirections",
+    "title": "Using Scroll-Driven Animations for Opposing Scroll Directions",
+    "url": "https://css-tricks.com/scroll-driven-animations-opposing-scroll-directions/",
+    "source": "CSS-Tricks",
+    "summary": "Let's poke at the differences between scroll-driven and scroll-triggered animations. A First Look at Scroll-Triggered Animations originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well. ]]>",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpscsstrickscomwhatsimportant13",
+    "title": "What’s !important #13: @function, alpha(), CSS Wordle, and More",
+    "url": "https://css-tricks.com/whats-important-13/",
+    "source": "CSS-Tricks",
+    "summary": "",
+    "tags": [
+      "css"
+    ],
+    "foundAt": "2026-07-28T11:39:50.629Z",
+    "used": false
+  },
+  {
+    "id": "httpswwwsmashingmagazinecom",
+    "title": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "url": "https://www.smashingmagazine.com/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Recent content in Articles on Smashing Magazine — For Web Designers And Developers",
+    "tags": [
+      "design"
+    ],
+    "foundAt": "2026-07-28T11:39:51.112Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202607weaponizingdefendingreactflightprotocol",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/07/weaponizing-defending-react-flight-protocol/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "React Server Components don’t send HTML to your browser. They don’t send JSON either. When a server component renders, what actually travels over the wire is a custom streaming protocol called Flight. It’s a line-delimited format with its own type system, its own reference resolution, and its own rules for reconstructing executable behavior on the client. Most React developers have never opened th",
+    "tags": [
+      "react"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202607peopledontwantmoreai",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/07/people-dont-want-more-ai/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Many companies silently assume that everybody wants more AI in their lives. That people are craving new AI features, new AI products, new AI workflows — that would all magically replace all existing outdated practices and broken ways of working. But in reality, it seems like people don’t want more AI at all — at least not in the way most AI leaders envision it. Unsurprisingly, many AI features hav",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202607usersdontneedmoretoolsneedseamlessintegrations",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/07/users-dont-need-more-tools-need-seamless-integrations/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "We often hear about shiny new tools that change everything (yet again). But in practice, most people don’t need more tools to deal with in their daily lives. What we actually need are better integrations of useful capabilities that neatly align with our existing and established mental models. Users don’t get excited about shiny new “smart” workflows, or navigating Terminal commands, or jumping bet",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202606impacthumanoidrobotshumanity",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/06/impact-humanoid-robots-humanity/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "For decades, science fiction has cushioned us with the idea that the “android revolution” was a distant fantasy. But the reality is unfolding rapidly. As the line between human and machine blurs, we are forced to confront an impending psychological, economic, and existential shift. I recently felt very disturbed after watching a YouTube video showcasing a humanoid robot that looked and acted with",
+    "tags": [
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605desktopwallpapercalendarsjune2026",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/desktop-wallpaper-calendars-june-2026/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Everyone has a creative spark in them. Some bring their ideas to life with digital tools, others capture the perfect moment with a camera or love to grab pen and paper to create little doodles or pieces of lettering. And even if you don’t think of yourself as particularly creative, who knows? There might be a hidden talent waiting to be discovered! That’s exactly what our monthly wallpapers serie",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605prototypeusersfixprotopie",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/prototype-users-fix-protopie/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "This article is a sponsored by ProtoPie There’s a moment in almost every usability session where a participant pauses at the login screen, types something, and glances up: checking whether they’re “doing it right.” That pause is a clear sign. They’ve already clocked that this isn’t a real app, and every data point collected after that moment is filtered through that awareness. In financial product",
+    "tags": [
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605practicalinterfacepatternsaitransparency",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/practical-interface-patterns-ai-transparency/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "In the first part of this series, we talked about the Decision Node Audit. We mapped out the internal workings of our AI system to pinpoint the exact moments it makes decisions based on probabilities. This told us when the system needs to be transparent with the user. Now, the big question is how to share that information. You’ve got your Transparency Matrix ready. You know which behind-the-scenes",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605architecturelocalfirstwebdevelopment",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/architecture-local-first-web-development/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Last October, I was sitting in a hotel room in Lisbon, the night before I was supposed to demo a project management tool my team had spent four months building. The hotel Wi-Fi was doing that thing where it connects but nothing actually loads. And I watched our app, this thing I was genuinely proud of, render a blank screen with a spinner. Then a timeout error. Then nothing. I pulled out my phone,",
+    "tags": [
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605rethinkingexperiencesystemtools",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/rethinking-experience-system-tools/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "This article is a sponsored by MacPaw Your grandmother’s vacuum was a trusty but ugly workhorse hidden in a dark closet. Dyson turned that practical tool into an aspirational product, one you love leaving out even when guests come over. Dish soap was just dish soap until Method put it in a glass container, and it became an addition to, not a distraction from, the aesthetics of your kitchen. Physic",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202605designingstableinterfacesstreamingcontent",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/05/designing-stable-interfaces-streaming-content/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "More interfaces now render while the response is still being generated. The UI begins in one state, then updates as more data comes in. You see this in chat apps, logs, transcription tools, and other real-time systems. The tricky part is that the interface is not in a fixed state; it keeps changing as new content comes in. It grows where lines become longer and new blocks appear. Something that wa",
+    "tags": [
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202604desktopwallpapercalendarsmay2026",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/04/desktop-wallpaper-calendars-may-2026/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "May has a way of sneaking in with longer days, softer light, and that first real hint of summer in the air. It’s the season of fresh ideas and just enough energy to start something new, or finally pick up something you’ve been putting off. And sometimes, all it takes to spark that little bit of inspiration is a fresh view… even if it’s just on your desktop. That’s where our monthly wallpapers ser",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202603desktopwallpapercalendarsapril2026",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/03/desktop-wallpaper-calendars-april-2026/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Starting the new month with a little inspiration boost — that’s the idea behind our monthly wallpapers series which has been going on for more than 15 years already. Each month, the wallpapers are created by the community for the community, and everyone who has an idea for a design is welcome to join in — experienced designers just like aspiring artists. For this edition, creative folks from acro",
+    "tags": [
+      "design"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202603testingfontscalingaccessibilityfigmavariables",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/03/testing-font-scaling-accessibility-figma-variables/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "Building a true culture of digital accessibility in a company is a mission of resilience and perseverance. It’s not difficult for the discourse on accessibility to fall into the usual clichés. Accessibility is very important for people. The accessibility of digital products and services promotes inclusion. Or even, all professionals on the teams should be involved in accessibility work. Of course.",
+    "tags": [
+      "ui"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202603modalseparatepageuxdecisiontree",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/03/modal-separate-page-ux-decision-tree/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "You probably have been there before. How do we choose between showing a modal to users, and when do we navigate them to a separate, new page? And does it matter at all? Actually, it does. The decision influences users’ flow, their context, their ability to look up details, and with it error frequency and task completion. Both options can be disruptive and frustrating — at the wrong time, and at th",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.113Z",
+    "used": false
+  },
+  {
+    "id": "httpssmashingmagazinecom202603buildingdynamicformsreactnextjs",
+    "title": "",
+    "url": "https://smashingmagazine.com/2026/03/building-dynamic-forms-react-next-js/",
+    "source": "Articles on Smashing Magazine — For Web Designers And Developers",
+    "summary": "This article is a sponsored by SurveyJS There’s a mental model most React developers share without ever discussing it out loud. That forms are always supposed to be components. This means a stack like: React Hook Form for local state (minimal re-renders, ergonomic field registration, imperative interaction). Zod for validation (input correctness, boundary validation, type-safe parsing). React Que",
+    "tags": [
+      "react"
+    ],
+    "foundAt": "2026-07-28T11:39:51.114Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtoolgaermolaevaf7bd121ab9part2thespringtransactionalpatternthatdrainedourhikaripool1jdo",
+    "title": "Part 2. The Spring @Transactional Pattern That Drained Our Hikari Pool",
+    "url": "https://dev.to/olga_ermolaeva_f7bd121ab9/part-2-the-spring-transactional-pattern-that-drained-our-hikari-pool-1jdo",
+    "source": "DEV Community",
+    "summary": "&lt;h2&gt; TL;DR &lt;/h2&gt; &lt;p&gt;The threads were waiting on external I/O performed inside transaction boundaries. A synchronous Spring event listener published to ActiveMQ before the transaction committed — and the same pattern repeated around Firebase, S3, and SMS.&lt;/p&gt; &lt;h2&gt; Recap &lt;/h2&gt; &lt;p&gt;The infrastructure investigation in &lt;a href=\"https://dev.",
+    "tags": [
+      "ai"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtomspk97screenreaderhandlingofarialiveregionstiminginterruptionsanddebugging404p",
+    "title": "Screen Reader Handling of ARIA Live Regions: Timing, Interruptions, and Debugging",
+    "url": "https://dev.to/mspk97/screen-reader-handling-of-aria-live-regions-timing-interruptions-and-debugging-404p",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;Ever had a situation where you update a live notification region in your SPA, but the screen reader stays silent? Or worse, it reads some old message, then skips your update altogether?&lt;/p&gt; &lt;p&gt;I ran into this exact problem recently while working on an accessibility feature that used ARIA live regions to announce dynamic content changes. The updates were there, the DOM was cor",
+    "tags": [
+      "ia"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
+    "id": "httpsdevtoamtocbothowllmsgeneratetextonetokenatatime57j2",
+    "title": "How LLMs Generate Text — one token at a time",
+    "url": "https://dev.to/amtocbot/how-llms-generate-text-one-token-at-a-time-57j2",
+    "source": "DEV Community",
+    "summary": "&lt;p&gt;&lt;em&gt;One token at a time — a very well-read autocomplete.&lt;/em&gt;&lt;/p&gt; &lt;p&gt;A large language model doesn't plan a whole answer up front. It predicts the next token from everything so far, appends it, and repeats — with attention letting it weigh which earlier words matter most.&lt;/p&gt; &lt;h2&gt; How each token appears &lt;/h2&gt; &lt;ol&gt; &lt;li&gt; &lt;st",
+    "tags": [
+      "llm"
+    ],
+    "foundAt": "2026-07-28T11:39:51.266Z",
+    "used": false
+  },
+  {
     "id": "httpsvercelcomblogbuildingefficientmcpservers",
     "title": "Building efficient MCP servers",
     "url": "https://vercel.com/blog/building-efficient-mcp-servers",
@@ -112,1892 +1574,6 @@
       "chatgpt"
     ],
     "foundAt": "2026-07-28T11:04:09.026Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogvercelacquiresbetterauth",
-    "title": "Vercel acquires Better Auth to accelerate open source auth",
-    "url": "https://vercel.com/blog/vercel-acquires-better-auth",
-    "source": "Vercel News",
-    "summary": "Vercel is acquiring , the company behind the open source , which has 4.7M+ weekly npm downloads and more than 850 contributors. Founder Bereket Engida and the core team are joining Vercel to continue their work on Better Auth and agent identity.Better AuthTypeScript authentication library Last year, we behind Next.js, AI SDK, and Nuxt: software that's open by default, loosely coupled, and portabl",
-    "tags": [
-      "next.js",
-      "typescript",
-      "ux",
-      "ui",
-      "vercel",
-      "ai",
-      "nuxt"
-    ],
-    "foundAt": "2026-07-28T11:04:08.991Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloginsideworkflowdevkithowframeworkintegrationswork",
-    "title": "Inside Workflow DevKit: How framework integrations work",
-    "url": "https://vercel.com/blog/inside-workflow-devkit-how-framework-integrations-work",
-    "source": "Vercel News",
-    "summary": "When we announced the at Ship AI just over a month ago, we wanted it to reflect our , allowing developers to build with any framework and deploy to any platform. Workflow Development Kit (WDK)Open SDK Strategy At launch, WDK supported Next.js and Nitro. Today it works with eight frameworks, including SvelteKit, Astro, Express, and Hono, with TanStack Start and React Router in active development.",
-    "tags": [
-      "next.js",
-      "react",
-      "ui",
-      "ai",
-      "framework",
-      "astro",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.003Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelognanobananaprogemini3proimagenowavailableintheaigateway",
-    "title": "Nano Banana Pro (Gemini 3 Pro Image) now available in the AI Gateway",
-    "url": "https://vercel.com/changelog/nano-banana-pro-gemini-3-pro-image-now-available-in-the-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access Google's cutting edge image model, Nano Banana Pro (Gemini 3 Pro Image), via Vercel's with no other provider accounts required.AI Gateway Nano Banana Pro (Gemini 3 Pro Image) is designed to work for more advanced use cases than Nano Banana. This model introduces improvements specifically for professional and creative workflows, like the generation of diagrams with accurate labe",
-    "tags": [
-      "design",
-      "ui",
-      "image",
-      "vercel",
-      "edge",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.004Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggpt5gpt5miniandgpt5nanoarenowavailableinvercelaigateway",
-    "title": "GPT-5, GPT-5-mini, and GPT-5-nano are now available in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/gpt-5-gpt-5-mini-and-gpt-5-nano-are-now-available-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access GPT-5, GPT-5-mini, and GPT-5-nano by , models designed to push the frontier of reasoning and domain expertise, using Vercel's with no other provider accounts required. OpenAIAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher t",
-    "tags": [
-      "performance",
-      "design",
-      "ui",
-      "vercel",
-      "ia",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggptoss20bandgptoss120barenowsupportedinvercelaigateway",
-    "title": "gpt-oss-20b and gpt-oss-120b are now supported in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/gpt-oss-20b-and-gpt-oss-120b-are-now-supported-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access gpt-oss-20b and gpt-oss-120b by , open-weight reasoning models designed to push the open model frontier, using Vercel's with no other provider accounts required.OpenAIAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher than pro",
-    "tags": [
-      "performance",
-      "design",
-      "ui",
-      "vercel",
-      "ia",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogbotidnowavailableforallframeworks",
-    "title": "Vercel BotID now  available for all frameworks",
-    "url": "https://vercel.com/changelog/botid-now-available-for-all-frameworks",
-    "source": "Vercel News",
-    "summary": "You can now use Vercel BotID to protect your most sensitive endpoints in any JavaScript framework, like SvelteKit and Nuxt. BotID is our for high-value endpoints like registration, checkout, and AI interactions. Since launch, it has already protected nearly a million API requests.advanced bot protection Installing or upgrading to adds support for universal JavaScript environments with the new f",
-    "tags": [
-      "javascript",
-      "ux",
-      "vercel",
-      "ai",
-      "framework",
-      "svelte",
-      "nuxt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogaisdk42",
-    "title": "AI SDK 4.2",
-    "url": "https://vercel.com/blog/ai-sdk-4-2",
-    "source": "Vercel News",
-    "summary": "The is an open-source toolkit for building AI applications with JavaScript and TypeScript. Its unified provider API allows you to use any language model and enables powerful UI integrations into leading web frameworks such as and .AI SDKNext.jsSvelte Read more",
-    "tags": [
-      "next.js",
-      "typescript",
-      "javascript",
-      "ui",
-      "ai",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.018Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogaisdk41",
-    "title": "AI SDK 4.1",
-    "url": "https://vercel.com/blog/ai-sdk-4-1",
-    "source": "Vercel News",
-    "summary": "The is an open-source toolkit for building AI applications with JavaScript and TypeScript. Its unified provider API allows you to use any language model and enables powerful UI integrations into leading web frameworks such as and .AI SDKNext.jsSvelte Read more",
-    "tags": [
-      "next.js",
-      "typescript",
-      "javascript",
-      "ui",
-      "ai",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.020Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogaisdk40",
-    "title": "AI SDK 4.0",
-    "url": "https://vercel.com/blog/ai-sdk-4-0",
-    "source": "Vercel News",
-    "summary": "The is an open-source toolkit for building AI applications with JavaScript and TypeScript. Its unified provider API allows you to use any language model and enables powerful UI integrations into leading web frameworks such as and .AI SDKNext.jsSvelte Read more",
-    "tags": [
-      "next.js",
-      "typescript",
-      "javascript",
-      "ui",
-      "ai",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.021Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogwhatsnewinsvelte5",
-    "title": "What's new in Svelte 5",
-    "url": "https://vercel.com/blog/whats-new-in-svelte-5",
-    "source": "Vercel News",
-    "summary": "With its compiler-first approach, fine-grained reactivity, and ability to integrate with any JavaScript project, Svelte stands apart from other frameworks. At Vercel, we're big fans of Svelte—deeply invested in its success and constantly working to make our platform the best place to build and deploy Svelte apps. , let's explore what makes this release exciting.With the arrival of Svelte 5 Read mo",
-    "tags": [
-      "react",
-      "javascript",
-      "ui",
-      "vercel",
-      "ai",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.021Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogaisdk34",
-    "title": "AI SDK 3.4",
-    "url": "https://vercel.com/blog/ai-sdk-3-4",
-    "source": "Vercel News",
-    "summary": "The is an open-source toolkit for building AI applications with JavaScript and TypeScript. Its unified provider API allows you to use any language model and enables powerful UI integrations into leading web frameworks such as and .AI SDKNext.jsSvelte Read more",
-    "tags": [
-      "next.js",
-      "typescript",
-      "javascript",
-      "ui",
-      "ai",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.021Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogturbopackmovinghomes",
-    "title": "Turbopack updates: Moving homes",
-    "url": "https://vercel.com/blog/turbopack-moving-homes",
-    "source": "Vercel News",
-    "summary": "Turbopack is a new JavaScript/TypeScript bundler we’ve been cooking at Vercel. Building on 10+ years of learnings from webpack, we want to build a bundler that can be used with many frameworks. We’re moving the Turbopack codebase into the Next.js repository—and wanted to share an update on our progress with Turbopack so far, as well as where we’re headed. Read more",
-    "tags": [
-      "next.js",
-      "typescript",
-      "javascript",
-      "ui",
-      "webp",
-      "vercel",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.022Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogaisdk3generativeui",
-    "title": "Introducing AI SDK 3.0 with Generative UI support",
-    "url": "https://vercel.com/blog/ai-sdk-3-generative-ui",
-    "source": "Vercel News",
-    "summary": "Last October, we launched , a generative UI design tool that converts text and image prompts to React UIs and streamlines the design engineering process.v0.dev Today, we are open sourcing v0's technology with the release of the . Developers can now move beyond plaintext and markdown chatbots to give LLMs rich, component-based interfaces.Generative UIVercel AI SDK 3.0 Read more",
-    "tags": [
-      "react",
-      "design",
-      "ui",
-      "image",
-      "vercel",
-      "ai",
-      "llm"
-    ],
-    "foundAt": "2026-07-28T11:04:09.022Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogamazonopensearchserverlessisnowavailableinthevercelmarketplace",
-    "title": "Amazon OpenSearch Serverless is now available in the Vercel Marketplace",
-    "url": "https://vercel.com/changelog/amazon-opensearch-serverless-is-now-available-in-the-vercel-marketplace",
-    "source": "Vercel News",
-    "summary": "is now available in the , with guided setup and automatic project configuration built into the Vercel dashboard.Amazon OpenSearch ServerlessVercel Marketplace By bringing Amazon OpenSearch Serverless into the Vercel Marketplace, teams benefit from a unified workflow: This integration is powered by the next generation of Amazon OpenSearch Serverless APIs, with Vercel participating as a key design p",
-    "tags": [
-      "search",
-      "design",
-      "ui",
-      "vercel",
-      "serverless",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.995Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelognuxtmcptoolkitmcpapps",
-    "title": "Nuxt MCP Toolkit now supports MCP apps",
-    "url": "https://vercel.com/changelog/nuxt-mcp-toolkit-mcp-apps",
-    "source": "Vercel News",
-    "summary": "The now supports . Your agent tools can return interactive HTML responses that MCP clients like Claude and ChatGPT render inline, rather than plain-text responses.Nuxt MCP ToolkitMCP apps Declare a tool with the macro, then read pre-hydrated data, trigger follow-up prompts, or call other tools from inside the UI with the composable. The toolkit bundles each Vue SFC into a self-contained HTML fi",
-    "tags": [
-      "ux",
-      "ui",
-      "ai",
-      "gpt",
-      "chatgpt",
-      "nuxt"
-    ],
-    "foundAt": "2026-07-28T11:04:08.995Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelognextjsmay2026securityrelease",
-    "title": "Next.js May 2026 security release",
-    "url": "https://vercel.com/changelog/next-js-may-2026-security-release",
-    "source": "Vercel News",
-    "summary": "Summary We have shipped a coordinated security release for Next.js addressing 13 advisories across denial of service, middleware and proxy bypass, server-side request forgery, cache poisoning, and cross-site scripting. One advisory addresses an upstream React Server Components vulnerability tracked as . CVE-2026-23870 Patched versions are available for both React and Next.js, and all should upgra",
-    "tags": [
-      "next.js",
-      "react",
-      "cache",
-      "security",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.996Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggpt55onaigateway",
-    "title": "GPT 5.5 on AI Gateway",
-    "url": "https://vercel.com/changelog/gpt-5.5-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "GPT-5.5 is now available on .Vercel AI Gateway There are 2 variants: GPT-5.5 and GPT-5.5 Pro. Both models are tuned for long-running agentic work across coding, computer use, knowledge work, and scientific research, and are more token-efficient than the previous generation. GPT-5.5 is stronger at agentic coding and long-horizon work where the model needs to hold context across a large system and c",
-    "tags": [
-      "search",
-      "vercel",
-      "edge",
-      "ia",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:08.996Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvercelflagsga",
-    "title": "Vercel Flags is now generally available",
-    "url": "https://vercel.com/changelog/vercel-flags-ga",
-    "source": "Vercel News",
-    "summary": "is now generally available. Vercel Flags Vercel Flags is a feature flag provider built into the Vercel platform. Create and manage feature flags with targeting rules, user segments, and environment controls directly in the Vercel Dashboard. The provides a framework-native way to define and use these flags within Next.js and SvelteKit applications, integrating directly with your existing codebase:",
-    "tags": [
-      "next.js",
-      "ui",
-      "vercel",
-      "ai",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:08.996Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogserhantsplaybookforrapidaiiteration",
-    "title": "SERHANT.'s playbook for rapid AI iteration",
-    "url": "https://vercel.com/blog/serhants-playbook-for-rapid-ai-iteration",
-    "source": "Vercel News",
-    "summary": "Impact at a glance Using multiple models to balance cost, speed, and complexity Worry-free scale: Adding users and assets Future-proofing an unpredictable landscape Started with Next.js on Vercel, which made it easier to expand to a React Native iOS app without rebuilding their backend Engineers focus on AI design and iteration instead of platform plumbing Orchestrates OpenAI, Claude, and Gemi",
-    "tags": [
-      "next.js",
-      "react",
-      "design",
-      "ui",
-      "vercel",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.997Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogmcpappssupportonvercel",
-    "title": "MCP Apps support on Vercel",
-    "url": "https://vercel.com/changelog/mcp-apps-support-on-vercel",
-    "source": "Vercel News",
-    "summary": "Teams can now build and deploy MCP Apps on Vercel with full support for Next.js. MCP Apps are similar to , but are a provider-agnostic open standard for embedded UIs. They run inside iframes and communicate with any compatible host, such as Cursor, Claude.ai, and ChatGPT, using a shared bridge.ChatGPT apps This architecture uses JSON-RPC over , enabling a single UI to function across any compatib",
-    "tags": [
-      "next.js",
-      "ui",
-      "vercel",
-      "ai",
-      "gpt",
-      "chatgpt"
-    ],
-    "foundAt": "2026-07-28T11:04:08.998Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowrampkept100uptimethrough100xtrafficsurgesonvercel",
-    "title": "How Ramp kept 100% uptime through 100x traffic surges on Vercel ",
-    "url": "https://vercel.com/blog/how-ramp-kept-100-uptime-through-100x-traffic-surges-on-vercel",
-    "source": "Vercel News",
-    "summary": "Ramp on Vercel Full site migration to Next.js on Vercel 100% uptime and 0% error rates through 100x surges AI SDK implemented to build semantic search across scattered internal assets Ramp is a financial operations platform that combines bill payments, corporate cards, procurement, and travel to help businesses save time and money. The team rebuilt its marketing site on Next.js and Vercel, mi",
-    "tags": [
-      "next.js",
-      "search",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.999Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggpt52codexnowavailableonvercelaigateway",
-    "title": "GPT 5.2 Codex now available on Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/gpt-5-2-codex-now-available-on-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access GPT 5.2 Codex with Vercel's and no other provider accounts required. GPT 5.2 Codex combines GPT 5.2's strength in professional knowledge work with GPT 5.1 Codex Max's agentic coding capabilities.AI Gateway GPT 5.2 Codex is better at working on long running coding tasks compared to predecessors and can handle more complex tasks like large refactors and migrations more reliably.",
-    "tags": [
-      "ui",
-      "vercel",
-      "edge",
-      "ia",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.002Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogaisdk6",
-    "title": "AI SDK 6",
-    "url": "https://vercel.com/blog/ai-sdk-6",
-    "source": "Vercel News",
-    "summary": "With over 20 million monthly downloads and adoption by teams ranging from startups to Fortune 500 companies, the is the leading TypeScript toolkit for building AI applications. It provides a unified API, allowing you to integrate with any AI provider, and seamlessly integrates with Next.js, React, Svelte, Vue, and Node.js. The AI SDK enables you to build everything from chatbots to complex backgr",
-    "tags": [
-      "next.js",
-      "react",
-      "typescript",
-      "ui",
-      "ai",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.002Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvercelknowledgebase",
-    "title": "Vercel Knowledge Base",
-    "url": "https://vercel.com/changelog/vercel-knowledge-base",
-    "source": "Vercel News",
-    "summary": "Vercel is a new home for guides, tutorials, and best practices for developers building on Vercel, including how to:Knowledge Base You can use the Knowledge Base to find and explore guides for specific use cases with: Read more Build agentic apps with the AI cloud Host your Backend with your preferred framework Secure your apps with Vercel's built-in features : describe what you're trying to",
-    "tags": [
-      "ui",
-      "vercel",
-      "edge",
-      "ia",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.002Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogresourcesforprotectingagainstreact2shell",
-    "title": "React2Shell Security Bulletin",
-    "url": "https://vercel.com/blog/resources-for-protecting-against-react2shell",
-    "source": "Vercel News",
-    "summary": "CVE-2025-55182 is a critical vulnerability in React that requires immediate action. Next.js and other frameworks that React are affected. Read the bulletin and act now. Read more",
-    "tags": [
-      "next.js",
-      "react",
-      "ui",
-      "security",
-      "ia",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.003Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogcve202555182",
-    "title": "Summary of CVE-2025-55182",
-    "url": "https://vercel.com/changelog/cve-2025-55182",
-    "source": "Vercel News",
-    "summary": "See the for the latest updates. React2Shell security bulletin Summary Impact Resolution Credit References A critical-severity vulnerability in React Server Components () affects React 19 and frameworks that use it, including Next.js (). Under certain conditions, specially crafted requests could lead to unintended remote code execution. CVE-2025-55182CVE-2025-66478 We also worked with the React",
-    "tags": [
-      "next.js",
-      "react",
-      "security",
-      "ia",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.003Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogimageonlymodelsavailableinvercelaigateway",
-    "title": "Image-only models available in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/image-only-models-available-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access image-only models via Vercel's with no other provider accounts required. In addition to multimodal models with image generation capabilities that are currently available in AI Gateway (e.g., , , etc.), these image-only models are exclusively for image generation. The models include: Black Forest Labs:AI GatewayGPT-5.1Nano Banana Pro Google: To use these models, set to the corr",
-    "tags": [
-      "ui",
-      "image",
-      "vercel",
-      "ia",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.003Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogsecuritythroughdesigncreatingtheimprovedfirewallexperience",
-    "title": "Security through design: Creating the improved Firewall experience",
-    "url": "https://vercel.com/blog/security-through-design-creating-the-improved-firewall-experience",
-    "source": "Vercel News",
-    "summary": "At Vercel, we believe security should be intuitive, not intimidating. The best security tool is the one that's actually used. It should be clear, useful, and never in the way. But that's not always the norm. Security tooling can often feel like a tradeoff against shipping velocity. When UX is an afterthought, teams leave tools off or in \"logging mode\" forever, even when risks are high. That's why",
-    "tags": [
-      "design",
-      "ux",
-      "ui",
-      "vercel",
-      "security",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.004Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggemini3pronowavailableinvercelaigateway",
-    "title": "Gemini 3 Pro now available in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/gemini-3-pro-now-available-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access Google's latest model, Gemini 3 Pro, via Vercel's with no other provider accounts required.AI Gateway Gemini 3 Pro excels at challenging tasks involving reasoning or agentic workflows. In particular, the model improves on Gemini 2.5 Pro's performance in multi-step function calling, planning, reasoning over complex images/long documents, and instruction following. To use Gemini",
-    "tags": [
-      "performance",
-      "ui",
-      "image",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.004Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogfluidcomputebenchmarkresults",
-    "title": "Server rendering benchmarks: Fluid Compute and Cloudflare Workers",
-    "url": "https://vercel.com/blog/fluid-compute-benchmark-results",
-    "source": "Vercel News",
-    "summary": "Independent developer recently published comparing server-side rendering performance between and Cloudflare Workers. The tests measured 100 iterations across Next.js, React, SvelteKit, and other frameworks.Theo Brownecomprehensive benchmarksFluid compute The results showed that for compute-bound tasks, Fluid compute performed 1.2 to 5 times faster than Cloudflare Workers, with more consistent r",
-    "tags": [
-      "next.js",
-      "react",
-      "performance",
-      "ui",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.006Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogchatgptappssupportonvercel",
-    "title": "ChatGPT apps support on Vercel",
-    "url": "https://vercel.com/changelog/chatgpt-apps-support-on-vercel",
-    "source": "Vercel News",
-    "summary": "You can now build and deploy directly on Vercel, with full support for modern web frameworks.ChatGPT apps ChatGPT apps let you integrate custom UI components and functionality within ChatGPT, deployed and served by Vercel. Frameworks like can now power these experiences using the Model Context Protocol (MCP), running natively inside the OpenAI sandbox rather than in a nested iframe. Check out o",
-    "tags": [
-      "ui",
-      "vercel",
-      "ai",
-      "gpt",
-      "chatgpt",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.006Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogchatgptisnowsupportedonvercelmcp",
-    "title": "ChatGPT can now integrate with Vercel MCP",
-    "url": "https://vercel.com/changelog/chatgpt-is-now-supported-on-vercel-mcp",
-    "source": "Vercel News",
-    "summary": "You can now use ChatGPT with our official Model Context Protocol (MCP) server. For security, Vercel MCP currently supports AI clients that have been reviewed and approved by Vercel.Vercel MCP, Connectors within ChatGPT are available in on the web.beta to Pro and Plus accounts Follow the steps below to set up Vercel as a connector within ChatGPT: You should now be able to select Vercel as a conne",
-    "tags": [
-      "vercel",
-      "security",
-      "ia",
-      "ai",
-      "gpt",
-      "chatgpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.007Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogbuildslackagentswithvercelslackbolt",
-    "title": "Deploy Slack's Bolt.js to Vercel with @vercel/slack-bolt",
-    "url": "https://vercel.com/changelog/build-slack-agents-with-vercel-slack-bolt",
-    "source": "Vercel News",
-    "summary": "We've published , our official adapter for deploying Slack's to Vercel's AI Cloud.@vercel/slack-boltBolt for JavaScript Bolt provides a type-safe library for responding to Slack webhook events. However, Slack's API requires a response within three seconds or users are faced with timeouts. This has made it hard to build Slack agents on traditional serverless platforms. Our adapter uses streaming",
-    "tags": [
-      "javascript",
-      "ui",
-      "vercel",
-      "serverless",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.012Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogvercelcollaborateswithopenaiforgpt5launch",
-    "title": "Vercel collaborates with OpenAI for GPT-5 launch",
-    "url": "https://vercel.com/blog/vercel-collaborates-with-openai-for-gpt-5-launch",
-    "source": "Vercel News",
-    "summary": "The GPT-5 family of models, released today, is now available through and in production on . Thanks to OpenAI, Vercel has been testing these models over the past few weeks in v0, Next.js, AI SDK, andAI Gatewayv0.dev Vercel Sandbox. From our testing, GPT-5 is noticeably better at frontend design than previous models. It generates polished, balanced UIs with clean, composable code. Internally, we’ve",
-    "tags": [
-      "next.js",
-      "design",
-      "ui",
-      "vercel",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogzaisglm45andglm45airarenowsupportedinvercelaigateway",
-    "title": "Z.ai's GLM-4.5 and GLM-4.5 Air are now supported in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/z-ais-glm-4-5-and-glm-4-5-air-are-now-supported-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access , new flagship models from designed to unify frontier reasoning, coding, and agentic capabilities, using Vercel's with no other provider accounts required.GLM-4.5 and GLM-4.5 AirZ.aiAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for",
-    "tags": [
-      "performance",
-      "design",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvercelagentnowinlimitedbeta",
-    "title": "Vercel Agent now in Limited Beta",
-    "url": "https://vercel.com/changelog/vercel-agent-now-in-limited-beta",
-    "source": "Vercel News",
-    "summary": "Vercel Agent is now available in . Agent is an AI assistant built into the Vercel dashboard that analyzes your app performance and security data.Limited Beta Agent focuses on Observability, summarizing anomalies, identifying likely causes, and recommending specific actions. These actions can span across the platform, including managing firewall rules in response to traffic spikes or geographic ano",
-    "tags": [
-      "performance",
-      "geo",
-      "ui",
-      "vercel",
-      "security",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowwereadaptingseoforllmsandaisearch",
-    "title": "How we’re adapting SEO for LLMs and AI search",
-    "url": "https://vercel.com/blog/how-were-adapting-seo-for-llms-and-ai-search",
-    "source": "Vercel News",
-    "summary": "Search is changing. Backlinks and keywords aren’t enough anymore. AI-first interfaces like ChatGPT and Google’s AI Overviews now answer questions before users ever click a link (if at all). Large language models (LLMs) have become a new layer in the discovery process, reshaping how, where, and when content is seen. This shift is changing how visibility works. It’s still early, and nobody has all t",
-    "tags": [
-      "seo",
-      "search",
-      "ai",
-      "llm",
-      "gpt",
-      "chatgpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.016Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowferndelivers6mmonthlyviewsand80fasterdocswithvercel",
-    "title": "How Fern delivers 6M+ monthly views and 80% faster docs with Vercel",
-    "url": "https://vercel.com/blog/how-fern-delivers-6m-monthly-views-and-80-faster-docs-with-vercel",
-    "source": "Vercel News",
-    "summary": "is improving how teams build and host documentation. As a , Fern enables companies like Webflow and ElevenLabs to create, customize, and serve API documentation from a single Next.js application—scaling seamlessly across multiple customer domains. With 6 million+ page views per month and 1 million+ unique visitors, performance and reliability are key.Fernmulti-tenant platform By running on Vercel’",
-    "tags": [
-      "next.js",
-      "performance",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.016Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogprotectionagainstreactroutervulnerabilitycve202531137",
-    "title": "Protection against React Router vulnerability CVE-2025-31137",
-    "url": "https://vercel.com/changelog/protection-against-react-router-vulnerability-cve-2025-31137",
-    "source": "Vercel News",
-    "summary": "Security researchers reviewing the Remix web framework have a high-severity vulnerability in React Router that allows URL manipulation through the / header. recently discoveredHostX-Forwarded-Host Our investigation determined that Vercel and our customers are unaffected: A patch has been issued and released in Remix 2.16.3 / React Router 7.4.1. We recommend customers update to the latest version",
-    "tags": [
-      "react",
-      "search",
-      "vercel",
-      "security",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.017Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogvercelacquirestremor",
-    "title": "Vercel acquires Tremor to invest in open source React components",
-    "url": "https://vercel.com/blog/vercel-acquires-tremor",
-    "source": "Vercel News",
-    "summary": "is an open source library built on top of React, Tailwind CSS, and Radix. It consists of 35 unique components and 300 blocks that can be copy-pasted to build visually rich and interactive dashboards. The Tremor community has seen impressive growth with over 16,000 stars, 300,000 monthly downloads, and 5,500,000 installs to date.Tremor Today, Tremor and its cofounders and are joining Vercel’s Des",
-    "tags": [
-      "react",
-      "css",
-      "tailwind",
-      "ui",
-      "vercel",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.020Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogrequesterspublicippostalcodenowavailableinvercelfunctions",
-    "title": "Requester's public IP postal code now available in Vercel Functions",
-    "url": "https://vercel.com/changelog/requesters-public-ip-postal-code-now-available-in-vercel-functions",
-    "source": "Vercel News",
-    "summary": "The header is now part of , providing the postal code associated with the requester’s public IP address. This complements existing headers like , , and .x-vercel-ip-postal-codex-vercel-ip-countryx-vercel-ip-cityx-vercel-ip-country-regionVercel’s geolocation capabilities The header is accessible in Vercel Functions, including . Here's a TypeScript example:x-vercel-ip-postal-codeEdge Middleware Po",
-    "tags": [
-      "typescript",
-      "geo",
-      "vercel",
-      "edge",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.020Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogleonardoaiperformantlygenerates45millionimagesdailywithnextjsandvercel",
-    "title": "Leonardo generates 4.5M images daily with Next.js and Vercel",
-    "url": "https://vercel.com/blog/leonardo-ai-performantly-generates-4-5-million-images-daily-with-next-js-and-vercel",
-    "source": "Vercel News",
-    "summary": "Generating more than 4.5 million images a day, merges artificial intelligence with creativity to transform content creation across industries like gaming, marketing, and design.Leonardo.ai Read more",
-    "tags": [
-      "next.js",
-      "design",
-      "image",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.022Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowwecontinuedportingturborepotorust",
-    "title": "Using Zig in our incremental Turborepo migration from Go to Rust",
-    "url": "https://vercel.com/blog/how-we-continued-porting-turborepo-to-rust",
-    "source": "Vercel News",
-    "summary": "We’ve been porting , the high-performance build system for JavaScript and TypeScript, from Go to Rust. We talked about , so now let’s talk about how we began porting our two main commands: and .Turborepohow we started the porting processrunprune Read more",
-    "tags": [
-      "typescript",
-      "javascript",
-      "performance",
-      "ui",
-      "ssr",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.024Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvercelpostgres",
-    "title": "Introducing Vercel Postgres",
-    "url": "https://vercel.com/changelog/vercel-postgres",
-    "source": "Vercel News",
-    "summary": "is a serverless PostgresSQL database, designed to integrate with Vercel Functions and any frontend framework.Vercel Postgres Vercel Postgres is available for Hobby and Pro users during the public beta. or get started with a template:Check out our documentation Read more Next.js Kysely Prisma",
-    "tags": [
-      "next.js",
-      "design",
-      "vercel",
-      "serverless",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.025Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowvercelandnextjskeepripplingontheirrisingpathtosuccess",
-    "title": "How Vercel and Next.js keep Rippling on their rising path to success",
-    "url": "https://vercel.com/blog/how-vercel-and-next-js-keep-rippling-on-their-rising-path-to-success",
-    "source": "Vercel News",
-    "summary": "After going from $13M to $100M in revenue in two years, HR platform Rippling needed a frontend stack as fast and flexible as its innovative solutions. As they scaled to over 600 pages, engineer Robert Schneiderman realized that a fullstack WordPress solution wouldn't be able to handle their stakeholders' rapid iteration needs while maintaining the performance their customers require. By leveragin",
-    "tags": [
-      "next.js",
-      "performance",
-      "ui",
-      "vercel",
-      "ai",
-      "wordpress"
-    ],
-    "foundAt": "2026-07-28T11:04:09.026Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogbehindthescenesofvercelsinfrastructure",
-    "title": "Behind the scenes of Vercel's infrastructure: Achieving optimal scalability and performance",
-    "url": "https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure",
-    "source": "Vercel News",
-    "summary": "Vercel's platform provides speed, reliability, and the convenience of not having to worry about setting up and maintaining your own infrastructure. But what exactly goes on behind the scenes when we deploy our projects to Vercel, and what happens when you make a request to a site on the platform? This post will go behind the scenes, explaining how Vercel builds and deploys serverless applications",
-    "tags": [
-      "performance",
-      "ui",
-      "vercel",
-      "serverless",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.026Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogusingsveltekit10onvercel",
-    "title": "Using SvelteKit 1.0 on Vercel",
-    "url": "https://vercel.com/blog/using-sveltekit-1-0-on-vercel",
-    "source": "Vercel News",
-    "summary": "This post is historical. Product names and runtime guidance may have changed. For new projects, use with the Node.js runtime and . Use for request-time routing before a response completes.Note:Vercel FunctionsFluid computeRouting Middleware is a new framework for building web applications that is gaining popularity among developers for its simplicity and performance. Built on top of Svelte (li",
-    "tags": [
-      "performance",
-      "ui",
-      "vercel",
-      "ai",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.027Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblognext",
-    "title": "Next.js",
-    "url": "https://vercel.com/blog/next",
-    "source": "Vercel News",
-    "summary": "We're very proud to open-source , a small framework for server-rendered universal JavaScript webapps, built on top of React, Webpack and Babel, which powers this very site!Next.js Read more",
-    "tags": [
-      "next.js",
-      "react",
-      "javascript",
-      "ui",
-      "webp",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.029Z",
-    "used": false
-  },
-  {
-    "id": "httpswwwredditcomrnextjscomments1ilv3atwhydoyouthinknextjsissopopular",
-    "title": "Why do you think NextJS is so popular?",
-    "url": "https://www.reddit.com/r/nextjs/comments/1ilv3at/why_do_you_think_nextjs_is_so_popular/",
-    "source": "nextjs: search results - nextjs",
-    "summary": "I just checked stats on NextJs and I’m surprised how popular it is. It’s basically the most popular web framework right now (if not counting nodejs/react) What makes it so great? Is it the SSR? Ease of learning? React/Vercel ecosystem? submitted by /u/james-jiang [link] [comments]",
-    "tags": [
-      "nextjs",
-      "react",
-      "vercel",
-      "ssr",
-      "ia",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:11.912Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogkimik3isnowavailableonaigateway",
-    "title": "Kimi K3 is now available on AI Gateway",
-    "url": "https://vercel.com/changelog/kimi-k3-is-now-available-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "is now available on AI Gateway.Kimi K3 from Moonshot AI K3 is an open-source model with a 1M-token context window and native visual understanding, accepting text, image, and video inputs. Built for long-horizon software engineering, knowledge work, and deep reasoning, K3 is especially strong where code meets visual and spatial reasoning, which suits frontend, game development, and CAD workflows. T",
-    "tags": [
-      "ui",
-      "image",
-      "edge",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.990Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvercelpluginnowavailableinvscodeandgithubcopilotcli",
-    "title": "Vercel Plugin now available in VS Code and GitHub Copilot CLI",
-    "url": "https://vercel.com/changelog/vercel-plugin-now-available-in-vs-code-and-github-copilot-cli",
-    "source": "Vercel News",
-    "summary": "The is now available in VS Code and the GitHub Copilot CLI.Vercel Plugin GitHub Copilot now has Vercel platform knowledge on demand, with skills for Next.js, AI SDK, Vercel Functions, and more. The Vercel plugin also helps Copilot stay up to date with the latest Vercel APIs and recommended patterns. To install it for Copilot Chat, search for in the Extensions panel in VS Code.@agentPlugins verce",
-    "tags": [
-      "next.js",
-      "search",
-      "vercel",
-      "edge",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.991Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogbringyourdockerfiletovercelfunctions",
-    "title": "Bring your Dockerfile to Vercel Functions",
-    "url": "https://vercel.com/changelog/bring-your-dockerfile-to-vercel-functions",
-    "source": "Vercel News",
-    "summary": "now support deploying HTTP servers from a or , using Open Container Initiative (OCI) compatible images on Fluid compute.Vercel FunctionsDockerfileContainerfile This makes it easier to bring existing applications written in any language to Vercel while keeping the preview deployments, logs, routing, and autoscaling benefits of using Vercel Functions and Fluid compute. To use container images with",
-    "tags": [
-      "ui",
-      "image",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.992Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogvercelopensourceprogramspring2026cohort",
-    "title": "Vercel Open Source Program: Spring 2026 cohort",
-    "url": "https://vercel.com/blog/vercel-open-source-program-spring-2026-cohort",
-    "source": "Vercel News",
-    "summary": "The world runs on open source software. The frameworks, libraries, and tools we rely on are made possible by communities that share ideas and build in the open. At Vercel, we want to help those communities thrive. That’s why we run the : a developer initiative that gives maintainers the resources and support they need to keep shipping and growing their projects.Vercel Open Source Program Four time",
-    "tags": [
-      "ui",
-      "vercel",
-      "ia",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:08.992Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogaisdk7",
-    "title": "AI SDK 7",
-    "url": "https://vercel.com/blog/ai-sdk-7",
-    "source": "Vercel News",
-    "summary": "AI SDK, with over 16 million weekly downloads, is the TypeScript SDK for building AI applications, features, frameworks, and agents across any model provider. It's the same layer , Vercel's open-source agent framework, is built on.eve AI SDK 7 adds production depth for agent work across five areas: Building well-behaved agents requires fine-grained control over model reasoning, tool context, and f",
-    "tags": [
-      "typescript",
-      "ui",
-      "vercel",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:08.993Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowokararunscmoagentsfor120000companiesonvercel",
-    "title": "How Okara runs CMO agents for 120,000 companies on Vercel",
-    "url": "https://vercel.com/blog/how-okara-runs-cmo-agents-for-120000-companies-on-vercel",
-    "source": "Vercel News",
-    "summary": "Okara on Vercel 4 billion tokens processed daily across a multi-provider AI stack on Vercel AI CMOs actively managing growth for 120,000+ businesses Eight sub-agents handling SEO, GEO, social, content, Reddit, and Hacker News New AI models available to users the same day they ship Okara is an AI CMO that directs a team of specialized sub-agents to drive marketing, so founders don't have to.",
-    "tags": [
-      "seo",
-      "geo",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.994Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogbuildchatsdkwebuisinvueorsvelte",
-    "title": "Build Chat SDK web UIs in Vue or Svelte",
-    "url": "https://vercel.com/changelog/build-chat-sdk-web-uis-in-vue-or-svelte",
-    "source": "Vercel News",
-    "summary": "The Chat SDK now has first-class support for Vue and Svelte, joining the existing React integration. Because the adapter speaks the , the same server route works. Each framework ships its own , built on the matching AI SDK package for React, Vue, or Svelte.web adapterAI SDK UI message stream protocoluseChat The Vue and Svelte helpers return a reactive instance, so read and directly in your tem",
-    "tags": [
-      "react",
-      "ui",
-      "ai",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:08.994Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvercelmetricsincli",
-    "title": "Query observability metrics using the Vercel CLI",
-    "url": "https://vercel.com/changelog/vercel-metrics-in-cli",
-    "source": "Vercel News",
-    "summary": "You can now access Observability Plus metrics in the Vercel CLI. Query observability data for any Vercel team or project using the new command. Coding agents can also leverage this new command to better analyze the performance, reliability, or security of applications on Vercel, as well as debug issues.vercel metrics This feature is available in public beta for all teams with Observability Plus.",
-    "tags": [
-      "performance",
-      "vercel",
-      "security",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.996Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggptimage2onaigateway",
-    "title": "GPT Image 2 on AI Gateway",
-    "url": "https://vercel.com/changelog/gpt-image-2-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "GPT Image 2 is now available on .Vercel AI Gateway OpenAI's newest image model supports detailed instruction following, accurate placement and relationships between objects, and rendering of dense text across multiple aspect ratios. The model can render fine-grained elements including small text, iconography, UI elements, dense compositions, and subtle stylistic constraints, at up to 2K resolution",
-    "tags": [
-      "ui",
-      "image",
-      "vercel",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:08.996Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogopus47onaigateway",
-    "title": "Claude Opus 4.7 on AI Gateway",
-    "url": "https://vercel.com/changelog/opus-4.7-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "Claude Opus 4.7 from Anthropic is now available on .Vercel AI Gateway Opus 4.7 is optimized for long-running, asynchronous agents and handles complex, multi-step tasks with reliable agentic execution. The model shows gains on knowledge-worker tasks, particularly where it needs to visually verify its own outputs. Opus 4.7 is also stronger at programmatic tool-calling with image-processing libraries",
-    "tags": [
-      "image",
-      "vercel",
-      "edge",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.996Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowwaldiummadeablogplatformworkforhumansandaialike",
-    "title": "How Waldium made a blog platform work for humans and AI alike",
-    "url": "https://vercel.com/blog/how-waldium-made-a-blog-platform-work-for-humans-and-ai-alike",
-    "source": "Vercel News",
-    "summary": "is a two-person, YC-backed startup that built an agentic CMS for businesses. Co-founded by Amrutha Gujjar and CTO Shivam Singhal, the platform automates content research and creation, and gives every customer blog its own MCP server endpoint so AI agents can query it directly. Today, it all runs from a single deployment on Vercel.WaldiumNext.js Amrutha spent years building software where the infr",
-    "tags": [
-      "next.js",
-      "search",
-      "ui",
-      "vercel",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.997Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogminimaxm27onaigateway",
-    "title": "MiniMax M2.7 is live on AI Gateway",
-    "url": "https://vercel.com/changelog/minimax-m2.7-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "MiniMax M2.7 is now available on in two variants: standard and high-speed. M2.7 is a major step up from previous M2-series models in software engineering, agentic workflows, and professional office tasks.Vercel AI Gateway The model natively supports multi-agent collaboration, complex skill orchestration, and dynamic tool search for building agentic workflows. M2.7 also improves on production debu",
-    "tags": [
-      "search",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.998Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogusegpt54miniandnanoonaigateway",
-    "title": "Use GPT 5.4 Mini and Nano on AI Gateway",
-    "url": "https://vercel.com/changelog/use-gpt-5-4-mini-and-nano-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "GPT-5.4 Mini and GPT-5.4 Nano from OpenAI are now available on . Both models deliver state-of-the-art performance for their size class in coding and computer use, and are built for sub-agent workflows where multiple smaller models coordinate on parts of a larger task.Vercel AI Gateway The models also support the verbosity and reasoning level parameters, giving you control over response detail and",
-    "tags": [
-      "performance",
-      "ui",
-      "vercel",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:08.998Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelognextforge6",
-    "title": "next-forge 6 is now available",
-    "url": "https://vercel.com/changelog/next-forge-6",
-    "source": "Vercel News",
-    "summary": "is a production-grade Turborepo template for Next.js apps, designed to be a comprehensive, opinionated starting point for new apps.next-forge This major release comes with a number of DX improvements, an agent skill, and new guides for quickstart, Docker, and migration paths. next-forge skill You can now install a next-forge skill into your preferred agent, giving it structured knowledge of next-f",
-    "tags": [
-      "next.js",
-      "design",
-      "ui",
-      "edge",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:08.998Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggpt54isnowonaigateway",
-    "title": "GPT 5.4 is now on AI Gateway",
-    "url": "https://vercel.com/changelog/gpt-5-4-is-now-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "GPT-5.4 and GPT-5.4 Pro are now available on AI Gateway. This model brings the agentic and reasoning leaps from GPT-5.3-Codex to all domains. This includes knowledge work like reports, spreadsheets, presentations, and analysis in addition to coding. It handles complex multi-step workflows more reliably, including tasks that involve tools, research, and pulling from multiple sources. GPT-5.4 is fas",
-    "tags": [
-      "search",
-      "edge",
-      "ia",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:08.998Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloguseminimaxm25onaigateway",
-    "title": "Use MiniMax M2.5 on AI Gateway",
-    "url": "https://vercel.com/changelog/use-minimax-m2-5-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "MiniMax M2.5 is now available on AI Gateway. M2.5 plans before it builds, breaking down functions, structure, and UI design before writing code. It handles full-stack projects across Web, Android, iOS, Windows, and Mac, covering the entire development lifecycle from initial system design through code review. Compared to M2.1, it adapts better to unfamiliar codebases and uses fewer search rounds to",
-    "tags": [
-      "search",
-      "design",
-      "ui",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.000Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvercelflagsisnowinpublicbeta",
-    "title": "Vercel Flags is now in public beta",
-    "url": "https://vercel.com/changelog/vercel-flags-is-now-in-public-beta",
-    "source": "Vercel News",
-    "summary": "is a feature flag provider built into the Vercel platform. It lets you create and manage feature flags with targeting rules, user segments, and environment controls directly in the Vercel Dashboard.Vercel Flags The Flags SDK provides a framework-native way to define and use these flags within Next.js and SvelteKit applications, integrating directly with your existing codebase: And you can use them",
-    "tags": [
-      "next.js",
-      "ui",
-      "vercel",
-      "framework",
-      "svelte"
-    ],
-    "foundAt": "2026-07-28T11:04:09.000Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowwebuiltaeotrackingforcodingagents",
-    "title": "How we built AEO tracking for coding agents",
-    "url": "https://vercel.com/blog/how-we-built-aeo-tracking-for-coding-agents",
-    "source": "Vercel News",
-    "summary": "AI has changed the way that people find information. For businesses, this means it's critical to understand how LLMs search for and summarize their web content. We're building an AI Engine Optimization (AEO) system to track how models discover, interpret, and reference Vercel and our sites. This started as a prototype focused only on standard chat models, but we quickly realized that wasn’t enoug",
-    "tags": [
-      "search",
-      "ui",
-      "vercel",
-      "ai",
-      "llm"
-    ],
-    "foundAt": "2026-07-28T11:04:09.000Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogparalleljoinsthevercelagentmarketplace",
-    "title": "Parallel joins the Vercel Agent Marketplace",
-    "url": "https://vercel.com/changelog/parallel-joins-the-vercel-agent-marketplace",
-    "source": "Vercel News",
-    "summary": "is now available on the with native integration support.ParallelVercel Agent Marketplace Parallel provides web tools and agents designed for LLM-powered applications, including Search, Extract, Tasks, FindAll, and Monitoring capabilities. The Vercel integration provides a single API key that works across all Parallel products, with billing handled directly through your Vercel account. For develop",
-    "tags": [
-      "search",
-      "design",
-      "vercel",
-      "ai",
-      "llm"
-    ],
-    "foundAt": "2026-07-28T11:04:09.000Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogqwen3maxthinkingnowavailableonaigateway",
-    "title": "Qwen 3 Max Thinking now available on AI Gateway",
-    "url": "https://vercel.com/changelog/qwen-3-max-thinking-now-available-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access Qwen 3 Max Thinking via with no other provider accounts required.AI Gateway Qwen 3 Max Thinking integrates thinking and non-thinking modes for improved performance on complex reasoning tasks. The model autonomously selects and uses its built-in search, memory, and code interpreter tools during conversations without requiring manual tool selection. The tools reduce hallucination",
-    "tags": [
-      "performance",
-      "search",
-      "ui",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.001Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogsummariesofcve202559471andcve202559472",
-    "title": "Summaries of CVE-2025-59471 and CVE-2025-59472",
-    "url": "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472",
-    "source": "Vercel News",
-    "summary": "Two medium-severity denial-of-service vulnerabilities were discovered in self-hosted Next.js applications. Both issues can cause server crashes through memory exhaustion under specific configurations. No data exposure or privilege escalation is possible. Applications hosted on Vercel’s platform are not affected by these issues, and require no customer action. (CVSS 5.9) affects the Image Optimiz",
-    "tags": [
-      "next.js",
-      "ui",
-      "image",
-      "vercel",
-      "ia"
-    ],
-    "foundAt": "2026-07-28T11:04:09.001Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogrecraftimagemodelsnowonaigateway",
-    "title": "Recraft image models now on AI Gateway",
-    "url": "https://vercel.com/changelog/recraft-image-models-now-on-ai-gateway",
-    "source": "Vercel News",
-    "summary": "Recraft models are now available via Vercel's with no other provider accounts required. You can access Recraft's image models, V3 and V2.AI Gateway These image models excel at photorealism, accurate text rendering, and complex prompt following. V3 supports long multi-word text generation with precise positioning, anatomical correctness, and native vector output. It includes 20+ specialized styles",
-    "tags": [
-      "ui",
-      "image",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.001Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogexperimentalbuildmodehonoexpress",
-    "title": "Experimental build mode for Hono and Express projects",
-    "url": "https://vercel.com/changelog/experimental-build-mode-hono-express",
-    "source": "Vercel News",
-    "summary": "Users can opt in to an experimental build mode for and projects, which lets you filter logs by route, similar to Next.js.HonoExpress It also updates the build pipeline with better module resolution: To enable it, set in your project's .VERCEL_EXPERIMENTAL_BACKENDS=1environment variables Read more Relative imports no longer require file extensions TypeScript path aliases are supported Improve",
-    "tags": [
-      "next.js",
-      "typescript",
-      "ui",
-      "vercel",
-      "ia"
-    ],
-    "foundAt": "2026-07-28T11:04:09.001Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloguseperplexitywebsearchwithvercelaigateway",
-    "title": "Use Perplexity Web Search with Vercel AI Gateway",
-    "url": "https://vercel.com/blog/use-perplexity-web-search-with-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "Models are powerful, but they're limited to their training data and knowledge cutoff date. When users ask about today's news, current prices, or the latest API changes, models can offer outdated information or admit they don't know. Provider-agnostic web search on AI Gateway changes this. With a single line of code, you can give any model the ability to search the web in real-time. It works with O",
-    "tags": [
-      "search",
-      "vercel",
-      "edge",
-      "ai",
-      "perplexity"
-    ],
-    "foundAt": "2026-07-28T11:04:09.001Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogintroducingreactbestpractices",
-    "title": "Introducing: React Best Practices",
-    "url": "https://vercel.com/blog/introducing-react-best-practices",
-    "source": "Vercel News",
-    "summary": "We've encapsulated 10+ years of React and Next.js optimization knowledge into , a structured repository optimized for AI agents and LLMs. react-best-practices Read more",
-    "tags": [
-      "next.js",
-      "react",
-      "edge",
-      "ai",
-      "llm"
-    ],
-    "foundAt": "2026-07-28T11:04:09.001Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogwebinterfaceguidelinesnowavailableasanagentcommand",
-    "title": " Web Interface Guidelines now available as an agent command",
-    "url": "https://vercel.com/changelog/web-interface-guidelines-now-available-as-an-agent-command",
-    "source": "Vercel News",
-    "summary": "You can now install Vercel's as skill/command for your agent.Web Interface Guidelines Run to review UI code for accessibility, keyboard support, form behavior, animation, performance, and more./web-interface-guidelines Install with a single command: curl -fsSL https://vercel.com/design/guidelines/install | bash Supports Claude Code, Cursor, OpenCode, Windsurf, and Gemini CLI. For other agents,",
-    "tags": [
-      "performance",
-      "design",
-      "ui",
-      "vercel",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.002Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogourmilliondollarhackerchallengeforreact2shell",
-    "title": "Our $1 million hacker challenge for React2Shell",
-    "url": "https://vercel.com/blog/our-million-dollar-hacker-challenge-for-react2shell",
-    "source": "Vercel News",
-    "summary": "In the weeks following React2Shell's disclosure, our firewall blocked over 6 million exploit attempts targeting deployments running vulnerable versions of Next.js, with 2.3 million in a single 24-hour period at peak. This was possible thanks to Seawall, the deep request inspection layer of the Vercel Web Application Firewall (WAF). We worked with 116 security researchers to find every WAF bypass t",
-    "tags": [
-      "next.js",
-      "react",
-      "search",
-      "vercel",
-      "security"
-    ],
-    "foundAt": "2026-07-28T11:04:09.002Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogaddcachetagsfromfunctionresponsesregardlessofframework",
-    "title": "Add cache tags from Function responses, regardless of framework",
-    "url": "https://vercel.com/changelog/add-cache-tags-from-function-responses-regardless-of-framework",
-    "source": "Vercel News",
-    "summary": "You can now add one or more cache tags to your Function response by importing the function from npm package.addCacheTag@vercel/functions import { addCacheTag } from '@vercel/functions' Once the cached response has a tag associated with it, you can later invalidate the cache in one of several ways: Available on all plans and all frameworks. Learn more about .cache invalidation Read more Dashboa",
-    "tags": [
-      "vercel",
-      "cache",
-      "ia",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.003Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggpt52modelsnowavailableonvercelaigateway",
-    "title": "GPT 5.2 models now available on Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/gpt-5-2-models-now-available-on-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access OpenAI's latest GPT-5.2 models with Vercel's and no other provider accounts required.AI Gateway These models perform better than the GPT-5.1 model series, with noted improvements in professional knowledge work, coding, and long-context reasoning. Other highlights include fewer hallucinations, more accurate vision to interpret graphs and visualizations, strong complex front-end",
-    "tags": [
-      "ui",
-      "vercel",
-      "edge",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.003Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelognova2litenowavailableonvercelaigateway",
-    "title": "Nova 2 Lite now available on Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/nova-2-lite-now-available-on-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access Amazon's latest model Nova 2 Lite via Vercel's with no other provider accounts required. Nova 2 Lite is a reasoning model for everyday workloads that can process text, images, and videos to generate text.AI Gateway To use Nova 2 Lite, set to in the . Extending thinking is disabled by default. To enable reasoning for this model, set in the . The reasoning content is redacted",
-    "tags": [
-      "ui",
-      "image",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.003Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogdeepseekv32nowinvercelaigateway",
-    "title": "DeepSeek V3.2 models now available in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/deepseek-v3-2-now-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access DeepSeek's latest models, DeepSeek V3.2 and DeepSeek V3.2 Speciale, via Vercel's with no other provider accounts required.AI Gateway DeepSeek V3.2 supports combined thinking and tool use, handling agent-style operations (tool calls) in both reasoning and non-reasoning modes. DeepSeek V3.2 Speciale is optimized for maximal reasoning performance, and is suited for complex task us",
-    "tags": [
-      "performance",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.003Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggrok41fastmodelsnowavailableonvercelaigateway",
-    "title": "Grok 4.1 Fast models now available on Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/grok-4-1-fast-models-now-available-on-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access xAI's latest models, Grok 4.1 Fast Reasoning and Grok 4.1 Fast Non-Reasoning, via Vercel's with no other provider accounts required. These models have a 2M context window and are designed for agentic tool calling.AI Gateway Grok 4.1 Fast Reasoning is best suited for structured reasoning and agentic operations that require high accuracy, whereas Grok 4.1 Fast Non-Reasoning is ta",
-    "tags": [
-      "design",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.004Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloggpt51modelsnowavailableinvercelaigateway",
-    "title": "GPT 5.1 models now available in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/gpt-5-1-models-now-available-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access OpenAI's latest models, GPT-5.1 Instant and GPT-5.1 Thinking, using Vercel's with no other provider accounts required.AI Gateway To use these models with the , set the model to or :AI SDKopenai/gpt-5.1-instantopenai/gpt-5.1-thinking AI Gateway provides a unified API for calling models, tracking usage and cost, and configuring retries, failover, and performance optimizations fo",
-    "tags": [
-      "performance",
-      "ui",
-      "vercel",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.004Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogcve202552662xssonnuxtdevtools",
-    "title": "CVE-2025-52662: XSS on Nuxt DevTools",
-    "url": "https://vercel.com/changelog/cve-2025-52662-xss-on-nuxt-devtools",
-    "source": "Vercel News",
-    "summary": "A medium-severity in Nuxt DevTools was responsibly disclosed, and has been fixed for version 2.6.4. This issue may have allowed Nuxt auth token extraction via XSS under certain configurations. security vulnerability Nuxt DevTools users are encouraged to upgrade to the latest version. Read more details below. A vulnerability chain in Nuxt DevTools allows remote code execution in development enviro",
-    "tags": [
-      "ux",
-      "security",
-      "ia",
-      "ai",
-      "nuxt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.004Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogcachingdetailsnowavailableinruntimelogs",
-    "title": "Caching details now available in Runtime Logs",
-    "url": "https://vercel.com/changelog/caching-details-now-available-in-runtime-logs",
-    "source": "Vercel News",
-    "summary": "You can now view more details on how Vercel's globally serves cached content to users as quickly as possible. CDN In the right-hand panel of the Runtime Logs page, we now list: This is available to all Vercel users at no additional cost. or learn more about .Try it outRuntime Logs Read more : A unique identifier for a specific version of a cached pageCache key : Tags associated with the cach",
-    "tags": [
-      "ui",
-      "vercel",
-      "cache",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.005Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogopenaigptosssafeguard20bnowavailableinvercelaigateway",
-    "title": "OpenAI's GPT-OSS-Safeguard-20B now available in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/openai-gpt-oss-safeguard-20b-now-available-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access OpenAI's latest open source model, GPT-OSS-Safeguard-20B using Vercel's with no other provider accounts required.AI Gateway GPT-OSS-Safeguard-20B is a fine-tuned version of its general-purpose GPT-OSS model, designed for developers to implement custom, policy-driven content moderation. AI Gateway lets you call the model with a consistent unified API and just a single string upd",
-    "tags": [
-      "design",
-      "ui",
-      "vercel",
-      "ai",
-      "gpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.005Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogintroducingworkflow",
-    "title": "Built-in durability: Introducing Workflow Development Kit",
-    "url": "https://vercel.com/blog/introducing-workflow",
-    "source": "Vercel News",
-    "summary": "Building reliable software shouldn't require mastering distributed systems. Yet for developers building AI agents or data pipelines, making async functions reliable typically requires message queues, retry logic, and persistence layers. Adding that infrastructure often takes longer than writing the actual business logic. The is an open source TypeScript framework that makes durability a language-",
-    "tags": [
-      "typescript",
-      "ui",
-      "ia",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.005Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogopensourceworkflowdevkitisnowinpublicbeta",
-    "title": "Open source Workflow Development Kit is now in public beta",
-    "url": "https://vercel.com/changelog/open-source-workflow-dev-kit-is-now-in-public-beta",
-    "source": "Vercel News",
-    "summary": "Workflow Development Kit, a framework for building durable, long-running processes, is now in public beta. Workflow Development Kit brings durability, reliability, and observability to async JavaScript so you can build apps and AI agents that suspend, resume, and maintain state with ease. Turning functions into durable workflows is made simple by the directive:\"use workflow\" :Key highlights inclu",
-    "tags": [
-      "javascript",
-      "ui",
-      "ia",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.005Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogupdateregardingvercelservicedisruptiononoctober202025",
-    "title": "Update regarding Vercel service disruption on October 20, 2025",
-    "url": "https://vercel.com/blog/update-regarding-vercel-service-disruption-on-october-20-2025",
-    "source": "Vercel News",
-    "summary": "At Vercel, our philosophy is to , not blame, our vendors. Customers use our services to gain velocity, reliability, and ship wonderful products. Whether we picked A or B as one of the components of our “circuit design” is entirely our responsibility.take ownership for Vercel is fully accountable for this incident, even if it's that it was triggered by the unexpected outage of AWS (called ). Ver",
-    "tags": [
-      "design",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.005Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogrunningnextjsinsidechatgptadeepdiveintonativeappintegration",
-    "title": "Running Next.js inside ChatGPT: A deep dive into native app integration",
-    "url": "https://vercel.com/blog/running-next-js-inside-chatgpt-a-deep-dive-into-native-app-integration",
-    "source": "Vercel News",
-    "summary": "When OpenAI announced the Apps SDK with Model Context Protocol (MCP) support, it opened the door to embedding web applications directly into ChatGPT. But there's a significant difference between serving static HTML in an iframe and running a full Next.js application with client-side navigation, React Server Components, and dynamic routing. This is the story of how we bridged that gap. We created a",
-    "tags": [
-      "next.js",
-      "react",
-      "ai",
-      "gpt",
-      "chatgpt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.005Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogclaudehaiku45nowavailableinvercelaigateway",
-    "title": "Claude Haiku 4.5 now available in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/claude-haiku-4-5-now-available-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access Anthropic's latest model, Claude Haiku 4.5 using Vercel's with no other provider accounts required. Haiku 4.5 matches Sonnet 4's performance on coding, computer use, and agent tasks at substantially lower cost and faster speeds.AI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure perform",
-    "tags": [
-      "performance",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.005Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogviewandquerybotverificationdatainvercelobservability",
-    "title": "View & query bot verification data in Vercel Observability",
-    "url": "https://vercel.com/changelog/view-and-query-bot-verification-data-in-vercel-observability",
-    "source": "Vercel News",
-    "summary": "Vercel inspects every request to identify bot traffic. For requests claiming to come from a verified source, Vercel cross-checks against its directory of and validates them against strict verification criteria.verified bots We've added three new dimensions to the query builder when analyzing Edge Requests to help you understand bot activity to your projects: Additionally, the Edge Requests dashbo",
-    "tags": [
-      "ui",
-      "vercel",
-      "edge",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.006Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogcollaboratingwithanthropiconclaudesonnet45",
-    "title": "Collaborating with Anthropic on Claude Sonnet 4.5 to power intelligent coding agents",
-    "url": "https://vercel.com/blog/collaborating-with-anthropic-on-claude-sonnet-4-5",
-    "source": "Vercel News",
-    "summary": "Claude Sonnet 4.5 is now available on with full support in . We’ve been testing the model in v0, across our Next.js build pipelines, and inside our new Coding Agent Platform template. The model shows improvements in design sensibility and code quality, with measurable gains when building and linting Next.js applications.Vercel AI GatewayAI SDK Claude Sonnet 4.5 builds on Anthropic's strengths in",
-    "tags": [
-      "next.js",
-      "design",
-      "ui",
-      "vercel",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.006Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogverceldomainsatcostpricingandthefastestontheweb",
-    "title": "Vercel Domains overhauled with instant search and at-cost pricing",
-    "url": "https://vercel.com/changelog/vercel-domains-at-cost-pricing-and-the-fastest-on-the-web",
-    "source": "Vercel News",
-    "summary": "We’ve rebuilt end to end, making it faster, simpler, and more affordable to find and buy the right domain for your project.Vercel Domains This update makes Vercel Domains the fastest way to claim a name and get to production. As part of the overhaul, we’ve partnered with as our upstream registrar, delivering better pricing and reliability.name.com An upcoming blog will share how we built this sp",
-    "tags": [
-      "search",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.006Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogqwen3nextmodelsarenowsupportedinvercelaigateway",
-    "title": "Qwen3-Next models are now supported in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/qwen3-next-models-are-now-supported-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access , two ultra-efficient models from , designed to activate only 3B parameters, using Vercel's with no other provider accounts required.Qwen3 NextQwenLMAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher than provider-average upti",
-    "tags": [
-      "performance",
-      "design",
-      "ui",
-      "vercel",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.007Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogmoonshotaiskimik20905modelisnowsupportedinvercelaigateway",
-    "title": "Moonshot AI's Kimi K2 0905 model is now supported in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/moonshot-ais-kimi-k2-0905-model-is-now-supported-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access , a new model from focused on agentic coding with a 256K context window, using Vercel with no other provider accounts required.Kimi K2 0905Moonshot AIAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher than provider-average up",
-    "tags": [
-      "performance",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.012Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogdevinraycastwindsurfandgoosenowsupportedonvercelmcp",
-    "title": "Devin, Raycast, Windsurf, and Goose now supported on Vercel MCP",
-    "url": "https://vercel.com/changelog/devin-raycast-windsurf-and-goose-now-supported-on-vercel-mcp",
-    "source": "Vercel News",
-    "summary": "You can now use , , , and with our official Model Context Protocol (MCP) server. For security, Vercel MCP currently supports AI clients that have been reviewed and approved by Vercel.DevinRaycastWindsurfGooseVercel MCP, Follow the steps below to get started with each client: With Vercel MCP you can give agents , , and more.access to protected deploymentsanalyze build logs Read more about using .",
-    "tags": [
-      "ui",
-      "vercel",
-      "security",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.013Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogdeployxmcpserverswithzeroconfiguration",
-    "title": "Deploy xmcp servers with zero-configuration",
-    "url": "https://vercel.com/changelog/deploy-xmcp-servers-with-zero-configuration",
-    "source": "Vercel News",
-    "summary": "Vercel now supports , a framework for building and shipping MCP servers with TypeScript, with zero-configuration.xmcp xmcp uses file-based routing to create tools for your MCP server. Once you've created a file for your tool, you can use a default export in a way that feels familiar to many other file-based routing frameworks. Below, we create a \"greeting\" tool. Learn more about in the documentat",
-    "tags": [
-      "typescript",
-      "ui",
-      "vercel",
-      "ia",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.013Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvltisnowavailableinbuildsviazeroconfiguration",
-    "title": "vlt is now available in builds via zero configuration",
-    "url": "https://vercel.com/changelog/vlt-is-now-available-in-builds-via-zero-configuration",
-    "source": "Vercel News",
-    "summary": "Vercel now supports the package manager for builds with zero configuration in builds. vlt Starting today, Projects that contain a file will automatically run as the default using .vlt-lock.jsonvlt installvltInstall Command requires node to run and is only available in the modern .vlt20.xbuild image Learn more about .package manager support on Vercel Read more",
-    "tags": [
-      "ui",
-      "image",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogimprovedmetricssearchinobservabilityplus",
-    "title": "Improved metrics search in Observability Plus",
-    "url": "https://vercel.com/changelog/improved-metrics-search-in-observability-plus",
-    "source": "Vercel News",
-    "summary": "We’ve improved the metrics search and navigation experience in Vercel Observability, making it faster and easier to build .custom queries You can now: These updates are available now for all teams with .Observability Plus or learn more about and .Try it outObservabilityObservability Plus Read more Quickly find metrics by typing partial names or common abbreviations like for \"time to first byte",
-    "tags": [
-      "search",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogsummer2025ossprogram",
-    "title": "Vercel Open Source Program: Summer cohort",
-    "url": "https://vercel.com/blog/summer-2025-oss-program",
-    "source": "Vercel News",
-    "summary": "In April, we launched the , a developer initiative that gives maintainers the resources, credits, and support they need to ship faster and scale confidently, starting with the .Vercel Open Source Programspring 2025 cohort We're now honored to announce the summer 2025 cohort. From AI-powered calendars to beautifully styled React Native components, open source builders continue to amaze us. Here ar",
-    "tags": [
-      "react",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogqwen3coderisnowsupportedinvercelaigateway",
-    "title": "Qwen3-Coder is now supported in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/qwen3-coder-is-now-supported-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access , a model from , an Alibaba Cloud company, designed to handle complex, multi-step coding workflows, using Vercel's with no other provider accounts required.Qwen3 CoderQwenLMAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher th",
-    "tags": [
-      "performance",
-      "design",
-      "ui",
-      "vercel",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogmoonshotaikimik2modelisnowsupportedinvercelaigateway",
-    "title": "Moonshot AI's Kimi K2 model is now supported in Vercel AI Gateway",
-    "url": "https://vercel.com/changelog/moonshot-ai-kimi-k2-model-is-now-supported-in-vercel-ai-gateway",
-    "source": "Vercel News",
-    "summary": "You can now access , a new mixture-of-experts (MoE) language model from , using Vercel's with no other provider accounts required.Kimi K2Moonshot AIAI Gateway AI Gateway lets you call the model with a consistent unified API and just a single string update, track usage and cost, and configure performance optimizations, retries, and failover for higher than provider-average uptime. To use it with t",
-    "tags": [
-      "performance",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.014Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogclerkjoinsthevercelmarketplace",
-    "title": "Clerk joins the Vercel Marketplace",
-    "url": "https://vercel.com/changelog/clerk-joins-the-vercel-marketplace",
-    "source": "Vercel News",
-    "summary": "is now available as an on the Vercel Marketplace. Clerkauthentication provider Built for modern frameworks like Next.js, simplifies authentication while giving teams full control over UI, sessions, and user roles, all tightly integrated with Vercel’s deployment model.Clerk With the integration, you get access to: Get started with on the Vercel Marketplace.Clerk Read more Instant provisioning o",
-    "tags": [
-      "next.js",
-      "ui",
-      "vercel",
-      "ai",
-      "framework"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangeloginngestjoinsthevercelmarketplace",
-    "title": "Inngest joins the Vercel Marketplace",
-    "url": "https://vercel.com/changelog/inngest-joins-the-vercel-marketplace",
-    "source": "Vercel News",
-    "summary": "You can now install directly from the Vercel Marketplace to quickly build reliable background jobs and AI workflows for your Next.js app.Inngest Inngest is a great fit to add AI features or emerging agentic patterns to your Vercel projects: Start building workflows with on the Vercel Marketplace . Inngesttoday Read more Write background jobs directly in your `app/` directory Full support for",
-    "tags": [
-      "next.js",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogsandboxnowsupportssudoandinstallingrpmpackages",
-    "title": "Sandbox now supports sudo and installing RPM packages",
-    "url": "https://vercel.com/changelog/sandbox-now-supports-sudo-and-installing-rpm-packages",
-    "source": "Vercel News",
-    "summary": "You can now run commands with inside , giving you full control over runtime environment setup, just like on a traditional Linux system.sudoVercel Sandbox This makes it possible to install system dependencies at runtime, like Go, Python packages, or custom binaries, before executing your code. is available via the method:sudorunCommand The sandbox configuration is designed to be easy to use:sud",
-    "tags": [
-      "design",
-      "ux",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogcve202549826",
-    "title": "CVE-2025-49826",
-    "url": "https://vercel.com/changelog/cve-2025-49826",
-    "source": "Vercel News",
-    "summary": "Summary Impact Resolution Credit References A vulnerability affecting Next.js has been addressed. It impacted versions and involved a cache poisoning bug leading to a Denial of Service (DoS) condition.>=15.1.0 <15.1.8 This issue does not impact customers hosted on Vercel. Under certain conditions, this issue may allow a HTTP 204 response to be cached for static pages, leading to the 204 response",
-    "tags": [
-      "next.js",
-      "vercel",
-      "cache",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogzeroconfigurationsupportfornitro",
-    "title": "Zero-configuration support for Nitro",
-    "url": "https://vercel.com/changelog/zero-configuration-support-for-nitro",
-    "source": "Vercel News",
-    "summary": "Vercel now supports applications, a backend toolkit for building web servers, with zero-configuration.Nitro Nitro powers frameworks like Nuxt.js, TanStack Start, and SolidStart. or .Deploy Nitro on Vercelvisit Nitro's Vercel documentation Read more",
-    "tags": [
-      "ux",
-      "ui",
-      "vercel",
-      "framework",
-      "nuxt"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogvercelbotidisnowgenerallyavailable",
-    "title": "Vercel BotID is now generally available",
-    "url": "https://vercel.com/changelog/vercel-botid-is-now-generally-available",
-    "source": "Vercel News",
-    "summary": "Vercel BotID is an invisible CAPTCHA with no visible challenges or manual bot management required. BotID is a new protection layer on Vercel designed for public, high-value routes such as checkouts, signups, AI chat interfaces, LLM-powered endpoints, and public APIs that are targets for sophisticated bots mimicking real user behavior. Unlike IP-based or heuristic systems, BotID: Powered by , BotID",
-    "tags": [
-      "design",
-      "ui",
-      "vercel",
-      "ai",
-      "llm"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogrununtrustedcodewithvercelsandbox",
-    "title": "Run untrusted code with Vercel Sandbox",
-    "url": "https://vercel.com/changelog/run-untrusted-code-with-vercel-sandbox",
-    "source": "Vercel News",
-    "summary": "Vercel Sandbox is a secure cloud resource powered by . It is designed to run untrusted code, such as code generated by AI agents, in isolated and ephemeral environments.Fluid compute Sandbox is a standalone SDK that can be executed from any environment, including non-Vercel platforms. Sandbox workloads run in ephemeral, isolated microVMs via the new , supporting execution times up to 45 minutes.Sa",
-    "tags": [
-      "design",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelogmanuallypurgethecdncache",
-    "title": "Manually purge the CDN cache",
-    "url": "https://vercel.com/changelog/manually-purge-the-cdn-cache",
-    "source": "Vercel News",
-    "summary": "Users with the role can now purge Vercel’s CDN cache manually, either via the project's or by running in CLI version 44.2.0 or later.Membercache settings dashboardvercel cache purge --type=cdn By default, the CDN cache is purged automatically with each new deployment. For cases where you want to refresh cached content instantly (without waiting for a new build), you can now manually purge the g",
-    "tags": [
-      "ui",
-      "vercel",
-      "cache",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.015Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomblogfluidcomputeevolvingserverlessforaiworkloads",
-    "title": "Fluid compute: Evolving serverless for AI workloads",
-    "url": "https://vercel.com/blog/fluid-compute-evolving-serverless-for-ai-workloads",
-    "source": "Vercel News",
-    "summary": "AI’s rapid evolution is reshaping the tech industry and app development. Traditional serverless computing was designed for quick, stateless web app transactions. LLM interactions require a different sustained compute and continuous execution patterns. Read more",
-    "tags": [
-      "design",
-      "ui",
-      "serverless",
-      "ai",
-      "llm"
-    ],
-    "foundAt": "2026-07-28T11:04:09.016Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelog45percentfasterbuildinitialization",
-    "title": "45% faster build initialization",
-    "url": "https://vercel.com/changelog/45-percent-faster-build-initialization",
-    "source": "Vercel News",
-    "summary": "Builds on Vercel now initialize 45% faster on average, reducing build times by around 15 seconds for Pro and Enterprise teams. Build initialization includes steps like restoring the build cache and fetching your code before the runs. These improvements come from continued enhancements to .Build CommandHive, Vercel’s build infrastructure This improvement also reduced I/O wait times for file writes",
-    "tags": [
-      "ui",
-      "vercel",
-      "cache",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.016Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcombloghowconsensysrebuiltmetamaskiowithvercelandnextjs",
-    "title": "How Consensys rebuilt MetaMask.io with Vercel and Next.js",
-    "url": "https://vercel.com/blog/how-consensys-rebuilt-metamask-io-with-vercel-and-next-js",
-    "source": "Vercel News",
-    "summary": "Since 2014, Consensys has shaped the web3 movement with tools like and , , and —the most widely used on the web, with millions of users across the globe.LineaInfuraMetaMaskself-custodial wallet As the blockchain ecosystem quickly matured, the need for a site that could move as fast as the teams building it became clear. To meet that demand, Consensys migrated MetaMask.io to Next.js and Vercel, cr",
-    "tags": [
-      "next.js",
-      "ui",
-      "vercel",
-      "ia",
-      "ai"
-    ],
-    "foundAt": "2026-07-28T11:04:09.016Z",
-    "used": false
-  },
-  {
-    "id": "httpsvercelcomchangelognewoneclickaibotmanagedruleset",
-    "title": "New one-click AI bot managed ruleset",
-    "url": "https://vercel.com/changelog/new-one-click-ai-bot-managed-ruleset",
-    "source": "Vercel News",
-    "summary": "You can now block AI crawlers and scrapers like GPTBot (OpenAI), ClaudeBot (Anthropic), PerplexityBot, Bytespider (ByteDance), and others with a single toggle using the AI bot managed ruleset. Now available for free on all plans. The ruleset is managed by Vercel and updates automatically as new crawlers appear, with no additional action required. This protection operates with zero latency impact t",
-    "tags": [
-      "ui",
-      "vercel",
-      "ai",
-      "gpt",
-      "perplexity"
-    ],
-    "foundAt": "2026-07-28T11:04:09.016Z",
     "used": false
   }
 ]
