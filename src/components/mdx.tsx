@@ -17,6 +17,7 @@ import { RawGithubFile } from "./RawGithubFile";
 import GitHubRepoSummary from "./gitHubResume";
 import { Faq } from "./Faq";
 import { StepsComponent } from "./steps/Steps";
+import Mermaid from "./Mermaid";
 import { slugify } from "@/utils/utils";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -192,6 +193,7 @@ const components = {
   pre: createCodeBlock as any,
   Faq: Faq as any,
   Steps: StepsComponent as any,
+  Mermaid: Mermaid as any,
   Heading,
   Text,
   CodeBlock,
