@@ -35,14 +35,28 @@ function toPostType(p: {
   slug: string;
   body: string;
 }): PostType {
+  // Résumé de secours : si la description du frontmatter est vide,
+  // on dérive un résumé à partir du corps MDX (1ere phrase substantielle).
+  const fallbackSummary = (() => {
+    const text = p.body
+      .replace(/[#>*_`]/g, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/s+/g, " ")
+      .trim();
+    const firstSentence = text.split(/(?<=.)s/)[0] || text;
+    return firstSentence.slice(0, 200).trim();
+  })();
+  const summary = p.description?.trim() ? p.description : fallbackSummary;
   return {
     metadata: {
       title: p.title,
-      description: p.description,
+      description: summary,
       publishedAt: p.publishedAt,
       updatedAt: p.updatedAt,
-      summary: p.description,
+      summary,
       image: p.image,
+      // Le composant ProjectCard attend un tableau `images` (Carousel)
+      images: p.image ? [p.image] : [],
       team: baseTeam,
       tags: (p.tags || []).map((t) => ({ id: t, name: t })),
     },
