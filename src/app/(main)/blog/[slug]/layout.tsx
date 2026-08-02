@@ -1,6 +1,6 @@
 import { baseURL, blog, person } from "@/app/resources";
 import { formatDate } from "@/app/utils/formatDate";
-import { getPostBySlug, getPosts, getRelatedPost } from "@/app/utils/serverActions";
+import { getPostBySlug, getRelatedPost } from "@/app/utils/serverActions";
 import { getReactions } from "@/components/reactions/serverActions";
 import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, Skeleton, SmartLink, Spinner, Tag, Text } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
@@ -24,7 +24,7 @@ const CommentSection = dynamic(() => import('@/components/CommentSection'), {
         <Skeleton shape="line" height="xl" width="l" />
         <Skeleton shape="line" height="m" width="m" />
     </Column>
-    , // Composant optionnel affiché pendant le chargement
+    , // Composant optionnel affiche pendant le chargement
 });
 
 // import Post from "@/components/blog/Post";
@@ -33,7 +33,7 @@ const Post = dynamic(() => import('@/components/blog/Post'), {
         <Skeleton shape="block" width="l" minHeight={"40"} />
         <Skeleton shape="line" height="xl" width="l" />
         <Skeleton shape="line" height="m" width="m" />
-    </Column>, // Composant optionnel affiché pendant le chargement
+    </Column>, // Composant optionnel affiche pendant le chargement
 });
 
 
@@ -42,11 +42,11 @@ const Reactions = dynamic(() => import('@/components/reactions/Reactions').then(
     loading: () => <Spinner />,
 });
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-    const posts = await getPosts({ limit: 0 });
-    return posts.map(({ slug }) => ({ slug }));
-
-}
+// Rendu a la demande : un nouvel article ajoute au depot de contenu est
+// recupere dynamiquement (fetch GitHub a l'execution) SANS rebuild du site.
+// Les pages deja visitees sont mises en cache en ISR (revalidation 1 h).
+export const dynamicParams = true;
+export const revalidate = 3600;
 
 export async function generateMetadata({
     params,

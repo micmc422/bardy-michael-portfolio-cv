@@ -48,6 +48,9 @@ const nextConfig = {
         pathname: "/api/og/**",
       },
       {
+        pathname: "/api/content-image/**",
+      },
+      {
         pathname: "/og/**",
       },
       {

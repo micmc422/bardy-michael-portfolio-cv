@@ -76,7 +76,7 @@ async function fetchPosts({
   tags?: string[];
 }): Promise<PostType[]> {
   try {
-    return getLocalPosts({ limit, page: page ?? 1, tags }).map(toPostType);
+    return (await getLocalPosts({ limit, page: page ?? 1, tags })).map(toPostType);
   } catch (error) {
     console.error("Erreur lors de la récupération des articles:", error);
     return [];
@@ -89,7 +89,7 @@ export const getPosts = unstable_cache(fetchPosts, ["local-posts"], {
 // --- getRelatedPost ---
 async function fetchRelatedPost({ slug }: { slug: string }): Promise<PostType[]> {
   try {
-    return getLocalRelatedPosts(slug, 4).map(toPostType);
+    return (await getLocalRelatedPosts(slug, 4)).map(toPostType);
   } catch (error) {
     console.error("Erreur lors de la récupération des articles liés:", error);
     return [];
@@ -108,7 +108,7 @@ async function fetchTags({
   page?: number;
 }): Promise<{ id: string; name: string }[]> {
   try {
-    const tags = getLocalTags();
+    const tags = await getLocalTags();
     return limit === "all" ? tags : tags.slice(0, limit);
   } catch (error) {
     console.error("Erreur lors de la récupération des tags:", error);
@@ -126,7 +126,7 @@ async function fetchProjects({
   limit?: number | "all";
 }): Promise<PostType[]> {
   try {
-    return getLocalProjects({ limit }).map(toPostType);
+    return (await getLocalProjects({ limit })).map(toPostType);
   } catch (error) {
     console.error("Erreur lors de la récupération des projets:", error);
     return [];
@@ -139,7 +139,7 @@ export const getProjects = unstable_cache(fetchProjects, ["local-projects"], {
 // --- getPostBySlug ---
 async function fetchPostBySlug(slug: string): Promise<PostType | null> {
   try {
-    const post = getLocalPostBySlug(slug);
+    const post = await getLocalPostBySlug(slug);
     return post ? toPostType(post) : null;
   } catch (error) {
     console.error(`Erreur lors de la récupération du post '${slug}':`, error);
@@ -153,7 +153,7 @@ export const getPostBySlug = unstable_cache(fetchPostBySlug, ["local-post-by-slu
 // --- getPostDataBySlug (renvoie le PostType brut, utilisé pour les métadonnées) ---
 async function fetchPostDataBySlug(slug: string): Promise<PostType | null> {
   try {
-    const post = getLocalPostBySlug(slug);
+    const post = await getLocalPostBySlug(slug);
     return post ? toPostType(post) : null;
   } catch (error) {
     console.error(`Erreur lors de la récupération des données du post '${slug}':`, error);
@@ -167,7 +167,7 @@ export const getPostDataBySlug = unstable_cache(fetchPostDataBySlug, ["local-pos
 // --- getProject ---
 async function fetchProject(slug: string): Promise<PostType | null> {
   try {
-    const project = getLocalProjectBySlug(slug);
+    const project = await getLocalProjectBySlug(slug);
     return project ? toPostType(project) : null;
   } catch (error) {
     console.error(`Erreur lors de la récupération du projet '${slug}':`, error);
@@ -181,7 +181,7 @@ export const getProject = unstable_cache(fetchProject, ["local-project"], {
 // --- getProjectData ---
 async function fetchProjectData(slug: string): Promise<PostType | null> {
   try {
-    const project = getLocalProjectBySlug(slug);
+    const project = await getLocalProjectBySlug(slug);
     return project ? toPostType(project) : null;
   } catch (error) {
     console.error(`Erreur lors de la récupération des données du projet '${slug}':`, error);

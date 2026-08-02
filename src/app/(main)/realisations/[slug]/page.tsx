@@ -1,5 +1,3 @@
-"use server"
-
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getProject, getProjects } from "@/app/utils/serverActions";
@@ -12,6 +10,10 @@ import ScrollToHash from "@/components/ScrollToHash";
 import type { Metadata } from "next";
 import Schema from "@/modules/seo/Schema";
 
+// Rendu a la demande : un nouveau projet ajoute au depot de contenu est
+// recupere dynamiquement (fetch GitHub a l'execution) SANS rebuild du site.
+export const dynamicParams = true;
+export const revalidate = 3600;
 
 async function getAllprojectsSlugs(): Promise<{ slug: string }[]> {
   const projects = await getProjects({});
@@ -33,10 +35,6 @@ async function getprojectData(slug: string) {
   }
 }
 
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return await getAllprojectsSlugs();
-}
 
 export async function generateMetadata({
   params,
@@ -102,7 +100,7 @@ export default async function Project({
           priority
           aspectRatio="16 / 9"
           radius="m"
-          alt={`Aperçu du projet : ${post.metadata.title}`}
+          alt={`Apercu du projet : ${post.metadata.title}`}
           src={post?.metadata?.image}
         />
       )}
