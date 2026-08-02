@@ -1,0 +1,3 @@
+[submodule "content"]
+	path = content
+	url = https://github.com/micmc422/bardy-michael-content.git
