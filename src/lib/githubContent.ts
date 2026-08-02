@@ -1,15 +1,23 @@
 /**
  * Data layer 100 % GitHub : lit les articles/projets depuis des fichiers MDX
- * versionnés (content/blog/*.mdx, content/projects/*.mdx) via gray-matter.
+ * versionnés dans le sous-module de contenu (content/content/blog/*.mdx,
+ * content/content/projects/*.mdx) via gray-matter.
  * Remplace l'intégration Wisp CMS. Aucun service externe.
+ *
+ * Le contenu vit dans le dépôt séparé `bardy-michael-content`, monté en
+ * sous-module git dans `content/` (donc les MDX sont sous `content/content/...`).
+ * Les images de couverture (`content/blog/<slug>/...`) sont copiées vers
+ * `public/blog/<slug>/...` au build par `scripts/sync-content.mjs`.
  */
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
 const ROOT = process.cwd();
-const BLOG_DIR = path.join(ROOT, "content", "blog");
-const PROJECT_DIR = path.join(ROOT, "content", "projects");
+// Sous-module `content` monté à la racine `content/` : on descend d'un niveau.
+const CONTENT_REPO = path.join(ROOT, "content", "content");
+const BLOG_DIR = path.join(CONTENT_REPO, "blog");
+const PROJECT_DIR = path.join(CONTENT_REPO, "projects");
 
 export interface LocalPostMeta {
   title: string;
