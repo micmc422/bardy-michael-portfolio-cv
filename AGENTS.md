@@ -52,7 +52,8 @@ Alias : `@/*` → `./src/*`.
 
 1. **Server Components par défaut** ; `"use client"` seulement si events/hooks/APIs navigateur.
 2. **Once UI d'abord** : layout via props (`fillWidth`, `gap="m"`, `paddingX="s"`), jamais de CSS custom sur ses composants. SCSS Modules réservés aux composants maison.
-   - **Docs agent Once UI** : harness codegen sur https://docs.once-ui.com/ai/ (`rules.compact.md` avant toute tâche UI, `catalog.json`, `tasks/index.json`, `gotchas.json`) ; questions exploratoires via MCP **context7** (`resolve-library-id` → `query-docs` sur `/once-ui-system/core`). Config IDE : `.vscode/mcp.json` ; config Hermes : serveur `context7` déjà enregistré.
+   - **Docs agent Once UI** : harness codegen sur https://docs.once-ui.com/ai/ (`rules.compact.md` avant toute tâche UI, `catalog.json`, `tasks/index.json`, `gotchas.json`) ; questions exploratoires via MCP **context7** (`resolve-library-id` → `query-docs` sur `/once-ui-system/core`). Config IDE : `.vscode/mcp.json` (prompt pour la clé) ; config Hermes : `~/.hermes/config.yaml` → `mcp_servers.context7`, clé dans `~/.hermes/.env` (`MCP_CONTEXT7_API_KEY`).
+
 3. **Params async Next 16** : `{ params }: { params: Promise<{ slug: string }> }` puis `await params`.
 4. **Routes en français** + redirects permanents (`/about`→`/a-propos`, `/work`→`/realisations`) dans `next.config.mjs`.
 5. Data Wisp toujours via server actions cachées — ne pas appeler `wisp.*` directement dans les pages.
@@ -61,9 +62,27 @@ Alias : `@/*` → `./src/*`.
 7. TS strict : `noUncheckedIndexedAccess`, `verbatimModuleSyntax` (→ `import type` obligatoire pour les types).
 8. Vars inutilisées : préfixe `_` (règle ESLint) ; `unused-imports/no-unused-imports` = error.
 
+### Serveurs MCP enregistrés (Hermes)
+
+| Serveur | Transport | Outils | Usage |
+|---|---|---|---|
+| `context7` | HTTP `https://mcp.context7.com/mcp` | `resolve-library-id`, `query-docs` | Docs à jour Once UI / Next 16 / React 19 avant toute tâche UI ou upgrade |
+| `github` | HTTP `https://api.githubcopilot.com/mcp/` | ~90 (issues, PR, reviews, Actions, code search, secret scanning) | Cycle PR, revue de code, CI |
+
+Ré-installation depuis zéro :
+
+```bash
+hermes mcp add context7 --url https://mcp.context7.com/mcp --auth header       # → MCP_CONTEXT7_API_KEY
+hermes mcp add github   --url https://api.githubcopilot.com/mcp/ --auth header # → MCP_GITHUB_API_KEY (PAT ghp_…)
+hermes mcp list && hermes mcp test <nom>
+```
+
+Clés uniquement dans `~/.hermes/.env` (jamais dans `config.yaml` ni le repo ; le repo a ses propres `CONTEXT7_API_KEY` / `GITHUB_TOKEN` dans `.env.local`). Après ajout d'un serveur, ouvrir une **nouvelle session** pour que ses outils soient exposés à l'agent (`/reload-mcp` reconnecte les serveurs mais ne suffit pas toujours, et les slash commands ne sont pas relayées par tous les clients IDE/ACP).
+
 ## Pièges connus
 
-- Repo hébergé dans **WSL2 Debian**, Hermes tourne sous Windows : chemins repo-relatifs OK ; pour git en git-bash, ajouter si besoin `git config --global --add safe.directory '%(prefix)///wsl.localhost/Debian/home/occitaweb/projets/bardy-michael-portfolio-cv'`.
+- Repo et agents tournent **tous en WSL2 Debian 13** (Hermes installé nativement en WSL : `~/.local/bin/hermes`, `HERMES_HOME=~/.hermes` côté Linux, `terminal.backend: local`). Chemins Linux natifs — ne pas passer par `/mnt/c/`. Node 22, pnpm 10.12.
+  - Historique : Hermes tournait avant sous Windows (desktop) contre le repo WSL, d'où les entrées `safe.directory=%(prefix)///wsl.localhost/Debian/…` (× 4) encore présentes dans `~/.gitconfig`. Inutiles désormais, inoffensives ; nettoyables via `git config --global --unset-all safe.directory`.
 - Deux configs ESLint coexistent : `eslint.config.js` (utilisée, CJS) et `eslint.config.mjs` (FlatCompat). Modifier la `.js` en priorité.
 - `content.js` contient du JSX dans un `.js` — ne pas « corriger » ça.
 - PWA : `public/sw.js` servi avec CSP stricte (headers dans `next.config.mjs`).

@@ -9,6 +9,7 @@ Stack : Next.js 16.2 (Turbopack), React 19.2, TS 5.9 strict, @once-ui-system/cor
 - [AGENTS.md](AGENTS.md) : conventions, commandes, architecture, pièges — À LIRE EN PREMIER
 - [.github/copilot-instructions.md](.github/copilot-instructions.md) : patterns détaillés (synchronisé avec le code)
 - [.github/agents/once-ui.md](.github/agents/once-ui.md) : API complète Once UI (110+ composants, providers, thèmes)
+- [.vscode/mcp.json](.vscode/mcp.json) : serveur MCP context7 (docs libs) côté IDE — serveurs MCP Hermes (context7 + github) documentés dans AGENTS.md
 
 ## Configuration
 
