@@ -43,3 +43,4 @@ public/chromium-pack.tar
 
 # Brouillons d'articles Wisp (générés localement, collés manuellement dans le CMS)
 /articles/
+public/blog/
