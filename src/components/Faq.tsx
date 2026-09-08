@@ -2,84 +2,108 @@ import React, { forwardRef, type ReactNode } from "react";
 import { AccordionGroup, Column, Heading } from "@once-ui-system/core";
 import { getRandomSixDigitNumber, slugify } from "@/utils/utils";
 
+export type FaqItem = {
+    title: React.ReactNode;
+    content: React.ReactNode;
+    link?: { label?: string; path?: string };
+};
 
 interface FaqProps extends React.ComponentProps<typeof Column> {
     className?: string;
     style?: React.CSSProperties;
+    /** Données FAQ encodées en URI (legacy — préférer faq + title) */
     "data-props"?: string;
-    faqData?: string
+    /** JSON alternative au data-props (legacy) */
+    faqData?: string;
+    /** Titre affiché au-dessus du groupe (ex: "FAQ") */
+    faqTitle?: React.ReactNode;
+    /** Items de la FAQ — c'est le format direct recommandé */
+    faq?: FaqItem[];
 }
 
-interface FAQType {
-    title?: string;
-    faq?: {
-        title: string;
-        content: ReactNode;
-        link?: {
-            label?: string;
-            path?: string
-        }
-    }[];
-    list?: never
-}
-interface LISTType {
-    title?: string;
-    list?: {
-        title: string;
-        content: string;
-    }[];
-    faq?: never
-}
+const buildFaqSchema = (faq: FaqItem[], key: string): ReactNode => {
+    const jsonLDFaq = faq.map(({ title, content }) => ({
+        "@type": "Question",
+        name: title,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: typeof content === "string" ? content : "",
+        },
+    }));
+    return (
+        <script
+            id={`FAQ-${key}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    mainEntity: jsonLDFaq,
+                }),
+            }}
+        />
+    );
+};
 
 const Faq = forwardRef<HTMLDivElement, FaqProps>(
-    ({ faqData, ...rest }, ref) => {
-        const jsonStr = faqData || decodeURIComponent(rest["data-props"] || "[]");
-        const { faq, list, title } = JSON.parse(jsonStr) as FAQType | LISTType;
-        if (faq) {
-            const jsonLDFaq = faq.map(({ title, content }) => ({
-                "@type": "Question",
-                "name": title,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": content
+    ({ faqData, faq, faqTitle, "data-props": dataProps, ...rest }, ref) => {
+        // Résolution : faq direct (recommandé) > data-props > faqData
+        const items = faq ?? ([] as FaqItem[]);
+        let resolvedTitle = faqTitle;
+        const source = items.length > 0 ? "direct" : dataProps ?? faqData;
+
+        if (source && items.length === 0 && source !== "direct") {
+            // Fallback legacy : essai de parse du JSON fourni
+            try {
+                const jsonStr =
+                    source === "direct"
+                        ? ""
+                        : decodeURIComponent(source || "[]");
+                const parsed = JSON.parse(jsonStr) as {
+                    title?: React.ReactNode;
+                    faq?: FaqItem[];
+                };
+                if (parsed?.faq?.length) {
+                    items.push(...parsed.faq);
                 }
-            }))
-            return (<Column as="section" ref={ref} gap="l" aria-labelledby={title ? slugify(title) : undefined} {...rest}>
-                {title && <Heading as="h2" variant="display-strong-s" id={slugify(title)}>{title || "FAQ"}</Heading>}
-                <AccordionGroup items={faq} background="surface" />
-                <script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
-                    __html: `{
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": ${JSON.stringify(jsonLDFaq)}
-                    }`
-                }} />
-            </Column>
-            );
-        }
-        if (list) {
-            const jsonLDList = list.map(({ title, content }, i) => ({
-                "@type": "ListItem",
-                "position": i + 1,
-                "item": { "name": title || content },
-            }))
-
-            return (<Column as="section" ref={ref} gap="l" paddingBottom="xl" aria-labelledby={title ? slugify(title) : undefined} {...rest}>
-                {title && <Heading as="h2" variant="display-strong-xs" id={slugify(title)}>{title}</Heading>}
-                <AccordionGroup items={list} background="surface" />
-                <script id={`FAQ-${typeof title === "string" ? title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
-                    __html: `{
-                        "@context": "https://schema.org",
-                        "@type": "ItemList",
-                        "itemListOrder": "http://schema.org/ItemListOrderAscending",
-                        "numberOfItems": ${list.length},
-                        "itemListElement": ${JSON.stringify(jsonLDList)}
-                    }`
-                }} />
-            </Column>
-            );
+                if (parsed?.title && !resolvedTitle) {
+                    resolvedTitle = parsed.title as string;
+                }
+            } catch {
+                // Données invalides → pas d'items
+            }
         }
 
+        if (items.length === 0) {
+            return null;
+        }
+
+        const key =
+            typeof resolvedTitle === "string"
+                ? slugify(resolvedTitle)
+                : `${getRandomSixDigitNumber()}`;
+
+        return (
+            <Column
+                as="section"
+                ref={ref}
+                gap="l"
+                aria-labelledby={resolvedTitle ? key : undefined}
+                {...rest}
+            >
+                {resolvedTitle && (
+                    <Heading
+                        as="h2"
+                        variant="display-strong-s"
+                        id={key}
+                    >
+                        {resolvedTitle}
+                    </Heading>
+                )}
+                <AccordionGroup items={items} background="surface" />
+                {buildFaqSchema(items, key)}
+            </Column>
+        );
     }
 );
 
