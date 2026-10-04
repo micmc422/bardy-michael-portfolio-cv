@@ -6,6 +6,17 @@ import { siteTypes } from "../(main)/estimation/estimationData";
 
 export const runtime = "nodejs";
 
+/**
+ * Satori (le moteur de `next/og`) n'accepte que PNG, APNG, JPEG, GIF et SVG :
+ * le WebP est rejete en "Unsupported image type". Les articles referencent donc
+ * leur illustration en WebP (leger pour le site) tout en conservant un PNG de
+ * meme nom de base, servi ici. Sans PNG disponible, on renvoie le chemin tel quel.
+ */
+function ogCompatibleImage(image: string | undefined): string | undefined {
+  if (!image) return undefined;
+  return /\.webp$/i.test(image) ? image.replace(/\.webp$/i, ".png") : image;
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   // Origine de la requete : en dev, l'image du post doit etre resolue sur le
@@ -26,7 +37,7 @@ export async function GET(request: Request) {
       const postDate = new Date(post.metadata.publishedAt ?? Date.now());
       date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
       title = String(post.metadata.title ?? title);
-      image = post.metadata.image ?? undefined;
+      image = ogCompatibleImage(post.metadata.image ?? undefined);
       tags = post.metadata.tags ?? []
     }
   }
@@ -36,7 +47,7 @@ export async function GET(request: Request) {
       const postDate = new Date(project.metadata.publishedAt ?? Date.now());
       date = `${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()}`
       title = String(project.metadata.title ?? title);
-      image = project.metadata.image ?? undefined;
+      image = ogCompatibleImage(project.metadata.image ?? undefined);
     }
   }
   if (type === "estimation" && slug) {
