@@ -80,6 +80,9 @@ const CookieConsent: React.FC = () => {
         if ((cookies?.acceptedCookies === undefined) && !!addToast && !trigger) {
             // Affiche le toast d'avertissement
             //  alert("Nous utilisons des cookies pour améliorer votre expérience. En continuant à naviguer, vous acceptez notre utilisation des cookies.");
+            // Retire tout toast précédent pour éviter une clé React dupliquée
+            // (StrictMode double-invoque cet effet en dev).
+            removeToast("cookieConsent");
             addToast({
                 //@ts-ignore
                 id: "cookieConsent",

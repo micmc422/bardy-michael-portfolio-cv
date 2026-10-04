@@ -12,7 +12,7 @@ Site portfolio/CV de Michaël Bardy, développeur web freelance à Albi (activit
 
 ## Stack réelle (vérifiée dans package.json)
 
-- **Next.js 16.2.6** (App Router, Turbopack en dev) + **React 19.2.6** + **TypeScript 5.9 strict**
+- **Next.js 16.3.8** (App Router, Turbopack en dev) + **React 19.2.8** + **TypeScript 5.9 strict**
 - **@once-ui-system/core 1.6.4** — design system principal (props, PAS de CSS custom pour ses composants)
 - SCSS Modules (`*.module.scss`) + tokens `src/tokens/scheme.scss` — **pas de Tailwind**
 - Contenu MDX depuis GitHub (raw.githubusercontent.com) — **pas de Wisp CMS**
@@ -96,3 +96,13 @@ Clés uniquement dans `~/.hermes/.env` (jamais dans `config.yaml` ni le repo ; l
 - `content.js` contient du JSX dans un `.js` — ne pas « corriger » ça.
 - PWA : `public/sw.js` servi avec CSP stricte (headers dans `next.config.mjs`).
 - **Contenu séparé** : les articles MDX ne sont PAS dans ce dépôt. Modifier `bardy-michael-content` pour le contenu.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
