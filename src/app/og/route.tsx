@@ -85,32 +85,46 @@ export async function GET(request: Request) {
             "radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%)",
         }}
       />
-      {image ? <img
+      {/* Illustration de l'article en fond plein cadre (masquee si absente). */}
+      {image && <img
         src={image.startsWith("http") ? image : `${requestOrigin}${image}`}
         alt={title + " image"}
         style={{
           position: "absolute",
-          top: "-100px",
-          right: "-200px",
-          width: "800px",
-          height: "800px",
-          borderRadius: "100%",
+          top: 0,
+          left: 0,
+          width: "1200px",
+          height: "630px",
           objectFit: "cover",
+          zIndex: -2
+        }}
+      />}
+      {/* Voile de lisibilite : opaque a gauche (texte blanc), transparent a droite
+          (l'illustration respire). Uniquement quand une illustration est presente. */}
+      {image && <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background:
+            "linear-gradient(90deg, rgba(6,8,20,0.90) 0%, rgba(6,8,20,0.78) 38%, rgba(6,8,20,0.42) 62%, rgba(6,8,20,0.10) 100%)",
           zIndex: -1
         }}
-      />
-        : <div
-          style={{
-            position: "absolute",
-            top: "-200px",
-            right: "-200px",
-            width: "600px",
-            height: "600px",
-            borderRadius: "100%",
-            background: "linear-gradient(-135deg, #FA541C 0%,rgba(214, 40, 40, 1) 100%)",
-          }}
-        />
-      }
+      />}
+      {/* Repli decoratif quand l'article n'a pas d'illustration. */}
+      {!image && <div
+        style={{
+          position: "absolute",
+          top: "-200px",
+          right: "-200px",
+          width: "600px",
+          height: "600px",
+          borderRadius: "100%",
+          background: "linear-gradient(-135deg, #FA541C 0%,rgba(214, 40, 40, 1) 100%)",
+        }}
+      />}
       {totalPrice > 0 && <div
         style={{
           width: "300px",
