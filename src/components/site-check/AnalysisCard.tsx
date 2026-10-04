@@ -140,7 +140,7 @@ export function AnalysisCard({ title, icon, score, items }: AnalysisCardProps) {
         <Column gap="s" flex={1}>
           <Row gap="s" vertical="center">
             <Icon name={icon} size="l" onBackground="accent-weak" />
-            <Heading as="h2" variant="heading-strong-l">{title}</Heading>
+            <Heading as="h2" variant="display-strong-xs">{title}</Heading>
           </Row>
           
           <Row gap="m" wrap>

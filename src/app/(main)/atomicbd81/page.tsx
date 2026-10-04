@@ -88,7 +88,7 @@ export default function AtomicBd81Page() {
                     </Heading>
                 </RevealFx>
                 <RevealFx translateY="8" delay={200} fillWidth horizontal="start">
-                    <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l">
+                    <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xs">
                         {atomicBd81.subline}
                     </Text>
                 </RevealFx>
@@ -173,7 +173,7 @@ export default function AtomicBd81Page() {
                                 border="neutral-alpha-weak"
                                 gap="s"
                             >
-                                <Heading as="h3" variant="heading-strong-m">
+                                <Heading as="h3" variant="display-strong-xs">
                                     {point.titre}
                                 </Heading>
                                 <Text variant="body-default-m" onBackground="neutral-weak">
@@ -239,7 +239,7 @@ export default function AtomicBd81Page() {
                             >
                                 <Row gap="xs" vertical="center">
                                     <Icon name="bar-chart-2" onBackground="brand-strong" />
-                                    <Heading as="h3" variant="heading-strong-m">
+                                    <Heading as="h3" variant="display-strong-xs">
                                         {stat.titre}
                                     </Heading>
                                 </Row>
@@ -269,7 +269,7 @@ export default function AtomicBd81Page() {
 
                     {/* Avantages */}
                     <Column gap="m">
-                        <Heading as="h3" variant="heading-strong-l">
+                        <Heading as="h3" variant="display-strong-s">
                             <Row gap="xs" vertical="center">
                                 <Icon name="checkCircle" onBackground="success-strong" />
                                 Les points forts (Avantages)
@@ -285,7 +285,7 @@ export default function AtomicBd81Page() {
                                     border="success-alpha-medium"
                                     gap="s"
                                 >
-                                    <Heading as="h4" variant="heading-strong-s">
+                                    <Heading as="h4" variant="display-strong-xs">
                                         {item.titre}
                                     </Heading>
                                     <Text variant="body-default-m" onBackground="neutral-weak">
@@ -298,7 +298,7 @@ export default function AtomicBd81Page() {
 
                     {/* Contraintes */}
                     <Column gap="m">
-                        <Heading as="h3" variant="heading-strong-l">
+                        <Heading as="h3" variant="display-strong-s">
                             <Row gap="xs" vertical="center">
                                 <Icon name="warningTriangle" onBackground="warning-strong" />
                                 Les points de vigilance (Contraintes)
@@ -314,7 +314,7 @@ export default function AtomicBd81Page() {
                                     border="warning-alpha-medium"
                                     gap="s"
                                 >
-                                    <Heading as="h4" variant="heading-strong-s">
+                                    <Heading as="h4" variant="display-strong-xs">
                                         {item.titre}
                                     </Heading>
                                     <Text variant="body-default-m" onBackground="neutral-weak">
@@ -370,7 +370,7 @@ export default function AtomicBd81Page() {
                                 radius="m"
                                 gap="s"
                             >
-                                <Heading as="h3" variant="heading-strong-m">
+                                <Heading as="h3" variant="display-strong-xs">
                                     {alt.titre}
                                 </Heading>
                                 <Text variant="body-default-m" onBackground="neutral-weak">
@@ -408,7 +408,7 @@ export default function AtomicBd81Page() {
                                 gap="s"
                             >
                                 <Row fillWidth horizontal="between" vertical="center" gap="s">
-                                    <Heading as="h3" variant="heading-strong-m">
+                                    <Heading as="h3" variant="display-strong-xs">
                                         {cas.titre}
                                     </Heading>
                                     <Row
@@ -461,7 +461,7 @@ export default function AtomicBd81Page() {
                                 gap="m"
                             >
                                 <Row fillWidth horizontal="between" vertical="center" gap="s">
-                                    <Heading as="h3" variant="heading-strong-l">
+                                    <Heading as="h3" variant="display-strong-s">
                                         {phase.titre}
                                     </Heading>
                                     <Row

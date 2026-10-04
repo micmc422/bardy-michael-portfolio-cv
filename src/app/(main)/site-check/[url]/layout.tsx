@@ -24,7 +24,7 @@ function LoadingCard({ title, icon }: LoadingCardProps) {
         <Column gap="s" flex={1}>
           <Row gap="s" vertical="center">
             <Icon name={icon} size="l" onBackground="neutral-weak" />
-            <Heading as="h2" variant="heading-strong-l">{title}</Heading>
+            <Heading as="h2" variant="display-strong-s">{title}</Heading>
           </Row>
           <Skeleton shape="line" width="50%" />
         </Column>
@@ -84,7 +84,7 @@ export default function AnalysisLayout({
   mobile,
 }: AnalysisLayoutProps) {
   return (
-    <Column maxWidth="l" gap="l" fillWidth center>
+    <Column maxWidth="l" gap="l" center>
       {children}
       
       <AnalysisScoreTracker>

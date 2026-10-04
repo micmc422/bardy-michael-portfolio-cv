@@ -3,7 +3,7 @@
 import React, { forwardRef, useTransition } from "react";
 import classNames from "classnames";
 import styles from "./Reactions.module.scss";
-import { Card, Flex, Icon, useToast, Text, Row } from "@once-ui-system/core";
+import { Column, Flex, Icon, useToast, Text, Row } from "@once-ui-system/core";
 import { incrementReaction, type ReactionType } from "./serverActions";
 import { EmojiPickerDropdown } from "../EmojiPickerDropdown";
 import { CursorCard } from "../CursorCard";
@@ -99,9 +99,9 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
           }
 
           overlay={
-            <Card maxWidth={24} radius="l-4" direction="column" border="neutral-alpha-medium" padding="xs">
+            <Column maxWidth={24} radius="l-4" border="neutral-alpha-medium" padding="xs" background="surface">
               <Row center className={styles.emojiCard}>{emoji} <Text onBackground="neutral-weak" variant="label-default-l">{count}</Text></Row>
-            </Card>
+            </Column>
           }
         />)}
       </Flex>

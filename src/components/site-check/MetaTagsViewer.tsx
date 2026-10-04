@@ -22,7 +22,7 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
       >
         <Row gap="s" vertical="center">
           <Icon name="warningTriangle" size="m" onBackground="warning-weak" />
-          <Heading as="h3" variant="heading-strong-m">
+          <Heading as="h3" variant="display-strong-xs">
             Métadonnées
           </Heading>
         </Row>
@@ -105,7 +105,7 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
     <Column gap="m" fillWidth>
       <Row gap="s" vertical="center" fillWidth>
         <Icon name="tag" size="m" onBackground="accent-weak" />
-        <Heading as="h3" variant="heading-strong-m">
+        <Heading as="h3" variant="display-strong-xs">
           Métadonnées
         </Heading>
         <Tag size="s" scheme="neutral">

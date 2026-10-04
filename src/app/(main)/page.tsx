@@ -63,7 +63,7 @@ export default async function Home() {
             {home.headline}
           </Heading>
           <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" paddingX="xs">
+            <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xs" paddingX="xs">
               {home.subline}
             </Text>
           </RevealFx>

@@ -157,7 +157,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
 
 function SourcesComponent({ sources }: { sources: string[] }) {
     return (<Column>
-        <Text variant="heading-strong-l">Sources :</Text>
+        <Text variant="display-strong-xs">Sources :</Text>
         <Grid fillWidth columns="2" gap="16" className="mt-8" s={{ columns: "1" }}>
             <>{sources.map((source, index) => <OgCard key={index} url={source} />)}</>
         </Grid>

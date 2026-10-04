@@ -41,7 +41,7 @@ export default async function HebergementPage() {
                     </Heading>
                 </RevealFx>
                 <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-                    <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+                    <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xl">
                         {solutionsHébergement.headline}
                     </Text>
                 </RevealFx>
@@ -72,7 +72,7 @@ export default async function HebergementPage() {
                     <Row gap="m" paddingY="16">
                         {solutionsHébergement.introduction.modeles.map((model, i) => <Column maxWidth="s" paddingY="8" key={i} center>
                             <Text style={{ fontSize: "6vmax" }}>{model.icone}</Text>
-                            <Heading as="h2" wrap="balance" variant="heading-default-m" paddingTop="8">
+                            <Heading as="h2" wrap="balance" variant="display-strong-s" paddingTop="8">
                                 {model.nom}
                             </Heading>
                             <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">

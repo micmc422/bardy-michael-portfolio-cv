@@ -236,7 +236,7 @@ export function JsonLdViewer({ data }: JsonLdViewerProps) {
       >
         <Row gap="s" vertical="center">
           <Icon name="warningTriangle" size="m" onBackground="warning-weak" />
-          <Heading as="h3" variant="heading-strong-m">
+          <Heading as="h3" variant="display-strong-xs">
             Données Structurées JSON-LD
           </Heading>
         </Row>
@@ -264,7 +264,7 @@ export function JsonLdViewer({ data }: JsonLdViewerProps) {
     <Column gap="m" fillWidth>
       <Row gap="s" vertical="center">
         <Icon name="code" size="m" onBackground="accent-weak" />
-        <Heading as="h3" variant="heading-strong-m">
+        <Heading as="h3" variant="display-strong-xs">
           Données Structurées JSON-LD
         </Heading>
         <Tag size="s" scheme="success">

@@ -38,7 +38,7 @@ export default function SolutionsPage() {
                         </Heading>
                     </RevealFx>
                     <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-                        <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+                        <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xl">
                             {solutionsWeb.subline}
                         </Text>
                     </RevealFx>
@@ -93,7 +93,7 @@ export default function SolutionsPage() {
 
                 {solutionsWeb.pourquoi.map((item, index) => (
                     <Column as="article" background="overlay" paddingX="s" paddingY="l" radius="m" key={index} maxWidth="s" gap="m">
-                        <Heading as="h3" wrap="balance" variant="heading-default-l">
+                        <Heading as="h3" wrap="balance" variant="display-strong-xs">
                             <Row vertical="center" gap="s" align="start">
                                 <Icon name={(item?.icone || "check") as IconName} onBackground="brand-strong" />
                                 {item?.titre}

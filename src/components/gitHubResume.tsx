@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import { Loader2 } from "lucide-react"
-import { Accordion, Avatar, Badge, Button, Card, Column, Flex, Grid, Icon, Input, Row, Tag, Text } from "@once-ui-system/core"
+import { Accordion, Avatar, Badge, Button, Column, Flex, Grid, Icon, Input, Row, Tag, Text } from "@once-ui-system/core"
 
 interface GitHubRepo {
     id: number
@@ -95,7 +95,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
     }
 
     return (
-        <Column fillWidth padding="m" marginTop="m" marginBottom="m" gap="s" radius="m" maxWidth={40} border="neutral-alpha-weak">
+        <Column padding="m" marginTop="m" marginBottom="m" gap="s" radius="m" maxWidth={40} border>
             {/* Formulaire de recherche */}
             {!(ownerProvided && repoProvided) && <>
                 <Column gap="s">
@@ -153,7 +153,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                         </Button>
                     </Row>
                 </Row>
-                <Card radius="m" padding="m" background="surface" fillWidth>
+                <Column radius="m" padding="m" background="surface" fillWidth>
                     <Grid columns="4" s={{ columns: "2" }} gap="m" fillWidth>
                         <Column center>
                             <Row gap="xs" center>
@@ -192,7 +192,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                             </Row>
                         </Column>
                     </Grid>
-                </Card>
+                </Column>
                 {/* Détails techniques */}
                 <Accordion title="Détails">
                     <Column gap="m" fillWidth>

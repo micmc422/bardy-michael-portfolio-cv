@@ -41,7 +41,7 @@ export default function PasswordProtect({ children, validateAction, storageKey =
   }
 
   return (
-    <Column maxWidth="s" gap="l" center paddingY="xl" fillWidth horizontal="center">
+    <Column maxWidth="s" gap="l" center paddingY="xl">
       <Column gap="m" horizontal="center">
         <Icon name="shield" size="l" onBackground="brand-strong" />
         <Heading as="h1" variant="display-strong-m" align="center">

@@ -49,7 +49,7 @@ export default function Post({ post, thumbnail, direction, excludeNav, index }: 
                     vertical="center">
                     <Heading
                         as="h3"
-                        variant="heading-strong-l"
+                        variant="display-strong-xs"
                         wrap="balance"
                         data-exclude-nav={excludeNav ? 'true' : 'false'}>
                         {post.metadata.title}

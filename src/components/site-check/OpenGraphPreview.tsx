@@ -24,7 +24,7 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
       >
         <Row gap="s" vertical="center">
           <Icon name="warningTriangle" size="m" onBackground="warning-weak" />
-          <Heading as="h3" variant="heading-strong-m">
+          <Heading as="h3" variant="display-strong-xs">
             Aperçu Open Graph
           </Heading>
         </Row>
@@ -49,7 +49,7 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
     <Column gap="m" fillWidth>
       <Row gap="s" vertical="center">
         <Icon name="share2" size="m" onBackground="accent-weak" />
-        <Heading as="h3" variant="heading-strong-m">
+        <Heading as="h3" variant="display-strong-xs">
           Aperçu Open Graph
         </Heading>
       </Row>

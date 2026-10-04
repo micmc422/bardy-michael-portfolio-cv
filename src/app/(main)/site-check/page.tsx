@@ -88,7 +88,7 @@ export default function SiteCheckPage() {
       </form>
 
       <Column gap="l" fillWidth>
-        <Heading as="h2" variant="heading-strong-m" align="center">
+        <Heading as="h2" variant="display-strong-xs" align="center">
           Ce que nous analysons
         </Heading>
         <Row gap="m" wrap s={{ direction: "column" }}>

@@ -1,8 +1,7 @@
 
 import React, { forwardRef } from "react";
 import classNames from "classnames";
-import { Column, Heading, Row, Text } from "@once-ui-system/core";
-import styles from "./steps.module.scss"
+import { Column, Heading, Timeline, type TimelineItem } from "@once-ui-system/core";
 import { getRandomSixDigitNumber, slugify } from "@/utils/utils";
 
 interface StepItem {
@@ -55,6 +54,14 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
             "item": { "name": content || stepTitle }
         }))
 
+        // Once UI 2.0 : Timeline gère les connecteurs, marqueurs et états.
+        const timelineItems: TimelineItem[] = steps.map((step, i) => ({
+            label: step.title,
+            description: step.content,
+            marker: String(i + 1),
+            state: i === steps.length - 1 ? "active" : "default",
+        }));
+
         return (
             <Column
                 ref={ref}
@@ -63,8 +70,8 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
                 paddingBottom="xl"
                 {...rest}
             >
-                {resolvedTitle && <Heading as="h2" id={slugify(resolvedTitle)} paddingBottom="l">{resolvedTitle}</Heading>}
-                {steps.map((step, i) => <StepComponent key={i} step={i} {...step} />)}
+                {resolvedTitle && <Heading as="h2" id={slugify(resolvedTitle)} variant="display-strong-xs" paddingBottom="l">{resolvedTitle}</Heading>}
+                <Timeline items={timelineItems} />
                 <script id={`Steps-${typeof resolvedTitle === "string" ? resolvedTitle : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org",
@@ -81,41 +88,5 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
 );
 
 StepsComponent.displayName = "StepsComponent";
-
-interface StepComponentProps extends React.ComponentProps<typeof Column> {
-    step: number;
-    icon?: string;
-    title?: string;
-    content?: string;
-    className?: string;
-    style?: React.CSSProperties;
-}
-
-const StepComponent = forwardRef<HTMLDivElement, StepComponentProps>(
-    ({ title, content, step, className, style, ...rest }, ref) => {
-        return (
-            <Column
-                ref={ref}
-                style={style}
-                className={classNames(className)}
-
-                {...rest}
-            >
-                <Row gap="s">
-                    <Column>
-                        <div className={classNames(styles.stepCount)}>{step + 1}</div>
-                        <div className={classNames(styles.stepLine)} />
-                    </Column>
-                    <Column gap="s" paddingBottom="l" paddingTop="4">
-                        <Text variant="body-strong-xl">{title}</Text>
-                        <Text variant="body-default-m" onBackground="neutral-weak">{content}</Text>
-                    </Column>
-                </Row>
-            </Column>
-        );
-    }
-);
-
-StepComponent.displayName = "StepComponent";
 
 export { StepsComponent };

@@ -39,7 +39,7 @@ export function Projects({ range }: ProjectsProps) {
     }))
   };
   return (
-    <Column fillWidth maxWidth={"m"} gap="xl" marginBottom="40" paddingX="l">
+    <Column maxWidth={"m"} gap="xl" marginBottom="40" paddingX="l">
       {displayedProjects.map((post, index) => (
         <ProjectCard
           priority={index < 1}

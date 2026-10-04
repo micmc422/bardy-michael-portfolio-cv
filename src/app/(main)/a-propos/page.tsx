@@ -23,13 +23,13 @@ import dynamic from "next/dynamic";
 // import TableOfContents from "@/components/a-propos/TableOfContents";
 const TableOfContents = dynamic(() => import('@/components/a-propos/TableOfContents'), {
   loading: () => <Row>
-    <Skeleton shape="line" size="l" width="25%" />
-    <Skeleton shape="line" size="l" width="25%" />
-    <Skeleton shape="line" size="l" width="25%" />
-    <Skeleton shape="line" size="l" width="25%" />
-    <Skeleton shape="line" size="l" width="25%" />
-    <Skeleton shape="line" size="l" width="25%" />
-    <Skeleton shape="line" size="l" width="25%" />
+    <Skeleton shape="line" width="l" />
+    <Skeleton shape="line" width="l" />
+    <Skeleton shape="line" width="l" />
+    <Skeleton shape="line" width="l" />
+    <Skeleton shape="line" width="l" />
+    <Skeleton shape="line" width="l" />
+    <Skeleton shape="line" width="l" />
   </Row>
   ,
 });
@@ -217,10 +217,10 @@ export default async function About() {
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
+                      <Text id={experience.company} variant="display-strong-s">
                         {experience.company}
                       </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                      <Text variant="display-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
                     </Row>
@@ -275,10 +275,10 @@ export default async function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
+                    <Text id={institution.name} variant="display-strong-xs">
                       {institution.name}
                     </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
+                    <Text variant="body-default-l" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
                   </Column>
@@ -300,7 +300,7 @@ export default async function About() {
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
+                    <Text id={skill.title} variant="display-strong-s">
                       {skill.title}
                     </Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">

@@ -79,7 +79,7 @@ export default async function About() {
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+            <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xl">
               {webmasterAlbi.subline}
             </Text>
           </RevealFx>

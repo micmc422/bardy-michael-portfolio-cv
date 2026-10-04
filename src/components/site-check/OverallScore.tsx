@@ -152,7 +152,7 @@ export function OverallScore({ scores }: OverallScoreProps) {
             </Text>
             <Heading
               as="span"
-              variant="heading-strong-s"
+              variant="display-strong-xs"
               style={{ color: getOverallColor(overallScore) }}
             >
               {getOverallLabel(overallScore)}
