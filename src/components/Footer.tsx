@@ -33,6 +33,8 @@ export const Footer = () => {
             >
               Occitanie
             </SmartLink>
+            {" · "}
+            <SmartLink href="/mentions-legales">Mentions légales</SmartLink>
           </Text>
         </Text>
         <Flex gap="s">

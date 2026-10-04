@@ -7,28 +7,36 @@ export default async function sitemap() {
   const posts = (await getPosts({ limit: "all" })).map((post) => ({
     url: `${baseURL}/blog/${post.slug}`,
     lastModified: post.metadata.publishedAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   }));
 
   const works = (await getProjects({ limit: "all" })).map((post) => ({
     url: `${baseURL}/realisations/${post.slug}`,
     lastModified: post.metadata.publishedAt,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   }));
 
   const activeRoutes = Object.keys(routesConfig).filter((route) => routesConfig[route as keyof typeof routesConfig]);
 
   const routesPromise = activeRoutes.map(async (route) => {
     const lastModified = await getFileData(route !== "/" ? route : "/(main)")
-    return ({
+    return {
       url: `${baseURL}${route !== "/" ? route : ""}`,
-      lastModified
-    })
+      lastModified,
+      changeFrequency: (route === "/" ? "weekly" : "monthly") as "weekly" | "monthly",
+      priority: route === "/" ? 1 : 0.8,
+    }
   });
   const estimationsPromises = siteTypes.map(async ({ slug }) => {
     const lastModified = await getFileData(`/(main)/estimation`)
-    return ({
+    return {
       url: `${baseURL}/estimation/${slug}`,
-      lastModified
-    })
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }
   });
 
   const routes = await Promise.all([...routesPromise])

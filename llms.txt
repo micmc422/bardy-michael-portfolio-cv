@@ -1,8 +1,8 @@
 # Bardy Michael — Portfolio & CV (occitaweb.fr)
 
-> Portfolio/CV de Michaël Bardy, développeur web freelance à Albi (Occitaweb). Next.js 16 App Router + React 19 + TypeScript strict + Once UI, contenu blog/projets via Wisp CMS, déployé sur Vercel. Routes et contenu en français.
+> Portfolio/CV de Michaël Bardy, développeur web freelance à Albi (Occitaweb). Next.js 16 App Router + React 19 + TypeScript strict + Once UI 2.0, contenu blog/projets en MDX depuis le dépôt `bardy-michael-content` (API GitHub + cache ISR), déployé sur Vercel. Routes et contenu en français.
 
-Stack : Next.js 16.2 (Turbopack), React 19.2, TS 5.9 strict, @once-ui-system/core, SCSS Modules (pas de Tailwind), Wisp CMS, Neon Postgres + Drizzle, MDX, Vitest, ESLint 9, Biome, pnpm 10.
+Stack : Next.js 16.3 (Turbopack), React 19.2, TS 5.9 strict, @once-ui-system/core 2.0, SCSS Modules (pas de Tailwind), MDX (@next/mdx), Neon Postgres + Drizzle, Vitest, ESLint 9, Biome, pnpm 10.
 
 ## Instructions agents
 
@@ -23,14 +23,20 @@ Stack : Next.js 16.2 (Turbopack), React 19.2, TS 5.9 strict, @once-ui-system/cor
 
 ## Code clé
 
-- [src/app/layout.tsx](src/app/layout.tsx) : root layout, Meta, Schema.org LocalBusiness
-- [src/app/utils/serverActions.ts](src/app/utils/serverActions.ts) : server actions Wisp cachées (getPosts, getProjects…)
-- [src/app/utils/types.ts](src/app/utils/types.ts) : PostType, WispPost, ProjectType, AvisType
-- [src/app/utils/wispClient.ts](src/app/utils/wispClient.ts) : client Wisp (WISP_BLOG_ID)
-- [src/components/mdx.tsx](src/components/mdx.tsx) : composants MDX custom
-- [src/modules/seo/Schema.tsx](src/modules/seo/Schema.tsx) : rich data Schema.org
+- [src/app/layout.tsx](src/app/layout.tsx) : root layout, Meta, Schema.org (ProfessionalService + WebSite liés par @id)
+- [src/lib/githubContent.ts](src/lib/githubContent.ts) : data layer GitHub (lecture des MDX depuis `bardy-michael-content`)
+- [src/app/utils/serverActions.ts](src/app/utils/serverActions.ts) : server actions cachées (getPosts, getProjects…)
+- [src/app/utils/types.ts](src/app/utils/types.ts) : PostType, ProjectType, AvisType
+- [src/components/mdx.tsx](src/components/mdx.tsx) : composants MDX custom (Faq, Steps, Mermaid, table…)
+- [src/modules/seo/Meta.tsx](src/modules/seo/Meta.tsx) : métadonnées (canonical, OG, Twitter, metadataBase)
+- [src/modules/seo/Schema.tsx](src/modules/seo/Schema.tsx) : rich data Schema.org par page
+- [src/app/robots.ts](src/app/robots.ts) + [src/app/sitemap.ts](src/app/sitemap.ts) : directives crawlers et sitemap
 - [src/app/utils/siteCheck/](src/app/utils/siteCheck/) : moteur d'audit site (perf, seo, a11y, mobile, sécurité)
 - [src/utils/db.ts](src/utils/db.ts) : Neon Postgres + Drizzle
+
+## Contenu
+
+Les articles et projets MDX vivent dans le dépôt séparé `bardy-michael-content` (`content/blog/<slug>.mdx`, `content/projects/<slug>.mdx`). Le site les lit à la volée via l'API GitHub (raw.githubusercontent.com) avec un cache ISR de 3600 s. Aucun rebuild du site n'est nécessaire pour publier.
 
 ## Tests & CI
 
@@ -41,6 +47,5 @@ Stack : Next.js 16.2 (Turbopack), React 19.2, TS 5.9 strict, @once-ui-system/cor
 
 ## Optional
 
-- [docs/wisp-articles-guideline.md](docs/wisp-articles-guideline.md) : guideline rédaction articles Wisp (composants custom Faq/Steps, liens magiques, workflow articles/)
 - [README.md](README.md) : présentation publique
 - [public/manifest.json](public/manifest.json) + [public/sw.js](public/sw.js) : PWA

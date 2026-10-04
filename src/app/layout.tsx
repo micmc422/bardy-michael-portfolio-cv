@@ -69,6 +69,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${baseURL}/#organization`,
     "name": "Occitaweb",
     "url": "https://occitaweb.fr",
     "telephone": "+33 6 72 11 50 06",
@@ -77,7 +78,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     "logo": "https://occitaweb.fr/trademark/icon-dark.png",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "25 avenue gambetta",
+      "streetAddress": "25 avenue Gambetta",
       "addressLocality": "Albi",
       "postalCode": "81000",
       "addressCountry": "FR"
@@ -236,6 +237,18 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           <meta name="theme-color" content="#ffffff" />
           <script id="LocalBusiness" type="application/ld+json" dangerouslySetInnerHTML={{
             __html: schema
+          }} />
+          <script id="WebSite" type="application/ld+json" dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": `${baseURL}/#website`,
+              "url": baseURL,
+              "name": "Occitaweb",
+              "description": home.description,
+              "inLanguage": "fr-FR",
+              "publisher": { "@id": `${baseURL}/#organization` },
+            })
           }} />
         </head>
         <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">

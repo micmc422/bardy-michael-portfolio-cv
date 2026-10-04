@@ -8,6 +8,7 @@ import {
     Column,
     Icon,
     Row,
+    SmartLink,
     Switch,
     Text,
 } from '@once-ui-system/core';
@@ -116,7 +117,8 @@ const CookieConsent: React.FC = () => {
                     <Text variant="display-strong-xs">Votre vie privée compte</Text>
                     <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance">
                         Ce site utilise une mesure d&apos;audience anonyme pour améliorer votre
-                        expérience. Aucune donnée n&apos;est partagée avec des tiers.
+                        expérience. Aucune donnée n&apos;est partagée avec des tiers.{" "}
+                        <SmartLink href="/mentions-legales">En savoir plus</SmartLink>.
                     </Text>
                 </Column>
             </Row>

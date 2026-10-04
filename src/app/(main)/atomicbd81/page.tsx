@@ -13,6 +13,8 @@ export async function generateMetadata() {
         baseURL: baseURL,
         image: `${baseURL}/og?title=${encodeURIComponent(atomicBd81.title)}`,
         path: atomicBd81.path,
+        // Étude de cas privée (accès par mot de passe) : ne pas indexer.
+        noIndex: true,
     });
 }
 

@@ -9,7 +9,6 @@ import {
   Icon,
   IconButton,
   Media,
-  Meta,
   RevealFx,
   Row,
   Skeleton,
@@ -17,6 +16,7 @@ import {
   Text,
   type IconName,
 } from "@once-ui-system/core";
+import Meta from "@/modules/seo/Meta";
 import { baseURL } from "@/app/resources";
 import dynamic from "next/dynamic";
 

@@ -57,6 +57,7 @@ export function generateMetadata({
         },
     } : undefined
     return {
+        metadataBase: new URL(normalizedBaseURL),
         title,
         description,
         alternates: {

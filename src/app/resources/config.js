@@ -10,6 +10,7 @@ const routes = {
   "/webmaster-albi": true,
   "/solutions": true,
   "/site-check": true,
+  "/mentions-legales": true,
 };
 const breadCrumbs = {
   "root": home,

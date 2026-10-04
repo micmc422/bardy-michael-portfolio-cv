@@ -1,6 +1,7 @@
 "use server"
 
-import { Column, Heading, Meta, Row, Skeleton } from "@once-ui-system/core";
+import { Column, Heading, Row, Skeleton } from "@once-ui-system/core";
+import Meta from "@/modules/seo/Meta";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import dynamic from "next/dynamic";

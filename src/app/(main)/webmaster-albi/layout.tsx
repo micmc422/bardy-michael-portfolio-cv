@@ -12,7 +12,7 @@ export default async function WebmasterAlbiLayout({ children }: { children: Reac
                 "@type": "AboutPage",
                 "name": "Webmaster à Albi",
                 "url": baseURL + webmasterAlbi.path,
-                "description": "Michaël Bardy est développeur freelance à Albi, spécialisé WordPress, Next.js, UX/UI, performance, SEO local et formateur web.",
+                "description": "Michaël Bardy est développeur web à Albi, spécialisé WordPress, Next.js, UX/UI, performance, SEO local et formateur web. Activité exercée en portage salarial avec AS'COM Sud-Ouest.",
                 "keywords": "WordPress, Next.js, SEO local, UX/UI, performances web, formation",
                 "mainEntity": {
                     "@type": "Person",

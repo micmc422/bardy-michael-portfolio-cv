@@ -1,6 +1,7 @@
 "use server"
 
-import { Heading, Flex, Text, Avatar, RevealFx, Column, Badge, IconButton, Icon, Meta } from "@once-ui-system/core";
+import { Heading, Flex, Text, Avatar, RevealFx, Column, Badge, IconButton, Icon } from "@once-ui-system/core";
+import Meta from "@/modules/seo/Meta";
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person } from "@/app/resources/content";
 import { Projects } from "@/components/realisations/Projects";

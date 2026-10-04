@@ -12,7 +12,7 @@ const person = {
   email: "michael.bardy@occitaweb.fr",
   address: "25 avenue Gambetta",
   postCode: "81000",
-  phone: "(+33) 06 72 11 50 06",
+  phone: "(+33) 6 72 11 50 06",
   location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   place: "Albi, France",
   languages: ["Français"], // optional: Leave the array empty if you don't want to display languages

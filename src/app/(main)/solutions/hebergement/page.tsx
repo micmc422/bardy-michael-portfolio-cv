@@ -1,7 +1,8 @@
 import { about, baseURL, person } from "@/app/resources";
 import { solutionsHébergement } from "@/app/resources/content";
 import Schema from "@/modules/seo/Schema";
-import { Badge, Column, Flex, Heading, Icon, IconButton, Meta, RevealFx, Row, Text } from "@once-ui-system/core";
+import { Badge, Column, Flex, Heading, Icon, IconButton, RevealFx, Row, Text } from "@once-ui-system/core";
+import Meta from "@/modules/seo/Meta";
 import { BarChart, type DataPoint } from "@once-ui-system/core/data";
 import { ChartCardContainer } from "@/components/chart";
 import { LinesBars } from "@/components/chart/LinesBars";
