@@ -1,10 +1,10 @@
 import { Suspense, type ReactNode } from "react";
-import { Column, Heading, Row, Skeleton, Icon } from "@once-ui-system/core";
+import { Column, Heading, Row, Skeleton, Icon, type IconName } from "@once-ui-system/core";
 import { AnalysisScoreTracker } from "@/components/site-check/AnalysisScoreTracker";
 
 interface LoadingCardProps {
   title: string;
-  icon: string;
+  icon: IconName;
 }
 
 function LoadingCard({ title, icon }: LoadingCardProps) {
@@ -19,20 +19,20 @@ function LoadingCard({ title, icon }: LoadingCardProps) {
     >
       <Row gap="l" vertical="center" fillWidth s={{ direction: "column" }}>
         <Column horizontal="center" gap="xs" minWidth={8}>
-          <Skeleton shape="circle" width="xl" height="xl" />
+          <Skeleton shape="circle" size="xl" />
         </Column>
         <Column gap="s" flex={1}>
           <Row gap="s" vertical="center">
             <Icon name={icon} size="l" onBackground="neutral-weak" />
             <Heading as="h2" variant="heading-strong-l">{title}</Heading>
           </Row>
-          <Skeleton shape="line" width="m" />
+          <Skeleton shape="line" width="50%" />
         </Column>
       </Row>
       <Column gap="s">
-        <Skeleton shape="line" />
-        <Skeleton shape="line" />
-        <Skeleton shape="line" />
+        <Skeleton width="50%" shape="line" />
+        <Skeleton width="50%" shape="line" />
+        <Skeleton width="50%" shape="line" />
       </Column>
     </Column>
   );
@@ -50,15 +50,15 @@ function LoadingOverallScore() {
       horizontal="center"
     >
       <Row gap="l" vertical="center" fillWidth horizontal="center" wrap>
-        <Skeleton shape="circle" width="xl" height="xl" />
+        <Skeleton shape="circle" size="xl" />
         <Column gap="m" horizontal="center">
-          <Skeleton shape="line" width="m" />
+          <Skeleton shape="line" width="50%" />
           <Column gap="xs">
-            <Skeleton shape="line" width="s" />
-            <Skeleton shape="line" width="s" />
-            <Skeleton shape="line" width="s" />
-            <Skeleton shape="line" width="s" />
-            <Skeleton shape="line" width="s" />
+            <Skeleton shape="line" width="33%" />
+            <Skeleton shape="line" width="33%" />
+            <Skeleton shape="line" width="33%" />
+            <Skeleton shape="line" width="33%" />
+            <Skeleton shape="line" width="33%" />
           </Column>
         </Column>
       </Row>

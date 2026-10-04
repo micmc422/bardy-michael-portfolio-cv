@@ -14,19 +14,19 @@ const Projects = dynamic(() => import('@/components/realisations/Projects').then
 const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
   loading: () => <Row gap="s" paddingBottom="l" s={{direction: "column"}}>
     <Column>
-      <Skeleton shape="block" width="l" minHeight={"40"} radius="l" />
-      <Skeleton shape="line" height="xl" width="l" />
-      <Skeleton shape="line" height="m" width="m" />
+      <Skeleton shape="block" minHeight={"40"} radius="l" />
+      <Skeleton shape="line" size="xl" width="75%" />
+      <Skeleton shape="line" size="m" width="50%" />
     </Column>
     <Column>
-      <Skeleton shape="block" width="l" minHeight={"40"} />
-      <Skeleton shape="line" height="xl" width="l" />
-      <Skeleton shape="line" height="m" width="m" />
+      <Skeleton shape="block" minHeight={"40"} />
+      <Skeleton shape="line" size="xl" width="75%" />
+      <Skeleton shape="line" size="m" width="50%" />
     </Column>
     <Column>
-      <Skeleton shape="block" width="l" minHeight={"40"} />
-      <Skeleton shape="line" height="xl" width="l" />
-      <Skeleton shape="line" height="m" width="m" />
+      <Skeleton shape="block" minHeight={"40"} />
+      <Skeleton shape="line" size="xl" width="75%" />
+      <Skeleton shape="line" size="m" width="50%" />
     </Column>
   </Row>, // Composant optionnel affiché pendant le chargement
 });

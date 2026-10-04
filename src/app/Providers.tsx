@@ -1,4 +1,5 @@
-import { IconProvider, ToastProvider, ThemeProvider, DataThemeProvider, type BorderStyle, type NeutralColor, type ScalingSize, type Schemes, type SolidStyle, type SolidType, type SurfaceStyle, type TransitionStyle, type ChartVariant, type ChartMode } from "@once-ui-system/core";
+import { IconProvider, ToastProvider, ThemeProvider, DataThemeProvider, type BorderStyle, type NeutralColor, type ScalingSize, type Schemes, type SolidStyle, type SolidType, type SurfaceStyle, type TransitionStyle } from "@once-ui-system/core";
+import type { ChartVariant, ChartMode } from "@once-ui-system/core/data";
 import { iconLibrary } from "./resources/icons";
 import { style } from "./resources";
 import { dataConfig } from "./resources/config";

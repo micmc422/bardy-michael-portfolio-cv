@@ -5,7 +5,7 @@ import { Suspense, type ReactNode } from "react";
 import { siteTypes } from "../estimationData";
 import { notFound } from "next/navigation";
 import { DraggableFlexRow } from "@/components/DraggableRow";
-import { Row, ToggleButton } from "@once-ui-system/core";
+import { Row, ToggleButton, type IconName } from "@once-ui-system/core";
 import Schema from "@/modules/seo/Schema";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -48,7 +48,7 @@ export default async function EstimationSlugLayout({ children, params }: { child
         <Schema as={"service"} title={activeSite.name} description={activeSite.description} path={`estimation/${activeSite.slug}`} offerSlug={activeSite.slug} />
         <DraggableFlexRow>
             <Row wrap={false} gap="s">
-                {siteTypes.map((site) => <ToggleButton prefixIcon={site.icon} key={site.slug} label={site.name} selected={site.slug === slug} href={`/estimation/${site.slug}`} size="s" />)}
+                {siteTypes.map((site) => <ToggleButton prefixIcon={site.icon as IconName} key={site.slug} label={site.name} selected={site.slug === slug} href={`/estimation/${site.slug}`} size="s" />)}
             </Row>
         </DraggableFlexRow>
         <Suspense>{children}</Suspense>

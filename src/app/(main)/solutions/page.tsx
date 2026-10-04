@@ -1,4 +1,4 @@
-import { Background, Badge, Button, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text, type Opacity } from "@once-ui-system/core";
+import { Background, Badge, Button, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text, type Opacity, type IconName } from "@once-ui-system/core";
 import { about, baseURL } from "../../resources";
 import { person, solutionsWeb } from "../../resources/content";
  import Meta from "@/modules/seo/Meta";
@@ -37,7 +37,7 @@ export default function SolutionsPage() {
                             {solutionsWeb.headline}
                         </Heading>
                     </RevealFx>
-                    <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
+                    <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
                         <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
                             {solutionsWeb.subline}
                         </Text>
@@ -95,7 +95,7 @@ export default function SolutionsPage() {
                     <Column as="article" background="overlay" paddingX="s" paddingY="l" radius="m" key={index} maxWidth="s" gap="m">
                         <Heading as="h3" wrap="balance" variant="heading-default-l">
                             <Row vertical="center" gap="s" align="start">
-                                <Icon name={item?.icone || "check"} onBackground="brand-strong" />
+                                <Icon name={(item?.icone || "check") as IconName} onBackground="brand-strong" />
                                 {item?.titre}
                             </Row>
                         </Heading>

@@ -4,7 +4,7 @@ import { baseURL } from '@/app/resources'
 import { Text, Flex, SmartLink } from '@once-ui-system/core'
 import { usePathname } from 'next/navigation'
 import { PushNotificationManager } from './PWA'
-import type { IconName } from '@/app/resources/icons'
+import type { IconName } from '@once-ui-system/core'
 
 
 export function SocialShareBar() {
@@ -37,7 +37,7 @@ export function SocialShareBar() {
     }]
     return (<Flex gap='xs' wrap>
         <Text>Partager : </Text>
-        {shareLinks.map(({ label, link, description, iconName }) => <SmartLink key={label} href={link} target="_blank" rel="noopener noreferrer" title={description} prefixIcon={iconName}>
+        {shareLinks.map(({ label, link, description, iconName }) => <SmartLink key={label} href={link} target="_blank" rel="noopener noreferrer" title={description} prefixIcon={iconName as IconName}>
             {""}
         </SmartLink>)}
         <PushNotificationManager />

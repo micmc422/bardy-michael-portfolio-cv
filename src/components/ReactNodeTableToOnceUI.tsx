@@ -21,34 +21,53 @@ function extractTextFromReactNode(node: React.ReactNode): string {
     return "";
 }
 
+/**
+ * Aplatit un arbre React en une liste d'éléments, en descendant dans les
+ * Fragments et les tableaux. Nécessaire car MDX/React peut envelopper les
+ * enfants (`<table>` → Fragment → `thead`/`tbody`) selon le moment du rendu :
+ * un `find` sur le premier niveau ne trouve alors rien et le tableau se
+ * retrouve vide (premier rendu SSR, puis hydration mismatch).
+ */
+function flattenElements(children: React.ReactNode): React.ReactElement[] {
+    const out: React.ReactElement[] = [];
+    const walk = (node: React.ReactNode) => {
+        if (node === null || node === undefined || typeof node === "boolean") return;
+        if (Array.isArray(node)) {
+            node.forEach(walk);
+            return;
+        }
+        if (React.isValidElement(node)) {
+            if (node.type === React.Fragment) {
+                walk((node.props as any).children);
+                return;
+            }
+            out.push(node);
+        }
+    };
+    walk(children);
+    return out;
+}
+
 function findChildByType(
     children: React.ReactNode,
     type: string
-): ReactNode | null {
-    if (!children) return null;
-
-    const arrayChildren = Array.isArray(children) ? children : [children];
-    for (const child of arrayChildren) {
-        if (React.isValidElement(child) && child.type === type) {
-            return child;
-        }
-    }
-    return null;
+): React.ReactElement | null {
+    return flattenElements(children).find((el) => el.type === type) ?? null;
 }
 
 function parseReactTable(children: ReactNode) {
-    // Trouver thead et tbody
+    // Trouver thead et tbody (en descendant dans les Fragments)
     const thead = findChildByType(children, "thead");
     const tbody = findChildByType(children, "tbody");
 
     // Extraire headers
     const headers: { content: string; key: string, sortable: boolean }[] = [];
-    if (thead && React.isValidElement(thead)) {
+    if (thead) {
         const tr = findChildByType((thead.props as any).children, "tr");
-        if (tr && React.isValidElement(tr)) {
-            const ths = React.Children.toArray((tr.props as any).children).filter(
-                (c) => React.isValidElement(c) && c.type === "th"
-            ) as React.ReactElement[];
+        if (tr) {
+            const ths = flattenElements((tr.props as any).children).filter(
+                (c) => c.type === "th"
+            );
 
             ths.forEach((th, i) => {
                 const content = extractTextFromReactNode((th.props as any).children) || `col-${i}`;
@@ -66,20 +85,17 @@ function parseReactTable(children: ReactNode) {
 
     // Extraire les lignes
     const rows: string[][] = [];
-    if (tbody && React.isValidElement(tbody)) {
-        const trs = React.Children.toArray((tbody.props as any).children).filter(
-            (c) => React.isValidElement(c) && c.type === "tr"
-        ) as React.ReactElement[];
+    if (tbody) {
+        const trs = flattenElements((tbody.props as any).children).filter(
+            (c) => c.type === "tr"
+        );
 
         trs.forEach((tr) => {
-            if (React.isValidElement(tr)) {
-                const tds = React.Children.toArray((tr.props as any).children).filter(
-                    (c) => React.isValidElement(c) && c.type === "td"
-                ) as React.ReactElement[];
+            const tds = flattenElements((tr.props as any).children).filter(
+                (c) => c.type === "td"
+            );
 
-                const row = tds.map((td) => extractTextFromReactNode((td.props as any).children));
-                rows.push(row);
-            }
+            rows.push(tds.map((td) => extractTextFromReactNode((td.props as any).children)));
         });
     }
 

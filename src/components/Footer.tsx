@@ -1,4 +1,4 @@
-import { Column, Flex, IconButton, SmartLink, Text } from "@once-ui-system/core";
+import { Column, Flex, IconButton, SmartLink, Text, type IconName } from "@once-ui-system/core";
 import { person, rendezVous, social } from "@/app/resources/content";
 import styles from "./Footer.module.scss";
 import { RDV } from "./Rdv";
@@ -42,7 +42,7 @@ export const Footer = () => {
                 <IconButton
                   key={item.name}
                   href={item.link}
-                  icon={item.icon}
+                  icon={item.icon as IconName}
                   tooltip={item.name}
                   size="s"
                   variant="ghost"

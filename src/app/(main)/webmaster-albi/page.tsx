@@ -78,12 +78,12 @@ export default async function About() {
               {webmasterAlbi.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
+          <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
               {webmasterAlbi.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="8">
+          <RevealFx paddingTop="12" delay={400} horizontal="start" paddingLeft="8">
             <Badge background="brand-weak" onBackground="neutral-weak" border="accent-alpha-weak" gap="8" vertical="center" paddingY="4" marginBottom="m" href={about.path} effect={false} id="auteur" aria-label="liens vers la page à propos de l'auteur" arrow={false}
             >
               {about.avatar.display && (
@@ -203,7 +203,7 @@ export default async function About() {
           </Column>
           <Column gap="xs" padding="m" flex={2}>
             <Row gap="xs" vertical="center">
-              <Icon name="sparkles" />
+              <Icon name="sparkle" />
               <Heading as="h3" variant="body-strong-xl">Données Structurées (JSON-LD)</Heading>
             </Row>
             <Text>Les données structurées JSON-LD sont un format recommandé par Google pour fournir des informations spécifiques sur le contenu de votre page de manière compréhensible pour les moteurs de recherche. Elles permettent d&apos;obtenir des Rich Snippets (extraits enrichis) dans les résultats de recherche.</Text>

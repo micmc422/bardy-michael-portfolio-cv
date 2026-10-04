@@ -200,7 +200,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                             <Column gap="s">
                                 <Column vertical="center" >
                                     <Text variant="label-strong-s" onBackground="brand-weak">Langage principal:</Text>
-                                    <Tag variant="success" prefixIcon="code" size="s">{repoData.language || "Non spécifié"}</Tag>
+                                    <Tag scheme="success" prefixIcon="code" size="s">{repoData.language || "Non spécifié"}</Tag>
                                 </Column>
                                 <Column>
                                     <Text variant="label-strong-s" onBackground="brand-weak">Taille:</Text>
@@ -239,7 +239,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                                 <Flex gap="2" wrap>
                                     <Text variant="body-strong-l" onBackground="accent-strong" paddingRight="s">Sujets:</Text>
                                     {repoData.topics.map((topic) => (
-                                        <Tag key={topic} size="s" variant="info">
+                                        <Tag key={topic} size="s" scheme="info">
                                             {topic}
                                         </Tag>
                                     ))}

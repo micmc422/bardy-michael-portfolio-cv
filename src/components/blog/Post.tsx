@@ -64,7 +64,7 @@ export default function Post({ post, thumbnail, direction, excludeNav, index }: 
                             paddingTop='4'
                             key={index}
                             label={tag}
-                            variant="info" />
+                            scheme="info" />
                     ))}
                     </Flex>
                 </Column>

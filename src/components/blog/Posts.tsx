@@ -75,9 +75,9 @@ export function SkeletonPost({ direction = "column", ...attrs }: { direction?: "
         {...attrs}>
         <Skeleton shape='block' style={{ borderRadius: "16px" }} minHeight={direction === "column" ? "m" : "xs"} />
         <Column fillWidth gap='s'>
-            <Skeleton shape='line' height='l' fillWidth />
-            <Skeleton shape='line' height='l' fillWidth />
-            {direction !== "column" && <Skeleton shape='line' height='l' width={"m"} />}
+            <Skeleton shape='line' size="l" fillWidth />
+            <Skeleton shape='line' size="l" fillWidth />
+            {direction !== "column" && <Skeleton shape='line' size="l" width="50%" />}
         </Column>
     </Flex>
 }

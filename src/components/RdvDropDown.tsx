@@ -15,7 +15,7 @@ export const RDVDropDown = ({ eventTypesPromise }: { eventTypesPromise: Promise<
     };
     return (<Column gap="12" center >
         <DropdownWrapper
-            isOpen={isOpen}
+            open={isOpen}
             onOpenChange={setIsOpen}
             maxWidth={40}
             placement="bottom"

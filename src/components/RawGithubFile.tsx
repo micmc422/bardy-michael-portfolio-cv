@@ -1,6 +1,6 @@
 
 import React, { forwardRef, type ReactNode } from "react";
-import { CodeBlock } from "@once-ui-system/core";
+import { CodeBlock } from "@once-ui-system/core/code";
 
 interface ComponentProps extends React.ComponentProps<typeof CodeBlock> {
     rawCodeUrl: string;

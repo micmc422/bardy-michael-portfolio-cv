@@ -12,7 +12,7 @@ import Schema from "@/modules/seo/Schema";
 // import { SocialShareBar } from "@/components/SocialShare";
 const SocialShareBar = dynamic(() => import('@/components/SocialShare').then(mod => mod.SocialShareBar), {
     loading: () => <>
-        <Skeleton shape="line" height="m" width="xs" />
+        <Skeleton shape="line" size="m" width="25%" />
     </>,
 });
 
@@ -21,8 +21,8 @@ const ScrollToHash = dynamic(() => import('@/components/ScrollToHash'));
 // import CommentSection from "@/components/CommentSection";
 const CommentSection = dynamic(() => import('@/components/CommentSection'), {
     loading: () => <Column>
-        <Skeleton shape="line" height="xl" width="l" />
-        <Skeleton shape="line" height="m" width="m" />
+        <Skeleton shape="line" size="xl" width="75%" />
+        <Skeleton shape="line" size="m" width="50%" />
     </Column>
     , // Composant optionnel affiche pendant le chargement
 });
@@ -30,9 +30,9 @@ const CommentSection = dynamic(() => import('@/components/CommentSection'), {
 // import Post from "@/components/blog/Post";
 const Post = dynamic(() => import('@/components/blog/Post'), {
     loading: () => <Column>
-        <Skeleton shape="block" width="l" minHeight={"40"} />
-        <Skeleton shape="line" height="xl" width="l" />
-        <Skeleton shape="line" height="m" width="m" />
+        <Skeleton shape="block" minHeight={"40"} />
+        <Skeleton shape="line" size="xl" width="75%" />
+        <Skeleton shape="line" size="m" width="50%" />
     </Column>, // Composant optionnel affiche pendant le chargement
 });
 
@@ -115,7 +115,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                         <Text variant="body-default-s" onBackground="neutral-weak">
                             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
                         </Text>
-                        {post.metadata.tags?.map(({ name }) => <Tag key={name} variant="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
+                        {post.metadata.tags?.map(({ name }) => <Tag key={name} scheme="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
                     </Row>
                     <SocialShareBar />
                 </Column>

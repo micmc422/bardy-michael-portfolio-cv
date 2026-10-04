@@ -78,14 +78,14 @@ export function SkeletonProject() {
       gap="l"
     >
       <Column gap="xs" flex={5} >
-        <Skeleton shape="line" height="xl" fillWidth />
-        <Skeleton shape="line" height="xl" width="m" />
+        <Skeleton shape="line" size="xl" fillWidth />
+        <Skeleton shape="line" size="xl" width="50%" />
       </Column>
       <Column flex={7} gap="16">
-        <Skeleton shape="circle" width="m" />
-        <Skeleton shape="line" height="s" fillWidth />
-        <Skeleton shape="line" height="s" fillWidth />
-        <Skeleton shape="line" height="s" width="m" />
+        <Skeleton shape="circle" size="m" />
+        <Skeleton shape="line" size="s" fillWidth />
+        <Skeleton shape="line" size="s" fillWidth />
+        <Skeleton shape="line" size="s" width="50%" />
       </Column>
     </Flex>
   </Column>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, Row, Text, Heading, Icon, Tag } from "@once-ui-system/core";
+import { Column, Row, Text, Heading, Icon, Tag, type IconName } from "@once-ui-system/core";
 import { useState } from "react";
 
 interface MetaTagsViewerProps {
@@ -63,9 +63,9 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
     return "other";
   };
 
-  const categoryLabels: Record<string, { label: string; icon: string }> = {
+  const categoryLabels: Record<string, { label: string; icon: IconName }> = {
     seo: { label: "SEO", icon: "search" },
-    og: { label: "Open Graph", icon: "share" },
+    og: { label: "Open Graph", icon: "share2" },
     twitter: { label: "Twitter Card", icon: "twitter" },
     technical: { label: "Technique", icon: "settings" },
     other: { label: "Autres", icon: "moreHorizontal" },
@@ -108,7 +108,7 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
         <Heading as="h3" variant="heading-strong-m">
           Métadonnées
         </Heading>
-        <Tag size="s" variant="neutral">
+        <Tag size="s" scheme="neutral">
           {totalTags} balise{totalTags > 1 ? "s" : ""}
         </Tag>
       </Row>
@@ -118,7 +118,7 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
         {Object.entries(groupedTags).map(
           ([category, tags]) =>
             tags.length > 0 && (
-              <Tag key={category} size="s" variant="neutral">
+              <Tag key={category} size="s" scheme="neutral">
                 <Row gap="4" vertical="center">
                   <Icon
                     name={categoryLabels[category]?.icon || "tag"}

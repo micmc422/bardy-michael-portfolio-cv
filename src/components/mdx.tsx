@@ -11,11 +11,12 @@ import {
   type MediaProps,
   HeadingLink,
   type TextProps,
-  CodeBlock,
 } from "@once-ui-system/core";
+import { CodeBlock } from "@once-ui-system/core/code";
 import { RawGithubFile } from "./RawGithubFile";
 import GitHubRepoSummary from "./gitHubResume";
 import { Faq } from "./Faq";
+import { ReactNodeTableToOnceUI } from "./ReactNodeTableToOnceUI";
 import { StepsComponent } from "./steps/Steps";
 import Mermaid from "./Mermaid";
 import { slugify } from "@/utils/utils";
@@ -186,7 +187,7 @@ const components = {
   h4: createHeading("h4") as any,
   h5: createHeading("h5") as any,
   h6: createHeading("h6") as any,
-  table: dynamic(() => import("@/components").then(mod => mod.ReactNodeTableToOnceUI)),
+  table: ReactNodeTableToOnceUI as any,
   img: createImage as any,
   a: CustomLink as any,
   code: createInlineCode as any,

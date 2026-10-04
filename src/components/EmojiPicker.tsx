@@ -67,7 +67,7 @@ const fallbackEmojiData: EmojiData = {
 };
 
 import generatedEmojiData from '../lib/emoji-data.json';
-import { Column, Grid, Icon, IconButton, Input, Scroller, type ButtonOption, type Flex, Text, SegmentedControl, Row, type StyleProps, type GridSize, useDebounce } from "@once-ui-system/core";
+import { Column, Grid, Icon, IconButton, Input, Scroller, type ButtonOption, type Flex, Text, SegmentedControl, Row, type StyleProps, type GridSize, type IconName, useDebounce } from "@once-ui-system/core";
 
 const emojiData: EmojiData = Object.keys(generatedEmojiData).length > 0
     ? generatedEmojiData as EmojiData
@@ -90,7 +90,7 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
     const [focusedEmojiIndex, setFocusedEmojiIndex] = useState<number>(-1);
     const gridRef = useRef<HTMLDivElement>(null);
 
-    const getCategoryIcon = (category: string): string => {
+    const getCategoryIcon = (category: string): IconName => {
         switch (category) {
             case 'smileys': return 'smiley';
             case 'animals': return 'paw';
@@ -207,9 +207,9 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
             <Input
                 id={`emoji-search-${searchInputId}`}
                 value={inputValue}
-                height="s"
+                size="s"
                 onChange={(e) => setInputValue(e.target.value)}
-                hasPrefix={<Icon size="s" onBackground="neutral-weak" name="search" />}
+                prefix={<Icon size="s" onBackground="neutral-weak" name="search" />}
                 aria-label="Search emojis"
                 label={"Rechercher un emojis"}
                 onClick={(e) => {
@@ -264,8 +264,8 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
             {!searchQuery && (
                 <SegmentedControl
                     buttons={categoryButtons}
-                    onToggle={handleCategoryChange}
-                    defaultSelected={activeCategory}
+                    onChange={handleCategoryChange}
+                    defaultValue={activeCategory}
                     fillWidth
                 />
             )}

@@ -13,7 +13,7 @@ Site portfolio/CV de Michaël Bardy, développeur web freelance à Albi (activit
 ## Stack réelle (vérifiée dans package.json)
 
 - **Next.js 16.3.8** (App Router, Turbopack en dev) + **React 19.2.8** + **TypeScript 5.9 strict**
-- **@once-ui-system/core 1.6.4** — design system principal (props, PAS de CSS custom pour ses composants)
+- **@once-ui-system/core 2.0.0** — design system principal (props, PAS de CSS custom pour ses composants)
 - SCSS Modules (`*.module.scss`) + tokens `src/tokens/scheme.scss` — **pas de Tailwind**
 - Contenu MDX depuis GitHub (raw.githubusercontent.com) — **pas de Wisp CMS**
 - MDX via `@next/mdx` · Recharts + chart.js · @react-pdf/renderer · puppeteer-core/@sparticuz (site-check)
@@ -55,8 +55,24 @@ Alias : `@/*` → `./src/*`.
 ## Conventions fortes
 
 1. **Server Components par défaut** ; `"use client"` seulement si events/hooks/APIs navigateur.
-2. **Once UI d'abord** : layout via props (`fillWidth`, `gap="m"`, `paddingX="s"`), jamais de CSS custom sur ses composants. SCSS Modules réservés aux composants maison.
-   - **Docs agent Once UI** : harness codegen sur https://docs.once-ui.com/ai/ (`rules.compact.md` avant toute tâche UI, `catalog.json`, `tasks/index.json`, `gotchas.json`) ; questions exploratoires via MCP **context7** (`resolve-library-id` → `query-docs` sur `/once-ui-system/core`).
+2. **Once UI 2.0 d'abord** : layout via props (`fillWidth`, `gap="m"`, `paddingX="s"`), jamais de CSS custom sur ses composants. SCSS Modules réservés aux composants maison.
+   - **Imports 2.0** : `LayoutProvider` → `@once-ui-system/core/next` ; charts (`BarChart`, `ChartProps`, `DataPoint`, `ChartVariant`…) → `@once-ui-system/core/data` ; `CodeBlock` → `@once-ui-system/core/code` ; `MediaUpload` → `@once-ui-system/core/media`. `Icon.name` est typé `IconName` — les noms custom du projet sont déclarés via `IconLibraryOverrides` dans `src/app/resources/icons.ts`.
+   - **Questions exploratoires** via MCP **context7** (`resolve-library-id` → `query-docs` sur `/once-ui-system/core`).
+
+<!-- once-ui-agent-harness:start -->
+## Once UI codegen harness
+
+Before generating Once UI code, load the harness from your installed package (not full doc pages):
+
+1. Read `node_modules/@once-ui-system/core/ai/manifest.json`
+2. Load bootstrap: `ai/rules.compact.md` + `ai/catalog.json`
+3. Match intent via `ai/tasks/index.json` → fetch task bundle + component slices
+4. Validate: `npx once-ui-validate-ai-code path/to/file.tsx`
+
+npm exports: `@once-ui-system/core/ai/manifest.json`
+
+Remote fallback: https://docs.once-ui.com/ai/manifest.json
+<!-- once-ui-agent-harness:end -->
 
 3. **Params async Next 16** : `{ params }: { params: Promise<{ slug: string }> }` puis `await params`.
 4. **Routes en français** + redirects permanents (`/about`→`/a-propos`, `/work`→`/realisations`) dans `next.config.mjs`.

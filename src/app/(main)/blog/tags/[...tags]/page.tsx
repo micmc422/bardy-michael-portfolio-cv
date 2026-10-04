@@ -5,9 +5,9 @@ import { Mailchimp } from "@/components";
 // Importation dynamique pour Posts
 const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Posts), {
   loading: () => <Column>
-    <Skeleton shape="block" width="l" minHeight={"40"} />
-    <Skeleton shape="line" height="xl" width="l" />
-    <Skeleton shape="line" height="m" width="m" />
+    <Skeleton shape="block" minHeight={"40"} />
+    <Skeleton shape="line" size="xl" width="75%" />
+    <Skeleton shape="line" size="m" width="50%" />
   </Column>,
 });
 

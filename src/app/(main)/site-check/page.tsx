@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { Column, Heading, Text, Input, Button, Row, Icon } from "@once-ui-system/core";
+import { Column, Heading, Text, Input, Button, Row, Icon, type IconName } from "@once-ui-system/core";
 import { baseURL } from "../../resources";
 import { siteCheck, person } from "../../resources/content";
 import Meta from "@/modules/seo/Meta";
@@ -104,7 +104,7 @@ export default function SiteCheckPage() {
               border="neutral-alpha-weak"
             >
               <Row gap="xs" vertical="center">
-                <Icon name={category.icon} onBackground="accent-weak" />
+                <Icon name={category.icon as IconName} onBackground="accent-weak" />
                 <Text variant="label-strong-m">{category.title}</Text>
               </Row>
               <Text variant="body-default-s" onBackground="neutral-weak">

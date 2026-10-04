@@ -1,8 +1,8 @@
 import { about, baseURL, person } from "@/app/resources";
 import { solutionsHébergement } from "@/app/resources/content";
 import Schema from "@/modules/seo/Schema";
-import { Badge, Column, Flex, Heading, Icon, IconButton, Meta, RevealFx, Row, Text, type DataPoint } from "@once-ui-system/core";
-import { BarChart } from "@once-ui-system/core";
+import { Badge, Column, Flex, Heading, Icon, IconButton, Meta, RevealFx, Row, Text } from "@once-ui-system/core";
+import { BarChart, type DataPoint } from "@once-ui-system/core/data";
 import { ChartCardContainer } from "@/components/chart";
 import { LinesBars } from "@/components/chart/LinesBars";
 import { RadarChart } from "@/components/chart/Radar";
@@ -40,7 +40,7 @@ export default async function HebergementPage() {
                         {solutionsHébergement.title}
                     </Heading>
                 </RevealFx>
-                <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
+                <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
                     <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
                         {solutionsHébergement.headline}
                     </Text>

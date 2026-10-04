@@ -1,4 +1,4 @@
-import { Column, Grid, Heading, Icon, Text, Row, Card, Background, type Opacity } from "@once-ui-system/core";
+import { Column, Grid, Heading, Icon, Text, Row, Card, Background, type Opacity, type IconName } from "@once-ui-system/core";
 import { siteTypes } from "./estimationData";
 import { baseURL, rdv } from "../../resources";
 import { about, estimation, person } from "../../resources/content";
@@ -66,7 +66,7 @@ export default function EstimationPage() {
         <Column padding="s" gap="s">
           <Row vertical="center" horizontal="between" fillWidth >
             <Row center gap="xs">
-              <Icon name={icon as string} /><Text as="h3" variant="label-strong-l">{name}</Text>
+              <Icon name={icon as IconName} /><Text as="h3" variant="label-strong-l">{name}</Text>
             </Row>
             <Text variant="body-default-xs" onBackground="neutral-weak">À partir de {basePrice}€</Text>
           </Row>

@@ -1,4 +1,4 @@
-import { Button, Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type Opacity } from "@once-ui-system/core";
+import { Button, Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type Opacity, type IconName } from "@once-ui-system/core";
 import { baseURL } from "@/app/resources";
 import { person, atomicBd81 } from "@/app/resources/content";
 import Meta from "@/modules/seo/Meta";
@@ -87,12 +87,12 @@ export default function AtomicBd81Page() {
                         {atomicBd81.headline}
                     </Heading>
                 </RevealFx>
-                <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start">
+                <RevealFx translateY="8" delay={200} fillWidth horizontal="start">
                     <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l">
                         {atomicBd81.subline}
                     </Text>
                 </RevealFx>
-                <RevealFx translateY="8" delay={0.4} fillWidth horizontal="start">
+                <RevealFx translateY="8" delay={400} fillWidth horizontal="start">
                     <Button
                         href={atomicBd81.maquetteAlphaUrl}
                         variant="secondary"
@@ -154,7 +154,7 @@ export default function AtomicBd81Page() {
             {chargeSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={chargeSection.id}>
                     <Row gap="s" vertical="center">
-                        <Icon name={chargeSection.icone} size="l" onBackground="brand-strong" />
+                        <Icon name={chargeSection.icone as IconName} size="l" onBackground="brand-strong" />
                         <Heading as="h2" id={chargeSection.id} variant="display-strong-m">
                             {chargeSection.titre}
                         </Heading>
@@ -191,7 +191,7 @@ export default function AtomicBd81Page() {
             {coutsSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={coutsSection.id}>
                     <Row gap="s" vertical="center">
-                        <Icon name={coutsSection.icone} size="l" onBackground="brand-strong" />
+                        <Icon name={coutsSection.icone as IconName} size="l" onBackground="brand-strong" />
                         <Heading as="h2" id={coutsSection.id} variant="display-strong-m">
                             {coutsSection.titre}
                         </Heading>
@@ -218,7 +218,7 @@ export default function AtomicBd81Page() {
             {marcheSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={marcheSection.id}>
                     <Row gap="s" vertical="center">
-                        <Icon name={marcheSection.icone} size="l" onBackground="brand-strong" />
+                        <Icon name={marcheSection.icone as IconName} size="l" onBackground="brand-strong" />
                         <Heading as="h2" id={marcheSection.id} variant="display-strong-m">
                             {marcheSection.titre}
                         </Heading>
@@ -258,7 +258,7 @@ export default function AtomicBd81Page() {
             {pertinenceSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={pertinenceSection.id}>
                     <Row gap="s" vertical="center">
-                        <Icon name={pertinenceSection.icone} size="l" onBackground="brand-strong" />
+                        <Icon name={pertinenceSection.icone as IconName} size="l" onBackground="brand-strong" />
                         <Heading as="h2" id={pertinenceSection.id} variant="display-strong-m">
                             {pertinenceSection.titre}
                         </Heading>
@@ -333,7 +333,7 @@ export default function AtomicBd81Page() {
             {alternativesSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={alternativesSection.id}>
                     <Row gap="s" vertical="center">
-                        <Icon name={alternativesSection.icone} size="l" onBackground="brand-strong" />
+                        <Icon name={alternativesSection.icone as IconName} size="l" onBackground="brand-strong" />
                         <Heading as="h2" id={alternativesSection.id} variant="display-strong-m">
                             {alternativesSection.titre}
                         </Heading>
@@ -388,7 +388,7 @@ export default function AtomicBd81Page() {
             {casSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={casSection.id}>
                     <Row gap="s" vertical="center">
-                        <Icon name={casSection.icone} size="l" onBackground="brand-strong" />
+                        <Icon name={casSection.icone as IconName} size="l" onBackground="brand-strong" />
                         <Heading as="h2" id={casSection.id} variant="display-strong-m">
                             {casSection.titre}
                         </Heading>
@@ -441,7 +441,7 @@ export default function AtomicBd81Page() {
             {recommandationSection && (
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={recommandationSection.id}>
                     <Row gap="s" vertical="center">
-                        <Icon name={recommandationSection.icone} size="l" onBackground="brand-strong" />
+                        <Icon name={recommandationSection.icone as IconName} size="l" onBackground="brand-strong" />
                         <Heading as="h2" id={recommandationSection.id} variant="display-strong-m">
                             {recommandationSection.titre}
                         </Heading>

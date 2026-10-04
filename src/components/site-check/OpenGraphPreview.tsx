@@ -48,7 +48,7 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
   return (
     <Column gap="m" fillWidth>
       <Row gap="s" vertical="center">
-        <Icon name="share" size="m" onBackground="accent-weak" />
+        <Icon name="share2" size="m" onBackground="accent-weak" />
         <Heading as="h3" variant="heading-strong-m">
           Aperçu Open Graph
         </Heading>

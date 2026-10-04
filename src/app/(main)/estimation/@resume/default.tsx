@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Column, Feedback, Icon, IconButton, Input, LetterFx, Line, Row, Text, useToast } from "@once-ui-system/core"
+import { Button, Column, Feedback, Icon, IconButton, Input, LetterFx, Line, Row, Text, useToast, type IconName } from "@once-ui-system/core"
 import { useParams, useSearchParams } from "next/navigation"
 import { useMemo, useState, useTransition } from "react";
 import { siteTypes } from "../estimationData";
@@ -115,7 +115,7 @@ export default function ResumePanel() {
         {
             !!activeSiteType && <Column>
                 <Row gap="4" vertical="center">
-                    <Icon name={activeSiteType.icon} />
+                    <Icon name={activeSiteType.icon as IconName} />
                     <Text variant="label-strong-l">{activeSiteType.name}</Text>
                 </Row>
                 <Row horizontal="between">
@@ -221,8 +221,8 @@ export default function ResumePanel() {
             <Input
                 id="Courriel"
                 label="Courriel"
-                hasPrefix={
-                    <Icon marginLeft="4" onBackground="neutral-weak" name="email" size="xs" />
+                prefix={
+                    <Icon marginLeft="4" onBackground="neutral-weak" name="mail" size="xs" />
                 }
                 onChange={(e) => setEmail(e.target.value)}
             />

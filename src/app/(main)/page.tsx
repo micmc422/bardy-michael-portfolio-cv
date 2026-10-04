@@ -62,12 +62,12 @@ export default async function Home() {
           <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs" paddingBottom="m">
             {home.headline}
           </Heading>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
+          <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" paddingX="xs">
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="8">
+          <RevealFx paddingTop="12" delay={400} horizontal="start" paddingLeft="8">
             <Badge background="brand-weak" onBackground="neutral-weak" border="accent-alpha-weak" gap="8" vertical="center" paddingY="4" marginBottom="m" href={about.path} effect={false} id="auteur" aria-label="liens vers la page à propos de l'auteur" arrow={false}
             >
               {about.avatar.display && (
@@ -91,7 +91,7 @@ export default async function Home() {
         </Column>
       </Column>
       <Column as="section" paddingY="m" gap="m" maxWidth={"m"} aria-labelledby="fonctionnalites-title">
-        <RevealFx translateY="16" delay={0.6}>
+        <RevealFx translateY="16" delay={600}>
           <Projects range={[1, 1]} />
         </RevealFx>
         {routes["/blog"] && (

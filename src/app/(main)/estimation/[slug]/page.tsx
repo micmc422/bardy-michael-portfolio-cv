@@ -1,6 +1,6 @@
 "use client"
 
-import { Checkbox, Column, Feedback, Grid, Icon, Row, Text, Textarea } from "@once-ui-system/core";
+import { Checkbox, Column, Feedback, Grid, Icon, Row, Text, Textarea, type IconName } from "@once-ui-system/core";
 import { siteTypes, type Option } from "../estimationData";
 import { use, useMemo } from "react";
 import { notFound, useSearchParams } from "next/navigation";
@@ -23,14 +23,14 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
                     suppressHydrationWarning
                     key={option.slug}
                     label={<Row vertical="center" gap="4"
-                    ><Icon name={option.icon} size="s" />{option.name}</Row>}
+                    ><Icon name={option.icon as IconName} size="s" />{option.name}</Row>}
                     description={<Column>
                         <Text onBackground="accent-weak">{option.price}€</Text>
                         <Row>{option.description}</Row>
 
                     </Column>}
                     aria-label={`Sélectionnez l'option ${option.name}`}
-                    isChecked={selectedOptions.includes(option.slug)}
+                    checked={selectedOptions.includes(option.slug)}
                     onToggle={() => toggleOption(option.slug, !selectedOptions.includes(option.slug))}
                 />)}
         </Grid>

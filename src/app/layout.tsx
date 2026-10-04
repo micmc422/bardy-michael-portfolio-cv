@@ -4,7 +4,8 @@ import classNames from "classnames";
 
 import { baseURL, style, fonts, home } from "@/app/resources";
 
-import { Column, Flex, LayoutProvider, Meta } from "@once-ui-system/core";
+import { Column, Flex, Meta } from "@once-ui-system/core";
+import { LayoutProvider } from "@once-ui-system/core/next";
 
 import Script from "next/script";
 import { convertirTimestampGoogle } from "@/utils/utils";

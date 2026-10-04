@@ -1,12 +1,12 @@
 "use client";
 
-import { Column, Row, Text, Icon, Heading, AccordionGroup, type ColorScheme } from "@once-ui-system/core";
+import { Column, Row, Text, Icon, Heading, AccordionGroup, type ColorScheme, type IconName } from "@once-ui-system/core";
 import type { AnalysisItem, AnalysisStatus } from "@/app/utils/types";
 import { ScoreGauge } from "./ScoreGauge";
 
 interface AnalysisCardProps {
   title: string;
-  icon: string;
+  icon: IconName;
   score: number;
   items: AnalysisItem[];
 }
@@ -24,7 +24,7 @@ function getStatusColor(status: AnalysisStatus): ColorScheme {
   }
 }
 
-function getStatusIcon(status: AnalysisStatus): string {
+function getStatusIcon(status: AnalysisStatus): IconName {
   switch (status) {
     case "success":
       return "checkCircle";

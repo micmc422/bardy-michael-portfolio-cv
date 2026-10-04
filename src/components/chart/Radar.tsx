@@ -12,7 +12,8 @@ import {
     Legend as RechartsLegend,
 } from "recharts";
 
-import { ChartHeader, ChartStatus, Column, DataTooltip, Legend, LinearGradient, Row, useDataTheme, type ChartProps, type ChartVariant } from "@once-ui-system/core";
+import { Column, Row, useDataTheme } from "@once-ui-system/core";
+import { ChartHeader, ChartStatus, DataTooltip, Legend, LinearGradient, type ChartProps, type ChartVariant } from "@once-ui-system/core/data";
 import { getDistributedColor } from "./utils/colorDistribution";
 
 interface RadarChartProps extends ChartProps {

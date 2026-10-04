@@ -15,6 +15,7 @@ import {
   Skeleton,
   Tag,
   Text,
+  type IconName,
 } from "@once-ui-system/core";
 import { baseURL } from "@/app/resources";
 import dynamic from "next/dynamic";
@@ -22,13 +23,13 @@ import dynamic from "next/dynamic";
 // import TableOfContents from "@/components/a-propos/TableOfContents";
 const TableOfContents = dynamic(() => import('@/components/a-propos/TableOfContents'), {
   loading: () => <Row>
-    <Skeleton shape="line" height="l" width="xs" />
-    <Skeleton shape="line" height="l" width="xs" />
-    <Skeleton shape="line" height="l" width="xs" />
-    <Skeleton shape="line" height="l" width="xs" />
-    <Skeleton shape="line" height="l" width="xs" />
-    <Skeleton shape="line" height="l" width="xs" />
-    <Skeleton shape="line" height="l" width="xs" />
+    <Skeleton shape="line" size="l" width="25%" />
+    <Skeleton shape="line" size="l" width="25%" />
+    <Skeleton shape="line" size="l" width="25%" />
+    <Skeleton shape="line" size="l" width="25%" />
+    <Skeleton shape="line" size="l" width="25%" />
+    <Skeleton shape="line" size="l" width="25%" />
+    <Skeleton shape="line" size="l" width="25%" />
   </Row>
   ,
 });
@@ -178,7 +179,7 @@ export default async function About() {
                             <Button
                               key={item.name}
                               href={item.link}
-                              prefixIcon={item.icon}
+                              prefixIcon={item.icon as IconName}
                               label={item.name}
                               size="s"
                               weight="default"
@@ -190,7 +191,7 @@ export default async function About() {
                               size="l"
                               key={`${item.name}-icon`}
                               href={item.link}
-                              icon={item.icon}
+                              icon={item.icon as IconName}
                               variant="secondary"
                             />
                           </Row>
@@ -308,7 +309,7 @@ export default async function About() {
                     {skill.tags && skill.tags.length > 0 && (
                       <Row wrap gap="8" paddingTop="8">
                         {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon as IconName}>
                             {tag.name}
                           </Tag>
                         ))}

@@ -60,7 +60,7 @@ const CookieConsent: React.FC = () => {
                     </Column>
                     <Feedback
                         variant="success"
-                        icon
+                        showIcon
                         description="Aucunes de ces informations n&apos;est partagées avec des tiers."
                     />
 

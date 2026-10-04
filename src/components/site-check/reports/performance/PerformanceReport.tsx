@@ -239,7 +239,7 @@ export function PerformanceReport({ results }: { results: PerformanceAnalysis })
     <Column gap="m" fillWidth>
       {results.usedPuppeteer && (
         <Row gap="xs" horizontal="end">
-          <Tag size="s" variant="success">
+          <Tag size="s" scheme="success">
             <Row gap="4" vertical="center">
               <Icon name="check" size="xs" />
               <Text variant="label-default-xs">Analyse Puppeteer (Core Web Vitals)</Text>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, Row, Text, Heading, Icon, Tag } from "@once-ui-system/core";
+import { Column, Row, Text, Heading, Icon, Tag, type IconName } from "@once-ui-system/core";
 import type { JsonLdData } from "@/app/utils/types";
 import { useState } from "react";
 
@@ -12,17 +12,17 @@ function JsonLdItem({ item, index }: { item: JsonLdData; index: number }) {
   const [expanded, setExpanded] = useState(false);
 
   // Get schema type icon
-  const getTypeIcon = (type: string): string => {
+  const getTypeIcon = (type: string): IconName => {
     const typeLower = type.toLowerCase();
     if (typeLower.includes("organization") || typeLower.includes("business"))
-      return "building";
-    if (typeLower.includes("person")) return "user";
+      return "organization";
+    if (typeLower.includes("person")) return "person";
     if (typeLower.includes("product")) return "package";
     if (typeLower.includes("article") || typeLower.includes("blog"))
-      return "fileText";
+      return "document";
     if (typeLower.includes("event")) return "calendar";
     if (typeLower.includes("website")) return "globe";
-    if (typeLower.includes("breadcrumb")) return "chevronsRight";
+    if (typeLower.includes("breadcrumb")) return "chevronRight";
     if (typeLower.includes("faq")) return "helpCircle";
     if (typeLower.includes("review") || typeLower.includes("rating"))
       return "star";
@@ -146,7 +146,7 @@ function JsonLdItem({ item, index }: { item: JsonLdData; index: number }) {
         />
         <Column gap="2" flex={1}>
           <Row gap="s" vertical="center">
-            <Tag size="s" variant="accent">
+            <Tag size="s" scheme="accent">
               {item.type}
             </Tag>
             <Text variant="body-default-xs" onBackground="neutral-weak">
@@ -267,7 +267,7 @@ export function JsonLdViewer({ data }: JsonLdViewerProps) {
         <Heading as="h3" variant="heading-strong-m">
           Données Structurées JSON-LD
         </Heading>
-        <Tag size="s" variant="success">
+        <Tag size="s" scheme="success">
           {data.length} trouvé{data.length > 1 ? "s" : ""}
         </Tag>
       </Row>

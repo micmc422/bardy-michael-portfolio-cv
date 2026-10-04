@@ -3,11 +3,12 @@
 import { useEffect } from "react";
 import { AnalysisCard } from "./AnalysisCard";
 import type { AnalysisItem } from "@/app/utils/types";
+import type { IconName } from "@once-ui-system/core";
 
 interface AnalysisCardWithScoreReportProps {
   category: string;
   title: string;
-  icon: string;
+  icon: IconName;
   score: number;
   items: AnalysisItem[];
 }

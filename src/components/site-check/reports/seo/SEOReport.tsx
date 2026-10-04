@@ -253,7 +253,7 @@ export function SEOReport({ results }: { results: SEOAnalysis }) {
     <Column gap="l" fillWidth>
       {results.usedPuppeteer && (
         <Row gap="xs" horizontal="end">
-          <Tag size="s" variant="success">
+          <Tag size="s" scheme="success">
             <Row gap="4" vertical="center">
               <Icon name="check" size="xs" />
               <Text variant="label-default-xs">Analyse Puppeteer (contenu dynamique inclus)</Text>
