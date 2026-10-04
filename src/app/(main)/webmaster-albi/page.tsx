@@ -79,7 +79,7 @@ export default async function About() {
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xl">
+            <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xs">
               {webmasterAlbi.subline}
             </Text>
           </RevealFx>
@@ -171,7 +171,7 @@ export default async function About() {
             border="neutral-alpha-weak"
             overflow="hidden"
             minHeight={32}
-            // aspectRatio="5 / 10"
+            aspectRatio="5 / 10"
             leftContent={{ src: "/images/enduitsancien.png", alt: "Exemple design viellisant." }}
             rightContent={{ src: "/images/enduitsancien_v2.png", alt: "Design mis à jour." }}
           />
