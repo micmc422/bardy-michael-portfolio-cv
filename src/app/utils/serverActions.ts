@@ -66,6 +66,9 @@ function toPostType(p: {
 }
 
 // --- getPosts ---
+// TTL court et borne : un article planifie dont la date tombe pendant la fenetre
+// de cache devient visible en 60 s au maximum, au lieu d'attendre 1 h.
+// (Le filtrage par date est fait par `isPublished()` dans githubContent.ts.)
 async function fetchPosts({
   limit = 10,
   page,
@@ -83,7 +86,7 @@ async function fetchPosts({
   }
 }
 export const getPosts = unstable_cache(fetchPosts, ["local-posts"], {
-  revalidate: 3600,
+  revalidate: 60,
 });
 
 // --- getRelatedPost ---
@@ -147,7 +150,7 @@ async function fetchPostBySlug(slug: string): Promise<PostType | null> {
   }
 }
 export const getPostBySlug = unstable_cache(fetchPostBySlug, ["local-post-by-slug"], {
-  revalidate: 3600,
+  revalidate: 60,
 });
 
 // --- getPostDataBySlug (renvoie le PostType brut, utilisé pour les métadonnées) ---
@@ -161,7 +164,7 @@ async function fetchPostDataBySlug(slug: string): Promise<PostType | null> {
   }
 }
 export const getPostDataBySlug = unstable_cache(fetchPostDataBySlug, ["local-post-data-by-slug"], {
-  revalidate: 3600,
+  revalidate: 60,
 });
 
 // --- getProject ---

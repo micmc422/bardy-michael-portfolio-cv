@@ -8,6 +8,10 @@ export const runtime = "nodejs";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
+  // Origine de la requete : en dev, l'image du post doit etre resolue sur le
+  // serveur local (baseURL pointe en dur sur la prod, ou l'article n'existe pas
+  // encore). En prod, l'origine de la requete EST le domaine public.
+  const requestOrigin = new URL(request.url).origin
   const now = new Date();
   let date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
   const slug = searchParams.get("slug");
@@ -82,7 +86,7 @@ export async function GET(request: Request) {
         }}
       />
       {image ? <img
-        src={`${image}`}
+        src={image.startsWith("http") ? image : `${requestOrigin}${image}`}
         alt={title + " image"}
         style={{
           position: "absolute",
