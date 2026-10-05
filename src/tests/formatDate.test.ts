@@ -3,7 +3,6 @@ import { formatDate } from '@/core/utils/formatDate'
 
 describe('formatDate', () => {
   beforeEach(() => {
-    // Mock current date to 2024-06-15
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2024-06-15T12:00:00'))
   })
@@ -41,5 +40,30 @@ describe('formatDate', () => {
   it('should show years ago when more than a year', () => {
     const result = formatDate('2023-01-15', true)
     expect(result).toContain('il y a 1 an')
+  })
+
+  it('should handle date in the future', () => {
+    const result = formatDate('2024-06-20', true)
+    expect(result).toContain('20 juin 2024')
+  })
+
+  it('should handle date with different locale', () => {
+    const result = formatDate('2024-01-01')
+    expect(result).toBe('1 janvier 2024')
+  })
+
+  it('should handle leap year date', () => {
+    const result = formatDate('2024-02-29')
+    expect(result).toBe('29 février 2024')
+  })
+
+  it('should handle end of year', () => {
+    const result = formatDate('2024-12-31')
+    expect(result).toBe('31 décembre 2024')
+  })
+
+  it('should handle start of year', () => {
+    const result = formatDate('2024-01-01')
+    expect(result).toBe('1 janvier 2024')
   })
 })

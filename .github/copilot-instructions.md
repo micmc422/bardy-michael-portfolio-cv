@@ -2,14 +2,14 @@
 
 **New to this codebase?** Read in this order:
 1. **`AGENTS.md`** (racine) — résumé conventions + pièges, source de vérité synchronisée
-2. **Config first:** `src/app/resources/config.js` - routing, fonts, effects, baseURL
+2. **Config first:** `src/core/config/config.js` - routing, fonts, effects, baseURL
 3. **Layout structure:** `src/app/layout.tsx` → `src/app/(main)/layout.tsx` - SEO, schema, providers
-4. **Key patterns:** `src/components/Header.tsx` (client) vs `src/app/utils/serverActions.ts` (server)
+4. **Key patterns:** `src/shared/components/Header.tsx` (client) vs `src/core/github/githubContent.ts` (server)
 5. **Adding features:** See `/blog/[slug]` or `/realisations` as examples
 
 **Critical files to know:**
 - `next.config.mjs` - MDX, images, redirects, headers sécurité/cache
-- `src/app/Providers.tsx` - theme/icon/toast setup
+- `src/core/Providers.tsx` - theme/icon/toast setup
 - `tsconfig.json` - path alias `@/*`, strictness (`verbatimModuleSyntax` → `import type` obligatoire)
 - `.env.local` - secrets (DATABASE_URL, GITHUB_TOKEN, etc.) — jamais commité
 
@@ -23,18 +23,18 @@ Portfolio utilise **@once-ui-system/core** (v2.0.0) pour tous les composants UI.
 **Essentials:**
 - Import depuis `@once-ui-system/core` : `Flex, Grid, Column, Row, Button, Meta, etc.`
 - Styles CSS pré-chargés dans `src/app/layout.tsx` : `@once-ui-system/core/css/styles.css` & `.../tokens.css`
-- Thème/Icons configurés dans `src/app/Providers.tsx` (ThemeProvider, IconProvider, ToastProvider)
+- Thème/Icons configurés dans `src/core/Providers.tsx` (ThemeProvider, IconProvider, ToastProvider)
 - Props Once UI pour layout : `fillWidth`, `center`, `gap`, `padding*`, `as` (élément HTML)
 - **Ne JAMAIS créer de CSS custom pour Once UI components** - utiliser les props
 
-**Data Flow:** `src/app/resources/config.js` (style, effects, fonts) → layout → Providers
+**Data Flow:** `src/core/config/config.js` (style, effects, fonts) → layout → Providers
 
 ---
 
 ## 🏗️ Next.js 16 App Router Architecture
 Next.js **16.3.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisées par domaine fonctionnel :
 - `(main)` groupe de routes avec layout partagé : Header + RDV + Footer + CookieConsent
-- Routes françaises : `/a-propos`, `/realisations`, `/blog`, `/estimation`, `/webmaster-albi`, `/solutions`, `/site-check`, `/atomicbd81` (protégée)
+- Routes françaises : `/a-propos`, `/realisations`, `/blog`, `/estimation`, `/webmaster-albi`, `/solutions`, `/site-check`, `/atomicbd81` (protégée), `/mentions-legales`
 - Redirects permanentes (ex : `/about` → `/a-propos`) via `next.config.mjs`
 - **API Routes** : conventions Next.js (async GET/POST) dans `src/app/api/`
   - Pattern params async : `{ params }: { params: Promise<{ slug: string }> }` puis `await params`
@@ -44,8 +44,8 @@ Next.js **16.3.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisée
 - `src/app/(main)/blog/[slug]/page.tsx` - articles MDX depuis GitHub avec commentaires
 - `src/app/(main)/realisations/` - portfolio projets
 - `src/app/(main)/estimation/` - parallel routes (`@headline`, `@resume`) + `estimationData.ts`
-- `src/app/(main)/site-check/[url]/` - audit de site en ligne (moteur : `src/app/utils/siteCheck/`)
-- `src/app/api/og/fetch/route.ts` - Open Graph scraper pour social shares
+- `src/app/(main)/site-check/[url]/` - audit de site en ligne (moteur : `src/modules/site-check/`)
+- `src/app/api/og/fetch/` - Open Graph scraper pour social shares
 
 ---
 
@@ -56,12 +56,12 @@ Next.js **16.3.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisée
 - Browser APIs (localStorage, window, scrolling)
 
 **Client Components Examples:**
-- `src/components/Header.tsx` (navigation, mobile menu)
-- `src/components/ThemeToggle.tsx`, `cookiesConsent.tsx`
-- `src/components/Calendar.tsx` - intégration calendrier
-- Entire `src/components/chart/` - Recharts & interactive dashboards
+- `src/shared/components/Header.tsx` (navigation, mobile menu)
+- `src/shared/components/ThemeToggle.tsx`, `src/shared/components/cookiesConsent.tsx`
+- `src/modules/calendar/` - intégration calendrier
+- `src/shared/ui/chart/` - Recharts & interactive dashboards
 
-**Server Actions:** `src/app/utils/serverActions.ts` & `src/app/pwaActions.ts`
+**Server Actions:** `src/core/github/githubContent.ts` & `src/modules/pwa/controllers/`
 - Directive `'use server'` au top
 - Cache avec `unstable_cache(fn, ['cache-key'], { revalidate: 3600 })`
 - Pattern: GitHub MDX queries (getPosts, getPostBySlug, getRelatedPost, getTags, getProjects)
@@ -70,7 +70,7 @@ Next.js **16.3.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisée
 ---
 
 ## 📋 Configuration Centralisée
-Toute config vit dans `src/app/resources/` - single source of truth:
+Toute config vit dans `src/core/config/` - single source of truth:
 
 | Fichier | Rôle |
 |---------|------|
@@ -79,14 +79,14 @@ Toute config vit dans `src/app/resources/` - single source of truth:
 | `icons.ts` | Icône lib pour `IconProvider` (lucide-react + react-icons) |
 | `index.ts` | Re-export central |
 
-**Import pattern:** `import { baseURL, style, fonts } from "@/app/resources"`
+**Import pattern:** `import { baseURL, style, fonts } from "@/core/config"`
 
 ---
 
 ## 🎯 Styling & CSS Strategy
 - **SCSS Modules** pour custom components : `Component.module.scss` + `import styles from "..."`
 - Tokens CSS : `src/tokens/scheme.scss` (variables de design)
-- Breakpoints : `src/components/breakpoints.scss`
+- Breakpoints : `src/breakpoints.scss`
 - SASS compiler : `modern` mode (`next.config.mjs`)
 - **Once UI props > CSS** : padding/margin via `paddingX="s"` pas `style={{}}` ou className
 - **Pas de Tailwind** dans ce projet
@@ -96,21 +96,21 @@ Toute config vit dans `src/app/resources/` - single source of truth:
 ## 🗄️ Database & Services Integration
 
 ### Neon Postgres + Drizzle ORM
-- Connection via `src/utils/db.ts` : Neon HTTP + WebSocket (Edge compatible)
-- Usage: `import { db } from "@/utils/db"` — env : `DATABASE_URL`
+- Connection via `src/core/database/` : Neon HTTP + WebSocket (Edge compatible)
+- Usage: `import { db } from "@/core/database"` — env : `DATABASE_URL`
 
 ### GitHub MDX (Blog & Projets)
-- Data layer : `src/lib/githubContent.ts` — lit les MDX depuis `bardy-michael-content` via API GitHub (raw.githubusercontent.com)
+- Data layer : `src/core/github/githubContent.ts` — lit les MDX depuis `bardy-michael-content` via API GitHub (raw.githubusercontent.com)
 - Cache ISR 3600s avec `unstable_cache`
 - Images servies via `/api/content-image/...` (proxy 302 → GitHub raw en prod, lecture locale en dev)
 - **Pas de rebuild nécessaire** pour publier du contenu
 
 ### Google APIs
 - `src/lib/google/` : service account (GMB reviews), env `GOOGLE_SERVICE_ACCOUNT_KEY`, `GOOGLE_PLACE_ID`, `GOOGLE_LOCATION_ID`, `GOOGLE_PLACE_API_KEY`
-- Disponibilités RDV : `src/app/api/cal/availability/route.ts` (Cal.com : `CAL_API_KEY`/`CALCOM_API_KEY`)
+- Disponibilités RDV : `src/app/api/cal/availability/` (Cal.com : `CAL_API_KEY`/`CALCOM_API_KEY`)
 
 ### Web Push Notifications (PWA)
-- Server actions : `src/app/pwaActions.ts` (subscribe, notify)
+- Server actions : `src/modules/pwa/controllers/` (subscribe, notify)
 - VAPID keys en .env : `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`
 - Service Worker : `public/sw.js` (servi avec CSP stricte via headers `next.config.mjs`)
 
@@ -122,7 +122,7 @@ Toute config vit dans `src/app/resources/` - single source of truth:
 
 ## 📝 MDX & Content Management
 - MDX enabled via `@next/mdx` plugin (`next.config.mjs`), extensions `.md`/`.mdx`/`.ts`/`.tsx`
-- Custom MDX components : `src/components/mdx.tsx` (Code, Blockquote, Link, etc.)
+- Custom MDX components : `src/shared/components/RawGithubFile.tsx` (Code, Blockquote, Link, etc.)
 - Contenu dans le dépôt séparé `bardy-michael-content` (sous-module `content/`)
 
 # 🚀 Workflows & Commands
@@ -143,9 +143,9 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 ```
 
 **Cron Jobs** (Vercel scheduled functions, planning dans `vercel.json`):
-- `src/app/api/cron/social-share/route.ts` - partage auto blog vers LinkedIn/Facebook (07:00)
-- `src/app/api/cron/indexNow/route.ts` - SEO ping IndexNow/Bing (00:00, `INDEXNOW_API_KEY`)
-- `src/app/api/cron/refresh-facebook-token/route.ts` - refresh token FB (mensuel)
+- `src/app/api/cron/social-share/` - partage auto blog vers LinkedIn/Facebook (07:00)
+- `src/app/api/cron/indexNow/` - SEO ping IndexNow/Bing (00:00, `INDEXNOW_API_KEY`)
+- `src/app/api/cron/refresh-facebook-token/` - refresh token FB (mensuel)
 - Auth cron : header `Authorization: Bearer ${CRON_SECRET}`
 - **Tokens sociaux stockés dans Vercel Edge Config** (`@vercel/edge-config`), pas en .env ; écriture via API Vercel (`VERCEL_API_TOKEN`, `VERCEL_EDGE_ID`, `VERCEL_TEAM_ID`)
 
@@ -173,15 +173,15 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 ## TypeScript Configuration
 - Path alias: `@/*` → `./src/*` (tsconfig.json)
 - Strict mode: `noUncheckedIndexedAccess`, `strictNullChecks`, `noImplicitAny`, `verbatimModuleSyntax` (→ `import type { X }` pour les types)
-- Custom types in `src/app/utils/types.ts` : `PostType`, `ProjectType`, `AvisType`
+- Custom types in `src/core/utils/utils.ts` : `PostType`, `ProjectType`, `AvisType`
 - React 19 avec JSX automatic runtime
 
 ## Routing & Internationalization
 **French-first routing** (all routes in French):
 - `/a-propos`, `/realisations`, `/blog`, `/solutions`, `/webmaster-albi`, `/estimation`, `/site-check`
 - Redirects in `next.config.mjs` : `/about` → `/a-propos`, `/work` → `/realisations`
-- Breadcrumbs in `src/app/resources/config.js` : maps route names to content entries
-- Password-protected routes : `protectedRoutes` object dans `config.js` (ex : `/atomicbd81`) + `src/components/PasswordProtect.tsx`
+- Breadcrumbs in `src/core/config/config.js` : maps route names to content entries
+- Password-protected routes : `protectedRoutes` object dans `config.js` (ex : `/atomicbd81`) + `src/shared/components/PasswordProtect.tsx`
 
 ---
 
@@ -191,7 +191,7 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 - Dynamic pages : `generateMetadata()` async
 - **Sitemap:** `src/app/sitemap.ts` (routes + posts MDX) · **Robots:** `src/app/robots.ts`
 - **Schema.org** dans `src/app/layout.tsx` : LocalBusiness + avis Google, offres depuis `estimationData.ts`, BlogPosting pour articles
-- **OG images :** statiques `public/images/og/` · génération dynamique `src/app/og/route.tsx` · scraping `src/app/api/og/fetch/route.ts` · proxy `src/app/api/og/proxy/route.ts`
+- **OG images :** statiques `public/images/og/` · génération dynamique `src/app/og/` · scraping `src/app/api/og/fetch/` · proxy `src/app/api/og/proxy/`
 
 ---
 
@@ -232,14 +232,14 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 1. Create `content/projects/<slug>.mdx` dans le dépôt `bardy-michael-content`
 2. Fetch via `getProjects()` in realisations page
 3. Page : `src/app/(main)/realisations/[slug]/page.tsx`
-4. Composants : `src/components/realisations/`
-5. API : `src/app/api/project/[slug]/route.ts`
+4. Composants : `src/modules/projects/components/`
+5. API : `src/app/api/project/[slug]/`
 
 ## Adding a new page with metadata
 ```tsx
 // File: src/app/(main)/new-page/page.tsx
 import { Meta } from "@once-ui-system/core";
-import { baseURL } from "@/app/resources";
+import { baseURL } from "@/core/config";
 export async function generateMetadata() {
   return Meta.generate({
     title: "Page Title",
@@ -269,32 +269,51 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
 
 # 🔍 File Organization Reference
 ```
-src/app/
-├── resources/          # ← Config hub (start here)
-│   ├── config.js      # Routes, fonts, effects, baseURL, protectedRoutes
-│   ├── content.js     # All content strings (JSX)
-│   └── icons.ts       # Icon library
-├── layout.tsx         # Root layout + schema.org
-├── og/route.tsx       # OG image generation
-├── (main)/
-│   ├── layout.tsx     # Shared layout (Header/Footer/RDV)
-│   ├── blog/[slug]/   # Blog post pages
-│   ├── realisations/  # Portfolio pages
-│   ├── estimation/    # Parallel routes @headline/@resume
-│   ├── site-check/    # Audit de site
-│   └── [other]/       # French routes
-├── api/               # API endpoints
-│   ├── cron/          # Scheduled jobs (Vercel)
-│   ├── og/            # OpenGraph scraping/proxy
-│   ├── post/[slug]/   # Blog post API
-│   └── cal/           # Calendar endpoints
-└── utils/
-    ├── serverActions.ts   # ← GitHub MDX queries here
-    ├── siteCheck/         # Audit engine (perf/seo/a11y/mobile/security)
-    └── types.ts           # TypeScript interfaces
-
-src/modules/seo/       # Meta.tsx, Schema.tsx
-src/lib/               # google/, pdf/, puppeteer/, schema/, jsxSvg/
-src/components/        # Header, Footer, mdx.tsx, chart/, [section]/
-src/utils/db.ts        # Neon Postgres + Drizzle
+src/
+├── app/                    # Routes Next.js (App Router)
+│   ├── layout.tsx          # Root layout + schema.org
+│   ├── og/                 # OG image generation
+│   ├── (main)/             # Routes FR (layout partagé Header/Footer)
+│   │   ├── blog/[slug]/    # Articles MDX
+│   │   ├── realisations/   # Portfolio projets
+│   │   ├── estimation/     # Parallel routes @headline/@resume
+│   │   ├── site-check/     # Audit de site
+│   │   ├── a-propos/
+│   │   ├── solutions/
+│   │   ├── webmaster-albi/
+│   │   ├── mentions-legales/
+│   │   └── atomicbd81/     # Protégée par mot de passe
+│   ├── api/                # API endpoints
+│   │   ├── cron/           # Scheduled jobs (Vercel)
+│   │   ├── og/             # OpenGraph scraping/proxy
+│   │   ├── post/[slug]/    # Blog post API
+│   │   ├── project/[slug]/ # Project API
+│   │   ├── cal/            # Calendar endpoints
+│   │   ├── estimation/     # Estimation API
+│   │   ├── revalidate/     # Revalidation ISR
+│   │   ├── content-image/  # Proxy images
+│   │   └── github/         # GitHub stats
+│   ├── resources/          # ← SUPPRIMÉ (utiliser src/core/config/)
+│   └── utils/              # ← SUPPRIMÉ (utiliser src/core/utils/)
+├── core/                   # ← Cœur applicatif
+│   ├── config/             # Hub config (config.js, content.js, icons.ts)
+│   ├── database/           # Neon Postgres + Drizzle
+│   ├── github/             # Data layer GitHub (githubContent.ts)
+│   ├── utils/              # Types + helpers (utils.ts, formatDate.ts, urlUtils.ts)
+│   └── Providers.tsx       # ThemeProvider, IconProvider, ToastProvider
+├── modules/                # ← Architecture MVC par domaine
+│   ├── seo/                # Meta.tsx, Schema.tsx
+│   ├── blog/               # Module blog (controllers, models, views, components)
+│   ├── estimation/         # Module estimation
+│   ├── projects/           # Module projets/réalisations
+│   ├── pwa/                # Module PWA (controllers, views)
+│   ├── reactions/          # Module réactions/commentaires
+│   ├── calendar/           # Module calendrier
+│   └── site-check/         # Audit de site (perf, seo, a11y, mobile, sécurité)
+├── shared/                 # ← Composants/libs partagés
+│   ├── components/         # Header, Footer, ThemeToggle, PasswordProtect, etc.
+│   ├── ui/                 # chart/, animateNumber/
+│   └── lib/                # google/, pdf/, puppeteer/, jsxSvg/
+├── breakpoints.scss         # Breakpoints SCSS
+└── __tests__/              # Tests unitaires (Vitest)
 ```

@@ -8,9 +8,9 @@ Ce dépôt contient le code source du site portfolio de **Michael Bardy**, déve
 
 ## 🚀 Technologies utilisées
 
-- **Next.js 16** — App Router, Turbopack en dev
-- **React 19** + **TypeScript** (mode strict) — typage fort pour un code robuste
-- **Once UI** (`@once-ui-system/core`) — design system, complété par des SCSS Modules
+- **Next.js 16.3.8** — App Router, Turbopack en dev
+- **React 19.2.8** + **TypeScript 5.9** (mode strict) — typage fort pour un code robuste
+- **Once UI 2.0** (`@once-ui-system/core`) — design system, complété par des SCSS Modules
 - **MDX** — contenu blog/projets depuis le dépôt `bardy-michael-content` (API GitHub + cache ISR)
 - **Neon Postgres + Drizzle ORM** — données (réactions, commentaires…)
 - **Vercel** — déploiement serverless, crons et Edge Config
@@ -60,6 +60,7 @@ Les instructions pour les assistants de code (Copilot, Hermes, Claude…) sont d
 - `AGENTS.md` — conventions, architecture, pièges (source de vérité)
 - `llms.txt` — index des fichiers clés
 - `.github/copilot-instructions.md` — patterns détaillés
+- `.github/agents/once-ui.md` — API complète Once UI 2.0
 
 ## 📄 À propos
 

@@ -4,7 +4,7 @@
 
 Once UI is a comprehensive indie design system and component library built specifically for Next.js applications. It provides developers with 110+ pre-built React components featuring built-in styling, animations, and accessibility support, eliminating the need for custom CSS while maintaining complete design flexibility. The library emphasizes a design-first approach with a cohesive design language, customizable themes, and seamless integration with Next.js 13+ server and client component patterns.
 
-At its core, Once UI delivers a rich ecosystem of layout components (Flex, Grid), typography elements (Text, Heading), interactive controls (Button, Input, Select, DatePicker), data visualization tools (BarChart, LineChart, PieChart), and over 15 visual effect components (RevealFx, TypeFx, CountFx, GlitchFx) powered by a robust theming system with 13 color schemes and extensive customization options. The library is distributed as `@once-ui-system/core` (v1.5.2, MIT licensed) and includes full TypeScript support, ARIA accessibility features, and optimized server/client component rendering for superior performance in production environments.
+At its core, Once UI delivers a rich ecosystem of layout components (Flex, Grid), typography elements (Text, Heading), interactive controls (Button, Input, Select, DatePicker), data visualization tools (BarChart, LineChart, PieChart), and over 15 visual effect components (RevealFx, TypeFx, CountFx, GlitchFx) powered by a robust theming system with 13 color schemes and extensive customization options. The library is distributed as `@once-ui-system/core` (v2.0.0, MIT licensed) and includes full TypeScript support, ARIA accessibility features, and optimized server/client component rendering for superior performance in production environments.
 
 ---
 
@@ -24,11 +24,11 @@ import '@once-ui-system/core/css/styles.css';
 import '@once-ui-system/core/css/tokens.css';
 import {
   ThemeProvider,
-  LayoutProvider,
   DataThemeProvider,
   ToastProvider,
   IconProvider
 } from '@once-ui-system/core';
+import { LayoutProvider } from '@once-ui-system/core/next';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -496,7 +496,7 @@ export function ToastExample() {
 Data visualization with customizable series and legends
 
 ```typescript
-import { BarChart } from '@once-ui-system/core/modules';
+import { BarChart } from '@once-ui-system/core/data';
 
 export function BarChartExample() {
   const salesData = [
@@ -537,7 +537,7 @@ export function BarChartExample() {
 Time-series data visualization with date formatting
 
 ```typescript
-import { LineChart } from '@once-ui-system/core/modules';
+import { LineChart } from '@once-ui-system/core/data';
 
 export function LineChartExample() {
   const timeSeriesData = [
@@ -601,7 +601,7 @@ export function LineChartExample() {
 Syntax-highlighted code with 140+ language support
 
 ```typescript
-import { CodeBlock } from '@once-ui-system/core/modules';
+import { CodeBlock } from '@once-ui-system/core/code';
 
 export function CodeBlockExample() {
   return (

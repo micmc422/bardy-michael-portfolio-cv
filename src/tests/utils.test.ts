@@ -25,6 +25,14 @@ describe('slugify', () => {
   it('should handle special characters', () => {
     expect(slugify('Café résumé')).toBe('caf-rsum')
   })
+
+  it('should handle numbers', () => {
+    expect(slugify('Project 2024')).toBe('project-2024')
+  })
+
+  it('should handle multiple spaces and special chars', () => {
+    expect(slugify('  Hello   World!  ')).toBe('-hello-world-')
+  })
 })
 
 describe('delay', () => {
@@ -32,22 +40,30 @@ describe('delay', () => {
     const start = Date.now()
     await delay(100)
     const elapsed = Date.now() - start
-    expect(elapsed).toBeGreaterThanOrEqual(90) // Allow some tolerance
+    expect(elapsed).toBeGreaterThanOrEqual(90)
     expect(elapsed).toBeLessThan(200)
+  })
+
+  it('should resolve with undefined', async () => {
+    const result = await delay(10)
+    expect(result).toBeUndefined()
   })
 })
 
 describe('convertirTimestampGoogle', () => {
   it('should convert a Google timestamp to ISO date format', () => {
-    // 1704067200 = 2024-01-01T00:00:00Z
     const result = convertirTimestampGoogle(1704067200)
     expect(result).toBe('2024-01-01')
   })
 
   it('should handle timestamp from different year', () => {
-    // 1640995200 = 2022-01-01T00:00:00Z
     const result = convertirTimestampGoogle(1640995200)
     expect(result).toBe('2022-01-01')
+  })
+
+  it('should handle timestamp with time component', () => {
+    const result = convertirTimestampGoogle(1704067200 + 3600)
+    expect(result).toBe('2024-01-01')
   })
 })
 
@@ -63,8 +79,12 @@ describe('getRandomSixDigitNumber', () => {
     for (let i = 0; i < 10; i++) {
       numbers.add(getRandomSixDigitNumber())
     }
-    // It's very unlikely to get 10 identical random numbers
     expect(numbers.size).toBeGreaterThan(1)
+  })
+
+  it('should always return an integer', () => {
+    const num = getRandomSixDigitNumber()
+    expect(Number.isInteger(num)).toBe(true)
   })
 })
 
@@ -75,6 +95,10 @@ describe('isValidEmail', () => {
 
   it('should return true for email with subdomain', () => {
     expect(isValidEmail('user@mail.example.com')).toBe(true)
+  })
+
+  it('should return true for email with +', () => {
+    expect(isValidEmail('user+tag@example.com')).toBe(true)
   })
 
   it('should return false for email without @', () => {
@@ -96,6 +120,10 @@ describe('isValidEmail', () => {
   it('should return false for empty string', () => {
     expect(isValidEmail('')).toBe(false)
   })
+
+  it('should return false for email with spaces', () => {
+    expect(isValidEmail('test @example.com')).toBe(false)
+  })
 })
 
 describe('toQueryParams', () => {
@@ -112,5 +140,10 @@ describe('toQueryParams', () => {
   it('should handle empty values array', () => {
     const result = toQueryParams('tag', [])
     expect(result).toBe('')
+  })
+
+  it('should URL-encode special characters', () => {
+    const result = toQueryParams('q', ['hello world'])
+    expect(result).toBe('q=hello+world')
   })
 })

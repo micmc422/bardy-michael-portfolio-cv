@@ -36,19 +36,33 @@ Vérification avant de livrer : `pnpm test && pnpm lint && pnpm build`.
 
 | Chemin | Rôle |
 |---|---|
-| `src/app/resources/config.js` | **Hub config** : baseURL, routes, protectedRoutes, fonts, style/effects |
-| `src/app/resources/content.js` | Tout le contenu (person, home, about, blog, work, services…) — JSX inline |
+| `src/core/config/config.js` | **Hub config** : baseURL, routes, protectedRoutes, fonts, style/effects |
+| `src/core/config/content.js` | Tout le contenu (person, home, about, blog, work, services…) — JSX inline |
+| `src/core/config/icons.ts` | Icônes custom (IconLibraryOverrides) |
+| `src/core/Providers.tsx` | ThemeProvider, IconProvider, ToastProvider |
 | `src/app/layout.tsx` | Root layout : Once UI css, Meta, Schema.org (LocalBusiness + avis Google) |
-| `src/app/(main)/` | Routes FR : `a-propos`, `realisations`, `blog`, `estimation`, `solutions`, `webmaster-albi`, `site-check`, `atomicbd81` |
-| `src/lib/githubContent.ts` | **Data layer GitHub** : lit les MDX depuis `bardy-michael-content` via API + raw |
+| `src/app/(main)/` | Routes FR : `a-propos`, `realisations`, `blog`, `estimation`, `solutions`, `webmaster-albi`, `site-check`, `atomicbd81`, `mentions-legales` |
+| `src/core/github/githubContent.ts` | **Data layer GitHub** : lit les MDX depuis `bardy-michael-content` via API + raw |
+| `src/core/database/` | Neon Postgres + Drizzle ORM |
+| `src/core/utils/utils.ts` | `PostType`, `ProjectType`, `AvisType` + helpers |
 | `src/app/api/content-image/` | Proxy d'images depuis le dépôt de contenu (sans copie dans `public/blog`) |
-| `src/app/utils/types.ts` | `PostType`, `ProjectType`, `AvisType` |
 | `src/app/api/` | Routes API : `post/[slug]`, `project/[slug]`, `github/…`, `cal/…`, `og/…`, `estimation/[type]`, `revalidate/…`, `cron/…` |
 | `src/app/api/cron/` | Crons Vercel (voir `vercel.json`) : indexNow, social-share (LinkedIn/FB), refresh-facebook-token |
 | `src/modules/seo/` | `Meta.tsx`, `Schema.tsx` |
-| `src/components/` | Composants ; `mdx.tsx` = composants MDX custom ; `chart/` = client |
-| `src/lib/` | google (Calendar), pdf (EstimationPdf), puppeteer, schema, jsxSvg |
-| `src/app/utils/siteCheck/` | Audit de site (perf, seo, a11y, mobile, sécurité) |
+| `src/modules/blog/` | Module blog (controllers, models, views, components) |
+| `src/modules/estimation/` | Module estimation (controllers, models, views, components) |
+| `src/modules/projects/` | Module projets/réalisations (controllers, models, views, components) |
+| `src/modules/pwa/` | Module PWA (controllers, views) |
+| `src/modules/reactions/` | Module réactions/commentaires (controllers, models, views) |
+| `src/modules/calendar/` | Module calendrier (controllers, views) |
+| `src/modules/site-check/` | Audit de site (perf, seo, a11y, mobile, sécurité) |
+| `src/shared/components/` | Composants partagés (Header, Footer, ThemeToggle, etc.) |
+| `src/shared/ui/` | UI partagée (chart, animateNumber) |
+| `src/shared/lib/` | Libs partagées (google, pdf, puppeteer, jsxSvg) |
+| `src/shared/lib/google/` | Google APIs (Calendar, GMB reviews) |
+| `src/shared/lib/pdf/` | Génération PDF (EstimationPdf) |
+| `src/shared/lib/puppeteer/` | Puppeteer pour site-check |
+| `src/shared/lib/jsxSvg/` | Utilitaires JSX/SVG |
 
 Alias : `@/*` → `./src/*`.
 
@@ -56,7 +70,7 @@ Alias : `@/*` → `./src/*`.
 
 1. **Server Components par défaut** ; `"use client"` seulement si events/hooks/APIs navigateur.
 2. **Once UI 2.0 d'abord** : layout via props (`fillWidth`, `gap="m"`, `paddingX="s"`), jamais de CSS custom sur ses composants. SCSS Modules réservés aux composants maison.
-   - **Imports 2.0** : `LayoutProvider` → `@once-ui-system/core/next` ; charts (`BarChart`, `ChartProps`, `DataPoint`, `ChartVariant`…) → `@once-ui-system/core/data` ; `CodeBlock` → `@once-ui-system/core/code` ; `MediaUpload` → `@once-ui-system/core/media`. `Icon.name` est typé `IconName` — les noms custom du projet sont déclarés via `IconLibraryOverrides` dans `src/app/resources/icons.ts`.
+   - **Imports 2.0** : `LayoutProvider` → `@once-ui-system/core/next` ; charts (`BarChart`, `ChartProps`, `DataPoint`, `ChartVariant`…) → `@once-ui-system/core/data` ; `CodeBlock` → `@once-ui-system/core/code` ; `MediaUpload` → `@once-ui-system/core/media`. `Icon.name` est typé `IconName` — les noms custom du projet sont déclarés via `IconLibraryOverrides` dans `src/core/config/icons.ts`.
    - **Questions exploratoires** via MCP **context7** (`resolve-library-id` → `query-docs` sur `/once-ui-system/core`).
 
 <!-- once-ui-agent-harness:start -->
