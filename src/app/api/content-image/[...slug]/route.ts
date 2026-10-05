@@ -46,7 +46,26 @@ export async function GET(
     });
   }
 
-  // Prod / fallback : redirection vers l'asset brut public de GitHub
+  // Prod / fallback : servir l'image directement (next/image ne suit pas les 302)
   const rawUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/${rel}`;
-  return NextResponse.redirect(rawUrl, { status: 302 });
+  try {
+    const resp = await fetch(rawUrl, {
+      headers: { "User-Agent": "occitaweb.fr" },
+      next: { revalidate: 3600 },
+    });
+    if (!resp.ok) {
+      return new NextResponse("Not found", { status: resp.status });
+    }
+    const buf = await resp.arrayBuffer();
+    const ext = path.extname(rel).slice(1);
+    const type = ext === "webp" ? "image/webp" : ext === "png" ? "image/png" : "image/jpeg";
+    return new NextResponse(buf, {
+      headers: {
+        "Content-Type": type,
+        "Cache-Control": "public, max-age=31536000, immutable",
+      },
+    });
+  } catch {
+    return new NextResponse("Not found", { status: 502 });
+  }
 }
