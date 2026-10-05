@@ -11,14 +11,14 @@
 - `next.config.mjs` - MDX, images, redirects, headers sécurité/cache
 - `src/app/Providers.tsx` - theme/icon/toast setup
 - `tsconfig.json` - path alias `@/*`, strictness (`verbatimModuleSyntax` → `import type` obligatoire)
-- `.env.local` - secrets (DATABASE_URL, WISP_BLOG_ID, etc.) — jamais commité
+- `.env.local` - secrets (DATABASE_URL, GITHUB_TOKEN, etc.) — jamais commité
 
 ---
 
 # Architecture & Patterns
 
 ## 🎨 Once UI Design System
-Portfolio utilise **@once-ui-system/core** (v1.6.x) pour tous les composants UI. La philosophie : composants avec props plutôt que CSS custom. API détaillée : `.github/agents/once-ui.md`.
+Portfolio utilise **@once-ui-system/core** (v2.0.0) pour tous les composants UI. La philosophie : composants avec props plutôt que CSS custom. API détaillée : `.github/agents/once-ui.md`.
 
 **Essentials:**
 - Import depuis `@once-ui-system/core` : `Flex, Grid, Column, Row, Button, Meta, etc.`
@@ -32,7 +32,7 @@ Portfolio utilise **@once-ui-system/core** (v1.6.x) pour tous les composants UI.
 ---
 
 ## 🏗️ Next.js 16 App Router Architecture
-Next.js **16.2.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisées par domaine fonctionnel :
+Next.js **16.3.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisées par domaine fonctionnel :
 - `(main)` groupe de routes avec layout partagé : Header + RDV + Footer + CookieConsent
 - Routes françaises : `/a-propos`, `/realisations`, `/blog`, `/estimation`, `/webmaster-albi`, `/solutions`, `/site-check`, `/atomicbd81` (protégée)
 - Redirects permanentes (ex : `/about` → `/a-propos`) via `next.config.mjs`
@@ -41,7 +41,7 @@ Next.js **16.2.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisée
   - Toutes retournent `NextResponse.json()`
 
 **Key Pages:**
-- `src/app/(main)/blog/[slug]/page.tsx` - articles Wisp CMS avec commentaires
+- `src/app/(main)/blog/[slug]/page.tsx` - articles MDX depuis GitHub avec commentaires
 - `src/app/(main)/realisations/` - portfolio projets
 - `src/app/(main)/estimation/` - parallel routes (`@headline`, `@resume`) + `estimationData.ts`
 - `src/app/(main)/site-check/[url]/` - audit de site en ligne (moteur : `src/app/utils/siteCheck/`)
@@ -64,7 +64,7 @@ Next.js **16.2.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisée
 **Server Actions:** `src/app/utils/serverActions.ts` & `src/app/pwaActions.ts`
 - Directive `'use server'` au top
 - Cache avec `unstable_cache(fn, ['cache-key'], { revalidate: 3600 })`
-- Pattern: Wisp CMS queries (getPosts, getPostBySlug, getRelatedPost, getTags, getProjects)
+- Pattern: GitHub MDX queries (getPosts, getPostBySlug, getRelatedPost, getTags, getProjects)
 - Form actions via `formAction` prop (HTML pattern)
 
 ---
@@ -99,12 +99,11 @@ Toute config vit dans `src/app/resources/` - single source of truth:
 - Connection via `src/utils/db.ts` : Neon HTTP + WebSocket (Edge compatible)
 - Usage: `import { db } from "@/utils/db"` — env : `DATABASE_URL`
 
-### Wisp CMS (Blog & Projets)
-- Client : `src/app/utils/wispClient.ts` → `buildWispClient({ blogId: process.env.WISP_BLOG_ID })`
-- Server Actions pattern : `getPosts({ limit, page, tags })`, `getPostBySlug(slug)`, `getTags()`, `getProjects()`
-- **Caching:** `unstable_cache()` with 3600s revalidate — ne jamais appeler `wisp.*` directement dans une page
-- Post format conversion: `formatPostData()` transforms Wisp → internal `PostType`
-- Comments : `createComment()` action avec validation
+### GitHub MDX (Blog & Projets)
+- Data layer : `src/lib/githubContent.ts` — lit les MDX depuis `bardy-michael-content` via API GitHub (raw.githubusercontent.com)
+- Cache ISR 3600s avec `unstable_cache`
+- Images servies via `/api/content-image/...` (proxy 302 → GitHub raw en prod, lecture locale en dev)
+- **Pas de rebuild nécessaire** pour publier du contenu
 
 ### Google APIs
 - `src/lib/google/` : service account (GMB reviews), env `GOOGLE_SERVICE_ACCOUNT_KEY`, `GOOGLE_PLACE_ID`, `GOOGLE_LOCATION_ID`, `GOOGLE_PLACE_API_KEY`
@@ -124,7 +123,7 @@ Toute config vit dans `src/app/resources/` - single source of truth:
 ## 📝 MDX & Content Management
 - MDX enabled via `@next/mdx` plugin (`next.config.mjs`), extensions `.md`/`.mdx`/`.ts`/`.tsx`
 - Custom MDX components : `src/components/mdx.tsx` (Code, Blockquote, Link, etc.)
-- Gray-matter : frontmatter parsing · Prism.js : syntax highlighting
+- Contenu dans le dépôt séparé `bardy-michael-content` (sous-module `content/`)
 
 # 🚀 Workflows & Commands
 
@@ -174,7 +173,7 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 ## TypeScript Configuration
 - Path alias: `@/*` → `./src/*` (tsconfig.json)
 - Strict mode: `noUncheckedIndexedAccess`, `strictNullChecks`, `noImplicitAny`, `verbatimModuleSyntax` (→ `import type { X }` pour les types)
-- Custom types in `src/app/utils/types.ts` : `PostType`, `WispPost`, `ProjectType`, `AvisType`
+- Custom types in `src/app/utils/types.ts` : `PostType`, `ProjectType`, `AvisType`
 - React 19 avec JSX automatic runtime
 
 ## Routing & Internationalization
@@ -190,7 +189,7 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 - `src/modules/seo/` : `Meta.tsx` + `Schema.tsx` (rich data maison)
 - `Meta.generate()` (Once UI) dans `src/app/layout.tsx` pour metadata globales
 - Dynamic pages : `generateMetadata()` async
-- **Sitemap:** `src/app/sitemap.ts` (routes + posts Wisp) · **Robots:** `src/app/robots.ts`
+- **Sitemap:** `src/app/sitemap.ts` (routes + posts MDX) · **Robots:** `src/app/robots.ts`
 - **Schema.org** dans `src/app/layout.tsx` : LocalBusiness + avis Google, offres depuis `estimationData.ts`, BlogPosting pour articles
 - **OG images :** statiques `public/images/og/` · génération dynamique `src/app/og/route.tsx` · scraping `src/app/api/og/fetch/route.ts` · proxy `src/app/api/og/proxy/route.ts`
 
@@ -199,7 +198,7 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 ## Image Management
 - Next.js Image, formats AVIF/WebP (`next.config.mjs`)
 - Remote patterns : `imagedelivery.net` (Cloudflare), `lh3.googleusercontent.com`, `avatars.githubusercontent.com`, `www.google.com`
-- Local : `public/images/` (`blog/`, `projects/`, `og/`, `gallery/`)
+- Images de couverture : `image.webp` (site) + `image.png` (OG) — voir `content/docs/image-generation.md`
 - Cache immutable 1 an sur `/images`, `/fonts`, `/trademark` (headers)
 
 ---
@@ -207,7 +206,7 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 ## Environment Variables
 `.env.local` (liste réelle, vérifiée par grep dans src/) :
 - `DATABASE_URL` - Neon Postgres
-- `WISP_BLOG_ID` - Wisp CMS
+- `CONTENT_REPO_TOKEN` / `GITHUB_TOKEN` - API GitHub (lecture MDX)
 - `NEXT_PUBLIC_VAPID_PUBLIC_KEY` / `VAPID_PRIVATE_KEY` - PWA push
 - `CRON_SECRET` - auth des crons Vercel
 - `GOOGLE_SERVICE_ACCOUNT_KEY`, `GOOGLE_PLACE_ID`, `GOOGLE_PLACE_API_KEY`, `GOOGLE_LOCATION_ID` - Google APIs
@@ -224,14 +223,13 @@ pnpm clean          # depcheck + ts-prune + npm-check + eslint --fix
 # 🎯 Common Implementation Tasks
 
 ## Adding a new blog post
-1. Create post in Wisp CMS dashboard (title, slug, content)
-2. Post auto-fetched via `getPostBySlug()` server action (cached 3600s)
-3. Page renders via `src/app/(main)/blog/[slug]/page.tsx`
-4. Comments use `createComment()` server action
-5. Social sharing auto via cron `social-share`
+1. Create `content/blog/<slug>.mdx` dans le dépôt `bardy-michael-content`
+2. Ajouter l'image de couverture dans `blog/<slug>/image.webp` + `image.png`
+3. Le site récupère le MDX via API GitHub (cache ISR 3600s)
+4. Social sharing auto via cron `social-share`
 
 ## Adding a new project/réalisation
-1. Create project in Wisp CMS
+1. Create `content/projects/<slug>.mdx` dans le dépôt `bardy-michael-content`
 2. Fetch via `getProjects()` in realisations page
 3. Page : `src/app/(main)/realisations/[slug]/page.tsx`
 4. Composants : `src/components/realisations/`
@@ -291,8 +289,7 @@ src/app/
 │   ├── post/[slug]/   # Blog post API
 │   └── cal/           # Calendar endpoints
 └── utils/
-    ├── serverActions.ts   # ← Wisp CMS queries here
-    ├── wispClient.ts      # CMS initialization
+    ├── serverActions.ts   # ← GitHub MDX queries here
     ├── siteCheck/         # Audit engine (perf/seo/a11y/mobile/security)
     └── types.ts           # TypeScript interfaces
 

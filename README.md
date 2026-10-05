@@ -11,7 +11,7 @@ Ce dépôt contient le code source du site portfolio de **Michael Bardy**, déve
 - **Next.js 16** — App Router, Turbopack en dev
 - **React 19** + **TypeScript** (mode strict) — typage fort pour un code robuste
 - **Once UI** (`@once-ui-system/core`) — design system, complété par des SCSS Modules
-- **Wisp CMS** — blog et réalisations (headless)
+- **MDX** — contenu blog/projets depuis le dépôt `bardy-michael-content` (API GitHub + cache ISR)
 - **Neon Postgres + Drizzle ORM** — données (réactions, commentaires…)
 - **Vercel** — déploiement serverless, crons et Edge Config
 - **Vitest + Testing Library** — tests unitaires

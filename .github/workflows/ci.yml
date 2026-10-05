@@ -82,8 +82,7 @@ jobs:
       - name: Build application
         run: pnpm build
         env:
-          WISP_BLOG_ID: ${{ secrets.WISP_BLOG_ID }}
-          NEXT_PUBLIC_WISP_BLOG_ID: ${{ secrets.WISP_BLOG_ID }}
+          NEXT_PUBLIC_VAPID_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_VAPID_PUBLIC_KEY }}
 
   preview:
     runs-on: ubuntu-latest
