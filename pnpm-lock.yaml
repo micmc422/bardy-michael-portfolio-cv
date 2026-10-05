@@ -35,9 +35,6 @@ importers:
       '@vercel/edge-config':
         specifier: ^1.4.3
         version: 1.4.3(next@16.3.8(@babel/core@7.29.7)(@types/node@22.20.5)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.105.1))
-      '@wisp-cms/client':
-        specifier: ^0.0.23
-        version: 0.0.23
       chart.js:
         specifier: ^4.5.1
         version: 4.5.1
@@ -2058,9 +2055,6 @@ packages:
 
   '@vue/shared@3.5.31':
     resolution: {integrity: sha512-nBxuiuS9Lj5bPkPbWogPUnjxxWpkRniX7e5UBQDWl6Fsf4roq9wwV+cR7ezQ4zXswNvPIlsdj1slcLB7XCsRAw==}
-
-  '@wisp-cms/client@0.0.23':
-    resolution: {integrity: sha512-8G5+Cl4Nrfn/cOYpOtASzfzJy09St6RuhY02kvJAh4NA+rtyag+ce2ZPcK/jUI3lGPMoAVctTIp72osveZ+nyQ==}
 
   abs-svg-path@0.1.1:
     resolution: {integrity: sha512-d8XPSGjfyzlXC3Xx891DJRyZfqk5JU0BJrDQcsWomFIV1/BIzPW5HDH5iDdWpqWaav0YVIEzT1RHTwWr0FFshA==}
@@ -4943,10 +4937,6 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  url-join@5.0.0:
-    resolution: {integrity: sha512-n2huDr9h9yzd6exQVnH/jU5mr+Pfx08LRXXZhkLLetAMESRj+anQsTAh940iMrIetKAmry9coFuZQ2jY8/p3WA==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
   use-sync-external-store@1.6.0:
     resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
@@ -7008,10 +6998,6 @@ snapshots:
       '@vue/shared': 3.5.31
 
   '@vue/shared@3.5.31': {}
-
-  '@wisp-cms/client@0.0.23':
-    dependencies:
-      url-join: 5.0.0
 
   abs-svg-path@0.1.1: {}
 
@@ -10749,8 +10735,6 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
-
-  url-join@5.0.0: {}
 
   use-sync-external-store@1.6.0(react@19.2.8):
     dependencies:
