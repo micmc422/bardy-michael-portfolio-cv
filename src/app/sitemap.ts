@@ -2,18 +2,25 @@ import { getPosts, getProjects } from "@/app/utils/serverActions";
 import { baseURL, routes as routesConfig } from "@/app/resources";
 import { siteTypes } from "./(main)/estimation/estimationData";
 
+/** Normalise une date en ISO 8601 (W3C Datetime) pour le sitemap. */
+function toISODate(date: string | null | undefined): string {
+  if (!date) return new Date().toISOString();
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return new Date().toISOString();
+  return d.toISOString();
+}
 
 export default async function sitemap() {
   const posts = (await getPosts({ limit: "all" })).map((post) => ({
     url: `${baseURL}/blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+    lastModified: toISODate(post.metadata.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
   const works = (await getProjects({ limit: "all" })).map((post) => ({
     url: `${baseURL}/realisations/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+    lastModified: toISODate(post.metadata.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
@@ -21,7 +28,7 @@ export default async function sitemap() {
   const activeRoutes = Object.keys(routesConfig).filter((route) => routesConfig[route as keyof typeof routesConfig]);
 
   const routesPromise = activeRoutes.map(async (route) => {
-    const lastModified = await getFileData(route !== "/" ? route : "/(main)")
+    const lastModified = await getFileData(route !== "/" ? `/(main)${route}` : "/(main)")
     return {
       url: `${baseURL}${route !== "/" ? route : ""}`,
       lastModified,
