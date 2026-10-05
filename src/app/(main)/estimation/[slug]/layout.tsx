@@ -1,10 +1,10 @@
-import { baseURL } from "@/app/resources";
-import { estimation, person } from "@/app/resources/content";
+import { baseURL } from "@/core/config";
+import { estimation, person } from "@/core/config/content";
  import Meta from "@/modules/seo/Meta";
 import { Suspense, type ReactNode } from "react";
-import { siteTypes } from "../estimationData";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
 import { notFound } from "next/navigation";
-import { DraggableFlexRow } from "@/components/DraggableRow";
+import { DraggableFlexRow } from "@/shared/components/DraggableRow";
 import { Row, ToggleButton, type IconName } from "@once-ui-system/core";
 import Schema from "@/modules/seo/Schema";
 

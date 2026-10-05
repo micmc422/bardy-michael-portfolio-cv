@@ -1,9 +1,9 @@
 "use server"
 
 import { Button, Column, Heading, Skeleton } from "@once-ui-system/core";
-import { Mailchimp } from "@/components";
+import { Mailchimp } from "@/shared/components";
 // Importation dynamique pour Posts
-const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Posts), {
+const Posts = dynamic(() => import('@/modules/blog/views/Posts').then(mod => mod.Posts), {
   loading: () => <Column>
     <Skeleton shape="block" minHeight={"40"} />
     <Skeleton shape="line" size="xl" width="75%" />
@@ -11,8 +11,8 @@ const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Po
   </Column>,
 });
 
-import { baseURL } from "@/app/resources";
-import { blog, person, newsletter } from "@/app/resources/content";
+import { baseURL } from "@/core/config";
+import { blog, person, newsletter } from "@/core/config/content";
  import Meta from "@/modules/seo/Meta";
 import dynamic from "next/dynamic";
 import Schema from "@/modules/seo/Schema";

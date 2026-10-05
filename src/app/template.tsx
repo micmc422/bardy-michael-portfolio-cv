@@ -1,6 +1,6 @@
 "use client";
 
-import { Providers } from "./Providers";
+import { Providers } from "@/core/Providers";
 
 export default function RootTemplate({ children }: { children: React.ReactNode; }) {
     return (

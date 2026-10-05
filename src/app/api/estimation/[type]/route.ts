@@ -1,4 +1,4 @@
-import { PdfReadleStream } from "@/lib/pdf/renderBuffer"
+import { PdfReadleStream } from "@/shared/lib/pdf/renderBuffer"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 

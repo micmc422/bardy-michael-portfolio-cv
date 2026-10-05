@@ -1,10 +1,10 @@
 import { redirect } from "next/navigation";
 import { Column, Heading, Text, Input, Button, Row, Icon, type IconName } from "@once-ui-system/core";
-import { baseURL } from "../../resources";
-import { siteCheck, person } from "../../resources/content";
+import { baseURL } from "@/core/config";
+import { siteCheck, person } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
-import { isValidUrl, normalizeUrl } from "@/app/utils/urlUtils";
+import { isValidUrl, normalizeUrl } from "@/core/utils/urlUtils";
 
 export async function generateMetadata() {
   return Meta.generate({

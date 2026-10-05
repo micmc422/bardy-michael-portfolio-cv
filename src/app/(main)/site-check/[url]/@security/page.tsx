@@ -1,5 +1,5 @@
-import { analyzeSecurity } from "@/app/utils/siteCheck";
-import { SecurityReport } from "@/components/site-check";
+import { analyzeSecurity } from "@/modules/site-check/services";
+import { SecurityReport } from "@/modules/site-check/views";
 
 interface PageParams {
   params: Promise<{ url: string }>;

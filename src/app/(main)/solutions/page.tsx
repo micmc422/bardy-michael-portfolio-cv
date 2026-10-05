@@ -1,6 +1,6 @@
 import { Background, Badge, Button, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text, type Opacity, type IconName } from "@once-ui-system/core";
-import { about, baseURL } from "../../resources";
-import { person, solutionsWeb } from "../../resources/content";
+import { about, baseURL } from "@/core/config";
+import { person, solutionsWeb } from "@/core/config/content";
  import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
 

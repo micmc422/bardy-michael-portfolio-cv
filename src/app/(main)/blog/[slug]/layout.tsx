@@ -1,7 +1,7 @@
-import { baseURL, blog, person } from "@/app/resources";
-import { formatDate } from "@/app/utils/formatDate";
-import { getPostBySlug, getRelatedPost } from "@/app/utils/serverActions";
-import { getReactions } from "@/components/reactions/serverActions";
+import { baseURL, blog, person } from "@/core/config";
+import { formatDate } from "@/core/utils/formatDate";
+import { getPostBySlug, getRelatedPost } from "@/modules/blog/controllers/serverActions";
+import { getReactions } from "@/modules/reactions/controllers/serverActions";
 import { AvatarGroup, Button, Column, Grid, Heading, HeadingNav, Icon, OgCard, Row, Skeleton, SmartLink, Spinner, Tag, Text } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
 import type { Metadata } from "next";
@@ -9,17 +9,17 @@ import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import Schema from "@/modules/seo/Schema";
 
-// import { SocialShareBar } from "@/components/SocialShare";
-const SocialShareBar = dynamic(() => import('@/components/SocialShare').then(mod => mod.SocialShareBar), {
+// import { SocialShareBar } from "@/shared/components/SocialShare";
+const SocialShareBar = dynamic(() => import('@/shared/components/SocialShare').then(mod => mod.SocialShareBar), {
     loading: () => <>
         <Skeleton shape="line" size="m" width="25%" />
     </>,
 });
 
-const ScrollToHash = dynamic(() => import('@/components/ScrollToHash'));
+const ScrollToHash = dynamic(() => import('@/shared/components/ScrollToHash'));
 
-// import CommentSection from "@/components/CommentSection";
-const CommentSection = dynamic(() => import('@/components/CommentSection'), {
+// import CommentSection from "@/modules/blog/components/CommentSection";
+const CommentSection = dynamic(() => import('@/modules/blog/components/CommentSection'), {
     loading: () => <Column>
         <Skeleton shape="line" size="xl" width="75%" />
         <Skeleton shape="line" size="m" width="50%" />
@@ -27,8 +27,8 @@ const CommentSection = dynamic(() => import('@/components/CommentSection'), {
     , // Composant optionnel affiche pendant le chargement
 });
 
-// import Post from "@/components/blog/Post";
-const Post = dynamic(() => import('@/components/blog/Post'), {
+// import Post from "@/modules/blog/views/Post";
+const Post = dynamic(() => import('@/modules/blog/views/Post'), {
     loading: () => <Column>
         <Skeleton shape="block" minHeight={"40"} />
         <Skeleton shape="line" size="xl" width="75%" />
@@ -37,8 +37,8 @@ const Post = dynamic(() => import('@/components/blog/Post'), {
 });
 
 
-// import { Reactions } from "@/components/reactions/Reactions";
-const Reactions = dynamic(() => import('@/components/reactions/Reactions').then(mod => mod.Reactions), {
+// import { Reactions } from "@/modules/reactions/views/Reactions";
+const Reactions = dynamic(() => import('@/modules/reactions/views/Reactions').then(mod => mod.Reactions), {
     loading: () => <Spinner />,
 });
 
@@ -81,7 +81,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
     const reactions = await getReactions(slug);
     const related = await getRelatedPost({ slug })
     const avatars =
-        post.metadata.team?.map((person) => ({
+        post.metadata.team?.map((person: { avatar: string }) => ({
             src: person.avatar,
         })) || [];
 
@@ -115,7 +115,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                         <Text variant="body-default-s" onBackground="neutral-weak">
                             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
                         </Text>
-                        {post.metadata.tags?.map(({ name }) => <Tag key={name} scheme="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
+                        {post.metadata.tags?.map(({ name }: { name: string }) => <Tag key={name} scheme="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
                     </Row>
                     <SocialShareBar />
                 </Column>

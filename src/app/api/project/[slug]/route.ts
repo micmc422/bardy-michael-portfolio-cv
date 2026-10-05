@@ -1,4 +1,4 @@
-import { getProject } from '@/app/utils/serverActions';
+import { getProject } from '@/modules/blog/controllers/serverActions';
 import { type NextRequest, NextResponse } from 'next/server';
 
 export async function GET(

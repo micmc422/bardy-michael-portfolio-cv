@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import { Column, Heading, Text, Row, Button, Icon } from "@once-ui-system/core";
-import { baseURL } from "@/app/resources";
-import { siteCheck, person } from "@/app/resources/content";
+import { baseURL } from "@/core/config";
+import { siteCheck, person } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
-import { isValidUrl } from "@/app/utils/urlUtils";
+import { isValidUrl } from "@/core/utils/urlUtils";
 import Link from "next/link";
 
 interface PageParams {

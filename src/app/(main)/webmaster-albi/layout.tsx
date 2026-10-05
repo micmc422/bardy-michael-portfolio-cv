@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { webmasterAlbi } from "../../resources/content";
-import { baseURL } from "../../resources";
+import { webmasterAlbi } from "@/core/config/content";
+import { baseURL } from "@/core/config";
 import { Column } from "@once-ui-system/core";
 
 export default async function WebmasterAlbiLayout({ children }: { children: ReactNode }) {

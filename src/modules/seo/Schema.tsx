@@ -1,9 +1,9 @@
 import React from "react";
-import { home, person, social } from "@/app/resources/content";
-import type { ReactionType } from "@/components/reactions/serverActions";
-import type { PostType } from "@/app/utils/types";
-import { baseURL, breadCrumbs } from "@/app/resources/config";
-import { siteTypes } from "@/app/(main)/estimation/estimationData";
+import { home, person, social } from "@/core/config/content";
+import type { ReactionType } from "@/modules/reactions/controllers/serverActions";
+import type { PostType } from "@/modules/blog/models/types";
+import { baseURL, breadCrumbs } from "@/core/config/config";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
 import { getFileData } from "@/app/sitemap";
 
 

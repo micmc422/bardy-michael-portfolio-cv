@@ -1,5 +1,5 @@
-import { analyzeMobile } from "@/app/utils/siteCheck";
-import { MobileReport } from "@/components/site-check";
+import { analyzeMobile } from "@/modules/site-check/services";
+import { MobileReport } from "@/modules/site-check/views";
 
 interface PageParams {
   params: Promise<{ url: string }>;

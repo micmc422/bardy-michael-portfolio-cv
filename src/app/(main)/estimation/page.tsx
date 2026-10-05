@@ -1,7 +1,7 @@
 import { Column, Grid, Heading, Icon, Text, Row, Card, Background, type Opacity, type IconName } from "@once-ui-system/core";
-import { siteTypes } from "./estimationData";
-import { baseURL, rdv } from "../../resources";
-import { about, estimation, person } from "../../resources/content";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
+import { baseURL, rdv } from "@/core/config";
+import { about, estimation, person } from "@/core/config/content";
 import Schema from "@/modules/seo/Schema";
 import Meta from "@/modules/seo/Meta";
 

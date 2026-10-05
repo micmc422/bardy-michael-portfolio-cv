@@ -1,6 +1,6 @@
 import { Suspense, type ReactNode } from "react";
 import { Column, Heading, Row, Skeleton, Icon, type IconName } from "@once-ui-system/core";
-import { AnalysisScoreTracker } from "@/components/site-check/AnalysisScoreTracker";
+import { AnalysisScoreTracker } from "@/modules/site-check/views/AnalysisScoreTracker";
 
 interface LoadingCardProps {
   title: string;

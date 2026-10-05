@@ -1,5 +1,5 @@
 import { Heading, Text } from "@once-ui-system/core";
-import { siteTypes } from "../../estimationData";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
 import { Suspense } from "react";
 
 export default async function HeadlineEstimationRoot({params}: {params: Promise<{slug:string}>}) {

@@ -1,4 +1,4 @@
-import { baseURL } from "@/app/resources";
+import { baseURL } from "@/core/config";
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {

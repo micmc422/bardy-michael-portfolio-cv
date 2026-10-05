@@ -1,9 +1,9 @@
 import { Button, Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type Opacity, type IconName } from "@once-ui-system/core";
-import { baseURL } from "@/app/resources";
-import { person, atomicBd81 } from "@/app/resources/content";
+import { baseURL } from "@/core/config";
+import { person, atomicBd81 } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
-import PasswordProtect from "@/components/PasswordProtect";
+import PasswordProtect from "@/shared/components/PasswordProtect";
 import { validateAtomicBd81Password } from "./actions";
 
 export async function generateMetadata() {

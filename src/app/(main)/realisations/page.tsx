@@ -2,17 +2,17 @@
 
 import { Column, Heading, Row, Skeleton } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
-import { baseURL } from "@/app/resources";
-import { about, person, work } from "@/app/resources/content";
+import { baseURL } from "@/core/config";
+import { about, person, work } from "@/core/config/content";
 import dynamic from "next/dynamic";
-import { SkeletonProjects } from "@/components/realisations/Projects";
+import { SkeletonProjects } from "@/modules/projects/views/Projects";
 import Schema from "@/modules/seo/Schema";
 // Importation dynamique pour Projects
-const Projects = dynamic(() => import('@/components/realisations/Projects').then(mod => mod.Projects), {
+const Projects = dynamic(() => import('@/modules/projects/views/Projects').then(mod => mod.Projects), {
   loading: () => <SkeletonProjects />,
 });
 // Importation dynamique pour Tarifs
-const Tarifs = dynamic(() => import('@/components/tarif/Tarifs').then(mod => mod.Tarifs), {
+const Tarifs = dynamic(() => import('@/modules/estimation/views/Tarifs').then(mod => mod.Tarifs), {
   loading: () => <Row gap="s" paddingBottom="l" s={{direction: "column"}}>
     <Column>
       <Skeleton shape="block" minHeight={"40"} radius="l" />

@@ -10,8 +10,8 @@ import {
   Text,
   type IconName,
 } from "@once-ui-system/core";
-import { baseURL } from "@/app/resources";
-import { person } from "@/app/resources/content";
+import { baseURL } from "@/core/config";
+import { person } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
 

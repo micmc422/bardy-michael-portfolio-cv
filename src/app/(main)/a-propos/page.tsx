@@ -17,11 +17,11 @@ import {
   type IconName,
 } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
-import { baseURL } from "@/app/resources";
+import { baseURL } from "@/core/config";
 import dynamic from "next/dynamic";
 
-// import TableOfContents from "@/components/a-propos/TableOfContents";
-const TableOfContents = dynamic(() => import('@/components/a-propos/TableOfContents'), {
+// import TableOfContents from "@/modules/blog/components/TableOfContents";
+const TableOfContents = dynamic(() => import('@/modules/blog/components/TableOfContents'), {
   loading: () => <Row>
     <Skeleton shape="line" width="l" />
     <Skeleton shape="line" width="l" />
@@ -34,8 +34,8 @@ const TableOfContents = dynamic(() => import('@/components/a-propos/TableOfConte
   ,
 });
 
-import styles from "@/components/a-propos/a-propos.module.scss";
-import { person, about, social } from "@/app/resources/content";
+import styles from "@/modules/blog/components/a-propos.module.scss";
+import { person, about, social } from "@/core/config/content";
 import React from "react";
 
 export async function generateMetadata() {

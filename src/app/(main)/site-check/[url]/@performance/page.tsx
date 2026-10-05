@@ -1,5 +1,5 @@
-import { analyzePerformance } from "@/app/utils/siteCheck";
-import { PerformanceReport } from "@/components/site-check";
+import { analyzePerformance } from "@/modules/site-check/services";
+import { PerformanceReport } from "@/modules/site-check/views";
 
 interface PageParams {
   params: Promise<{ url: string }>;

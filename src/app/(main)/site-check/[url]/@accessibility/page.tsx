@@ -1,5 +1,5 @@
-import { analyzeAccessibility } from "@/app/utils/siteCheck";
-import { AccessibilityReport } from "@/components/site-check";
+import { analyzeAccessibility } from "@/modules/site-check/services";
+import { AccessibilityReport } from "@/modules/site-check/views";
 
 interface PageParams {
   params: Promise<{ url: string }>;

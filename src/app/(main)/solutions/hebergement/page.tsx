@@ -1,13 +1,13 @@
-import { about, baseURL, person } from "@/app/resources";
-import { solutionsHébergement } from "@/app/resources/content";
+import { about, baseURL, person } from "@/core/config";
+import { solutionsHébergement } from "@/core/config/content";
 import Schema from "@/modules/seo/Schema";
 import { Badge, Column, Flex, Heading, Icon, IconButton, RevealFx, Row, Text } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
 import { BarChart, type DataPoint } from "@once-ui-system/core/data";
-import { ChartCardContainer } from "@/components/chart";
-import { LinesBars } from "@/components/chart/LinesBars";
-import { RadarChart } from "@/components/chart/Radar";
-import { DougNut } from "@/components/chart/DougNut";
+import { ChartCardContainer } from "@/shared/ui/chart";
+import { LinesBars } from "@/shared/ui/chart/LinesBars";
+import { RadarChart } from "@/shared/ui/chart/Radar";
+import { DougNut } from "@/shared/ui/chart/DougNut";
 
 export async function generateMetadata() {
     return Meta.generate({

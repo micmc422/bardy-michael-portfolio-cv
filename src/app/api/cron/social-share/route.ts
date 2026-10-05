@@ -1,5 +1,5 @@
-import { baseURL } from '@/app/resources';
-import { getPosts } from '@/app/utils/serverActions';
+import { baseURL } from '@/core/config';
+import { getPosts } from '@/modules/blog/controllers/serverActions';
 import { NextResponse } from 'next/server';
 import { postToFacebook } from './postToFacebook';
 import { postToLinkedIn } from './postToLinkedIn';

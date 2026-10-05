@@ -1,5 +1,5 @@
-import { analyzeSEO } from "@/app/utils/siteCheck";
-import { SEOReport } from "@/components/site-check";
+import { analyzeSEO } from "@/modules/site-check/services";
+import { SEOReport } from "@/modules/site-check/views";
 
 interface PageParams {
   params: Promise<{ url: string }>;

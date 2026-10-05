@@ -1,8 +1,8 @@
 import { Background, Column, Heading, Icon, Row, Text, type IconName } from "@once-ui-system/core";
 import { Suspense, type ReactNode } from "react";
-import { rdv } from "../../resources";
+import { rdv } from "@/core/config";
 import type { ColorScheme, ColorWeight, Opacity } from "@once-ui-system/core";
-import { Faq } from "@/components";
+import { Faq } from "@/shared/components";
 
 const servicesInclus: { name: string, icon: IconName, desc: string, bgColor?: ColorScheme }[] = [
     {

@@ -1,17 +1,17 @@
 "use server"
 
 import { Column, Heading } from "@once-ui-system/core";
-import { Mailchimp } from "@/components";
+import { Mailchimp } from "@/shared/components";
 import dynamic from "next/dynamic";
 // Importation dynamique pour Posts
-const Posts = dynamic(() => import('@/components/blog/Posts').then(mod => mod.Posts), {
+const Posts = dynamic(() => import('@/modules/blog/views/Posts').then(mod => mod.Posts), {
   loading: () => <SkeletonPosts />,
 });
 
-import { baseURL } from "@/app/resources";
-import { blog, person, newsletter } from "@/app/resources/content";
+import { baseURL } from "@/core/config";
+import { blog, person, newsletter } from "@/core/config/content";
  import Meta from "@/modules/seo/Meta";
-import { SkeletonPosts } from "@/components/blog/Posts";
+import { SkeletonPosts } from "@/modules/blog/views/Posts";
 import Schema from "@/modules/seo/Schema";
 
 

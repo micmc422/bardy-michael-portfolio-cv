@@ -18,14 +18,14 @@ import {
   Text,
   type Opacity
 } from "@once-ui-system/core";
-import { baseURL } from "@/app/resources";
+import { baseURL } from "@/core/config";
 
 
-import { about, person, webmasterAlbi } from "@/app/resources/content";
+import { about, person, webmasterAlbi } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
-import { siteTypes } from "../estimation/estimationData";
-import { StepsComponent } from "@/components/steps/Steps";
-import { Faq } from "@/components";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
+import { StepsComponent } from "@/modules/blog/components/Steps";
+import { Faq } from "@/shared/components";
 import { Schema } from "@/modules/seo/Schema";
 
 export async function generateMetadata() {

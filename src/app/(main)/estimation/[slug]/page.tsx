@@ -1,7 +1,7 @@
 "use client"
 
 import { Checkbox, Column, Feedback, Grid, Icon, Row, Text, Textarea, type IconName } from "@once-ui-system/core";
-import { siteTypes, type Option } from "../estimationData";
+import { siteTypes, type Option } from "@/modules/estimation/models/estimationData";
 import { use, useMemo } from "react";
 import { notFound, useSearchParams } from "next/navigation";
 import { useToggleOptionParam } from "./hooks";

@@ -3,10 +3,10 @@
 import { Button, Column, Feedback, Icon, IconButton, Input, LetterFx, Line, Row, Text, useToast, type IconName } from "@once-ui-system/core"
 import { useParams, useSearchParams } from "next/navigation"
 import { useMemo, useState, useTransition } from "react";
-import { siteTypes } from "../estimationData";
-import { isValidEmail, toQueryParams } from "@/utils/utils";
-import { baseURL } from "@/app/resources";
-import { estimation } from "@/app/resources/content";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
+import { isValidEmail, toQueryParams } from "@/core/utils/utils";
+import { baseURL } from "@/core/config";
+import { estimation } from "@/core/config/content";
 
 function getPriceValidUntilDate() {
     const date = new Date();

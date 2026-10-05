@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
-import { CustomMDX } from "@/components/mdx";
-import { getProject, getProjects } from "@/app/utils/serverActions";
+import { CustomMDX } from "@/modules/blog/components/mdx";
+import { getProject, getProjects } from "@/modules/blog/controllers/serverActions";
 import { AvatarGroup, Button, Column, Flex, Heading, OgCard, Media, Text } from "@once-ui-system/core";
-import { baseURL } from "@/app/resources";
-import { about, person, work } from "@/app/resources/content";
-import { formatDate } from "@/app/utils/formatDate";
-import ScrollToHash from "@/components/ScrollToHash";
+import { baseURL } from "@/core/config";
+import { about, person, work } from "@/core/config/content";
+import { formatDate } from "@/core/utils/formatDate";
+import ScrollToHash from "@/shared/components/ScrollToHash";
  import Meta from "@/modules/seo/Meta";
 import type { Metadata } from "next";
 import Schema from "@/modules/seo/Schema";
@@ -65,7 +65,7 @@ export default async function Project({
   const post = postResult;
 
   const avatars =
-    post.metadata.team?.map((person) => ({
+    post.metadata.team?.map((person: { avatar: string }) => ({
       src: person.avatar,
     })) || [];
   const publishedAt = post.metadata.publishedAt ? new Date(post.metadata.publishedAt) : new Date();

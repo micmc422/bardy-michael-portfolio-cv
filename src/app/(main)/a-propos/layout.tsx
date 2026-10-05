@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { baseURL } from "../../resources";
-import { about, person } from "../../resources/content";
+import { baseURL } from "@/core/config";
+import { about, person } from "@/core/config/content";
 import Schema from "@/modules/seo/Schema";
 
 export default async function AproposLayout({ children }: { children: ReactNode }) {

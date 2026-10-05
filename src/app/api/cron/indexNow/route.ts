@@ -1,5 +1,5 @@
 // app/api/indexnow/route.ts
-import { getPosts } from '@/app/utils/serverActions';
+import { getPosts } from '@/modules/blog/controllers/serverActions';
 import { NextResponse } from 'next/server';
 
 // Remplacez par votre clé IndexNow et le domaine de votre site

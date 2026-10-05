@@ -2,13 +2,13 @@
 
 import { Heading, Flex, Text, Avatar, RevealFx, Column, Badge, IconButton, Icon } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
-import { baseURL, routes } from "@/app/resources";
-import { home, about, person } from "@/app/resources/content";
-import { Projects } from "@/components/realisations/Projects";
-import { Faq } from "@/components";
-import { AvisClient } from "@/components/AvisClients";
-import { Posts } from "@/components/blog/Posts";
-import { Tarifs } from "@/components/tarif/Tarifs";
+import { baseURL, routes } from "@/core/config";
+import { home, about, person } from "@/core/config/content";
+import { Projects } from "@/modules/projects/views/Projects";
+import { Faq } from "@/shared/components";
+import { AvisClient } from "@/shared/components/AvisClients";
+import { Posts } from "@/modules/blog/views/Posts";
+import { Tarifs } from "@/modules/estimation/views/Tarifs";
 import Schema from "@/modules/seo/Schema";
 
 

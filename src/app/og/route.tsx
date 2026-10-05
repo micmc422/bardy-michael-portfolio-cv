@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
-import { baseURL } from "@/app/resources";
-import { person } from "@/app/resources/content";
-import { getPostDataBySlug, getProjectData } from "../utils/serverActions";
-import { siteTypes } from "../(main)/estimation/estimationData";
+import { baseURL } from "@/core/config";
+import { person } from "@/core/config/content";
+import { getPostDataBySlug, getProjectData } from "@/modules/blog/controllers/serverActions";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
 
 export const runtime = "nodejs";
 

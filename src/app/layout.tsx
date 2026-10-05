@@ -2,15 +2,15 @@ import '@once-ui-system/core/css/styles.css';
 import '@once-ui-system/core/css/tokens.css';
 import classNames from "classnames";
 
-import { baseURL, style, fonts, home } from "@/app/resources";
+import { baseURL, style, fonts, home } from "@/core/config";
 
 import { Column, Flex, Meta } from "@once-ui-system/core";
 import { LayoutProvider } from "@once-ui-system/core/next";
 
 import Script from "next/script";
-import { convertirTimestampGoogle } from "@/utils/utils";
-import { getAvis } from "./utils/serverActions";
-import { siteTypes } from "./(main)/estimation/estimationData";
+import { convertirTimestampGoogle } from "@/core/utils/utils";
+import { getAvis } from "@/modules/blog/controllers/serverActions";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
 
 export async function generateMetadata() {
   return Meta.generate({

@@ -1,6 +1,6 @@
-import { getPosts, getProjects } from "@/app/utils/serverActions";
-import { baseURL, routes as routesConfig } from "@/app/resources";
-import { siteTypes } from "./(main)/estimation/estimationData";
+import { getPosts, getProjects } from "@/modules/blog/controllers/serverActions";
+import { baseURL, routes as routesConfig } from "@/core/config";
+import { siteTypes } from "@/modules/estimation/models/estimationData";
 
 /** Normalise une date en ISO 8601 (W3C Datetime) pour le sitemap. */
 function toISODate(date: string | null | undefined): string {
