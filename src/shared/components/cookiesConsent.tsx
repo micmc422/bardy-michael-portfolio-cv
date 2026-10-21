@@ -43,7 +43,15 @@ const CookieConsent: React.FC = () => {
     const router = useRouter()
     const [visible, setVisible] = useState(false)
     const [analytics, setAnalytics] = useState(true)
-    const [analyticsAllowed, setAnalyticsAllowed] = useState(false)
+    const [analyticsAllowed, setAnalyticsAllowed] = useState(() => {
+        if (typeof document === "undefined") return false;
+        const consent = getCookies()?.[COOKIE_NAME];
+        return (
+            consent === "true" ||
+            consent === "all" ||
+            (typeof consent === "string" && consent.includes("analytics=1"))
+        );
+    });
 
     // Affiche la carte tant qu'aucun choix n'a été enregistré, et résout le
     // consentement existant (côté client uniquement : `document` n'existe pas au SSR).
@@ -63,6 +71,14 @@ const CookieConsent: React.FC = () => {
     const save = (value: string) => {
         writeConsentCookie(value);
         setVisible(false);
+        // Met à jour l'état local pour que <Analytics /> soit monté dans la
+        // même session après consentement (sinon il ne se charge qu'au prochain
+        // chargement complet de page).
+        setAnalyticsAllowed(
+            value === "true" ||
+            value === "all" ||
+            (typeof value === "string" && value.includes("analytics=1"))
+        );
         router.refresh();
     }
 
