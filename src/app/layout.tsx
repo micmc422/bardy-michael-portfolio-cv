@@ -8,6 +8,7 @@ import { Column, Flex, Meta } from "@once-ui-system/core";
 import { LayoutProvider } from "@once-ui-system/core/next";
 
 import Script from "next/script";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { convertirTimestampGoogle } from "@/core/utils/utils";
 import { getAvis } from "@/modules/blog/controllers/serverActions";
 import { siteTypes } from "@/modules/estimation/models/estimationData";
@@ -253,6 +254,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         </head>
         <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
           {children}
+          <SpeedInsights />
         </Column>
       </Flex >
     </LayoutProvider>
