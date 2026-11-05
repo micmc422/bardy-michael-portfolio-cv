@@ -13,6 +13,7 @@ import {
     Text,
 } from '@once-ui-system/core';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const COOKIE_NAME = "acceptedCookies";
 const COOKIE_MAX_AGE = 2592000; // 30 jours
@@ -87,7 +88,12 @@ const CookieConsent: React.FC = () => {
     const handleSavePreferences = () => save(`analytics=${analytics ? 1 : 0}`)
 
     if (!visible) {
-        return analyticsAllowed ? <Analytics /> : null;
+        return analyticsAllowed ? (
+            <>
+                <Analytics />
+                <SpeedInsights />
+            </>
+        ) : null;
     }
 
     return (
