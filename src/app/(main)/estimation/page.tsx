@@ -1,4 +1,5 @@
-import { Column, Grid, Heading, Icon, Text, Row, Card, Background, type Opacity, type IconName } from "@once-ui-system/core";
+import { PageHeader } from "@/shared/components/PageHeader";
+import { Column, Grid, Icon, Text, Row, Card, Background, type Opacity, type IconName } from "@once-ui-system/core";
 import { siteTypes } from "@/modules/estimation/models/estimationData";
 import { baseURL, rdv } from "@/core/config";
 import { about, estimation, person } from "@/core/config/content";
@@ -17,7 +18,12 @@ export async function generateMetadata() {
 
 export default function EstimationPage() {
   return <Column as="section" aria-labelledby="estimation-page-title">
-    <Heading as="h1" id="estimation-page-title" className="sr-only">{estimation.title}</Heading>
+    <PageHeader
+      id="estimation-page-title"
+      eyebrow="Estimation en ligne"
+      title="Estimez votre projet web en quelques clics."
+      lead="Choisissez le type de site, ajustez les options et obtenez une fourchette de prix transparente, sans engagement."
+    />
     <Schema
       as="webPage"
       baseURL={baseURL}

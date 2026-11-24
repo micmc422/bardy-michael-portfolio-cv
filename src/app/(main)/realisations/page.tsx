@@ -1,6 +1,7 @@
 "use server"
 
-import { Column, Heading, Row, Skeleton } from "@once-ui-system/core";
+import { Column, Row, Skeleton } from "@once-ui-system/core";
+import { PageHeader } from "@/shared/components/PageHeader";
 import Meta from "@/modules/seo/Meta";
 import { baseURL } from "@/core/config";
 import { about, person, work } from "@/core/config/content";
@@ -59,9 +60,12 @@ export default async function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column paddingBottom="l">
-        <Heading as="h1" id="realisations-page-title" textVariant="display-strong-l" align="center">Dernières réalisations</Heading>
-      </Column>
+      <PageHeader
+        id="realisations-page-title"
+        eyebrow="Portfolio"
+        title="Des réalisations concrètes, livrées en production."
+        lead="Sites vitrines, plateformes et applications web : chaque projet est conçu pour la performance, la maintenabilité et des résultats mesurables."
+      />
       <Projects />
       <Tarifs />
     </Column>

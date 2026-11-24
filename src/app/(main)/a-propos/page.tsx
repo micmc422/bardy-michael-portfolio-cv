@@ -34,6 +34,7 @@ const TableOfContents = dynamic(() => import('@/modules/blog/components/TableOfC
 });
 
 import styles from "@/modules/blog/components/a-propos.module.scss";
+import panel from "@/shared/components/PageHeader.module.scss";
 import { person, about, social } from "@/core/config/content";
 import React from "react";
 
@@ -150,16 +151,8 @@ export default async function About() {
                 </Tag>
               </RevealFx>
             )}
-            <Heading className={styles.textAlign} textVariant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              textVariant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
+            <h1 className={`${panel.title} ${styles.textAlign}`}>{person.name}</h1>
+            <p className={`${panel.lead} ${styles.textAlign}`}>{person.role}</p>
             {social.length > 0 && (
               <Row
                 className={styles.blockAlign}
@@ -212,12 +205,12 @@ export default async function About() {
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} textVariant="display-strong-s" marginBottom="m">
+              <Heading as="h2" id={about.work.title} textVariant="display-strong-m" marginBottom="m" marginTop="l">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="m" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth padding="l" className={panel.panel}>
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} textVariant="display-strong-s">
                         {experience.company}
@@ -229,7 +222,7 @@ export default async function About() {
                     <Text textVariant="body-default-s" onBackground="brand-weak" marginBottom="m">
                       {experience.role}
                     </Text>
-                    <Column as="ul" gap="16" className="list-disc" paddingLeft="40px" marginY="1em">
+                    <Column as="ul" gap="12" className="list-disc" paddingLeft="24" marginY="1em">
                       {experience.achievements.map(
                         (achievement: React.ReactNode, index: number) => (
                           <Text
@@ -243,7 +236,7 @@ export default async function About() {
                       )}
                     </Column>
                     {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                      <Row fillWidth paddingTop="m" gap="12" wrap>
                         {experience.images.map((image, index) => (
                           <Row
                             key={index}
@@ -271,12 +264,12 @@ export default async function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} textVariant="display-strong-s" marginBottom="m">
+              <Heading as="h2" id={about.studies.title} textVariant="display-strong-m" marginBottom="m" marginTop="l">
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="m" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
+                  <Column key={`${institution.name}-${index}`} fillWidth gap="4" padding="l" className={panel.panel}>
                     <Text id={institution.name} textVariant="display-strong-xs">
                       {institution.name}
                     </Text>
@@ -294,14 +287,15 @@ export default async function About() {
               <Heading
                 as="h2"
                 id={about.technical.title}
-                textVariant="display-strong-s"
-                marginBottom="40"
+                textVariant="display-strong-m"
+                marginBottom="m"
+                marginTop="l"
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Column fillWidth gap="m">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  <Column key={`${skill}-${index}`} fillWidth gap="4" padding="l" className={panel.panel}>
                     <Text id={skill.title} textVariant="display-strong-s">
                       {skill.title}
                     </Text>

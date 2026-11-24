@@ -1,6 +1,7 @@
 "use server"
 
-import { Column, Heading } from "@once-ui-system/core";
+import { Column } from "@once-ui-system/core";
+import { PageHeader } from "@/shared/components/PageHeader";
 import { Mailchimp } from "@/shared/components";
 import dynamic from "next/dynamic";
 // Importation dynamique pour Posts
@@ -41,9 +42,12 @@ export default async function Blog() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading as="h1" id="blog-page-title" marginBottom="l" textVariant="display-strong-s">
-        {blog.title}
-      </Heading>
+      <PageHeader
+        id="blog-page-title"
+        eyebrow="Journal technique"
+        title={blog.title}
+        lead="Retours d'expérience, guides et analyses sur Next.js, la performance web, le SEO et l'accessibilité."
+      />
       <Column
         fillWidth flex={1}>
         <Posts range={[1, 1]} thumbnail direction="column" />

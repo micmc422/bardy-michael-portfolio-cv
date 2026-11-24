@@ -1,4 +1,6 @@
 import { redirect } from "next/navigation";
+import { PageHeader } from "@/shared/components/PageHeader";
+import panel from "@/shared/components/PageHeader.module.scss";
 import { Column, Heading, Text, Input, Button, Row, Icon, type IconName } from "@once-ui-system/core";
 import { baseURL } from "@/core/config";
 import { siteCheck, person } from "@/core/config/content";
@@ -51,17 +53,16 @@ export default function SiteCheckPage() {
         }}
       />
       
-      <Column gap="m" horizontal="center">
-        <Heading as="h1" textVariant="display-strong-xl" align="center">
-          {siteCheck.headline}
-        </Heading>
-        <Text textVariant="body-default-l" align="center" onBackground="neutral-weak" wrap="balance">
-          {siteCheck.subline}
-        </Text>
-      </Column>
+      <PageHeader
+        id="site-check-title"
+        eyebrow="Audit gratuit"
+        title={siteCheck.headline}
+        lead={siteCheck.subline}
+        align="center"
+      />
 
       <form action={handleSubmit}>
-        <Column fillWidth gap="m" padding="l" background="surface" radius="xl" border="neutral-alpha-weak">
+        <Column fillWidth gap="m" padding="l" className={panel.panel}>
           <Row gap="s" fillWidth vertical="end">
             <Column fillWidth gap="xs">
               <Text as="label" htmlFor="url-input" textVariant="label-default-s">
@@ -95,13 +96,11 @@ export default function SiteCheckPage() {
           {Object.entries(siteCheck.categories).map(([key, category]) => (
             <Column
               key={key}
+              className={`${panel.panel} ${panel.lift}`}
               flex={1}
               minWidth="12rem"
               padding="m"
               gap="s"
-              background="surface"
-              radius="m"
-              border="neutral-alpha-weak"
             >
               <Row gap="xs" vertical="center">
                 <Icon name={category.icon as IconName} onBackground="accent-weak" />

@@ -3,7 +3,7 @@
 import {
   Accordion,
   Avatar,
-  Background,
+  Button,
   Tag,
   Card,
   Column,
@@ -26,6 +26,8 @@ import Meta from "@/modules/seo/Meta";
 import { siteTypes } from "@/modules/estimation/models/estimationData";
 import { StepsComponent } from "@/modules/blog/components/Steps";
 import { Faq } from "@/shared/components";
+import { PageHeader, SectionHead } from "@/shared/components/PageHeader";
+import panel from "@/shared/components/PageHeader.module.scss";
 import { Schema } from "@/modules/seo/Schema";
 
 export async function generateMetadata() {
@@ -53,83 +55,22 @@ export default async function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column as="section" maxWidth="xl" paddingY="24" gap="m" aria-labelledby="webmaster-hero-title">
-        <Column maxWidth="s">
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
-            <Tag
-              variant="announce"
-              background="brand-alpha-weak" paddingX="8" paddingY="4" onBackground="brand-strong"
-              arrow={false}
-              href={about.calendar.link}
-              center
-              gap="s"
-              id="RDVBtn"
-              aria-label="Lien vers la prise de rendez-vous"
-            >
-              <Row as="span" inline fit paddingLeft="12">
-                <Icon name="calendar" onBackground="brand-strong" />
-              </Row>
-              <Text style={{ paddingTop: "var(--static-space-4)" }}>Planifier un RDV</Text>
-              <IconButton
-                variant="ghost"
-                icon="chevronRight"
-              />
-            </Tag>
-          </RevealFx>
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading as="h1" id="webmaster-hero-title" wrap="balance" textVariant="display-strong-l">
-              {webmasterAlbi.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" textVariant="display-default-xs">
-              {webmasterAlbi.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={400} horizontal="start" paddingLeft="8">
-            <Tag variant="announce" background="brand-weak" onBackground="neutral-weak" border="accent-alpha-weak" gap="8" vertical="center" paddingY="4" marginBottom="m" href={about.path} effect={false} id="auteur" aria-label="liens vers la page à propos de l'auteur" arrow={false}
-            >
-              {about.avatar.display && (
-                <Avatar
-                  style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                  src={person.avatar}
-                  size="m"
-                />
-              )}
-              {about.title}
-            </Tag>
-          </RevealFx>
-        </Column>
+      <Column as="section" maxWidth="xl" gap="m" aria-labelledby="webmaster-hero-title">
+        <PageHeader id="webmaster-hero-title" eyebrow="Webmaster freelance · Albi" title={webmasterAlbi.headline} lead={webmasterAlbi.subline}>
+          <Button href={about.calendar.link} prefixIcon="calendar" variant="primary" size="l">Planifier un RDV</Button>
+          <Button href={about.path} variant="secondary" size="l">Qui suis-je ?</Button>
+        </PageHeader>
       </Column>
       <Grid as="section" maxWidth={"l"} gap="l" columns={2} s={{ columns: "1" }} aria-labelledby="refonte-section-title">
         <Column flex={2} gap="m" padding="l" fill>
-          <Heading as="h2" id="refonte-section-title" textVariant="display-strong-m">Offrez une Nouvelle Vie à Votre Présence en Ligne</Heading>
+          <SectionHead id="refonte-section-title" eyebrow="Refonte" title="Offrez une nouvelle vie à votre présence en ligne" />
           <Text onBackground="neutral-medium">
             Votre site web est le reflet de votre entreprise à <strong>Albi</strong>, et un design vieillissant ou des performances lentes peuvent nuire à votre image et à votre référencement. Il est temps de le moderniser ! Je vous propose des solutions de refonte adaptées à vos besoins, que vous souhaitiez une mise à jour esthétique ou une transformation technologique complète.
           </Text>
           <Text onBackground="neutral-medium">
             Que votre site ait simplement besoin d&apos;un coup de frais ou d&apos;une refonte en profondeur, je suis là pour vous accompagner. Voici comment nous pouvons redonner de l&apos;éclat et de l&apos;efficacité à votre plateforme digitale :
           </Text>
-          <Column as="article" gap="s" background="overlay" radius="l" padding="m" border="neutral-alpha-weak" overflow="hidden">
-            <Background
-              zIndex={-1}
-              fill
-              position="absolute"
-              mask={{
-                cursor: true,
-                x: "50%",
-                y: "25%",
-                radius: "70vh"
-              }}
-              gradient={{
-                display: true,
-                opacity: 1 as Opacity,
-                x: "50%",
-                y: 0,
-                colorStart: "accent-alpha-strong",
-                colorEnd: "brand-alpha-weak"
-              }}
-            />
+          <Column as="article" gap="s" padding="m" className={panel.panel}>
             <Heading as="h3" textVariant="display-default-xs">
               Refonte Graphique Complète : Design et Technologie Modernisés
             </Heading>
@@ -137,26 +78,7 @@ export default async function About() {
               Si votre site web ne répond plus aux standards actuels en termes d&apos;esthétique, d&apos;expérience utilisateur ou de performance, une refonte totale est la solution idéale. Nous repensons l&apos;intégralité de votre site, de son design à sa structure technique. L&apos;objectif est de créer une interface moderne et intuitive qui captive vos visiteurs et met en valeur vos services à <strong>Albi</strong>. Cela inclut une nouvelle charte graphique, une ergonomie optimisée et l&apos;intégration des dernières technologies pour un site rapide, sécurisé et parfaitement adapté aux mobiles.
             </Text>
           </Column>
-          <Column as="article" gap="s" background="overlay" radius="l" padding="m" border="neutral-alpha-weak" overflow="hidden">
-            <Background
-              zIndex={-1}
-              fill
-              position="absolute"
-              mask={{
-                cursor: true,
-                x: "50%",
-                y: "25%",
-                radius: "70vh"
-              }}
-              gradient={{
-                display: true,
-                opacity: 1 as Opacity,
-                x: "50%",
-                y: 0,
-                colorStart: "accent-alpha-strong",
-                colorEnd: "brand-alpha-weak"
-              }}
-            />
+          <Column as="article" gap="s" padding="m" className={panel.panel}>
             <Heading as="h3" textVariant="display-default-xs">
               Modernisation avec WordPress Headless et React : Le Meilleur des Deux Mondes
             </Heading>
@@ -185,7 +107,7 @@ export default async function About() {
           <Heading as="h2" textVariant="display-strong-m" align="center">SEO Approfondi : Au-delà des Bases pour une Visibilité Maximale</Heading>
           <Text textVariant="body-default-l" onBackground="neutral-weak" align="center">Pour qu&apos;un site se distingue sur les moteurs de recherche et les réseaux sociaux, il faut aller au-delà du contenu visible. L&apos;optimisation des métadonnées, l&apos;intégration des Open Graph et l&apos;utilisation des JSON-LD sont cruciales pour une présence en ligne performante à <strong>Albi</strong>.</Text>
         </Column>
-        <Row s={{ direction: "column" }} radius="s" background="overlay">
+        <Row s={{ direction: "column" }} className={panel.panel}>
           <Column gap="xs" padding="m" flex={2}>
             <Row gap="xs" vertical="center">
               <Icon name="code" />
@@ -221,7 +143,7 @@ export default async function About() {
           <Text textVariant="body-default-l" onBackground="neutral-weak" align="center">De la création sur mesure (site vitrine, e-commerce, portfolio…) à la gestion quotidienne (mise à jour, sécurité, sauvegardes), je vous accompagne pour garantir la fiabilité et l’efficacité de votre présence en ligne. J’assure également l’optimisation des performances (vitesse, SEO, responsive design) afin d’offrir à vos visiteurs une expérience fluide et engageante, tout en maximisant votre visibilité sur les moteurs de recherche.</Text>
         </Column>
         <Grid columns={"3"} m={{ columns: "2" }} s={{ columns: "1" }} gap="xs">
-          {siteTypes.map((service, i) => <Card key={i} radius="s-4" direction="column" border="neutral-alpha-medium" fillWidth href={`/estimation/${service.slug}`}>
+          {siteTypes.map((service, i) => <Card key={i} className={panel.lift} radius="s-4" direction="column" border="neutral-alpha-medium" fillWidth href={`/estimation/${service.slug}`}>
             <Media src={`/og?type=estimation&slug=${service.slug}`} fillWidth aspectRatio="16/8" topLeftRadius="s" topRightRadius="s" />
             <Column fillWidth paddingX="20" paddingY="12" gap="8" vertical="center">
               <Heading as="h3" textVariant="body-strong-xl" onBackground="accent-weak">{service.name}</Heading>
@@ -239,7 +161,7 @@ export default async function About() {
           <Text textVariant="body-default-l" onBackground="neutral-weak" align="center">Choisir le bon partenaire digital est essentiel pour le succès de votre entreprise. En tant que webmaster basé à Albi, je ne me contente pas de créer des sites web ; je construis des solutions digitales adaptées aux spécificités de notre belle ville du Tarn. Découvrez pourquoi faire appel à un expert local fait toute la différence pour propulser votre visibilité en ligne et atteindre vos objectifs commerciaux, ici même, à Albi.</Text>
         </Column>
         <Grid columns={"4"} s={{ columns: "1" }} m={{ columns: "2" }} gap="xs" maxWidth={"l"}>
-          {webmasterAlbi.pourquoi.map((service, i) => <Column as="article" key={i} maxWidth="30rem" paddingX="20" paddingY="12" gap="8" background="overlay" padding="xs" vertical="center" radius="xs">
+          {webmasterAlbi.pourquoi.map((service, i) => <Column as="article" key={i} className={`${panel.panel} ${panel.lift}`} paddingX="20" paddingY="20" gap="8" vertical="center">
             <Column gap="l">
               <Heading as="h3" textVariant="label-strong-xl" onBackground="accent-weak">{service.titre}</Heading>
             </Column>
