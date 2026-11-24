@@ -18,15 +18,17 @@ const LinesBars = forwardRef<HTMLDivElement, LinesBarsDataType>(({ titre, descri
 
     return <ChartCardContainer ref={ref} maxWidth={"s"} {...props}>
         <Column paddingY='12' paddingX="20" gap="4">
-            <Heading as="span" wrap="pretty" variant='heading-strong-xs'>{titre}</Heading>
-            <Text onBackground="neutral-weak" variant="label-default-s" >{description}</Text>
+            <Heading as="span" wrap="pretty" textVariant='heading-strong-xs'>{titre}</Heading>
+            <Text onBackground="neutral-weak" textVariant="label-default-s" >{description}</Text>
         </Column>
         <Column paddingY='12' paddingX="20" gap="l">
             {types.map(({ nom, niveau, explication }, i) => {
                 return <Column key={i} gap="4">
-                    <Heading as="h3" onBackground="neutral-medium" variant='heading-default-xs'>{nom}</Heading>
+                    <Heading as="h3" onBackground="neutral-medium" textVariant='heading-default-xs'>{nom}</Heading>
                     <Row height={"24"} style={{ width: `${niveau}%`, backgroundImage: `linear-gradient(to right, transparent, var(--data-${couleurs[i]}))`, border: `2px solid var(--data-${couleurs[i]})`, borderRadius: "0.5rem" }} />
-                    <Text onBackground="neutral-medium" variant="label-default-s" paddingTop="xs">{explication}</Text>
+                    <Column paddingTop="xs">
+                      <Text onBackground="neutral-medium" textVariant="label-default-s">{explication}</Text>
+                    </Column>
                 </Column>
             })}
         </Column>

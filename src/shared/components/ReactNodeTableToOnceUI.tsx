@@ -108,7 +108,7 @@ const ReactNodeTableToOnceUI = forwardRef<HTMLDivElement, ReactNodeTableToOnceUI
 
         return (
             <Flex ref={ref} style={style} className={classNames(className)} {...rest}>
-                <Table data={tableData} />
+                <Table columns={tableData.headers.map(({ content, ...column }) => ({ ...column, header: content }))} rows={tableData.rows} />
             </Flex>
         );
     }

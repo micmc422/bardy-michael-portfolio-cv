@@ -1,131 +1,109 @@
-import { Background, Badge, Button, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text, type Opacity, type IconName } from "@once-ui-system/core";
+import Link from "next/link";
+import { Check } from "lucide-react";
+import { Button, Icon, type IconName } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
 import { about, baseURL } from "@/core/config";
 import { person, solutionsWeb } from "@/core/config/content";
- import Meta from "@/modules/seo/Meta";
+import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
+import { ArrowIcon } from "@/modules/home/components/ArrowIcon";
+import home from "@/modules/home/home.module.scss";
+import { PageHeader, SectionHead } from "@/shared/components/PageHeader";
+import { PageBlock, PageShell } from "@/shared/components/PageShell";
+import styles from "@/shared/components/PageShell.module.scss";
 
 export async function generateMetadata() {
-    return Meta.generate({
-        title: solutionsWeb.title,
-        description: solutionsWeb.description,
-        baseURL: baseURL,
-        image: `${baseURL}/og?title=${encodeURIComponent(solutionsWeb.title)}`,
-        path: solutionsWeb.path,
-    });
+  return Meta.generate({
+    title: solutionsWeb.title,
+    description: solutionsWeb.description,
+    baseURL: baseURL,
+    image: `${baseURL}/og?title=${encodeURIComponent(solutionsWeb.title)}`,
+    path: solutionsWeb.path,
+  });
 }
+
 export default function SolutionsPage() {
-    return (
-        <>
-            <Schema
-                as="webPage"
-                baseURL={baseURL}
-                path={solutionsWeb.path}
-                title={solutionsWeb.title}
-                description={solutionsWeb.description}
-                image={`${baseURL}/og?title=${encodeURIComponent(solutionsWeb.title)}`}
-                author={{
-                    name: person.name,
-                    url: `${baseURL}${solutionsWeb.path}`,
-                    image: `${baseURL}${person.avatar}`,
-                }}
-            />
+  return (
+    <PageShell labelledBy="solutions-hero-title">
+      <Schema
+        as="webPage"
+        baseURL={baseURL}
+        path={solutionsWeb.path}
+        title={solutionsWeb.title}
+        description={solutionsWeb.description}
+        image={`${baseURL}/og?title=${encodeURIComponent(solutionsWeb.title)}`}
+        author={{
+          name: person.name,
+          url: `${baseURL}${solutionsWeb.path}`,
+          image: `${baseURL}${person.avatar}`,
+        }}
+      />
 
-            <Column as="section" maxWidth="xl" paddingY="24" gap="m" aria-labelledby="solutions-hero-title">
-                <Column maxWidth="s">
-                    <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                        <Heading as="h1" id="solutions-hero-title" wrap="balance" variant="display-strong-l">
-                            {solutionsWeb.headline}
-                        </Heading>
-                    </RevealFx>
-                    <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-                        <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xl">
-                            {solutionsWeb.subline}
-                        </Text>
-                    </RevealFx>
-                    <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
-                        <Badge
-                            background="brand-alpha-weak" paddingX="8" paddingY="4" onBackground="brand-strong"
-                            arrow={false}
-                            href={about.calendar.link}
-                            center
-                            gap="s"
-                            id="RDVBtn"
-                            aria-label="Lien vers la prise de rendez-vous"
-                        >
-                            <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
-                            <Text paddingTop="4">Planifier un RDV</Text>
-                            <IconButton
-                                variant="ghost"
-                                icon="chevronRight"
-                            />
-                        </Badge>
-                    </RevealFx>
-                </Column>
-            </Column>
-            <Column as="section" maxWidth="xs" paddingY="24" gap="s" aria-labelledby="fonctionnalites-section-title">
-                <Heading as="h2" id="fonctionnalites-section-title" wrap="balance" variant="display-strong-m" align="center">
-                    🎯 Fonctionnalités ciblées pour booster votre activité
-                </Heading>
-                <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
-                    {`Chaque activité a ses spécificités, et votre site web doit en être le reflet. Que vous soyez artisan, commerçant, formateur ou indépendant, je développe des fonctionnalités adaptées à vos besoins concrets : formulaire de devis, prise de rendez-vous, catalogue, espace client, outils d'automatisation… L’objectif ? Gagner du temps, offrir une meilleure expérience à vos utilisateurs et faire de votre site un véritable levier de développement.`}
-                </Text>
-            </Column>
-            <Grid columns={4} s={{ columns: "1" }} m={{ columns: "2" }} background="page" radius="l" maxWidth="xl" padding="s" gap="l" overflow="hidden">
-                <Background
-                    zIndex={-1}
-                    fill
-                    position="absolute"
-                    mask={{
-                        cursor: true,
-                        x: 50,
-                        y: 25,
-                        radius: 70
-                    }}
-                    gradient={{
-                        display: true,
-                        opacity: 1 as Opacity,
-                        x: 50,
-                        y: 0,
-                        colorStart: "accent-alpha-strong",
-                        colorEnd: "brand-alpha-weak"
-                    }}
-                />
+      <PageHeader
+        id="solutions-hero-title"
+        eyebrow="Solutions sur mesure"
+        title={solutionsWeb.headline}
+        lead={solutionsWeb.subline}
+      >
+        <Button href={about.calendar.link} prefixIcon="calendar" variant="primary" size="l">
+          Planifier un échange
+        </Button>
+        <Button href="/estimation" variant="secondary" size="l">
+          Estimer mon projet
+        </Button>
+      </PageHeader>
 
-                {solutionsWeb.pourquoi.map((item, index) => (
-                    <Column as="article" background="overlay" paddingX="s" paddingY="l" radius="m" key={index} maxWidth="s" gap="m">
-                        <Heading as="h3" wrap="balance" variant="display-strong-xs">
-                            <Row vertical="center" gap="s" align="start">
-                                <Icon name={(item?.icone || "check") as IconName} onBackground="brand-strong" />
-                                {item?.titre}
-                            </Row>
-                        </Heading>
-                        <Text wrap="balance" onBackground="neutral-medium" variant="body-default-m">
-                            {item?.description}
-                        </Text>
-                        <Column as="ul" className="list-none">
-                            {item?.fonctions?.map((fonction, idx) => (
-                                <li key={idx}>
-                                    <Row vertical="center" gap="xs">
-                                        <Icon name="checkCircle" onBackground="success-medium" />
-                                        <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xs">
-                                            {fonction}
-                                        </Text>
-                                    </Row>
-                                </li>
-                            ))}
-                        </Column>
-                    </Column>
-                ))}
-            </Grid>
-            <Column as="section" maxWidth="xl" paddingY="24" gap="s" center aria-labelledby="hebergement-section-title">
-                <Heading as="h2" id="hebergement-section-title" wrap="balance" variant="display-strong-m" align="center">
-                    ☁️ Votre site, toujours rapide. Toujours en ligne.
-                </Heading>
-                <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
-                    {`Ne perdez plus de clients à cause d’un site lent ou indisponible. Grâce à un hébergement cloud dernière génération (Vercel), vos pages se chargent en un éclair, même aux heures de pointe. Résultat : plus de conversions, une meilleure image, et zéro stress côté technique.`}
-                </Text>
-                <Button href="/solutions/hebergement">{`🚀 Solutions d'hébergement`}</Button>
-            </Column>
-        </>
-    );
+      <PageBlock labelledBy="fonctionnalites-section-title">
+        <SectionHead
+          id="fonctionnalites-section-title"
+          eyebrow="Fonctionnalités"
+          title="Des fonctionnalités ciblées pour booster votre activité."
+          lead="Chaque activité a ses spécificités. Formulaire de devis, prise de rendez-vous, catalogue, espace client, automatisations : des outils concrets pour gagner du temps et offrir une meilleure expérience à vos utilisateurs."
+        />
+        <ul className={`${styles.grid} ${styles.cols2}`}>
+          {solutionsWeb.pourquoi.map((item, index) => (
+            <li key={item?.titre ?? index} style={{ minWidth: 0 }}>
+              <RevealFx translateY={12} delay={index * 0.05} fillWidth>
+                <article className={styles.card} style={{ height: "100%" }}>
+                  <span className={styles.cardIndex} aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className={styles.cardIcon}>
+                    <Icon name={(item?.icone || "check") as IconName} onBackground="brand-strong" />
+                  </span>
+                  <h3 className={styles.cardTitle}>{item?.titre}</h3>
+                  <p className={styles.cardText}>{item?.description}</p>
+                  <ul className={styles.checks}>
+                    {item?.fonctions?.map((fonction, idx) => (
+                      <li key={idx}>
+                        <Check size={16} aria-hidden="true" />
+                        <span>{fonction}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </RevealFx>
+            </li>
+          ))}
+        </ul>
+      </PageBlock>
+
+      <section className={home.band} aria-labelledby="hebergement-section-title">
+        <div className={home.bandCopy}>
+          <span className={home.eyebrow}>Hébergement</span>
+          <h2 id="hebergement-section-title" className={home.bandTitle}>
+            Votre site, toujours rapide. Toujours en ligne.
+          </h2>
+          <p className={home.sectionLead}>
+            Grâce à un hébergement cloud dernière génération (Vercel), vos pages se chargent instantanément, même aux
+            heures de pointe : plus de conversions, une meilleure image, zéro stress côté technique.
+          </p>
+        </div>
+        <Link href="/solutions/hebergement" className={home.bandLink}>
+          Solutions d&apos;hébergement
+          <ArrowIcon />
+        </Link>
+      </section>
+    </PageShell>
+  );
 }

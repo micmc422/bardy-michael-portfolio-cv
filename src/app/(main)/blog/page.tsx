@@ -1,6 +1,7 @@
 "use server"
 
-import { Column, Heading } from "@once-ui-system/core";
+import { PageHeader } from "@/shared/components/PageHeader";
+import { PageShell } from "@/shared/components/PageShell";
 import { Mailchimp } from "@/shared/components";
 import dynamic from "next/dynamic";
 // Importation dynamique pour Posts
@@ -27,7 +28,7 @@ export async function generateMetadata() {
 
 export default async function Blog() {
   return (
-    <Column as="section" maxWidth="s" aria-labelledby="blog-page-title">
+    <PageShell labelledBy="blog-page-title">
       <Schema
         as="blog"
         baseURL={baseURL}
@@ -41,17 +42,15 @@ export default async function Blog() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading as="h1" id="blog-page-title" marginBottom="l" variant="display-strong-s">
-        {blog.title}
-      </Heading>
-      <Column
-        fillWidth flex={1}>
-        <Posts range={[1, 1]} thumbnail direction="column" />
-        <Posts range={[2, 3]} thumbnail />
-        <Posts range={[4]} columns="2" />
-      </Column>
+      <PageHeader
+        id="blog-page-title"
+        eyebrow="Journal technique"
+        title={blog.title}
+        lead="Retours d'expérience, guides et analyses sur Next.js, la performance web, le SEO et l'accessibilité."
+      />
+      <Posts featured />
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
-    </Column>
+    </PageShell>
   );
 }
 

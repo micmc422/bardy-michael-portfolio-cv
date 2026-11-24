@@ -1,9 +1,9 @@
 "use client";
 
-import { DropdownWrapper, type GridSize, type StyleProps } from "@once-ui-system/core";
+import { Dropdown, type GridSize, type StyleProps } from "@once-ui-system/core";
 import React from "react";
 import { EmojiPicker } from "./EmojiPicker";
-export interface EmojiPickerDropdownProps extends Omit<React.ComponentProps<typeof DropdownWrapper>, 'dropdown' | 'onSelect'> {
+export interface EmojiPickerDropdownProps extends Omit<React.ComponentProps<typeof Dropdown>, 'dropdown' | 'onSelect'> {
     onSelect: (data: { emoji: string, tags: string[] }) => void;
     background?: StyleProps["background"];
     columns?: GridSize;
@@ -25,19 +25,18 @@ const EmojiPickerDropdown: React.FC<EmojiPickerDropdownProps> = ({
     };
 
     return (
-        <DropdownWrapper
+        <Dropdown
             {...dropdownProps}
             trigger={trigger}
-            dropdown={
-                <EmojiPicker
-                    columns={columns}
-                    padding="8"
-                    onSelect={handleEmojiSelect}
-                    onClose={closeAfterClick ? () => dropdownProps.onOpenChange?.(false) : undefined}
-                    background={background}
-                />
-            }
-        />
+        >
+          <EmojiPicker
+              columns={columns}
+              padding="8"
+              onSelect={handleEmojiSelect}
+              onClose={closeAfterClick ? () => dropdownProps.onOpenChange?.(false) : undefined}
+              background={background}
+          />
+        </Dropdown>
     );
 };
 

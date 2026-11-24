@@ -201,7 +201,7 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
             className={className}
             style={style}
             data-testid="emoji-picker"
-            height={24}
+            height="24rem"
             {...flex}
         >
             <Input
@@ -249,7 +249,7 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
                                     role="gridcell"
                                     ref={isFocused ? (el) => el?.focus() : undefined}
                                 >
-                                    <Text variant="heading-default-xl">{emoji.char}</Text>
+                                    <Text textVariant="heading-default-xl">{emoji.char}</Text>
                                 </IconButton>
                             );
                         })}
@@ -264,7 +264,7 @@ const EmojiPicker = ({ onSelect, onClose, className, background, columns = "8", 
             {!searchQuery && (
                 <SegmentedControl
                     buttons={categoryButtons}
-                    onChange={handleCategoryChange}
+                    onValueChange={handleCategoryChange}
                     defaultValue={activeCategory}
                     fillWidth
                 />

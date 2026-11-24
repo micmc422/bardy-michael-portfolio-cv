@@ -26,7 +26,7 @@ function createDetailedContent(
         {item.description && (
           <Row gap="xs" vertical="start">
             <Icon name="infoCircle" size="xs" onBackground="neutral-weak" />
-            <Text variant="body-default-s" onBackground="neutral-weak">
+            <Text textVariant="body-default-s" onBackground="neutral-weak">
               {item.description}
             </Text>
           </Row>
@@ -34,13 +34,13 @@ function createDetailedContent(
 
         {details.length > 0 && (
           <Column gap="xs" padding="s" radius="s" background="neutral-alpha-weak">
-            <Text variant="label-default-xs" onBackground="neutral-strong">Détails</Text>
-            <Column as="ul" gap="2" style={{ paddingLeft: "1rem", margin: 0 }}>
+            <Text textVariant="label-default-xs" onBackground="neutral-strong">Détails</Text>
+            <Column as="ul" gap="2" style={{ paddingLeft: "1rem", margin: 0 }} className="list-disc">
               {details.map((detail, i) => (
                 <Text
                   key={i}
                   as="li"
-                  variant="body-default-xs"
+                  textVariant="body-default-xs"
                   onBackground={detail.type === "warning" ? "warning-weak" : detail.type === "tip" ? "success-weak" : "neutral-weak"}
                 >
                   {detail.text}
@@ -54,8 +54,8 @@ function createDetailedContent(
           <Row gap="xs" vertical="start" padding="s" radius="s" background="danger-alpha-weak">
             <Icon name="warningTriangle" size="xs" onBackground="danger-weak" />
             <Column gap="2">
-              <Text variant="label-default-xs" onBackground="danger-weak">Impact</Text>
-              <Text variant="body-default-s">{item.impact}</Text>
+              <Text textVariant="label-default-xs" onBackground="danger-weak">Impact</Text>
+              <Text textVariant="body-default-s">{item.impact}</Text>
             </Column>
           </Row>
         )}
@@ -64,15 +64,15 @@ function createDetailedContent(
           <Row gap="xs" vertical="start" padding="s" radius="s" background="success-alpha-weak">
             <Icon name="lightbulb" size="xs" onBackground="success-weak" />
             <Column gap="2">
-              <Text variant="label-default-xs" onBackground="success-weak">Recommandation</Text>
-              <Text variant="body-default-s">{item.recommendation}</Text>
+              <Text textVariant="label-default-xs" onBackground="success-weak">Recommandation</Text>
+              <Text textVariant="body-default-s">{item.recommendation}</Text>
             </Column>
           </Row>
         )}
 
         {sources.length > 0 && (
           <Column gap="xs">
-            <Text variant="label-default-xs" onBackground="neutral-weak">Sources & Documentation</Text>
+            <Text textVariant="label-default-xs" onBackground="neutral-weak">Sources & Documentation</Text>
             <Row gap="s" wrap>
               {sources.map((source) => (
                 <Text
@@ -81,7 +81,7 @@ function createDetailedContent(
                   href={source.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="body-default-xs"
+                  textVariant="body-default-xs"
                   onBackground="accent-weak"
                   style={{ textDecoration: "underline" }}
                 >

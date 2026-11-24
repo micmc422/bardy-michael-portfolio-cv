@@ -77,7 +77,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
     const radarColors = autoSeries.map((s) => `var(--data-${s.color})`);
 
     return (
-        <Column fillWidth minHeight={height} border={border} radius="l" data-viz-style={dataVizStyle || mode} background="surface" {...flex}>
+        <Column fillWidth minHeight={`${height}rem` as `${number}rem`} border={border} radius="l" data-viz-style={dataVizStyle || mode} background="surface" {...flex}>
             <ChartHeader
                 title={title}
                 description={description}

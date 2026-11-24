@@ -1,8 +1,10 @@
 import { about, baseURL, person } from "@/core/config";
 import { solutionsHébergement } from "@/core/config/content";
 import Schema from "@/modules/seo/Schema";
-import { Badge, Column, Flex, Heading, Icon, IconButton, RevealFx, Row, Text } from "@once-ui-system/core";
+import { Button, Column, Flex, Grid, Heading, Row, Text } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
+import { PageHeader, SectionHead } from "@/shared/components/PageHeader";
+import panel from "@/shared/components/PageHeader.module.scss";
 import { BarChart, type DataPoint } from "@once-ui-system/core/data";
 import { ChartCardContainer } from "@/shared/ui/chart";
 import { LinesBars } from "@/shared/ui/chart/LinesBars";
@@ -34,55 +36,36 @@ export default async function HebergementPage() {
                 image: `${baseURL}${person.avatar}`,
             }}
         />
-        <Column maxWidth="xl" paddingY="24" gap="m">
-            <Column maxWidth="s">
-                <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                    <Heading wrap="balance" variant="display-strong-l">
-                        {solutionsHébergement.title}
-                    </Heading>
-                </RevealFx>
-                <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-                    <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xl">
-                        {solutionsHébergement.headline}
-                    </Text>
-                </RevealFx>
-                <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
-                    <Badge
-                        background="brand-alpha-weak" paddingX="8" paddingY="4" onBackground="brand-strong"
-                        arrow={false}
-                        href={about.calendar.link}
-                        center
-                        gap="s"
-                        id="RDVBtn"
-                        aria-label="Lien vers la prise de rendez-vous"
-                    >
-                        <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
-                        <Text paddingTop="4">Planifier un RDV</Text>
-                        <IconButton
-                            variant="ghost"
-                            icon="chevronRight"
-                        />
-                    </Badge>
-                </RevealFx>
-            </Column>
-            <Row center>
-                <Column maxWidth="s" paddingY="16" center>
-                    <Heading as="span" wrap="balance" variant="display-strong-m">
-                        {solutionsHébergement.introduction.titre}
-                    </Heading>
-                    <Row gap="m" paddingY="16">
-                        {solutionsHébergement.introduction.modeles.map((model, i) => <Column maxWidth="s" paddingY="8" key={i} center>
-                            <Text style={{ fontSize: "6vmax" }}>{model.icone}</Text>
-                            <Heading as="h2" wrap="balance" variant="display-strong-s" paddingTop="8">
+        <Column as="section" maxWidth="xl" gap="m" aria-labelledby="hebergement-hero-title">
+            <PageHeader
+                id="hebergement-hero-title"
+                eyebrow="Hébergement"
+                title={solutionsHébergement.title}
+                lead={solutionsHébergement.headline}
+            >
+                <Button href={about.calendar.link} prefixIcon="calendar" variant="primary" size="l">Planifier un échange</Button>
+                <Button href="/estimation" variant="secondary" size="l">Estimer mon projet</Button>
+            </PageHeader>
+            <Column paddingY="24" gap="l">
+                <SectionHead
+                    id="hebergement-modeles-title"
+                    eyebrow="Modèles"
+                    title={solutionsHébergement.introduction.titre}
+                />
+                <Grid columns={solutionsHébergement.introduction.modeles.length > 2 ? 3 : 2} s={{ columns: "1" }} m={{ columns: "1" }} gap="16">
+                    {solutionsHébergement.introduction.modeles.map((model, i) => (
+                        <Column as="article" className={`${panel.panel} ${panel.lift}`} padding="l" key={i} gap="s">
+                            <Text style={{ fontSize: "2.5rem", lineHeight: 1 }} aria-hidden="true">{model.icone}</Text>
+                            <Heading as="h3" wrap="balance" textVariant="display-strong-xs">
                                 {model.nom}
                             </Heading>
-                            <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
+                            <Text wrap="balance" onBackground="neutral-weak" textVariant="body-default-m">
                                 {model.description}
                             </Text>
-                        </Column>)}
-                    </Row>
-                </Column>
-            </Row>
+                        </Column>
+                    ))}
+                </Grid>
+            </Column>
             <Row s={{ direction: "column" }} maxWidth={"xl"} gap="l" align="start" paddingX="m">
                 <Column maxWidth="s" gap="m">
                     <BarChartperformanceScalabilite />
@@ -99,7 +82,7 @@ export default async function HebergementPage() {
         <Row maxWidth={"s"} gap="l" align="start" paddingX="m">
 
             <ChartCardContainer gap="l" align="start" paddingX="l" paddingY="m">
-                <Heading as="h2" wrap="pretty" variant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
+                <Heading as="h2" wrap="pretty" textVariant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
                 <Flex gap="l" horizontal="center" wrap>
                     {solutionsHébergement.securite_fiabilite.types.map((el, i) => <DougNut key={i} {...el} />)}
                 </Flex>
@@ -133,7 +116,7 @@ function BarChartperformanceScalabilite() {
             ]}
         />
         <Column paddingY='12' paddingX="20" gap="4">
-            <Text onBackground="neutral-medium" variant="label-default-s">{explication}</Text>
+            <Text onBackground="neutral-medium" textVariant="label-default-s">{explication}</Text>
         </Column>
     </ChartCardContainer>
 }

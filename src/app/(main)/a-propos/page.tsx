@@ -1,42 +1,21 @@
-"use server"
-
-import {
-  Avatar,
-  Badge,
-  Button,
-  Column,
-  Heading,
-  Icon,
-  IconButton,
-  Media,
-  RevealFx,
-  Row,
-  Skeleton,
-  Tag,
-  Text,
-  type IconName,
-} from "@once-ui-system/core";
+import { Avatar, Button, Icon, IconButton, Media, Row, Skeleton, type IconName } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
+import dynamic from "next/dynamic";
+import React from "react";
 import Meta from "@/modules/seo/Meta";
 import { baseURL } from "@/core/config";
-import dynamic from "next/dynamic";
-
-// import TableOfContents from "@/modules/blog/components/TableOfContents";
-const TableOfContents = dynamic(() => import('@/modules/blog/components/TableOfContents'), {
-  loading: () => <Row>
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-  </Row>
-  ,
-});
-
-import styles from "@/modules/blog/components/a-propos.module.scss";
 import { person, about, social } from "@/core/config/content";
-import React from "react";
+import { PageHeader, SectionHead } from "@/shared/components/PageHeader";
+import { PageBlock, PageShell } from "@/shared/components/PageShell";
+import styles from "@/shared/components/PageShell.module.scss";
+
+const TableOfContents = dynamic(() => import("@/modules/blog/components/TableOfContents"), {
+  loading: () => (
+    <Row>
+      <Skeleton shape="line" width="160" />
+    </Row>
+  ),
+});
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -48,13 +27,31 @@ export async function generateMetadata() {
   });
 }
 
+type ImageItem = { src: string; alt: string; width: number; height: number };
+
+function CardImages({ images }: { images?: ImageItem[] }) {
+  const valid = (images ?? []).filter((image) => image?.src);
+  if (valid.length === 0) return null;
+  return (
+    <div className={styles.cardImages}>
+      {valid.map((image, index) => (
+        <Row
+          key={index}
+          border="neutral-medium"
+          radius="m"
+          minWidth={`${image.width}rem`}
+          height={`${image.height}rem`}
+        >
+          <Media enlarge radius="m" sizes={image.width.toString()} alt={image.alt} src={image.src} />
+        </Row>
+      ))}
+    </div>
+  );
+}
+
 export default async function About() {
   const structure = [
-    {
-      title: about.intro.title,
-      display: about.intro.display,
-      items: [],
-    },
+    { title: about.intro.title, display: about.intro.display, items: [] },
     {
       title: about.work.title,
       display: about.work.display,
@@ -71,279 +68,150 @@ export default async function About() {
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
-  return (
-    <Column as="article" maxWidth="m" className="isolate">
-      {about.tableOfContent.display && (
-        <Column
-          as="aside"
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          s={{ hide: true }}
 
+  return (
+    <PageShell narrow labelledBy="about-title">
+      {about.tableOfContent.display && (
+        <aside
+          aria-label="Sommaire"
+          className="hide-below-xl"
+          style={{ position: "fixed", left: 0, top: "50%", transform: "translateY(-50%)", paddingLeft: 24, zIndex: 5 }}
         >
           <TableOfContents structure={structure} about={about} />
-        </Column>
+        </aside>
       )}
-      <Row fillWidth s={{ direction: "column" }} horizontal="center">
+
+      <div id={about.intro.title} style={{ scrollMarginTop: "6rem" }}>
         {about.avatar.display && (
-          <Column
-            className={"isolate"}
-            top="64"
-            fitHeight
-            position="sticky"
-            s={{ position: "relative", style: { top: "auto" } }}
-            xs={{ style: { top: "auto" } }}
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
-            zIndex={1}
-          >
+          <div className={styles.avatarWrap}>
             <Avatar src={person.avatar} size="xl" />
-            <Row gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Row>
-            {person.languages && person.languages.length > 0 && (
-              <Row wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
-                    {language}
-                  </Tag>
-                ))}
-              </Row>
-            )}
-          </Column>
+          </div>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
-          <Column
-            id={about.intro.title}
-            fillWidth
-            minHeight="160"
-            vertical="center"
-            marginBottom="32"
-          >
-            {about.calendar.display && (
-              <RevealFx fillWidth horizontal="start" s={{ horizontal: "center" }} paddingTop="16" paddingBottom="32" paddingLeft="8">
-                <Badge
-                  background="brand-alpha-weak" paddingX="xs" paddingY="4" onBackground="brand-strong"
-                  arrow={false}
-                  href={about.calendar.link}
-                  center
-                  gap="s"
-                  id="RDVBtn"
-                  aria-label="Lien vers la prise de rendez-vous"
-                >
-                  <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
-                  <Text paddingTop="4">Planifier un RDV</Text>
-                  <IconButton
-                    variant="ghost"
-                    icon="chevronRight"
-                  />
-                </Badge>
-              </RevealFx>
-            )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
-            {social.length > 0 && (
-              <Row
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-                data-border="rounded"
-              >
-                {social
-                  .filter((item) => item.essential)
-                  .map(
-                    (item) =>
-                      item.link && (
-                        <React.Fragment key={item.name}>
-                          <Row s={{ hide: true }}>
-                            <Button
-                              key={item.name}
-                              href={item.link}
-                              prefixIcon={item.icon as IconName}
-                              label={item.name}
-                              size="s"
-                              weight="default"
-                              variant="secondary"
-                            />
-                          </Row>
-                          <Row hide s={{ hide: false }}>
-                            <IconButton
-                              size="l"
-                              key={`${item.name}-icon`}
-                              href={item.link}
-                              icon={item.icon as IconName}
-                              variant="secondary"
-                            />
-                          </Row>
-                        </React.Fragment>
-                      ),
-                  )}
-              </Row>
-            )}
-          </Column>
-
-          {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              {about.intro.description}
-            </Column>
+        <PageHeader
+          id="about-title"
+          eyebrow="À propos"
+          title={person.name}
+          lead={person.role}
+          align="center"
+        >
+          {about.calendar.display && (
+            <Button href={about.calendar.link} prefixIcon="calendar" variant="primary" size="l">
+              Planifier un RDV
+            </Button>
           )}
+          {social
+            .filter((item) => item.essential && item.link)
+            .map((item) => (
+              <IconButton
+                key={item.name}
+                href={item.link}
+                icon={item.icon as IconName}
+                variant="secondary"
+                size="l"
+                tooltip={item.name}
+                aria-label={item.name}
+              />
+            ))}
+        </PageHeader>
+        <div className={styles.profile}>
+          <span className={styles.profileItem}>
+            <Icon onBackground="brand-strong" name="globe" />
+            {person.location}
+          </span>
+          {person.languages?.map((language) => (
+            <span key={language} className={styles.chip}>
+              {language}
+            </span>
+          ))}
+        </div>
+      </div>
 
-          {about.work.display && (
-            <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
-                {about.work.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="display-strong-s">
+      {about.intro.display && (
+        <PageBlock labelledBy="about-intro-title">
+          <SectionHead id="about-intro-title" eyebrow="Présentation" title="Qui suis-je ?" />
+          <div className={styles.cardText} style={{ fontSize: "1.1rem" }}>
+            {about.intro.description}
+          </div>
+        </PageBlock>
+      )}
+
+      {about.work.display && (
+        <PageBlock labelledBy={about.work.title}>
+          <SectionHead id={about.work.title} eyebrow="Parcours" title={about.work.title} />
+          <ol className={styles.stack}>
+            {about.work.experiences.map((experience, index) => (
+              <li key={`${experience.company}-${experience.role}-${index}`}>
+                <RevealFx translateY={12} fillWidth>
+                  <article className={styles.card}>
+                    <div className={styles.cardHead}>
+                      <h3 id={experience.company} className={styles.cardTitle} style={{ fontSize: "1.4rem" }}>
                         {experience.company}
-                      </Text>
-                      <Text variant="display-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
-                    </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-${index}`}
-                          >
-                            {achievement}
-                          </Text>
-                        ),
-                      )}
-                    </Column>
-                    {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
+                      </h3>
+                      <span className={styles.cardMeta}>{experience.timeframe}</span>
+                    </div>
+                    <p className={styles.cardRole}>{experience.role}</p>
+                    <ul className={styles.bullets}>
+                      {experience.achievements.map((achievement: React.ReactNode, i: number) => (
+                        <li key={`${experience.company}-${i}`}>{achievement}</li>
+                      ))}
+                    </ul>
+                    <CardImages images={experience.images as ImageItem[] | undefined} />
+                  </article>
+                </RevealFx>
+              </li>
+            ))}
+          </ol>
+        </PageBlock>
+      )}
 
-          {about.studies.display && (
-            <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                {about.studies.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="display-strong-xs">
-                      {institution.name}
-                    </Text>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
+      {about.studies.display && (
+        <PageBlock labelledBy={about.studies.title}>
+          <SectionHead id={about.studies.title} eyebrow="Formation" title={about.studies.title} />
+          <ul className={`${styles.grid} ${styles.auto}`}>
+            {about.studies.institutions.map((institution, index) => (
+              <li key={`${institution.name}-${index}`} style={{ minWidth: 0 }}>
+                <article className={styles.card} style={{ height: "100%" }}>
+                  <span className={styles.cardIndex} aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 id={institution.name} className={styles.cardTitle}>
+                    {institution.name}
+                  </h3>
+                  <p className={styles.cardText}>{institution.description}</p>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </PageBlock>
+      )}
 
-          {about.technical.display && (
-            <>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
-                {about.technical.title}
-              </Heading>
-              <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="display-strong-s">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon as IconName}>
-                            {tag.name}
-                          </Tag>
-                        ))}
-                      </Row>
-                    )}
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
-        </Column>
-      </Row>
-    </Column>
-
+      {about.technical.display && (
+        <PageBlock labelledBy={about.technical.title}>
+          <SectionHead id={about.technical.title} eyebrow="Stack" title={about.technical.title} />
+          <ul className={`${styles.grid} ${styles.auto}`}>
+            {about.technical.skills.map((skill, index) => (
+              <li key={`${skill.title}-${index}`} style={{ minWidth: 0 }}>
+                <article className={styles.card} style={{ height: "100%" }}>
+                  <h3 id={skill.title} className={styles.cardTitle}>
+                    {skill.title}
+                  </h3>
+                  <p className={styles.cardText}>{skill.description}</p>
+                  {skill.tags && skill.tags.length > 0 && (
+                    <ul className={styles.chips}>
+                      {skill.tags.map((tag, tagIndex) => (
+                        <li key={`${skill.title}-${tagIndex}`} className={styles.chip}>
+                          {tag.name}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <CardImages images={skill.images as ImageItem[] | undefined} />
+                </article>
+              </li>
+            ))}
+          </ul>
+        </PageBlock>
+      )}
+    </PageShell>
   );
 }

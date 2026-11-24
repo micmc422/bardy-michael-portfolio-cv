@@ -1,8 +1,10 @@
-import { Button, Column, Heading, Icon, Row, Text, RevealFx, Line, Grid, Background, Feedback, type Opacity, type IconName } from "@once-ui-system/core";
+import { Button, Column, Heading, Icon, Row, Text, Line, Grid, Background, Feedback, type Opacity, type IconName } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
 import { baseURL } from "@/core/config";
 import { person, atomicBd81 } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
+import { PageHeader } from "@/shared/components/PageHeader";
 import PasswordProtect from "@/shared/components/PasswordProtect";
 import { validateAtomicBd81Password } from "./actions";
 
@@ -25,7 +27,7 @@ function CostTable({ tableau }: { tableau: { headers: string[]; rows: string[][]
             <Row fillWidth background="neutral-alpha-weak" padding="s" gap="s">
                 {tableau.headers.map((header, idx) => (
                     <Column key={idx} flex={idx === 0 ? 2 : 1}>
-                        <Text variant="label-default-s" onBackground="neutral-strong">
+                        <Text textVariant="label-default-s" onBackground="neutral-strong">
                             {header}
                         </Text>
                     </Column>
@@ -44,7 +46,7 @@ function CostTable({ tableau }: { tableau: { headers: string[]; rows: string[][]
                     {row.map((cell, cellIdx) => (
                         <Column key={cellIdx} flex={cellIdx === 0 ? 2 : 1}>
                             <Text
-                                variant="body-default-s"
+                                textVariant="body-default-s"
                                 onBackground={cellIdx === 0 ? "neutral-strong" : "neutral-weak"}
                             >
                                 {cell}
@@ -83,18 +85,13 @@ export default function AtomicBd81Page() {
             />
 
             {/* Hero Section */}
-            <Column as="section" maxWidth="m" paddingY="xl" gap="m" aria-labelledby="hero-title">
-                <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                    <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l">
-                        {atomicBd81.headline}
-                    </Heading>
-                </RevealFx>
-                <RevealFx translateY="8" delay={200} fillWidth horizontal="start">
-                    <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xs">
-                        {atomicBd81.subline}
-                    </Text>
-                </RevealFx>
-                <RevealFx translateY="8" delay={400} fillWidth horizontal="start">
+            <Column as="section" maxWidth="m" gap="m" aria-labelledby="hero-title">
+                <PageHeader
+                    id="hero-title"
+                    eyebrow="Étude de cas"
+                    title={atomicBd81.headline}
+                    lead={atomicBd81.subline}
+                >
                     <Button
                         href={atomicBd81.maquetteAlphaUrl}
                         variant="secondary"
@@ -104,14 +101,14 @@ export default function AtomicBd81Page() {
                     >
                         Voir la maquette alpha
                     </Button>
-                </RevealFx>
+                </PageHeader>
             </Column>
 
             {/* Contexte */}
             {atomicBd81.contexte && (
                 <Column as="section" maxWidth="m" paddingBottom="l" gap="m">
-                    <Feedback variant="info" fillWidth>
-                        <Text variant="body-default-m">
+                    <Feedback tone="info" fillWidth>
+                        <Text textVariant="body-default-m">
                             {atomicBd81.contexte}
                         </Text>
                     </Feedback>
@@ -121,7 +118,7 @@ export default function AtomicBd81Page() {
             {/* Chiffres clés */}
             {atomicBd81.chiffresCles && (
                 <Column as="section" maxWidth="m" paddingBottom="l" gap="l" aria-labelledby="chiffres-cles-title">
-                    <Heading as="h2" id="chiffres-cles-title" variant="display-strong-m">
+                    <Heading as="h2" id="chiffres-cles-title" textVariant="display-strong-m">
                         📊 Chiffres clés du marché
                     </Heading>
                     <Grid columns={3} s={{ columns: "1" }} m={{ columns: "2" }} gap="m">
@@ -135,13 +132,13 @@ export default function AtomicBd81Page() {
                                 gap="xs"
                                 horizontal="center"
                             >
-                                <Text variant="display-strong-m" onBackground="brand-strong" align="center">
+                                <Text textVariant="display-strong-m" onBackground="brand-strong" align="center">
                                     {chiffre.valeur}
                                 </Text>
-                                <Text variant="body-default-s" onBackground="neutral-strong" align="center">
+                                <Text textVariant="body-default-s" onBackground="neutral-strong" align="center">
                                     {chiffre.label}
                                 </Text>
-                                <Text variant="body-default-xs" onBackground="neutral-weak" align="center">
+                                <Text textVariant="body-default-xs" onBackground="neutral-weak" align="center">
                                     Source : {chiffre.source}
                                 </Text>
                             </Column>
@@ -157,11 +154,11 @@ export default function AtomicBd81Page() {
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={chargeSection.id}>
                     <Row gap="s" vertical="center">
                         <Icon name={chargeSection.icone as IconName} size="l" onBackground="brand-strong" />
-                        <Heading as="h2" id={chargeSection.id} variant="display-strong-m">
+                        <Heading as="h2" id={chargeSection.id} textVariant="display-strong-m">
                             {chargeSection.titre}
                         </Heading>
                     </Row>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
+                    <Text textVariant="body-default-l" onBackground="neutral-weak">
                         {chargeSection.description}
                     </Text>
 
@@ -175,10 +172,10 @@ export default function AtomicBd81Page() {
                                 border="neutral-alpha-weak"
                                 gap="s"
                             >
-                                <Heading as="h3" variant="display-strong-xs">
+                                <Heading as="h3" textVariant="display-strong-xs">
                                     {point.titre}
                                 </Heading>
-                                <Text variant="body-default-m" onBackground="neutral-weak">
+                                <Text textVariant="body-default-m" onBackground="neutral-weak">
                                     {point.description}
                                 </Text>
                             </Column>
@@ -194,19 +191,19 @@ export default function AtomicBd81Page() {
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={coutsSection.id}>
                     <Row gap="s" vertical="center">
                         <Icon name={coutsSection.icone as IconName} size="l" onBackground="brand-strong" />
-                        <Heading as="h2" id={coutsSection.id} variant="display-strong-m">
+                        <Heading as="h2" id={coutsSection.id} textVariant="display-strong-m">
                             {coutsSection.titre}
                         </Heading>
                     </Row>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
+                    <Text textVariant="body-default-l" onBackground="neutral-weak">
                         {coutsSection.description}
                     </Text>
 
                     {coutsSection.tableau && <CostTable tableau={coutsSection.tableau} />}
 
                     {coutsSection.synthese && (
-                        <Feedback variant="success" fillWidth>
-                            <Text variant="body-default-m">
+                        <Feedback tone="success" fillWidth>
+                            <Text textVariant="body-default-m">
                                 {coutsSection.synthese}
                             </Text>
                         </Feedback>
@@ -221,11 +218,11 @@ export default function AtomicBd81Page() {
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={marcheSection.id}>
                     <Row gap="s" vertical="center">
                         <Icon name={marcheSection.icone as IconName} size="l" onBackground="brand-strong" />
-                        <Heading as="h2" id={marcheSection.id} variant="display-strong-m">
+                        <Heading as="h2" id={marcheSection.id} textVariant="display-strong-m">
                             {marcheSection.titre}
                         </Heading>
                     </Row>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
+                    <Text textVariant="body-default-l" onBackground="neutral-weak">
                         {marcheSection.description}
                     </Text>
 
@@ -241,11 +238,11 @@ export default function AtomicBd81Page() {
                             >
                                 <Row gap="xs" vertical="center">
                                     <Icon name="bar-chart-2" onBackground="brand-strong" />
-                                    <Heading as="h3" variant="display-strong-xs">
+                                    <Heading as="h3" textVariant="display-strong-xs">
                                         {stat.titre}
                                     </Heading>
                                 </Row>
-                                <Text variant="body-default-m" onBackground="neutral-weak">
+                                <Text textVariant="body-default-m" onBackground="neutral-weak">
                                     {stat.description}
                                 </Text>
                             </Column>
@@ -261,17 +258,17 @@ export default function AtomicBd81Page() {
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={pertinenceSection.id}>
                     <Row gap="s" vertical="center">
                         <Icon name={pertinenceSection.icone as IconName} size="l" onBackground="brand-strong" />
-                        <Heading as="h2" id={pertinenceSection.id} variant="display-strong-m">
+                        <Heading as="h2" id={pertinenceSection.id} textVariant="display-strong-m">
                             {pertinenceSection.titre}
                         </Heading>
                     </Row>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
+                    <Text textVariant="body-default-l" onBackground="neutral-weak">
                         {pertinenceSection.description}
                     </Text>
 
                     {/* Avantages */}
                     <Column gap="m">
-                        <Heading as="h3" variant="display-strong-s">
+                        <Heading as="h3" textVariant="display-strong-s">
                             <Row gap="xs" vertical="center">
                                 <Icon name="checkCircle" onBackground="success-strong" />
                                 Les points forts (Avantages)
@@ -287,10 +284,10 @@ export default function AtomicBd81Page() {
                                     border="success-alpha-medium"
                                     gap="s"
                                 >
-                                    <Heading as="h4" variant="display-strong-xs">
+                                    <Heading as="h4" textVariant="display-strong-xs">
                                         {item.titre}
                                     </Heading>
-                                    <Text variant="body-default-m" onBackground="neutral-weak">
+                                    <Text textVariant="body-default-m" onBackground="neutral-weak">
                                         {item.description}
                                     </Text>
                                 </Column>
@@ -300,7 +297,7 @@ export default function AtomicBd81Page() {
 
                     {/* Contraintes */}
                     <Column gap="m">
-                        <Heading as="h3" variant="display-strong-s">
+                        <Heading as="h3" textVariant="display-strong-s">
                             <Row gap="xs" vertical="center">
                                 <Icon name="warningTriangle" onBackground="warning-strong" />
                                 Les points de vigilance (Contraintes)
@@ -316,10 +313,10 @@ export default function AtomicBd81Page() {
                                     border="warning-alpha-medium"
                                     gap="s"
                                 >
-                                    <Heading as="h4" variant="display-strong-xs">
+                                    <Heading as="h4" textVariant="display-strong-xs">
                                         {item.titre}
                                     </Heading>
-                                    <Text variant="body-default-m" onBackground="neutral-weak">
+                                    <Text textVariant="body-default-m" onBackground="neutral-weak">
                                         {item.description}
                                     </Text>
                                 </Column>
@@ -336,11 +333,11 @@ export default function AtomicBd81Page() {
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={alternativesSection.id}>
                     <Row gap="s" vertical="center">
                         <Icon name={alternativesSection.icone as IconName} size="l" onBackground="brand-strong" />
-                        <Heading as="h2" id={alternativesSection.id} variant="display-strong-m">
+                        <Heading as="h2" id={alternativesSection.id} textVariant="display-strong-m">
                             {alternativesSection.titre}
                         </Heading>
                     </Row>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
+                    <Text textVariant="body-default-l" onBackground="neutral-weak">
                         {alternativesSection.description}
                     </Text>
 
@@ -351,14 +348,14 @@ export default function AtomicBd81Page() {
                             position="absolute"
                             mask={{
                                 cursor: true,
-                                x: 50,
-                                y: 25,
-                                radius: 70,
+                                x: "50%",
+                                y: "25%",
+                                radius: "70vh",
                             }}
                             gradient={{
                                 display: true,
                                 opacity: 1 as Opacity,
-                                x: 50,
+                                x: "50%",
                                 y: 0,
                                 colorStart: "accent-alpha-strong",
                                 colorEnd: "brand-alpha-weak",
@@ -372,10 +369,10 @@ export default function AtomicBd81Page() {
                                 radius="m"
                                 gap="s"
                             >
-                                <Heading as="h3" variant="display-strong-xs">
+                                <Heading as="h3" textVariant="display-strong-xs">
                                     {alt.titre}
                                 </Heading>
-                                <Text variant="body-default-m" onBackground="neutral-weak">
+                                <Text textVariant="body-default-m" onBackground="neutral-weak">
                                     {alt.description}
                                 </Text>
                             </Column>
@@ -391,11 +388,11 @@ export default function AtomicBd81Page() {
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={casSection.id}>
                     <Row gap="s" vertical="center">
                         <Icon name={casSection.icone as IconName} size="l" onBackground="brand-strong" />
-                        <Heading as="h2" id={casSection.id} variant="display-strong-m">
+                        <Heading as="h2" id={casSection.id} textVariant="display-strong-m">
                             {casSection.titre}
                         </Heading>
                     </Row>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
+                    <Text textVariant="body-default-l" onBackground="neutral-weak">
                         {casSection.description}
                     </Text>
 
@@ -410,7 +407,7 @@ export default function AtomicBd81Page() {
                                 gap="s"
                             >
                                 <Row fillWidth horizontal="between" vertical="center" gap="s">
-                                    <Heading as="h3" variant="display-strong-xs">
+                                    <Heading as="h3" textVariant="display-strong-xs">
                                         {cas.titre}
                                     </Heading>
                                     <Row
@@ -421,14 +418,14 @@ export default function AtomicBd81Page() {
                                         style={{ whiteSpace: "nowrap" }}
                                     >
                                         <Text
-                                            variant="label-default-s"
+                                            textVariant="label-default-s"
                                             onBackground="brand-strong"
                                         >
                                             {cas.chiffres}
                                         </Text>
                                     </Row>
                                 </Row>
-                                <Text variant="body-default-m" onBackground="neutral-weak">
+                                <Text textVariant="body-default-m" onBackground="neutral-weak">
                                     {cas.description}
                                 </Text>
                             </Column>
@@ -444,11 +441,11 @@ export default function AtomicBd81Page() {
                 <Column as="section" maxWidth="m" paddingY="l" gap="l" aria-labelledby={recommandationSection.id}>
                     <Row gap="s" vertical="center">
                         <Icon name={recommandationSection.icone as IconName} size="l" onBackground="brand-strong" />
-                        <Heading as="h2" id={recommandationSection.id} variant="display-strong-m">
+                        <Heading as="h2" id={recommandationSection.id} textVariant="display-strong-m">
                             {recommandationSection.titre}
                         </Heading>
                     </Row>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
+                    <Text textVariant="body-default-l" onBackground="neutral-weak">
                         {recommandationSection.description}
                     </Text>
 
@@ -463,7 +460,7 @@ export default function AtomicBd81Page() {
                                 gap="m"
                             >
                                 <Row fillWidth horizontal="between" vertical="center" gap="s">
-                                    <Heading as="h3" variant="display-strong-s">
+                                    <Heading as="h3" textVariant="display-strong-s">
                                         {phase.titre}
                                     </Heading>
                                     <Row
@@ -474,28 +471,28 @@ export default function AtomicBd81Page() {
                                         style={{ whiteSpace: "nowrap" }}
                                     >
                                         <Text
-                                            variant="label-default-s"
+                                            textVariant="label-default-s"
                                             onBackground="success-strong"
                                         >
                                             {phase.budget}
                                         </Text>
                                     </Row>
                                 </Row>
-                                <Text variant="body-default-m" onBackground="brand-strong">
+                                <Text textVariant="body-default-m" onBackground="brand-strong">
                                     🎯 Objectif : {phase.objectif}
                                 </Text>
-                                <Column as="ul" gap="8" paddingLeft="m">
+                                <Column as="ul" gap="8" paddingLeft="m" marginY="1em">
                                     {phase.actions.map((action, aIdx) => (
                                         <Row as="li" key={aIdx} gap="xs" vertical="start">
                                             <Icon name="check" size="s" onBackground="success-strong" />
-                                            <Text variant="body-default-m" onBackground="neutral-weak">
+                                            <Text textVariant="body-default-m" onBackground="neutral-weak">
                                                 {action}
                                             </Text>
                                         </Row>
                                     ))}
                                 </Column>
-                                <Feedback variant="info" fillWidth>
-                                    <Text variant="label-default-s">
+                                <Feedback tone="info" fillWidth>
+                                    <Text textVariant="label-default-s">
                                         📈 KPI cibles : {phase.kpi}
                                     </Text>
                                 </Feedback>
@@ -504,8 +501,8 @@ export default function AtomicBd81Page() {
                     </Column>
 
                     {recommandationSection.conclusion && (
-                        <Feedback variant="success" fillWidth>
-                            <Text variant="body-default-m">
+                        <Feedback tone="success" fillWidth>
+                            <Text textVariant="body-default-m">
                                 {recommandationSection.conclusion}
                             </Text>
                         </Feedback>

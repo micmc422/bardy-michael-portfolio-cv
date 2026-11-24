@@ -110,14 +110,14 @@ const ChartCard = forwardRef<HTMLDivElement, ChartCardProps>(
 
         return (<ChartCardContainer ref={ref} direction='column'  {...props}>
             <Column paddingY='s'>
-                {titre && <Heading as="span" wrap="pretty" variant='heading-strong-xs' paddingX="m">{titre}</Heading>}
-                {description && <Text wrap="pretty" onBackground='neutral-weak' variant='label-default-s' paddingX="m">{description}</Text>}
+                {titre && <Column paddingX="m"><Heading as="span" wrap="pretty" textVariant='heading-strong-xs'>{titre}</Heading></Column>}
+                {description && <Column paddingX="m"><Text wrap="pretty" onBackground='neutral-weak' textVariant='label-default-s'>{description}</Text></Column>}
             </Column>
             <Flex center style={chartStyle}>
                 <canvas id={id} ref={chartRef}></canvas>
             </Flex>
             <Column maxWidth={"s"} paddingX="m"            >
-                <Text onBackground="neutral-medium" variant="label-default-s">{explication}</Text>
+                <Text onBackground="neutral-medium" textVariant="label-default-s">{explication}</Text>
             </Column>
         </ChartCardContainer>
         );

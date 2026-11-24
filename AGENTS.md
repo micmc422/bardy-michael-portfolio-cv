@@ -50,7 +50,9 @@ Vérification avant de livrer : `pnpm test && pnpm lint && pnpm build`.
 | `src/app/api/cron/` | Crons Vercel (voir `vercel.json`) : indexNow, social-share (LinkedIn/FB), refresh-facebook-token |
 | `src/modules/seo/` | `Meta.tsx`, `Schema.tsx` |
 | `src/modules/blog/` | Module blog (controllers, models, views, components) |
-| `src/modules/estimation/` | Module estimation (controllers, models, views, components) |
+| `src/modules/estimation/` | Module estimation : `components/` (SiteTypeCard, SiteTypeNav, EstimationSteps, OptionsForm, ResumePanel, IncludedServices, EstimationFaq), `models/` (`estimationData.ts` tarifs, `estimationContent.ts` textes FAQ/services), `hooks/`, `utils/pricing.ts` (totaux HT/TVA/TTC), `estimation.module.scss` |
+| `src/app/(main)/estimation/` | `layout.tsx` (services inclus + FAQ), `page.tsx` (choix du type), `[slug]/layout.tsx` (PageHeader, étapes, formulaire + récapitulatif) et `[slug]/page.tsx` (options). Plus de parallel routes `@headline`/`@resume`. |
+| `src/shared/components/PageHeader.tsx` | En-tête de page partagé (eyebrow, titre, lead) + `PageHeader.module.scss` (`.panel`) — à utiliser sur TOUTES les pages internes pour garder le même design |
 | `src/modules/projects/` | Module projets/réalisations (controllers, models, views, components) |
 | `src/modules/pwa/` | Module PWA (controllers, views) |
 | `src/modules/reactions/` | Module réactions/commentaires (controllers, models, views) |

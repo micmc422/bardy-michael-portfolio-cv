@@ -18,13 +18,13 @@ function LoadingCard({ title, icon }: LoadingCardProps) {
       fillWidth
     >
       <Row gap="l" vertical="center" fillWidth s={{ direction: "column" }}>
-        <Column horizontal="center" gap="xs" minWidth={8}>
+        <Column horizontal="center" gap="xs" minWidth="8rem">
           <Skeleton shape="circle" size="xl" />
         </Column>
         <Column gap="s" flex={1}>
           <Row gap="s" vertical="center">
             <Icon name={icon} size="l" onBackground="neutral-weak" />
-            <Heading as="h2" variant="display-strong-s">{title}</Heading>
+            <Heading as="h2" textVariant="display-strong-s">{title}</Heading>
           </Row>
           <Skeleton shape="line" width="50%" />
         </Column>

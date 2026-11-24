@@ -1,6 +1,8 @@
 "use server"
 
-import { Column, Heading, Row, Skeleton } from "@once-ui-system/core";
+import { Column, Row, Skeleton } from "@once-ui-system/core";
+import { PageHeader } from "@/shared/components/PageHeader";
+import { PageShell } from "@/shared/components/PageShell";
 import Meta from "@/modules/seo/Meta";
 import { baseURL } from "@/core/config";
 import { about, person, work } from "@/core/config/content";
@@ -45,7 +47,7 @@ export async function generateMetadata() {
 
 export default async function Work() {
   return (
-    <Column as="section" maxWidth="m" aria-labelledby="realisations-page-title">
+    <>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -59,9 +61,16 @@ export default async function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading as="h1" id="realisations-page-title" variant="display-strong-l" align="center" paddingBottom="l">Dernières réalisations</Heading>
-      <Projects />
+      <PageShell labelledBy="realisations-page-title">
+        <PageHeader
+          id="realisations-page-title"
+          eyebrow="Portfolio"
+          title="Des réalisations concrètes, livrées en production."
+          lead="Sites vitrines, plateformes et applications web : chaque projet est conçu pour la performance, la maintenabilité et des résultats mesurables."
+        />
+        <Projects />
+      </PageShell>
       <Tarifs />
-    </Column>
+    </>
   );
 }

@@ -29,20 +29,19 @@ const protectedRoutes = {
   "/atomicbd81": true,
 };
 
-import { Josefin_Sans, Geist_Mono, Geist, Open_Sans } from "next/font/google";
+import { Geist_Mono, Geist, Open_Sans } from "next/font/google";
 import { about, blog, estimation, home, siteCheck, solutionsWeb, webmasterAlbi, work } from "./content";
 
-const heading = Josefin_Sans({
+const heading = Geist({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400"]
 });
 const body = Geist({
   variable: "--font-body",
   subsets: ["latin"],
   display: "optional",
-  weight: ["300"]
+  weight: ["300", "400"]
 });
 const label = Open_Sans({
   variable: "--font-label",

@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import { Loader2 } from "lucide-react"
-import { Accordion, Avatar, Badge, Button, Column, Flex, Grid, Icon, Input, Row, Tag, Text } from "@once-ui-system/core"
+import { Accordion, Avatar, Button, Column, Flex, Grid, Icon, Input, Row, Tag, Text } from "@once-ui-system/core"
 
 interface GitHubRepo {
     id: number
@@ -95,12 +95,12 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
     }
 
     return (
-        <Column padding="m" marginTop="m" marginBottom="m" gap="s" radius="m" maxWidth={40} border>
+        <Column padding="m" marginTop="m" marginBottom="m" gap="s" radius="m" maxWidth="40rem" border>
             {/* Formulaire de recherche */}
             {!(ownerProvided && repoProvided) && <>
                 <Column gap="s">
-                    <Text variant="display-strong-s">Résumé de Dépôt GitHub</Text>
-                    <Text variant="label-default-s">Entrez le propriétaire et le nom du dépôt pour afficher ses informations</Text>
+                    <Text textVariant="display-strong-s">Résumé de Dépôt GitHub</Text>
+                    <Text textVariant="label-default-s">Entrez le propriétaire et le nom du dépôt pour afficher ses informations</Text>
                 </Column>
                 <Column>
                     <form onSubmit={handleSubmit} className="flex gap-4 items-end">
@@ -132,13 +132,13 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                     <Row gap="xs" center>
                         <Avatar size={"l"} src={repoData.owner.avatar_url || "/placeholder.svg"} />
                         <Column>
-                            <Text variant="label-strong-m">{repoData.full_name}</Text>
+                            <Text textVariant="label-strong-m">{repoData.full_name}</Text>
                             <Row gap="s" align="start">
-                                {repoData.private && <Badge >Privé</Badge>}
-                                {repoData.archived && <Badge >Archivé</Badge>}
-                                {repoData.disabled && <Badge >Désactivé</Badge>}
+                                {repoData.private && <Tag variant="announce" >Privé</Tag>}
+                                {repoData.archived && <Tag variant="announce" >Archivé</Tag>}
+                                {repoData.disabled && <Tag variant="announce" >Désactivé</Tag>}
                             </Row>
-                            <Text variant="label-default-s">
+                            <Text textVariant="label-default-s">
                                 {repoData.description || "Aucune description disponible"}
                             </Text>
                         </Column>
@@ -159,7 +159,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                             <Row gap="xs" center>
                                 <Icon name="star" style={{ color: "#FECC55" }} size="xl" />
                                 <Column>
-                                    <Text variant="body-strong-xl">{repoData.stargazers_count.toLocaleString()}</Text>
+                                    <Text textVariant="body-strong-xl">{repoData.stargazers_count.toLocaleString()}</Text>
                                     <Text onBackground="neutral-weak">Étoiles</Text>
                                 </Column>
                             </Row>
@@ -168,7 +168,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                             <Row gap="xs" center>
                                 <Icon name="gitfork" size="xl" onBackground="neutral-weak" />
                                 <Column>
-                                    <Text variant="body-strong-xl">{repoData.forks_count.toLocaleString()}</Text>
+                                    <Text textVariant="body-strong-xl">{repoData.forks_count.toLocaleString()}</Text>
                                     <Text onBackground="neutral-weak">Forks</Text>
                                 </Column>
                             </Row>
@@ -177,7 +177,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                             <Row gap="xs" center>
                                 <Icon name="eye" size="xl" onBackground="neutral-weak" />
                                 <Column>
-                                    <Text variant="body-strong-xl">{repoData.watchers_count.toLocaleString()}</Text>
+                                    <Text textVariant="body-strong-xl">{repoData.watchers_count.toLocaleString()}</Text>
                                     <Text onBackground="neutral-weak">Watchers</Text>
                                 </Column>
                             </Row>
@@ -186,7 +186,7 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                             <Row gap="xs" center>
                                 <Icon name="danger" size="xl" onBackground="neutral-weak" />
                                 <Column>
-                                    <Text variant="body-strong-xl">{repoData.open_issues_count.toLocaleString()}</Text>
+                                    <Text textVariant="body-strong-xl">{repoData.open_issues_count.toLocaleString()}</Text>
                                     <Text onBackground="neutral-weak">Issues</Text>
                                 </Column>
                             </Row>
@@ -199,20 +199,20 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                         <Grid columns="2" s={{ columns: "1" }} gap="m" fillWidth>
                             <Column gap="s">
                                 <Column vertical="center" >
-                                    <Text variant="label-strong-s" onBackground="brand-weak">Langage principal:</Text>
-                                    <Tag scheme="success" prefixIcon="code" size="s">{repoData.language || "Non spécifié"}</Tag>
+                                    <Text textVariant="label-strong-s" onBackground="brand-weak">Langage principal:</Text>
+                                    <Tag tone="success" prefixIcon="code" size="s">{repoData.language || "Non spécifié"}</Tag>
                                 </Column>
                                 <Column>
-                                    <Text variant="label-strong-s" onBackground="brand-weak">Taille:</Text>
+                                    <Text textVariant="label-strong-s" onBackground="brand-weak">Taille:</Text>
                                     <Text>{formatSize(repoData.size)}</Text>
                                 </Column>
                                 <Column>
-                                    <Text variant="label-strong-s" onBackground="brand-weak">Branche par défaut:</Text>
+                                    <Text textVariant="label-strong-s" onBackground="brand-weak">Branche par défaut:</Text>
                                     <>{repoData.default_branch}</>
                                 </Column>
                                 {repoData.license && (
                                     <Column>
-                                        <Text variant="label-strong-s" onBackground="brand-weak">Licence:</Text>
+                                        <Text textVariant="label-strong-s" onBackground="brand-weak">Licence:</Text>
                                         <>{repoData.license.name}</>
                                     </Column>
                                 )}
@@ -220,15 +220,15 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
 
                             <Column gap="s">
                                 <Column align="start">
-                                    <Text variant="label-strong-s" onBackground="brand-weak">Créé le:</Text>
+                                    <Text textVariant="label-strong-s" onBackground="brand-weak">Créé le:</Text>
                                     <>{formatDate(repoData.created_at)}</>
                                 </Column>
                                 <Column align="start">
-                                    <Text variant="label-strong-s" onBackground="brand-weak">Dernière mise à jour:</Text>
+                                    <Text textVariant="label-strong-s" onBackground="brand-weak">Dernière mise à jour:</Text>
                                     <>{formatDate(repoData.updated_at)}</>
                                 </Column>
                                 <Column align="start">
-                                    <Text variant="label-strong-s" onBackground="brand-weak">Dernier push:</Text>
+                                    <Text textVariant="label-strong-s" onBackground="brand-weak">Dernier push:</Text>
                                     <>{formatDate(repoData.pushed_at)}</>
                                 </Column>
                             </Column>
@@ -237,9 +237,11 @@ export default function GitHubRepoSummary({ ownerProvided, repoProvided }: { own
                         {repoData.topics.length > 0 && (
                             <>
                                 <Flex gap="2" wrap>
-                                    <Text variant="body-strong-l" onBackground="accent-strong" paddingRight="s">Sujets:</Text>
+                                    <Column paddingRight="s">
+                                      <Text textVariant="body-strong-l" onBackground="accent-strong">Sujets:</Text>
+                                    </Column>
                                     {repoData.topics.map((topic) => (
-                                        <Tag key={topic} size="s" scheme="info">
+                                        <Tag key={topic} size="s" tone="info">
                                             {topic}
                                         </Tag>
                                     ))}

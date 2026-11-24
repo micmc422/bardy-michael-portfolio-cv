@@ -24,11 +24,11 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
       >
         <Row gap="s" vertical="center">
           <Icon name="warningTriangle" size="m" onBackground="warning-weak" />
-          <Heading as="h3" variant="display-strong-xs">
+          <Heading as="h3" textVariant="display-strong-xs">
             Aperçu Open Graph
           </Heading>
         </Row>
-        <Text variant="body-default-s" onBackground="warning-weak">
+        <Text textVariant="body-default-s" onBackground="warning-weak">
           Aucune donnée Open Graph trouvée. Les partages sur les réseaux sociaux
           n&apos;auront pas d&apos;aperçu attractif.
         </Text>
@@ -49,14 +49,14 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
     <Column gap="m" fillWidth>
       <Row gap="s" vertical="center">
         <Icon name="share2" size="m" onBackground="accent-weak" />
-        <Heading as="h3" variant="display-strong-xs">
+        <Heading as="h3" textVariant="display-strong-xs">
           Aperçu Open Graph
         </Heading>
       </Row>
 
       {/* Facebook/LinkedIn Preview */}
       <Column gap="s" fillWidth>
-        <Text variant="label-default-s" onBackground="neutral-weak">
+        <Text textVariant="label-default-s" onBackground="neutral-weak">
           Facebook / LinkedIn
         </Text>
         <Column
@@ -85,18 +85,18 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
           )}
           <Column padding="m" gap="xs">
             <Text
-              variant="body-default-xs"
+              textVariant="body-default-xs"
               onBackground="neutral-weak"
               style={{ textTransform: "uppercase" }}
             >
               {domain}
             </Text>
-            <Text variant="label-strong-s" style={{ lineHeight: 1.3 }}>
+            <Text textVariant="label-strong-s" style={{ lineHeight: 1.3 }}>
               {data.title || "Titre non défini"}
             </Text>
             {data.description && (
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{
                   display: "-webkit-box",
@@ -115,7 +115,7 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
       {/* Twitter Card Preview */}
       {(data.twitterCard || data.twitterTitle || data.twitterImage) && (
         <Column gap="s" fillWidth>
-          <Text variant="label-default-s" onBackground="neutral-weak">
+          <Text textVariant="label-default-s" onBackground="neutral-weak">
             Twitter / X
           </Text>
           <Column
@@ -143,12 +143,12 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
               </div>
             )}
             <Column padding="m" gap="xs">
-              <Text variant="label-strong-s" style={{ lineHeight: 1.3 }}>
+              <Text textVariant="label-strong-s" style={{ lineHeight: 1.3 }}>
                 {data.twitterTitle || data.title || "Titre non défini"}
               </Text>
               {(data.twitterDescription || data.description) && (
                 <Text
-                  variant="body-default-xs"
+                  textVariant="body-default-xs"
                   onBackground="neutral-weak"
                   style={{
                     display: "-webkit-box",
@@ -162,7 +162,7 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
               )}
               <Row gap="xs" vertical="center">
                 <Icon name="link" size="xs" onBackground="neutral-weak" />
-                <Text variant="body-default-xs" onBackground="neutral-weak">
+                <Text textVariant="body-default-xs" onBackground="neutral-weak">
                   {domain}
                 </Text>
               </Row>
@@ -173,33 +173,33 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
 
       {/* OG Metadata Details */}
       <Column gap="s" padding="m" background="neutral-alpha-weak" radius="m">
-        <Text variant="label-default-s" onBackground="neutral-strong">
+        <Text textVariant="label-default-s" onBackground="neutral-strong">
           Métadonnées Open Graph
         </Text>
         <Column gap="xs">
           {data.title && (
             <Row gap="s">
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{ minWidth: "120px" }}
               >
                 og:title
               </Text>
-              <Text variant="body-default-xs">{data.title}</Text>
+              <Text textVariant="body-default-xs">{data.title}</Text>
             </Row>
           )}
           {data.description && (
             <Row gap="s">
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{ minWidth: "120px" }}
               >
                 og:description
               </Text>
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 style={{
                   wordBreak: "break-word",
                   display: "-webkit-box",
@@ -215,14 +215,14 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
           {data.image && (
             <Row gap="s">
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{ minWidth: "120px" }}
               >
                 og:image
               </Text>
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="accent-weak"
                 style={{ wordBreak: "break-all" }}
               >
@@ -233,49 +233,49 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
           {data.url && (
             <Row gap="s">
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{ minWidth: "120px" }}
               >
                 og:url
               </Text>
-              <Text variant="body-default-xs">{data.url}</Text>
+              <Text textVariant="body-default-xs">{data.url}</Text>
             </Row>
           )}
           {data.type && (
             <Row gap="s">
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{ minWidth: "120px" }}
               >
                 og:type
               </Text>
-              <Text variant="body-default-xs">{data.type}</Text>
+              <Text textVariant="body-default-xs">{data.type}</Text>
             </Row>
           )}
           {data.siteName && (
             <Row gap="s">
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{ minWidth: "120px" }}
               >
                 og:site_name
               </Text>
-              <Text variant="body-default-xs">{data.siteName}</Text>
+              <Text textVariant="body-default-xs">{data.siteName}</Text>
             </Row>
           )}
           {data.locale && (
             <Row gap="s">
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{ minWidth: "120px" }}
               >
                 og:locale
               </Text>
-              <Text variant="body-default-xs">{data.locale}</Text>
+              <Text textVariant="body-default-xs">{data.locale}</Text>
             </Row>
           )}
         </Column>
@@ -284,7 +284,7 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
         {(data.twitterCard || data.twitterSite || data.twitterCreator) && (
           <>
             <Text
-              variant="label-default-s"
+              textVariant="label-default-s"
               onBackground="neutral-strong"
               style={{ marginTop: "0.5rem" }}
             >
@@ -294,37 +294,37 @@ export function OpenGraphPreview({ data, url }: OpenGraphPreviewProps) {
               {data.twitterCard && (
                 <Row gap="s">
                   <Text
-                    variant="body-default-xs"
+                    textVariant="body-default-xs"
                     onBackground="neutral-weak"
                     style={{ minWidth: "120px" }}
                   >
                     twitter:card
                   </Text>
-                  <Text variant="body-default-xs">{data.twitterCard}</Text>
+                  <Text textVariant="body-default-xs">{data.twitterCard}</Text>
                 </Row>
               )}
               {data.twitterSite && (
                 <Row gap="s">
                   <Text
-                    variant="body-default-xs"
+                    textVariant="body-default-xs"
                     onBackground="neutral-weak"
                     style={{ minWidth: "120px" }}
                   >
                     twitter:site
                   </Text>
-                  <Text variant="body-default-xs">{data.twitterSite}</Text>
+                  <Text textVariant="body-default-xs">{data.twitterSite}</Text>
                 </Row>
               )}
               {data.twitterCreator && (
                 <Row gap="s">
                   <Text
-                    variant="body-default-xs"
+                    textVariant="body-default-xs"
                     onBackground="neutral-weak"
                     style={{ minWidth: "120px" }}
                   >
                     twitter:creator
                   </Text>
-                  <Text variant="body-default-xs">{data.twitterCreator}</Text>
+                  <Text textVariant="body-default-xs">{data.twitterCreator}</Text>
                 </Row>
               )}
             </Column>

@@ -1,7 +1,8 @@
 "use client";
 
 import type { RDVContentType } from "@/app/api/cal/types/route";
-import { Button, Column, DropdownWrapper, Option, RevealFx } from "@once-ui-system/core";
+import { Button, Column, Dropdown, Option } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
 import { use, useState } from "react";
 import styles from "@/modules/calendar/views/RdvDropDown.module.scss";
 
@@ -14,10 +15,10 @@ export const RDVDropDown = ({ eventTypesPromise }: { eventTypesPromise: Promise<
         setIsOpen(false);
     };
     return (<Column gap="12" center >
-        <DropdownWrapper
+        <Dropdown
             open={isOpen}
             onOpenChange={setIsOpen}
-            maxWidth={40}
+            maxWidth="40rem"
             placement="bottom"
             trigger={
                 <Button
@@ -28,22 +29,21 @@ export const RDVDropDown = ({ eventTypesPromise }: { eventTypesPromise: Promise<
                     {selected ? eventTypes.find(opt => opt.slug === selected)?.title : "Sélectionner un rendez-vous"}
                 </Button>
             }
-            dropdown={
-                <Column minWidth={10} padding="4" gap="2">
-                    {eventTypes.map((option) => (
-                        <Option
-                            key={option.id}
-                            label={option.title}
-                            value={option.slug}
-                            description={<span className={styles.lineClamp}>{typeof option.description === "string" ? option.description.replaceAll("****", "") : option.description}</span>}
-                            selected={option.id === selected}
-                            onClick={handleSelect}
-                        />
-                    ))}
-                </Column>
-            }
-        />
-        {selected && <RevealFx key={selected} delay={0} speed="fast">
+        >
+          <Column minWidth="10rem" padding="4" gap="2">
+              {eventTypes.map((option) => (
+                  <Option
+                      key={option.id}
+                      label={option.title}
+                      value={option.slug}
+                      description={<span className={styles.lineClamp}>{typeof option.description === "string" ? option.description.replaceAll("****", "") : option.description}</span>}
+                      selected={option.id === selected}
+                      onClick={handleSelect}
+                  />
+              ))}
+          </Column>
+        </Dropdown>
+        {selected && <RevealFx key={selected} delay={0} duration={1000}>
             <Button href={`https://cal.com/occitaweb/${selected}`} id="arrow-button-dispo" arrowIcon>
                 Voir les disponibilité</Button>
         </RevealFx>}

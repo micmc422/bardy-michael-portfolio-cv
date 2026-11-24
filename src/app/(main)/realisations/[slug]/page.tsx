@@ -93,7 +93,7 @@ export default async function Project({
         <Button rounded href="/realisations" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
           Projets
         </Button>
-        <Heading as="h1" variant="display-strong-s">{post.metadata.title as string}</Heading>
+        <Heading as="h1" textVariant="display-strong-s">{post.metadata.title as string}</Heading>
       </Column>
       {post.metadata.image && (
         <Media
@@ -107,7 +107,7 @@ export default async function Project({
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <Flex gap="12" marginBottom="24" vertical="center">
           {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
-          <Text variant="body-default-s" onBackground="neutral-weak">
+          <Text textVariant="body-default-s" onBackground="neutral-weak">
             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
           </Text>
         </Flex>

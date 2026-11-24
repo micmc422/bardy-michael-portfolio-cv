@@ -65,18 +65,18 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
       <Background
             position="absolute"
             mask={{
-              x: mailchimp.effects.mask.x,
-              y: mailchimp.effects.mask.y,
-              radius: mailchimp.effects.mask.radius,
+              x: `${mailchimp.effects.mask.x}%`,
+              y: `${mailchimp.effects.mask.y}%`,
+              radius: `${mailchimp.effects.mask.radius}vh`,
               cursor: mailchimp.effects.mask.cursor
             }}
             gradient={{
               display: mailchimp.effects.gradient.display,
               opacity: mailchimp.effects.gradient.opacity as Opacity,
-              x: mailchimp.effects.gradient.x,
-              y: mailchimp.effects.gradient.y,
-              width: mailchimp.effects.gradient.width,
-              height: mailchimp.effects.gradient.height,
+              x: `${mailchimp.effects.gradient.x}%`,
+              y: `${mailchimp.effects.gradient.y}%`,
+              width: `${mailchimp.effects.gradient.width}%`,
+              height: `${mailchimp.effects.gradient.height}%`,
               tilt: mailchimp.effects.gradient.tilt,
               colorStart: mailchimp.effects.gradient.colorStart,
               colorEnd: mailchimp.effects.gradient.colorEnd,
@@ -103,7 +103,7 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
               color: mailchimp.effects.lines.color,
             }}
           />
-      <Heading as="h2" style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
+      <Heading as="h2" style={{ position: "relative" }} marginBottom="s" textVariant="display-strong-xs">
         {newsletter.title}
       </Heading>
       <Text
@@ -128,7 +128,7 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
         id="mc-embedded-subscribe-form"
         name="mc-embedded-subscribe-form"
       >
-        <Flex id="mc_embed_signup_scroll" maxWidth={24} s={{direction: "column"}} gap="8">
+        <Flex id="mc_embed_signup_scroll" maxWidth="24rem" s={{direction: "column"}} gap="8">
           <Input
             formNoValidate
             id="mce-EMAIL"
@@ -170,7 +170,7 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
             />
           </div>
           <div className="clear">
-            <Flex height={48} vertical="center">
+            <Flex height="48rem" vertical="center">
               <Button id="mc-embedded-subscribe" value="Subscribe" size="m" fillWidth>
                 Subscribe
               </Button>

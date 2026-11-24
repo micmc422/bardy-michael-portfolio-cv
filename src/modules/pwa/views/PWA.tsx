@@ -54,7 +54,7 @@ export function PushNotificationManager() {
             const serializedSub = JSON.parse(JSON.stringify(sub))
             await subscribeUser(serializedSub)
             addToast({
-                variant: "success", message: "Vous recevrez maintenant des notifications lors de la publication de nouveaux articles."
+                tone: "success", message: "Vous recevrez maintenant des notifications lors de la publication de nouveaux articles."
             });
         } catch (e) {
             console.log({ e })
@@ -71,7 +71,7 @@ export function PushNotificationManager() {
         setSubscription(null)
         await unsubscribeUser()
         addToast({
-            variant: "success", message: "Vous ne recevrez plus les notifications."
+            tone: "success", message: "Vous ne recevrez plus les notifications."
         });
     }
     /*

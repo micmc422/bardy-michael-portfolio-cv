@@ -146,14 +146,14 @@ function JsonLdItem({ item, index }: { item: JsonLdData; index: number }) {
         />
         <Column gap="2" flex={1}>
           <Row gap="s" vertical="center">
-            <Tag size="s" scheme="accent">
+            <Tag size="s" tone="accent">
               {item.type}
             </Tag>
-            <Text variant="body-default-xs" onBackground="neutral-weak">
+            <Text textVariant="body-default-xs" onBackground="neutral-weak">
               #{index + 1}
             </Text>
           </Row>
-          <Text variant="body-default-xs" onBackground="neutral-weak">
+          <Text textVariant="body-default-xs" onBackground="neutral-weak">
             {getTypeDescription(item.type)}
           </Text>
         </Column>
@@ -170,14 +170,14 @@ function JsonLdItem({ item, index }: { item: JsonLdData; index: number }) {
           {summaryProps.map((prop, i) => (
             <Row key={i} gap="s">
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 onBackground="neutral-weak"
                 style={{ minWidth: "100px" }}
               >
                 {prop.label}:
               </Text>
               <Text
-                variant="body-default-xs"
+                textVariant="body-default-xs"
                 style={{
                   wordBreak: "break-word",
                   flex: 1,
@@ -201,7 +201,7 @@ function JsonLdItem({ item, index }: { item: JsonLdData; index: number }) {
         >
           <Row gap="s" vertical="center">
             <Icon name="code" size="xs" onBackground="neutral-weak" />
-            <Text variant="label-default-xs" onBackground="neutral-weak">
+            <Text textVariant="label-default-xs" onBackground="neutral-weak">
               Code JSON-LD complet
             </Text>
           </Row>
@@ -236,11 +236,11 @@ export function JsonLdViewer({ data }: JsonLdViewerProps) {
       >
         <Row gap="s" vertical="center">
           <Icon name="warningTriangle" size="m" onBackground="warning-weak" />
-          <Heading as="h3" variant="display-strong-xs">
+          <Heading as="h3" textVariant="display-strong-xs">
             Données Structurées JSON-LD
           </Heading>
         </Row>
-        <Text variant="body-default-s" onBackground="warning-weak">
+        <Text textVariant="body-default-s" onBackground="warning-weak">
           Aucune donnée JSON-LD trouvée. Les données structurées permettent
           d&apos;obtenir des résultats enrichis dans Google (étoiles, prix,
           FAQ...).
@@ -250,7 +250,7 @@ export function JsonLdViewer({ data }: JsonLdViewerProps) {
           href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
           target="_blank"
           rel="noopener noreferrer"
-          variant="body-default-xs"
+          textVariant="body-default-xs"
           onBackground="accent-weak"
           style={{ textDecoration: "underline" }}
         >
@@ -264,15 +264,15 @@ export function JsonLdViewer({ data }: JsonLdViewerProps) {
     <Column gap="m" fillWidth>
       <Row gap="s" vertical="center">
         <Icon name="code" size="m" onBackground="accent-weak" />
-        <Heading as="h3" variant="display-strong-xs">
+        <Heading as="h3" textVariant="display-strong-xs">
           Données Structurées JSON-LD
         </Heading>
-        <Tag size="s" scheme="success">
+        <Tag size="s" tone="success">
           {data.length} trouvé{data.length > 1 ? "s" : ""}
         </Tag>
       </Row>
 
-      <Text variant="body-default-s" onBackground="neutral-weak">
+      <Text textVariant="body-default-s" onBackground="neutral-weak">
         Les données structurées Schema.org permettent à Google de mieux
         comprendre votre contenu et d&apos;afficher des résultats enrichis.
       </Text>
@@ -289,7 +289,7 @@ export function JsonLdViewer({ data }: JsonLdViewerProps) {
           href="https://validator.schema.org/"
           target="_blank"
           rel="noopener noreferrer"
-          variant="body-default-xs"
+          textVariant="body-default-xs"
           onBackground="accent-weak"
           style={{ textDecoration: "underline" }}
         >
@@ -300,7 +300,7 @@ export function JsonLdViewer({ data }: JsonLdViewerProps) {
           href="https://search.google.com/test/rich-results"
           target="_blank"
           rel="noopener noreferrer"
-          variant="body-default-xs"
+          textVariant="body-default-xs"
           onBackground="accent-weak"
           style={{ textDecoration: "underline" }}
         >

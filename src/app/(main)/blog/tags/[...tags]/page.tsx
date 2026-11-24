@@ -1,7 +1,9 @@
 "use server"
 
-import { Button, Column, Heading, Skeleton } from "@once-ui-system/core";
+import { Button, Column, Skeleton } from "@once-ui-system/core";
 import { Mailchimp } from "@/shared/components";
+import { PageHeader } from "@/shared/components/PageHeader";
+import { PageShell } from "@/shared/components/PageShell";
 // Importation dynamique pour Posts
 const Posts = dynamic(() => import('@/modules/blog/views/Posts').then(mod => mod.Posts), {
   loading: () => <Column>
@@ -34,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tags: str
 export default async function Blog({ params }: { params: Promise<{ tags: string[] }> }) {
   const { tags } = await params;
   return (
-    <Column maxWidth="s">
+    <PageShell labelledBy="blog-tags-title">
       <Schema
         as="blog"
         baseURL={baseURL}
@@ -51,18 +53,14 @@ export default async function Blog({ params }: { params: Promise<{ tags: string[
       <Button rounded href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
         Publications
       </Button>
-      <Heading as="h2" marginTop="l" marginBottom="l" variant="display-strong-s">
-        Mot-clé : {tags.join(" - ")}
-      </Heading>
-
-      <Column
-        fillWidth flex={1}>
-        <Posts range={[1, 1]} thumbnail direction="column" tags={tags} />
-        <Posts range={[2, 3]} thumbnail tags={tags} />
-        <Posts range={[4]} columns="2" tags={tags} />
-      </Column>
+      <PageHeader
+        id="blog-tags-title"
+        eyebrow="Mot-clé"
+        title={tags.map((tag) => decodeURIComponent(tag)).join(" - ")}
+      />
+      <Posts tags={tags} />
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
-    </Column>
+    </PageShell>
   );
 }
 

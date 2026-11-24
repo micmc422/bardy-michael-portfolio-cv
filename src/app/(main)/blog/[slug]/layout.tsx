@@ -86,7 +86,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
         })) || [];
 
     return <Row as="article" fillWidth zIndex={0}>
-        <Row maxWidth={12} m={{ hide: true }} />
+        <Row maxWidth="12rem" m={{ hide: true }} />
         <Row fillWidth horizontal="center">
             <Column maxWidth="xs" gap="l" paddingX="s">
                 <Schema
@@ -108,14 +108,14 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                 <Button rounded href="/blog" weight="default" variant="tertiary" size="s" prefixIcon="chevronLeft">
                     Publications
                 </Button>
-                <Heading as="h1" variant="display-strong-s">{post.metadata.title as string}</Heading>
+                <Heading as="h1" textVariant="display-strong-s">{post.metadata.title as string}</Heading>
                 <Column as="header" gap="xs">
                     <Row gap="xs" vertical="center" wrap>
                         {avatars.length > 0 && <AvatarGroup size="s" avatars={avatars} />}
-                        <Text variant="body-default-s" onBackground="neutral-weak">
+                        <Text textVariant="body-default-s" onBackground="neutral-weak">
                             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
                         </Text>
-                        {post.metadata.tags?.map(({ name }: { name: string }) => <Tag key={name} scheme="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
+                        {post.metadata.tags?.map(({ name }: { name: string }) => <Tag key={name} tone="info"><SmartLink href={"/blog/tags/" + name}>{name}</SmartLink></Tag>)}
                     </Row>
                     <SocialShareBar />
                 </Column>
@@ -139,7 +139,7 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
                 </Column>
             </Column>
         </Row>
-        <Column as="aside" maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" m={{ hide: true }} aria-label="Navigation dans l'article">
+        <Column as="aside" maxWidth="12rem" paddingLeft="40" fitHeight position="sticky" top="80" gap="16" m={{ hide: true }} aria-label="Navigation dans l'article">
             <Row
                 gap="12"
                 paddingLeft="2"
@@ -157,8 +157,8 @@ export default async function BlogLayout({ children, params }: BlogLayoutProps) 
 
 function SourcesComponent({ sources }: { sources: string[] }) {
     return (<Column>
-        <Text variant="display-strong-xs">Sources :</Text>
-        <Grid fillWidth columns="2" gap="16" className="mt-8" s={{ columns: "1" }}>
+        <Text textVariant="display-strong-xs">Sources :</Text>
+        <Grid fillWidth columns="2" gap="16" className="margin-top-8" s={{ columns: "1" }}>
             <>{sources.map((source, index) => <OgCard key={index} url={source} />)}</>
         </Grid>
     </Column>)

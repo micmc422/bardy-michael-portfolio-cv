@@ -42,7 +42,7 @@ const AnimatedNumber = forwardRef<HTMLDivElement, ComponentProps>(
                 className={classNames(styles.component, className)}
                 {...rest}
             >
-                <Text variant="body-strong-s" onBackground="neutral-weak" marginLeft="4" size="s" className={classNames(styles.value, className)}>{displayValue}</Text>
+                <Text textVariant="body-strong-s" onBackground="neutral-weak" marginLeft="4" className={classNames(styles.value, className)}>{displayValue}</Text>
             </Flex>
         );
     }

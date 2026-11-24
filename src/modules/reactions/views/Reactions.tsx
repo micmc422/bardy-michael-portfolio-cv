@@ -34,7 +34,7 @@ const Reactions = forwardRef<HTMLDivElement, ReactionsProps>(
       if (result.success && result.count !== undefined) {
         // On synchronise le vrai compteur avec la valeur retournée
         addToast({
-          variant: "success",
+          tone: "success",
           message: "Réaction " + emoji + " " + "ajouter ! Merci",
         });
       } else {
@@ -99,8 +99,8 @@ const ReactionsList = forwardRef<HTMLDivElement, ReactionsListProps>(
           }
 
           overlay={
-            <Column maxWidth={24} radius="l-4" border="neutral-alpha-medium" padding="xs" background="surface">
-              <Row center className={styles.emojiCard}>{emoji} <Text onBackground="neutral-weak" variant="label-default-l">{count}</Text></Row>
+            <Column maxWidth="24rem" radius="l-4" border="neutral-alpha-medium" padding="xs" background="surface">
+              <Row center className={styles.emojiCard}>{emoji} <Text onBackground="neutral-weak" textVariant="label-default-l">{count}</Text></Row>
             </Column>
           }
         />)}

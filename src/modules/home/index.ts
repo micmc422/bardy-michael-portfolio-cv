@@ -1,0 +1,12 @@
+export { Hero } from "./components/Hero";
+export { Metrics } from "./components/Metrics";
+export { Expertise } from "./components/Expertise";
+export { TechStack } from "./components/TechStack";
+export { Process } from "./components/Process";
+export { GlobeSection } from "./components/GlobeSection";
+export { PerformanceCharts } from "./components/PerformanceCharts";
+export { SectionHead } from "./components/SectionHead";
+export { FeaturedProjects } from "./components/FeaturedProjects";
+export { Solutions } from "./components/Solutions";
+export { LatestPosts } from "./components/LatestPosts";
+export { FaqSection } from "./components/FaqSection";

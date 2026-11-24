@@ -1,5 +1,6 @@
 import React, { forwardRef, type ReactNode } from "react";
-import { AccordionGroup, Column, Heading } from "@once-ui-system/core";
+import { Column, Heading } from "@once-ui-system/core";
+import { FaqAccordion } from "@/shared/components/FaqAccordion";
 import { getRandomSixDigitNumber, slugify } from "@/core/utils/utils";
 
 export type FaqItem = {
@@ -21,7 +22,7 @@ interface FaqProps extends React.ComponentProps<typeof Column> {
     faq?: FaqItem[];
 }
 
-const buildFaqSchema = (faq: FaqItem[], key: string): ReactNode => {
+export const buildFaqSchema = (faq: FaqItem[], key: string): ReactNode => {
     const jsonLDFaq = faq.map(({ title, content }) => ({
         "@type": "Question",
         name: title,
@@ -94,13 +95,13 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 {resolvedTitle && (
                     <Heading
                         as="h2"
-                        variant="display-strong-s"
+                        textVariant="display-strong-s"
                         id={key}
                     >
                         {resolvedTitle}
                     </Heading>
                 )}
-                <AccordionGroup items={items} background="surface" />
+                <FaqAccordion items={items} group={`faq-${key}`} />
                 {buildFaqSchema(items, key)}
             </Column>
         );

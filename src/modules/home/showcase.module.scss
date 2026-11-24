@@ -1,0 +1,287 @@
+.accent {
+  background: linear-gradient(100deg, var(--brand-on-background-strong), var(--accent-on-background-strong));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Globe ---------- */
+.globeSection {
+  padding-block: var(--static-space-64);
+}
+
+.globeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--static-space-48);
+  align-items: center;
+}
+
+.globeCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-20);
+  align-items: flex-start;
+}
+
+.featureList {
+  list-style: none;
+  margin: var(--static-space-8) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid var(--neutral-alpha-weak);
+}
+
+.feature {
+  display: flex;
+  gap: var(--static-space-16);
+  align-items: flex-start;
+  padding-block: var(--static-space-16);
+  border-bottom: 1px solid var(--neutral-alpha-weak);
+}
+
+.featureTag {
+  flex: none;
+  min-width: 3.75rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--brand-alpha-medium);
+  border-radius: var(--radius-s);
+  background: var(--brand-alpha-weak);
+  color: var(--brand-on-background-strong);
+  font-family: var(--font-code);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.featureTitle {
+  margin: 0 0 var(--static-space-4);
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.featureText {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.globeStage {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 40rem;
+  justify-self: end;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(60% 60% at 50% 48%, var(--brand-alpha-weak), transparent 70%),
+    linear-gradient(var(--neutral-alpha-weak) 1px, transparent 1px) 0 0 / 100% 2.5rem,
+    linear-gradient(90deg, var(--neutral-alpha-weak) 1px, transparent 1px) 0 0 / 2.5rem 100%,
+    var(--surface-background);
+  overflow: hidden;
+}
+
+.canvasWrap {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+}
+
+.canvasWrap:active {
+  cursor: grabbing;
+}
+
+.globePlaceholder {
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, var(--neutral-alpha-medium), transparent 70%);
+  opacity: 0.5;
+}
+
+.corner {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-color: var(--brand-alpha-strong);
+  border-style: solid;
+  border-width: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cornerTl { top: 0.75rem; left: 0.75rem; border-top-width: 2px; border-left-width: 2px; }
+.cornerTr { top: 0.75rem; right: 0.75rem; border-top-width: 2px; border-right-width: 2px; }
+.cornerBl { bottom: 0.75rem; left: 0.75rem; border-bottom-width: 2px; border-left-width: 2px; }
+.cornerBr { bottom: 0.75rem; right: 0.75rem; border-bottom-width: 2px; border-right-width: 2px; }
+
+.hud {
+  position: absolute;
+  inset: auto 1.5rem 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--static-space-12);
+  flex-wrap: wrap;
+  font-family: var(--font-code);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  color: var(--neutral-on-background-weak);
+  pointer-events: none;
+}
+
+.hudLive {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--static-space-8);
+  color: var(--neutral-on-background-strong);
+}
+
+.hudLive i {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--success-solid-strong, #3ddc97);
+  box-shadow: 0 0 0.75rem var(--success-solid-strong, #3ddc97);
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.35; }
+}
+
+/* ---------- Charts ---------- */
+.chartsSection {
+  padding-block: var(--static-space-64);
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-40);
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-16);
+  align-items: flex-start;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--static-space-16);
+}
+
+.spanWide { grid-column: span 7; }
+.spanNarrow { grid-column: span 5; }
+
+.chartCard {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-16);
+  padding: var(--static-space-24);
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-xl);
+  background: var(--surface-background);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+  min-width: 0;
+}
+
+.chartCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-alpha-strong), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.chartCard:hover {
+  border-color: var(--neutral-alpha-medium);
+  transform: translateY(-2px);
+}
+
+.chartCard:hover::before {
+  opacity: 1;
+}
+
+.chartHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-8);
+}
+
+.chartTag {
+  font-family: var(--font-code);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-on-background-strong);
+}
+
+.chartTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.chartBody {
+  width: 100%;
+  height: 17.5rem;
+}
+
+.chartCaption {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--neutral-on-background-weak);
+}
+
+@media (max-width: 62rem) {
+  .globeGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .globeStage {
+    justify-self: center;
+  }
+
+  .spanWide,
+  .spanNarrow {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 40rem) {
+  .globeSection,
+  .chartsSection {
+    padding-block: var(--static-space-40);
+  }
+
+  .chartCard {
+    padding: var(--static-space-16);
+  }
+
+  .hud {
+    font-size: 0.625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hudLive i {
+    animation: none;
+  }
+
+  .chartCard {
+    transition: none;
+  }
+}
