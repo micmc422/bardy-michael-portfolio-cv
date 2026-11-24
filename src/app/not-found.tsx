@@ -1,39 +1,35 @@
-import { Column, Flex, Heading, Icon, IconButton, Row, Text } from "@once-ui-system/core";
+import { Button, Column, Text } from "@once-ui-system/core";
+import { PageHeader } from "@/shared/components/PageHeader";
 
 export default function NotFound() {
   return (
-    <Column as="section" fill center paddingBottom="40" gap="l">
-      <Text marginBottom="s" textVariant="display-strong-xl">
+    <Column as="section" fill center paddingBottom="40" gap="l" aria-labelledby="not-found-title">
+      <Text
+        aria-hidden="true"
+        style={{
+          fontFamily: "var(--font-code)",
+          fontSize: "clamp(5rem, 18vw, 11rem)",
+          fontWeight: 700,
+          lineHeight: 1,
+          letterSpacing: "-0.06em",
+          background: "linear-gradient(135deg, var(--brand-on-background-strong), var(--accent-on-background-medium))",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent",
+        }}
+      >
         404
       </Text>
-      <Heading marginBottom="l" textVariant="display-default-xs">
-      😥 Page introuvable
-      </Heading>
-      <Flex
-        fitWidth
-        border="brand-alpha-medium"
-        style={{
-          backdropFilter: "blur(var(--static-space-1))",
-        }}
-        background="brand-alpha-weak"
-        radius="full"
-        marginTop="20"
-        padding="4"
-        gap="8"
-        marginBottom="m"
-        vertical="center"
+      <PageHeader
+        id="not-found-title"
+        align="center"
+        eyebrow="Erreur 404"
+        title="Page introuvable"
+        lead="La page demandée n'existe pas ou a été déplacée. Retournez à l'accueil ou explorez les réalisations."
       >
-        <Row fit paddingLeft="12">
-          <Icon name="home" onBackground="brand-weak" />
-        </Row>
-        <Flex paddingX="8">Retourner à l&apos;accueil</Flex>
-        <IconButton
-          href={"/"}
-          variant="secondary"
-          icon="chevronRight"
-        />
-      </Flex>
-
+        <Button href="/" prefixIcon="home" variant="primary" size="l">Retour à l&apos;accueil</Button>
+        <Button href="/realisations" variant="secondary" size="l">Voir les réalisations</Button>
+      </PageHeader>
     </Column>
   );
 }

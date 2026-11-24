@@ -4,6 +4,7 @@ import { baseURL } from "@/core/config";
 import { person, atomicBd81 } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
 import Schema from "@/modules/seo/Schema";
+import { PageHeader } from "@/shared/components/PageHeader";
 import PasswordProtect from "@/shared/components/PasswordProtect";
 import { validateAtomicBd81Password } from "./actions";
 
@@ -84,18 +85,13 @@ export default function AtomicBd81Page() {
             />
 
             {/* Hero Section */}
-            <Column as="section" maxWidth="m" paddingY="xl" gap="m" aria-labelledby="hero-title">
-                <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                    <Heading as="h1" id="hero-title" wrap="balance" textVariant="display-strong-l">
-                        {atomicBd81.headline}
-                    </Heading>
-                </RevealFx>
-                <RevealFx translateY="8" delay={200} fillWidth horizontal="start">
-                    <Text wrap="balance" onBackground="neutral-weak" textVariant="display-default-xs">
-                        {atomicBd81.subline}
-                    </Text>
-                </RevealFx>
-                <RevealFx translateY="8" delay={400} fillWidth horizontal="start">
+            <Column as="section" maxWidth="m" gap="m" aria-labelledby="hero-title">
+                <PageHeader
+                    id="hero-title"
+                    eyebrow="Étude de cas"
+                    title={atomicBd81.headline}
+                    lead={atomicBd81.subline}
+                >
                     <Button
                         href={atomicBd81.maquetteAlphaUrl}
                         variant="secondary"
@@ -105,7 +101,7 @@ export default function AtomicBd81Page() {
                     >
                         Voir la maquette alpha
                     </Button>
-                </RevealFx>
+                </PageHeader>
             </Column>
 
             {/* Contexte */}

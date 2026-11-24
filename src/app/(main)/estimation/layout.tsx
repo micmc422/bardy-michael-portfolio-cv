@@ -3,6 +3,7 @@ import { Suspense, type ReactNode } from "react";
 import { rdv } from "@/core/config";
 import type { ColorScheme, ColorWeight, Opacity } from "@once-ui-system/core";
 import { Faq } from "@/shared/components";
+import panel from "@/shared/components/PageHeader.module.scss";
 
 const servicesInclus: { name: string, icon: IconName, desc: string, bgColor?: ColorScheme }[] = [
     {
@@ -63,14 +64,14 @@ export default async function EstimationLayout({ children, resume, headline }: {
     return <Column center maxWidth={"l"}>
         <>{headline}</>
         <Row fillWidth gap="l" paddingY="xl" s={{direction: "column"}} flex={12}>
-            <Column flex={3} background="surface" padding="m" radius="xl" fillWidth>
+            <Column className={panel.panel} flex={3} padding="m" fillWidth>
                 {children}
             </Column>
-            <Column as="aside" flex={1} background="surface" padding="m" radius="m" gap="m" aria-label="Résumé de l'estimation">
+            <Column as="aside" className={panel.panel} flex={1} padding="m" gap="m" aria-label="Résumé de l'estimation">
                 <Suspense>{resume}</Suspense>
             </Column>
         </Row>
-        <Column as="section" background="surface" gap="m" padding="m" radius="xl" aria-labelledby="services-inclus-title">
+        <Column as="section" className={panel.panel} gap="m" padding="l" aria-labelledby="services-inclus-title">
             <Heading as="h2" id="services-inclus-title" textVariant="display-strong-m">Services inclus</Heading>
             <Row s={{direction: "column"}} gap="s">
                 <ServicesInclus />

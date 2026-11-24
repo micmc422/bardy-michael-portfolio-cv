@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { Column, Heading, Text, Row, Button, Icon } from "@once-ui-system/core";
+import { Column, Text, Row, Button, Icon } from "@once-ui-system/core";
+import { PageHeader } from "@/shared/components/PageHeader";
 import { baseURL } from "@/core/config";
 import { siteCheck, person } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
@@ -48,20 +49,12 @@ export default async function AnalysisPage({ params }: PageParams) {
         }}
       />
       
-      <Row vertical="center" gap="m" fillWidth horizontal="between" wrap>
-        <Column gap="xs">
-          <Row gap="xs" vertical="center">
-            <Link href="/site-check">
-              <Button variant="tertiary" size="s">
-                <Icon name="chevronLeft" />
-                Nouvelle analyse
-              </Button>
-            </Link>
-          </Row>
-          <Heading as="h1" textVariant="display-strong-l">
-            Analyse de site
-          </Heading>
-          <Row gap="xs" vertical="center">
+      <PageHeader
+        id="analysis-title"
+        eyebrow="Audit de site"
+        title="Analyse de site"
+        lead={
+          <Row as="span" gap="xs" vertical="center" wrap>
             <Icon name="globe" onBackground="neutral-weak" size="s" />
             <Text
               as="a"
@@ -75,8 +68,14 @@ export default async function AnalysisPage({ params }: PageParams) {
             </Text>
             <Icon name="linkblank" onBackground="neutral-weak" size="xs" />
           </Row>
-        </Column>
-      </Row>
+        }
+      >
+        <Link href="/site-check">
+          <Button variant="secondary" size="m" prefixIcon="chevronLeft">
+            Nouvelle analyse
+          </Button>
+        </Link>
+      </PageHeader>
     </Column>
   );
 }

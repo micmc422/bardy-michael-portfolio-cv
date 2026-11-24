@@ -1,5 +1,5 @@
 import {
-  Tag,
+  Button,
   Column,
   Grid,
   Heading,
@@ -9,7 +9,8 @@ import {
   Text,
   type IconName,
 } from "@once-ui-system/core";
-import { RevealFx } from "@once-ui-system/fx";
+import { PageHeader } from "@/shared/components/PageHeader";
+import panel from "@/shared/components/PageHeader.module.scss";
 import { baseURL } from "@/core/config";
 import { person } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
@@ -61,13 +62,11 @@ function SectionCard({
   return (
     <Column
       as="section"
-      background="overlay"
-      radius="l"
+      className={panel.panel}
       padding="l"
       gap="m"
       fillWidth
       aria-labelledby={id}
-      overflow="hidden"
     >
       <Heading as="h2" id={id} textVariant="display-strong-xs">
         <Row vertical="center" gap="s" align="start">
@@ -121,39 +120,17 @@ export default function MentionsLegales() {
       />
 
       {/* Hero — même structure que les autres pages du site */}
-      <Column as="section" maxWidth="xl" paddingY="24" gap="m" aria-labelledby="mentions-hero-title">
-        <Column maxWidth="s">
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading as="h1" id="mentions-hero-title" wrap="balance" textVariant="display-strong-l">
-              Mentions légales & confidentialité
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" textVariant="display-default-xs">
-              Informations légales relatives à l&apos;édition du site occitaweb.fr et traitement
-              de vos données personnelles.
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={400} horizontal="start" paddingLeft="8">
-            <Tag
-              variant="announce"
-              background="brand-weak"
-              onBackground="neutral-weak"
-              border="accent-alpha-weak"
-              gap="8"
-              vertical="center"
-              paddingY="4"
-              href="/a-propos"
-              effect={false}
-              id="auteur"
-              aria-label="Lien vers la page à propos de l'auteur"
-              arrow={false}
-            >
-              <Icon name="security" onBackground="brand-strong" />
-              {`Éditeur : ${person.name}`}
-            </Tag>
-          </RevealFx>
-        </Column>
+      <Column as="section" maxWidth="l" gap="m" aria-labelledby="mentions-hero-title">
+        <PageHeader
+          id="mentions-hero-title"
+          eyebrow="Informations légales"
+          title="Mentions légales & confidentialité"
+          lead="Informations légales relatives à l'édition du site occitaweb.fr et traitement de vos données personnelles."
+        >
+          <Button href="/a-propos" variant="secondary" size="m" prefixIcon="security">
+            {`Éditeur : ${person.name}`}
+          </Button>
+        </PageHeader>
       </Column>
 
       {/* Éditeur + hébergeur */}
@@ -314,20 +291,12 @@ export default function MentionsLegales() {
       </Grid>
 
       <Column maxWidth="l" fillWidth center paddingBottom="l">
-        <Tag
-          variant="announce"
-          background="neutral-alpha-weak"
-          onBackground="neutral-weak"
-          gap="8"
-          vertical="center"
-          paddingY="4"
-          arrow={false}
-        >
+        <Row className={panel.panel} gap="8" vertical="center" paddingX="16" paddingY="8" fit>
           <Icon name="info" onBackground="neutral-weak" />
-          <Text textVariant="label-default-s">
+          <Text textVariant="label-default-s" onBackground="neutral-weak">
             Dernière mise à jour : page susceptible d&apos;évoluer pour rester conforme.
           </Text>
-        </Tag>
+        </Row>
       </Column>
     </>
   );
