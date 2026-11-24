@@ -1,17 +1,14 @@
 "use server"
 
-import { Heading, Flex, Text, Avatar, Column, Tag, IconButton, Icon, Row } from "@once-ui-system/core";
-import { RevealFx } from "@once-ui-system/fx";
+import { Column } from "@once-ui-system/core";
 import Meta from "@/modules/seo/Meta";
 import { baseURL, routes } from "@/core/config";
 import { home, about, person } from "@/core/config/content";
-import { Projects } from "@/modules/projects/views/Projects";
 import { Faq } from "@/shared/components";
 import { AvisClient } from "@/shared/components/AvisClients";
-import { Posts } from "@/modules/blog/views/Posts";
 import { Tarifs } from "@/modules/estimation/views/Tarifs";
 import Schema from "@/modules/seo/Schema";
-import { Hero, Metrics, Expertise, TechStack, Process, GlobeSection, PerformanceCharts } from "@/modules/home";
+import { Hero, Metrics, Expertise, TechStack, Process, GlobeSection, PerformanceCharts, FeaturedProjects, LatestPosts, Solutions } from "@/modules/home";
 
 
 export async function generateMetadata() {
@@ -51,61 +48,10 @@ export default async function Home() {
       <PerformanceCharts />
       <TechStack />
       <Process />
-      <Column as="section" paddingY="m" gap="m" maxWidth={"m"} aria-labelledby="fonctionnalites-title">
-        <Column gap="12" paddingX="l" paddingBottom="16">
-          <Text variant="label-default-s" onBackground="brand-strong" style={{ letterSpacing: "0.14em", textTransform: "uppercase" }}>
-            Réalisations
-          </Text>
-          <Heading as="h2" id="realisations-title" textVariant="display-strong-s" wrap="balance">
-            Des projets concrets, livrés et en production.
-          </Heading>
-        </Column>
-        <RevealFx translateY="16" delay={600}>
-          <Projects range={[1, 1]} />
-        </RevealFx>
-        {routes["/blog"] && (
-          <Flex as="section" fillWidth gap="24" s={{ direction: "column" }} aria-labelledby="blog-title">
-            <Flex flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" id="blog-title" textVariant="display-strong-xs" wrap="balance">
-                Dernières actualités
-              </Heading>
-            </Flex>
-            <Flex flex={3} paddingX="20">
-              <Posts range={[1, 2]} columns="2" />
-            </Flex>
-          </Flex>
-        )}
-        <Projects range={[2]} />
-        <Heading as="h2" id="fonctionnalites-title" wrap="balance" textVariant="display-strong-m" align="center">
-          🎯 Fonctionnalités ciblées pour booster votre activité
-        </Heading>
-        <Text wrap="balance" onBackground="neutral-weak" textVariant="body-default-m" align="center">
-          {`Artisans, commerçants, formateurs ou indépendants, je développe des fonctionnalités web concrètes et personnalisées pour vous : formulaires de devis, gestion des rendez-vous, catalogues interactifs, accès client sécurisé, ou encore outils d'automatisation. L'objectif est simple : optimiser votre temps, enrichir l'expérience de vos utilisateurs et faire de votre site un moteur essentiel à votre développement.`}
-        </Text>
-
-        <RevealFx fillWidth horizontal="center" paddingTop="16" paddingBottom="32" paddingLeft="8">
-          <Tag
-            variant="announce"
-            background="neutral-medium" paddingX="8" paddingY="4" onBackground="brand-strong"
-            arrow={false}
-            href={"/solutions"}
-            center
-            gap="s"
-            id="solutions-btn"
-            aria-label="Découvrez les solutions proposées"
-          >
-            <Row as="span" inline fit paddingLeft="12">
-              <Icon name="smile" onBackground="brand-strong" />
-            </Row>
-            <Text style={{ paddingTop: "var(--static-space-2)" }}>Découvrez les solutions que je propose</Text>
-            <IconButton
-              variant="ghost"
-              icon="chevronRight"
-            />
-          </Tag>
-        </RevealFx>
-        <Tarifs />
-      </Column>
+      <FeaturedProjects />
+      {routes["/blog"] && <LatestPosts />}
+      <Solutions />
+      <Tarifs />
       <Column as="section" maxWidth={"s"} aria-label="Questions fréquentes">
         <Faq faqData={JSON.stringify({
           "title": "",

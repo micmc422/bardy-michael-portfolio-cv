@@ -5,3 +5,7 @@ export { TechStack } from "./components/TechStack";
 export { Process } from "./components/Process";
 export { GlobeSection } from "./components/GlobeSection";
 export { PerformanceCharts } from "./components/PerformanceCharts";
+export { SectionHead } from "./components/SectionHead";
+export { FeaturedProjects } from "./components/FeaturedProjects";
+export { Solutions } from "./components/Solutions";
+export { LatestPosts } from "./components/LatestPosts";
