@@ -9,3 +9,4 @@ export { SectionHead } from "./components/SectionHead";
 export { FeaturedProjects } from "./components/FeaturedProjects";
 export { Solutions } from "./components/Solutions";
 export { LatestPosts } from "./components/LatestPosts";
+export { FaqSection } from "./components/FaqSection";
