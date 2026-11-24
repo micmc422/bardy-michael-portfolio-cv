@@ -49,13 +49,13 @@ export default function Post({ post, thumbnail, direction, excludeNav, index }: 
                     vertical="center">
                     <Heading
                         as="h3"
-                        variant="display-strong-xs"
+                        textVariant="display-strong-xs"
                         wrap="balance"
                         data-exclude-nav={excludeNav ? 'true' : 'false'}>
                         {post.metadata.title}
                     </Heading>
                     <Text
-                        variant="label-default-s"
+                        textVariant="label-default-s"
                         onBackground="neutral-weak">
                         {formatDate(post.metadata.publishedAt, false)}
                     </Text>
@@ -64,7 +64,7 @@ export default function Post({ post, thumbnail, direction, excludeNav, index }: 
                             paddingTop='4'
                             key={index}
                             label={tag}
-                            scheme="info" />
+                            tone="info" />
                     ))}
                     </Flex>
                 </Column>

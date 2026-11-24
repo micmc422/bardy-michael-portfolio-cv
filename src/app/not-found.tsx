@@ -1,12 +1,12 @@
-import { Column, Flex, Heading, Icon, IconButton, Text } from "@once-ui-system/core";
+import { Column, Flex, Heading, Icon, IconButton, Row, Text } from "@once-ui-system/core";
 
 export default function NotFound() {
   return (
     <Column as="section" fill center paddingBottom="40" gap="l">
-      <Text marginBottom="s" variant="display-strong-xl">
+      <Text marginBottom="s" textVariant="display-strong-xl">
         404
       </Text>
-      <Heading marginBottom="l" variant="display-default-xs">
+      <Heading marginBottom="l" textVariant="display-default-xs">
       😥 Page introuvable
       </Heading>
       <Flex
@@ -23,7 +23,9 @@ export default function NotFound() {
         marginBottom="m"
         vertical="center"
       >
-        <Icon paddingLeft="12" name="home" onBackground="brand-weak" />
+        <Row fit paddingLeft="12">
+          <Icon name="home" onBackground="brand-weak" />
+        </Row>
         <Flex paddingX="8">Retourner à l&apos;accueil</Flex>
         <IconButton
           href={"/"}

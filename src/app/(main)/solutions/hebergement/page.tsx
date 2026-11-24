@@ -1,7 +1,8 @@
 import { about, baseURL, person } from "@/core/config";
 import { solutionsHébergement } from "@/core/config/content";
 import Schema from "@/modules/seo/Schema";
-import { Badge, Column, Flex, Heading, Icon, IconButton, RevealFx, Row, Text } from "@once-ui-system/core";
+import { Tag, Column, Flex, Heading, Icon, IconButton, Row, Text } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
 import Meta from "@/modules/seo/Meta";
 import { BarChart, type DataPoint } from "@once-ui-system/core/data";
 import { ChartCardContainer } from "@/shared/ui/chart";
@@ -37,17 +38,18 @@ export default async function HebergementPage() {
         <Column maxWidth="xl" paddingY="24" gap="m">
             <Column maxWidth="s">
                 <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                    <Heading wrap="balance" variant="display-strong-l">
+                    <Heading wrap="balance" textVariant="display-strong-l">
                         {solutionsHébergement.title}
                     </Heading>
                 </RevealFx>
                 <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-                    <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xl">
+                    <Text wrap="balance" onBackground="neutral-weak" textVariant="display-default-xl">
                         {solutionsHébergement.headline}
                     </Text>
                 </RevealFx>
                 <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
-                    <Badge
+                    <Tag
+                        variant="announce"
                         background="brand-alpha-weak" paddingX="8" paddingY="4" onBackground="brand-strong"
                         arrow={false}
                         href={about.calendar.link}
@@ -56,27 +58,31 @@ export default async function HebergementPage() {
                         id="RDVBtn"
                         aria-label="Lien vers la prise de rendez-vous"
                     >
-                        <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
-                        <Text paddingTop="4">Planifier un RDV</Text>
+                        <Row as="span" inline fit paddingLeft="12">
+                          <Icon name="calendar" onBackground="brand-strong" />
+                        </Row>
+                        <Text style={{ paddingTop: "var(--static-space-4)" }}>Planifier un RDV</Text>
                         <IconButton
                             variant="ghost"
                             icon="chevronRight"
                         />
-                    </Badge>
+                    </Tag>
                 </RevealFx>
             </Column>
             <Row center>
                 <Column maxWidth="s" paddingY="16" center>
-                    <Heading as="span" wrap="balance" variant="display-strong-m">
+                    <Heading as="span" wrap="balance" textVariant="display-strong-m">
                         {solutionsHébergement.introduction.titre}
                     </Heading>
                     <Row gap="m" paddingY="16">
                         {solutionsHébergement.introduction.modeles.map((model, i) => <Column maxWidth="s" paddingY="8" key={i} center>
                             <Text style={{ fontSize: "6vmax" }}>{model.icone}</Text>
-                            <Heading as="h2" wrap="balance" variant="display-strong-s" paddingTop="8">
-                                {model.nom}
-                            </Heading>
-                            <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
+                            <Column paddingTop="8">
+                              <Heading as="h2" wrap="balance" textVariant="display-strong-s">
+                                  {model.nom}
+                              </Heading>
+                            </Column>
+                            <Text wrap="balance" onBackground="neutral-weak" textVariant="body-default-m" align="center">
                                 {model.description}
                             </Text>
                         </Column>)}
@@ -99,7 +105,7 @@ export default async function HebergementPage() {
         <Row maxWidth={"s"} gap="l" align="start" paddingX="m">
 
             <ChartCardContainer gap="l" align="start" paddingX="l" paddingY="m">
-                <Heading as="h2" wrap="pretty" variant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
+                <Heading as="h2" wrap="pretty" textVariant='heading-strong-xs'>{solutionsHébergement.securite_fiabilite.titre}</Heading>
                 <Flex gap="l" horizontal="center" wrap>
                     {solutionsHébergement.securite_fiabilite.types.map((el, i) => <DougNut key={i} {...el} />)}
                 </Flex>
@@ -133,7 +139,7 @@ function BarChartperformanceScalabilite() {
             ]}
         />
         <Column paddingY='12' paddingX="20" gap="4">
-            <Text onBackground="neutral-medium" variant="label-default-s">{explication}</Text>
+            <Text onBackground="neutral-medium" textVariant="label-default-s">{explication}</Text>
         </Column>
     </ChartCardContainer>
 }

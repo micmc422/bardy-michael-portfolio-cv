@@ -73,7 +73,7 @@ export function SkeletonPost({ direction = "column", ...attrs }: { direction?: "
         gap='m'
         center
         {...attrs}>
-        <Skeleton shape='block' style={{ borderRadius: "16px" }} minHeight={direction === "column" ? "m" : "xs"} />
+        <Skeleton shape='block' style={{ borderRadius: "16px" }} minHeight={direction === "column" ? "128" : "64"} />
         <Column fillWidth gap='s'>
             <Skeleton shape='line' size="l" fillWidth />
             <Skeleton shape='line' size="l" fillWidth />

@@ -68,7 +68,7 @@ export function SkeletonProjects() {
 
 export function SkeletonProject() {
   return <Column fillWidth gap="m">
-    <Skeleton shape="block" fillWidth minHeight={"xl"} style={{ borderRadius: "16px" }} />
+    <Skeleton shape="block" fillWidth minHeight="160" style={{ borderRadius: "16px" }} />
     <Flex
       s={{direction: "column"}}
       fillWidth

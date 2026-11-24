@@ -1,6 +1,7 @@
 "use server"
 
-import { Heading, Flex, Text, Avatar, RevealFx, Column, Badge, IconButton, Icon } from "@once-ui-system/core";
+import { Heading, Flex, Text, Avatar, Column, Tag, IconButton, Icon, Row } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
 import Meta from "@/modules/seo/Meta";
 import { baseURL, routes } from "@/core/config";
 import { home, about, person } from "@/core/config/content";
@@ -10,6 +11,7 @@ import { AvisClient } from "@/shared/components/AvisClients";
 import { Posts } from "@/modules/blog/views/Posts";
 import { Tarifs } from "@/modules/estimation/views/Tarifs";
 import Schema from "@/modules/seo/Schema";
+import { Hero, Metrics, Expertise, TechStack, Process } from "@/modules/home";
 
 
 export async function generateMetadata() {
@@ -40,65 +42,29 @@ export default async function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column as="section" maxWidth={"xl"}>
-        <Column maxWidth="s" aria-labelledby="entete-title">
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
-            <Badge
-              background="brand-alpha-weak" paddingX="xs" paddingY="4" onBackground="brand-strong"
-              arrow={false}
-              href={about.calendar.link}
-              center
-              gap="s"
-              id="RDVBtn"
-              aria-label="Lien vers la prise de rendez-vous"
-            >
-              <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
-              <Text paddingTop="4">Planifier un RDV</Text>
-              <IconButton
-                variant="ghost"
-                icon="chevronRight"
-              />
-            </Badge>
-          </RevealFx>
-          <Heading as="h1" id="hero-title" wrap="balance" variant="display-strong-l" paddingX="xs" paddingBottom="m">
-            {home.headline}
-          </Heading>
-          <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xs" paddingX="xs">
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={400} horizontal="start" paddingLeft="8">
-            <Badge background="brand-weak" onBackground="neutral-weak" border="accent-alpha-weak" gap="8" vertical="center" paddingY="4" marginBottom="m" href={about.path} effect={false} id="auteur" aria-label="liens vers la page à propos de l'auteur" arrow={false}
-            >
-              {about.avatar.display && (
-                <Avatar
-                  style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                  src={person.avatar}
-                  size="m"
-                />
-              )}
-              {about.title}
-            </Badge>
-          </RevealFx>
-          {home.featured.display && (
-            <RevealFx fillWidth horizontal="start" paddingLeft="8">
-              <Badge background="brand-alpha-weak" paddingX="4" paddingBottom="2" paddingTop="4" onBackground="neutral-strong" textVariant="body-default-s"
-                href={home.featured.href} marginBottom="m" aria-label={`lire : ${home.featured.title}`} arrow={false}>
-                <Text paddingY="2">{home.featured.title}</Text>
-              </Badge>
-            </RevealFx>
-          )}
-        </Column>
+      <Column as="section" fillWidth maxWidth={"xl"} aria-labelledby="hero-title">
+        <Hero />
       </Column>
+      <Metrics />
+      <Expertise />
+      <TechStack />
+      <Process />
       <Column as="section" paddingY="m" gap="m" maxWidth={"m"} aria-labelledby="fonctionnalites-title">
+        <Column gap="12" paddingX="l" paddingBottom="16">
+          <Text variant="label-default-s" onBackground="brand-strong" style={{ letterSpacing: "0.14em", textTransform: "uppercase" }}>
+            Réalisations
+          </Text>
+          <Heading as="h2" id="realisations-title" textVariant="display-strong-s" wrap="balance">
+            Des projets concrets, livrés et en production.
+          </Heading>
+        </Column>
         <RevealFx translateY="16" delay={600}>
           <Projects range={[1, 1]} />
         </RevealFx>
         {routes["/blog"] && (
           <Flex as="section" fillWidth gap="24" s={{ direction: "column" }} aria-labelledby="blog-title">
             <Flex flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" id="blog-title" variant="display-strong-xs" wrap="balance">
+              <Heading as="h2" id="blog-title" textVariant="display-strong-xs" wrap="balance">
                 Dernières actualités
               </Heading>
             </Flex>
@@ -108,15 +74,16 @@ export default async function Home() {
           </Flex>
         )}
         <Projects range={[2]} />
-        <Heading as="h2" id="fonctionnalites-title" wrap="balance" variant="display-strong-m" align="center">
+        <Heading as="h2" id="fonctionnalites-title" wrap="balance" textVariant="display-strong-m" align="center">
           🎯 Fonctionnalités ciblées pour booster votre activité
         </Heading>
-        <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
+        <Text wrap="balance" onBackground="neutral-weak" textVariant="body-default-m" align="center">
           {`Artisans, commerçants, formateurs ou indépendants, je développe des fonctionnalités web concrètes et personnalisées pour vous : formulaires de devis, gestion des rendez-vous, catalogues interactifs, accès client sécurisé, ou encore outils d'automatisation. L'objectif est simple : optimiser votre temps, enrichir l'expérience de vos utilisateurs et faire de votre site un moteur essentiel à votre développement.`}
         </Text>
 
         <RevealFx fillWidth horizontal="center" paddingTop="16" paddingBottom="32" paddingLeft="8">
-          <Badge
+          <Tag
+            variant="announce"
             background="neutral-medium" paddingX="8" paddingY="4" onBackground="brand-strong"
             arrow={false}
             href={"/solutions"}
@@ -125,13 +92,15 @@ export default async function Home() {
             id="solutions-btn"
             aria-label="Découvrez les solutions proposées"
           >
-            <Icon paddingLeft="12" name="smile" onBackground="brand-strong" />
-            <Text paddingTop="2">Découvrez les solutions que je propose</Text>
+            <Row as="span" inline fit paddingLeft="12">
+              <Icon name="smile" onBackground="brand-strong" />
+            </Row>
+            <Text style={{ paddingTop: "var(--static-space-2)" }}>Découvrez les solutions que je propose</Text>
             <IconButton
               variant="ghost"
               icon="chevronRight"
             />
-          </Badge>
+          </Tag>
         </RevealFx>
         <Tarifs />
       </Column>

@@ -1,15 +1,15 @@
 import {
-  Badge,
+  Tag,
   Column,
   Grid,
   Heading,
   Icon,
-  RevealFx,
   Row,
   SmartLink,
   Text,
   type IconName,
 } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
 import { baseURL } from "@/core/config";
 import { person } from "@/core/config/content";
 import Meta from "@/modules/seo/Meta";
@@ -36,10 +36,10 @@ export async function generateMetadata() {
 function Info({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <Row gap="s" vertical="start" fillWidth>
-      <Column minWidth={12}>
-        <Text variant="label-strong-s">{label}</Text>
+      <Column minWidth="12rem">
+        <Text textVariant="label-strong-s">{label}</Text>
       </Column>
-      <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+      <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
         {children}
       </Text>
     </Row>
@@ -69,7 +69,7 @@ function SectionCard({
       aria-labelledby={id}
       overflow="hidden"
     >
-      <Heading as="h2" id={id} variant="display-strong-xs">
+      <Heading as="h2" id={id} textVariant="display-strong-xs">
         <Row vertical="center" gap="s" align="start">
           <Icon name={icon} onBackground="brand-strong" />
           {title}
@@ -124,18 +124,19 @@ export default function MentionsLegales() {
       <Column as="section" maxWidth="xl" paddingY="24" gap="m" aria-labelledby="mentions-hero-title">
         <Column maxWidth="s">
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading as="h1" id="mentions-hero-title" wrap="balance" variant="display-strong-l">
+            <Heading as="h1" id="mentions-hero-title" wrap="balance" textVariant="display-strong-l">
               Mentions légales & confidentialité
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xs">
+            <Text wrap="balance" onBackground="neutral-weak" textVariant="display-default-xs">
               Informations légales relatives à l&apos;édition du site occitaweb.fr et traitement
               de vos données personnelles.
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={400} horizontal="start" paddingLeft="8">
-            <Badge
+            <Tag
+              variant="announce"
               background="brand-weak"
               onBackground="neutral-weak"
               border="accent-alpha-weak"
@@ -150,7 +151,7 @@ export default function MentionsLegales() {
             >
               <Icon name="security" onBackground="brand-strong" />
               {`Éditeur : ${person.name}`}
-            </Badge>
+            </Tag>
           </RevealFx>
         </Column>
       </Column>
@@ -186,20 +187,20 @@ export default function MentionsLegales() {
       {/* Portage salarial */}
       <Column as="section" maxWidth="l" fillWidth aria-labelledby="portage">
         <SectionCard id="portage" icon="handshake" title="Portage salarial">
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             L&apos;activité de conseil et de développement présentée sur ce site est exercée dans
             le cadre d&apos;un contrat de travail en portage salarial. {person.name} est salarié
             porté de la société de portage salarial <strong>AS&apos;COM Sud-Ouest</strong>, qui
             est son employeur.
           </Text>
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             Concrètement : les devis, contrats de prestation et factures relatifs aux missions
             sont établis et émis par AS&apos;COM Sud-Ouest, seule entité juridiquement engagée
             auprès des clients. {person.name} n&apos;exerce aucune activité commerciale en nom
             propre et ne dispose pas de numéro SIRET personnel.
           </Text>
           <Column gap="s" padding="m" radius="m" border="neutral-alpha-weak" fillWidth>
-            <Text variant="label-strong-m">Société de portage salarial</Text>
+            <Text textVariant="label-strong-m">Société de portage salarial</Text>
             <Info label="Raison sociale">AS&apos;COM Sud-Ouest</Info>
             <Info label="Adresse">20 place Prax-Paris, CS 80435, 82004 Montauban Cedex</Info>
             <Info label="Email">
@@ -227,7 +228,7 @@ export default function MentionsLegales() {
       {/* Données personnelles */}
       <Column as="section" maxWidth="l" fillWidth aria-labelledby="donnees">
         <SectionCard id="donnees" icon="shield" title="Données personnelles (RGPD)">
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             Aucune donnée n&apos;est collectée à votre insu. Les traitements mis en œuvre sont
             les suivants :
           </Text>
@@ -245,15 +246,15 @@ export default function MentionsLegales() {
               >
                 <Row vertical="center" gap="s">
                   <Icon name={t.icon} onBackground="brand-strong" />
-                  <Text variant="label-strong-m">{t.titre}</Text>
+                  <Text textVariant="label-strong-m">{t.titre}</Text>
                 </Row>
-                <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance">
+                <Text textVariant="body-default-s" onBackground="neutral-weak" wrap="balance">
                   {t.texte}
                 </Text>
               </Column>
             ))}
           </Grid>
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             Vous disposez d&apos;un droit d&apos;accès, de rectification, d&apos;effacement,
             de limitation, d&apos;opposition et de portabilité. Pour l&apos;exercer, écrivez à{" "}
             <SmartLink href="mailto:contact@occitaweb.fr">contact@occitaweb.fr</SmartLink>. Vous
@@ -269,33 +270,33 @@ export default function MentionsLegales() {
       {/* Cookies, propriété, responsabilité, droit */}
       <Grid as="section" maxWidth="l" gap="l" columns={2} s={{ columns: "1" }}>
         <SectionCard id="cookies" icon="cookie" title="Cookies">
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             Ce site n&apos;utilise qu&apos;un seul cookie de consentement (
-            <Text as="code" variant="code-default-s">acceptedCookies</Text>), conservé 30 jours,
+            <Text as="code" textVariant="code-default-s">acceptedCookies</Text>), conservé 30 jours,
             qui mémorise votre choix. La mesure d&apos;audience n&apos;est activée qu&apos;après
             votre accord. Aucun cookie publicitaire ni traceur tiers n&apos;est déposé.
           </Text>
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             Vous pouvez modifier votre choix à tout moment en supprimant les cookies de ce site
             depuis les réglages de votre navigateur : le bandeau de consentement réapparaîtra.
           </Text>
         </SectionCard>
 
         <SectionCard id="propriete" icon="book" title="Propriété intellectuelle">
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             L&apos;ensemble des contenus de ce site (textes, articles, illustrations, code,
             identité visuelle) est la propriété exclusive de {person.name}, sauf mention
             contraire. Toute reproduction, représentation ou diffusion, totale ou partielle,
             sans autorisation écrite préalable est interdite.
           </Text>
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             Les marques et logos de tiers cités sur ce site appartiennent à leurs détenteurs
             respectifs et sont mentionnés à titre informatif.
           </Text>
         </SectionCard>
 
         <SectionCard id="responsabilite" icon="warning" title="Limitation de responsabilité">
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             Les informations publiées sur ce site sont fournies à titre indicatif et peuvent
             évoluer. {person.name} s&apos;efforce de les maintenir exactes mais ne saurait être
             tenu responsable des erreurs, omissions ou d&apos;une indisponibilité temporaire du
@@ -305,7 +306,7 @@ export default function MentionsLegales() {
         </SectionCard>
 
         <SectionCard id="droit" icon="flag" title="Droit applicable">
-          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+          <Text textVariant="body-default-m" onBackground="neutral-weak" wrap="balance">
             Le présent site est soumis au droit français. En cas de litige, et à défaut de
             résolution amiable, les tribunaux français seront seuls compétents.
           </Text>
@@ -313,7 +314,8 @@ export default function MentionsLegales() {
       </Grid>
 
       <Column maxWidth="l" fillWidth center paddingBottom="l">
-        <Badge
+        <Tag
+          variant="announce"
           background="neutral-alpha-weak"
           onBackground="neutral-weak"
           gap="8"
@@ -322,10 +324,10 @@ export default function MentionsLegales() {
           arrow={false}
         >
           <Icon name="info" onBackground="neutral-weak" />
-          <Text variant="label-default-s">
+          <Text textVariant="label-default-s">
             Dernière mise à jour : page susceptible d&apos;évoluer pour rester conforme.
           </Text>
-        </Badge>
+        </Tag>
       </Column>
     </>
   );

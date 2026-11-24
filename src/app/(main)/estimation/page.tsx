@@ -32,25 +32,25 @@ export default function EstimationPage() {
       }}
     />
     <Grid columns={2} s={{ columns: "1" }} gap="m" >
-      {siteTypes.map(({ name, basePrice, icon, description, includes, slug }, _i) => <Card as="article" href={`/estimation/${slug}`} direction="column" key={name} border="neutral-alpha-weak" radius="m" fillWidth background="transparent" position="relative" overflow="hidden">
+      {siteTypes.map(({ name, basePrice, icon, description, includes, slug }, _i) => <Card href={`/estimation/${slug}`} direction="column" key={name} border="neutral-alpha-weak" radius="m" fillWidth background="transparent" position="relative" overflow="hidden">
         <Schema as={"service"} title={name} description={description} path={`estimation/${slug}`} offerSlug={slug} />
         <Background
           fill
           position="absolute"
           zIndex={0}
           mask={{
-            x: rdv.effects.mask.x,
-            y: rdv.effects.mask.y,
-            radius: rdv.effects.mask.radius,
+            x: `${rdv.effects.mask.x}%`,
+            y: `${rdv.effects.mask.y}%`,
+            radius: `${rdv.effects.mask.radius}vh`,
             cursor: rdv.effects.mask.cursor
           }}
           gradient={{
             display: true,
             opacity: rdv.effects.gradient.opacity as Opacity,
-            x: rdv.effects.gradient.x,
-            y: rdv.effects.gradient.y,
-            width: rdv.effects.gradient.width,
-            height: rdv.effects.gradient.height,
+            x: `${rdv.effects.gradient.x}%`,
+            y: `${rdv.effects.gradient.y}%`,
+            width: `${rdv.effects.gradient.width}%`,
+            height: `${rdv.effects.gradient.height}%`,
             tilt: rdv.effects.gradient.tilt,
             colorStart: rdv.effects.gradient.colorStart,
             colorEnd: rdv.effects.gradient.colorEnd,
@@ -66,14 +66,14 @@ export default function EstimationPage() {
         <Column padding="s" gap="s">
           <Row vertical="center" horizontal="between" fillWidth >
             <Row center gap="xs">
-              <Icon name={icon as IconName} /><Text as="h3" variant="label-strong-l">{name}</Text>
+              <Icon name={icon as IconName} /><Text as="h3" textVariant="label-strong-l">{name}</Text>
             </Row>
-            <Text variant="body-default-xs" onBackground="neutral-weak">À partir de {basePrice}€</Text>
+            <Text textVariant="body-default-xs" onBackground="neutral-weak">À partir de {basePrice}€</Text>
           </Row>
           <Text onBackground="neutral-medium">{description}</Text>
           <Column>
             {includes.map((el, i) => <Row key={i} vertical="center">
-              <Icon name="check" onBackground="success-weak" size="xs" /><Text onBackground="neutral-weak" variant="body-default-xs">{el}</Text>
+              <Icon name="check" onBackground="success-weak" size="xs" /><Text onBackground="neutral-weak" textVariant="body-default-xs">{el}</Text>
             </Row>)}
           </Column>
         </Column>

@@ -41,7 +41,7 @@ export default async function Blog() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading as="h1" id="blog-page-title" marginBottom="l" variant="display-strong-s">
+      <Heading as="h1" id="blog-page-title" marginBottom="l" textVariant="display-strong-s">
         {blog.title}
       </Heading>
       <Column

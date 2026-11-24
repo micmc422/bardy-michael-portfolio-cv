@@ -42,8 +42,8 @@ const DougNut = forwardRef<HTMLDivElement, DougNutDataType>(({ nom, percent, exp
         <ChartCard
             titre={nom}
             explication={<Row gap="xs" center>
-                <Text variant="label-strong-xl">{percent.toFixed(2)}%</Text>
-                <Text variant="label-default-s">{explication}</Text>
+                <Text textVariant="label-strong-xl">{percent.toFixed(2)}%</Text>
+                <Text textVariant="label-default-s">{explication}</Text>
             </Row>}
             id="douhnutShared"
             gap="s"

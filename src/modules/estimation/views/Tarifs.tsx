@@ -84,9 +84,9 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                     position="absolute"
                     mask={{
                         cursor: true,
-                        x: 50,
-                        y: 25,
-                        radius: 70
+                        x: "50%",
+                        y: "25%",
+                        radius: "70vh"
                     }}
                     dots={{
                         display: true,
@@ -97,7 +97,7 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                     gradient={{
                         display: true,
                         opacity: 1 as Opacity,
-                        x: 50,
+                        x: "50%",
                         y: 0,
                         colorStart: "accent-alpha-strong",
                         colorEnd: "accent-alpha-weak"
@@ -105,8 +105,8 @@ const Tarifs = forwardRef<HTMLDivElement, TarifsProps>(
                 />
 
                 <Column maxWidth={"xs"} center>
-                    <Heading as="h2" id="tarifs-title" variant="display-strong-m">Tarifs 💰</Heading>
-                    <Text variant="body-default-l" align="center" onBackground="neutral-weak">Des offres simples et adaptées à vos besoins : que vous lanciez un projet, optimisiez un site existant ou souhaitiez un accompagnement régulier.</Text>
+                    <Heading as="h2" id="tarifs-title" textVariant="display-strong-m">Tarifs 💰</Heading>
+                    <Text textVariant="body-default-l" align="center" onBackground="neutral-weak">Des offres simples et adaptées à vos besoins : que vous lanciez un projet, optimisiez un site existant ou souhaitiez un accompagnement régulier.</Text>
                 </Column>
                 <Row center gap="s" s={{direction: "column"}}>
                     {tarifs.map((tarif, i) => <Volet key={i} volet={tarif} />)}
@@ -142,18 +142,18 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     position="absolute"
                     zIndex={-1}
                     mask={{
-                        x: rdv.effects.mask.x,
-                        y: rdv.effects.mask.y,
-                        radius: rdv.effects.mask.radius,
+                        x: `${rdv.effects.mask.x}%`,
+                        y: `${rdv.effects.mask.y}%`,
+                        radius: `${rdv.effects.mask.radius}vh`,
                         cursor: rdv.effects.mask.cursor
                     }}
                     gradient={{
                         display: true,
                         opacity: rdv.effects.gradient.opacity as Opacity,
-                        x: rdv.effects.gradient.x,
-                        y: rdv.effects.gradient.y,
-                        width: rdv.effects.gradient.width,
-                        height: rdv.effects.gradient.height,
+                        x: `${rdv.effects.gradient.x}%`,
+                        y: `${rdv.effects.gradient.y}%`,
+                        width: `${rdv.effects.gradient.width}%`,
+                        height: `${rdv.effects.gradient.height}%`,
                         tilt: rdv.effects.gradient.tilt,
                         colorStart: rdv.effects.gradient.colorStart,
                         colorEnd: rdv.effects.gradient.colorEnd,
@@ -167,20 +167,20 @@ const Volet = forwardRef<HTMLDivElement, VoletProps>(
                     }}
                 />
 
-                <Heading as="h3" variant="display-strong-xs" padding="m" paddingTop="l" className={styles.titre} onBackground="accent-weak">{title}</Heading>
+                <Heading as="h3" textVariant="display-strong-xs" style={{ padding: "var(--responsive-space-l) var(--responsive-space-m) var(--responsive-space-m) var(--responsive-space-m)" }} className={styles.titre} onBackground="accent-weak">{title}</Heading>
                 <Line background="page" />
                 <Row fillWidth padding="m">
                     <ul className={styles.list}>
                         {features.map(feature => <li key={feature}>
-                            <Text variant="body-default-s" onBackground="info-medium" padding="0">{feature}</Text>
+                            <Text textVariant="body-default-s" onBackground="info-medium" style={{ padding: "var(--static-space-0)" }}>{feature}</Text>
                         </li>)}
                     </ul>
                 </Row>
                 <Line background="page" />
                 <Column padding="m" fillWidth gap="0" horizontal="end" background="overlay">
                     <Text onBackground="accent-weak">À partir de :</Text>
-                    <Text variant="display-strong-xs" onBackground="success-strong">{price}</Text>
-                    <Text variant="body-default-xs" onBackground="neutral-strong" align="center">{notes}</Text>
+                    <Text textVariant="display-strong-xs" onBackground="success-strong">{price}</Text>
+                    <Text textVariant="body-default-xs" onBackground="neutral-strong" align="center">{notes}</Text>
                 </Column>
                 <Column padding="m" center>
                     <Button variant="primary" href={`/estimation/${slug}`}>Estimation en ligne</Button>

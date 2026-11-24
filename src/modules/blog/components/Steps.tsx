@@ -59,7 +59,7 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
             label: step.title,
             description: step.content,
             marker: String(i + 1),
-            state: i === steps.length - 1 ? "active" : "default",
+            tone: i === steps.length - 1 ? "brand" : undefined,
         }));
 
         return (
@@ -70,7 +70,7 @@ const StepsComponent = forwardRef<HTMLDivElement, StepsComponentProps>(
                 paddingBottom="xl"
                 {...rest}
             >
-                {resolvedTitle && <Heading as="h2" id={slugify(resolvedTitle)} variant="display-strong-xs" paddingBottom="l">{resolvedTitle}</Heading>}
+                {resolvedTitle && <Column paddingBottom="l"><Heading as="h2" id={slugify(resolvedTitle)} textVariant="display-strong-xs">{resolvedTitle}</Heading></Column>}
                 <Timeline items={timelineItems} />
                 <script id={`Steps-${typeof resolvedTitle === "string" ? resolvedTitle : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{
                     __html: `{

@@ -64,18 +64,18 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
         fill
         position="absolute"
         mask={{
-          x: rdv.effects.mask.x,
-          y: rdv.effects.mask.y,
-          radius: rdv.effects.mask.radius,
+          x: `${rdv.effects.mask.x}%`,
+          y: `${rdv.effects.mask.y}%`,
+          radius: `${rdv.effects.mask.radius}vh`,
           cursor: rdv.effects.mask.cursor
         }}
         gradient={{
           display: rdv.effects.gradient.display,
           opacity: rdv.effects.gradient.opacity as Opacity,
-          x: rdv.effects.gradient.x,
-          y: rdv.effects.gradient.y,
-          width: rdv.effects.gradient.width,
-          height: rdv.effects.gradient.height,
+          x: `${rdv.effects.gradient.x}%`,
+          y: `${rdv.effects.gradient.y}%`,
+          width: `${rdv.effects.gradient.width}%`,
+          height: `${rdv.effects.gradient.height}%`,
           tilt: rdv.effects.gradient.tilt,
           colorStart: rdv.effects.gradient.colorStart,
           colorEnd: rdv.effects.gradient.colorEnd,
@@ -108,7 +108,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
         horizontal="center"
         align="center"
       >
-        <Heading as="h2" id="rdv-title" style={{ position: "relative" }} marginBottom="s" variant="display-strong-xs">
+        <Heading as="h2" id="rdv-title" style={{ position: "relative" }} marginBottom="s" textVariant="display-strong-xs">
           {content.title}
         </Heading>
         <Text
@@ -123,7 +123,7 @@ export const RDV = ({ content }: { content: SectionContentProps }) => {
           {content.description}
         </Text>
         <Suspense fallback={
-          <Text variant="body-default-s" onBackground="neutral-weak">
+          <Text textVariant="body-default-s" onBackground="neutral-weak">
             Chargement des disponibilités...
           </Text>}>
           <RDVDropDown eventTypesPromise={getRDVContent()} />

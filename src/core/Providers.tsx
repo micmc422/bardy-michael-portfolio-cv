@@ -23,7 +23,7 @@ export function Providers({ children }: {
             <DataThemeProvider
                 variant={dataConfig.variant as ChartVariant } // flat | gradient | outline
                 mode={dataConfig.mode as ChartMode} // categorical | divergent | sequential
-                height={dataConfig.height} // default chart height
+                height={`${dataConfig.height}rem`} // default chart height
                 axis={{
                     stroke: dataConfig.axisLine.stroke
                 }}

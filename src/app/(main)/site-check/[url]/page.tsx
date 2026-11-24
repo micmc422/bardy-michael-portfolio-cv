@@ -58,7 +58,7 @@ export default async function AnalysisPage({ params }: PageParams) {
               </Button>
             </Link>
           </Row>
-          <Heading as="h1" variant="display-strong-l">
+          <Heading as="h1" textVariant="display-strong-l">
             Analyse de site
           </Heading>
           <Row gap="xs" vertical="center">
@@ -68,7 +68,7 @@ export default async function AnalysisPage({ params }: PageParams) {
               href={decodedUrl}
               target="_blank"
               rel="noopener noreferrer"
-              variant="body-default-m"
+              textVariant="body-default-m"
               onBackground="accent-weak"
             >
               {decodedUrl}

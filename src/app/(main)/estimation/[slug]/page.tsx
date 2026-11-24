@@ -31,7 +31,7 @@ export default function EstimationTypePage({ params }: { params: Promise<{ slug:
                     </Column>}
                     aria-label={`Sélectionnez l'option ${option.name}`}
                     checked={selectedOptions.includes(option.slug)}
-                    onToggle={() => toggleOption(option.slug, !selectedOptions.includes(option.slug))}
+                    onCheckedChange={() => toggleOption(option.slug, !selectedOptions.includes(option.slug))}
                 />)}
         </Grid>
         <Column paddingTop="l" gap="s">

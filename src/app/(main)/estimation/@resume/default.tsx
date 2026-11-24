@@ -1,6 +1,7 @@
 "use client"
 
-import { Button, Column, Feedback, Icon, IconButton, Input, LetterFx, Line, Row, Text, useToast, type IconName } from "@once-ui-system/core"
+import { Button, Column, Feedback, Icon, IconButton, Input, Line, Row, Text, useToast, type IconName } from "@once-ui-system/core"
+import { LetterFx } from "@once-ui-system/fx"
 import { useParams, useSearchParams } from "next/navigation"
 import { useMemo, useState, useTransition } from "react";
 import { siteTypes } from "@/modules/estimation/models/estimationData";
@@ -64,7 +65,7 @@ export default function ResumePanel() {
                         commentaires: `${commentaires?.value}`,
                     })
                 })
-                addToast({ variant: "success", message: "Votre estimation a été transmise je vous transmets un devis dans les plus bref délais" })
+                addToast({ tone: "success", message: "Votre estimation a été transmise je vous transmets un devis dans les plus bref délais" })
             } catch (e) {
                 console.error(e)
             }
@@ -109,18 +110,18 @@ export default function ResumePanel() {
 
     return <>
         <Row gap="4" vertical="center">
-            <Text variant="display-default-xs" onBackground="brand-weak">Estimation</Text>
+            <Text textVariant="display-default-xs" onBackground="brand-weak">Estimation</Text>
         </Row>
         <Line />
         {
             !!activeSiteType && <Column>
                 <Row gap="4" vertical="center">
                     <Icon name={activeSiteType.icon as IconName} />
-                    <Text variant="label-strong-l">{activeSiteType.name}</Text>
+                    <Text textVariant="label-strong-l">{activeSiteType.name}</Text>
                 </Row>
                 <Row horizontal="between">
                     <Text onBackground="neutral-medium">Prix de base : </Text>
-                    <Text onBackground="accent-weak" variant="body-strong-m">{activeSiteType.basePrice}€</Text>
+                    <Text onBackground="accent-weak" textVariant="body-strong-m">{activeSiteType.basePrice}€</Text>
                 </Row>
             </Column>
         }
@@ -129,7 +130,7 @@ export default function ResumePanel() {
         {activeOptions &&
             <Column gap="2">
                 {activeOptions?.map(({ name, price, slug, periodicite }) => <Row horizontal="between" key={slug} fillWidth>
-                    <Text variant="body-default-xs" onBackground="neutral-weak">
+                    <Text textVariant="body-default-xs" onBackground="neutral-weak">
                         <LetterFx
                             speed="fast"
                             trigger="instant">
@@ -137,7 +138,7 @@ export default function ResumePanel() {
                         </LetterFx>
                     </Text>
 
-                    <Text variant="body-strong-xs" onBackground="accent-weak">{price}€
+                    <Text textVariant="body-strong-xs" onBackground="accent-weak">{price}€
                         {periodicite === "mensuelle" && "/mois"}
                         {periodicite === "annuelle" && "/an"}
                     </Text>
@@ -150,8 +151,8 @@ export default function ResumePanel() {
             {
                 activeSiteType && <Column>
                     <Row horizontal="between" vertical="center">
-                        <Text variant="label-default-s">Total HT par an : </Text>
-                        <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
+                        <Text textVariant="label-default-s">Total HT par an : </Text>
+                        <Text textVariant="label-default-s" onBackground="accent-weak">                        <LetterFx
                             key={annualy + monthly * 12}
                             speed="fast"
                             trigger="instant">
@@ -164,8 +165,8 @@ export default function ResumePanel() {
             {
                 activeSiteType ? <Column>
                     <Row horizontal="between" vertical="center">
-                        <Text variant="label-default-s">Total HT estimé : </Text>
-                        <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
+                        <Text textVariant="label-default-s">Total HT estimé : </Text>
+                        <Text textVariant="label-default-s" onBackground="accent-weak">                        <LetterFx
                             key={totalPrice}
                             speed="fast"
                             trigger="instant">
@@ -174,8 +175,8 @@ export default function ResumePanel() {
                         </Text>
                     </Row>
                     <Row horizontal="between" vertical="center" paddingTop="s">
-                        <Text variant="label-default-s">TVA 20% : </Text>
-                        <Text variant="label-default-s" onBackground="accent-weak">                        <LetterFx
+                        <Text textVariant="label-default-s">TVA 20% : </Text>
+                        <Text textVariant="label-default-s" onBackground="accent-weak">                        <LetterFx
                             key={(totalPrice + annualy + monthly * 12) * 0.2}
                             speed="fast"
                             trigger="instant">
@@ -184,10 +185,10 @@ export default function ResumePanel() {
                         </Text>
                     </Row>
                     <Row horizontal="between" vertical="center">
-                        <Row center><Text variant="label-strong-l">Total TTC :</Text>
+                        <Row center><Text textVariant="label-strong-l">Total TTC :</Text>
                             <IconButton variant="ghost" icon="infoCircle" tooltip="Pris initial inclue les frais annuel de la première année" tooltipPosition="bottom" size="s" />
                         </Row>
-                        <Text variant="display-strong-xs" onBackground="accent-weak">                        <LetterFx
+                        <Text textVariant="display-strong-xs" onBackground="accent-weak">                        <LetterFx
                             key={(totalPrice + annualy + monthly * 12) * 1.2}
                             speed="fast"
                             trigger="instant">
@@ -196,10 +197,10 @@ export default function ResumePanel() {
                         </Text>
                     </Row>
                     <Row horizontal="between" vertical="center">
-                        <Row center><Text variant="label-default-xs">Frais annuel :</Text>
+                        <Row center><Text textVariant="label-default-xs">Frais annuel :</Text>
                             <IconButton variant="ghost" icon="infoCircle" tooltip="Abonnement annuel au delà de la première année" tooltipPosition="bottom" size="s" />
                         </Row>
-                        <Text variant="label-strong-xs" onBackground="neutral-weak">                        <LetterFx
+                        <Text textVariant="label-strong-xs" onBackground="neutral-weak">                        <LetterFx
                             key={(annualy + monthly * 12) * 1.2}
                             speed="fast"
                             trigger="instant">
@@ -209,12 +210,12 @@ export default function ResumePanel() {
                     </Row>
                 </Column>
                     :
-                    <Text variant="label-default-l" onBackground="neutral-weak">sélectionnez un type de site</Text>
+                    <Text textVariant="label-default-l" onBackground="neutral-weak">sélectionnez un type de site</Text>
             }
         </Column>
         {activeSiteType && slug && <Column gap="s">
             <Feedback
-                variant="success"
+                tone="success"
                 title=""
                 description="L'adresse courriel est utilisé uniquement pour vous transmettre le devis."
             />

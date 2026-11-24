@@ -1,4 +1,5 @@
-import { Background, Column, IconButton, ScrollToTop, type Opacity, type SpacingToken } from "@once-ui-system/core";
+import { Background, Column, IconButton, type Opacity, type SpacingToken } from "@once-ui-system/core";
+import { ScrollToTop } from "@once-ui-system/blocks";
 import { effects } from "@/core/config";
 import { Footer, Header } from "@/shared/components";
 import CookieConsent from "@/shared/components/cookiesConsent";
@@ -11,18 +12,18 @@ export default async function MainLayout({ children }: { children: React.ReactNo
                 fill
                 position="fixed"
                 mask={{
-                    x: effects.mask.x,
-                    y: effects.mask.y,
-                    radius: effects.mask.radius,
+                    x: `${effects.mask.x}%`,
+                    y: `${effects.mask.y}%`,
+                    radius: `${effects.mask.radius}vh`,
                     cursor: effects.mask.cursor
                 }}
                 gradient={{
                     display: effects.gradient.display,
                     opacity: effects.gradient.opacity as Opacity,
-                    x: effects.gradient.x,
-                    y: effects.gradient.y,
-                    width: effects.gradient.width,
-                    height: effects.gradient.height,
+                    x: `${effects.gradient.x}%`,
+                    y: `${effects.gradient.y}%`,
+                    width: `${effects.gradient.width}%`,
+                    height: `${effects.gradient.height}%`,
                     tilt: effects.gradient.tilt,
                     colorStart: effects.gradient.colorStart,
                     colorEnd: effects.gradient.colorEnd,

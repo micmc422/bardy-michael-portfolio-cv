@@ -142,17 +142,17 @@ export function OverallScore({ scores }: OverallScoreProps) {
         <Column gap="m" horizontal="center">
           <Column horizontal="center" gap="xs">
             <Text
-              variant="display-strong-xl"
+              textVariant="display-strong-xl"
               style={{ color: getOverallColor(overallScore) }}
             >
               {overallScore}
             </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak">
+            <Text textVariant="body-default-m" onBackground="neutral-weak">
               Score global
             </Text>
             <Heading
               as="span"
-              variant="display-strong-xs"
+              textVariant="display-strong-xs"
               style={{ color: getOverallColor(overallScore) }}
             >
               {getOverallLabel(overallScore)}
@@ -161,10 +161,10 @@ export function OverallScore({ scores }: OverallScoreProps) {
 
           <Column gap="xs">
             {categories.map((cat) => (
-              <Row key={cat.key} gap="m" vertical="center" horizontal="between" minWidth={10}>
-                <Text variant="body-default-s">{cat.label}</Text>
+              <Row key={cat.key} gap="m" vertical="center" horizontal="between" minWidth="10rem">
+                <Text textVariant="body-default-s">{cat.label}</Text>
                 <Text
-                  variant="label-strong-s"
+                  textVariant="label-strong-s"
                   style={{ color: cat.score !== undefined ? getOverallColor(cat.score) : "var(--neutral-weak)" }}
                 >
                   {cat.score !== undefined ? `${cat.score}/100` : "..."}

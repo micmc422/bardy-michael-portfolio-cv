@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
-import { AutoScroll, Avatar, Column, Flex, Icon, Row, Text } from "@once-ui-system/core";
+import { Scroller, Avatar, Column, Flex, Icon, Row, Text } from "@once-ui-system/core";
 import styles from "./avisClients.module.scss"
 import { getAvis } from "@/modules/blog/controllers/serverActions";
 interface ComponentProps extends React.ComponentProps<typeof Flex> {
@@ -34,9 +34,9 @@ const AvisClient = forwardRef<HTMLDivElement, ComponentProps>(
                 className={classNames(styles.root, className)}
                 {...rest}
             >
-                <AutoScroll gap="m">
+                <Scroller auto gap="m">
                     {reviews.map((avis, i) => <Avis key={i} {...avis} />)}
-                </AutoScroll>
+                </Scroller>
             </Flex>
         );
     }
@@ -77,7 +77,7 @@ const Avis = forwardRef<HTMLDivElement, AvisProps>(
                 <Row gap="s">
                     <Avatar src={profile_photo_url} size="l" />
                     <Column center>
-                        <Text variant="label-strong-xl" onBackground="accent-weak">{author_name}</Text>
+                        <Text textVariant="label-strong-xl" onBackground="accent-weak">{author_name}</Text>
                         <div>
                             {stars.map(key => <Icon key={key} name="starfill" onBackground="warning-medium" />)}
                         </div>

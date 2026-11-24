@@ -2,20 +2,19 @@
 
 import {
   Avatar,
-  Badge,
   Button,
   Column,
   Heading,
   Icon,
   IconButton,
   Media,
-  RevealFx,
   Row,
   Skeleton,
   Tag,
   Text,
   type IconName,
 } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
 import Meta from "@/modules/seo/Meta";
 import { baseURL } from "@/core/config";
 import dynamic from "next/dynamic";
@@ -23,13 +22,13 @@ import dynamic from "next/dynamic";
 // import TableOfContents from "@/modules/blog/components/TableOfContents";
 const TableOfContents = dynamic(() => import('@/modules/blog/components/TableOfContents'), {
   loading: () => <Row>
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
-    <Skeleton shape="line" width="l" />
+    <Skeleton shape="line" width="160" />
+    <Skeleton shape="line" width="160" />
+    <Skeleton shape="line" width="160" />
+    <Skeleton shape="line" width="160" />
+    <Skeleton shape="line" width="160" />
+    <Skeleton shape="line" width="160" />
+    <Skeleton shape="line" width="160" />
   </Row>
   ,
 });
@@ -120,7 +119,7 @@ export default async function About() {
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={styles.blockAlign} flex={9} maxWidth="40rem">
           <Column
             id={about.intro.title}
             fillWidth
@@ -130,7 +129,8 @@ export default async function About() {
           >
             {about.calendar.display && (
               <RevealFx fillWidth horizontal="start" s={{ horizontal: "center" }} paddingTop="16" paddingBottom="32" paddingLeft="8">
-                <Badge
+                <Tag
+                  variant="announce"
                   background="brand-alpha-weak" paddingX="xs" paddingY="4" onBackground="brand-strong"
                   arrow={false}
                   href={about.calendar.link}
@@ -139,21 +139,23 @@ export default async function About() {
                   id="RDVBtn"
                   aria-label="Lien vers la prise de rendez-vous"
                 >
-                  <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
-                  <Text paddingTop="4">Planifier un RDV</Text>
+                  <Row as="span" inline fit paddingLeft="12">
+                    <Icon name="calendar" onBackground="brand-strong" />
+                  </Row>
+                  <Text style={{ paddingTop: "var(--static-space-4)" }}>Planifier un RDV</Text>
                   <IconButton
                     variant="ghost"
                     icon="chevronRight"
                   />
-                </Badge>
+                </Tag>
               </RevealFx>
             )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
+            <Heading className={styles.textAlign} textVariant="display-strong-xl">
               {person.name}
             </Heading>
             <Text
               className={styles.textAlign}
-              variant="display-default-xs"
+              textVariant="display-default-xs"
               onBackground="neutral-weak"
             >
               {person.role}
@@ -210,29 +212,29 @@ export default async function About() {
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h2" id={about.work.title} textVariant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="display-strong-s">
+                      <Text id={experience.company} textVariant="display-strong-s">
                         {experience.company}
                       </Text>
-                      <Text variant="display-default-xs" onBackground="neutral-weak">
+                      <Text textVariant="display-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
                     </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                    <Text textVariant="body-default-s" onBackground="brand-weak" marginBottom="m">
                       {experience.role}
                     </Text>
-                    <Column as="ul" gap="16">
+                    <Column as="ul" gap="16" className="list-disc" paddingLeft="40px" marginY="1em">
                       {experience.achievements.map(
                         (achievement: React.ReactNode, index: number) => (
                           <Text
                             as="li"
-                            variant="body-default-m"
+                            textVariant="body-default-m"
                             key={`${experience.company}-${index}`}
                           >
                             {achievement}
@@ -247,8 +249,8 @@ export default async function About() {
                             key={index}
                             border="neutral-medium"
                             radius="m"
-                            minWidth={image.width}
-                            height={image.height}
+                            minWidth={`${image.width}rem`}
+                            height={`${image.height}rem`}
                           >
                             <Media
                               enlarge
@@ -269,16 +271,16 @@ export default async function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h2" id={about.studies.title} textVariant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="display-strong-xs">
+                    <Text id={institution.name} textVariant="display-strong-xs">
                       {institution.name}
                     </Text>
-                    <Text variant="body-default-l" onBackground="neutral-weak">
+                    <Text textVariant="body-default-l" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
                   </Column>
@@ -292,7 +294,7 @@ export default async function About() {
               <Heading
                 as="h2"
                 id={about.technical.title}
-                variant="display-strong-s"
+                textVariant="display-strong-s"
                 marginBottom="40"
               >
                 {about.technical.title}
@@ -300,10 +302,10 @@ export default async function About() {
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="display-strong-s">
+                    <Text id={skill.title} textVariant="display-strong-s">
                       {skill.title}
                     </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
+                    <Text textVariant="body-default-m" onBackground="neutral-weak">
                       {skill.description}
                     </Text>
                     {skill.tags && skill.tags.length > 0 && (
@@ -322,8 +324,8 @@ export default async function About() {
                             key={index}
                             border="neutral-medium"
                             radius="m"
-                            minWidth={image.width}
-                            height={image.height}
+                            minWidth={`${image.width}rem`}
+                            height={`${image.height}rem`}
                           >
                             <Media
                               enlarge

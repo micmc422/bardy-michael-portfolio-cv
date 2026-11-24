@@ -71,7 +71,7 @@ export default async function EstimationLayout({ children, resume, headline }: {
             </Column>
         </Row>
         <Column as="section" background="surface" gap="m" padding="m" radius="xl" aria-labelledby="services-inclus-title">
-            <Heading as="h2" id="services-inclus-title" variant="display-strong-m">Services inclus</Heading>
+            <Heading as="h2" id="services-inclus-title" textVariant="display-strong-m">Services inclus</Heading>
             <Row s={{direction: "column"}} gap="s">
                 <ServicesInclus />
             </Row>
@@ -89,18 +89,18 @@ function ServicesInclus() {
             position="absolute"
             zIndex={0}
             mask={{
-                x: rdv.effects.mask.x,
-                y: rdv.effects.mask.y,
-                radius: rdv.effects.mask.radius,
+                x: `${rdv.effects.mask.x}%`,
+                y: `${rdv.effects.mask.y}%`,
+                radius: `${rdv.effects.mask.radius}vh`,
                 cursor: rdv.effects.mask.cursor
             }}
             gradient={{
                 display: true,
                 opacity: rdv.effects.gradient.opacity as Opacity,
-                x: rdv.effects.gradient.x,
-                y: rdv.effects.gradient.y,
-                width: rdv.effects.gradient.width,
-                height: rdv.effects.gradient.height,
+                x: `${rdv.effects.gradient.x}%`,
+                y: `${rdv.effects.gradient.y}%`,
+                width: `${rdv.effects.gradient.width}%`,
+                height: `${rdv.effects.gradient.height}%`,
                 tilt: rdv.effects.gradient.tilt,
                 colorStart: rdv.effects.gradient.colorStart,
                 colorEnd: rdv.effects.gradient.colorEnd,
@@ -115,7 +115,7 @@ function ServicesInclus() {
         />
         <Column key={i} horizontal="start" padding="l" gap="s">
         <Row>
-            <Heading as="h2" variant="display-strong-xs">{name}</Heading>
+            <Heading as="h2" textVariant="display-strong-xs">{name}</Heading>
             <Icon name={icon} size="xl" onBackground={`${bgColor}-weak` as `${ColorScheme}-${ColorWeight}`} />
         </Row>
         <Text onBackground="neutral-weak">{desc}</Text>

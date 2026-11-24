@@ -44,10 +44,10 @@ export default function PasswordProtect({ children, validateAction, storageKey =
     <Column maxWidth="s" gap="l" center paddingY="xl">
       <Column gap="m" horizontal="center">
         <Icon name="shield" size="l" onBackground="brand-strong" />
-        <Heading as="h1" variant="display-strong-m" align="center">
+        <Heading as="h1" textVariant="display-strong-m" align="center">
           Accès protégé
         </Heading>
-        <Text variant="body-default-m" align="center" onBackground="neutral-weak">
+        <Text textVariant="body-default-m" align="center" onBackground="neutral-weak">
           Cette page est protégée. Veuillez entrer le mot de passe pour accéder au contenu.
         </Text>
       </Column>
@@ -55,7 +55,7 @@ export default function PasswordProtect({ children, validateAction, storageKey =
       <form action={handleSubmit}>
         <Column fillWidth gap="m" padding="l" background="surface" radius="xl" border="neutral-alpha-weak">
           <Column fillWidth gap="xs">
-            <Text as="label" htmlFor="password-input" variant="label-default-s">
+            <Text as="label" htmlFor="password-input" textVariant="label-default-s">
               Mot de passe
             </Text>
             <Input
@@ -69,7 +69,7 @@ export default function PasswordProtect({ children, validateAction, storageKey =
           {error && (
             <Row gap="xs" vertical="center">
               <Icon name="warningTriangle" size="s" onBackground="danger-strong" />
-              <Text variant="body-default-s" onBackground="danger-strong">
+              <Text textVariant="body-default-s" onBackground="danger-strong">
                 Mot de passe incorrect.
               </Text>
             </Row>

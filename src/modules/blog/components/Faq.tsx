@@ -94,7 +94,7 @@ const Faq = forwardRef<HTMLDivElement, FaqProps>(
                 {resolvedTitle && (
                     <Heading
                         as="h2"
-                        variant="display-strong-s"
+                        textVariant="display-strong-s"
                         id={key}
                     >
                         {resolvedTitle}

@@ -52,10 +52,10 @@ export default function SiteCheckPage() {
       />
       
       <Column gap="m" horizontal="center">
-        <Heading as="h1" variant="display-strong-xl" align="center">
+        <Heading as="h1" textVariant="display-strong-xl" align="center">
           {siteCheck.headline}
         </Heading>
-        <Text variant="body-default-l" align="center" onBackground="neutral-weak" wrap="balance">
+        <Text textVariant="body-default-l" align="center" onBackground="neutral-weak" wrap="balance">
           {siteCheck.subline}
         </Text>
       </Column>
@@ -64,7 +64,7 @@ export default function SiteCheckPage() {
         <Column fillWidth gap="m" padding="l" background="surface" radius="xl" border="neutral-alpha-weak">
           <Row gap="s" fillWidth vertical="end">
             <Column fillWidth gap="xs">
-              <Text as="label" htmlFor="url-input" variant="label-default-s">
+              <Text as="label" htmlFor="url-input" textVariant="label-default-s">
                 URL du site à analyser
               </Text>
               <Input
@@ -81,14 +81,14 @@ export default function SiteCheckPage() {
               Analyser
             </Button>
           </Row>
-          <Text id="url-help" variant="body-default-xs" onBackground="neutral-weak">
+          <Text id="url-help" textVariant="body-default-xs" onBackground="neutral-weak">
             Entrez l&apos;URL complète de votre site (ex: https://monsite.fr)
           </Text>
         </Column>
       </form>
 
       <Column gap="l" fillWidth>
-        <Heading as="h2" variant="display-strong-xs" align="center">
+        <Heading as="h2" textVariant="display-strong-xs" align="center">
           Ce que nous analysons
         </Heading>
         <Row gap="m" wrap s={{ direction: "column" }}>
@@ -96,7 +96,7 @@ export default function SiteCheckPage() {
             <Column
               key={key}
               flex={1}
-              minWidth={12}
+              minWidth="12rem"
               padding="m"
               gap="s"
               background="surface"
@@ -105,9 +105,9 @@ export default function SiteCheckPage() {
             >
               <Row gap="xs" vertical="center">
                 <Icon name={category.icon as IconName} onBackground="accent-weak" />
-                <Text variant="label-strong-m">{category.title}</Text>
+                <Text textVariant="label-strong-m">{category.title}</Text>
               </Row>
-              <Text variant="body-default-s" onBackground="neutral-weak">
+              <Text textVariant="body-default-s" onBackground="neutral-weak">
                 {category.description}
               </Text>
             </Column>

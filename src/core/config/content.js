@@ -81,7 +81,7 @@ const home = {
   },
   featured: {
     display: true,
-    title: <Row center gap="xs"><strong className="ml-4">Webmaster à Albi</strong><IconCroixOccitane /></Row>,
+    title: <Row center gap="xs"><strong className="margin-left-4">Webmaster à Albi</strong><IconCroixOccitane /></Row>,
     href: "/webmaster-albi",
   },
   subline: (

@@ -102,7 +102,7 @@ const CookieConsent: React.FC = () => {
             bottom="24"
             right="24"
             zIndex={10}
-            maxWidth={32}
+            maxWidth="32rem"
             padding="24"
             gap="20"
             radius="l"
@@ -120,24 +120,23 @@ const CookieConsent: React.FC = () => {
                 pointerEvents="none"
                 gradient={{
                     display: true,
-                    x: 100,
+                    x: "100%",
                     y: 0,
                     colorStart: "brand-background-medium",
                     colorEnd: "static-transparent",
                 }}
             />
             <Row gap="12" vertical="center" zIndex={1}>
-                <Icon
-                    name="security"
-                    size="s"
-                    padding="12"
-                    radius="full"
-                    background="brand-alpha-weak"
-                    onBackground="brand-weak"
-                />
+                <Row fit padding="12" radius="full" background="brand-alpha-weak">
+                  <Icon
+                      name="security"
+                      size="s"
+                      onBackground="brand-weak"
+                  />
+                </Row>
                 <Column gap="4" fillWidth>
-                    <Text variant="display-strong-xs">Votre vie privée compte</Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance">
+                    <Text textVariant="display-strong-xs">Votre vie privée compte</Text>
+                    <Text textVariant="body-default-s" onBackground="neutral-weak" wrap="balance">
                         Ce site utilise une mesure d&apos;audience anonyme pour améliorer votre
                         expérience. Aucune donnée n&apos;est partagée avec des tiers.{" "}
                         <SmartLink href="/mentions-legales">En savoir plus</SmartLink>.
@@ -148,15 +147,15 @@ const CookieConsent: React.FC = () => {
             <Column fillWidth gap="12" padding="16" radius="m" border="neutral-alpha-weak" zIndex={1}>
                 <Row fillWidth horizontal="between" vertical="center">
                     <Column gap="2">
-                        <Text variant="label-default-s">Mesure d&apos;audience</Text>
-                        <Text variant="body-default-xs" onBackground="neutral-weak">
+                        <Text textVariant="label-default-s">Mesure d&apos;audience</Text>
+                        <Text textVariant="body-default-xs" onBackground="neutral-weak">
                             Pages consultées, origine de la visite, navigateur, pays
                         </Text>
                     </Column>
                     <Switch
                         checked={analytics}
-                        onToggle={() => setAnalytics((v) => !v)}
-                        ariaLabel="Activer la mesure d'audience"
+                        onCheckedChange={() => setAnalytics((v) => !v)}
+                        aria-label="Activer la mesure d'audience"
                     />
                 </Row>
             </Column>

@@ -22,11 +22,11 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
       >
         <Row gap="s" vertical="center">
           <Icon name="warningTriangle" size="m" onBackground="warning-weak" />
-          <Heading as="h3" variant="display-strong-xs">
+          <Heading as="h3" textVariant="display-strong-xs">
             Métadonnées
           </Heading>
         </Row>
-        <Text variant="body-default-s" onBackground="warning-weak">
+        <Text textVariant="body-default-s" onBackground="warning-weak">
           Aucune métadonnée trouvée sur cette page.
         </Text>
       </Column>
@@ -105,10 +105,10 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
     <Column gap="m" fillWidth>
       <Row gap="s" vertical="center" fillWidth>
         <Icon name="tag" size="m" onBackground="accent-weak" />
-        <Heading as="h3" variant="display-strong-xs">
+        <Heading as="h3" textVariant="display-strong-xs">
           Métadonnées
         </Heading>
-        <Tag size="s" scheme="neutral">
+        <Tag size="s" tone="neutral">
           {totalTags} balise{totalTags > 1 ? "s" : ""}
         </Tag>
       </Row>
@@ -118,13 +118,13 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
         {Object.entries(groupedTags).map(
           ([category, tags]) =>
             tags.length > 0 && (
-              <Tag key={category} size="s" scheme="neutral">
+              <Tag key={category} size="s" tone="neutral">
                 <Row gap="4" vertical="center">
                   <Icon
                     name={categoryLabels[category]?.icon || "tag"}
                     size="xs"
                   />
-                  <Text variant="label-default-xs">
+                  <Text textVariant="label-default-xs">
                     {categoryLabels[category]?.label || category}: {tags.length}
                   </Text>
                 </Row>
@@ -144,7 +144,7 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
         {visibleTags.map(([key, value]) => (
           <Row key={key} gap="s" vertical="start">
             <Text
-              variant="body-default-xs"
+              textVariant="body-default-xs"
               onBackground="accent-weak"
               style={{
                 minWidth: "140px",
@@ -155,7 +155,7 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
               {key}
             </Text>
             <Text
-              variant="body-default-xs"
+              textVariant="body-default-xs"
               style={{
                 flex: 1,
                 wordBreak: "break-word",
@@ -180,7 +180,7 @@ export function MetaTagsViewer({ data }: MetaTagsViewerProps) {
             size="xs"
             onBackground="accent-weak"
           />
-          <Text variant="body-default-xs" onBackground="accent-weak">
+          <Text textVariant="body-default-xs" onBackground="accent-weak">
             {expanded
               ? "Réduire"
               : `Afficher ${totalTags - visibleTags.length} balises supplémentaires`}

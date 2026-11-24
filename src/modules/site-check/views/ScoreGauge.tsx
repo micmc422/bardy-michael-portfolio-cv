@@ -64,7 +64,7 @@ export function ScoreGauge({ score, color, size = 100 }: ScoreGaugeProps) {
         }}
       >
         <Text
-          variant="display-strong-l"
+          textVariant="display-strong-l"
           onBackground={`${color}-weak`}
           style={{
             textShadow:
@@ -73,7 +73,7 @@ export function ScoreGauge({ score, color, size = 100 }: ScoreGaugeProps) {
         >
           {score}
         </Text>
-        <Text variant="body-default-xs" onBackground="neutral-weak">
+        <Text textVariant="body-default-xs" onBackground="neutral-weak">
           / 100
         </Text>
       </Column>

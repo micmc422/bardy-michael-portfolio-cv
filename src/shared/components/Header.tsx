@@ -96,7 +96,7 @@ export const Header = () => {
                   selected={pathname === "/"}
                 />
               )}
-              <Line background="neutral-alpha-medium" vert maxHeight={24} />
+              <Line background="neutral-alpha-medium" vert maxHeight="24rem" />
               {routes["/a-propos"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -183,7 +183,7 @@ export const Header = () => {
               )}
               {display.themeSwitcher && (
                 <>
-                  <Line background="neutral-alpha-medium" vert maxHeight={24} />
+                  <Line background="neutral-alpha-medium" vert maxHeight="24rem" />
                   <ThemeToggle />
                 </>
               )}

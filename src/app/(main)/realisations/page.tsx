@@ -59,7 +59,9 @@ export default async function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading as="h1" id="realisations-page-title" variant="display-strong-l" align="center" paddingBottom="l">Dernières réalisations</Heading>
+      <Column paddingBottom="l">
+        <Heading as="h1" id="realisations-page-title" textVariant="display-strong-l" align="center">Dernières réalisations</Heading>
+      </Column>
       <Projects />
       <Tarifs />
     </Column>

@@ -1,4 +1,5 @@
-import { Background, Badge, Button, Column, Grid, Heading, Icon, IconButton, RevealFx, Row, Text, type Opacity, type IconName } from "@once-ui-system/core";
+import { Background, Tag, Button, Column, Grid, Heading, Icon, IconButton, Row, Text, type Opacity, type IconName } from "@once-ui-system/core";
+import { RevealFx } from "@once-ui-system/fx";
 import { about, baseURL } from "@/core/config";
 import { person, solutionsWeb } from "@/core/config/content";
  import Meta from "@/modules/seo/Meta";
@@ -33,17 +34,18 @@ export default function SolutionsPage() {
             <Column as="section" maxWidth="xl" paddingY="24" gap="m" aria-labelledby="solutions-hero-title">
                 <Column maxWidth="s">
                     <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-                        <Heading as="h1" id="solutions-hero-title" wrap="balance" variant="display-strong-l">
+                        <Heading as="h1" id="solutions-hero-title" wrap="balance" textVariant="display-strong-l">
                             {solutionsWeb.headline}
                         </Heading>
                     </RevealFx>
                     <RevealFx translateY="8" delay={200} fillWidth horizontal="start" paddingBottom="32">
-                        <Text wrap="balance" onBackground="neutral-weak" variant="display-default-xl">
+                        <Text wrap="balance" onBackground="neutral-weak" textVariant="display-default-xl">
                             {solutionsWeb.subline}
                         </Text>
                     </RevealFx>
                     <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="8">
-                        <Badge
+                        <Tag
+                            variant="announce"
                             background="brand-alpha-weak" paddingX="8" paddingY="4" onBackground="brand-strong"
                             arrow={false}
                             href={about.calendar.link}
@@ -52,21 +54,23 @@ export default function SolutionsPage() {
                             id="RDVBtn"
                             aria-label="Lien vers la prise de rendez-vous"
                         >
-                            <Icon paddingLeft="12" name="calendar" onBackground="brand-strong" />
-                            <Text paddingTop="4">Planifier un RDV</Text>
+                            <Row as="span" inline fit paddingLeft="12">
+                              <Icon name="calendar" onBackground="brand-strong" />
+                            </Row>
+                            <Text style={{ paddingTop: "var(--static-space-4)" }}>Planifier un RDV</Text>
                             <IconButton
                                 variant="ghost"
                                 icon="chevronRight"
                             />
-                        </Badge>
+                        </Tag>
                     </RevealFx>
                 </Column>
             </Column>
             <Column as="section" maxWidth="xs" paddingY="24" gap="s" aria-labelledby="fonctionnalites-section-title">
-                <Heading as="h2" id="fonctionnalites-section-title" wrap="balance" variant="display-strong-m" align="center">
+                <Heading as="h2" id="fonctionnalites-section-title" wrap="balance" textVariant="display-strong-m" align="center">
                     🎯 Fonctionnalités ciblées pour booster votre activité
                 </Heading>
-                <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
+                <Text wrap="balance" onBackground="neutral-weak" textVariant="body-default-m" align="center">
                     {`Chaque activité a ses spécificités, et votre site web doit en être le reflet. Que vous soyez artisan, commerçant, formateur ou indépendant, je développe des fonctionnalités adaptées à vos besoins concrets : formulaire de devis, prise de rendez-vous, catalogue, espace client, outils d'automatisation… L’objectif ? Gagner du temps, offrir une meilleure expérience à vos utilisateurs et faire de votre site un véritable levier de développement.`}
                 </Text>
             </Column>
@@ -77,14 +81,14 @@ export default function SolutionsPage() {
                     position="absolute"
                     mask={{
                         cursor: true,
-                        x: 50,
-                        y: 25,
-                        radius: 70
+                        x: "50%",
+                        y: "25%",
+                        radius: "70vh"
                     }}
                     gradient={{
                         display: true,
                         opacity: 1 as Opacity,
-                        x: 50,
+                        x: "50%",
                         y: 0,
                         colorStart: "accent-alpha-strong",
                         colorEnd: "brand-alpha-weak"
@@ -93,13 +97,13 @@ export default function SolutionsPage() {
 
                 {solutionsWeb.pourquoi.map((item, index) => (
                     <Column as="article" background="overlay" paddingX="s" paddingY="l" radius="m" key={index} maxWidth="s" gap="m">
-                        <Heading as="h3" wrap="balance" variant="display-strong-xs">
+                        <Heading as="h3" wrap="balance" textVariant="display-strong-xs">
                             <Row vertical="center" gap="s" align="start">
                                 <Icon name={(item?.icone || "check") as IconName} onBackground="brand-strong" />
                                 {item?.titre}
                             </Row>
                         </Heading>
-                        <Text wrap="balance" onBackground="neutral-medium" variant="body-default-m">
+                        <Text wrap="balance" onBackground="neutral-medium" textVariant="body-default-m">
                             {item?.description}
                         </Text>
                         <Column as="ul" className="list-none">
@@ -107,7 +111,7 @@ export default function SolutionsPage() {
                                 <li key={idx}>
                                     <Row vertical="center" gap="xs">
                                         <Icon name="checkCircle" onBackground="success-medium" />
-                                        <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xs">
+                                        <Text wrap="balance" onBackground="neutral-weak" textVariant="body-default-xs">
                                             {fonction}
                                         </Text>
                                     </Row>
@@ -118,10 +122,10 @@ export default function SolutionsPage() {
                 ))}
             </Grid>
             <Column as="section" maxWidth="xl" paddingY="24" gap="s" center aria-labelledby="hebergement-section-title">
-                <Heading as="h2" id="hebergement-section-title" wrap="balance" variant="display-strong-m" align="center">
+                <Heading as="h2" id="hebergement-section-title" wrap="balance" textVariant="display-strong-m" align="center">
                     ☁️ Votre site, toujours rapide. Toujours en ligne.
                 </Heading>
-                <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m" align="center">
+                <Text wrap="balance" onBackground="neutral-weak" textVariant="body-default-m" align="center">
                     {`Ne perdez plus de clients à cause d’un site lent ou indisponible. Grâce à un hébergement cloud dernière génération (Vercel), vos pages se chargent en un éclair, même aux heures de pointe. Résultat : plus de conversions, une meilleure image, et zéro stress côté technique.`}
                 </Text>
                 <Button href="/solutions/hebergement">{`🚀 Solutions d'hébergement`}</Button>
