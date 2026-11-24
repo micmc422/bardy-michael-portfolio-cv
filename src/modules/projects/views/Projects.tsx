@@ -1,10 +1,9 @@
-import { Column, Flex, Skeleton } from "@once-ui-system/core";
-import { ProjectCard } from "@/shared/components";
-// import type { Metadata } from "next";
-import { getProjects } from "@/modules/blog/controllers/serverActions";
+import { Skeleton } from "@once-ui-system/core";
 import { use } from "react";
+import { getProjects } from "@/modules/blog/controllers/serverActions";
 import { work } from "@/core/config";
-import { getRandomSixDigitNumber } from "@/core/utils/utils";
+import { ContentCard, ContentGrid } from "@/shared/components/ContentCard";
+import styles from "@/modules/home/projects.module.scss";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -12,19 +11,20 @@ interface ProjectsProps {
 
 export function Projects({ range }: ProjectsProps) {
   const projects = use(getProjects({}));
-  const sortedProjects = projects.sort((a, b) => {
-    return new Date(b.metadata.publishedAt as string).getTime() - new Date(a.metadata.publishedAt as string).getTime();
-  });
-
+  const sortedProjects = [...projects].sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt as string).getTime() - new Date(a.metadata.publishedAt as string).getTime(),
+  );
   const displayedProjects = range
     ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)
     : sortedProjects;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: work.title,
     description: work.description,
-    "itemListOrder": "https://schema.org/ItemListOrderUnordered",
+    itemListOrder: "https://schema.org/ItemListOrderUnordered",
     numberOfItems: displayedProjects.length,
     itemListElement: displayedProjects.map((p, i) => ({
       "@type": "ListItem",
@@ -35,58 +35,50 @@ export function Projects({ range }: ProjectsProps) {
         url: p.metadata.projectURL,
         description: p.metadata.summary,
         image: p.metadata.image,
-      }
-    }))
+      },
+    })),
   };
+
   return (
-    <Column maxWidth={"m"} gap="xl" marginBottom="40" paddingX="l">
-      {displayedProjects.map((post, index) => (
-        <ProjectCard
-          priority={index < 1}
-          key={post.slug}
-          href={`${work.path}/${post.slug}`}
-          images={post.metadata.images || []}
-          title={post.metadata.title as string}
-          description={post.metadata.summary}
-          content={post.content || ""}
-          avatars={post.metadata.team?.map((member: { avatar: string }) => ({ src: member.avatar })) || []}
-          link={post.metadata.link || ""}
-        />
-      ))}
-      <script id={`Projects-${typeof work.title === "string" ? work.title : `${getRandomSixDigitNumber()}`}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-    </Column>
+    <>
+      <ContentGrid>
+        {displayedProjects.map((project, index) => {
+          const tags = ((project.metadata.tags ?? []) as { id: string; name: string }[]).map((tag) => tag.name);
+          return (
+            <ContentCard
+              key={project.slug}
+              href={`${work.path}/${project.slug}`}
+              ariaLabel={`Voir le projet : ${project.metadata.title}`}
+              title={String(project.metadata.title)}
+              summary={project.metadata.summary ? String(project.metadata.summary) : undefined}
+              image={project.metadata.images?.[0]}
+              imageAlt={`Aperçu du projet ${project.metadata.title}`}
+              tags={tags}
+              cta="Détails du projet"
+              index={index}
+              featured={index === 0}
+              priority={index === 0}
+            />
+          );
+        })}
+      </ContentGrid>
+      <script
+        id="projects-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+    </>
   );
 }
 
 export function SkeletonProjects() {
   return (
-    <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
-      {[0, 1, 2].map(el => <SkeletonProject key={el} />)}
-    </Column>
+    <ul className={styles.grid} aria-hidden="true">
+      {[0, 1, 2].map((el) => (
+        <li key={el} className={el === 0 ? styles.featured : styles.item}>
+          <Skeleton shape="block" fillWidth minHeight="20" style={{ borderRadius: "var(--radius-xl)" }} />
+        </li>
+      ))}
+    </ul>
   );
-}
-
-export function SkeletonProject() {
-  return <Column fillWidth gap="m">
-    <Skeleton shape="block" fillWidth minHeight="160" style={{ borderRadius: "16px" }} />
-    <Flex
-      s={{direction: "column"}}
-      fillWidth
-      paddingX="s"
-      paddingTop="12"
-      paddingBottom="24"
-      gap="l"
-    >
-      <Column gap="xs" flex={5} >
-        <Skeleton shape="line" size="xl" fillWidth />
-        <Skeleton shape="line" size="xl" width="50%" />
-      </Column>
-      <Column flex={7} gap="16">
-        <Skeleton shape="circle" size="m" />
-        <Skeleton shape="line" size="s" fillWidth />
-        <Skeleton shape="line" size="s" fillWidth />
-        <Skeleton shape="line" size="s" width="50%" />
-      </Column>
-    </Flex>
-  </Column>
 }

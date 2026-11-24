@@ -1,0 +1,317 @@
+.shell {
+  position: relative;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: var(--static-space-16);
+  padding-bottom: var(--static-space-48);
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-64);
+}
+
+.narrow {
+  max-width: 64rem;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-32);
+  min-width: 0;
+  scroll-margin-top: 6rem;
+}
+
+/* ---------- Grids ---------- */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--static-space-16);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cols2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.auto {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+/* ---------- Cards (same language as the home expertise cards) ---------- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-12);
+  min-width: 0;
+  padding: var(--static-space-24);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--neutral-alpha-weak);
+  background: var(--surface-background);
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 80% at 0% 0%, var(--brand-alpha-weak), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: var(--brand-border-medium);
+  transform: translateY(-3px);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.cardIcon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--brand-alpha-weak);
+  border: 1px solid var(--brand-border-weak);
+  color: var(--brand-on-background-strong);
+}
+
+.cardIndex {
+  position: absolute;
+  top: var(--static-space-20);
+  right: var(--static-space-20);
+  font-family: var(--font-code);
+  font-size: 0.7rem;
+  color: var(--neutral-on-background-weak);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.cardText {
+  margin: 0;
+  color: var(--neutral-on-background-weak);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.checks {
+  list-style: none;
+  margin: 0;
+  padding: var(--static-space-8) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-8);
+  margin-top: auto;
+}
+
+.checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--static-space-8);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--neutral-on-background-medium);
+}
+
+.checks svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--brand-on-background-strong);
+}
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--static-space-4);
+}
+
+.chip {
+  font-family: var(--font-code);
+  font-size: 0.68rem;
+  color: var(--neutral-on-background-medium);
+  padding: 2px var(--static-space-8);
+  border-radius: var(--radius-xs);
+  background: var(--neutral-alpha-weak);
+}
+
+/* ---------- Timeline / detail cards ---------- */
+.stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-16);
+}
+
+.stack > li > div {
+  width: 100%;
+}
+
+.cardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--static-space-4) var(--static-space-16);
+}
+
+.cardMeta {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--neutral-on-background-weak);
+}
+
+.cardRole {
+  margin: 0;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-on-background-strong);
+}
+
+.bullets {
+  margin: 0;
+  padding-left: var(--static-space-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-8);
+  color: var(--neutral-on-background-medium);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cardImages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--static-space-12);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--static-space-12) var(--static-space-24);
+  color: var(--neutral-on-background-medium);
+  font-size: 0.9rem;
+}
+
+.profileItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--static-space-8);
+}
+
+.avatarWrap {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--static-space-24);
+}
+
+/* ---------- Form panel ---------- */
+.formPanel {
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-12);
+  padding: var(--static-space-24);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--neutral-alpha-medium);
+  background:
+    radial-gradient(60% 120% at 0% 0%, var(--brand-alpha-weak), transparent 70%),
+    var(--surface-background);
+}
+
+.formRow {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--static-space-12);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-8);
+  flex: 1;
+  min-width: 0;
+}
+
+.formLabel {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neutral-on-background-medium);
+}
+
+.formHelp {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--neutral-on-background-weak);
+}
+
+@media (max-width: 64rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 48rem) {
+  .cols2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .formRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 40rem) {
+  .shell {
+    gap: var(--static-space-40);
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .auto {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .card {
+    padding: var(--static-space-20);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card::after {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+}

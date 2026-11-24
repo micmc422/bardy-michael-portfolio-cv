@@ -1,83 +1,70 @@
-import { Column, Flex, Grid, Skeleton } from '@once-ui-system/core';
-import Post from './Post';
-import { getPosts } from '@/modules/blog/controllers/serverActions';
+import { Skeleton } from "@once-ui-system/core";
+import { getPosts } from "@/modules/blog/controllers/serverActions";
+import { ContentCard, ContentGrid } from "@/shared/components/ContentCard";
+import styles from "@/modules/home/projects.module.scss";
 
 interface PostsProps {
-    range?: [number] | [number, number];
-    columns?: '1' | '2' | '3';
-    thumbnail?: boolean;
-    direction?: 'row' | 'column';
-    tags?: string[];
+  range?: [number] | [number, number];
+  tags?: string[];
+  featured?: boolean;
 }
 
-async function fetchPosts(tags?: string[], limit =10) {
-    const data = await getPosts({ tags, limit });
-    const sortedBlogs = data.sort((a: any, b: any) => {
-        return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
-    });
-    return sortedBlogs;
+const dateFormatter = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+
+async function fetchPosts(tags?: string[]) {
+  const data = await getPosts({ tags, limit: 0 });
+  return data.sort(
+    (a: any, b: any) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime(),
+  );
 }
 
-export async function Posts({
-    range,
-    columns = '1',
-    thumbnail = false,
-    direction,
-    tags
-}: PostsProps) {
-    const sortedBlogs = await fetchPosts(tags, 0)
+export async function Posts({ range, tags, featured = false }: PostsProps) {
+  const sortedPosts = await fetchPosts(tags);
+  const posts = range
+    ? sortedPosts.slice(range[0] - 1, range.length === 2 ? range[1] : sortedPosts.length)
+    : sortedPosts;
 
-    const displayedBlogs = range
-        ? sortedBlogs.slice(
-            range[0] - 1,
-            range.length === 2 ? range[1] : sortedBlogs.length
-        )
-        : sortedBlogs;
+  if (posts.length === 0) {
+    return <p style={{ color: "var(--neutral-on-background-weak)" }}>Aucun article pour le moment.</p>;
+  }
 
-    return (
-        <>
-            {displayedBlogs.length > 0 && (
-                <Grid
-                    columns={columns} s={{ columns: "1" }}
-                    fillWidth marginBottom="40" gap="12">
-                    {displayedBlogs.map((post, index) => (
-                        <Post
-                            key={post.slug}
-                            post={post}
-                            thumbnail={thumbnail}
-                            direction={direction}
-                            index={index}
-                        />
-                    ))}
-                </Grid>
-            )}
-        </>
-    );
+  return (
+    <ContentGrid>
+      {posts.map((post: any, index: number) => {
+        const published = post.metadata.publishedAt ? dateFormatter.format(new Date(post.metadata.publishedAt)) : undefined;
+        const postTags: string[] = post.metadata.tag
+          ? post.metadata.tag.split(",").map((tag: string) => tag.trim()).filter(Boolean)
+          : [];
+        return (
+          <ContentCard
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            ariaLabel={`Lire l'article : ${post.metadata.title}`}
+            title={String(post.metadata.title)}
+            summary={post.metadata.summary ? String(post.metadata.summary) : undefined}
+            image={post.metadata.image}
+            imageAlt={`Illustration de l'article ${post.metadata.title}`}
+            tags={postTags}
+            date={published}
+            dateTime={post.metadata.publishedAt ? String(post.metadata.publishedAt) : undefined}
+            cta="Lire l'article"
+            featured={featured && index === 0}
+            priority={index === 0}
+          />
+        );
+      })}
+    </ContentGrid>
+  );
 }
 
 export function SkeletonPosts() {
-    return <Column gap='l'>
-        <SkeletonPost />
-        {[0, 1, 2, 3].map(el => <SkeletonPost direction={"row"} key={el} />)}
-    </Column>
-}
-
-export function SkeletonPost({ direction = "column", ...attrs }: { direction?: "column" | "row" }) {
-    return <Flex
-        position="relative"
-        transition="micro-medium"
-        direction={direction}
-        radius="l"
-        s={{direction: "column"}}
-        fillWidth
-        gap='m'
-        center
-        {...attrs}>
-        <Skeleton shape='block' style={{ borderRadius: "16px" }} minHeight={direction === "column" ? "128" : "64"} />
-        <Column fillWidth gap='s'>
-            <Skeleton shape='line' size="l" fillWidth />
-            <Skeleton shape='line' size="l" fillWidth />
-            {direction !== "column" && <Skeleton shape='line' size="l" width="50%" />}
-        </Column>
-    </Flex>
+  return (
+    <ul className={styles.grid} aria-hidden="true">
+      {[0, 1, 2, 3, 4, 5].map((el) => (
+        <li key={el} className={el === 0 ? styles.featured : styles.item}>
+          <Skeleton shape="block" fillWidth minHeight="20" style={{ borderRadius: "var(--radius-xl)" }} />
+        </li>
+      ))}
+    </ul>
+  );
 }
