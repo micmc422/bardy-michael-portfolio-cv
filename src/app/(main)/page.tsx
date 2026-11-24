@@ -11,7 +11,7 @@ import { AvisClient } from "@/shared/components/AvisClients";
 import { Posts } from "@/modules/blog/views/Posts";
 import { Tarifs } from "@/modules/estimation/views/Tarifs";
 import Schema from "@/modules/seo/Schema";
-import { Hero, Metrics, Expertise, TechStack, Process } from "@/modules/home";
+import { Hero, Metrics, Expertise, TechStack, Process, GlobeSection, PerformanceCharts } from "@/modules/home";
 
 
 export async function generateMetadata() {
@@ -46,7 +46,9 @@ export default async function Home() {
         <Hero />
       </Column>
       <Metrics />
+      <GlobeSection />
       <Expertise />
+      <PerformanceCharts />
       <TechStack />
       <Process />
       <Column as="section" paddingY="m" gap="m" maxWidth={"m"} aria-labelledby="fonctionnalites-title">
