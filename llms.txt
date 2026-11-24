@@ -31,6 +31,9 @@ Stack : Next.js 16.3.8 (Turbopack), React 19.2.8, TS 5.9 strict, @once-ui-system
 - [src/modules/seo/Meta.tsx](src/modules/seo/Meta.tsx) : métadonnées (canonical, OG, Twitter, metadataBase)
 - [src/modules/seo/Schema.tsx](src/modules/seo/Schema.tsx) : rich data Schema.org par page
 - [src/app/robots.ts](src/app/robots.ts) + [src/app/sitemap.ts](src/app/sitemap.ts) : directives crawlers et sitemap
+- [src/shared/components/PageHeader.tsx](src/shared/components/PageHeader.tsx) : en-tête partagé des pages internes (eyebrow, titre, lead) + panneaux — design commun à toutes les pages
+- [src/app/(main)/estimation/](src/app/(main)/estimation/) : tunnel d'estimation (type de site → options → devis), sans parallel routes
+- [src/modules/estimation/](src/modules/estimation/) : composants (SiteTypeCard, SiteTypeNav, EstimationSteps, OptionsForm, ResumePanel, IncludedServices, EstimationFaq), `models/estimationData.ts` (tarifs), `utils/pricing.ts` (HT/TVA/TTC)
 - [src/modules/site-check/](src/modules/site-check/) : moteur d'audit site (perf, seo, a11y, mobile, sécurité)
 - [src/core/database/](src/core/database/) : Neon Postgres + Drizzle
 

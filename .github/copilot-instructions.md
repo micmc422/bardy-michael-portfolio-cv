@@ -43,7 +43,8 @@ Next.js **16.3.x** + React **19.2.x**, dev avec **Turbopack**. Routes organisée
 **Key Pages:**
 - `src/app/(main)/blog/[slug]/page.tsx` - articles MDX depuis GitHub avec commentaires
 - `src/app/(main)/realisations/` - portfolio projets
-- `src/app/(main)/estimation/` - parallel routes (`@headline`, `@resume`) + `estimationData.ts`
+- `src/app/(main)/estimation/` - `page.tsx` (choix du type), `[slug]/layout.tsx` (PageHeader + étapes + formulaire/récapitulatif), `[slug]/page.tsx` (options) ; composants dans `src/modules/estimation/components/`, tarifs dans `models/estimationData.ts`, calcul dans `utils/pricing.ts`. Pas de parallel routes.
+- Design pages internes : `PageHeader` (`src/shared/components/PageHeader.tsx`) + panneaux `.panel` pour un rendu homogène (fond sombre, accent orange, eyebrow mono)
 - `src/app/(main)/site-check/[url]/` - audit de site en ligne (moteur : `src/modules/site-check/`)
 - `src/app/api/og/fetch/` - Open Graph scraper pour social shares
 
@@ -276,7 +277,7 @@ src/
 │   ├── (main)/             # Routes FR (layout partagé Header/Footer)
 │   │   ├── blog/[slug]/    # Articles MDX
 │   │   ├── realisations/   # Portfolio projets
-│   │   ├── estimation/     # Parallel routes @headline/@resume
+│   │   ├── estimation/     # layout + page + [slug] (layout/page)
 │   │   ├── site-check/     # Audit de site
 │   │   ├── a-propos/
 │   │   ├── solutions/
